@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use phpDocumentor\Reflection\Types\Iterable_;
 
 /**
  * Class User
@@ -13,6 +14,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property int $membership_id
  *
  * @property Membership $membership
+ * @property Server|\Countable|iterable $servers
  *
  * @property Carbon $membership_expiry
  *
@@ -21,6 +23,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
+
+    /**
+     * The relations to eager load on every query.
+     *
+     * @var array
+     */
+    protected $with = ['membership'];
 
     /**
      * The attributes that are mass assignable.
@@ -58,6 +67,16 @@ class User extends Authenticatable
     }
 
     /**
+     * A user can have many servers.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function servers()
+    {
+        return $this->hasMany(Server::class, 'user_id', 'id');
+    }
+
+    /**
      * Check if the user is currently a gold member.
      *
      * @return bool
@@ -69,6 +88,7 @@ class User extends Authenticatable
 
     /**
      * Check if the user is currently a silver member.
+     *
      * @return bool
      */
     public function isSilverMember()
@@ -77,22 +97,35 @@ class User extends Authenticatable
     }
 
     /**
-     * Set the subscription of the user to gold.
+     * Subscribe the user to gold membership
+     *
+     * @return bool
      */
     public function subscribeGoldMembership()
     {
-        $this->update([
-            'membership_id' => Membership::TYPE_GOLD,
-            'membership_expiry' => Carbon::now()->addMonth()->toDateTimeString()
-        ]);
+        return $this->subscribeMembership(Membership::TYPE_GOLD, Carbon::now()->addMonth()->toDateTimeString());
     }
 
+    /**
+     * Subscribe the user to silver membership.
+     *
+     * @return bool
+     */
     public function subscribeSilverMembership()
     {
-        $this->update([
-            'membership_id' => Membership::TYPE_SILVER,
-            'membership_expiry' => NULL,
-        ]);
+        return $this->subscribeMembership(Membership::TYPE_SILVER);
+    }
+
+    /**
+     * Subscribe the user to a membership type.
+     *
+     * @param int $membershipID
+     * @param null $membershipExpiry
+     * @return bool
+     */
+    public function subscribeMembership(int $membershipID, $membershipExpiry = null)
+    {
+        return $this->update(['membership_id' => $membershipID, 'membership_expiry' => $membershipExpiry]);
     }
 
 

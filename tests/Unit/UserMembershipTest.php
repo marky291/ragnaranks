@@ -33,6 +33,8 @@ class UserMembershipTest extends TestCase
         $user->subscribeGoldMembership();
 
         $this->assertTrue($user->isGoldMember());
+
+        $this->assertNotNull($user->membership_expiry);
     }
 
     /**

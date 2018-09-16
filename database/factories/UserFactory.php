@@ -26,6 +26,7 @@ $factory->define(App\User::class, function (Faker $faker) {
 $factory->define(App\Server::class, function (Faker $faker) {
     return [
         'name' => $faker->company,
+        'user_id' => factory('App\User')->create()->id,
         'website' => $faker->url,
         'description' => $faker->paragraph,
     ];
@@ -34,13 +35,11 @@ $factory->define(App\Server::class, function (Faker $faker) {
 $factory->define(App\ServerClick::class, function (Faker $faker) {
     return [
         'ip_address' => $faker->ipv4,
-        'server_id' => factory('App\Server')->create()->id,
     ];
 });
 
 $factory->define(App\ServerVote::class, function (Faker $faker) {
     return [
         'ip_address' => $faker->ipv4,
-        'server_id' => factory('App\Server')->create()->id,
     ];
 });
