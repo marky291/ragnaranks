@@ -26,7 +26,7 @@ class Server extends Model
      *
      * @var string
      */
-    protected $table = 'server';
+    protected $table = 'servers';
 
     /**
      * A server can have many clicks.
