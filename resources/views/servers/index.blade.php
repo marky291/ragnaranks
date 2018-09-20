@@ -4,24 +4,37 @@
 
     <div class="row">
 
-        <div class="col-9">
-
-            @foreach($servers as $server)
-                <div class="card border mb-3">
-                    <div class="card-header">{{ $server->name }}</div>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $server->description }}</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <h3>In Votes: {{ $server->votes->count() }}</h3>
-                        <h3>Out Clicks: {{ $server->clicks->count() }}</h3>
-                    </div>
-                </div>
-            @endforeach
-
+        <div class="col-10">
+            @each('partials.cards', $servers, 'server')
         </div>
 
-        <div class="col-3">
-            Sidebar
+        <div class="col-2 sidebar no-gutters">
+            <h3>Filters</h3>
+            <h5>Sorting</h5>
+            <ul>
+                <li>Popularity</li>
+                <li>Trending</li>
+                <li>New & upcoming</li>
+            </ul>
+            <h5>Server Types</h5>
+            <ul>
+                <li>Role Playing</li>
+                <li>Player Killing</li>
+            </ul>
+            <h5>Server Modes</h5>
+            <ul>
+                <li>Renewal Mode</li>
+                <li>Pre-Renewal Mode</li>
+            </ul>
+            <h5>Server Rates</h5>
+            <ul>
+                <li>Low Rate</li>
+                <li>Medium Rate</li>
+                <li>High Rate</li>
+                <li>Instant Level</li>
+            </ul>
         </div>
+
     </div>
+
 @endsection

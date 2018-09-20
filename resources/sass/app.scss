@@ -4,12 +4,42 @@
 
 // Variables
 @import 'variables';
-@import 'tailwind';
+@import "cards";
+//@import 'tailwind';
+@import "sidebar";
+@import "tags";
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+body {
+  font-size: 13px;
+}
+
+header {
+  background: white;
+}
+
+.header-background {
+  min-height: 30em;
+  background-color: #A66D58;
+}
+
+.body-background {
+  padding-top:3em;
+  padding-bottom: 3em;
+  background: url("../images/white_brick_wall.png");
+
+  .container {
+    padding-top: 1.3em;
+    padding-bottom: 1.3em;
+    background: rgba(158, 158, 158, 0.17);
+  }
+}
+
+
+.website-name {
+  font-size: larger;
+  font-weight: bold;
+  text-decoration: underline;
 }

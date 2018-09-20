@@ -3,7 +3,9 @@
 namespace App;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class Server
@@ -12,9 +14,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $name
  * @property string $website
  * @property string $description
+ * @property string $banner_url
  *
  * @property Carbon $created_at
  * @property Carbon $updated_at
+ *
+ * @property User $owner
+ * @property ServerVote|HasMany $votes
+ * @property ServerClick|HasMany $clicks
  *
  * @package App
  */
