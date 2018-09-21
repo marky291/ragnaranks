@@ -1,5 +1,6 @@
 <?php
 
+use App\ServerMode;
 use Faker\Generator as Faker;
 
 /*
@@ -68,8 +69,17 @@ $factory->define(App\Server::class, function (Faker $faker) {
         'name' => $server['name'],
         'user_id' => factory('App\User')->create()->id,
         'website' => $faker->url,
+        'server_mode_id' => ServerMode::inRandomOrder()->first(),
         'description' => $server['description'],
         'banner_url' => $server['banner'],
+    ];
+});
+
+$factory->define(App\ServerMode::class, function (Faker $faker) {
+    return [
+        'tag' => $faker->text(5),
+        'name' => $faker->text(9),
+        'description' => $faker->paragraph,
     ];
 });
 

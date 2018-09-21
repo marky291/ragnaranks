@@ -24,8 +24,6 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    use Billable;
-
     /**
      * The relations to eager load on every query.
      *

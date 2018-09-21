@@ -18,6 +18,7 @@ class CreateServerTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('name');
             $table->string('website');
+            $table->unsignedInteger('server_mode_id');
             $table->string('banner_url');
             $table->longText('description');
             $table->timestamps();

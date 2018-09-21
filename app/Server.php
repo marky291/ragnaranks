@@ -16,6 +16,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $description
  * @property string $banner_url
  *
+ * @property ServerMode $mode
+ *
  * @property Carbon $created_at
  * @property Carbon $updated_at
  *
@@ -34,6 +36,14 @@ class Server extends Model
      * @var string
      */
     protected $table = 'servers';
+
+    /**
+     * A server has one available mode.
+     */
+    public function mode()
+    {
+        return $this->hasOne(ServerMode::class, 'id', 'server_mode_id');
+    }
 
     /**
      * A server can have many clicks.
