@@ -31,5 +31,7 @@
         <env name="SESSION_DRIVER" value="array"/>
         <env name="QUEUE_CONNECTION" value="sync"/>
         <env name="MAIL_DRIVER" value="array"/>
+        <env name="STRIPE_KEY" value="pk_test_Ia7BQgWt51g8CTrwEavjP2pS"/>
+        <env name="STRIPE_SECRET" value="sk_test_mNiI4LuhupkyQl2hzWCMygV4"/>
     </php>
 </phpunit>

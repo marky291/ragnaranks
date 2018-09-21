@@ -22,7 +22,8 @@
                             <div class="nav-scroller">
                                 <nav class="nav d-flex">
                                     <a class="px-2 text-muted" href="#">Server Listings</a>
-                                    <a class="px-2 text-muted" href="#">App API</a>
+                                    <a class="px-2 text-muted" href="#">Get Gold</a>
+                                    <a class="px-2 text-muted" href="#">Integration</a>
                                 </nav>
                             </div>
                         </div>

@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Cashier\Billable;
 use phpDocumentor\Reflection\Types\Iterable_;
 
 /**
@@ -22,6 +23,8 @@ use phpDocumentor\Reflection\Types\Iterable_;
 class User extends Authenticatable
 {
     use Notifiable;
+
+    use Billable;
 
     /**
      * The relations to eager load on every query.
