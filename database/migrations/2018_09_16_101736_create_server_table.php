@@ -17,10 +17,11 @@ class CreateServerTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->string('name');
-            $table->string('website');
-            $table->unsignedInteger('server_mode_id');
             $table->string('banner_url');
             $table->longText('description');
+            $table->string('website');
+            $table->unsignedInteger('mode_id');
+            $table->double('episode')->nullable();
             $table->timestamps();
         });
     }

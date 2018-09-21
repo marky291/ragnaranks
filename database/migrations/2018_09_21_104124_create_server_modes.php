@@ -17,7 +17,7 @@ class CreateServerModes extends Migration
     {
         Schema::create('servers_modes', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('tag');
+            $table->string('tag')->unique();
             $table->string('name');
             $table->string('description');
             $table->timestamps();
@@ -57,7 +57,7 @@ class CreateServerModes extends Migration
 
         Schema::table('servers', function(Blueprint $table) {
 
-            $table->foreign('server_mode_id')->references('id')->on('servers_modes')
+            $table->foreign('mode_id')->references('id')->on('servers_modes')
                 ->onDelete('cascade')->onUpdate('cascade');
 
         });

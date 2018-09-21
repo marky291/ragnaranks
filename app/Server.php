@@ -38,11 +38,23 @@ class Server extends Model
     protected $table = 'servers';
 
     /**
+     * A server has one configuration set.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function config()
+    {
+        return $this->hasOne(ServerConfig::class, 'server_id', 'id');
+    }
+
+    /**
      * A server has one available mode.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function mode()
     {
-        return $this->hasOne(ServerMode::class, 'id', 'server_mode_id');
+        return $this->hasOne(ServerMode::class, 'id', 'mode_id');
     }
 
     /**

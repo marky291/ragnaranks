@@ -69,8 +69,9 @@ $factory->define(App\Server::class, function (Faker $faker) {
         'name' => $server['name'],
         'user_id' => factory('App\User')->create()->id,
         'website' => $faker->url,
-        'server_mode_id' => ServerMode::inRandomOrder()->first(),
+        'mode_id' => ServerMode::inRandomOrder()->first(),
         'description' => $server['description'],
+        'episode' => collect([13.10, 9.10, 12.06, 12])->random(),
         'banner_url' => $server['banner'],
     ];
 });
@@ -92,5 +93,21 @@ $factory->define(App\ServerClick::class, function (Faker $faker) {
 $factory->define(App\ServerVote::class, function (Faker $faker) {
     return [
         'ip_address' => $faker->ipv4,
+    ];
+});
+
+$factory->define(App\ServerConfig::class, function (Faker $faker) {
+    return [
+        'max_base_level' => rand(99, 255),
+        'max_job_level' => rand(99, 255),
+        'max_stats' => rand(150, 255),
+        'max_aspd' => rand(150, 195),
+        'instant_cast_stat' => rand(100, 150),
+        'drop_base_rate' => rand(5, 10000),
+        'drop_card_rate' => rand(5, 10000),
+        'drop_base_mvp_rate' => rand(20, 10000),
+        'drop_card_mvp_rate' => rand(20, 10000),
+        'drop_base_special_rate' => rand(20, 10000),
+        'drop_card_special_rate' => rand(20, 10000),
     ];
 });
