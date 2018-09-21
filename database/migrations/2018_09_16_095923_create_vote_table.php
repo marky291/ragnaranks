@@ -15,8 +15,8 @@ class CreateVoteTable extends Migration
     {
         Schema::create('servers_votes', function (Blueprint $table) {
             $table->increments('id');
-            $table->ipAddress('ip_address');
             $table->unsignedInteger('server_id');
+            $table->ipAddress('ip_address');
             $table->timestamps();
         });
     }

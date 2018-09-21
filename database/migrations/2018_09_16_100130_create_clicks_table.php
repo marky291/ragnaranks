@@ -15,8 +15,8 @@ class CreateClicksTable extends Migration
     {
         Schema::create('servers_clicks', function (Blueprint $table) {
             $table->increments('id');
-            $table->ipAddress('ip_address');
             $table->unsignedInteger('server_id');
+            $table->ipAddress('ip_address');
             $table->timestamps();
         });
     }
