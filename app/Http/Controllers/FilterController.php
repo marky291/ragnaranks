@@ -52,4 +52,16 @@ class FilterController extends Controller
     {
         return view(self::bladeView)->with('servers', Server::filterClicks($periodDays)->paginate(self::cardCount));
     }
+
+    /**
+     * Display the creation date in an order.
+     *
+     * @param int $orderBy
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function creation(string $orderBy)
+    {
+        return view(self::bladeView)->with('servers', Server::orderedCreation($orderBy)->paginate(self::cardCount));
+    }
 }

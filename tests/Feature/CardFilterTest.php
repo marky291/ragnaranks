@@ -86,4 +86,22 @@ class CardFilterTest extends TestCase
 
         $this->assertEquals(1, $data[0]->clicks_count);
     }
+
+    /**
+     * @test
+     */
+    public function the_filters_can_filter_newest_entries()
+    {
+        $new_server = factory(Server::class)->create(['created_at' => now()]);
+
+        $old_server = factory(Server::class)->create(['created_at' => now()->subDays(5)]);
+
+        $response = $this->get('/filters/creation/desc');
+
+        $response->assertOk()->assertViewHas('servers');
+
+        $data = $response->getOriginalContent()->getData()['servers'];
+
+        $this->assertEquals($new_server->id, $data[0]->id);
+    }
 }

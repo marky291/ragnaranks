@@ -133,4 +133,16 @@ class Server extends Model
         return self::statistics($period)->orderBy('clicks_count', 'desc');
     }
 
+    /**
+     * Return the servers in an order, by their creation date.
+     *
+     * @param string $orderBy
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function orderedCreation(string $orderBy)
+    {
+        return self::query()->orderBy('created_at', $orderBy);
+    }
+
 }

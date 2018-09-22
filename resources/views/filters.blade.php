@@ -12,11 +12,11 @@
             <h3>Filters</h3>
             <h5>Sorting</h5>
             <ul>
-                <li>Trending</li>
                 <li><a href="{{ route('filter.votes', 30) }}#filters">Most Voted</a></li>
-                <li>New Entries</li>
+                <li><a href="{{ route('filter.creation', 'asc') }}">Oldest Servers</a></li>
                 <li><a href="{{ route('filter.clicks', 30) }}#filters">Most Clicked</a></li>
                 <li>Episode Version</li>
+                <li><a href="{{ route('filter.creation', 'desc') }}">Newest Servers</a></li>
             </ul>
             <h5>Server Types</h5>
             <ul>
