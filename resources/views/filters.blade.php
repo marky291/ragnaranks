@@ -13,9 +13,9 @@
             <h5>Sorting</h5>
             <ul>
                 <li>Trending</li>
-                <li><a href="{{ route('filter.index') }}">Most Voted</a></li>
+                <li><a href="{{ route('filter.votes', 30) }}#filters">Most Voted</a></li>
                 <li>New Entries</li>
-                <li>Most Clicked</li>
+                <li><a href="{{ route('filter.clicks', 30) }}#filters">Most Clicked</a></li>
                 <li>Episode Version</li>
             </ul>
             <h5>Server Types</h5>

@@ -91,14 +91,14 @@ $factory->define(App\ServerMode::class, function (Faker $faker) {
 $factory->define(App\ServerClick::class, function (Faker $faker) {
     return [
         'ip_address' => $faker->ipv4,
-        'created_at' => $faker->dateTimeBetween('-7 months')->getTimestamp(),
+        'created_at' => $faker->dateTimeBetween('-7 months')->format('Y-m-d H:i:s'),
     ];
 });
 
 $factory->define(App\ServerVote::class, function (Faker $faker) {
     return [
         'ip_address' => $faker->ipv4,
-        'created_at' => $faker->dateTimeBetween('-7 months')->getTimestamp(),
+        'created_at' => $faker->dateTimeBetween('-7 months')->format('Y-m-d H:i:s'),
     ];
 });
 

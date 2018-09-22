@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <div class="body-background">
+        <div class="body-background" id="filters">
             <div class="container rounded">
                 @yield('content')
             </div>
