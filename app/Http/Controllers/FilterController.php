@@ -38,7 +38,7 @@ class FilterController extends Controller
      */
     public function votes(int $periodDays)
     {
-        return view(self::bladeView)->with('servers', Server::filterVotes($periodDays)->paginate(self::cardCount));
+        return view(self::bladeView)->with('servers', Server::filterVotes($periodDays, 'desc')->paginate(self::cardCount));
     }
 
     /**
@@ -50,18 +50,30 @@ class FilterController extends Controller
      */
     public function clicks(int $periodDays)
     {
-        return view(self::bladeView)->with('servers', Server::filterClicks($periodDays)->paginate(self::cardCount));
+        return view(self::bladeView)->with('servers', Server::filterClicks($periodDays, 'desc')->paginate(self::cardCount));
     }
 
     /**
      * Display the creation date in an order.
      *
-     * @param int $orderBy
+     * @param string $orderBy
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function creation(string $orderBy)
     {
-        return view(self::bladeView)->with('servers', Server::orderedCreation($orderBy)->paginate(self::cardCount));
+        return view(self::bladeView)->with('servers', Server::orderedCreation(30, $orderBy)->paginate(self::cardCount));
+    }
+
+    /**
+     * Display the episode version in an order.
+     *
+     * @param string $orderBy
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function episode(string $orderBy)
+    {
+        return view(self::bladeView)->with('servers', Server::orderedEpisode(30, $orderBy)->paginate(self::cardCount));
     }
 }

@@ -113,12 +113,13 @@ class Server extends Model
      * Order the servers by their count of votes.
      *
      * @param int $period
+     * @param string $orderBy
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public static function filterVotes(int $period = 30)
+    public static function filterVotes(int $period, string $orderBy)
     {
-        return self::statistics($period)->orderBy('votes_count', 'desc');
+        return self::statistics($period)->orderBy('votes_count', $orderBy);
     }
 
     /**
@@ -126,23 +127,38 @@ class Server extends Model
      *
      * @param int $period
      *
+     * @param string $orderBy
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public static function filterClicks(int $period = 30)
+    public static function filterClicks(int $period, string $orderBy)
     {
-        return self::statistics($period)->orderBy('clicks_count', 'desc');
+        return self::statistics($period)->orderBy('clicks_count', $orderBy);
     }
 
     /**
      * Return the servers in an order, by their creation date.
      *
      * @param string $orderBy
+     * @param int $period
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public static function orderedCreation(string $orderBy)
+    public static function orderedCreation(int $period, string $orderBy)
     {
-        return self::query()->orderBy('created_at', $orderBy);
+        return self::statistics($period)->orderBy('created_at', $orderBy);
+    }
+
+    /**
+     * Return the servers in order by their episode versions.
+     *
+     * @param string $orderBy
+     * @param int $period
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function orderedEpisode(int $period, string $orderBy)
+    {
+        return self::statistics($period)->orderBy('episode', $orderBy);
     }
 
 }

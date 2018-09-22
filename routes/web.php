@@ -19,3 +19,4 @@ Route::get('/filters/votes/period/days/{period}')->uses('FilterController@votes'
 Route::get('/filters/clicks/period/days/{period}')->uses('FilterController@clicks')->name('filter.clicks');
 
 Route::get('/filters/creation/{order}')->uses('FilterController@creation')->name('filter.creation');
+Route::get('/filters/episode/{order}')->uses('FilterController@episode')->name('filter.episode');

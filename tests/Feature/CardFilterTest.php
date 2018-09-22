@@ -104,4 +104,22 @@ class CardFilterTest extends TestCase
 
         $this->assertEquals($new_server->id, $data[0]->id);
     }
+
+    /**
+     * @test
+     */
+    public function the_filters_can_filter_by_episode_version()
+    {
+        $olders_version = factory(Server::class)->create(['episode' => 11.00]);
+
+        $newest_version = factory(Server::class)->create(['episode' => 13.00]);
+
+        $response = $this->get('/filters/episode/desc');
+
+        $response->assertOk()->assertViewHas('servers');
+
+        $data = $response->getOriginalContent()->getData()['servers'];
+
+        $this->assertEquals($newest_version->id, $data[0]->id);
+    }
 }
