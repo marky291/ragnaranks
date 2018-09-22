@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Server;
+use App\ServerClick;
 use App\ServerVote;
 use Carbon\Carbon;
 use Tests\TestCase;
@@ -63,6 +64,26 @@ class CardFilterTest extends TestCase
         $data = $response->getOriginalContent()->getData()['servers'];
 
         $this->assertEquals(1, $data[0]->votes_count);
+    }
 
+    /**
+     * @test
+     */
+    public function the_filters_can_display_clicks_during_a_period_of_days()
+    {
+        // create three servers with no votes.
+        $server = factory(Server::class)->create();
+
+        // add a vote to the server.
+        factory(ServerClick::class, 1)->create(['server_id' => $server->id,'created_at' => Carbon::now()]);
+        factory(ServerClick::class, 1)->create(['server_id' => $server->id, 'created_at' => Carbon::now()->subMonth(2)]);
+
+        $response = $this->get('/filters/clicks/period/days/30');
+
+        $response->assertOk()->assertViewHas('servers');
+
+        $data = $response->getOriginalContent()->getData()['servers'];
+
+        $this->assertEquals(1, $data[0]->clicks_count);
     }
 }

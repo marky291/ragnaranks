@@ -40,4 +40,16 @@ class FilterController extends Controller
     {
         return view(self::bladeView)->with('servers', Server::filterVotes($periodDays)->paginate(self::cardCount));
     }
+
+    /**
+     * Display the clicks of a period of time for a server.
+     *
+     * @param int $periodDays
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function clicks(int $periodDays)
+    {
+        return view(self::bladeView)->with('servers', Server::filterClicks($periodDays)->paginate(self::cardCount));
+    }
 }

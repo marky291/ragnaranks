@@ -121,4 +121,16 @@ class Server extends Model
         return self::statistics($period)->orderBy('votes_count', 'desc');
     }
 
+    /**
+     * Order the servers by their count of votes.
+     *
+     * @param int $period
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function filterClicks(int $period = 30)
+    {
+        return self::statistics($period)->orderBy('clicks_count', 'desc');
+    }
+
 }
