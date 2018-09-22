@@ -12,6 +12,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $max_stats
  * @property int $max_aspd
  *
+ * @property int $base_exp_rate
+ * @property int $job_exp_rate
+ *
  * @property int $instant_cast_stat
  *
  * @property int $drop_base_rate

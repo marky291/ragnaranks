@@ -22,6 +22,9 @@ class CreateServerConfiguration extends Migration
             $table->integer('max_stats')->nullable();
             $table->integer('max_aspd')->nullable();
 
+            $table->integer('base_exp_rate');
+            $table->integer('job_exp_rate');
+
             $table->integer('instant_cast_stat')->nullable();
 
             $table->integer('drop_base_rate')->nullable();

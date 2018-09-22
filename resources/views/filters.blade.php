@@ -12,9 +12,11 @@
             <h3>Filters</h3>
             <h5>Sorting</h5>
             <ul>
-                <li>Popularity</li>
                 <li>Trending</li>
-                <li>New & upcoming</li>
+                <li><a href="{{ route('filter.index') }}">Most Voted</a></li>
+                <li>New Entries</li>
+                <li>Most Clicked</li>
+                <li>Episode Version</li>
             </ul>
             <h5>Server Types</h5>
             <ul>

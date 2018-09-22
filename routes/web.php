@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/')->uses('FilterController@index')->name('filter.index');
 
-
-Route::get('/')->uses('ServersController@index')->name('servers.index');
+Route::get('/filters/votes/period/days/{period}')->uses('FilterController@votes')->name('filter.votes');

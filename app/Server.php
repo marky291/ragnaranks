@@ -3,6 +3,7 @@
 namespace App;
 
 use Carbon\Carbon;
+use Carbon\CarbonPeriod;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -15,7 +16,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $website
  * @property string $description
  * @property string $banner_url
+ * @property double $episode
  *
+ * @property ServerConfig $config
  * @property ServerMode $mode
  *
  * @property Carbon $created_at
@@ -25,11 +28,14 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property ServerVote|HasMany $votes
  * @property ServerClick|HasMany $clicks
  *
+ * @method static withCount(string $string)
+ * @method static statistics(int $period)
+ *
+ *
  * @package App
  */
 class Server extends Model
 {
-
     /**
      * The table associated with the model.
      *
@@ -86,4 +92,33 @@ class Server extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    /**
+     * Scope a query to only include popular users.
+     *
+     * @param int $period
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeStatistics($query, int $period)
+    {
+        return $query->withCount([
+            'votes' => function($query) use ($period){ $query->where('created_at', '>', now()->subDay($period)); },
+            'clicks' => function($query) use ($period){ $query->where('created_at', '>', now()->subDay($period)); },
+        ]);
+    }
+
+    /**
+     * Order the servers by their count of votes.
+     *
+     * @param int $period
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public static function filterVotes(int $period = 30)
+    {
+        return self::statistics($period)->orderBy('votes_count', 'desc');
+    }
+
 }

@@ -71,9 +71,13 @@ $factory->define(App\Server::class, function (Faker $faker) {
         'website' => $faker->url,
         'mode_id' => ServerMode::inRandomOrder()->first(),
         'description' => $server['description'],
-        'episode' => collect([13.10, 9.10, 12.06, 12])->random(),
+        'episode' => collect([13.10, 13.09, 13.05, 12.11])->random(),
         'banner_url' => $server['banner'],
     ];
+});
+
+$factory->afterCreating(\App\Server::class, function ($server, $faker) {
+    $server->config()->save(factory(\App\ServerConfig::class)->make());
 });
 
 $factory->define(App\ServerMode::class, function (Faker $faker) {
@@ -87,12 +91,14 @@ $factory->define(App\ServerMode::class, function (Faker $faker) {
 $factory->define(App\ServerClick::class, function (Faker $faker) {
     return [
         'ip_address' => $faker->ipv4,
+        'created_at' => $faker->dateTimeBetween('-7 months')->getTimestamp(),
     ];
 });
 
 $factory->define(App\ServerVote::class, function (Faker $faker) {
     return [
         'ip_address' => $faker->ipv4,
+        'created_at' => $faker->dateTimeBetween('-7 months')->getTimestamp(),
     ];
 });
 
@@ -102,6 +108,8 @@ $factory->define(App\ServerConfig::class, function (Faker $faker) {
         'max_job_level' => rand(99, 255),
         'max_stats' => rand(150, 255),
         'max_aspd' => rand(150, 195),
+        'base_exp_rate' => rand(1, 5000),
+        'job_exp_rate' => rand(1, 5000),
         'instant_cast_stat' => rand(100, 150),
         'drop_base_rate' => rand(5, 10000),
         'drop_card_rate' => rand(5, 10000),

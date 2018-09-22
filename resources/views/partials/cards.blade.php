@@ -1,8 +1,6 @@
 <?php /** @var App\Server $server */?>
 
-@php($membership_type = $server->owner->isGoldMember() ? 'gold' : 'silver')
-
-<div class="server card py-1 mb-2 membership-{{ $membership_type }}">
+<div class="server card py-1 mb-2 membership-silver">
     <div class="statistics">
         <div class="ranking">
             <div class="text">
@@ -21,12 +19,12 @@
                 &emsp;&emsp;
                 <span class="in">
                     <i class="fas fa-arrow-circle-up"></i>
-                    Votes: {{ $server->votes()->count() }}
+                    Votes: {{ $server->votes_count }}
                 </span>
                 &emsp;&emsp;
                 <span class="out">
                     <i class="fas fa-arrow-circle-down"></i>
-                    Clicks: {{ $server->clicks()->count() }}
+                    Clicks: {{ $server->clicks_count }}
                 </span>
             </p>
         </div>
@@ -46,9 +44,9 @@
                 <div class="tag player-kill">PK Mode</div>
             </div>
             <div class="information flex-fill d-flex text-right justify-content-end rounded align-items-center">
-                <div class="info flex-fill text-center"><b>Rates</b>: 3k/3k</div>
-                <div class="info flex-fill text-center"><b>Episode</b>: 15.2</div>
-                <div class="info flex-fill text-center"><b>Max Level</b>: 255</div>
+                <div class="info flex-fill text-center"><b>Base Rate</b>: {{ $server->config->base_exp_rate }}x</div>
+                <div class="info flex-fill text-center"><b>Episode</b>: {{ $server->episode }}</div>
+                <div class="info flex-fill text-center"><b>Max Level</b>: {{ $server->config->max_base_level }}</div>
             </div>
         </div>
     </div>

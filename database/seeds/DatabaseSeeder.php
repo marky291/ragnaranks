@@ -21,8 +21,6 @@ class DatabaseSeeder extends Seeder
             $clicks = factory('App\ServerClick', rand(1, 100))->create(['server_id' => $server->id]);
 
             $votes = factory('App\ServerVote', rand(1, 200))->create(['server_id' => $server->id]);
-
-            $config = factory('App\ServerConfig')->create(['server_id' => $server->id]);
         }
     }
 }
