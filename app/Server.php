@@ -32,8 +32,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property ServerClick|HasMany $clicks
  *
  * @method static withCount(string $string)
- * @method $this statistics(int $period)
- * @method $this expGround(int $period, string $group)
+ * @method static statistics(int $period)
+ * @method static expGround(int $period, string $group)
  *
  *
  * @package App

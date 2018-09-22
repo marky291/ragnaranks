@@ -30,9 +30,9 @@
             </ul>
             <h5>Server Rates</h5>
             <ul>
-                <li><a href="{{ route('filter.expGroup', ['exp_group' => 'low-rate', 'order' => 'desc']) }}">Low Rate</a></li>
-                <li><a href="{{ route('filter.expGroup', ['exp_group' => 'mid-rate', 'order' => 'desc']) }}">Medium Rate</a></li>
-                <li><a href="{{ route('filter.expGroup', ['exp_group' => 'high-rate', 'order' => 'desc']) }}">High Rate</a></li>
+                <li><a href="{{ route('filter.expGroup', ['exp_group' => 'low-rate', 'order' => 'desc']) }}#filters">Low Rate</a></li>
+                <li><a href="{{ route('filter.expGroup', ['exp_group' => 'mid-rate', 'order' => 'desc']) }}#filters">Medium Rate</a></li>
+                <li><a href="{{ route('filter.expGroup', ['exp_group' => 'high-rate', 'order' => 'desc']) }}#filters">High Rate</a></li>
             </ul>
         </div>
 
