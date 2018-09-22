@@ -10,7 +10,7 @@
     </div>
     <div class="inside rounded d-flex flex-column">
         <div class="header d-flex align-content-around">
-            <h6 class="server-name text-grey-darkest">{{ $server->name }}</h6>
+            <h6 class="server-name text-grey-darkest">{{ $server->name }} (<small>{{ $server->exp_group }}</small>)</h6>
             <p class="server-votes">
                 <span class="status">
                     <i class="fas fa-signal"></i>

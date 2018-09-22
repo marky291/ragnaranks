@@ -122,4 +122,28 @@ class CardFilterTest extends TestCase
 
         $this->assertEquals($newest_version->id, $data[0]->id);
     }
+
+    /**
+     * @test
+     */
+    public function the_filters_can_filter_low_rate_servers()
+    {
+        $server = factory(Server::class, 3)->create();
+
+        $server[0]->config->setAttribute('base_exp_rate', config('filter.exp.low-rate.max'))->save();
+        $server[1]->config->setAttribute('base_exp_rate', config('filter.exp.mid-rate.max'))->save();
+        $server[2]->config->setAttribute('base_exp_rate', config('filter.exp.high-rate.max'))->save();
+
+        $this->assertEquals('Low Rate', $server[0]->exp_group);
+        $this->assertEquals('Mid Rate', $server[1]->exp_group);
+        $this->assertEquals('High Rate', $server[2]->exp_group);
+
+        $response = $this->get('/servers/low-rate/desc');
+
+        $response->assertOk()->assertViewHas('servers');
+
+        $data = $response->getOriginalContent()->getData()['servers'];
+
+        dd($data);
+    }
 }

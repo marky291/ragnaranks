@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -33,4 +34,26 @@ class ServerConfig extends Model
      * @var string
      */
     protected $table = 'servers_configs';
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function server()
+    {
+        return $this->belongsTo(Server::class,'server_id', 'id');
+    }
+
+    /**
+     * Scope the configs to specific exp groups.
+     *
+     * @param $query
+     * @param string $group
+     * @return mixed
+     */
+    public function scopeExpGroup(Builder $query, string $group)
+    {
+        return $query
+            ->where('base_exp_rate', '>', config('filter.exp.'.$group.'.min'))
+            ->where('base_exp_rate', '<', config('filter.exp.'.$group.'.max'));
+    }
 }

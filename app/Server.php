@@ -4,6 +4,7 @@ namespace App;
 
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -18,6 +19,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $banner_url
  * @property double $episode
  *
+ * @property string $exp_group
+ *
  * @property ServerConfig $config
  * @property ServerMode $mode
  *
@@ -29,7 +32,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property ServerClick|HasMany $clicks
  *
  * @method static withCount(string $string)
- * @method static statistics(int $period)
+ * @method $this statistics(int $period)
+ * @method $this expGround(int $period, string $group)
  *
  *
  * @package App
@@ -42,6 +46,33 @@ class Server extends Model
      * @var string
      */
     protected $table = 'servers';
+
+    /**
+     * The relations to eager load on every query.
+     *
+     * @var array
+     */
+    protected $with = ['config'];
+
+    /**
+     * Scope a query to only include popular users.
+     *
+     * @param int $period
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeStatistics($query, int $period)
+    {
+        return $query->withCount([
+            'votes' => function($query) use ($period){
+                $query->where('created_at', '>', now()->subDay($period));
+            },
+            'clicks' => function($query) use ($period){
+                $query->where('created_at', '>', now()->subDay($period));
+            },
+        ]);
+    }
 
     /**
      * A server has one configuration set.
@@ -94,22 +125,6 @@ class Server extends Model
     }
 
     /**
-     * Scope a query to only include popular users.
-     *
-     * @param int $period
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeStatistics($query, int $period)
-    {
-        return $query->withCount([
-            'votes' => function($query) use ($period){ $query->where('created_at', '>', now()->subDay($period)); },
-            'clicks' => function($query) use ($period){ $query->where('created_at', '>', now()->subDay($period)); },
-        ]);
-    }
-
-    /**
      * Order the servers by their count of votes.
      *
      * @param int $period
@@ -154,11 +169,42 @@ class Server extends Model
      * @param string $orderBy
      * @param int $period
      *
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return Builder
      */
     public static function orderedEpisode(int $period, string $orderBy)
     {
         return self::statistics($period)->orderBy('episode', $orderBy);
     }
 
+    /**
+     * @param string $exp_group
+     * @param int $period
+     * @param string $orderBy
+     * @return mixed
+     */
+    public static function filterExpGroup(string $exp_group, int $period, string $orderBy)
+    {
+        return self::statistics($period)->whereHas('config', function ($query) use ($exp_group) {
+            $query->expGroup($exp_group);
+        })->orderBy('votes_count', $orderBy);
+    }
+
+    /**
+     * Get the EXP group that the server belongs to.
+     *
+     * @return string
+     * @throws \Exception
+     * @noinspection PhpUnhandledExceptionInspection
+     */
+    public function getExpGroupAttribute()
+    {
+        if ($this->config->base_exp_rate <= config('filter.exp.low-rate.max'))
+            return 'Low Rate';
+        if ($this->config->base_exp_rate <= config('filter.exp.mid-rate.max'))
+            return 'Mid Rate';
+        if ($this->config->base_exp_rate <= config('filter.exp.high-rate.max'))
+            return 'High Rate';
+
+        throw new \Exception("Bad configuration for exp group Attribute");
+    }
 }

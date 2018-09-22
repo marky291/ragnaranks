@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Server;
+use App\ServerConfig;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -75,5 +76,15 @@ class FilterController extends Controller
     public function episode(string $orderBy)
     {
         return view(self::bladeView)->with('servers', Server::orderedEpisode(30, $orderBy)->paginate(self::cardCount));
+    }
+
+    /**
+     * @param string $exp_group
+     * @param string $orderBy
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function expGroup(string $exp_group, string $orderBy)
+    {
+        return view(self::bladeView)->with('servers', Server::filterExpGroup($exp_group, 30, $orderBy)->paginate(self::cardCount));
     }
 }

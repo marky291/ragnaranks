@@ -20,3 +20,5 @@ Route::get('/filters/clicks/period/days/{period}')->uses('FilterController@click
 
 Route::get('/filters/creation/{order}')->uses('FilterController@creation')->name('filter.creation');
 Route::get('/filters/episode/{order}')->uses('FilterController@episode')->name('filter.episode');
+
+Route::get('/servers/{exp_group}/{order}')->uses('FilterController@expGroup')->name('filter.expGroup');
