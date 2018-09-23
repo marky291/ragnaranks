@@ -53,7 +53,7 @@ class Server extends Model
      *
      * @var array
      */
-    protected $with = ['config'];
+    protected $with = ['config', 'mode'];
 
     /**
      * Scope a query to only include popular users.
@@ -148,7 +148,12 @@ class Server extends Model
         }
 
         // The QUERY builder functionality.
-        return self::statistics($period)->whereHas('config', function($query) use ($exp_group){
+        return self::statistics($period)
+          ->whereHas('mode', function($query) use ($mode) {
+            if ($mode != "all") {
+                $query->where('name', $mode);
+            }
+        })->whereHas('config', function($query) use ($exp_group){
             if ($exp_group != "all") {
                 $query->expGroup($exp_group);
             }

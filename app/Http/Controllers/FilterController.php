@@ -45,7 +45,7 @@ class FilterController extends Controller
      */
     public function index()
     {
-        return $this->build(Server::filter(1, 'all', 'all', 'votes_count', 'desc'));
+        return $this->build(Server::filter(30, 'all', 'all', 'votes_count', 'desc'));
 
     }
 
@@ -63,6 +63,6 @@ class FilterController extends Controller
      */
     public function query($exp_group = "all", $mode = "all", $sort = "any", $orderBy = 'desc')
     {
-        return $this->build(Server::filter(1, $exp_group, $mode, $sort, $orderBy));
+        return $this->build(Server::filter(30, $exp_group, $mode, $sort, $orderBy));
     }
 }

@@ -162,4 +162,26 @@ class CardFilterTest extends TestCase
             $this->assertEquals('low-rate', $item->exp_group);
         }
     }
+
+    /**
+     * @test
+     */
+    public function it_can_filter_by_mode()
+    {
+        $server = factory(Server::class, 2)->create();
+
+        $server[0]->mode->update(["name" => "renewal"]);
+        $server[1]->mode->update(["name" => "pre-renewal"]);
+
+        $response = $this->get('/servers/all/renewal/votes_count/desc');
+
+        $response->assertOk()->assertViewHas('servers');
+
+        $collection = $response->getOriginalContent()->getData()['servers'];
+
+        foreach ($collection as $item)
+        {
+            $this->assertEquals('renewal', $item->mode->name);
+        }
+    }
 }

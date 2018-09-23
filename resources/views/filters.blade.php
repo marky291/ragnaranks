@@ -20,13 +20,15 @@
             </ul>
             <h5>Server Types</h5>
             <ul>
-                <li>Role Playing/li>
+                <li>Role Playing</li>
                 <li>Player Killing</li>
             </ul>
             <h5>Server Modes</h5>
             <ul>
-                <li>Renewal Mode</li>
-                <li>Pre-Renewal Mode</li>
+                <li><a href="{{ filter_query('all', 'renewal', 'votes_count', 'desc') }}#filters">Renewal Mode</a></li>
+                <li><a href="{{ filter_query('all', 'pre-renewal', 'votes_count', 'desc') }}#filters">Pre-Renewal Mode</a></li>
+                <li><a href="{{ filter_query('all', 'classic', 'votes_count', 'desc') }}#filters">Classic Mode</a></li>
+                <li><a href="{{ filter_query('all', 'custom', 'votes_count', 'desc') }}#filters">Custom Mode</a></li>
             </ul>
             <h5>Server Rates</h5>
             <ul>

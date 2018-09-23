@@ -26,29 +26,29 @@ class CreateServerModes extends Migration
 
         DB::table('servers_modes')->insert([
             [
-                'tag' => 'Re',
-                'name' => 'Renewal',
+                'tag' => 're',
+                'name' => 'renewal',
                 'description' => 'This server is based on renewal format',
                 'updated_at' => now(),
                 'created_at' => now(),
             ],
             [
-                'tag' => 'Pre-Re',
-                'name' => 'Pre-Renewal',
+                'tag' => 'pre-re',
+                'name' => 'pre-renewal',
                 'description' => 'This server is based on pre-renewal format',
                 'updated_at' => now(),
                 'created_at' => now(),
             ],
             [
-                'tag' => 'Custom',
-                'name' => 'Custom',
+                'tag' => 'custom',
+                'name' => 'custom',
                 'description' => 'This server uses a custom format.',
                 'updated_at' => now(),
                 'created_at' => now(),
             ],
             [
-                'tag' => 'Classic',
-                'name' => 'Classic',
+                'tag' => 'classic',
+                'name' => 'classic',
                 'description' => 'This server uses a classic format.',
                 'updated_at' => now(),
                 'created_at' => now(),
