@@ -57,7 +57,7 @@ class CardFilterTest extends TestCase
         factory(ServerVote::class, 1)->create(['server_id' => $server->id,'created_at' => Carbon::now()]);
         factory(ServerVote::class, 1)->create(['server_id' => $server->id, 'created_at' => Carbon::now()->subMonth(2)]);
 
-        $response = $this->get('/filters/votes/period/days/30');
+        $response = $this->get('/servers/all/all/votes_count/desc');
 
         $response->assertOk()->assertViewHas('servers');
 
@@ -78,7 +78,7 @@ class CardFilterTest extends TestCase
         factory(ServerClick::class, 1)->create(['server_id' => $server->id,'created_at' => Carbon::now()]);
         factory(ServerClick::class, 1)->create(['server_id' => $server->id, 'created_at' => Carbon::now()->subMonth(2)]);
 
-        $response = $this->get('/filters/clicks/period/days/30');
+        $response = $this->get('/servers/all/all/clicks_count/desc');
 
         $response->assertOk()->assertViewHas('servers');
 
@@ -96,7 +96,7 @@ class CardFilterTest extends TestCase
 
         $old_server = factory(Server::class)->create(['created_at' => now()->subDays(5)]);
 
-        $response = $this->get('/filters/creation/desc');
+        $response = $this->get('/servers/all/all/created_at/desc');
 
         $response->assertOk()->assertViewHas('servers');
 
@@ -114,7 +114,7 @@ class CardFilterTest extends TestCase
 
         $newest_version = factory(Server::class)->create(['episode' => 13.00]);
 
-        $response = $this->get('/filters/episode/desc');
+        $response = $this->get('/servers/all/all/episode/desc');
 
         $response->assertOk()->assertViewHas('servers');
 
@@ -126,24 +126,40 @@ class CardFilterTest extends TestCase
     /**
      * @test
      */
-    public function the_filters_can_filter_low_rate_servers()
+    public function it_can_correctly_get_the_exp_groups_for_filtering()
     {
         $server = factory(Server::class, 3)->create();
 
-        $server[0]->config->setAttribute('base_exp_rate', config('filter.exp.low-rate.max'))->save();
-        $server[1]->config->setAttribute('base_exp_rate', config('filter.exp.mid-rate.max'))->save();
-        $server[2]->config->setAttribute('base_exp_rate', config('filter.exp.high-rate.max'))->save();
+        $server[0]->config()->update(['base_exp_rate' => config('filter.exp.low-rate.max')]);
+        $server[1]->config()->update(['base_exp_rate' => config('filter.exp.mid-rate.max')]);
+        $server[2]->config()->update(['base_exp_rate' => config('filter.exp.high-rate.max')]);
 
         $this->assertEquals('Low Rate', $server[0]->exp_group);
         $this->assertEquals('Mid Rate', $server[1]->exp_group);
         $this->assertEquals('High Rate', $server[2]->exp_group);
+    }
 
-        $response = $this->get('/servers/low-rate/desc');
+    /**
+     * @test
+     */
+    public function it_can_display_an_exp_group_as_a_filter()
+    {
+        $server = factory(Server::class, 3)->create();
+
+        $server[0]->config()->update(['base_exp_rate' => config('filter.exp.low-rate.max')]);
+        $server[1]->config()->update(['base_exp_rate' => config('filter.exp.mid-rate.max')]);
+        $server[2]->config()->update(['base_exp_rate' => config('filter.exp.high-rate.max')]);
+
+        $response = $this->get('/servers/low-rate/all/votes_count/desc');
 
         $response->assertOk()->assertViewHas('servers');
 
-        $data = $response->getOriginalContent()->getData()['servers'];
+        $collection = $response->getOriginalContent()->getData()['servers'];
 
-        dd($data);
+        /** @var Server $item */
+        foreach ($collection as $item)
+        {
+            $this->assertEquals('low-rate', $item->exp_group);
+        }
     }
 }

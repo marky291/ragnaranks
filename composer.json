@@ -11,6 +11,7 @@
         "laravel/tinker": "^1.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.2",
         "beyondcode/laravel-dump-server": "^1.0",
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
@@ -19,6 +20,9 @@
         "phpunit/phpunit": "^7.0"
     },
     "autoload": {
+        "files": [
+            "app/helper.php"
+        ],
         "classmap": [
             "database/seeds",
             "database/factories"

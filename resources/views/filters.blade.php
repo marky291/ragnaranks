@@ -12,15 +12,15 @@
             <h3>Filters</h3>
             <h5>Sorting</h5>
             <ul>
-                <li><a href="{{ route('filter.votes', 30) }}#filters">Most Voted</a></li>
-                <li><a href="{{ route('filter.creation', 'desc') }}#filters">Oldest Servers</a></li>
-                <li><a href="{{ route('filter.clicks', 30) }}#filters">Most Clicked</a></li>
-                <li><a href="{{ route('filter.episode', 'desc') }}#filters">Episode Version</a></li>
-                <li><a href="{{ route('filter.creation', 'asc') }}#filters">Newest Servers</a></li>
+                <li><a href="{{ filter_query('all', 'all', 'votes_count', 'desc') }}#filters">Most Voted</a></li>
+                <li><a href="{{ filter_query('all', 'all', 'created_at', 'desc') }}#filters">Oldest Servers</a></li>
+                <li><a href="{{ filter_query('all', 'all', 'clicks_count', 'desc') }}#filters">Most Clicked</a></li>
+                <li><a href="{{ filter_query('all', 'all', 'episode', 'desc') }}#filters">Episode Version</a></li>
+                <li><a href="{{ filter_query('all', 'all', 'created_at', 'asc') }}#filters">Newest Servers</a></li>
             </ul>
             <h5>Server Types</h5>
             <ul>
-                <li>Role Playing</li>
+                <li>Role Playing/li>
                 <li>Player Killing</li>
             </ul>
             <h5>Server Modes</h5>
@@ -30,9 +30,9 @@
             </ul>
             <h5>Server Rates</h5>
             <ul>
-                <li><a href="{{ route('filter.expGroup', ['exp_group' => 'low-rate', 'order' => 'desc']) }}#filters">Low Rate</a></li>
-                <li><a href="{{ route('filter.expGroup', ['exp_group' => 'mid-rate', 'order' => 'desc']) }}#filters">Medium Rate</a></li>
-                <li><a href="{{ route('filter.expGroup', ['exp_group' => 'high-rate', 'order' => 'desc']) }}#filters">High Rate</a></li>
+                <li><a href="{{ filter_query('low-rate', 'all', 'votes_count', 'desc') }}#filters">Low Rate</a></li>
+                <li><a href="{{ filter_query('mid-rate', 'all', 'votes_count', 'desc') }}#filters">Mid Rate</a></li>
+                <li><a href="{{ filter_query('high-rate', 'all', 'votes_count', 'desc') }}#filters">High Rate</a></li>
             </ul>
         </div>
 

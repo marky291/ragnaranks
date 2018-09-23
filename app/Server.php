@@ -4,6 +4,7 @@ namespace App;
 
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
+use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -122,6 +123,36 @@ class Server extends Model
     public function owner()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    // servers/{mode}/{exp_group}/{verb}/{order}/{tags?}'
+
+    /**
+     * Exp group = The group of servers to work with [low-rate, mid-rate, high-rate]
+     * Mode      = The server mode that we work with [renewal, classic, custom, pre-renewal]
+     *
+     *
+     * @param int $period
+     * @param string $exp_group The group type [low-rate, mid-rate, high-rate]
+     * @param string $mode The server mode [renewal, classic, custom, pre-renewal]
+     * @param string $sort_column The column that should be sorted. [columns]
+     * @param string $orderBy The order in which the result should be returned [desc, asc]
+     *
+     * @throws Exception
+     * @return
+     */
+    public static function filter($period = 30, $exp_group = "all", $mode = "all", $sort_column = "any", $orderBy = 'desc')
+    {
+        if ($mode != 'all' && !in_array($mode, ServerMode::all()->pluck('name')->toArray())) {
+            throw new Exception("Unknown mode filter '".$mode."' on eloquent model.");
+        }
+
+        // The QUERY builder functionality.
+        return self::statistics($period)->whereHas('config', function($query) use ($exp_group){
+            if ($exp_group != "all") {
+                $query->expGroup($exp_group);
+            }
+        })->orderBy($sort_column, $orderBy);
     }
 
     /**

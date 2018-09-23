@@ -36,6 +36,13 @@ class ServerConfig extends Model
     protected $table = 'servers_configs';
 
     /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [];
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function server()

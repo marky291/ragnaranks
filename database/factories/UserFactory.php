@@ -91,20 +91,20 @@ $factory->define(App\ServerMode::class, function (Faker $faker) {
 $factory->define(App\ServerClick::class, function (Faker $faker) {
     return [
         'ip_address' => $faker->ipv4,
-        'created_at' => $faker->dateTimeBetween('-7 months')->format('Y-m-d H:i:s'),
+        'created_at' => $faker->dateTimeBetween('-12 months', 'now'),
     ];
 });
 
 $factory->define(App\ServerVote::class, function (Faker $faker) {
     return [
         'ip_address' => $faker->ipv4,
-        'created_at' => $faker->dateTimeBetween('-7 months')->format('Y-m-d H:i:s'),
+        'created_at' => $faker->dateTimeBetween('-12 months', 'now'),
     ];
 });
 
 $factory->define(App\ServerConfig::class, function (Faker $faker) {
     return [
-        'max_base_level' => rand(99, 255),
+        'max_base_level' => rand(config('filter.exp.low-rate.min'), config('filter.exp.high-rate.max')),
         'max_job_level' => rand(99, 255),
         'max_stats' => rand(150, 255),
         'max_aspd' => rand(150, 195),
