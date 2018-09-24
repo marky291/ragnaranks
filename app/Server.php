@@ -53,7 +53,7 @@ class Server extends Model
      *
      * @var array
      */
-    protected $with = ['config', 'mode'];
+    protected $with = ['config'];
 
     /**
      * Scope a query to only include popular users.
