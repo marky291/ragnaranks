@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class Server
@@ -145,6 +146,9 @@ class Server extends Model
     {
         if ($mode != 'all' && !in_array($mode, ServerMode::all()->pluck('name')->toArray())) {
             throw new Exception("Unknown mode filter '".$mode."' on eloquent model.");
+        }
+        if ($exp_group != 'all' && !in_array($exp_group, ['low-rate', 'mid-rate', 'high-rate', 'custom', 'classic'])) {
+            throw new Exception("Unknown exp_group filter '".$exp_group."' on eloquent model.");
         }
 
         // The QUERY builder functionality.
