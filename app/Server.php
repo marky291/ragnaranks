@@ -142,91 +142,24 @@ class Server extends Model
      * @throws Exception
      * @return
      */
-    public static function filter($period = 30, $exp_group = "all", $mode = "all", $sort_column = "any", $orderBy = 'desc')
+    public static function filter($exp_group = "all", $mode = "all", $sort_column = "any", $orderBy = 'desc')
     {
-        if ($mode != 'all' && !in_array($mode, ['renewal', 'pre-renewal', 'classic', 'custom'])) {
-            throw new Exception("Unknown mode filter '" . $mode . "' on eloquent model.");
+        $builder = self::query();
+
+        if (in_array($mode, ['renewal', 'pre-renewal', 'classic', 'custom'])) {
+            $builder->whereHas('mode', function(Builder $query) use ($mode) {
+                $query->where('name', $mode);
+            });
         }
-        if ($exp_group != 'all' && !in_array($exp_group, ['low-rate', 'mid-rate', 'high-rate', 'custom', 'classic'])) {
-            throw new Exception("Unknown exp_group filter '" . $exp_group . "' on eloquent model.");
+        if (in_array($exp_group, ['low-rate', 'mid-rate', 'high-rate', 'custom', 'classic'])) {
+            $builder->whereHas('config', function($query) use ($exp_group) {
+                /** @var ServerConfig $query */
+                $query->expGroup($exp_group);
+            });
         }
 
+        return $builder->with('config')->orderBy($sort_column, $orderBy);
 
-        return self::whereHas('mode', function($query) use ($mode) {
-                if ($mode != "all") {
-                    $query->where('name', $mode);
-                }
-            })->whereHas('config', function($query) use ($exp_group){
-                if ($exp_group != "all") {
-                    $query->expGroup($exp_group);
-                }
-            })->with('config')->orderBy($sort_column, $orderBy);
-
-    }
-
-    /**
-     * Order the servers by their count of votes.
-     *
-     * @param int $period
-     * @param string $orderBy
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public static function filterVotes(int $period, string $orderBy)
-    {
-        return self::statistics($period)->orderBy('votes_count', $orderBy);
-    }
-
-    /**
-     * Order the servers by their count of votes.
-     *
-     * @param int $period
-     *
-     * @param string $orderBy
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public static function filterClicks(int $period, string $orderBy)
-    {
-        return self::statistics($period)->orderBy('clicks_count', $orderBy);
-    }
-
-    /**
-     * Return the servers in an order, by their creation date.
-     *
-     * @param string $orderBy
-     * @param int $period
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public static function orderedCreation(int $period, string $orderBy)
-    {
-        return self::statistics($period)->orderBy('created_at', $orderBy);
-    }
-
-    /**
-     * Return the servers in order by their episode versions.
-     *
-     * @param string $orderBy
-     * @param int $period
-     *
-     * @return Builder
-     */
-    public static function orderedEpisode(int $period, string $orderBy)
-    {
-        return self::statistics($period)->orderBy('episode', $orderBy);
-    }
-
-    /**
-     * @param string $exp_group
-     * @param int $period
-     * @param string $orderBy
-     * @return mixed
-     */
-    public static function filterExpGroup(string $exp_group, int $period, string $orderBy)
-    {
-        return self::statistics($period)->whereHas('config', function ($query) use ($exp_group) {
-            $query->expGroup($exp_group);
-        })->orderBy('votes_count', $orderBy);
     }
 
     /**

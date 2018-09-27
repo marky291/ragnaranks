@@ -31,9 +31,10 @@ class FilterController extends Controller
      * The build method returns a result for the page.
      *
      * @param Builder $builder
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    private function build( $builder)
+    private function build(Builder $builder)
     {
         return $this->view->with('servers', $builder->simplePaginate(25));
     }
@@ -41,12 +42,14 @@ class FilterController extends Controller
     /**
      * The default index page of server listings.
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Exception
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        return $this->build(Server::filter(30, 'all', 'all', 'votes_count', 'desc'));
+        /** @noinspection PhpParamsInspection */
+        return $this->build(Server::filter('all', 'all', 'votes_count', 'desc'));
     }
 
     /**
@@ -63,6 +66,7 @@ class FilterController extends Controller
      */
     public function query($exp_group = "all", $mode = "all", $sort = "any", $orderBy = 'desc')
     {
-        return $this->build(Server::filter(30, $exp_group, $mode, $sort, $orderBy));
+        /** @noinspection PhpParamsInspection */
+        return $this->build(Server::filter($exp_group, $mode, $sort, $orderBy));
     }
 }

@@ -30,10 +30,9 @@ class CardFilterTest extends TestCase
     public function the_index_page_filters_to_vote_count()
     {
         // create three servers with no votes.
-        $servers = factory(Server::class, 3)->create();
+        $server = factory(Server::class)->create(['votes_count' => 1]);
 
-        // add a vote to the server.
-        factory(ServerVote::class, 1)->create(['server_id' => $servers[1]->id, 'created_at' => now()]);
+        factory(Server::class, 3)->create(['votes_count' => 0]);
 
         $response = $this->get('/');
 
@@ -42,7 +41,7 @@ class CardFilterTest extends TestCase
         $collection = $response->getOriginalContent()->getData()['servers'];
 
         // the second server, should show at the top.
-        $this->assertEquals($servers[1]->name, $collection->first()->name);
+        $this->assertEquals($server->name, $collection->first()->name);
     }
 
     /**

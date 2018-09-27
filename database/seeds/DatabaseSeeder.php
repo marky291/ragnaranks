@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         Artisan::call('migrate:fresh');
 
-        for ($i = 0; $i < 750; $i++)
+        for ($i = 0; $i < 25; $i++)
         {
             $server = factory('App\Server')->create();
 

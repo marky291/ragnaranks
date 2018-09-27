@@ -26,6 +26,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->job(new MonthlyServerReport)->monthlyOn(1, '00:00');
+
     }
 
     /**

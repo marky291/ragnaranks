@@ -35,7 +35,7 @@ class ServerReportsTest extends TestCase
 
         MonthlyServerReport::dispatchNow();
 
-        $this->assertDatabaseHas('servers_reports', ['id' => $server->id, 'votes_count' => 1, 'clicks_count' => 1]);
+        $this->assertDatabaseHas('servers_reports', ['server_id' => $server->id, 'votes_count' => 1, 'clicks_count' => 1]);
     }
 
     /**
