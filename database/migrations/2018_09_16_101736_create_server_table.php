@@ -46,8 +46,8 @@ class CreateServerTable extends Migration
         Schema::create('servers_reports', function(Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('server_id');
-            $table->integer('vote_count')->default(0);
-            $table->integer('click_count')->default(0);
+            $table->integer('votes_count')->default(0);
+            $table->integer('clicks_count')->default(0);
             $table->timestamps();
 
             $table->index(['created_at']);

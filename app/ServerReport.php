@@ -22,6 +22,13 @@ class ServerReport extends Model
     protected $table = 'servers_reports';
 
     /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [];
+
+    /**
      * The vote belongs to a server.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

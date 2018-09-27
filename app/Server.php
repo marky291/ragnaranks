@@ -52,6 +52,13 @@ class Server extends Model
     protected $table = 'servers';
 
     /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [];
+
+    /**
      * A server has one configuration set.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
@@ -220,6 +227,16 @@ class Server extends Model
         return self::statistics($period)->whereHas('config', function ($query) use ($exp_group) {
             $query->expGroup($exp_group);
         })->orderBy('votes_count', $orderBy);
+    }
+
+    /**
+     * Reset the vote and click counters of the server for this month.
+     *
+     * @return bool
+     */
+    public function resetCounters()
+    {
+        return $this->update(['clicks_count' => 0, 'votes_count' => 0]);
     }
 
     /**
