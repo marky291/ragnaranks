@@ -129,40 +129,6 @@ class Server extends Model
     }
 
     /**
-     * Exp group = The group of servers to work with [low-rate, mid-rate, high-rate]
-     * Mode      = The server mode that we work with [renewal, classic, custom, pre-renewal]
-     *
-     *
-     * @param int $period
-     * @param string $exp_group The group type [low-rate, mid-rate, high-rate]
-     * @param string $mode The server mode [renewal, classic, custom, pre-renewal]
-     * @param string $sort_column The column that should be sorted. [columns]
-     * @param string $orderBy The order in which the result should be returned [desc, asc]
-     *
-     * @throws Exception
-     * @return
-     */
-    public static function filter($exp_group = "all", $mode = "all", $sort_column = "any", $orderBy = 'desc')
-    {
-        $builder = self::query();
-
-        if (in_array($mode, ['renewal', 'pre-renewal', 'classic', 'custom'])) {
-            $builder->whereHas('mode', function(Builder $query) use ($mode) {
-                $query->where('name', $mode);
-            });
-        }
-        if (in_array($exp_group, ['low-rate', 'mid-rate', 'high-rate', 'custom', 'classic'])) {
-            $builder->whereHas('config', function($query) use ($exp_group) {
-                /** @var ServerConfig $query */
-                $query->expGroup($exp_group);
-            });
-        }
-
-        return $builder->with('config')->orderBy($sort_column, $orderBy);
-
-    }
-
-    /**
      * Reset the vote and click counters of the server for this month.
      *
      * @return bool
@@ -189,5 +155,39 @@ class Server extends Model
             return 'High Rate';
 
         throw new \Exception("Bad configuration for exp group Attribute");
+    }
+
+    /**
+     * Exp group = The group of servers to work with [low-rate, mid-rate, high-rate]
+     * Mode      = The server mode that we work with [renewal, classic, custom, pre-renewal]
+     *
+     * @param string $exp_group The group type [low-rate, mid-rate, high-rate]
+     * @param string $mode The server mode [renewal, classic, custom, pre-renewal]
+     * @param string $sort_column The column that should be sorted. [columns]
+     * @param string $orderBy The order in which the result should be returned [desc, asc]
+     *
+     * @throws Exception
+     *
+     * @return Builder
+     */
+    public static function filter($exp_group = "all", $mode = "all", $sort_column = "any", $orderBy = 'desc')
+    {
+        $builder = self::query();
+
+        if (in_array($mode, ['renewal', 'pre-renewal', 'classic', 'custom'])) {
+            $builder->whereHas('mode', function(Builder $query) use ($mode) {
+                $query->where('name', $mode);
+            });
+        }
+        if (in_array($exp_group, ['low-rate', 'mid-rate', 'high-rate', 'custom', 'classic'])) {
+            $builder->whereHas('config', function($query) use ($exp_group) {
+                /** @var ServerConfig $query */
+                $query->expGroup($exp_group);
+            });
+        }
+
+        // TODO: Add checks for sort column and order by?
+
+        return $builder->with('config')->orderBy($sort_column, $orderBy);
     }
 }
