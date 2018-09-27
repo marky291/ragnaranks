@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Server;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class FilterController
@@ -32,9 +33,9 @@ class FilterController extends Controller
      * @param Builder $builder
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    private function build(Builder $builder)
+    private function build( $builder)
     {
-        return $this->view->with('servers', $builder->paginate(25));
+        return $this->view->with('servers', $builder->simplePaginate(25));
     }
 
     /**
@@ -46,7 +47,6 @@ class FilterController extends Controller
     public function index()
     {
         return $this->build(Server::filter(30, 'all', 'all', 'votes_count', 'desc'));
-
     }
 
     /**

@@ -59,8 +59,6 @@ class ServerConfig extends Model
      */
     public function scopeExpGroup(Builder $query, string $group)
     {
-        return $query
-            ->where('base_exp_rate', '>', config('filter.exp.'.$group.'.min'))
-            ->where('base_exp_rate', '<', config('filter.exp.'.$group.'.max'));
+        return $query->whereBetween('base_exp_rate', [config('filter.exp.'.$group.'.min'), config('filter.exp.'.$group.'.max')]);
     }
 }

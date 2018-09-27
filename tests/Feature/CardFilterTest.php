@@ -51,11 +51,7 @@ class CardFilterTest extends TestCase
     public function the_filters_can_display_votes_during_a_period_of_days()
     {
         // create three servers with no votes.
-        $server = factory(Server::class)->create();
-
-        // add a vote to the server.
-        factory(ServerVote::class, 1)->create(['server_id' => $server->id,'created_at' => Carbon::now()]);
-        factory(ServerVote::class, 1)->create(['server_id' => $server->id, 'created_at' => Carbon::now()->subMonth(2)]);
+        $server = factory(Server::class)->create(['votes_count' => 1]);
 
         $response = $this->get('/servers/all/all/votes_count/desc');
 
@@ -72,11 +68,7 @@ class CardFilterTest extends TestCase
     public function the_filters_can_display_clicks_during_a_period_of_days()
     {
         // create three servers with no votes.
-        $server = factory(Server::class)->create();
-
-        // add a vote to the server.
-        factory(ServerClick::class, 1)->create(['server_id' => $server->id,'created_at' => Carbon::now()]);
-        factory(ServerClick::class, 1)->create(['server_id' => $server->id, 'created_at' => Carbon::now()->subMonth(2)]);
+        factory(Server::class)->create(['clicks_count' => 1]);
 
         $response = $this->get('/servers/all/all/clicks_count/desc');
 
@@ -157,9 +149,9 @@ class CardFilterTest extends TestCase
         $collection = $response->getOriginalContent()->getData()['servers'];
 
         /** @var Server $item */
-        foreach ($collection as $item)
+        foreach ($collection as $server)
         {
-            $this->assertEquals('low-rate', $item->exp_group);
+            $this->assertEquals('Low Rate', $server->exp_group);
         }
     }
 

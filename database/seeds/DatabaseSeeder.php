@@ -14,13 +14,15 @@ class DatabaseSeeder extends Seeder
     {
         Artisan::call('migrate:fresh');
 
-        for ($i = 0; $i < 80; $i++)
+        for ($i = 0; $i < 75; $i++)
         {
             $server = factory('App\Server')->create();
 
             $clicks = factory('App\ServerClick', rand(200, 500))->create(['server_id' => $server->id]);
 
             $votes = factory('App\ServerVote', rand(100, 300))->create(['server_id' => $server->id]);
+
+            echo "Created {$server->name} : row {$i}\n";
         }
     }
 }

@@ -29,6 +29,13 @@ class ServerVote extends Model
     protected $table = 'servers_votes';
 
     /**
+     * The name of the "updated at" column.
+     *
+     * @var string
+     */
+    const UPDATED_AT = null;
+
+    /**
      * The vote belongs to a server.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

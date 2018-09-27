@@ -72,6 +72,8 @@ $factory->define(App\Server::class, function (Faker $faker) {
         'mode_id' => ServerMode::inRandomOrder()->first(),
         'description' => $server['description'],
         'episode' => collect([13.10, 13.09, 13.05, 12.11])->random(),
+        'votes_count' => $faker->numberBetween(1, 19500),
+        'clicks_count' => $faker->numberBetween(1, 19500),
         'banner_url' => $server['banner'],
     ];
 });
@@ -91,14 +93,14 @@ $factory->define(App\ServerMode::class, function (Faker $faker) {
 $factory->define(App\ServerClick::class, function (Faker $faker) {
     return [
         'ip_address' => $faker->ipv4,
-        'created_at' => $faker->dateTimeBetween('-12 months', 'now'),
+        'created_at' => now(),
     ];
 });
 
 $factory->define(App\ServerVote::class, function (Faker $faker) {
     return [
         'ip_address' => $faker->ipv4,
-        'created_at' => $faker->dateTimeBetween('-12 months', 'now'),
+        'created_at' => now(),
     ];
 });
 
@@ -117,5 +119,12 @@ $factory->define(App\ServerConfig::class, function (Faker $faker) {
         'drop_card_mvp_rate' => rand(20, 10000),
         'drop_base_special_rate' => rand(20, 10000),
         'drop_card_special_rate' => rand(20, 10000),
+    ];
+});
+
+$factory->define(\App\ServerReport::class, function (Faker $faker) {
+    return [
+        'vote_count' => $faker->numberBetween(1, 25000),
+        'click_count' => $faker->numberBetween(1, 25000),
     ];
 });

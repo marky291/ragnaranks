@@ -29,6 +29,13 @@ class ServerClick extends Model
     protected $table = 'servers_clicks';
 
     /**
+     * The name of the "updated at" column.
+     *
+     * @var string
+     */
+    const UPDATED_AT = null;
+
+    /**
      * The click belongs to a server.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

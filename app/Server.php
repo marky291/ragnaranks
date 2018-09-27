@@ -20,11 +20,14 @@ use Illuminate\Support\Facades\DB;
  * @property string $description
  * @property string $banner_url
  * @property double $episode
+ * @property int $votes_count
+ * @property int $clicks_count
  *
  * @property string $exp_group
  *
  * @property ServerConfig $config
  * @property ServerMode $mode
+ * @property ServerReport $report
  *
  * @property Carbon $created_at
  * @property Carbon $updated_at
@@ -34,7 +37,6 @@ use Illuminate\Support\Facades\DB;
  * @property ServerClick|HasMany $clicks
  *
  * @method static withCount(string $string)
- * @method static statistics(int $period)
  * @method static expGround(int $period, string $group)
  *
  *
@@ -48,33 +50,6 @@ class Server extends Model
      * @var string
      */
     protected $table = 'servers';
-
-    /**
-     * The relations to eager load on every query.
-     *
-     * @var array
-     */
-    protected $with = ['config'];
-
-    /**
-     * Scope a query to only include popular users.
-     *
-     * @param int $period
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeStatistics($query, int $period)
-    {
-        return $query->withCount([
-            'votes' => function($query) use ($period){
-                $query->where('created_at', '>', now()->subDay($period));
-            },
-            'clicks' => function($query) use ($period){
-                $query->where('created_at', '>', now()->subDay($period));
-            },
-        ]);
-    }
 
     /**
      * A server has one configuration set.
@@ -117,6 +92,26 @@ class Server extends Model
     }
 
     /**
+     * A server has many monthly reports.
+     *
+     * @return HasMany
+     */
+    public function reports()
+    {
+        return $this->hasMany(ServerReport::class);
+    }
+
+    /**
+     * A server has one monthly report. (current)
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne|\Illuminate\Database\Query\Builder
+     */
+    public function report()
+    {
+        return $this->hasOne(ServerReport::class);
+    }
+
+    /**
      * A server belongs to a single owner.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -125,8 +120,6 @@ class Server extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
-
-    // servers/{mode}/{exp_group}/{verb}/{order}/{tags?}'
 
     /**
      * Exp group = The group of servers to work with [low-rate, mid-rate, high-rate]
@@ -144,24 +137,24 @@ class Server extends Model
      */
     public static function filter($period = 30, $exp_group = "all", $mode = "all", $sort_column = "any", $orderBy = 'desc')
     {
-        if ($mode != 'all' && !in_array($mode, ServerMode::all()->pluck('name')->toArray())) {
-            throw new Exception("Unknown mode filter '".$mode."' on eloquent model.");
+        if ($mode != 'all' && !in_array($mode, ['renewal', 'pre-renewal', 'classic', 'custom'])) {
+            throw new Exception("Unknown mode filter '" . $mode . "' on eloquent model.");
         }
         if ($exp_group != 'all' && !in_array($exp_group, ['low-rate', 'mid-rate', 'high-rate', 'custom', 'classic'])) {
-            throw new Exception("Unknown exp_group filter '".$exp_group."' on eloquent model.");
+            throw new Exception("Unknown exp_group filter '" . $exp_group . "' on eloquent model.");
         }
 
-        // The QUERY builder functionality.
-        return self::statistics($period)
-          ->whereHas('mode', function($query) use ($mode) {
-            if ($mode != "all") {
-                $query->where('name', $mode);
-            }
-        })->whereHas('config', function($query) use ($exp_group){
-            if ($exp_group != "all") {
-                $query->expGroup($exp_group);
-            }
-        })->orderBy($sort_column, $orderBy);
+
+        return self::whereHas('mode', function($query) use ($mode) {
+                if ($mode != "all") {
+                    $query->where('name', $mode);
+                }
+            })->whereHas('config', function($query) use ($exp_group){
+                if ($exp_group != "all") {
+                    $query->expGroup($exp_group);
+                }
+            })->with('config')->orderBy($sort_column, $orderBy);
+
     }
 
     /**
