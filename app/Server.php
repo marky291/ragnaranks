@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\DB;
  * @property double $episode
  * @property int $votes_count
  * @property int $clicks_count
+ * @property double $clicks_trend
+ * @property double $votes_trend
  *
  * @property string $exp_group
  *
@@ -185,9 +187,11 @@ class Server extends Model
                 $query->expGroup($exp_group);
             });
         }
-
+        if (in_array($sort_column, ['votes_count', 'votes_trend', 'clicks_count', 'clicks_trend', 'episode', 'created_at'])) {
+            $builder->orderBy($sort_column, $orderBy);
+        }
         // TODO: Add checks for sort column and order by?
 
-        return $builder->with('config')->orderBy($sort_column, $orderBy);
+        return $builder->with('config');
     }
 }

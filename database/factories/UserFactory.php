@@ -93,14 +93,14 @@ $factory->define(App\ServerMode::class, function (Faker $faker) {
 $factory->define(App\ServerClick::class, function (Faker $faker) {
     return [
         'ip_address' => $faker->ipv4,
-        'created_at' => now(),
+        'created_at' => $faker->dateTimeThisMonth,
     ];
 });
 
 $factory->define(App\ServerVote::class, function (Faker $faker) {
     return [
         'ip_address' => $faker->ipv4,
-        'created_at' => now(),
+        'created_at' => $faker->dateTimeThisMonth,
     ];
 });
 

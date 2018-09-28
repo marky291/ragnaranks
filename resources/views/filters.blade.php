@@ -12,6 +12,7 @@
             <h3>Filters</h3>
             <h5>Sorting</h5>
             <ul>
+                <li><a href="">test</a></li>
                 <li><a href="{{ filter_query('all', 'all', 'votes_count', 'desc') }}#filters">Most Voted</a></li>
                 <li><a href="{{ filter_query('all', 'all', 'created_at', 'desc') }}#filters">Oldest Servers</a></li>
                 <li><a href="{{ filter_query('all', 'all', 'clicks_count', 'desc') }}#filters">Most Clicked</a></li>

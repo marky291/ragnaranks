@@ -16,11 +16,14 @@ class DatabaseSeeder extends Seeder
 
         for ($i = 0; $i < 25; $i++)
         {
+            /** @var \App\Server $server */
             $server = factory('App\Server')->create();
 
             $clicks = factory('App\ServerClick', rand(200, 500))->create(['server_id' => $server->id]);
 
             $votes = factory('App\ServerVote', rand(100, 300))->create(['server_id' => $server->id]);
+
+            App\Jobs\UpdateServerTrendGrowth::dispatchNow($server);
 
             echo "Created {$server->name} : row {$i}\n";
         }

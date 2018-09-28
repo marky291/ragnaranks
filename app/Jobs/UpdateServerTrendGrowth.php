@@ -38,8 +38,8 @@ class UpdateServerTrendGrowth implements ShouldQueue
     public function handle()
     {
         $this->server->update([
-            'votes_count' => ServerVote::getServerTrend($this->server),
-            'clicks_count' => ServerClick::getServerTrend($this->server)
+            'votes_trend' => ServerVote::getServerTrend($this->server),
+            'clicks_trend' => ServerClick::getServerTrend($this->server)
         ]);
     }
 }

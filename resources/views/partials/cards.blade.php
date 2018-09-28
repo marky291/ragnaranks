@@ -17,11 +17,13 @@
                     Status: Online
                 </span>
                 &emsp;&emsp;
+                {{ $server->votes_trend }}%
                 <span class="in">
                     <i class="fas fa-arrow-circle-up"></i>
                     Votes: {{ $server->votes_count }}
                 </span>
                 &emsp;&emsp;
+                {{ $server->clicks_trend }}%
                 <span class="out">
                     <i class="fas fa-arrow-circle-down"></i>
                     Clicks: {{ $server->clicks_count }}

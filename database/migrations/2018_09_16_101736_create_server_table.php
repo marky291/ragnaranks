@@ -34,9 +34,9 @@ class CreateServerTable extends Migration
             $table->unsignedInteger('mode_id');
             $table->double('episode')->nullable();
             $table->integer('votes_count')->default(0);
-            $table->decimal('votes_trend')->default(0);
+            $table->double('votes_trend')->default(0);
             $table->integer('clicks_count')->default(0);
-            $table->integer('clicks_trend')->default(0);
+            $table->double('clicks_trend')->default(0);
             $table->timestamps();
 
             $table->index(['episode', 'created_at', 'votes_count', 'clicks_count']);
