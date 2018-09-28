@@ -22,6 +22,11 @@ use Illuminate\Database\Eloquent\Model;
 class ServerClick extends Model
 {
     /**
+     * Allows the calculation of the daily trend of votes.
+     */
+    use DailyTrendCount;
+
+    /**
      * The table associated with the model.
      *
      * @var string

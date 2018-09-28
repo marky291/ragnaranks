@@ -81,7 +81,7 @@ class Server extends Model
     /**
      * A server can have many clicks.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany|ServerClick
      */
     public function clicks()
     {
@@ -91,7 +91,7 @@ class Server extends Model
     /**
      * A server can have many votes.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany|ServerVote
      */
     public function votes()
     {

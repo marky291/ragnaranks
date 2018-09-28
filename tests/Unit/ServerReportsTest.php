@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use App\Exceptions\MonthlyReportAlreadyCreated;
+use App\Jobs\GenerateServerReport;
 use App\Jobs\MonthlyServerReport;
 use App\Server;
 use App\ServerReport;
@@ -21,7 +22,7 @@ class ServerReportsTest extends TestCase
     {
         $server = factory(Server::class)->create(['clicks_count' => 1, 'votes_count' => 1]);
 
-        MonthlyServerReport::dispatchNow();
+        GenerateServerReport::dispatchNow($server);
 
         $this->assertDatabaseHas('servers', ['id' => $server->id, 'votes_count' => 0, 'clicks_count' => 0]);
     }
@@ -33,7 +34,7 @@ class ServerReportsTest extends TestCase
     {
         $server = factory(Server::class)->create(['clicks_count' => 1, 'votes_count' => 1]);
 
-        MonthlyServerReport::dispatchNow();
+        GenerateServerReport::dispatchNow($server);
 
         $this->assertDatabaseHas('servers_reports', ['server_id' => $server->id, 'votes_count' => 1, 'clicks_count' => 1]);
     }
@@ -45,9 +46,9 @@ class ServerReportsTest extends TestCase
     {
         $server = factory(Server::class)->create(['clicks_count' => 1, 'votes_count' => 1]);
 
-        MonthlyServerReport::dispatchNow();
+        GenerateServerReport::dispatchNow($server);
 
-        MonthlyServerReport::dispatchNow();
+        GenerateServerReport::dispatchNow($server);
 
         $this->assertCount(1, $server->reports);
     }

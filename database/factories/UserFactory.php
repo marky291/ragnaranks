@@ -124,6 +124,7 @@ $factory->define(App\ServerConfig::class, function (Faker $faker) {
 
 $factory->define(\App\ServerReport::class, function (Faker $faker) {
     return [
+        'server_id' => factory(\App\Server::class)->create()->id,
         'vote_count' => $faker->numberBetween(1, 25000),
         'click_count' => $faker->numberBetween(1, 25000),
     ];
