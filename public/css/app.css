@@ -101,8 +101,9 @@
 .server.card .ranking .text {
   font-weight: bold;
   color: white;
+  padding: 5px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  background: url(/images/rank-silver-fluid.png?9dbe121559a4123d10573137925e84e2);
+  background: darkred;
   position: absolute;
   right: 20px;
   top: 5px;

@@ -1,5 +1,6 @@
 <?php
 
+use App\Server;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;
 
@@ -14,18 +15,20 @@ class DatabaseSeeder extends Seeder
     {
         Artisan::call('migrate:fresh');
 
-        for ($i = 0; $i < 25; $i++)
+        for ($i = 0; $i < 125; $i++)
         {
-            /** @var \App\Server $server */
+            /** @var Server $server */
             $server = factory('App\Server')->create();
 
             $clicks = factory('App\ServerClick', rand(200, 500))->create(['server_id' => $server->id]);
 
             $votes = factory('App\ServerVote', rand(100, 300))->create(['server_id' => $server->id]);
 
-            App\Jobs\UpdateServerTrendGrowth::dispatchNow($server);
+            // App\Jobs\UpdateServerTrendGrowth::dispatchNow($server);
 
             echo "Created {$server->name} : row {$i}\n";
         }
+
+        //App\Jobs\RankServerCollection::dispatchNow(Server::all());
     }
 }

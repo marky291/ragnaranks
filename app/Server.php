@@ -24,6 +24,8 @@ use Illuminate\Support\Facades\DB;
  * @property int $clicks_count
  * @property double $clicks_trend
  * @property double $votes_trend
+ * @property int $rank
+ * @property int $rank_growth
  *
  * @property string $exp_group
  *
@@ -187,8 +189,13 @@ class Server extends Model
                 $query->expGroup($exp_group);
             });
         }
-        if (in_array($sort_column, ['votes_count', 'votes_trend', 'clicks_count', 'clicks_trend', 'episode', 'created_at'])) {
+        if (in_array($sort_column, ['rank', 'votes_count', 'votes_trend', 'clicks_count', 'clicks_trend', 'episode', 'created_at'])) {
             $builder->orderBy($sort_column, $orderBy);
+
+            // secondary ordering of orders. [kayru parameters]
+            if ($sort_column != 'rank') {
+                $builder->orderBy('rank', 'asc');
+            }
         }
         // TODO: Add checks for sort column and order by?
 

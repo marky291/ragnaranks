@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Jobs\RankServerCollection;
 use App\Jobs\UpdateServerTrendGrowth;
 use App\Jobs\DispatchServerReports;
 use App\Jobs\GenerateServerReport;
@@ -31,18 +32,22 @@ class Kernel extends ConsoleKernel
 
         // Generate a monthly report for all servers.
         $schedule->call(function () {
-            foreach (Server::all() as $server)
-            {
+            foreach (Server::all() as $server) {
                 GenerateServerReport::dispatch($server);
             }
         })->monthlyOn(1, '00:00');
 
+        // Update the trend growth every day for all servers.
         $schedule->call(function() {
-            foreach (Server::all() as $server)
-            {
+            foreach (Server::all() as $server) {
                 UpdateServerTrendGrowth::dispatch($server);
             }
         })->dailyAt('00:00');
+
+        // Calculate a server ranking for every sever every hour.
+        $schedule->call(function() {
+            RankServerCollection::dispatch(Server::all());
+        })->everyFiveMinutes();
 
     }
 

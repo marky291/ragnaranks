@@ -26,6 +26,8 @@ class CreateServerTable extends Migration
 
         Schema::create('servers', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('rank')->default(0);
+            $table->integer('rank_growth')->default(0);
             $table->unsignedInteger('user_id');
             $table->string('name');
             $table->string('banner_url');

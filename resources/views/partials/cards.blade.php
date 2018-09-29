@@ -4,7 +4,7 @@
     <div class="statistics">
         <div class="ranking">
             <div class="text">
-                Rank {{ $server->id }}
+                Global Rank {{ $server->rank }}
             </div>
         </div>
     </div>
@@ -16,13 +16,13 @@
                     <i class="fas fa-signal"></i>
                     Status: Online
                 </span>
-                &emsp;&emsp;
+
                 {{ $server->votes_trend }}%
                 <span class="in">
                     <i class="fas fa-arrow-circle-up"></i>
                     Votes: {{ $server->votes_count }}
                 </span>
-                &emsp;&emsp;
+
                 {{ $server->clicks_trend }}%
                 <span class="out">
                     <i class="fas fa-arrow-circle-down"></i>
