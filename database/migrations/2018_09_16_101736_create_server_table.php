@@ -41,7 +41,7 @@ class CreateServerTable extends Migration
             $table->double('clicks_trend')->default(0);
             $table->timestamps();
 
-            $table->index(['episode', 'created_at', 'votes_count', 'clicks_count']);
+            $table->index(['rank', 'votes_count', 'clicks_count', 'episode']);
 
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
             $table->foreign('mode_id')->references('id')->on('servers_modes')->onUpdate('cascade');

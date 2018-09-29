@@ -72,8 +72,8 @@ $factory->define(App\Server::class, function (Faker $faker) {
         'mode_id' => ServerMode::inRandomOrder()->first(),
         'description' => $server['description'],
         'episode' => collect([13.10, 13.09, 13.05, 12.11])->random(),
-        'votes_count' => $faker->numberBetween(1, 19500),
-        'clicks_count' => $faker->numberBetween(1, 19500),
+        'votes_count' => $faker->numberBetween(1, 5000),
+        'clicks_count' => $faker->numberBetween(1, 5000),
         'banner_url' => $server['banner'],
     ];
 });
