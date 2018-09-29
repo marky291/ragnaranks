@@ -24,11 +24,11 @@ class DatabaseSeeder extends Seeder
 
             $votes = factory('App\ServerVote', rand(100, 300))->create(['server_id' => $server->id]);
 
-            // App\Jobs\UpdateServerTrendGrowth::dispatchNow($server);
+            App\Jobs\UpdateServerTrendGrowth::dispatchNow($server);
 
             echo "Created {$server->name} : row {$i}\n";
         }
 
-        //App\Jobs\RankServerCollection::dispatchNow(Server::all());
+        App\Jobs\RankServerCollection::dispatchNow(Server::all());
     }
 }
