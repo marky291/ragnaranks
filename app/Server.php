@@ -5,11 +5,15 @@ namespace App;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Exception;
+use Illuminate\Cache\RedisTaggedCache;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redis;
 
 /**
  * Class Server
@@ -143,6 +147,20 @@ class Server extends Model
     }
 
     /**
+     * @param string $relation
+     *
+     * @throws Exception
+     *
+     * @return mixed
+     */
+    public function cache(string $relation)
+    {
+        return cache()->tags($relation)->remember($this->name, 20, function () use ($relation) {
+            return $this->$relation;
+        });
+    }
+
+    /**
      * Get the EXP group that the server belongs to.
      *
      * @return string
@@ -151,11 +169,13 @@ class Server extends Model
      */
     public function getExpGroupAttribute()
     {
-        if ($this->config->base_exp_rate <= config('filter.exp.low-rate.max'))
+        $server_base = $this->cache('config')->base_exp_rate;
+
+        if ($server_base <= config('filter.exp.low-rate.max'))
             return 'Low Rate';
-        if ($this->config->base_exp_rate <= config('filter.exp.mid-rate.max'))
+        if ($server_base <= config('filter.exp.mid-rate.max'))
             return 'Mid Rate';
-        if ($this->config->base_exp_rate <= config('filter.exp.high-rate.max'))
+        if ($server_base <= config('filter.exp.high-rate.max'))
             return 'High Rate';
 
         throw new \Exception("Bad configuration for exp group Attribute");
@@ -197,8 +217,10 @@ class Server extends Model
                 $builder->orderBy('rank', 'asc');
             }
         }
+
+
         // TODO: Add checks for sort column and order by?
 
-        return $builder->with('config');
+        return $builder;
     }
 }

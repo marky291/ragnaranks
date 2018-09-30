@@ -40,15 +40,14 @@
         </div>
         <div class="footer d-flex">
             <div class="tags flex-fill d-flex justify-content-start">
-                <div class="tag pre-renewal">Pre-Re</div>
-                <div class="tag renewal">Renewel</div>
+                <div class="tag {{ $server->cache('mode')->name }}">{{ $server->cache('mode')->name }}</div>
                 <div class="tag roleplay">RolePlay</div>
                 <div class="tag player-kill">PK Mode</div>
             </div>
             <div class="information flex-fill d-flex text-right justify-content-end rounded align-items-center">
-                <div class="info flex-fill text-center"><b>Base Rate</b>: {{ $server->config->base_exp_rate }}x</div>
+                <div class="info flex-fill text-center"><b>Base Rate</b>: {{ $server->cache('config')->base_exp_rate }}x</div>
                 <div class="info flex-fill text-center"><b>Episode</b>: {{ $server->episode }}</div>
-                <div class="info flex-fill text-center"><b>Max Level</b>: {{ $server->config->max_base_level }}</div>
+                <div class="info flex-fill text-center"><b>Max Level</b>: {{ $server->cache('config')->max_base_level }}</div>
             </div>
         </div>
     </div>
