@@ -155,7 +155,7 @@ class Server extends Model
      */
     public function cache(string $relation)
     {
-        return cache()->tags($relation)->remember($this->name, 20, function () use ($relation) {
+        return cache()->tags($relation)->remember($this->id, 30, function () use ($relation) {
             return $this->$relation;
         });
     }
