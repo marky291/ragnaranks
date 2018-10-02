@@ -22,7 +22,7 @@
             <h5>Server Types</h5>
             <ul>
                 @foreach(\App\Tag::all() as $tag)
-                    <li><a href="#" title="{{ $tag->description }}">{{ $tag->name }}</a></li>
+                    <li><a href="{{ filter_query('all', 'all', 'rank', 'asc') }}" title="{{ $tag->description }}">{{ $tag->name }}</a></li>
                 @endforeach
             </ul>
             <h5>Server Modes</h5>
