@@ -1,6 +1,7 @@
 <?php
 
 use App\Server;
+use App\Tag;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;
 
@@ -15,7 +16,12 @@ class DatabaseSeeder extends Seeder
     {
         Artisan::call('migrate:fresh');
 
-        for ($i = 0; $i < 5000; $i++)
+        $server_count = 35;
+
+        /**
+         * Generation Seeder.
+         */
+        for ($i = 0; $i < $server_count; $i++)
         {
             /** @var Server $server */
             $server = factory('App\Server')->create();
@@ -26,9 +32,16 @@ class DatabaseSeeder extends Seeder
 
             App\Jobs\UpdateServerTrendGrowth::dispatchNow($server);
 
-            echo "Created {$server->name} : row {$i}\n";
+            echo "Created [{$i}/{$server_count}] {$server->name}\n";
+
+            // ATTACH SOME FAKE TAGS TO THE SERVER.
+            $tags = Tag::all();
+            for ($j=0; $j<rand(1,5); ++$j) {
+                $server->tags()->attach($tags->pull(rand(1, $tags->count())));
+            }
         }
 
+        // DISPATCH RANK QUERY.
         App\Jobs\RankServerCollection::dispatchNow(Server::all());
     }
 }

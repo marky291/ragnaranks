@@ -26,6 +26,13 @@ class ServerMode extends Model
     protected $table = 'servers_modes';
 
     /**
+     * The name of the "updated at" column.
+     *
+     * @var string
+     */
+    const UPDATED_AT = null;
+
+    /**
      * The attributes that aren't mass assignable.
      *
      * @var array

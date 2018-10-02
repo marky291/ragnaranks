@@ -137,6 +137,16 @@ class Server extends Model
     }
 
     /**
+     * The tags that belong to this server.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tag', 'servers_tags');
+    }
+
+    /**
      * Reset the vote and click counters of the server for this month.
      *
      * @return bool
@@ -147,6 +157,9 @@ class Server extends Model
     }
 
     /**
+     * This seems to cause some delay on loading a server model?
+     * Still faster than a database query result however.
+     *
      * @param string $relation
      *
      * @throws Exception

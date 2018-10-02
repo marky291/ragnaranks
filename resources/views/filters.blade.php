@@ -21,8 +21,9 @@
             </ul>
             <h5>Server Types</h5>
             <ul>
-                <li>Role Playing</li>
-                <li>Player Killing</li>
+                @foreach(\App\Tag::all() as $tag)
+                    <li><a href="#" title="{{ $tag->description }}">{{ $tag->name }}</a></li>
+                @endforeach
             </ul>
             <h5>Server Modes</h5>
             <ul>

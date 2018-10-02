@@ -41,8 +41,9 @@
         <div class="footer d-flex">
             <div class="tags flex-fill d-flex justify-content-start">
                 <div class="tag {{ $server->cache('mode')->name }}">{{ $server->cache('mode')->name }}</div>
-                <div class="tag roleplay">RolePlay</div>
-                <div class="tag player-kill">PK Mode</div>
+                @foreach($server->tags as $tag)
+                    <div class="tag {{ $tag->tag }}" title="{{ $tag->description }}">{{ $tag->tag }}</div>
+                @endforeach
             </div>
             <div class="information flex-fill d-flex text-right justify-content-end rounded align-items-center">
                 <div class="info flex-fill text-center"><b>Base Rate</b>: {{ $server->cache('config')->base_exp_rate }}x</div>

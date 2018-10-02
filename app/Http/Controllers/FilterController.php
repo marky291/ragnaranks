@@ -36,7 +36,7 @@ class FilterController extends Controller
      */
     private function build(Builder $builder)
     {
-        return $this->view->with('servers', $builder->simplePaginate(25));
+        return $this->view->with('servers', $builder->simplePaginate(10));
     }
 
     /**

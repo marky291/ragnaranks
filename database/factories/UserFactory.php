@@ -101,41 +101,6 @@ $factory->define(App\Server::class, function (Faker $faker) {
             'banner' => 'https://www.arena-top100.com/images/users/Smusmus.jpg',
             'description' => 'German P Server Gaming Community! 3 RO Servers: lowrate 5/5/5 L99/70 Pre-Renewal | midrate 50/50/50 L175 Renewal | highrate 5k/5k/1k L999 Renewal | 24/7 Uptime German/English Support! Visit Our Site for more info!',
         ],
-        [
-            'name' => 'Core Ragnarok Online',
-            'banner' => 'https://www.arena-top100.com/images/users/coreragnarok.gif',
-            'description' => 'Server Rates 8k8kModified -REAL MONEY TRADING IS ALLOWED- Guild Package Ready To PVP Server More On Quest Up to 255120 Transcendent Class Only Guild Capacity 3636 PK Unfrozen-Server Features Modified Soul link effects Dark RO Based Modified Lhz Cards effect Dark RO Based Fixed Cast delay for some skills for balancing purpose Purely balanced server Wing and Weapon quest enabled Break the Seal quest Mini WOE Event Invasion Event Token Quest hunting Gold Room Deadbranch Room Hourly System...',
-        ],
-        [
-            'name' => 'Explosive RO',
-            'banner' => 'https://www.arena-top100.com/images/users/explosivero.png',
-            'description' => '255-120 - 5k-5k-1k - 255 Max Stat - 195 Max ASPD - Hunt, Quest, PK Oriented Server - Protected from DDoS - Gepard Protection - Hosted in Asia',
-        ],
-        [
-            'name' => 'Domina Ragnarok Online',
-            'banner' => 'https://www.arena-top100.com/images/users/marksalvania.jpg',
-            'description' => 'SERVER INFORMATION 255 300 all stats High rate PICK Server. 20k20k10k and 10 MVP Card drop. All items are obtainable by just farminghuntingvoting and NO OP Donation. This is not a business TYPE Server. Our goal is to make our players enjoy everything and make the community grow up to have more. Youll gain more friends here and encounter generous players that is willing to help you for your good start. Anyone can enjoy the game and PK like a boss. All fair for all players.',
-        ],
-        [
-            'name' => 'Imperial RO Best Asian Server',
-            'banner' => 'https://www.arena-top100.com/images/users/imperialro.png',
-            'description' => 'Imperial RO Best Asian Ragnarok Server Lag-Free Lots of in-game events Tons of things to do Join Now Imperial Warriors',
-        ],
-        [
-            'name' => 'Selcouth Ragnarok Online',
-            'banner' => 'https://www.arena-top100.com/images/users/xxdervyxx.gif',
-            'description' => 'Selcouth Ragnarok Online is a Super High Rate private server customized for unique player vs player and monster vs player experience! Woe friendly! Crazy PvP! Insane MvPs! Max level 500/150. Max Stats 400. Rates: 5000/5000/custom. Custom MVPS drop fantastic items! To keep them rare, equip drops are .25 or .5 with gum. Balanced 3rd jobs. Customized produce database for Mechanics to forge uber weapons. Many custom pets! Awesome custom gears. Friendly community, friendl',
-        ],
-        [
-            'name' => 'Harmony RO - Deva',
-            'banner' => 'https://www.arena-top100.com/images/users/deva.png',
-            'description' => 'Midrate 25x 25x 10x - Keine Donates - Renewal 16.1 - Doram und Rebellion - Achievement System',
-        ],
-        [
-            'name' => 'RoyalRO - Become part of the story',
-            'banner' => 'https://www.arena-top100.com/images/users/RoyalRO.jpg',
-            'description' => '5x 5x 3x 1x Quests Exp Max Lv 9970 Pre-Renewall Episode 13.2 no 3rd Job very balanced and farmable Donations Achivements request-Support-System Daily selectable Events over 80 Monster Kill-Quests Share 20 LVL',
-        ],
     ]);
 
     $server = $server->random();
