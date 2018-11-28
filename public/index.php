@@ -2,4 +2,4 @@
 
     echo "Automatic Deployment Successful :)";
 
-    echo "\n\n\n\n\nConfiguration v1.1";
+    echo "\n\n\n\n\nConfiguration v1.2";
