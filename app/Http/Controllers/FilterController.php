@@ -49,7 +49,7 @@ class FilterController extends Controller
     public function index()
     {
         /** @noinspection PhpParamsInspection */
-        return $this->build(Server::filter('all', 'all', 'votes_count', 'desc'));
+        return $this->build(Server::filter('all', 'all', 'rank', 'asc'));
     }
 
     /**

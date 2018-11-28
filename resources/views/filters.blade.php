@@ -30,17 +30,17 @@
 
                 <div class="server-ranking">
 
-                    @include('partials.cards')
+                    @foreach ($servers as $server)
 
-                    @include('partials.cards')
+                        @include('partials.cards', ['server' => $server])
 
-                    <div class="server-ads">
-                        <img src="img/ads.jpg" alt="">
-                    </div>
+                    @endforeach
 
-                    @include('partials.cards')
+                    {{-- GOOGLE AD --}}
+                    {{--<div class="server-ads">--}}
+                        {{--<img src="img/ads.jpg" alt="">--}}
+                    {{--</div>--}}
 
-                    @include('partials.cards')
 
                 </div>
 

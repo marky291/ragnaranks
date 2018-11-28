@@ -16,32 +16,41 @@ class DatabaseSeeder extends Seeder
     {
         Artisan::call('migrate:fresh');
 
-        $server_count = 35;
+        $server_count = 15;
 
-        /**
-         * Generation Seeder.
-         */
-        for ($i = 0; $i < $server_count; $i++)
+        $servers = factory('App\Server', $server_count)->create();
+
+        $progress = $this->command->getOutput()->createProgressBar($server_count);
+
+        $this->command->alert("Generating {$server_count} servers for Ragnaranks");
+
+        foreach ($servers as $server)
         {
-            /** @var Server $server */
-            $server = factory('App\Server')->create();
+            // update the progress bar
+            $progress->advance();
 
+            // generate some fake clicks for the server.
             factory('App\ServerClick', rand(200, 500))->create(['server_id' => $server->id]);
 
+            // generate some fake votes for the server.
             factory('App\ServerVote', rand(100, 300))->create(['server_id' => $server->id]);
 
+            // generate the trend growth stats for the server.
             App\Jobs\UpdateServerTrendGrowth::dispatchNow($server);
 
-            echo "Created [{$i}/{$server_count}] {$server->name}\n";
-
-            // ATTACH SOME FAKE TAGS TO THE SERVER.
+            // grab all the tags.
             $tags = Tag::all();
-            for ($j=0; $j<rand(1,5); ++$j) {
+
+            // generate some tags for the server.
+            for ($j = 0; $j < rand(1, 5); ++$j) {
                 $server->tags()->attach($tags->pull(rand(1, $tags->count())));
             }
+
+            // console information about the creation.
+            $this->command->line("\tGenerated {$server->name}");
         }
 
-        // DISPATCH RANK QUERY.
+        // dispatch the job to calculate server ranks.
         App\Jobs\RankServerCollection::dispatchNow(Server::all());
     }
 }
