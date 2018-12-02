@@ -1,47 +1,33 @@
-
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 
 // Variables
 @import 'variables';
-@import "cards";
-//@import 'tailwind';
-@import "sidebar";
-@import "tags";
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-@import "ea_dev";
+// flickity sliders
+@import "~flickity/dist/flickity.css";
 
-body {
-  font-size: 13px;
+// management of logo styles.
+@import 'logo';
+
+@import 'colours';
+@import 'navbar';
+@import 'spotlight';
+@import 'stage';
+@import 'cards';
+@import 'buttons';
+
+html {
+  font-size: 100%;
 }
 
-header {
-  background: white;
+h1,h2,h3,h4,h5 {
+  font-family: 'Roboto', sans-serif;
 }
 
-.header-background {
-  min-height: 30em;
-  background-color: #A66D58;
-}
-
-.body-background {
-  padding-top:3em;
-  padding-bottom: 3em;
-  background: url("../images/white_brick_wall.png");
-
-  .container {
-    padding-top: 1.3em;
-    padding-bottom: 1.3em;
-    background: rgba(158, 158, 158, 0.17);
-  }
-}
-
-
-.website-name {
-  font-size: larger;
-  font-weight: bold;
-  text-decoration: underline;
+.shadow-inner {
+  box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.35);
 }

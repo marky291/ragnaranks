@@ -47,11 +47,6 @@ $factory->define(App\Server::class, function (Faker $faker) {
             'description' => 'Rates: 8k/8k/3k // MaxLvl: 500/120 // Renewal content with some Pre-RE mechanics // 3rd Jobs // Oboro, Kagerou, Rebellion, Dorams // Active PvP // Bat...',
         ],
         [
-            'name' => 'Revival Online Private Server',
-            'banner' => 'https://www.top100arena.com/siteBanners/site_0000093763_37c9af60.gif',
-            'description' => 'RevivalRO located in ASIA NO LAG Loki server Rates: 100x/100x/20x - Maximum Level: 255/120 1200+ Hats many Custom Instances/Monster/Items 300 to 550 p...',
-        ],
-        [
             'name' => 'Ragnarok Online Island',
             'banner' => 'https://www.top100arena.com/siteBanners/site_0000093898_5fa09420.png',
             'description' => 'ONLINE 1000+ | Launched: 13. June 2018 | International Mid-Rate (df server) | Pre-RE | Episode 13.3+ | Rates: 77x77x33x~99x99x44x | BattleGrounds 2.0...',
@@ -65,11 +60,6 @@ $factory->define(App\Server::class, function (Faker $faker) {
             'name' => 'Melee-RO',
             'banner' => 'http://www.top100arena.com/siteBanners/site_0000093881_b48ddabe.gif',
             'description' => 'Pre-Renewal. Rates 75x/75x/50x. Cartas 0.16% y MvP 0.02%. Max 99/70. Sin CASH SHOP/ANTI Pay-2-Win. Gepard Shield 3.0. PACK DE BIENVENIDA y GUILD PACK!...',
-        ],
-        [
-            'name' => 'Gathering RO',
-            'banner' => 'https://premium.topg.org/511217/411824_7641.png',
-            'description' => 'World Bosses • WoE Rewards • Legendary Gear/Quests • Daily Challenges & Quests • Login Rewards • Balanced 3rd Classes • Battleground Queue • 5k/5k/Dynamic • Level 250/120 • Stats 200 • WoE Castle Rotation • Service NPCs • No Wipe',
         ],
         [
             'name' => 'Limit RO',

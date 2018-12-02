@@ -1,0 +1,10 @@
+#spotlight {
+
+  .nav-link {
+    &.active {
+      font-weight: bold;
+      background-color: #5b3b8026;
+    }
+  }
+
+}

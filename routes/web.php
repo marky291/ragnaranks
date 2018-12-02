@@ -21,3 +21,7 @@ Route::get('/servers/{exp_group}/{mode}/{sort}/{orderBy}')->uses('FilterControll
 
 \Illuminate\Support\Facades\Auth::routes();
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+

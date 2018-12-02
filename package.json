@@ -17,10 +17,9 @@
         "laravel-mix": "^2.0",
         "lodash": "^4.17.5",
         "popper.js": "^1.12",
-        "tailwindcss": "^0.6.5",
-        "vue": "^2.5.7"
+        "vue": "^2.5.17"
     },
     "dependencies": {
-        "laravel-mix-tailwind": "^0.1.0"
+        "flickity": "^2.1.2"
     }
 }

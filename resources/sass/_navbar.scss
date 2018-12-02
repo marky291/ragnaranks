@@ -1,0 +1,27 @@
+#navbar-top {
+  background-color: #604ea6;
+}
+
+#logo {
+  font-size:1.7em;
+}
+
+.navbar-nav {
+
+  font-family: 'Roboto', sans-serif;
+
+  .nav-link {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  .nav-link:hover {
+    color: white !important;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    background: #7d619c;
+    webkit-border-radius: 3px;
+    moz-border-radius: 3px;
+    border-radius: 3px;
+  }
+}

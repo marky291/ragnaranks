@@ -13,3 +13,11 @@ function filter_query($exp_group = "all", $mode = "any", $column_name = "all", $
 {
     return route('filter.query', [$exp_group, $mode, $column_name, $orderBy]);
 }
+
+/**
+ * @return \Faker\Generator
+ */
+function fake()
+{
+    return \Faker\Factory::create();
+}
