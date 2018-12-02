@@ -26,7 +26,7 @@
 
         <div class="col-5 collapse navbar-collapse order-4 order-md-4" id="navbar">
             <ul class="navbar-nav flex-fill justify-content-end">
-                <li class="nav-item dropdown active">
+                <li class="nav-item dropdown active rounded">
                     <a class="nav-link" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="member d-flex flex-row align-items-center">
                             <div class="avatar">

@@ -10633,11 +10633,17 @@ a.text-dark:focus {
   font-size: 1.7em;
 }
 
+#navbar-top {
+  border-bottom: 2px solid white;
+}
+
 .navbar-nav {
   font-family: 'Roboto', sans-serif;
 }
 
 .navbar-nav .nav-link {
+  background-color: #3b277c57;
+  border-radius: 5px;
   color: rgba(255, 255, 255, 0.7) !important;
 }
 
