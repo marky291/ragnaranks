@@ -60,8 +60,8 @@
     </div>
 
     {{-- Quick view information on the server --}}
-    <div class="glance d-flex">
-        <ul class="list-unstyled d-flex flex-1">
+    <div class="glance d-flex mb-2">
+        <ul class="list-unstyled d-flex flex-1 mb-0 align-items-center">
             <li class="mr-3"><span class="font-weight-bold ">Rates:</span> {{ $server->config->base_exp_rate }}/{{ $server->config->job_exp_rate }}</li>
             <li class="mr-3"><span class="font-weight-bold">Episode:</span> {{ $server->episode }}</li>
             <li class="mr-3"><span class="font-weight-bold">Max Level:</span> {{ $server->config->max_base_level }}</li>
@@ -69,8 +69,17 @@
         </ul>
 
         <div class="buttons d-flex justify-content-end flex-fill">
-            <div class="btn-primary">Visit</div>
-            <div class="btn-primary">Direct</div>
+            <a href="" class="btn btn btn-outline-primary mr-2 btn-sm" tabindex="0">Expand
+                    <img
+                        src="{{ asset('img/icons/magnifyer.gif') }}"
+                        alt="View more information on this server" height="16" width="16"
+                    >
+            </a>
+            <a href="" class="btn btn btn-primary btn-sm" tabindex="0">Warp
+                    <img src="{{ asset('img/icons/butterfly_wing.gif') }}"
+                        alt="Visit the servers webiste for information" height="16" width="16"
+                    >
+            </a>
         </div>
     </div>
 

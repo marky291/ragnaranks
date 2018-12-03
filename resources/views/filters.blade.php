@@ -8,6 +8,10 @@
 
             <div class="col-8 py-4">
 
+                <div id="sorting">
+                    sorting
+                </div>
+
                 @foreach($servers as $server)
 
                     @include('partials.card', ['server' => $server])
