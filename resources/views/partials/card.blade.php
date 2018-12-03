@@ -62,9 +62,9 @@
     {{-- Quick view information on the server --}}
     <div class="glance d-flex">
         <ul class="list-unstyled d-flex flex-1">
-            <li class="mr-3"><span class="font-weight-bold ">Rates:</span> {{ $server->cache('config')->base_exp_rate }}/{{ $server->cache('config')->job_exp_rate }}</li>
+            <li class="mr-3"><span class="font-weight-bold ">Rates:</span> {{ $server->config->base_exp_rate }}/{{ $server->config->job_exp_rate }}</li>
             <li class="mr-3"><span class="font-weight-bold">Episode:</span> {{ $server->episode }}</li>
-            <li class="mr-3"><span class="font-weight-bold">Max Level:</span> {{ $server->cache('config')->max_base_level }}</li>
+            <li class="mr-3"><span class="font-weight-bold">Max Level:</span> {{ $server->config->max_base_level }}</li>
             <li class="mr-3"><span class="font-weight-bold">Daily Online:</span> {{ rand(0, 499) }}</li>
         </ul>
 
