@@ -1,3 +1,5 @@
+$color-blue: #10a9f5;
+
 .microcard {
   .information {
     h3 {
@@ -15,4 +17,61 @@
       color: rgba(0, 0, 0, 0.6);
     }
   }
+}
+
+.server {
+  .counter {
+    font-size: 24px;
+    font-weight: 900;
+    color: #525860;
+    line-height: 1.2;
+  }
+}
+
+.card {
+  border: none;
+  border-radius: 0;
+
+  .overview {
+    color: white;
+    background-color: #fcfbff;
+    border-bottom: 1px solid #dde2e5;
+    .rank {
+      background-color: $color-blue;
+      text-transform: uppercase;
+      .score {
+        font-weight: bold;
+      }
+      .title {
+        font-size: 10px;
+        letter-spacing: 2px;
+        background-color: #43484d;
+      }
+    }
+    .interactions {
+      color: rgba(0, 0, 0, 0.3);
+      &>div {
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .detailed {
+    .name h3 {
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+      font-size: 1.125rem;
+    }
+    .description {
+      padding-left:1em;
+      border-left:1px solid $color-blue;
+    }
+    .flares {
+      font-size: 0.8em;
+    }
+  }
+
+
 }

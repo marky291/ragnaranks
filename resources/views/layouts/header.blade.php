@@ -7,10 +7,10 @@
 
         <div class="col-5 collapse navbar-collapse order-3 order-md-2 px-0" id="navbar">
             <ul class="navbar-nav">
-                <li class="nav-item mr-3">
+                <li class="nav-item mr-2">
                     <a class="nav-link text-dark" href="page-about.html">Home</a>
                 </li>
-                <li class="nav-item mr-3">
+                <li class="nav-item mr-2">
                     <a class="nav-link text-dark" href="page-contact.html">Advertise</a>
                 </li>
                 <li class="nav-item">

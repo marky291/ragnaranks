@@ -1,0 +1,19 @@
+
+.flare {
+  padding-left: 1em;
+  padding-right: 1em;
+  width: fit-content;
+  border-radius: 2px;
+  text-transform: uppercase;
+
+  &.pre-renewal {
+    color: white;
+    background-color:#d77071;
+  }
+
+  &.roleplay {
+    color: white;
+    background-color:#7899dc;
+  }
+
+}
