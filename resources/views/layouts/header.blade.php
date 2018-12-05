@@ -57,27 +57,46 @@
     </div>
 </nav>
 
-<nav id="spotlight" class="bg-white shadow-inner">
+<nav id="spotlight" class="bg-white shadow-inner pt-4">
     <div class="container">
-        <div class="row">
-            <div class="col-8 server-rates">
-                <nav class="nav">
-                    <a class="nav-link py-3 text-muted active" href="#">All</a>
-                    <a class="nav-link py-3 text-muted" href="#">Low Rate</a>
-                    <a class="nav-link py-3 text-muted" href="#">Mid Rate</a>
-                    <a class="nav-link py-3 text-muted" href="#">High Rate</a>
-                </nav>
-            </div>
-            <div class="col-4 justify-content-end align-self-center text-right">
-                <a class="text-muted" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3"><circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line></svg>
-                </a>
-            </div>
+        <div id="filter" class="d-flex mb-4">
+            <h3 class="w-15 d-flex align-items-center mb-0 mr-2 text-orange">Looking for</h3>
+
+            <select class="form-control-sm mr-2">
+                <option value="all">Any Rates</option>
+                <option value="">Official Rates</option>
+                <option value="">Low Rates</option>
+                <option value="">Mid Rates</option>
+                <option value="">High Rates</option>
+                <option value="">Super Rates</option>
+                <option value="">Instant Rates</option>
+            </select>
+
+            <select class="form-control-sm mr-2">
+                <option value="all">Any Mode</option>
+                @foreach(\App\ServerMode::all() as $mode)
+                    <option value="">{{ ucfirst($mode->name) }} Mode</option>
+                @endforeach
+            </select>
+
+            <select class="form-control-sm mr-2">
+                <option value="all">With Any Tags</option>
+                @foreach(\App\Tag::all() as $tag)
+                    <option>With {{ ucfirst($tag->name) }}</option>
+                @endforeach
+            </select>
+
+            <select class="form-control-sm flex-fill">
+                <option>Sort by Score</option>
+                <option>Sort by Rank Position</option>
+                <option>Sort by Date added</option>
+                <option>Sort by Online since</option>
+            </select>
         </div>
     </div>
 </nav>
 
-<div id="stage" class="pt-4 pb-5">
+<div id="stage" class="pt-4 pb-4">
 
     <div class="container">
         <h4 class="title text-muted mb-0">Sponsored <i class="fas fa-info-circle"></i></h4>

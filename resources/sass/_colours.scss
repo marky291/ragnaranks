@@ -1,10 +1,30 @@
 
 $color-orange: #ff7500;
 $color-grey-darkest: #2a2a2a;
+$color-green: #8dc73f;
+
+
+.text-green {
+  color: $color-green;
+}
+.border-left-green-1 {
+  border-left: 1px solid $color-green;
+}
+.background-green-faded {
+  background-color: rgba($color-green, 0.08);
+}
+
 
 .text-orange {
   color: $color-orange;
 }
+.border-left-orange-1 {
+  border-left: 1px solid $color-orange;
+}
+.background-orange-faded {
+  background-color: rgba($color-orange, 0.08);
+}
+
 
 .bg-grey-darkest {
   background-color: $color-grey-darkest;

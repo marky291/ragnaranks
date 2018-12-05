@@ -75,7 +75,7 @@
                         alt="View more information on this server" height="16" width="16"
                     >
             </a>
-            <a href="" class="btn btn btn-primary btn-sm" tabindex="0">Warp
+            <a href="" class="btn btn btn-primary btn-sm" tabindex="0">Visit
                     <img src="{{ asset('img/icons/butterfly_wing.gif') }}"
                         alt="Visit the servers webiste for information" height="16" width="16"
                     >

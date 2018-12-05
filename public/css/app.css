@@ -10617,8 +10617,28 @@ a.text-dark:focus {
   letter-spacing: 0.1em;
 }
 
+.text-green {
+  color: #8dc73f;
+}
+
+.border-left-green-1 {
+  border-left: 1px solid #8dc73f;
+}
+
+.background-green-faded {
+  background-color: rgba(141, 199, 63, 0.08);
+}
+
 .text-orange {
   color: #ff7500;
+}
+
+.border-left-orange-1 {
+  border-left: 1px solid #ff7500;
+}
+
+.background-orange-faded {
+  background-color: rgba(255, 117, 0, 0.08);
 }
 
 .bg-grey-darkest {
@@ -10739,7 +10759,6 @@ a.text-dark:focus {
   margin: 0;
   padding: 0;
   line-height: 1;
-  font-size: 1.125rem;
 }
 
 .card .detailed .description {
@@ -10801,6 +10820,11 @@ a.text-dark:focus {
   background-color: #7899dc;
 }
 
+#filter select {
+  color: #515861;
+  border: 1px solid #dfe8ef;
+}
+
 html {
   font-size: 100%;
 }
@@ -10830,8 +10854,24 @@ h5 {
   font-weight: 700;
 }
 
+h3 {
+  font-size: 1.200rem;
+}
+
+h4 {
+  font-size: 1.000rem;
+}
+
+.subheading {
+  color: rgba(82, 88, 96, 0.7);
+}
+
 .shadow-inner {
   -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.35);
           box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.35);
+}
+
+.w-15 {
+  width: 15% !important;
 }
 
