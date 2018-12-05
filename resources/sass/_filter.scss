@@ -2,8 +2,12 @@
 #filter {
 
   select {
-    color: rgb(81, 88, 97);
-    border: 1px solid #dfe8ef;
+    color: #596269;
+    border-bottom: 1px solid #dfe8ef;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    box-shadow: 0px 1px 1px #dfe8ef;
   }
 
 }

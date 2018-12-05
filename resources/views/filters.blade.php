@@ -6,42 +6,7 @@
 
         <div class="row">
 
-            <div class="col-8 py-4">
-
-                <div id="filter" class="d-flex mb-4">
-                    <h3 class="w-15 d-flex align-items-center mb-0 mr-2 text-orange">Looking for</h3>
-
-                    <select class="form-control-sm mr-2">
-                        <option value="all">Any Rates</option>
-                        <option value="">Official Rates</option>
-                        <option value="">Low Rates</option>
-                        <option value="">Mid Rates</option>
-                        <option value="">High Rates</option>
-                        <option value="">Super Rates</option>
-                        <option value="">Instant Rates</option>
-                    </select>
-
-                    <select class="form-control-sm mr-2">
-                        <option value="all">Any Mode</option>
-                        @foreach(\App\ServerMode::all() as $mode)
-                            <option value="">{{ ucfirst($mode->name) }} Mode</option>
-                        @endforeach
-                    </select>
-
-                    <select class="form-control-sm mr-2">
-                        <option value="all">With Any Tags</option>
-                        @foreach(\App\Tag::all() as $tag)
-                            <option>With {{ ucfirst($tag->name) }}</option>
-                        @endforeach
-                    </select>
-
-                    <select class="form-control-sm flex-fill">
-                        <option>Sort by Score</option>
-                        <option>Sort by Rank Position</option>
-                        <option>Sort by Date added</option>
-                        <option>Sort by Online since</option>
-                    </select>
-                </div>
+            <div class="col-8 py-5">
 
                 @foreach($servers as $server)
 
@@ -51,7 +16,7 @@
 
             </div>
 
-            <div id="sidebar" class="col-4 py-4">
+            <div id="sidebar" class="col-4 py-5">
 
                 <div class="content">
                     <h3 class="mb-0">Filters</h3>
