@@ -14,14 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 // default index page.
-Route::get('/')->uses('FilterController@index')->name('filter.index');
+Route::get('/')->uses('HomeController@index')->name('home');
 
 // card filtering system.
-Route::get('/servers/{exp_group}/{mode}/{sort}/{orderBy}')->uses('FilterController@query')->name('filter.query');
+Route::get('/servers/{exp_group}/{mode}/{sort}/{orderBy}')->uses('HomeController@query')->name('filter.query');
 
-\Illuminate\Support\Facades\Auth::routes();
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
+// authentication routes (login & logout)
+Illuminate\Support\Facades\Auth::routes();

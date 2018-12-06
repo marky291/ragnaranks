@@ -10774,6 +10774,29 @@ a.text-dark:focus {
   font-size: 0.8em;
 }
 
+.card-basic {
+  padding-top: 0.75rem;
+  border-bottom: 2px solid #f8f9fb;
+}
+
+.card-basic .show-counter,
+.card-basic .show-percentage,
+.card-basic .show-sentence {
+  background: #dae0ea;
+  color: #644cac;
+  font-weight: bold;
+}
+
+.card-basic .show-counter {
+  width: 50px;
+  height: 50px;
+}
+
+.card-basic .show-percentage {
+  width: 50px;
+  height: 50px;
+}
+
 .btn-primary {
   color: #fff;
   background-color: #10a9f5;
@@ -10802,6 +10825,10 @@ a.text-dark:focus {
   border-radius: 2px;
   margin-bottom: 1rem;
   padding: 1.5em;
+}
+
+#sidebar #awards .listing {
+  padding-bottom: 0.75rem;
 }
 
 .flare {

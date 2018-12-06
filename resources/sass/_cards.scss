@@ -71,6 +71,37 @@ $color-blue: #10a9f5;
       font-size: 0.8em;
     }
   }
+}
 
 
+.card-basic {
+  padding-top: 0.75rem;
+  border-bottom: 2px solid #f8f9fb;
+
+  .detail {
+
+  }
+
+  .show-counter, .show-percentage, .show-sentence {
+    background: #dae0ea;
+    color: #644cac;
+    font-weight: bold;
+  }
+
+  // for numbers
+  .show-counter {
+    width: 50px;
+    height: 50px;
+  }
+
+  // for percentages
+  .show-percentage {
+    width: 50px;
+    height: 50px;
+  }
+
+  // for words
+  .show-sentence {
+
+  }
 }
