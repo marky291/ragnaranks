@@ -36,7 +36,7 @@ class HomeController extends Controller
      */
     private function build(Builder $builder)
     {
-        return $this->view->with('servers', $builder->simplePaginate(10));
+        return $this->view->with('servers', $builder->simplePaginate(7));
     }
 
     /**

@@ -1,0 +1,36 @@
+
+  footer {
+    padding-top: 16rem;
+    background: radial-gradient(circle at 1% 1%,#604ea6, #3b3592);
+
+    h2 {
+      color: white;
+      font-size: 1.4em;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      line-height: 1.7;
+      color: white;
+    }
+
+    .list {
+      li {
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+    }
+
+    .icon {
+      font-size: 1.6rem;
+    }
+
+    #copyrights {
+
+      font-size:0.9rem;
+      margin-top:6rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      border-top: 1px solid hsla(0,0%,100%,.1);
+    }
+  }

@@ -31,13 +31,15 @@
                 <?php /** @var \App\Server $server */ ?>
 
                 <div id="awards" class="content py-0">
-                    @include('partials.cards.basic', [
+                    @include('partials.sidebar.statistic', [
                         'server' => \App\Server\CardinalServerRepository::HighestVoteTrend(),
-                        'message' => "Top Trending Votes"
+                        'message' => "Top Trending Votes",
+                        'column' => 'votes_trend',
                     ])
-                    @include('partials.cards.basic', [
+                    @include('partials.sidebar.statistic', [
                         'server' => \App\Server\CardinalServerRepository::HighestClicksTrend(),
-                        'message' => "Top Trending Visits"
+                        'message' => "Top Trending Visits",
+                        'column' => 'clicks_trend',
                     ])
                 </div>
 
@@ -54,16 +56,15 @@
                                 </div>
                                 <div class="bottom">
                                     <i class="fas fa-server"></i> {{ $server->getExpGroupAttribute() }}
-                                    <i class="fas fa-clock"></i> {{ $server->created_at->diffForHumans() }}
+                                    <i class="ml-2 fas fa-clock"></i> {{ $server->created_at->diffForHumans() }}
                                 </div>
                             </div>
-                            <div class="show-percentage d-flex align-items-center justify-content-center">
+                            <div class="show-counter bg-light text-info d-flex align-items-center justify-content-center rounded">
                                 {{ rand(15, 100) }}
                             </div>
                         </div>
                     @endforeach
                 </div>
-
             </div>
 
         </div>

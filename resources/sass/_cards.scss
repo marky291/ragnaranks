@@ -76,32 +76,27 @@ $color-blue: #10a9f5;
 
 .card-basic {
   padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  color: rgba(82, 88, 96, 0.75);
   border-bottom: 2px solid #f8f9fb;
 
-  .detail {
-
+  .top {
+    font-weight: bold;
+    a {
+      color: $color-blue;
+    }
+    margin-bottom: 6px;
   }
 
-  .show-counter, .show-percentage, .show-sentence {
+  .stat {
+    font-size: 1.2em;
+  }
+
+  .show-counter {
     background: #dae0ea;
     color: #644cac;
     font-weight: bold;
-  }
-
-  // for numbers
-  .show-counter {
-    width: 50px;
-    height: 50px;
-  }
-
-  // for percentages
-  .show-percentage {
-    width: 50px;
-    height: 50px;
-  }
-
-  // for words
-  .show-sentence {
-
+    height:50px;
+    width:50px;
   }
 }

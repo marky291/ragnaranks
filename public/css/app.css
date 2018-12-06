@@ -10629,6 +10629,10 @@ a.text-dark:focus {
   background-color: rgba(141, 199, 63, 0.08);
 }
 
+.text-transparent {
+  color: rgba(255, 255, 255, 0.5);
+}
+
 .text-orange {
   color: #ff7500;
 }
@@ -10641,12 +10645,16 @@ a.text-dark:focus {
   background-color: rgba(255, 117, 0, 0.08);
 }
 
+.text-red {
+  color: #fc0097ab;
+}
+
 .bg-grey-darkest {
   background-color: #2a2a2a;
 }
 
 #navbar-top {
-  background-color: #604ea6;
+  background: radial-gradient(circle at 50% 1%, #604ea6, #3b3592);
 }
 
 #logo {
@@ -10776,25 +10784,30 @@ a.text-dark:focus {
 
 .card-basic {
   padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  color: rgba(82, 88, 96, 0.75);
   border-bottom: 2px solid #f8f9fb;
 }
 
-.card-basic .show-counter,
-.card-basic .show-percentage,
-.card-basic .show-sentence {
-  background: #dae0ea;
-  color: #644cac;
+.card-basic .top {
   font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.card-basic .top a {
+  color: #10a9f5;
+}
+
+.card-basic .stat {
+  font-size: 1.2em;
 }
 
 .card-basic .show-counter {
-  width: 50px;
+  background: #dae0ea;
+  color: #644cac;
+  font-weight: bold;
   height: 50px;
-}
-
-.card-basic .show-percentage {
   width: 50px;
-  height: 50px;
 }
 
 .btn-primary {
@@ -10859,6 +10872,39 @@ a.text-dark:focus {
   border-right: none;
   -webkit-box-shadow: 0px 1px 1px #dfe8ef;
           box-shadow: 0px 1px 1px #dfe8ef;
+}
+
+footer {
+  padding-top: 16rem;
+  background: radial-gradient(circle at 1% 1%, #604ea6, #3b3592);
+}
+
+footer h2 {
+  color: white;
+  font-size: 1.4em;
+  margin-bottom: 1.5rem;
+}
+
+footer p {
+  line-height: 1.7;
+  color: white;
+}
+
+footer .list li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+footer .icon {
+  font-size: 1.6rem;
+}
+
+footer #copyrights {
+  font-size: 0.9rem;
+  margin-top: 6rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 html {
