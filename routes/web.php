@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// authentication routes (login & logout)
+Illuminate\Support\Facades\Auth::routes();
+
 // default index page.
 Route::get('/')->uses('HomeController@index')->name('home');
 
 // card filtering system.
 Route::get('/servers/{exp_group}/{mode}/{sort}/{orderBy}')->uses('HomeController@query')->name('filter.query');
-
-// authentication routes (login & logout)
-Illuminate\Support\Facades\Auth::routes();
