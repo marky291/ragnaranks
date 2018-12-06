@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <div id="copyrights" class="container text-center">
+        <div id="copyrights" class="container text-center rounded-top">
             <p class="text-transparent mb-0">©Ragnaranks 2018. All Rights belong to Respective Owners</p>
             <p class="text-transparent mb-0">
                 Developed and Designed by <a class=text-white href="https://www.facebook.com/Marky291">Mark Hester</a>,

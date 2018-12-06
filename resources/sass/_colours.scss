@@ -4,6 +4,7 @@ $color-grey-darkest: #2a2a2a;
 $color-green: #8dc73f;
 $color-red: #fc0097ab;
 $color-transparent: hsla(0,0%,100%,.5);
+$color-blue: #10a9f5;
 
 .text-green {
   color: $color-green;
@@ -33,6 +34,10 @@ $color-transparent: hsla(0,0%,100%,.5);
 
 .text-red {
   color: $color-red;
+}
+
+.text-blue {
+  color: $color-blue;
 }
 
 .bg-grey-darkest {

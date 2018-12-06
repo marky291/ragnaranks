@@ -29,9 +29,12 @@
                 <div class="name"><h3>{{ $server->name }}</h3></div>
                 <div class="created subheading"><small>Online Since: {{ $server->created_at->format('dS F Y') }}</small></div>
             </div>
-            <div class="w-25 align-self-end text-right">
+            <div class="w-25 align-self-center text-right text-muted">
                 <div class="language">
-                    <span class="mr-2">English Server</span> <img src="img/English.gif" alt="english language">
+                    <span class="mr-2">
+                        <small>English Server</small>
+                    </span>
+                    <img src="img/English.gif" alt="english language">
                 </div>
             </div>
         </div>
@@ -48,10 +51,15 @@
                 @endforeach
             </div>
 
-            {{--<div class="social w-25">--}}
-                {{--<iframe src="https://www.facebook.com/plugins/like.php?href=https://facebook.com/EADevOfficial%2F&width=124&layout=button_count&action=like&size=small&show_faces=false&share=true&height=46&appId=508842139484989" width="124" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>--}}
-            {{--</div>--}}
-
+            <div class="stars w-25 align-self-end text-right" style="font-size: 1em">
+                <span class="text-muted">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half"></i>
+                </span>
+                <a href="" class="">24 Reviews</a>
+            </div>
         </div>
 
         <div class="description my-3 text-justify">

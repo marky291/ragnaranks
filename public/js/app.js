@@ -15821,7 +15821,7 @@ module.exports = __webpack_require__(58);
 
 __webpack_require__(19);
 __webpack_require__(42);
-__webpack_require__(68);
+// require('./fixed-spotlight');
 
 window.Vue = __webpack_require__(55);
 
@@ -51331,39 +51331,6 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */,
-/* 68 */
-/***/ (function(module, exports) {
-
-$(document).ready(function () {
-    window.onscroll = function () {
-        myFunction();
-    };
-
-    var header = document.getElementById("spotlight");
-    var filter = document.getElementById("filter");
-    var sticky = header.offsetTop;
-
-    function myFunction() {
-        if (window.pageYOffset > sticky) {
-            header.classList.add("sticky");
-            filter.classList.add("sticky");
-        } else {
-            header.classList.remove("sticky");
-            filter.classList.remove("sticky");
-        }
-    }
-});
 
 /***/ })
 /******/ ]);
