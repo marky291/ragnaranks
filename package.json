@@ -20,6 +20,7 @@
         "vue": "^2.5.17"
     },
     "dependencies": {
-        "flickity": "^2.1.2"
+        "flickity": "^2.1.2",
+        "vue-sticky-directive": "0.0.6"
     }
 }

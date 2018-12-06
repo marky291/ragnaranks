@@ -15810,8 +15810,9 @@ module.exports = __webpack_require__(58);
 
 /***/ }),
 /* 18 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -15820,6 +15821,7 @@ module.exports = __webpack_require__(58);
 
 __webpack_require__(19);
 __webpack_require__(42);
+__webpack_require__(68);
 
 window.Vue = __webpack_require__(55);
 
@@ -15843,7 +15845,7 @@ window.Vue = __webpack_require__(55);
  */
 
 var app = new Vue({
-  el: '#app'
+  el: '#vue-container'
 });
 
 /***/ }),
@@ -51329,6 +51331,39 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+    window.onscroll = function () {
+        myFunction();
+    };
+
+    var header = document.getElementById("spotlight");
+    var filter = document.getElementById("filter");
+    var sticky = header.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+            filter.classList.add("sticky");
+        } else {
+            header.classList.remove("sticky");
+            filter.classList.remove("sticky");
+        }
+    }
+});
 
 /***/ })
 /******/ ]);

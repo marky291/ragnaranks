@@ -6,6 +6,7 @@
 
 require('./bootstrap');
 require('./flickity/stage-flickr');
+require('./fixed-spotlight');
 
 window.Vue = require('vue');
 
@@ -29,5 +30,5 @@ window.Vue = require('vue');
  */
 
 const app = new Vue({
-    el: '#app'
+    el: '#vue-container',
 });

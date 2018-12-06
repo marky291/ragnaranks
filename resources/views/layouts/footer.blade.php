@@ -1,5 +1,5 @@
 
-    <footer class="">
+    <footer class="shadow-inner">
 
         <div class="container d-flex mb-5">
             <div class="w-50 mr-5">
@@ -21,7 +21,7 @@
                     <h2>Develop</h2>
                     <ul class="list-unstyled list">
                         <li class="text-transparent">Share your ideas</li>
-                        <li class="text-transparent">Contribute to codebase</li>
+                        <li class="text-transparent">Contribute to Codebase</li>
                     </ul>
                 </div>
                 <div class="flex-fill">
