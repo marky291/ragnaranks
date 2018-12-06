@@ -182,7 +182,7 @@ class Server extends Model
      */
     public function getExpGroupAttribute()
     {
-        $server_base = $this->cache('config')->base_exp_rate;
+        $server_base = $this->config->base_exp_rate;
 
         if ($server_base <= config('filter.exp.low-rate.max'))
             return 'Low Rate';
