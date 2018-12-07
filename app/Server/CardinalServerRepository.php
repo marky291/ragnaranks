@@ -36,6 +36,6 @@ class CardinalServerRepository extends Server
      */
     public static function LatestServerReviews($limit = 3)
     {
-        return self::query()->get()->random($limit);
+        return self::query()->get();
     }
 }

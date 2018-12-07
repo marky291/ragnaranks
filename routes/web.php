@@ -20,7 +20,6 @@ Illuminate\Support\Facades\Auth::routes();
 //Route::get('/')->uses('ServerController@index')->name('server.index');
 
 Route::resource('/', 'ServerController');
-Route::resource('query', 'QueryController', ['only' => 'index']);
 
 // card filtering system.
-Route::get('/servers/{exp_group}/{mode}/{sort}/{orderBy}')->uses('HomeController@query')->name('filter.query');
+Route::get('/servers/{exp_group}/{mode}/{sort}/{orderBy}')->uses('QueryController@index')->name('filter.query');

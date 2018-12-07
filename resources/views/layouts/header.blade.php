@@ -120,7 +120,7 @@
 
         <div class="server-stage">
 
-            @foreach(\App\Server::all()->random(5) as $server)
+            @foreach(\App\Server::query()->limit(5) as $server)
                 <div class="carousel-cell mr-3">@include('partials.cards.preview', ['server' => $server])</div>
             @endforeach
         </div>
