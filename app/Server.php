@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Redis;
  *
  * @property int $id
  * @property string $name
+ * @property string $slug
  * @property string $website
  * @property string $description
  * @property string $banner_url
@@ -65,6 +66,16 @@ class Server extends Model
      * @var array
      */
     protected $guarded = [];
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     /**
      * A server has one configuration set.
@@ -179,6 +190,8 @@ class Server extends Model
      * @return string
      * @throws \Exception
      * @noinspection PhpUnhandledExceptionInspection
+     *
+     * @todo: Move this to ServerConfig::class ?
      */
     public function getExpGroupAttribute()
     {
@@ -206,6 +219,8 @@ class Server extends Model
      * @throws Exception
      *
      * @return Builder
+     *
+     * @todo: Make its own class? [FilterBuilder]
      */
     public static function filter($exp_group = "all", $mode = "all", $sort_column = "any", $orderBy = 'desc')
     {

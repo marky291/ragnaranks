@@ -101,6 +101,7 @@ class CreateServerTable extends Migration
             $table->integer('rank_growth')->default(0);
             $table->unsignedInteger('user_id');
             $table->string('name');
+            $table->string('slug');
             $table->string('banner_url');
             $table->longText('description');
             $table->string('website');

@@ -97,6 +97,7 @@ $factory->define(App\Server::class, function (Faker $faker) {
 
     return [
         'name' => $server['name'],
+        'slug' => str_slug($server['name']),
         'user_id' => factory('App\User')->create()->id,
         'website' => $faker->url,
         'mode_id' => ServerMode::inRandomOrder()->first(),
