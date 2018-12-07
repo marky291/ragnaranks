@@ -19,7 +19,7 @@
             </ul>
         </div>
 
-        <a id="logo" class="col-2 navbar-brand mx-auto order-1 order-md-3 font-weight-bold text-center" href="{{ route('home') }}">
+        <a id="logo" class="col-2 navbar-brand mx-auto order-1 order-md-3 font-weight-bold text-center" href="{{ route('index') }}">
             {{--Ragna<br><span id="under">Ranks</span>--}}
             <img src="img/logo.png" alt="" style="height:64px; width: auto;">
         </a>
