@@ -17,9 +17,12 @@ use Illuminate\Support\Facades\Route;
 Illuminate\Support\Facades\Auth::routes();
 
 // default index page.
-//Route::get('/')->uses('ServerController@index')->name('server.index');
+Route::get('/')->uses('ServerController@index')->name('index');
 
-Route::resource('/', 'ServerController');
+
+Route::get('/server/{server}')->uses('ServerController@show')->name('server.show');
+
+//Route::resource('server', 'ServerController');
 
 // card filtering system.
 Route::get('/servers/{exp_group}/{mode}/{sort}/{orderBy}')->uses('QueryController@index')->name('filter.query');

@@ -15836,7 +15836,7 @@ window.Vue = __webpack_require__(55);
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
 
-//Vue.component('example-component', require('./components/ExampleComponent.vue'));
+//Vue.component('rating-circle', require('./components/RadialProgressionCircles'));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -77,7 +77,7 @@
         </ul>
 
         <div class="buttons d-flex justify-content-end flex-fill">
-            <a href="" class="btn btn btn-outline-primary mr-2 btn-sm" tabindex="0">Expand
+            <a href="{{ route('server.show', $server) }}" class="btn btn btn-outline-primary mr-2 btn-sm" tabindex="0">Expand
                     <img
                         src="{{ asset('img/icons/magnifyer.gif') }}"
                         alt="View more information on this server" height="16" width="16"

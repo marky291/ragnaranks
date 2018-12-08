@@ -50,12 +50,13 @@ class ServerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Server  $server
+     *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Server $server)
     {
-        return view('home');
+        return view('server.show', ['server' => $server]);
     }
 
     /**

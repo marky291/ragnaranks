@@ -10621,6 +10621,10 @@ a.text-dark:focus {
   color: #8dc73f;
 }
 
+.background-green {
+  background-color: #8dc73f;
+}
+
 .border-left-green-1 {
   border-left: 1px solid #8dc73f;
 }

@@ -1,5 +1,5 @@
 
-    <footer class="shadow-inner">
+    <footer class="shadow-inner mt-5">
 
         <div class="website-banner container text-uppercase text-left mb-4">
             <h1 class="text-transparent">Ragnaranks.com</h1>

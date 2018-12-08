@@ -21,6 +21,5 @@
     },
     "dependencies": {
         "flickity": "^2.1.2",
-        "vue-sticky-directive": "0.0.6"
     }
 }
