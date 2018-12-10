@@ -10637,6 +10637,10 @@ a.text-dark:focus {
   color: rgba(255, 255, 255, 0.5);
 }
 
+.background-transparent-dark-15 {
+  background: rgba(0, 0, 0, 0.15);
+}
+
 .text-orange {
   color: #ff7500;
 }
@@ -10659,6 +10663,10 @@ a.text-dark:focus {
 
 .bg-grey-darkest {
   background-color: #2a2a2a;
+}
+
+.text-black {
+  color: #22292f;
 }
 
 #navbar-top {
@@ -10933,6 +10941,80 @@ footer .website-banner h1 {
   letter-spacing: 1.8rem;
   margin-bottom: 1em;
   color: rgba(255, 255, 255, 0.1);
+}
+
+.reviews .review {
+  padding: 1em;
+}
+
+.reviews .review:hover {
+  background: #f6f6f6;
+}
+
+#server-profile {
+  background: -webkit-gradient(linear, left top, left bottom, from(#f44881), to(#ec454f));
+  background: linear-gradient(180deg, #f44881, #ec454f);
+}
+
+#server-profile .labels ul li {
+  font-weight: bold;
+  display: inline;
+  font-size: 9.5px;
+  padding: .5rem 1rem;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.15);
+  color: white;
+}
+
+#server-profile .screenshot {
+  border: 3px solid white;
+}
+
+#server-profile .stars {
+  font-size: 1.3em;
+  letter-spacing: 9px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#server-profile .actions .btn {
+  margin-right: 1rem;
+  border-radius: 9px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+#server-profile .actions .btn-trans {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#server-profile .actions .btn-trans:hover,
+#server-profile .actions .btn-trans.active {
+  background-color: #fff;
+  color: #22292f;
+  border: 1px solid #fff;
+}
+
+#configuration .block {
+  padding: .75rem 1.5rem;
+  border: 1px dashed #eae8e8;
+}
+
+#configuration .block .value {
+  font-size: 18px;
+  color: #3d4852;
+}
+
+#configuration .block .name {
+  font-size: 9.6px;
+  color: #8795a1;
+  font-weight: 500;
 }
 
 html {

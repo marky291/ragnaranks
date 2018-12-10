@@ -5,10 +5,12 @@ $color-green: #8dc73f;
 $color-red: #fc0097ab;
 $color-transparent: hsla(0,0%,100%,.5);
 $color-blue: #10a9f5;
+$color-black: #22292f;
 
 .text-green {
   color: $color-green;
 }
+
 .background-green {
   background-color: $color-green;
 }
@@ -24,6 +26,9 @@ $color-blue: #10a9f5;
   color: $color-transparent;
 }
 
+.background-transparent-dark-15 {
+  background: rgba(0,0,0,.15);
+}
 
 .text-orange {
   color: $color-orange;
@@ -46,4 +51,9 @@ $color-blue: #10a9f5;
 
 .bg-grey-darkest {
   background-color: $color-grey-darkest;
+}
+
+
+.text-black {
+  color: $color-black;
 }

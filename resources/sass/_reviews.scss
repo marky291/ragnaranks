@@ -1,0 +1,10 @@
+
+.reviews {
+     .review {
+         padding: 1em;
+
+         &:hover {
+             background: #f6f6f6;
+         }
+     }
+ }
