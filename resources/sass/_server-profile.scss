@@ -1,6 +1,6 @@
 
 
-  #server-profile {
+  #curtain {
     background: linear-gradient(180deg,#f44881,#ec454f);
 
     .labels ul li {
@@ -14,11 +14,12 @@
     }
 
     .screenshot {
-      border: 3px solid white;
+      //border: 3px solid white;
     }
 
     .stars {
-      font-size: 1.3em;
+      color: #ffffffc4;
+      font-size: 1em;
       letter-spacing: 9px;
       justify-content: center;
     }
@@ -55,6 +56,7 @@
 
   #configuration {
     .block {
+      flex: 1;
       padding: .75rem 1.5rem;
       border: 1px dashed #eae8e8;
 

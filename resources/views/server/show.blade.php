@@ -4,7 +4,7 @@
 
     <?php /** @var App\Server $server */ ?>
 
-    <section id="server-profile">
+    <section id="curtain">
         <div class="container p-5">
             <div class="row">
                 <div class="col-7">
@@ -35,8 +35,8 @@
                 </div>
                 <div class="col-3 offset-2 d-flex align-items-center">
                     <div class="">
-                        <img class="rounded screenshot" src="{{ fake()->imageUrl(500,500) }}" alt="" width="100%">
-                        <div class="stars d-flex flex-row text-white text-center mt-4">
+                        <img class="rounded screenshot" src="{{ url("https://www.novaragnarok.com/themes/new/img/memberLoginLogo.png") }}" alt="" width="100%">
+                        <div class="stars d-flex flex-row text-white text-center mt-5">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star-half-alt"></i>
@@ -48,89 +48,83 @@
         </div>
     </section>
 
-    <section id="configuration">
-        <div class="container d-flex flex-row">
-            <div class="block">
-                <div class="value">{{ $server->config->max_base_level }}</div>
-                <div class="name">Max Base Level</div>
-            </div>
-            <div class="block">
-                <div class="value">{{ $server->config->max_job_level }}</div>
-                <div class="name">Max Job Level</div>
-            </div>
-            <div class="block">
-                <div class="value">{{ $server->config->max_aspd }}</div>
-                <div class="name">ASPD Max Stat</div>
-            </div>
-            <div class="block">
-                <div class="value">{{ $server->config->max_stats }}</div>
-                <div class="name">Max Stats</div>
-            </div>
-            <div class="block">
-                <div class="value">{{ $server->config->base_exp_rate }}x</div>
-                <div class="name">Base Exp Rate</div>
-            </div>
-            <div class="block">
-                <div class="value">{{ $server->config->job_exp_rate }}x</div>
-                <div class="name">Job Exp Rate</div>
-            </div>
-            <div class="block">
-                <div class="value">{{ $server->config->instant_cast_stat }}x</div>
-                <div class="name">Instant Cast Rate</div>
-            </div>
-            <div class="block">
-                <div class="value">{{ $server->config->drop_base_rate }}x</div>
-                <div class="name">Drop Base</div>
-            </div>
-            <div class="block">
-                <div class="value">{{ $server->config->drop_base_mvp_rate }}x</div>
-                <div class="name">Drop Base MVP</div>
-            </div>
-            <div class="block">
-                <div class="value">{{ $server->config->drop_base_special_rate }}x</div>
-                <div class="name">Drop Special Base</div>
-            </div>
-            <div class="block">
-                <div class="value">{{ $server->config->drop_base_rate }}x</div>
-                <div class="name">Drop Card Base</div>
-            </div>
-            <div class="block">
-                <div class="value">{{ $server->config->drop_base_mvp_rate }}x</div>
-                <div class="name">Drop Card MVP</div>
-            </div>
-            <div class="block">
-                <div class="value">{{ $server->config->drop_base_special_rate }}x</div>
-                <div class="name">Drop Special Card</div>
+    <section id="configuration" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-red pt-4">Base and Job Rates</h3>
+                    <div class="d-flex flex-row">
+                        <div class="block">
+                            <div class="name">Max Base Level</div>
+                            <div class="value">{{ $server->config->max_base_level }}</div>
+                        </div>
+                        <div class="block">
+                            <div class="name">Max Job Level</div>
+                            <div class="value">{{ $server->config->max_job_level }}</div>
+                        </div>
+                        <div class="block">
+                            <div class="name">Base Exp Rate</div>
+                            <div class="value">{{ $server->config->base_exp_rate }}x</div>
+                        </div>
+                        <div class="block">
+                            <div class="name">Job Exp Rate</div>
+                            <div class="value">{{ $server->config->job_exp_rate }}x</div>
+                        </div>
+                    </div>
+                    <h3 class="text-red pt-4">Character Stats</h3>
+                    <div class="d-flex flex-row">
+                        <div class="block">
+                            <div class="name">ASPD Max Stat</div>
+                            <div class="value">{{ $server->config->max_aspd }}</div>
+                        </div>
+                        <div class="block">
+                            <div class="name">Max Stats</div>
+                            <div class="value">{{ $server->config->max_stats }}</div>
+                        </div>
+                        <div class="block">
+                            <div class="name">Instant Cast Rate</div>
+                            <div class="value">{{ $server->config->instant_cast_stat }}x</div>
+                        </div>
+                    </div>
+                    <h3 class="text-red pt-4">Drop Rates</h3>
+                    <div class="d-flex flex-row">
+                        <div class="block">
+                            <div class="name">Drop Base</div>
+                            <div class="value">{{ $server->config->drop_base_rate }}x</div>
+                        </div>
+                        <div class="block">
+                            <div class="name">Drop Base MVP</div>
+                            <div class="value">{{ $server->config->drop_base_mvp_rate }}x</div>
+                        </div>
+                        <div class="block">
+                            <div class="name">Drop Special Base</div>
+                            <div class="value">{{ $server->config->drop_base_special_rate }}x</div>
+                        </div>
+                        <div class="block">
+                            <div class="name">Drop Card Base</div>
+                            <div class="value">{{ $server->config->drop_base_rate }}x</div>
+                        </div>
+                        <div class="block">
+                            <div class="name">Drop Card MVP</div>
+                            <div class="value">{{ $server->config->drop_base_mvp_rate }}x</div>
+                        </div>
+                        <div class="block">
+                            <div class="name">Drop Special Card</div>
+                            <div class="value">{{ $server->config->drop_base_special_rate }}x</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <div class="server container mt-5">
-        <div class="row">
-            <div class="col-9">
-                <h2 class="text-dark">{{ $server->name }}</h2>
-                <div class="subheading mb-2">
-                    <a href="{{ url($server->website) }}">{{ $server->website }}</a>
-                </div>
-                <div class="description">
-                    <p>{{ fake()->sentence(300) }}</p>
-                </div>
-            </div>
-            <div class="col-3 d-flex flex-column justify-content-end">
-                <a class="btn btn-outline-primary mb-2" href="">Go To Website</a>
-                <a class="btn btn-outline-primary mb-2" href="">Cast a Vote</a>
-                <a class="btn btn-outline-primary mb-2" href="">Create a Review</a>
-            </div>
-        </div>
-    </div>
-
-    <section class="mt-4">
-        <div class="container bg-light py-3 mb-3 rounded">
-            <h3 class="text-dark mb-3">Balance Ratings</h3>
+    <section id="ratings" class="py-4">
+        <div class="container py-3 mb-3 rounded" style="background: #ff627666; border:1px solid rgba(255, 255, 255, 0.2);">
+            <h3 class="text-white font-weight-normal mb-3">Balance Ratings</h3>
             <div class="row no-gutters">
-                <div class="col mr-2 bg-white p-3 d-flex align-items-center">
+                <div class="col mr-2 bg-white p-3 d-flex align-items-center rounded">
                     <div class="rating-block d-flex flex-row">
-                        <div class="rating w-25 d-flex mr-3" style="font-size: 3rem">
+                        <div class="rating w-25 d-flex align-items-center mr-3" style="font-size: 3rem">
                             {!! ColorScaleCounter(rand(1, 10)) !!}
                         </div>
                         <div class="text">
@@ -139,9 +133,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col mr-2 bg-white p-3 d-flex align-items-center">
+                <div class="col mr-2 bg-white p-3 d-flex align-items-center rounded">
                     <div class="rating-block d-flex flex-row">
-                        <div class="rating w-25 d-flex mr-3" style="font-size: 3rem">
+                        <div class="rating w-25 d-flex align-items-center mr-3" style="font-size: 3rem">
                             {!! ColorScaleCounter(rand(1, 10)) !!}
                         </div>
                         <div class="text">
@@ -150,9 +144,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col mr-2 bg-white p-3 d-flex align-items-center">
+                <div class="col mr-2 bg-white p-3 d-flex align-items-center rounded">
                     <div class="rating-block d-flex flex-row">
-                        <div class="rating w-25 d-flex mr-3" style="font-size: 3rem">
+                        <div class="rating w-25 d-flex align-items-center  mr-3" style="font-size: 3rem">
                             {!! ColorScaleCounter(rand(1, 10)) !!}
                         </div>
                         <div class="text">
@@ -161,9 +155,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col mr-2 bg-white p-3 d-flex align-items-center">
+                <div class="col bg-white p-3 d-flex align-items-center rounded">
                     <div class="rating-block d-flex flex-row">
-                        <div class="rating w-25 d-flex mr-3" style="font-size: 3rem">
+                        <div class="rating w-25 d-flex align-items-center  mr-3" style="font-size: 3rem">
                             {!! ColorScaleCounter(rand(1, 10)) !!}
                         </div>
                         <div class="text">
@@ -174,12 +168,12 @@
                 </div>
             </div>
         </div>
-        <div class="container bg-light py-3 mb-3 rounded">
-            <h3 class="text-dark mb-3">Server Ratings</h3>
+        <div class="container py-3 mb-3 rounded" style="background: #ff627666; border:1px solid rgba(255, 255, 255, 0.2)">
+            <h3 class="text-white font-weight-normal mb-3">Server Ratings</h3>
             <div class="row no-gutters">
-                <div class="col mr-2 bg-white p-3 d-flex align-items-center">
+                <div class="col mr-2 bg-white p-3 d-flex align-items-center rounded">
                     <div class="rating-block d-flex flex-row">
-                        <div class="rating w-25 d-flex mr-3" style="font-size: 3rem">
+                        <div class="rating w-25 d-flex align-items-center  mr-3" style="font-size: 3rem">
                             {!! ColorScaleCounter(rand(1, 10)) !!}
                         </div>
                         <div class="text">
@@ -188,9 +182,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col mr-2 bg-white p-3 d-flex align-items-center">
+                <div class="col mr-2 bg-white p-3 d-flex align-items-center rounded">
                     <div class="rating-block d-flex flex-row">
-                        <div class="rating w-25 d-flex mr-3" style="font-size: 3rem">
+                        <div class="rating w-25 d-flex align-items-center  mr-3" style="font-size: 3rem">
                             {!! ColorScaleCounter(rand(1, 10)) !!}
                         </div>
                         <div class="text">
@@ -199,9 +193,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col mr-2 bg-white p-3 d-flex align-items-center">
+                <div class="col mr-2 bg-white p-3 d-flex align-items-center rounded">
                     <div class="rating-block d-flex flex-row">
-                        <div class="rating w-25 d-flex mr-3" style="font-size: 3rem">
+                        <div class="rating w-25 d-flex align-items-center  mr-3" style="font-size: 3rem">
                             {!! ColorScaleCounter(rand(1, 10)) !!}
                         </div>
                         <div class="text">
@@ -210,9 +204,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col mr-2 bg-white p-3 d-flex align-items-center">
+                <div class="col p-3 bg-white d-flex align-items-center rounded">
                     <div class="rating-block d-flex flex-row">
-                        <div class="rating w-25 d-flex mr-3" style="font-size: 3rem">
+                        <div class="rating w-25 d-flex align-items-center  mr-3" style="font-size: 3rem">
                             {!! ColorScaleCounter(rand(1, 10)) !!}
                         </div>
                         <div class="text">
@@ -225,92 +219,7 @@
         </div>
     </section>
 
-    <section class="mt-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-6">
-                    <h3 class="text-dark">Server Configuration</h3>
-                    <table class="table table-hover">
-                        <thead>
-                        <tr class="bg-light">
-                            <th scope="col">Config</th>
-                            <th scope="col">Value</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">Max Base Level</th>
-                            <td>{{ $server->config->max_base_level }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Max Job Level</th>
-                            <td>{{ $server->config->max_job_level }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Max ASPD</th>
-                            <td>{{ $server->config->max_aspd }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Max Stat Level</th>
-                            <td>{{ $server->config->max_stats }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Base Exp Rate</th>
-                            <td>{{ $server->config->base_exp_rate }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Base Job Rate</th>
-                            <td>{{ $server->config->job_exp_rate }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Instance Cast Stat</th>
-                            <td>{{ $server->config->instant_cast_stat }}</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-6">
-                    <h3 class="text-dark">Drop Rates & EXP</h3>
-                    <table class="table table-hover">
-                        <thead>
-                        <tr class="bg-light">
-                            <th scope="col">Config</th>
-                            <th scope="col">Value</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">Drop Base Rate</th>
-                            <td>{{ $server->config->drop_base_rate }}x</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Drop Rate MVP Base</th>
-                            <td>{{ $server->config->drop_base_mvp_rate }}x</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Drop Base Special Rate</th>
-                            <td>{{ $server->config->drop_base_special_rate }}x</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Drop Card Rate</th>
-                            <td>{{ $server->config->drop_card_rate }}x</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Drop Card MVP Rate</th>
-                            <td>{{ $server->config->drop_card_mvp_rate }}x</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Drop Card Special Rate</th>
-                            <td>{{ $server->config->drop_card_special_rate }}x</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="mt-4">
+    <section id="reviews" class="mt-4">
         <div class="container">
             <div class="reviews">
                 <h2>Reviews</h2>
