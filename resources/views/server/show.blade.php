@@ -48,179 +48,59 @@
         </div>
     </section>
 
-    <section id="configuration" class="py-5">
-        <div class="container">
+    <section id="configuration">
+        <div class="container p-5">
+            <h3 class="heading mb-4 text-dark">Server Configuration Setup</h3>
             <div class="row">
-                <div class="col-12">
-                    <h3 class="text-red pt-4">Base and Job Rates</h3>
-                    <div class="d-flex flex-row">
-                        <div class="block">
-                            <div class="name">Max Base Level</div>
-                            <div class="value">{{ $server->config->max_base_level }}</div>
-                        </div>
-                        <div class="block">
-                            <div class="name">Max Job Level</div>
-                            <div class="value">{{ $server->config->max_job_level }}</div>
-                        </div>
-                        <div class="block">
-                            <div class="name">Base Exp Rate</div>
-                            <div class="value">{{ $server->config->base_exp_rate }}x</div>
-                        </div>
-                        <div class="block">
-                            <div class="name">Job Exp Rate</div>
-                            <div class="value">{{ $server->config->job_exp_rate }}x</div>
-                        </div>
-                    </div>
-                    <h3 class="text-red pt-4">Character Stats</h3>
-                    <div class="d-flex flex-row">
-                        <div class="block">
-                            <div class="name">ASPD Max Stat</div>
-                            <div class="value">{{ $server->config->max_aspd }}</div>
-                        </div>
-                        <div class="block">
-                            <div class="name">Max Stats</div>
-                            <div class="value">{{ $server->config->max_stats }}</div>
-                        </div>
-                        <div class="block">
-                            <div class="name">Instant Cast Rate</div>
-                            <div class="value">{{ $server->config->instant_cast_stat }}x</div>
-                        </div>
-                    </div>
-                    <h3 class="text-red pt-4">Drop Rates</h3>
-                    <div class="d-flex flex-row">
-                        <div class="block">
-                            <div class="name">Drop Base</div>
-                            <div class="value">{{ $server->config->drop_base_rate }}x</div>
-                        </div>
-                        <div class="block">
-                            <div class="name">Drop Base MVP</div>
-                            <div class="value">{{ $server->config->drop_base_mvp_rate }}x</div>
-                        </div>
-                        <div class="block">
-                            <div class="name">Drop Special Base</div>
-                            <div class="value">{{ $server->config->drop_base_special_rate }}x</div>
-                        </div>
-                        <div class="block">
-                            <div class="name">Drop Card Base</div>
-                            <div class="value">{{ $server->config->drop_base_rate }}x</div>
-                        </div>
-                        <div class="block">
-                            <div class="name">Drop Card MVP</div>
-                            <div class="value">{{ $server->config->drop_base_mvp_rate }}x</div>
-                        </div>
-                        <div class="block">
-                            <div class="name">Drop Special Card</div>
-                            <div class="value">{{ $server->config->drop_base_special_rate }}x</div>
-                        </div>
-                    </div>
+                <div class="col-4 d-flex flex-column">
+                    @include('server.partial.config', ['name'=>'Base Exp Rate', 'value' => $server->config->base_exp_rate])
+                    @include('server.partial.config', ['name'=>'Job Exp Rate', 'value' => $server->config->job_exp_rate])
+                    @include('server.partial.config', ['name'=>'Max Base Level', 'value' => $server->config->max_base_level])
+                    @include('server.partial.config', ['name'=>'Max Job Level', 'value' => $server->config->max_job_level])
+                </div>
+                <div class="col-4 d-flex flex-column">
+                    @include('server.partial.config', ['name'=>'Max Basic Stats', 'value' => $server->config->max_stats])
+                    @include('server.partial.config', ['name'=>'Max ASPD', 'value' => $server->config-> max_aspd])
+                    @include('server.partial.config', ['name'=>'Instant Cast Stat', 'value' => 'Dex: '.$server->config->instant_cast_stat])
+                </div>
+                <div class="col-4 d-flex flex-column">
+                    @include('server.partial.config', ['name'=>'Drop Base', 'value' => $server->config->drop_base_rate])
+                    @include('server.partial.config', ['name'=>'Drop Base MVP', 'value' => $server->config->drop_base_mvp_rate])
+                    {{--@include('server.partial.config', ['name'=>'Drop Base Special', 'value' => $server->config->drop_base_special_rate])--}}
+                    @include('server.partial.config', ['name'=>'Drop Card', 'value' => $server->config->drop_card_rate])
+                    @include('server.partial.config', ['name'=>'Drop Card MVP', 'value' => $server->config->drop_card_mvp_rate])
+                    {{--@include('server.partial.config', ['name'=>'Drop Card Special', 'value' => $server->config->drop_card_special_rate])--}}
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="ratings" class="py-4">
-        <div class="container py-3 mb-3 rounded" style="background: #ff627666; border:1px solid rgba(255, 255, 255, 0.2);">
-            <h3 class="text-white font-weight-normal mb-3">Balance Ratings</h3>
-            <div class="row no-gutters">
-                <div class="col mr-2 bg-white p-3 d-flex align-items-center rounded">
-                    <div class="rating-block d-flex flex-row">
-                        <div class="rating w-25 d-flex align-items-center mr-3" style="font-size: 3rem">
-                            {!! ColorScaleCounter(rand(1, 10)) !!}
-                        </div>
-                        <div class="text">
-                            <h4>Donation Balance</h4>
-                            <p class="mb-0">Can non-donators compete with donators</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mr-2 bg-white p-3 d-flex align-items-center rounded">
-                    <div class="rating-block d-flex flex-row">
-                        <div class="rating w-25 d-flex align-items-center mr-3" style="font-size: 3rem">
-                            {!! ColorScaleCounter(rand(1, 10)) !!}
-                        </div>
-                        <div class="text">
-                            <h4>Update Balance</h4>
-                            <p class="mb-0">Do update increase or improve balance each time</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mr-2 bg-white p-3 d-flex align-items-center rounded">
-                    <div class="rating-block d-flex flex-row">
-                        <div class="rating w-25 d-flex align-items-center  mr-3" style="font-size: 3rem">
-                            {!! ColorScaleCounter(rand(1, 10)) !!}
-                        </div>
-                        <div class="text">
-                            <h4>Class Balance</h4>
-                            <p class="mb-0">Are classes equally as powerful.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col bg-white p-3 d-flex align-items-center rounded">
-                    <div class="rating-block d-flex flex-row">
-                        <div class="rating w-25 d-flex align-items-center  mr-3" style="font-size: 3rem">
-                            {!! ColorScaleCounter(rand(1, 10)) !!}
-                        </div>
-                        <div class="text">
-                            <h4>Item Balance</h4>
-                            <p class="mb-0">Do items have reasonable stats against others.</p>
-                        </div>
-                    </div>
+    <section id="ratings">
+        <div class="container pb-5 pr-5 pl-5">
+            <div class="py-3 mb-3 rounded" style="border:1px solid rgba(255, 255, 255, 0.2);">
+                <h3 class="heading mb-4 text-dark">Balance Ratings</h3>
+                <div class="row no-gutters">
+                    @include('server.partial.rating', ['name' => 'Donation Balance', 'description' => 'Can non-donators compete with donators.'])
+                    @include('server.partial.rating', ['name' => 'Update Balance', 'description' => 'Do update increase or improve balance each time.'])
+                    @include('server.partial.rating', ['name' => 'Class Balance', 'description' => 'Are classes equally as powerful.'])
+                    @include('server.partial.rating', ['name' => 'Item Balance', 'description' => 'Do items have reasonable stats against others.'])
                 </div>
             </div>
-        </div>
-        <div class="container py-3 mb-3 rounded" style="background: #ff627666; border:1px solid rgba(255, 255, 255, 0.2)">
-            <h3 class="text-white font-weight-normal mb-3">Server Ratings</h3>
-            <div class="row no-gutters">
-                <div class="col mr-2 bg-white p-3 d-flex align-items-center rounded">
-                    <div class="rating-block d-flex flex-row">
-                        <div class="rating w-25 d-flex align-items-center  mr-3" style="font-size: 3rem">
-                            {!! ColorScaleCounter(rand(1, 10)) !!}
-                        </div>
-                        <div class="text">
-                            <h4>Support</h4>
-                            <p class="mb-0">GMs are available and are happy to help</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mr-2 bg-white p-3 d-flex align-items-center rounded">
-                    <div class="rating-block d-flex flex-row">
-                        <div class="rating w-25 d-flex align-items-center  mr-3" style="font-size: 3rem">
-                            {!! ColorScaleCounter(rand(1, 10)) !!}
-                        </div>
-                        <div class="text">
-                            <h4>Hosting</h4>
-                            <p class="mb-0">Server is hosted in a good place with no-lag or spikes</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mr-2 bg-white p-3 d-flex align-items-center rounded">
-                    <div class="rating-block d-flex flex-row">
-                        <div class="rating w-25 d-flex align-items-center  mr-3" style="font-size: 3rem">
-                            {!! ColorScaleCounter(rand(1, 10)) !!}
-                        </div>
-                        <div class="text">
-                            <h4>Content</h4>
-                            <p class="mb-0">There is much to do in game and frequently new stuff added.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col p-3 bg-white d-flex align-items-center rounded">
-                    <div class="rating-block d-flex flex-row">
-                        <div class="rating w-25 d-flex align-items-center  mr-3" style="font-size: 3rem">
-                            {!! ColorScaleCounter(rand(1, 10)) !!}
-                        </div>
-                        <div class="text">
-                            <h4>Events</h4>
-                            <p class="mb-0">Events are made reasonably by staff and are of quality and rewards.</p>
-                        </div>
-                    </div>
+            <div class="py-3 mb-3 rounded" style="border:1px solid rgba(255, 255, 255, 0.2)">
+                <h3 class="heading mb-4 text-dark">Server Ratings</h3>
+                <div class="row no-gutters">
+                    @include('server.partial.rating', ['name' => 'Support', 'description' => 'GMs are available and are happy to help.'])
+                    @include('server.partial.rating', ['name' => 'Hosting', 'description' => 'Server is hosted in a good place with no-lag or spikes.'])
+                    @include('server.partial.rating', ['name' => 'Content', 'description' => 'There is much to do in game and frequently new stuff added.'])
+                    @include('server.partial.rating', ['name' => 'Events', 'description' => 'Events have good rewards and are usual.'])
                 </div>
             </div>
+
         </div>
     </section>
 
     <section id="reviews" class="mt-4">
-        <div class="container">
+        <div class="container p-5">
             <div class="reviews">
                 <h2>Reviews</h2>
                 <div class="review p-4 d-flex flex-row rounded">

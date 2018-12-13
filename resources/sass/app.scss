@@ -26,6 +26,7 @@
 @import 'footer';
 @import 'reviews';
 @import 'server-profile';
+@import 'tailwindsnippets.scss';
 
 html {
   font-size: 100%;
@@ -70,4 +71,11 @@ h4 {
 
 .w-15 {
   width: 15% !important;
+}
+
+.place_behind {
+  z-index: -1;
+}
+.place-in-front {
+  z-index: 1;
 }

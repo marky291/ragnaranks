@@ -53,21 +53,40 @@
     }
   }
 
+  #ratings {
+    .score  {
+      right: 10px;
+      top: -35px;
+      font-size: 5rem;
+      color: #dadfe0;
+      text-shadow: 0px 1px 3px #58585878;
+    }
+  }
 
   #configuration {
-    .block {
-      flex: 1;
-      padding: .75rem 1.5rem;
-      border: 1px dashed #eae8e8;
 
-      .value {
-        font-size: 18px;
-        color: #3d4852;
+    .heading {
+      color: white;
+      padding: 5px 10px;
+      border-radius: 6px;
+    }
+
+    .config {
+      padding: 1rem 1rem;
+      box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.03);
+      margin-bottom: 1em;
+
+      .icon {
+
       }
-      .name {
-        font-size: 9.6px;
-        color: #8795a1;
-        font-weight: 500;
+
+      .details {
+
+      }
+
+      &:hover {
+        border-radius: .5rem;
+        background-color: #f6f6f6;
       }
     }
   }

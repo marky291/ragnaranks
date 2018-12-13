@@ -10998,23 +10998,34 @@ footer .website-banner h1 {
   border: 1px solid #fff;
 }
 
-#configuration .block {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  padding: .75rem 1.5rem;
-  border: 1px dashed #eae8e8;
+#ratings .score {
+  right: 10px;
+  top: -35px;
+  font-size: 5rem;
+  color: #dadfe0;
+  text-shadow: 0px 1px 3px #58585878;
 }
 
-#configuration .block .value {
-  font-size: 18px;
-  color: #3d4852;
+#configuration .heading {
+  color: white;
+  padding: 5px 10px;
+  border-radius: 6px;
 }
 
-#configuration .block .name {
-  font-size: 9.6px;
-  color: #8795a1;
-  font-weight: 500;
+#configuration .config {
+  padding: 1rem 1rem;
+  -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.03);
+          box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.03);
+  margin-bottom: 1em;
+}
+
+#configuration .config:hover {
+  border-radius: .5rem;
+  background-color: #f6f6f6;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 html {
@@ -11065,5 +11076,13 @@ h4 {
 
 .w-15 {
   width: 15% !important;
+}
+
+.place_behind {
+  z-index: -1;
+}
+
+.place-in-front {
+  z-index: 1;
 }
 
