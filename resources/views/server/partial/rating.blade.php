@@ -3,7 +3,7 @@
 
 
 
-<div class="col mr-2 d-flex align-items-center rounded overflow-hidden rating-is-{{ $rating >= 7 ? "good" : ($rating >= 4 ? "ok" : "bad") }}">
+<div class="col mr-2 d-flex align-items-center rounded overflow-hidden score-is-{{ $rating >= 7 ? "good" : ($rating >= 4 ? "ok" : "bad") }}">
     <div class="rating-block d-flex flex-row p-3 h-100">
         <div class="d-flex">
             <div class="w-75">

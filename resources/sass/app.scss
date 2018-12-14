@@ -24,7 +24,6 @@
 @import 'flares';
 @import 'filter';
 @import 'footer';
-@import 'reviews';
 @import 'server-profile';
 @import 'tailwindsnippets.scss';
 
@@ -78,4 +77,9 @@ h4 {
 }
 .place-in-front {
   z-index: 1;
+}
+
+.heading-underline {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.7em !important;
 }

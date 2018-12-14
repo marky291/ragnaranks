@@ -10946,14 +10946,6 @@ footer .website-banner h1 {
   color: rgba(255, 255, 255, 0.1);
 }
 
-.reviews .review {
-  padding: 1em;
-}
-
-.reviews .review:hover {
-  background: #f6f6f6;
-}
-
 #curtain {
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -11003,18 +10995,6 @@ footer .website-banner h1 {
   border: 1px solid #fff;
 }
 
-#ratings .rating-is-good {
-  background: radial-gradient(circle at 1% 1%, #ff2d58, #ec454f);
-}
-
-#ratings .rating-is-ok {
-  background: #7e878f;
-}
-
-#ratings .rating-is-bad {
-  background: #7e878f;
-}
-
 #ratings .score {
   top: -5px;
   right: 24px;
@@ -11027,7 +11007,6 @@ footer .website-banner h1 {
 #configuration .heading {
   color: white;
   padding: 5px 10px;
-  border-radius: 6px;
 }
 
 #configuration .config {
@@ -11048,6 +11027,55 @@ footer .website-banner h1 {
   border-radius: .5rem;
   background-color: #f6f6f6;
   cursor: pointer;
+}
+
+#reviews .review {
+  border-left: 2px solid #ff2a49;
+}
+
+#reviews .review .info {
+  margin-bottom: 2rem;
+}
+
+#reviews .review .info .user {
+  font-weight: bold;
+}
+
+#reviews .review .info .star-rating {
+  font-size: medium;
+}
+
+#reviews .review .scores {
+  margin-top: 2rem;
+}
+
+#reviews .review .scores .score {
+  margin-right: 1em;
+  font-size: small;
+  border-radius: 5%;
+  background: #f6f6f6;
+  padding: 4px 8px;
+}
+
+#reviews .review .description {
+  text-align: justify;
+}
+
+#reviews .review:hover {
+  background: #f6f6f6;
+}
+
+.score-is-good {
+  color: white;
+  background: radial-gradient(circle at 1% 1%, #ff2d58, #ec454f) !important;
+}
+
+.score-is-ok {
+  background: #7e878f;
+}
+
+.score-is-bad {
+  background: #7e878f;
 }
 
 .overflow-hidden {
@@ -11110,5 +11138,10 @@ h4 {
 
 .place-in-front {
   z-index: 1;
+}
+
+.heading-underline {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.7em !important;
 }
 

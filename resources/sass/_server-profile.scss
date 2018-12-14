@@ -56,17 +56,6 @@
   }
 
   #ratings {
-
-    .rating-is-good {
-        background: radial-gradient(circle at 1% 1%, #ff2d58, #ec454f);
-    }
-    .rating-is-ok {
-        background: #7e878f;
-    }
-    .rating-is-bad {
-        background: #7e878f;
-    }
-
     .score  {
       top: -5px;
       right: 24px;
@@ -78,33 +67,69 @@
   }
 
   #configuration {
-
     .heading {
       color: white;
       padding: 5px 10px;
-      border-radius: 6px;
     }
-
     .config {
       padding: 1rem 1rem;
       box-shadow: inset 0px 2px 1px 0 rgba(0, 0, 0, 0.09);
       margin-bottom: 1em;
       border: 1px solid white;
       background: white;
-
       .icon {
         border-radius: 30px;
         border: 2px solid #ff1f4c;
       }
-
       .details {
 
       }
-
       &:hover {
         border-radius: .5rem;
         background-color: #f6f6f6;
         cursor: pointer;
       }
     }
+  }
+
+  #reviews {
+    .review {
+      border-left: 2px solid #ff2a49;
+      .info {
+        margin-bottom:2rem;
+        .user {
+          font-weight: bold;
+        }
+        .star-rating {
+          font-size: medium;
+        }
+      }
+      .scores {
+        margin-top:2rem;
+        .score {
+          margin-right: 1em;
+          font-size: small;
+          border-radius: 5%;
+          background: #f6f6f6;
+          padding: 4px 8px;
+        }
+      }
+      .description {
+        text-align: justify;
+      }
+      &:hover {
+        background: #f6f6f6;
+      }
+    }
+  }
+
+  .score-is-good {
+    color: white;
+    background: radial-gradient(circle at 1% 1%, #ff2d58, #ec454f) !important;
+  }
+  .score-is-ok {
+    background: #7e878f;
+  }
+  .score-is-bad {
+    background: #7e878f;
   }

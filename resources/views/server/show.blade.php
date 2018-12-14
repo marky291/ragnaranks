@@ -106,7 +106,7 @@
 
     <section id="configuration" class="bg-light">
         <div class="container p-5">
-            <h3 class="heading mb-4 text-dark">Server Configuration Setup</h3>
+            <h3 class="heading mb-4 text-dark heading-underline">Server Configuration Setup</h3>
             <div class="row">
                 <div class="col-4 d-flex flex-column">
                     @include('server.partial.config', ['name'=>'Base Exp Rate', 'value' => $server->config->base_exp_rate])
@@ -134,7 +134,7 @@
     <section id="ratings">
         <div class="container p-5">
             <div class="py-3 mb-3 rounded" style="border:1px solid rgba(255, 255, 255, 0.2);">
-                <h3 class="heading mb-4 text-dark">Balance Ratings</h3>
+                <h3 class="heading mb-4 text-dark heading-underline">Balance Ratings</h3>
                 <div class="row no-gutters">
                     @include('server.partial.rating', ['name' => 'Donation Balance', 'description' => 'Can non-donators compete with donators.'])
                     @include('server.partial.rating', ['name' => 'Update Balance', 'description' => 'Do update increase or improve balance each time.'])
@@ -143,7 +143,7 @@
                 </div>
             </div>
             <div class="py-3 mb-3 rounded" style="border:1px solid rgba(255, 255, 255, 0.2)">
-                <h3 class="heading mb-4 text-dark">Server Ratings</h3>
+                <h3 class="heading mb-4 text-dark heading-underline">Server Ratings</h3>
                 <div class="row no-gutters">
                     @include('server.partial.rating', ['name' => 'Support', 'description' => 'GMs are available and are happy to help.'])
                     @include('server.partial.rating', ['name' => 'Hosting', 'description' => 'Server is hosted in a good place with no-lag or spikes.'])
@@ -158,18 +158,8 @@
     <section id="reviews" class="mt-4">
         <div class="container p-5">
             <div class="reviews">
-                <h2>Reviews</h2>
-                <div class="review p-4 d-flex flex-row rounded">
-                    <div class="profile d-flex flex-column mr-4">
-                        <img class="avatar rounded-circle mb-2" src="{{ fake()->imageUrl(50, 50) }}" alt="Profile Avatar Image" width="50">
-                        {{--<small class="subheading level font-weight-bold text-center">Level {{ rand(1, 10) }}</small>--}}
-                    </div>
-                    <div class="content">
-                        <div class="h5"><span class="font-weight-bold text-black">{{ fake()->userName }}</span>
-                            <small>• {!! fake()->dateTimeThisMonth('now')->format('d M Y') !!}</small></div>
-                        <p>{{ fake()->sentence(200) }}</p>
-                    </div>
-                </div>
+                <h2 class="text-dark heading heading-underline">Reviews</h2>
+                @include('server.partial.review')
             </div>
         </div>
     </section>
