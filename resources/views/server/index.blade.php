@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-10 server-rates">
                     <div id="filter" class="d-flex py-4">
-                        <h3 class="d-flex align-items-center mb-0 mr-4 text-orange">I'm Looking for</h3>
+                        <h3 class="d-flex align-items-center mb-0 mr-4">I'm Looking for:</h3>
 
                         <select class="form-control-sm mr-2">
                             <option value="all">Any Rates</option>

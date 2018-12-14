@@ -6,7 +6,6 @@
 
 require('./bootstrap');
 require('./flickity/stage-flickr');
-// require('./fixed-spotlight');
 
 window.Vue = require('vue');
 

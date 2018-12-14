@@ -1,6 +1,8 @@
 
 
   #curtain {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
     background: linear-gradient(180deg,#f44881,#ec454f);
 
     .labels ul li {
@@ -54,12 +56,24 @@
   }
 
   #ratings {
+
+    .rating-is-good {
+        background: radial-gradient(circle at 1% 1%, #ff2d58, #ec454f);
+    }
+    .rating-is-ok {
+        background: #7e878f;
+    }
+    .rating-is-bad {
+        background: #7e878f;
+    }
+
     .score  {
-      right: 10px;
-      top: -35px;
+      top: -5px;
+      right: 24px;
       font-size: 5rem;
+      letter-spacing: -15px;
       color: #dadfe0;
-      text-shadow: 0px 1px 3px #58585878;
+      text-shadow: 0 1px 3px #58585878;
     }
   }
 
@@ -73,11 +87,14 @@
 
     .config {
       padding: 1rem 1rem;
-      box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.03);
+      box-shadow: inset 0px 2px 1px 0 rgba(0, 0, 0, 0.09);
       margin-bottom: 1em;
+      border: 1px solid white;
+      background: white;
 
       .icon {
-
+        border-radius: 30px;
+        border: 2px solid #ff1f4c;
       }
 
       .details {
@@ -87,6 +104,7 @@
       &:hover {
         border-radius: .5rem;
         background-color: #f6f6f6;
+        cursor: pointer;
       }
     }
   }

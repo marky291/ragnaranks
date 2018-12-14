@@ -21,21 +21,24 @@
 
         <a id="logo" class="col-2 navbar-brand mx-auto order-1 order-md-3 font-weight-bold text-center" href="{{ route('index') }}">
             {{--Ragna<br><span id="under">Ranks</span>--}}
-            <img src="img/logo.png" alt="" style="height:64px; width: auto;">
+            <img src="{{ asset('img/logo.png') }}" alt="" style="height:64px; width: auto;">
         </a>
 
         <div class="col-5 collapse navbar-collapse order-4 order-md-4" id="navbar">
             <ul class="navbar-nav flex-fill justify-content-end">
+                <li class="nav-item mr-2">
+                    <a class="nav-link text-dark" href="page-about.html">Logout</a>
+                </li>
                 <li class="nav-item dropdown active rounded">
                     <a class="nav-link" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="member d-flex flex-row align-items-center">
-                            <div class="avatar">
-                                <img src="{{ fake()->imageUrl(35,35) }}" alt="">
-                            </div>
+                            {{--<div class="avatar">--}}
+                                {{--<img src="{{ fake()->imageUrl(35,35) }}" alt="">--}}
+                            {{--</div>--}}
                             <div class="details mx-2 flex-grow-1" style="line-height: 1.1em">
                                 <p class="mb-0">
-                                    {{ fake()->userName }} <br>
-                                    {{ rand(1,3) }} servers
+                                    {{--{{ fake()->userName }} <br>--}}
+                                    Account
                                 </p>
                             </div>
                             <div class="carrot">
