@@ -1,27 +1,27 @@
 
-  #server-wrapper {
-    background: url(https://www.novaragnarok.com/forum/uploads/monthly_2016_02/Prontera.jpg.43db5c8515e97d6509a7e46fb653227b.jpg);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    //background-size: cover;
-    //background-attachment: fixed;
-    //background-repeat: no-repeat;
-    //background: url(https://www.novaragnarok.com/forum/uploads/monthly_2016_02/Prontera.jpg.43db5c8515e97d6509a7e46fb653227b.jpg);
-  }
+  //#server-wrapper {
+  //  background: url(https://www.novaragnarok.com/forum/uploads/monthly_2016_02/Prontera.jpg.43db5c8515e97d6509a7e46fb653227b.jpg);
+  //  background-attachment: fixed;
+  //  background-repeat: no-repeat;
+  //  background-size: cover;
+  //  //background-size: cover;
+  //  //background-attachment: fixed;
+  //  //background-repeat: no-repeat;
+  //  //background: url(https://www.novaragnarok.com/forum/uploads/monthly_2016_02/Prontera.jpg.43db5c8515e97d6509a7e46fb653227b.jpg);
+  //}
 
   #curtain {
-    padding-top: 5rem;
+    padding-top: 2rem;
+    background: linear-gradient(180deg,#f44881,#ec454f);
     .container {
       .row {
         padding:2em;
         padding-top:4em;
         padding-bottom: 5em;
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
-        background: white;
-        background: linear-gradient(180deg,#f44881,#ec454f);
-        box-shadow: inset 0px -1px 5px 0px #d00032;
+        //border-top-left-radius: 8px;
+        //border-top-right-radius: 8px;
+        //background: linear-gradient(180deg,#f44881,#ec454f);
+        //box-shadow: inset 0px -1px 5px 0px #d00032;
       }
     }
     //background: linear-gradient(180deg,#f44881,#ec454f);
@@ -94,7 +94,7 @@
 
   #configuration {
     .container {
-      border-top: 2px solid #c02738;
+      //border-top: 2px solid #c02738;
       //background: url("https://www.toptal.com/designers/subtlepatterns/patterns/greyzz.png");
     }
     .heading {
@@ -103,10 +103,10 @@
     }
     .config {
       padding: 1rem 1rem;
-      box-shadow: inset 0px 2px 1px 0 rgba(0, 0, 0, 0.09);
+      //box-shadow: inset 0px 2px 1px 0 rgba(0, 0, 0, 0.09);
       margin-bottom: 1em;
-      border: 1px solid white;
       background: white;
+      border: 1px solid #dddddda6;
       .icon {
         border-radius: 30px;
         border: 2px solid #ff1f4c;
