@@ -1,9 +1,35 @@
 
+  #server-wrapper {
+    background: url(https://www.novaragnarok.com/forum/uploads/monthly_2016_02/Prontera.jpg.43db5c8515e97d6509a7e46fb653227b.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    //background-size: cover;
+    //background-attachment: fixed;
+    //background-repeat: no-repeat;
+    //background: url(https://www.novaragnarok.com/forum/uploads/monthly_2016_02/Prontera.jpg.43db5c8515e97d6509a7e46fb653227b.jpg);
+  }
 
   #curtain {
     padding-top: 5rem;
-    padding-bottom: 5rem;
-    background: linear-gradient(180deg,#f44881,#ec454f);
+    .container {
+      .row {
+        padding:2em;
+        padding-top:4em;
+        padding-bottom: 5em;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        background: white;
+        background: linear-gradient(180deg,#f44881,#ec454f);
+        box-shadow: inset 0px -1px 5px 0px #d00032;
+      }
+    }
+    //background: linear-gradient(180deg,#f44881,#ec454f);
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
 
     .labels ul li {
       font-weight: bold;
@@ -67,6 +93,10 @@
   }
 
   #configuration {
+    .container {
+      border-top: 2px solid #c02738;
+      //background: url("https://www.toptal.com/designers/subtlepatterns/patterns/greyzz.png");
+    }
     .heading {
       color: white;
       padding: 5px 10px;
@@ -93,22 +123,76 @@
   }
 
   #reviews {
+    .subheading {
+      border-left: 3px solid #dddddd;
+      border-right: 3px solid #dddddd;
+      padding-left: 10px;
+    }
+
+    .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+      background: #ff0051;
+      color: white !important;
+      font-weight: bold;
+    }
+
     .review {
-      border-left: 2px solid #ff2a49;
+
+      .rating {
+        padding-top: 6% !important;
+        border-left: 1px dashed #eaeaea;
+        box-shadow: 2px 2px 2px 0 #eee;
+        .stars {
+          font-size: 13px;
+        }
+        .alt {
+          font-size: small;
+        }
+      }
+      .avatar {
+        color: white;
+        height:50px;
+        width: 50px;
+        border-radius: 50%;
+        background: #7e878f;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: large;
+        &::before {
+          width: 0;
+          height: 0;
+          border-bottom: 12px solid transparent;
+          border-top: 12px solid transparent;
+          border-right: 12px solid #fff;
+          position: absolute;
+          left: -12px;
+          top: 13px;
+          content: "";
+        }
+      }
+      .content {
+        box-shadow: 0px 2px 2px 0 #eee;
+        &::before {
+          content:"\A";
+          border-style: solid;
+          border-width: 10px 15px 10px 0;
+          border-color: transparent white transparent transparent;
+          position: absolute;
+          left: -15px;
+        }
+      }
+      //border-left: 2px solid #ff2a49;
       .info {
-        margin-bottom:2rem;
+        margin-bottom:1rem;
         .user {
           font-weight: bold;
-        }
-        .star-rating {
-          font-size: medium;
         }
       }
       .scores {
         margin-top:2rem;
         .score {
           margin-right: 1em;
-          font-size: small;
+          font-size: x-small;
           border-radius: 5%;
           background: #f6f6f6;
           padding: 4px 8px;
@@ -116,9 +200,6 @@
       }
       .description {
         text-align: justify;
-      }
-      &:hover {
-        background: #f6f6f6;
       }
     }
   }

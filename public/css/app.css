@@ -10946,11 +10946,33 @@ footer .website-banner h1 {
   color: rgba(255, 255, 255, 0.1);
 }
 
+#server-wrapper {
+  background: url(https://www.novaragnarok.com/forum/uploads/monthly_2016_02/Prontera.jpg.43db5c8515e97d6509a7e46fb653227b.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 #curtain {
   padding-top: 5rem;
-  padding-bottom: 5rem;
+}
+
+#curtain .container .row {
+  padding: 2em;
+  padding-top: 4em;
+  padding-bottom: 5em;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background: white;
   background: -webkit-gradient(linear, left top, left bottom, from(#f44881), to(#ec454f));
   background: linear-gradient(180deg, #f44881, #ec454f);
+  -webkit-box-shadow: inset 0px -1px 5px 0px #d00032;
+          box-shadow: inset 0px -1px 5px 0px #d00032;
+}
+
+#curtain h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
 }
 
 #curtain .labels ul li {
@@ -11004,6 +11026,10 @@ footer .website-banner h1 {
   text-shadow: 0 1px 3px #58585878;
 }
 
+#configuration .container {
+  border-top: 2px solid #c02738;
+}
+
 #configuration .heading {
   color: white;
   padding: 5px 10px;
@@ -11029,20 +11055,84 @@ footer .website-banner h1 {
   cursor: pointer;
 }
 
-#reviews .review {
-  border-left: 2px solid #ff2a49;
+#reviews .subheading {
+  border-left: 3px solid #dddddd;
+  border-right: 3px solid #dddddd;
+  padding-left: 10px;
+}
+
+#reviews .nav-pills .nav-link.active,
+#reviews .nav-pills .show > .nav-link {
+  background: #ff0051;
+  color: white !important;
+  font-weight: bold;
+}
+
+#reviews .review .rating {
+  padding-top: 6% !important;
+  border-left: 1px dashed #eaeaea;
+  -webkit-box-shadow: 2px 2px 2px 0 #eee;
+          box-shadow: 2px 2px 2px 0 #eee;
+}
+
+#reviews .review .rating .stars {
+  font-size: 13px;
+}
+
+#reviews .review .rating .alt {
+  font-size: small;
+}
+
+#reviews .review .avatar {
+  color: white;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: #7e878f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: large;
+}
+
+#reviews .review .avatar::before {
+  width: 0;
+  height: 0;
+  border-bottom: 12px solid transparent;
+  border-top: 12px solid transparent;
+  border-right: 12px solid #fff;
+  position: absolute;
+  left: -12px;
+  top: 13px;
+  content: "";
+}
+
+#reviews .review .content {
+  -webkit-box-shadow: 0px 2px 2px 0 #eee;
+          box-shadow: 0px 2px 2px 0 #eee;
+}
+
+#reviews .review .content::before {
+  content: "\A";
+  border-style: solid;
+  border-width: 10px 15px 10px 0;
+  border-color: transparent white transparent transparent;
+  position: absolute;
+  left: -15px;
 }
 
 #reviews .review .info {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 #reviews .review .info .user {
   font-weight: bold;
-}
-
-#reviews .review .info .star-rating {
-  font-size: medium;
 }
 
 #reviews .review .scores {
@@ -11051,7 +11141,7 @@ footer .website-banner h1 {
 
 #reviews .review .scores .score {
   margin-right: 1em;
-  font-size: small;
+  font-size: x-small;
   border-radius: 5%;
   background: #f6f6f6;
   padding: 4px 8px;
@@ -11059,10 +11149,6 @@ footer .website-banner h1 {
 
 #reviews .review .description {
   text-align: justify;
-}
-
-#reviews .review:hover {
-  background: #f6f6f6;
 }
 
 .score-is-good {
