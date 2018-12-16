@@ -49,8 +49,8 @@
                 </div>
             </div>
         </div>
-        <div class="rating p-3 bg-white">
-            <div class="stars">
+        <div class="rating p-3 bg-white d-flex flex-column">
+            <div class="stars d-flex align-self-center mb-2">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -60,6 +60,9 @@
             <span class="text-center">
                 3.5 out of 5
             </span>
+            <div class="actions d-flex flex-fill align-items-end">
+                <a href="" class="btn-sm btn-outline-primary">Delete Review</a>
+            </div>
         </div>
     </div>
 </div>

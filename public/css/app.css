@@ -10947,14 +10947,14 @@ footer .website-banner h1 {
 }
 
 #curtain {
-  padding-top: 2rem;
   background: -webkit-gradient(linear, left top, left bottom, from(#f44881), to(#ec454f));
   background: linear-gradient(180deg, #f44881, #ec454f);
 }
 
 #curtain .container .row {
-  padding: 2em;
-  padding-top: 4em;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 5em;
   padding-bottom: 5em;
 }
 
@@ -11051,10 +11051,11 @@ footer .website-banner h1 {
 }
 
 #reviews .review .rating {
+  border-top: 1px solid #e9e9e9;
+  border-right: 1px solid #e9e9e9;
+  border-bottom: 1px solid #e9e9e9;
   padding-top: 6% !important;
   border-left: 1px dashed #eaeaea;
-  -webkit-box-shadow: 2px 2px 2px 0 #eee;
-          box-shadow: 2px 2px 2px 0 #eee;
 }
 
 #reviews .review .rating .stars {
@@ -11096,15 +11097,16 @@ footer .website-banner h1 {
 }
 
 #reviews .review .content {
-  -webkit-box-shadow: 0px 2px 2px 0 #eee;
-          box-shadow: 0px 2px 2px 0 #eee;
+  border-left: 1px solid #e9e9e9;
+  border-top: 1px solid #e9e9e9;
+  border-bottom: 1px solid #e9e9e9;
 }
 
 #reviews .review .content::before {
   content: "\A";
   border-style: solid;
   border-width: 10px 15px 10px 0;
-  border-color: transparent white transparent transparent;
+  border-color: transparent #e9e9e9 transparent transparent;
   position: absolute;
   left: -15px;
 }

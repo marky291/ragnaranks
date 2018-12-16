@@ -4,12 +4,25 @@
 
     <?php /** @var App\Server $server */ ?>
 
-    <div id="server-wrapper">
+    <nav id="spotlight" class="bg-white shadow-inner">
+        <div class="container py-3">
+            <div class="row">
+                <div class="col">
+                    <span class="text-uppercase" style="padding: 15px 20px; font-size: smaller; border-right: 1px solid #e4e4e4;">
+                        <a href="{{ route('index') }}" class="text-dark font-weight-bold">
+                            <i class="fas fa-arrow-left"></i> Back to Main
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </nav>
 
+    <div id="server-wrapper">
         <section id="curtain" class="bg-light">
             <div class="container">
                 <div class="row">
-                    <div class="col-7">
+                    <div class="col-8">
                         <div class="labels mb-4 d-flex flex-row">
                             <ul class="list-unstyled mr-2">
                                 <li>High Rate</li>
@@ -38,7 +51,7 @@
                             <a href="" class="btn btn-trans">Vote For Server</a>
                         </div>
                     </div>
-                    <div class="col-3 offset-2 d-flex align-items-center">
+                    <div class="col-4 d-flex align-items-center justify-content-center">
                         <div class="">
                             <img class="rounded screenshot" src="{{ url("https://www.novaragnarok.com/themes/new/img/memberLoginLogo.png") }}" alt="" width="100%">
                             <div class="stars d-flex flex-row text-white text-center mt-5">
@@ -107,7 +120,7 @@
 
         <section id="reviews" class="bg-light">
             <div class="container pl-5 pr-5 pb-5">
-                <h3 class="heading mb-4 text-dark heading-underline">Reviews</h3>
+                <h3 class="heading mb-4 text-dark heading-underline">Player Reviews</h3>
                 <div class="reviews">
                     @include('server.partial.review')
                     @include('server.partial.review')
