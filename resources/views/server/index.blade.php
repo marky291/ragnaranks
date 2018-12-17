@@ -99,12 +99,12 @@
 
                     <div id="awards" class="content py-0">
                         @include('partials.sidebar.statistic', [
-                            'server' => \App\Server\CardinalServerRepository::HighestVoteTrend(),
+                            'server' => \App\Server::HighestVoteTrend()->first(),
                             'message' => "Top Trending Votes",
                             'column' => 'votes_trend',
                         ])
                         @include('partials.sidebar.statistic', [
-                            'server' => \App\Server\CardinalServerRepository::HighestClicksTrend(),
+                            'server' => \App\Server::HighestClickTrend()->first(),
                             'message' => "Top Trending Visits",
                             'column' => 'clicks_trend',
                         ])
@@ -115,7 +115,7 @@
                     </div>
 
                     <div id="reviews" class="content py-0">
-                        @foreach (\App\Server\CardinalServerRepository::LatestServerReviews(5) as $server)
+                        @foreach (\App\Server::LatestReviews(5) as $server)
                             <div class="card card-basic listing d-flex flex-row">
                                 <div class="detail flex-fill">
                                     <div class="top">

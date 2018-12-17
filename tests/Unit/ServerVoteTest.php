@@ -16,7 +16,7 @@ class ServerVoteTest extends TestCase
     /**
      * @test
      */
-    public function a_server_can_have_clicks()
+    public function a_server_can_have_votes()
     {
         /** @var Server $server */
         $server = factory('App\Server')->create();
@@ -29,7 +29,7 @@ class ServerVoteTest extends TestCase
     /**
      * @test
      */
-    public function a_daily_trend_can_be_calculated()
+    public function a_daily_vote_trend_can_be_calculated()
     {
         /** @var Server $server */
         $server = factory(Server::class)->create();

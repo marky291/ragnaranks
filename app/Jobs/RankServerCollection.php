@@ -36,12 +36,13 @@ class RankServerCollection implements ShouldQueue
      */
     public function handle()
     {
-        $this->servers = $this->servers->sortByDesc(function(Server $server, int $key)  {
-            //return $server->votes_count + ($server->clicks_count / 2);
+        $this->servers = $this->servers->sortByDesc(function(Server $server, int $key)
+        {
             return $server->votes_count;
         });
 
-        $this->servers = $this->servers->values()->each(function (Server $server, int $key) {
+        $this->servers = $this->servers->values()->each(function (Server $server, int $key)
+        {
             return $server->update([
                 'rank' => ($key + 1),
                 'rank_growth' => ($key + 1) - $server->rank,

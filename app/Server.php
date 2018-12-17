@@ -49,6 +49,10 @@ use Illuminate\Support\Facades\Redis;
  * @method static withCount(string $string)
  * @method static expGround(int $period, string $group)
  *
+ * @method static Collection HighestVoteTrend()
+ * @method static Collection HighestClickTrend()
+ * @method static Collection LatestReviews(int $limit)
+ *
  *
  * @package App
  */
@@ -156,7 +160,42 @@ class Server extends Model
      */
     public function tags()
     {
-        return $this->belongsToMany('App\Tag', 'servers_tags');
+        return $this->belongsToMany(Tag::class, 'servers_tags');
+    }
+
+    /**
+     * Scope a query to descend order of having latest review.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param int $limit
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeLatestReviews($query, int $limit)
+    {
+        return $query->limit($limit);
+
+    }
+
+    /**
+     * Scope a query to descend order of votes trend
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeHighestVoteTrend($query)
+    {
+        return $query->orderByDesc('votes_trend');
+    }
+
+    /**
+     * Scope a query to descend order of clicks trend.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeHighestClickTrend($query)
+    {
+        return $query->orderByDesc('clicks_trend');
     }
 
     /**
