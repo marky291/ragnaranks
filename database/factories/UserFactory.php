@@ -37,11 +37,6 @@ $factory->define(App\Server::class, function (Faker $faker) {
             'description' =>'6k/6k/100 max lvl 255/255 questable/votable donations guild/newbie packs up for 5+ years, no wipes, stable intense WOE/GVG/PVP',
         ],
         [
-            'name' => 'Philippine Ragnarok Online Project Chaos',
-            'banner' => 'https://www.top100arena.com/siteBanners/site_0000094148_fa37e810.jpeg',
-            'description' => 'The server is on Pre-renewal Classic Trans server! - Max Level 99/70 - 1st Month Rates: 25x/25x/7x - Default Rate: 10x/10x/5x - No BOT - No Multi...',
-        ],
-        [
             'name' => 'Dreamer RO',
             'banner' => 'http://playdreamerro.com/img/bannertest.gif',
             'description' => 'Rates: 8k/8k/3k // MaxLvl: 500/120 // Renewal content with some Pre-RE mechanics // 3rd Jobs // Oboro, Kagerou, Rebellion, Dorams // Active PvP // Bat...',
