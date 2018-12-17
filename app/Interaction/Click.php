@@ -1,12 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Interaction;
 
+use App\Server;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class ServerClick
+ * Class Click
  *
  * @property int $id
  * @property string $ip_address
@@ -19,12 +20,12 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App
  */
-class ServerClick extends Model
+class Click extends Model
 {
     /**
      * Allows the calculation of the daily trend of votes.
      */
-    use DailyTrendCount;
+    use CalculateDailyTrend;
 
     /**
      * The table associated with the model.

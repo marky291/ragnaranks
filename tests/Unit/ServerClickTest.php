@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
+use App\Interaction\Click;
 use App\Server;
-use App\ServerClick;
 use Carbon\Carbon;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -22,7 +22,7 @@ class ServerClickTest extends TestCase
         /** @var Server $server */
         $server = factory('App\Server')->create();
 
-        factory('App\ServerClick', 3)->create(['server_id' => $server->id]);
+        factory(Click::class, 3)->create(['server_id' => $server->id]);
 
         $this->assertEquals(3, $server->clicks()->count());
     }
@@ -35,9 +35,9 @@ class ServerClickTest extends TestCase
         /** @var Server $server */
         $server = factory(Server::class)->create();
 
-        factory('App\ServerClick', 140)->create(['server_id' => $server->id, 'created_at' => Carbon::now()->subDays(1)]);
-        factory('App\ServerClick', 72)->create(['server_id' => $server->id, 'created_at' => Carbon::now()->subDays(2)]);
+        factory(Click::class, 140)->create(['server_id' => $server->id, 'created_at' => Carbon::now()->subDays(1)]);
+        factory(Click::class, 72)->create(['server_id' => $server->id, 'created_at' => Carbon::now()->subDays(2)]);
 
-        $this->assertEquals(94.44, ServerClick::getServerTrend($server));
+        $this->assertEquals(94.44, Click::getServerTrend($server));
     }
 }

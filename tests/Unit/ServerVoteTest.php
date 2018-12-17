@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
+use App\Interaction\Vote;
 use App\Server;
-use App\ServerVote;
 use Carbon\Carbon;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -21,7 +21,7 @@ class ServerVoteTest extends TestCase
         /** @var Server $server */
         $server = factory('App\Server')->create();
 
-        factory('App\ServerVote', 3)->create(['server_id' => $server->id]);
+        factory(Vote::class, 3)->create(['server_id' => $server->id]);
 
         $this->assertEquals(3, $server->votes()->count());
     }
@@ -34,9 +34,9 @@ class ServerVoteTest extends TestCase
         /** @var Server $server */
         $server = factory(Server::class)->create();
 
-        factory('App\ServerVote', 34)->create(['server_id' => $server->id, 'created_at' => Carbon::now()->subDays(1)]);
-        factory('App\ServerVote', 64)->create(['server_id' => $server->id, 'created_at' => Carbon::now()->subDays(2)]);
+        factory(Vote::class, 34)->create(['server_id' => $server->id, 'created_at' => Carbon::now()->subDays(1)]);
+        factory(Vote::class, 64)->create(['server_id' => $server->id, 'created_at' => Carbon::now()->subDays(2)]);
 
-        $this->assertEquals(-46.88, ServerVote::getServerTrend($server));
+        $this->assertEquals(-46.88, Vote::getServerTrend($server));
     }
 }

@@ -2,11 +2,10 @@
 
 namespace Tests\Unit;
 
+use App\Interaction\Vote;
 use App\Jobs\RankServerCollection;
 use App\Server;
-use App\ServerVote;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ServerRankingTest extends TestCase
@@ -21,7 +20,7 @@ class ServerRankingTest extends TestCase
     {
         $first = factory(Server::class)->create();
 
-        factory(ServerVote::class, 10)->create(['server_id' => $first->id]);
+        factory(Vote::class, 10)->create(['server_id' => $first->id]);
 
         RankServerCollection::dispatchNow(Server::all());
 

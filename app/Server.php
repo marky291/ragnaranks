@@ -2,19 +2,14 @@
 
 namespace App;
 
-use App\Server\ServerQueryBuilder;
+use App\Interaction\Click;
+use App\Interaction\Vote;
 use Carbon\Carbon;
-use Carbon\CarbonPeriod;
 use Exception;
-use Illuminate\Cache\RedisTaggedCache;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redis;
 
 /**
  * Class Server
@@ -43,8 +38,8 @@ use Illuminate\Support\Facades\Redis;
  * @property Carbon $updated_at
  *
  * @property User $owner
- * @property ServerVote|HasMany $votes
- * @property ServerClick|HasMany $clicks
+ * @property Vote|HasMany $votes
+ * @property Click|HasMany $clicks
  *
  * @method static withCount(string $string)
  * @method static expGround(int $period, string $group)
@@ -106,21 +101,21 @@ class Server extends Model
     /**
      * A server can have many clicks.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany|ServerClick
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany|Click
      */
     public function clicks()
     {
-        return $this->hasMany(ServerClick::class, 'server_id', 'id');
+        return $this->hasMany(Click::class, 'server_id', 'id');
     }
 
     /**
      * A server can have many votes.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany|ServerVote
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany|Vote
      */
     public function votes()
     {
-        return $this->hasMany(ServerVote::class,'server_id', 'id');
+        return $this->hasMany(Vote::class,'server_id', 'id');
     }
 
     /**

@@ -6,17 +6,17 @@
  * Time: 14:17
  */
 
-namespace App;
+namespace App\Interaction;
 
+use App\Server;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Builder;
 
 /**
- * Trait DailyTrendCount
+ * Trait CalculateDailyTrend
  *
  * @package App
  */
-trait DailyTrendCount
+trait CalculateDailyTrend
 {
     /**
      * Get the trend count of the passed in server for the last two days.

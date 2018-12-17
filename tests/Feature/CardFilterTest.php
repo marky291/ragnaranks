@@ -3,8 +3,8 @@
 namespace Tests\Feature;
 
 use App\Server;
-use App\ServerClick;
-use App\ServerVote;
+use App\Click;
+use App\Vote;
 use Carbon\Carbon;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;

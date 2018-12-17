@@ -30,10 +30,10 @@ class DatabaseSeeder extends Seeder
             $progress->advance();
 
             // generate some fake clicks for the server.
-            factory('App\ServerClick', rand(200, 500))->create(['server_id' => $server->id]);
+            factory('App\Click', rand(200, 500))->create(['server_id' => $server->id]);
 
             // generate some fake votes for the server.
-            factory('App\ServerVote', rand(100, 300))->create(['server_id' => $server->id]);
+            factory('App\Vote', rand(100, 300))->create(['server_id' => $server->id]);
 
             // generate the trend growth stats for the server.
             App\Jobs\UpdateServerTrendGrowth::dispatchNow($server);

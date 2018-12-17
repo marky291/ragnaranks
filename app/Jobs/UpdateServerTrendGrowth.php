@@ -3,8 +3,8 @@
 namespace App\Jobs;
 
 use App\Server;
-use App\ServerClick;
-use App\ServerVote;
+use App\Click;
+use App\Vote;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -38,8 +38,8 @@ class UpdateServerTrendGrowth implements ShouldQueue
     public function handle()
     {
         $this->server->update([
-            'votes_trend' => ServerVote::getServerTrend($this->server),
-            'clicks_trend' => ServerClick::getServerTrend($this->server)
+            'votes_trend' => Vote::getServerTrend($this->server),
+            'clicks_trend' => Click::getServerTrend($this->server)
         ]);
     }
 }
