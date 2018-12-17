@@ -11051,11 +11051,9 @@ footer .website-banner h1 {
 }
 
 #reviews .review .rating {
-  border-top: 1px solid #e9e9e9;
-  border-right: 1px solid #e9e9e9;
-  border-bottom: 1px solid #e9e9e9;
   padding-top: 6% !important;
-  border-left: 1px dashed #eaeaea;
+  border: 1px solid #e9e9e9;
+  border-left: 1px dashed #e9e9e9;
 }
 
 #reviews .review .rating .stars {

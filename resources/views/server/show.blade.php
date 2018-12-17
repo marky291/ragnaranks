@@ -20,6 +20,9 @@
 
     <div id="server-wrapper">
         <section id="curtain" class="bg-light">
+            {{--<div id="screenshot" style="height:510px;">--}}
+                {{--te--}}
+            {{--</div>--}}
             <div class="container">
                 <div class="row">
                     <div class="col-8">
@@ -53,7 +56,7 @@
                     </div>
                     <div class="col-4 d-flex align-items-center justify-content-center">
                         <div class="">
-                            <img class="rounded screenshot" src="{{ url("https://www.novaragnarok.com/themes/new/img/memberLoginLogo.png") }}" alt="" width="100%">
+                            <img class="rounded" src="{{ url("https://www.novaragnarok.com/themes/new/img/memberLoginLogo.png") }}" alt="" width="100%">
                             <div class="stars d-flex flex-row text-white text-center mt-5">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -61,6 +64,16 @@
                                 <i class="fas fa-star-half-alt"></i>
                                 <i class="far fa-star"></i>
                             </div>
+                            {{--<div class="screenshots">--}}
+                                {{--<carousel>--}}
+                                    {{--<slide style="width:100px; height: 100px; background: white; margin-right:10px; border-radius: 10px;">--}}
+                                        {{--<img src="http://ny-ro.com/screenshots/RMS_SS_01.jpg" alt="" width="150">--}}
+                                    {{--</slide>--}}
+                                    {{--<slide style="width:100px; height: 100px; background: white; margin-right:10px;  border-radius: 10px;">--}}
+                                        {{--<img src="http://ny-ro.com/nyro/screenshots/rms_ss_05.jpg" alt="" width="150">--}}
+                                    {{--</slide>--}}
+                                {{--</carousel>--}}
+                            {{--</div>--}}
                         </div>
                     </div>
                 </div>
@@ -72,23 +85,23 @@
                 <h3 class="heading mb-4 text-dark heading-underline">Server Configuration Setup</h3>
                 <div class="row">
                     <div class="col-4 d-flex flex-column">
-                        @include('server.partial.config', ['name'=>'Base Exp Rate', 'value' => $server->config->base_exp_rate])
-                        @include('server.partial.config', ['name'=>'Job Exp Rate', 'value' => $server->config->job_exp_rate])
-                        @include('server.partial.config', ['name'=>'Max Base Level', 'value' => $server->config->max_base_level])
-                        @include('server.partial.config', ['name'=>'Max Job Level', 'value' => $server->config->max_job_level])
+                        @include('server.partial.config', ['name'=>'Base Exp Rate', 'type' => 'exp', 'value' => $server->config->base_exp_rate])
+                        @include('server.partial.config', ['name'=>'Job Exp Rate', 'type' => 'exp',  'value' => $server->config->job_exp_rate])
+                        @include('server.partial.config', ['name'=>'Max Base Level', 'type' => 'exp',  'value' => $server->config->max_base_level])
+                        @include('server.partial.config', ['name'=>'Max Job Level', 'type' => 'exp',  'value' => $server->config->max_job_level])
                     </div>
                     <div class="col-4 d-flex flex-column">
-                        @include('server.partial.config', ['name'=>'Max Basic Stats', 'value' => $server->config->max_stats])
-                        @include('server.partial.config', ['name'=>'Max ASPD', 'value' => $server->config-> max_aspd])
-                        @include('server.partial.config', ['name'=>'Instant Cast Stat', 'value' => 'Dex: '.$server->config->instant_cast_stat])
+                        @include('server.partial.config', ['name'=>'Max Basic Stats', 'type' => 'stat',  'value' => $server->config->max_stats])
+                        @include('server.partial.config', ['name'=>'Max ASPD', 'type' => 'stat',  'value' => $server->config-> max_aspd])
+                        @include('server.partial.config', ['name'=>'Instant Cast Stat', 'type' => 'stat',  'value' => 'Dex: '.$server->config->instant_cast_stat])
                     </div>
                     <div class="col-4 d-flex flex-column">
-                        @include('server.partial.config', ['name'=>'Drop Base', 'value' => $server->config->drop_base_rate])
-                        @include('server.partial.config', ['name'=>'Drop Base MVP', 'value' => $server->config->drop_base_mvp_rate])
-                        {{--@include('server.partial.config', ['name'=>'Drop Base Special', 'value' => $server->config->drop_base_special_rate])--}}
-                        @include('server.partial.config', ['name'=>'Drop Card', 'value' => $server->config->drop_card_rate])
-                        @include('server.partial.config', ['name'=>'Drop Card MVP', 'value' => $server->config->drop_card_mvp_rate])
-                        {{--@include('server.partial.config', ['name'=>'Drop Card Special', 'value' => $server->config->drop_card_special_rate])--}}
+                        @include('server.partial.config', ['name'=>'Drop Base', 'type' => 'drop',  'value' => $server->config->drop_base_rate])
+                        @include('server.partial.config', ['name'=>'Drop Base MVP', 'type' => 'drop',  'value' => $server->config->drop_base_mvp_rate])
+                        {{--@include('server.partial.config', ['name'=>'Drop Base Special', 'type' => 'drop',  'value' => $server->config->drop_base_special_rate])--}}
+                        @include('server.partial.config', ['name'=>'Drop Card', 'type' => 'drop',  'value' => $server->config->drop_card_rate])
+                        @include('server.partial.config', ['name'=>'Drop Card MVP', 'type' => 'drop',  'value' => $server->config->drop_card_mvp_rate])
+                        {{--@include('server.partial.config', ['name'=>'Drop Card Special', 'type' => 'drop',  'value' => $server->config->drop_card_special_rate])--}}
                     </div>
                 </div>
             </div>

@@ -9,6 +9,10 @@ require('./flickity/stage-flickr');
 
 window.Vue = require('vue');
 
+// allows carousel on profile page server.
+import Vue from 'vue';
+import VueCarousel from 'vue-carousel';
+Vue.use(VueCarousel);
 
 /**
  * The following block of code may be used to automatically register your

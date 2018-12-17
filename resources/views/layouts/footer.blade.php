@@ -1,5 +1,5 @@
 
-    <footer class="shadow-inner mt-5">
+    <footer class="shadow-inner">
 
         <div class="website-banner container text-uppercase text-left mb-4">
             <h1 class="text-transparent">Ragnaranks.com</h1>
@@ -25,21 +25,24 @@
                     <h2>Develop</h2>
                     <ul class="list-unstyled list">
                         <li class="text-transparent">Share your ideas</li>
+                        <li class="text-transparent">API Callbacks</li>
                         <li class="text-transparent">Contribute to Codebase</li>
                     </ul>
                 </div>
                 <div class="flex-fill">
-                    <h2>Player</h2>
+                    <h2>Play</h2>
                     <ul class="list-unstyled list">
-                        <li class="text-transparent">Review</li>
-                        <li class="text-transparent">Search</li>
+                        <?php /** @var \App\ServerMode $mode */ ?>
+                        @foreach(\App\ServerMode::all() as $mode)
+                            <li class="text-transparent">{{ ucfirst($mode->name) }}</li>
+                        @endforeach
                     </ul>
                 </div>
                 <div class="flex-fill">
-                    <h2>Admin</h2>
+                    <h2>Administrate</h2>
                     <ul class="list-unstyled list">
-                        <li class="text-transparent">Register</li>
-                        <li class="text-transparent">Advertise</li>
+                        <li class="text-transparent">Register A Server</li>
+                        <li class="text-transparent">View Server Stats</li>
                     </ul>
                 </div>
             </div>

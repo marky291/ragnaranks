@@ -20,6 +20,7 @@
         "vue": "^2.5.17"
     },
     "dependencies": {
-        "flickity": "^2.1.2"
+        "flickity": "^2.1.2",
+        "vue-carousel": "^0.16.1"
     }
 }
