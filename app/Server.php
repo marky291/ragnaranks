@@ -51,7 +51,7 @@ use Illuminate\Support\Facades\Redis;
  *
  * @method static Collection HighestVoteTrend()
  * @method static Collection HighestClickTrend()
- * @method static Collection LatestReviews(int $limit)
+ * @method static Collection LatestReviews()
  *
  *
  * @package App
@@ -170,9 +170,9 @@ class Server extends Model
      * @param int $limit
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeLatestReviews($query, int $limit)
+    public function scopeLatestReviews($query)
     {
-        return $query->limit($limit);
+        return $query;
 
     }
 

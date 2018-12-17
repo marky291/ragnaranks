@@ -11026,11 +11026,6 @@ footer .website-banner h1 {
   border: 1px solid #dddddda6;
 }
 
-#configuration .config .icon {
-  border-radius: 30px;
-  border: 2px solid #ff1f4c;
-}
-
 #configuration .config:hover {
   border-radius: .5rem;
   background-color: #f6f6f6;
