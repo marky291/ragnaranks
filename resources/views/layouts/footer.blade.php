@@ -2,7 +2,9 @@
     <footer class="shadow-inner">
 
         <div class="website-banner container text-uppercase text-left mb-4">
-            <h1 class="text-transparent">Ragnaranks.com</h1>
+            <h1 class="text-transparent">
+                <img src="{{ asset('images/footer-banner.png') }}" alt="">
+            </h1>
         </div>
 
         <div class="container d-flex mb-5">

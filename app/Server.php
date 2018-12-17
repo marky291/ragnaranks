@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Server\ServerQueryBuilder;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Exception;
@@ -53,6 +54,7 @@ use Illuminate\Support\Facades\Redis;
  */
 class Server extends Model
 {
+
     /**
      * The table associated with the model.
      *
