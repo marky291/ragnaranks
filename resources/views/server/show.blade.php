@@ -96,7 +96,7 @@
                         @include('server.partial.config', ['name'=>'Instant Cast Stat', 'type' => 'stat',  'value' => 'Dex: '.$server->config->instant_cast_stat])
                     </div>
                     <div class="col-4 d-flex flex-column">
-                        @include('server.partial.config', ['name'=>'Drop Base', 'type' => 'drop-card',  'value' => $server->config->drop_base_rate])
+                        @include('server.partial.config', ['name'=>'Drop Base', 'type' => 'drop-base',  'value' => $server->config->drop_base_rate])
                         @include('server.partial.config', ['name'=>'Drop Base MVP', 'type' => 'drop-mvp-base',  'value' => $server->config->drop_base_mvp_rate])
                         {{--@include('server.partial.config', ['name'=>'Drop Base Special', 'type' => 'drop',  'value' => $server->config->drop_base_special_rate])--}}
                         @include('server.partial.config', ['name'=>'Drop Card', 'type' => 'drop-card',  'value' => $server->config->drop_card_rate])
