@@ -38,6 +38,6 @@ class ServerClickTest extends TestCase
         factory(Click::class, 140)->create(['server_id' => $server->id, 'created_at' => Carbon::now()->subDays(1)]);
         factory(Click::class, 72)->create(['server_id' => $server->id, 'created_at' => Carbon::now()->subDays(2)]);
 
-        $this->assertEquals(94.44, Click::getServerTrend($server));
+        $this->assertEquals(94.44, Click::betweenTrendPeriod($server));
     }
 }

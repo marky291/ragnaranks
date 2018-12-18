@@ -12,11 +12,11 @@ use App\Server;
 use Carbon\Carbon;
 
 /**
- * Trait CalculateDailyTrend
+ * Trait Trendable
  *
  * @package App
  */
-trait CalculateDailyTrend
+trait Trendable
 {
     /**
      * Get the trend count of the passed in server for the last two days.
@@ -25,7 +25,7 @@ trait CalculateDailyTrend
      *
      * @return float
      */
-    public static function getServerTrend(Server $server)
+    public static function betweenTrendPeriod(Server $server)
     {
         $yesterday = self::whereDate('created_at', '=', Carbon::now()->subDays(1))->where('server_id', $server->id)->count();
         $fortnight = self::whereDate('created_at', '=', Carbon::now()->subDays(2))->where('server_id', $server->id)->count();

@@ -25,7 +25,7 @@ class Click extends Model
     /**
      * Allows the calculation of the daily trend of votes.
      */
-    use CalculateDailyTrend;
+    use Trendable;
 
     /**
      * The table associated with the model.

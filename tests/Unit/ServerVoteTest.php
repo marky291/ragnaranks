@@ -37,6 +37,6 @@ class ServerVoteTest extends TestCase
         factory(Vote::class, 34)->create(['server_id' => $server->id, 'created_at' => Carbon::now()->subDays(1)]);
         factory(Vote::class, 64)->create(['server_id' => $server->id, 'created_at' => Carbon::now()->subDays(2)]);
 
-        $this->assertEquals(-46.88, Vote::getServerTrend($server));
+        $this->assertEquals(-46.88, Vote::betweenTrendPeriod($server));
     }
 }
