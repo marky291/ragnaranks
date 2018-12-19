@@ -13290,7 +13290,7 @@ jQuery.extend( {
 			// Default abort message
 			strAbort = "canceled",
 
-			// Fake xhr
+			// local xhr
 			jqXHR = {
 				readyState: 0,
 

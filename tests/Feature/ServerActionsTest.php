@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Server;
+use App\Listing;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -26,7 +26,7 @@ class ServerActionsTest extends TestCase
      */
     public function the_server_can_be_viewed()
     {
-        $server = factory(Server::class)->create();
+        $server = factory(Listing::class)->create();
 
         $response = $this->get("/server/{$server->slug}");
 

@@ -13,7 +13,7 @@ class CreateServerTable extends Migration
      */
     public function up()
     {
-        Schema::create('servers_modes', function(Blueprint $table) {
+        Schema::create('modes', function(Blueprint $table) {
             $table->increments('id');
             $table->string('tag');
             $table->string('name');
@@ -23,7 +23,7 @@ class CreateServerTable extends Migration
             $table->unique(['tag', 'name']);
         });
 
-        DB::table('servers_modes')->insert([[
+        DB::table('modes')->insert([[
             'tag' => 're',
             'name' => 'renewal',
             'description' => 'This server is based on renewal format',
@@ -84,7 +84,7 @@ class CreateServerTable extends Migration
             'created_at' => now(),
         ],[
             'tag' => 'frost',
-            'name' => 'Frost Server',
+            'name' => 'Frost Listings',
             'description' => 'Players can obtain starting items once they login.',
             'created_at' => now(),
         ],[
@@ -95,84 +95,50 @@ class CreateServerTable extends Migration
         ]
         ]);
 
-        Schema::create('servers', function (Blueprint $table) {
+        Schema::create('listings', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('rank')->default(0);
-            $table->integer('rank_growth')->default(0);
             $table->unsignedInteger('user_id');
             $table->string('name');
             $table->string('slug');
+            $table->json('configs');
             $table->string('banner_url');
             $table->longText('description');
             $table->string('website');
             $table->unsignedInteger('mode_id');
             $table->double('episode')->nullable();
-            $table->integer('votes_count')->default(0);
-            $table->double('votes_trend')->default(0);
-            $table->integer('clicks_count')->default(0);
-            $table->double('clicks_trend')->default(0);
             $table->timestamps();
-            $table->index(['rank', 'votes_count', 'clicks_count', 'episode']);
+            $table->index(['rank', 'episode']);
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
-            $table->foreign('mode_id')->references('id')->on('servers_modes')->onUpdate('cascade');
+            $table->foreign('mode_id')->references('id')->on('modes')->onUpdate('cascade');
         });
 
-        Schema::create('servers_tags', function(Blueprint $table) {
-            $table->unsignedInteger('server_id');
+        Schema::create('listing_tag', function(Blueprint $table) {
+            $table->unsignedInteger('listing_id');
             $table->unsignedInteger('tag_id');
-            $table->primary(['server_id', 'tag_id']);
-            $table->foreign('server_id')->references('id')->on('servers')->onDelete('cascade')->onUpdate('cascade');
+            $table->primary(['listing_id', 'tag_id']);
+            $table->foreign('listing_id')->references('id')->on('listings')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade')->onUpdate('cascade');
         });
 
-        Schema::create('servers_reports', function(Blueprint $table) {
+        Schema::create('votes', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('server_id');
-            $table->integer('votes_count')->default(0);
-            $table->integer('clicks_count')->default(0);
-            $table->timestamps();
-            $table->index(['created_at']);
-            $table->foreign('server_id')->references('id')->on('servers')->onUpdate('cascade')->onDate('cascade');
-        });
-
-        Schema::create('servers_votes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('server_id');
             $table->ipAddress('ip_address');
             $table->timestamp('created_at');
-            $table->index(['created_at', 'server_id']);
-            $table->foreign('server_id')->references('id')->on('servers')->onUpdate('cascade')->onDelete('cascade');
         });
 
-        Schema::create('servers_clicks', function (Blueprint $table) {
+        Schema::create('clicks', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('server_id');
             $table->ipAddress('ip_address');
-            $table->timestamp('created_at');
-            $table->index(['created_at', 'server_id']);
-            $table->foreign('server_id')->references('id')->on('servers')->onUpdate('cascade')->onDelete('cascade');
+            $table->timestamp('created_at')->useCurrent();
         });
 
-        Schema::create('servers_configs', function(Blueprint $table)
+        Schema::create('interactions', function(Blueprint $table)
         {
-            $table->unsignedInteger('server_id');
-            $table->integer('max_base_level')->nullable();
-            $table->integer('max_job_level')->nullable();
-            $table->integer('max_stats')->nullable();
-            $table->integer('max_aspd')->nullable();
-            $table->integer('base_exp_rate');
-            $table->integer('job_exp_rate');
-            $table->integer('instant_cast_stat')->nullable();
-            $table->integer('drop_base_rate')->nullable();
-            $table->integer('drop_card_rate')->nullable();
-            $table->integer('drop_base_mvp_rate')->nullable();
-            $table->integer('drop_card_mvp_rate')->nullable();
-            $table->integer('drop_base_special_rate')->nullable();
-            $table->integer('drop_card_special_rate')->nullable();
-            $table->timestamps();
-            $table->index(['base_exp_rate']);
-            $table->primary('server_id');
-            $table->foreign('server_id')->references('id')->on('servers')->onDelete('cascade')->onUpdate('cascade');
+            $table->increments('id');;
+            $table->unsignedInteger('listing_id');
+            $table->morphs('interaction');
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 

@@ -1,7 +1,9 @@
 <?php
 
-use App\Server;
+use App\Click;
+use App\Listings\Listing;
 use App\Tag;
+use App\Vote;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;
 
@@ -16,41 +18,30 @@ class DatabaseSeeder extends Seeder
     {
         Artisan::call('migrate:fresh');
 
+        $tags = Tag::all();
+
         $server_count = 15;
 
-        $servers = factory('App\Server', $server_count)->create();
+        $servers = factory(Listing::class, $server_count)->create();
 
         $progress = $this->command->getOutput()->createProgressBar($server_count);
 
         $this->command->alert("Generating {$server_count} servers for Ragnaranks");
 
+        /** @var Listing $server */
         foreach ($servers as $server)
         {
             // update the progress bar
             $progress->advance();
 
-            // generate some fake clicks for the server.
-            factory('App\Click', rand(200, 500))->create(['server_id' => $server->id]);
+            $server->votes()->saveMany(factory(Vote::class, rand(200, 500))->create());
 
-            // generate some fake votes for the server.
-            factory('App\Vote', rand(100, 300))->create(['server_id' => $server->id]);
+            $server->clicks()->saveMany(factory(Click::class, rand(200, 500))->create());
 
-            // generate the trend growth stats for the server.
-            App\Jobs\UpdateServerTrendGrowth::dispatchNow($server);
-
-            // grab all the tags.
-            $tags = Tag::all();
-
-            // generate some tags for the server.
-            for ($j = 0; $j < rand(1, 5); ++$j) {
-                $server->tags()->attach($tags->pull(rand(1, $tags->count())));
-            }
+            $server->tags()->saveMany($tags->random(3)->unique('id'));
 
             // console information about the creation.
             $this->command->line("\tGenerated {$server->name}");
         }
-
-        // dispatch the job to calculate server ranks.
-        App\Jobs\RankServerCollection::dispatchNow(Server::all());
     }
 }

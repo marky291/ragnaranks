@@ -16,14 +16,14 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App
  */
-class ServerMode extends Model
+class Mode extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'servers_modes';
+    protected $table = 'Modes';
 
     /**
      * The name of the "updated at" column.

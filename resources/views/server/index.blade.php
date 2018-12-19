@@ -21,7 +21,7 @@
 
                         <select class="form-control-sm mr-2">
                             <option value="all">Any Mode</option>
-                            @foreach(\App\ServerMode::all() as $mode)
+                            @foreach(\App\Mode::all() as $mode)
                                 <option value="">{{ ucfirst($mode->name) }} Mode</option>
                             @endforeach
                         </select>
@@ -62,7 +62,7 @@
         @slot('content')
             <h4 class="title text-muted mb-0">Sponsored <i class="fas fa-info-circle"></i></h4>
             <div class="server-stage">
-                @foreach(\App\Server::all()->take(3) as $server)
+                @foreach(\App\Listing::all()->take(3) as $server)
                     <div class="carousel-cell mr-3">@include('partials.cards.preview', ['server' => $server])</div>
                 @endforeach
             </div>
@@ -95,19 +95,19 @@
                     <div class="heading">
                         <h3>Weekly Mentions</h3>
                     </div>
-                    <?php /** @var \App\Server $server */ ?>
+                    <?php /** @var \App\Listing $server */ ?>
 
                     <div id="awards" class="content py-0">
-                        @include('partials.sidebar.statistic', [
-                            'server' => App\Server::HighestVoteTrend()->first(),
-                            'message' => "Top Trending Votes",
-                            'column' => 'votes_trend',
-                        ])
-                        @include('partials.sidebar.statistic', [
-                            'server' => App\Server::HighestClickTrend()->first(),
-                            'message' => "Top Trending Visits",
-                            'column' => 'clicks_trend',
-                        ])
+                        {{--@include('partials.sidebar.statistic', [--}}
+                            {{--'server' => App\Listings::HighestVoteTrend()->first(),--}}
+                            {{--'message' => "Top Trending Votes",--}}
+                            {{--'column' => 'votes_trend',--}}
+                        {{--])--}}
+                        {{--@include('partials.sidebar.statistic', [--}}
+                            {{--'server' => App\Listings::HighestClickTrend()->first(),--}}
+                            {{--'message' => "Top Trending Visits",--}}
+                            {{--'column' => 'clicks_trend',--}}
+                        {{--])--}}
                     </div>
 
                     <div class="heading">
@@ -115,7 +115,7 @@
                     </div>
 
                     <div id="reviews" class="content py-0">
-                        @foreach (App\Server::LatestReviews()->take(3) as $server)
+                        @foreach (App\Listing::LatestReviews()->take(3) as $server)
                             <div class="card card-basic listing d-flex flex-row">
                                 <div class="detail flex-fill">
                                     <div class="top">

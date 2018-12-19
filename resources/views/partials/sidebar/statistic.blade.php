@@ -1,5 +1,5 @@
 
-    <?php /** @var \App\Server $server */ ?>
+    <?php /** @var \App\Listing $server */ ?>
 
 
     <div class="card card-basic listing d-flex flex-row">

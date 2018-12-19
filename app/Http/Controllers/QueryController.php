@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Server;
+use App\Listing;
 
 /**
  * Class QueryController
@@ -25,7 +25,7 @@ class QueryController extends Controller
      */
     public function index($exp_group = "all", $mode = "all", $sort = "any", $orderBy = 'desc')
     {
-        $builder = Server::filter($exp_group, $mode, $sort, $orderBy);
+        $builder = Listing::filter($exp_group, $mode, $sort, $orderBy);
 
         return view('server.index')->with('servers', $builder->simplePaginate(7));
 

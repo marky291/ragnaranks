@@ -2,20 +2,18 @@
 
 namespace App;
 
+use App\Listings\Listing;
 use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Laravel\Cashier\Billable;
 use phpDocumentor\Reflection\Types\Iterable_;
-
 /**
  * Class User
  *
+ * @property int id
+ * @property Listing|iterable $listings
  * @property int $membership_id
- *
- * @property Server|\Countable|iterable $servers
- *
  * @property Carbon $membership_expiry
  *
  * @package App
@@ -61,9 +59,9 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function servers()
+    public function listings()
     {
-        return $this->hasMany(Server::class, 'user_id', 'id');
+        return $this->hasMany(Listing::class, 'user_id', 'id');
     }
 
 }

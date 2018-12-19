@@ -21,3 +21,8 @@ function fake()
 {
     return \Faker\Factory::create();
 }
+
+function trend_calculate()
+{
+    return round(((2 - 1) / 1) * 100, 2);
+}

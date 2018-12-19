@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Server;
+use App\Listing;
 use App\Click;
 use App\Vote;
 use Carbon\Carbon;
@@ -30,9 +30,13 @@ class CardFilterTest extends TestCase
     public function the_index_page_filters_to_vote_count()
     {
         // create three servers with no votes.
-        $server = factory(Server::class)->create(['votes_count' => 1]);
+        $server_one = factory(Listing::class)->create();
 
-        factory(Server::class, 3)->create(['votes_count' => 0]);
+        $server_one->votes()->saveMany(factory(Vote::class, 3)->create());
+
+        $server_two = factory(Listing::class)->create();
+
+        $server_two->votes()->saveMany(factory(Vote::class, 2)->create());
 
         $response = $this->get('/');
 
@@ -41,7 +45,7 @@ class CardFilterTest extends TestCase
         $collection = $response->getOriginalContent()->getData()['servers'];
 
         // the second server, should show at the top.
-        $this->assertEquals($server->name, $collection->first()->name);
+        $this->assertEquals($server_one->name, $collection->first()->name);
     }
 
     /**
@@ -49,8 +53,9 @@ class CardFilterTest extends TestCase
      */
     public function the_filters_can_display_votes_during_a_period_of_days()
     {
-        // create three servers with no votes.
-        $server = factory(Server::class)->create(['votes_count' => 1]);
+        $server = factory(Listing::class)->create();
+
+        $server->votes()->saveMany(factory(Vote::class, 3)->create());
 
         $response = $this->get('/servers/all/all/votes_count/desc');
 
@@ -58,7 +63,7 @@ class CardFilterTest extends TestCase
 
         $data = $response->getOriginalContent()->getData()['servers'];
 
-        $this->assertEquals(1, $data[0]->votes_count);
+        $this->assertEquals(1, $data[0]->votes());
     }
 
     /**
@@ -67,7 +72,7 @@ class CardFilterTest extends TestCase
     public function the_filters_can_display_clicks_during_a_period_of_days()
     {
         // create three servers with no votes.
-        factory(Server::class)->create(['clicks_count' => 1]);
+        factory(Listing::class)->create(['clicks_count' => 1]);
 
         $response = $this->get('/servers/all/all/clicks_count/desc');
 
@@ -83,9 +88,9 @@ class CardFilterTest extends TestCase
      */
     public function the_filters_can_filter_newest_entries()
     {
-        $new_server = factory(Server::class)->create(['created_at' => now()]);
+        $new_server = factory(Listing::class)->create(['created_at' => now()]);
 
-        $old_server = factory(Server::class)->create(['created_at' => now()->subDays(5)]);
+        $old_server = factory(Listing::class)->create(['created_at' => now()->subDays(5)]);
 
         $response = $this->get('/servers/all/all/created_at/desc');
 
@@ -101,9 +106,9 @@ class CardFilterTest extends TestCase
      */
     public function the_filters_can_filter_by_episode_version()
     {
-        $olders_version = factory(Server::class)->create(['episode' => 11.00]);
+        $olders_version = factory(Listing::class)->create(['episode' => 11.00]);
 
-        $newest_version = factory(Server::class)->create(['episode' => 13.00]);
+        $newest_version = factory(Listing::class)->create(['episode' => 13.00]);
 
         $response = $this->get('/servers/all/all/episode/desc');
 
@@ -119,7 +124,7 @@ class CardFilterTest extends TestCase
      */
     public function it_can_correctly_get_the_exp_groups_for_filtering()
     {
-        $server = factory(Server::class, 3)->create();
+        $server = factory(Listing::class, 3)->create();
 
         $server[0]->config()->update(['base_exp_rate' => config('filter.exp.low-rate.max')]);
         $server[1]->config()->update(['base_exp_rate' => config('filter.exp.mid-rate.max')]);
@@ -135,7 +140,7 @@ class CardFilterTest extends TestCase
      */
     public function it_can_display_an_exp_group_as_a_filter()
     {
-        $server = factory(Server::class, 3)->create();
+        $server = factory(Listing::class, 3)->create();
 
         $server[0]->config()->update(['base_exp_rate' => config('filter.exp.low-rate.max')]);
         $server[1]->config()->update(['base_exp_rate' => config('filter.exp.mid-rate.max')]);
@@ -147,7 +152,7 @@ class CardFilterTest extends TestCase
 
         $collection = $response->getOriginalContent()->getData()['servers'];
 
-        /** @var Server $item */
+        /** @var Listing $item */
         foreach ($collection as $server)
         {
             $this->assertEquals('Low Rate', $server->exp_group);
@@ -159,7 +164,7 @@ class CardFilterTest extends TestCase
      */
     public function it_can_filter_by_mode()
     {
-        $server = factory(Server::class, 2)->create();
+        $server = factory(Listing::class, 2)->create();
 
         $server[0]->mode->update(["name" => "renewal"]);
         $server[1]->mode->update(["name" => "pre-renewal"]);

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <?php /** @var App\Server $server */ ?>
+    <?php /** @var App\Listing $server */ ?>
 
     <nav id="spotlight" class="bg-white shadow-inner">
         <div class="container py-3">
@@ -122,7 +122,7 @@
                     <h3 class="heading mb-4 text-dark heading-underline">Server Ratings</h3>
                     <div class="row no-gutters">
                         @include('server.partial.rating', ['name' => 'Support', 'description' => 'GMs are available and are happy to help.'])
-                        @include('server.partial.rating', ['name' => 'Hosting', 'description' => 'Server is hosted in a good place with no-lag or spikes.'])
+                        @include('server.partial.rating', ['name' => 'Hosting', 'description' => 'Listings'])
                         @include('server.partial.rating', ['name' => 'Content', 'description' => 'There is much to do in game and frequently new stuff added.'])
                         @include('server.partial.rating', ['name' => 'Events', 'description' => 'Events have good rewards and are usual.'])
                     </div>

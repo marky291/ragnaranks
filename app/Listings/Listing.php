@@ -1,9 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Listings;
 
-use App\Interaction\Click;
-use App\Interaction\Vote;
+use App\Click;
+use App\Mode;
+use App\Tag;
+use App\User;
+use App\Vote;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
@@ -12,8 +15,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * Class Server
+ * Class Listings
  *
+ * @property int $rank
  * @property int $id
  * @property string $name
  * @property string $slug
@@ -21,18 +25,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $description
  * @property string $banner_url
  * @property double $episode
- * @property int $votes_count
- * @property int $clicks_count
- * @property double $clicks_trend
- * @property double $votes_trend
- * @property int $rank
- * @property int $rank_growth
+ * @property array $configs
  *
  * @property string $exp_group
  *
- * @property ServerConfig $config
- * @property ServerMode $mode
- * @property ServerReport $report
+ * @property Mode $mode
  *
  * @property Carbon $created_at
  * @property Carbon $updated_at
@@ -51,15 +48,16 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  *
  * @package App
  */
-class Server extends Model
+class Listing extends Model
 {
-
     /**
-     * The table associated with the model.
+     * The attributes that should be cast to native types.
      *
-     * @var string
+     * @var array
      */
-    protected $table = 'servers';
+    protected $casts = [
+        'configs' => 'array',
+    ];
 
     /**
      * The attributes that aren't mass assignable.
@@ -79,63 +77,34 @@ class Server extends Model
     }
 
     /**
-     * A server has one configuration set.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function config()
-    {
-        return $this->hasOne(ServerConfig::class, 'server_id', 'id');
-    }
-
-    /**
      * A server has one available mode.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function mode()
     {
-        return $this->hasOne(ServerMode::class, 'id', 'mode_id');
+        return $this->hasOne(Mode::class, 'id', 'mode_id');
     }
 
     /**
      * A server can have many clicks.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany|Click
-     */
-    public function clicks()
-    {
-        return $this->hasMany(Click::class, 'server_id', 'id');
-    }
-
-    /**
-     * A server can have many votes.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany|Vote
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany|Vote
      */
     public function votes()
     {
-        return $this->hasMany(Vote::class,'server_id', 'id');
+        return $this->morphedByMany('App\Vote', 'interaction');
     }
 
     /**
-     * A server has many monthly reports.
+     * A server can have many clicks.
      *
-     * @return HasMany
-     */
-    public function reports()
-    {
-        return $this->hasMany(ServerReport::class);
-    }
-
-    /**
-     * A server has one monthly report. (current)
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany|Vote
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne|\Illuminate\Database\Query\Builder
      */
-    public function report()
+    public function clicks()
     {
-        return $this->hasOne(ServerReport::class);
+        return $this->morphedByMany('App\Click', 'interaction');
     }
 
     /**
@@ -155,14 +124,13 @@ class Server extends Model
      */
     public function tags()
     {
-        return $this->belongsToMany(Tag::class, 'servers_tags');
+        return $this->belongsToMany(Tag::class);
     }
 
     /**
      * Scope a query to descend order of having latest review.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param int $limit
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeLatestReviews($query)
@@ -172,66 +140,17 @@ class Server extends Model
     }
 
     /**
-     * Scope a query to descend order of votes trend
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeHighestVoteTrend($query)
-    {
-        return $query->orderByDesc('votes_trend');
-    }
-
-    /**
-     * Scope a query to descend order of clicks trend.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeHighestClickTrend($query)
-    {
-        return $query->orderByDesc('clicks_trend');
-    }
-
-    /**
-     * Reset the vote and click counters of the server for this month.
-     *
-     * @return bool
-     */
-    public function resetCounters()
-    {
-        return $this->update(['clicks_count' => 0, 'votes_count' => 0]);
-    }
-
-    /**
-     * This seems to cause some delay on loading a server model?
-     * Still faster than a database query result however.
-     *
-     * @param string $relation
-     *
-     * @throws Exception
-     *
-     * @return mixed
-     */
-    public function cache(string $relation)
-    {
-        return cache()->tags($relation)->remember($this->id, 30, function () use ($relation) {
-            return $this->$relation;
-        });
-    }
-
-    /**
      * Get the EXP group that the server belongs to.
      *
      * @return string
      * @throws \Exception
      * @noinspection PhpUnhandledExceptionInspection
      *
-     * @todo: Move this to ServerConfig::class ?
+     * @todo: Move this to ListingConfig::class ?
      */
     public function getExpGroupAttribute()
     {
-        $server_base = $this->config->base_exp_rate;
+        $server_base = $this->configs[base_exp_rate];
 
         if ($server_base <= config('filter.exp.low-rate.max'))
             return 'Low Rate';
@@ -269,11 +188,11 @@ class Server extends Model
         }
         if (in_array($exp_group, ['low-rate', 'mid-rate', 'high-rate', 'custom', 'classic'])) {
             $builder->whereHas('config', function($query) use ($exp_group) {
-                /** @var ServerConfig $query */
+                /** @var ListingConfig $query */
                 $query->expGroup($exp_group);
             });
         }
-        if (in_array($sort_column, ['rank', 'votes_count', 'votes_trend', 'clicks_count', 'clicks_trend', 'episode', 'created_at'])) {
+        if (in_array($sort_column, ['rank', 'episode', 'created_at'])) {
             $builder->orderBy($sort_column, $orderBy);
 
             // secondary ordering of orders. [kayru parameters]

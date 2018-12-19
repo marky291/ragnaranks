@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Server;
+use App\Listing;
 use Illuminate\Http\Request;
 
 /**
@@ -21,7 +21,7 @@ class ServerController extends Controller
      */
     public function index()
     {
-        $builder = Server::filter('all', 'all', 'rank', 'asc');
+        $builder = Listing::filter('all', 'all', 'rank', 'asc');
 
         return view('server.index')->with('servers', $builder->simplePaginate(7));
     }
@@ -50,11 +50,11 @@ class ServerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  Server  $server
+     * @param  Listing  $server
      *
      * @return \Illuminate\Http\Response
      */
-    public function show(Server $server)
+    public function show(Listing $server)
     {
         return view('server.show', ['server' => $server]);
     }

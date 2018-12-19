@@ -21,19 +21,12 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
     /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'tags';
-
-    /**
      * The servers that belongs to this tag.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function servers()
     {
-        return $this->belongsToMany('App\Server', 'servers_tags');
+        return $this->belongsToMany('App\Listing', 'servers_tags');
     }
 }
