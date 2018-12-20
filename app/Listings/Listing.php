@@ -8,8 +8,6 @@ use App\Tag;
 use App\User;
 use App\Vote;
 use Carbon\Carbon;
-use Exception;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -26,10 +24,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $banner_url
  * @property double $episode
  * @property array $configs
- *
+ * @property array $statistics
+ * @property Mode $mode
  * @property string $expRateTitle
  *
- * @property Mode $mode
  *
  * @property Carbon $created_at
  * @property Carbon $updated_at
@@ -38,14 +36,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property Collection tags
  * @property Vote|HasMany $votes
  * @property Click|HasMany $clicks
- *
- * @method static withCount(string $string)
- * @method static expGround(int $period, string $group)
- *
- * @method static Collection HighestVoteTrend()
- * @method static Collection HighestClickTrend()
- * @method static Collection LatestReviews()
- *
  *
  * @package App
  */
@@ -58,6 +48,7 @@ class Listing extends Model
      */
     protected $casts = [
         'configs' => 'array',
+        'statistics' => 'array',
     ];
 
     /**
@@ -156,50 +147,5 @@ class Listing extends Model
             return 'High Rate';
 
         return "Super High Rate";
-    }
-
-    /**
-     * Exp group = The group of servers to work with [low-rate, mid-rate, high-rate]
-     * Mode      = The server mode that we work with [renewal, classic, custom, pre-renewal]
-     *
-     * @param string $exp_group The group type [low-rate, mid-rate, high-rate]
-     * @param string $mode The server mode [renewal, classic, custom, pre-renewal]
-     * @param string $sort_column The column that should be sorted. [columns]
-     * @param string $orderBy The order in which the result should be returned [desc, asc]
-     *
-     * @throws Exception
-     *
-     * @return Builder
-     *
-     * @todo: Make its own class? [FilterBuilder]
-     */
-    public static function filter($exp_group = "all", $mode = "all", $sort_column = "any", $orderBy = 'desc')
-    {
-        $builder = self::query();
-
-        if (in_array($mode, ['renewal', 'pre-renewal', 'classic', 'custom'])) {
-            $builder->whereHas('mode', function(Builder $query) use ($mode) {
-                $query->where('name', $mode);
-            });
-        }
-        if (in_array($exp_group, ['low-rate', 'mid-rate', 'high-rate', 'custom', 'classic'])) {
-            $builder->whereHas('config', function($query) use ($exp_group) {
-                /** @var ListingConfig $query */
-                $query->expGroup($exp_group);
-            });
-        }
-        if (in_array($sort_column, ['episode', 'created_at'])) {
-            $builder->orderBy($sort_column, $orderBy);
-
-            // secondary ordering of orders. [kayru parameters]
-            if ($sort_column != 'rank') {
-                $builder->orderBy('rank', 'asc');
-            }
-        }
-
-
-        // TODO: Add checks for sort column and order by?
-
-        return $builder;
     }
 }

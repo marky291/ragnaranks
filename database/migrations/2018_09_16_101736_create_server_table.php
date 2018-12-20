@@ -97,7 +97,6 @@ class CreateServerTable extends Migration
 
         Schema::create('listings', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('rank')->default(0);
             $table->unsignedInteger('user_id');
             $table->string('name');
             $table->string('slug');
@@ -105,10 +104,11 @@ class CreateServerTable extends Migration
             $table->string('banner_url');
             $table->longText('description');
             $table->string('website');
+            $table->json('statistics');
             $table->unsignedInteger('mode_id');
             $table->double('episode')->nullable();
             $table->timestamps();
-            $table->index(['rank', 'episode']);
+            $table->index(['episode']);
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
             $table->foreign('mode_id')->references('id')->on('modes')->onUpdate('cascade');
         });

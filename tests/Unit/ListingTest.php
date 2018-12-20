@@ -51,6 +51,16 @@ class ListingTest extends TestCase
     /**
      * @test
      */
+    public function it_has_statistics()
+    {
+        $server = factory(Listing::class)->create();
+
+        $this->assertNotNull($server->statistics);
+    }
+
+    /**
+     * @test
+     */
     public function it_has_an_owner()
     {
         $this->signIn();
@@ -170,7 +180,7 @@ class ListingTest extends TestCase
      */
     public function it_pulls_cached_servers_from_the_container()
     {
-        Cache::shouldReceive('remember')->once()->with('listings', 5, \Closure::class)->andReturn(factory(Listing::class, 5)->create());
+        factory(Listing::class, 5)->create();
 
         $servers = app('listings');
 
