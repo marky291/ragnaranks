@@ -27,14 +27,15 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property double $episode
  * @property array $configs
  *
- * @property string $exp_group
+ * @property string $expRateTitle
  *
  * @property Mode $mode
  *
  * @property Carbon $created_at
  * @property Carbon $updated_at
  *
- * @property User $owner
+ * @property User $user
+ * @property Collection tags
  * @property Vote|HasMany $votes
  * @property Click|HasMany $clicks
  *
@@ -93,7 +94,7 @@ class Listing extends Model
      */
     public function votes()
     {
-        return $this->morphedByMany('App\Vote', 'interaction');
+        return $this->morphedByMany('App\Vote', 'listing_interaction');
     }
 
     /**
@@ -104,7 +105,7 @@ class Listing extends Model
      */
     public function clicks()
     {
-        return $this->morphedByMany('App\Click', 'interaction');
+        return $this->morphedByMany('App\Click', 'listing_interaction');
     }
 
     /**
@@ -112,9 +113,9 @@ class Listing extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function owner()
+    public function user()
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class);
     }
 
     /**
@@ -128,29 +129,24 @@ class Listing extends Model
     }
 
     /**
-     * Scope a query to descend order of having latest review.
+     * Create a new Eloquent Collection instance.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param  array  $models
+     * @return \Illuminate\Database\Eloquent\Collection
      */
-    public function scopeLatestReviews($query)
+    public function newCollection(array $models = [])
     {
-        return $query;
-
+        return new ListingFilter($models);
     }
 
     /**
      * Get the EXP group that the server belongs to.
      *
      * @return string
-     * @throws \Exception
-     * @noinspection PhpUnhandledExceptionInspection
-     *
-     * @todo: Move this to ListingConfig::class ?
      */
-    public function getExpGroupAttribute()
+    public function getExpRateTitleAttribute()
     {
-        $server_base = $this->configs[base_exp_rate];
+        $server_base = $this->configs['base_exp_rate'];
 
         if ($server_base <= config('filter.exp.low-rate.max'))
             return 'Low Rate';
@@ -159,7 +155,7 @@ class Listing extends Model
         if ($server_base <= config('filter.exp.high-rate.max'))
             return 'High Rate';
 
-        throw new \Exception("Bad configuration for exp group Attribute");
+        return "Super High Rate";
     }
 
     /**
@@ -192,7 +188,7 @@ class Listing extends Model
                 $query->expGroup($exp_group);
             });
         }
-        if (in_array($sort_column, ['rank', 'episode', 'created_at'])) {
+        if (in_array($sort_column, ['episode', 'created_at'])) {
             $builder->orderBy($sort_column, $orderBy);
 
             // secondary ordering of orders. [kayru parameters]

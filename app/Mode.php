@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class ServerModes
  *
  * @property int $id
+ * @property string $tag
  * @property string $name
  * @property string $description
  * @property Carbon $updated_at

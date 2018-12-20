@@ -20,14 +20,6 @@ use phpDocumentor\Reflection\Types\Iterable_;
  */
 class User extends Authenticatable
 {
-    use Notifiable;
-
-    /**
-     * The relations to eager load on every query.
-     *
-     * @var array
-     */
-    protected $with = [''];
 
     /**
      * The attributes that are mass assignable.
@@ -46,13 +38,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array
-     */
-    protected $dates = [''];
 
     /**
      * A user can have many servers.

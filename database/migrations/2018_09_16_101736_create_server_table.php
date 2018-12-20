@@ -133,11 +133,11 @@ class CreateServerTable extends Migration
             $table->timestamp('created_at')->useCurrent();
         });
 
-        Schema::create('interactions', function(Blueprint $table)
+        Schema::create('listing_interactions', function(Blueprint $table)
         {
-            $table->increments('id');;
+            $table->increments('id');
             $table->unsignedInteger('listing_id');
-            $table->morphs('interaction');
+            $table->morphs('listing_interaction');
             $table->timestamp('created_at')->useCurrent();
         });
     }
