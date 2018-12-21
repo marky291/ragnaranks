@@ -11,19 +11,28 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class VoteTest extends TestCase
 {
+
     /**
      * @test
      */
-    public function it_can_scope_the_votes_to_the_current_week()
+    public function it_can_scope_the_votes_from_today()
     {
-        /** @var \App\Listings\Listing $server */
-        $server = factory(Listing::class)->create();
+        factory(Vote::class)->create(['created_at' => Carbon::today()]);
 
-        $server->votes()->saveMany([
-            factory(Vote::class)->create(['created_at' => Carbon::now()->startOfYear()]),
-            factory(Vote::class)->create(['created_at' => Carbon::now()->startOfDay()])
-        ]);
+        factory(Vote::class)->create(['created_at' => Carbon::yesterday()]);
 
-        $this->assertCount(1, $server->votes()->thisWeek()->get());
+        $this->assertSame(1, Vote::onPeriod(Carbon::today())->count());
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_scope_votes_between_period()
+    {
+        factory(Vote::class)->create(['created_at' => Carbon::today()]);
+
+        factory(Vote::class)->create(['created_at' => Carbon::yesterday()]);
+
+        $this->assertSame(2, Vote::betweenPeriod(Carbon::today(), Carbon::yesterday())->count());
     }
 }

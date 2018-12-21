@@ -23,7 +23,7 @@
     },
     "autoload": {
         "files": [
-            "app/helper.php"
+            "app/Helpers/EverythingHelper.php"
         ],
         "classmap": [
             "database/seeds",

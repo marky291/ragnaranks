@@ -17,19 +17,15 @@ use Illuminate\Support\Collection;
  * @property Carbon $created_at
  * @property Carbon $updated_at
  *
- * @property Listing $server
- *
- *
  * @package App
  */
 class Click extends Model
 {
+
     /**
-     * The table associated with the model.
-     *
-     * @var string
+     * Scope methods for certain days.
      */
-    protected $table = 'clicks';
+    use Periods;
 
     /**
      * The name of the "updated at" column.
