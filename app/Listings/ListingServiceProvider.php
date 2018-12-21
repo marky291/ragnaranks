@@ -2,6 +2,8 @@
 
 namespace App\Listings;
 
+use Illuminate\Queue\Listener;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -11,6 +13,17 @@ use Illuminate\Support\ServiceProvider;
  */
 class ListingServiceProvider extends ServiceProvider
 {
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Listing::observe(ListingObserver::class);
+    }
+
     /**
      * Register services.
      *
