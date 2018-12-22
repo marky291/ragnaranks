@@ -85,7 +85,7 @@ class Listing extends Model
      */
     public function votes()
     {
-        return $this->morphedByMany('App\Vote', 'listing_interaction');
+        return $this->morphedByMany('App\Vote', 'interaction');
     }
 
     /**
@@ -96,7 +96,7 @@ class Listing extends Model
      */
     public function clicks()
     {
-        return $this->morphedByMany('App\Click', 'listing_interaction');
+        return $this->morphedByMany('App\Click', 'interaction');
     }
 
     /**

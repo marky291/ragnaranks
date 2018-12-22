@@ -17,9 +17,10 @@ class ListingObserver
      */
     public function created(Listing $listing)
     {
-        if (! isset($listing->statistics['rank'])) {
-            $listing->update(['statistics->rank' => $listing->id]);
+        if (!isset($listing->statistics['rank'])) {
+            $listing->update([
+                'statistics->rank' => $listing->id
+            ]);
         }
-
     }
 }

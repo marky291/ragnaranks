@@ -14,8 +14,8 @@ class ListingObserverTest extends TestCase
      */
     public function it_creates_a_rank_from_the_id()
     {
-        $listing = factory(Listing::class)->create();
+        $listing = factory(Listing::class)->create(['id' => 25]);
 
-        $this->assertSame(1, $listing->statistics['rank']);
+        $this->assertSame(25, $listing->statistics['rank']);
     }
 }
