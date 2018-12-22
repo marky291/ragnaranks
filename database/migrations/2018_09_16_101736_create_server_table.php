@@ -138,7 +138,6 @@ class CreateServerTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('listing_id');
             $table->morphs('listing_interaction');
-            $table->timestamp('created_at')->useCurrent();
         });
     }
 

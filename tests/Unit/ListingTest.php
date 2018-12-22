@@ -22,6 +22,16 @@ class ListingTest extends TestCase
     /**
      * @test
      */
+    public function it_has_a_rank()
+    {
+        $listing = factory(Listing::class)->create(['statistics->rank' => 1]);
+
+        $this->assertSame(1, $listing->statistics['rank']);
+    }
+
+    /**
+     * @test
+     */
     public function it_has_a_route_key_name()
     {
         $this->assertEquals('slug', (new Listing)->getRouteKeyName());

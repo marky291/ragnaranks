@@ -32,9 +32,7 @@ class ListingServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('listings', function($app) {
-            return cache()->remember('listings', 5, function() {
-                return Listing::with(['mode', 'tags'])->get();
-            });
+            return Listing::with(['mode', 'tags'])->get();
         });
     }
 }

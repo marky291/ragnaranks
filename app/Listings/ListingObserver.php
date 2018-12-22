@@ -10,13 +10,16 @@ namespace App\Listings;
 class ListingObserver
 {
     /**
-     * Handle the app listings listing "created" event.
+     * Handle the app listings listing "creating" event.
      *
      * @param Listing $listing
      * @return void
      */
     public function created(Listing $listing)
     {
-        //$listing->update(['statistics->rank' => $listing->id]);
+        if (! isset($listing->statistics['rank'])) {
+            $listing->update(['statistics->rank' => $listing->id]);
+        }
+
     }
 }
