@@ -188,12 +188,38 @@ class ListingTest extends TestCase
     /**
      * @test
      */
-    public function it_pulls_cached_servers_from_the_container()
+    public function it_gains_1_point_for_every_three_clicks()
     {
-        factory(Listing::class, 5)->create();
+        $listing = factory(Listing::class)->create();
 
-        $servers = app('listings');
+        $listing->clicks()->saveMany(factory(Click::class, 3)->create());
 
-        $this->assertCount(5, $servers);
+        $this->assertEquals(1, $listing->points);
+    }
+
+    /**
+     * @test
+     */
+    public function it_gains_1_point_for_every_vote()
+    {
+        $listing = factory(Listing::class)->create();
+
+        $listing->votes()->saveMany(factory(Vote::class, 1)->create());
+
+        $this->assertEquals(1, $listing->points);
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_calculate_points_from_votes_and_clicks()
+    {
+        $listing = factory(Listing::class)->create();
+
+        $listing->votes()->saveMany(factory(Vote::class, 8)->create());
+
+        $listing->clicks()->saveMany(factory(Click::class, 6)->create());
+
+        $this->assertEquals(10, $listing->points);
     }
 }

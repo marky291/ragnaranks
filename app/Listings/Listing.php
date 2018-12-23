@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $id
  * @property string $name
  * @property string $slug
+ * @property string $points
  * @property string $website
  * @property string $description
  * @property string $banner_url
@@ -123,11 +124,24 @@ class Listing extends Model
      * Create a new Eloquent Collection instance.
      *
      * @param  array  $models
+     *
      * @return \Illuminate\Database\Eloquent\Collection
      */
     public function newCollection(array $models = [])
     {
         return new ListingFilter($models);
+    }
+
+    /**
+     * Get the total points of the listing.
+     *
+     * Used for ranking servers against others.
+     *
+     * @return float|int
+     */
+    public function getPointsAttribute()
+    {
+        return $this->votes()->count() + ($this->clicks()->count() / 3);
     }
 
     /**
