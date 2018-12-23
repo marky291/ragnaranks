@@ -3,12 +3,19 @@
 namespace Tests\Unit;
 
 use App\Click;
+use App\Listings\GenerateListingsCache;
 use App\Listings\Listing;
 use App\Vote;
+use Illuminate\Support\Facades\Queue;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
+/**
+ * Class ListingContainerTest
+ *
+ * @package Tests\Unit
+ */
 class ListingContainerTest extends TestCase
 {
     /**
@@ -63,6 +70,17 @@ class ListingContainerTest extends TestCase
         $listings = app('listings');
 
         $this->assertSame($listings->first()->name, $listing2->name);
+    }
 
+    /**
+     * @test
+     */
+    public function it_builds_the_cache_when_no_cache_exists()
+    {
+        $this->expectsJobs(GenerateListingsCache::class);
+
+        factory(Listing::class, 5)->create();
+
+        app('listings');
     }
 }
