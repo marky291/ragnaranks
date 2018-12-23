@@ -8,6 +8,7 @@
 
 namespace App\Listings;
 
+use App\User;
 use Illuminate\Database\Eloquent\Collection;
 
 /**
@@ -56,6 +57,20 @@ class ListingFilter extends Collection
     }
 
     /**
+     * Filter out the listings belonging to a certain owner/user.
+     *
+     * @param User $user
+     *
+     * @return ListingFilter
+     */
+    public function filterOwner(User $user)
+    {
+        return $this->filter(function(Listing $listing) use ($user) {
+            return $listing->user->is($user);
+        });
+    }
+
+    /**
      * Sort the filter based on a key entry.
      *
      * @param string $key
@@ -63,13 +78,12 @@ class ListingFilter extends Collection
      */
     public function filterSort(string $key = "any")
     {
-        if (in_array($key, ['name', 'episode', 'created_at'])) {
-            return $this->sortBy($key);
+        if (in_array($key, ['episode', 'created_at', 'votes_count', 'clicks_count'])) {
+            return $this->sortByDesc($key);
         }
 
-        if (in_array($key, ['rank', 'vote_count', 'clicks_count', 'rank_growth', 'votes_trend', 'clicks_trend']))
-        {
-            return $this->sortBy("statistics.{$key}");
+        if (in_array($key, ['name', 'rank'])) {
+            return $this->sortBy($key);
         }
 
         return $this;

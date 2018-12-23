@@ -91,7 +91,6 @@ $factory->define(Listing::class, function (Faker $faker) {
         'website' => $faker->url,
         'mode_id' => \App\Mode::inRandomOrder()->first(),
         'description' => $server['description'],
-        'statistics' => [],
         'episode' => collect([13.10, 13.09, 13.05, 12.11])->random(),
         'banner_url' => $server['banner'],
     ];

@@ -104,7 +104,6 @@ class CreateServerTable extends Migration
             $table->string('banner_url');
             $table->longText('description');
             $table->string('website');
-            $table->json('statistics');
             $table->unsignedInteger('mode_id');
             $table->double('episode')->nullable();
             $table->timestamps();

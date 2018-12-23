@@ -39,7 +39,7 @@ class ListingServiceProvider extends ServiceProvider
         $this->app->singleton('listings', function($app)
         {
             if (!Cache::has('listings')) {
-                GenerateListingsCache::dispatchNow();
+                CacheListingsContainer::dispatchNow();
             }
 
             return Cache::get('listings');

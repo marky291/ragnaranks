@@ -2,6 +2,8 @@
 
 namespace App\Listings;
 
+use Illuminate\Support\Facades\Cache;
+
 /**
  * Class ListingObserver
  *
@@ -17,10 +19,6 @@ class ListingObserver
      */
     public function created(Listing $listing)
     {
-        if (!isset($listing->statistics['rank'])) {
-            $listing->update([
-                'statistics->rank' => $listing->id
-            ]);
-        }
+        AddListingToContainer::dispatchNow($listing);
     }
 }

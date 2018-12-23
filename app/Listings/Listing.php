@@ -25,7 +25,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $banner_url
  * @property double $episode
  * @property array $configs
- * @property array $statistics
  * @property Mode $mode
  * @property string $expRateTitle
  *

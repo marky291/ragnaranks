@@ -3,7 +3,8 @@
 namespace Tests\Unit;
 
 use App\Click;
-use App\Listings\GenerateListingsCache;
+use App\Listings\AddListingToContainer;
+use App\Listings\CacheListingsContainer;
 use App\Listings\Listing;
 use App\Vote;
 use Illuminate\Support\Facades\Queue;
@@ -77,10 +78,50 @@ class ListingContainerTest extends TestCase
      */
     public function it_builds_the_cache_when_no_cache_exists()
     {
-        $this->expectsJobs(GenerateListingsCache::class);
+        $this->expectsJobs(CacheListingsContainer::class);
 
         factory(Listing::class, 5)->create();
 
         app('listings');
     }
+
+    /**
+     * @test
+     */
+    public function it_calls_a_job_when_a_listing_is_added()
+    {
+        $this->app->make('listings');
+
+        $this->expectsJobs(AddListingToContainer::class);
+
+        $this->createListing([], 5, 5);
+    }
+
+    /**
+     * @test
+     */
+    public function it_adds_the_new_listing_to_the_cache_container()
+    {
+        $this->app->make('listings');
+
+        $this->createListing([], 5, 5);
+
+        $this->assertCount(1, $this->app->make('listings'));
+    }
+
+   /**
+    * @test
+    */
+   public function it_returns_all_listings_created_by_a_user()
+   {
+       $this->signIn();
+
+       $this->createListing(['user_id' => auth()->user()], 5, 7);
+
+       $this->createListing(['user_id' => auth()->user()], 3, 14);
+
+       $listings = $this->app->make('listings')->filterOwner(auth()->user());
+
+       $this->assertCount(2, $listings);
+   }
 }
