@@ -2,13 +2,31 @@
 
 use App\Click;
 use App\Listings\Listing;
+use App\Review;
 use App\Tag;
 use App\Vote;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;
+use Symfony\Component\Console\Helper\ProgressBar;
 
 class DatabaseSeeder extends Seeder
 {
+    /**
+     * @var ProgressBar
+     */
+    private $progress_bar;
+
+    /**
+     * @var array
+     */
+    private $seed_counts;
+
+    /**
+     * @var Collection
+     */
+    private $listings;
+
     /**
      * Seed the application's database.
      *
@@ -18,31 +36,62 @@ class DatabaseSeeder extends Seeder
     {
         Artisan::call('migrate:fresh');
 
-        $tags = Tag::all();
+        $this->setup();
 
-        $server_count = 15;
+        $this->seedDatabase();
 
-        $servers = factory(Listing::class, $server_count)->create();
+        $this->seedInteractions();
+    }
 
-        $progress = $this->command->getOutput()->createProgressBar($server_count);
+    /**
+     * DatabaseSeeder constructor.
+     */
+    public function setup()
+    {
+        $this->progress_bar = new ProgressBar($this->command->getOutput(), 3);
 
-        $this->command->alert("Generating {$server_count} servers for Ragnaranks");
+        $this->seed_counts = ['listings' => rand(20, 36), 'votes' => rand(200, 350), 'clicks' => rand(400, 500), 'reviews' => rand(15, 25)];
 
-        /** @var Listing $server */
-        foreach ($servers as $server)
-        {
-            // update the progress bar
-            $progress->advance();
+        $this->progress_bar->advance();
 
-            $server->votes()->saveMany(factory(Vote::class, rand(200, 500))->create());
+        $this->command->warn("\tInitialized Seeder \t");
+    }
 
-            $server->reviews()->saveMany(factory(\App\Review::class, rand(1, 30))->create());
+    /**
+     * Setup a starting database for seeding.
+     */
+    public function seedDatabase()
+    {
+        factory(Listing::class, $this->seed_counts['listings'])->create()->each(function(Listing $listing) {
+            $listing->tags()->saveMany(Tag::all()->random(rand(1, 4))->unique('id'));
+        });
 
-            $server->clicks()->saveMany(factory(Click::class, rand(200, 500))->create());
+        $this->listings = Listing::all();
 
-            $server->tags()->saveMany($tags->random(3)->unique('id'));
+        $this->progress_bar->advance();
 
-            $this->command->info("\tGenerated {$server->name}");
+        $this->command->warn("\t{$this->seed_counts['listings']} listings generated.");
+    }
+
+    /**
+     * Seed some interactions that would be made on the site.
+     */
+    public function seedInteractions()
+    {
+        for ($i = 0; $i < $this->seed_counts['votes']; $i++) {
+            $this->listings->random()->first()->votes()->save(factory(Vote::class)->create());
         }
+
+        for ($i = 0; $i < $this->seed_counts['clicks']; $i++) {
+            $this->listings->random()->first()->clicks()->save(factory(Click::class)->create());
+        }
+
+        for ($i = 0; $i < $this->seed_counts['reviews']; $i++) {
+            $this->listings->random()->first()->reviews()->save(factory(Review::class)->create());
+        }
+
+        $this->progress_bar->advance();
+
+        $this->command->warn("\t{$this->seed_counts['votes']} Votes, {$this->seed_counts['clicks']} Clicks & {$this->seed_counts['reviews']} reviews interacted.");
     }
 }
