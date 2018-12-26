@@ -19,7 +19,7 @@
         [
             'name' => 'Listings Online Island',
             'banner' => 'https://www.top100arena.com/siteBanners/site_0000093898_5fa09420.png',
-            'description' => 'ONLINE 1000+ | Launched: 13. June 2018 | International Mid-Rate (df server) | Pre-RE | Episode 13.3+ | Rates: 77x77x33x~99x99x44x | BattleGrounds 2.0...',
+            'description' => 'ONLINE 1000+ | Launched: 13. June 2018 | International Mid-Rate (df listing) | Pre-RE | Episode 13.3+ | Rates: 77x77x33x~99x99x44x | BattleGrounds 2.0...',
         ],
         [
             'name' => 'Estland Listings Online',
@@ -39,7 +39,7 @@
         [
             'name' => 'RebirthRO',
             'banner' => 'http://rebirthro.com/images/hotlink-ok/468x60.gif',
-            'description' => 'RebirthRO 1000 + Hats many Custom Instances New renewal 3rd jobs Rebellion - Kagerou - Oboro server named Thor 100/100/10/2 Two classic servers: Loki 100/100/20 and Eir 5/5/3 1000+ players online 100,000+ active players 100 secure website Free Pokemon pets 24/7 uptime Active WoE and BG',
+            'description' => 'RebirthRO 1000 + Hats many Custom Instances New renewal 3rd jobs Rebellion - Kagerou - Oboro listing named Thor 100/100/10/2 Two classic servers: Loki 100/100/20 and Eir 5/5/3 1000+ players online 100,000+ active players 100 secure website Free Pokemon pets 24/7 uptime Active WoE and BG',
         ],
         [
             'name' => 'Chapter R [ Now Open ]',
@@ -49,7 +49,7 @@
         [
             'name' => 'Liberation Listings Online',
             'banner' => 'https://www.arena-top100.com/images/users/libro2k18.png',
-            'description' => 'PLAYABLE IN MOBILE ANDROIDJoin us and experience the MIDRATE classic days server for Job Transcendent class. Max Level 9970 MidRate 100x10050x - up to 250x250x50x FloatingHappy hour Rates Pre-Renewal Episode 13.2 with Free JOB PACKAGE',
+            'description' => 'PLAYABLE IN MOBILE ANDROIDJoin us and experience the MIDRATE classic days listing for Job Transcendent class. Max Level 9970 MidRate 100x10050x - up to 250x250x50x FloatingHappy hour Rates Pre-Renewal Episode 13.2 with Free JOB PACKAGE',
         ],
         [
             'name' => 'Shinning Moon',

@@ -22,7 +22,6 @@ use Illuminate\Support\Collection;
 
 class Vote extends Model
 {
-
     /**
      * Scope methods for certain days.
      */

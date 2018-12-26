@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Listing;
+use App\Listings\Listing;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -28,11 +28,11 @@ class ServerActionsTest extends TestCase
     {
         $server = factory(Listing::class)->create();
 
-        $response = $this->get("/server/{$server->slug}");
+        $response = $this->get("/listing/{$server->slug}");
 
-        $response->assertOk()->assertViewHas('server');
+        $response->assertOk()->assertViewHas('listing');
 
-        $data = $response->getOriginalContent()->getData()['server'];
+        $data = $response->getOriginalContent()->getData()['listing'];
 
         $this->assertEquals($server->name, $data['name']);
     }

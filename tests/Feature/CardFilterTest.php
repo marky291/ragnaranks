@@ -44,7 +44,7 @@ class CardFilterTest extends TestCase
 
         $collection = $response->getOriginalContent()->getData()['servers'];
 
-        // the second server, should show at the top.
+        // the second listing, should show at the top.
         $this->assertEquals($server_one->name, $collection->first()->name);
     }
 

@@ -36,12 +36,13 @@ class DatabaseSeeder extends Seeder
 
             $server->votes()->saveMany(factory(Vote::class, rand(200, 500))->create());
 
+            $server->reviews()->saveMany(factory(\App\Review::class, rand(1, 30))->create());
+
             $server->clicks()->saveMany(factory(Click::class, rand(200, 500))->create());
 
             $server->tags()->saveMany($tags->random(3)->unique('id'));
 
-            // console information about the creation.
-            $this->command->line("\tGenerated {$server->name}");
+            $this->command->info("\tGenerated {$server->name}");
         }
     }
 }

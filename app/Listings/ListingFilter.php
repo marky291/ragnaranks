@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Collection;
 class ListingFilter extends Collection
 {
     /**
-     * Filter out a server based on its modes.
+     * Filter out a listing based on its modes.
      *
      * @param string $mode
      *
@@ -39,7 +39,7 @@ class ListingFilter extends Collection
     }
 
     /**
-     * Filter out a server based on its exp rate group.
+     * Filter out a listing based on its exp rate group.
      *
      * @param string $rate
      *

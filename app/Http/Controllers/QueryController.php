@@ -27,7 +27,7 @@ class QueryController extends Controller
     {
         $builder = Listing::filter($exp_group, $mode, $sort, $orderBy);
 
-        return view('server.index')->with('servers', $builder->simplePaginate(7));
+        return view('listing.index')->with('servers', $builder->simplePaginate(7));
 
     }
 }

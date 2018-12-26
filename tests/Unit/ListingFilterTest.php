@@ -5,6 +5,7 @@ namespace Tests\Unit;
 use App\Listings\Listing;
 use App\Listings\ListingFilter;
 use App\Mode;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\Cache;
@@ -132,5 +133,21 @@ class ListingFilterTest extends TestCase
         $collection = $listings->filterMode('bad')->filterGroup('key')->filterSort('entries')->all();
 
         $this->assertCount(1, $collection);
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_filter_descending_order_created_at()
+    {
+        $this->createListing(['created_at' => Carbon::yesterday()], 0, 0);
+
+        $this->createListing(['created_at' => Carbon::today()], 0, 0);
+
+        $listings = app('listings')->filterSort('created_at');
+
+        $this->assertEquals($listings->shift()->created_at, Carbon::today());
+
+        $this->assertEquals($listings->shift()->created_at, Carbon::yesterday());
     }
 }

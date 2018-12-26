@@ -23,7 +23,7 @@ return [
     | SMTP Host Address
     |--------------------------------------------------------------------------
     |
-    | Here you may provide the host address of the SMTP server used by your
+    | Here you may provide the host address of the SMTP listing used by your
     | applications. A default option is provided that is compatible with
     | the Mailgun mail service which will provide reliable deliveries.
     |
@@ -78,8 +78,8 @@ return [
     | SMTP Listings Username
     |--------------------------------------------------------------------------
     |
-    | If your SMTP server requires a username for authentication, you should
-    | set it here. This will get used to authenticate with your server on
+    | If your SMTP listing requires a username for authentication, you should
+    | set it here. This will get used to authenticate with your listing on
     | connection. You may also set the "password" value below this one.
     |
     */
@@ -94,7 +94,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | When using the "sendmail" driver to send e-mails, we will need to know
-    | the path to where Sendmail lives on this server. A default path has
+    | the path to where Sendmail lives on this listing. A default path has
     | been provided here, which will work well on most of your systems.
     |
     */

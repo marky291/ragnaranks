@@ -26,22 +26,22 @@ class CreateServerTable extends Migration
         DB::table('modes')->insert([[
             'tag' => 're',
             'name' => 'renewal',
-            'description' => 'This server is based on renewal format',
+            'description' => 'This listing is based on renewal format',
             'created_at' => now(),
         ],[
             'tag' => 'pre-re',
             'name' => 'pre-renewal',
-            'description' => 'This server is based on pre-renewal format',
+            'description' => 'This listing is based on pre-renewal format',
             'created_at' => now(),
         ], [
             'tag' => 'custom',
             'name' => 'custom',
-            'description' => 'This server uses a custom format.',
+            'description' => 'This listing uses a custom format.',
             'created_at' => now(),
         ], [
             'tag' => 'classic',
             'name' => 'classic',
-            'description' => 'This server uses a classic format.',
+            'description' => 'This listing uses a classic format.',
             'created_at' => now(),
         ]
         ]);
@@ -65,7 +65,7 @@ class CreateServerTable extends Migration
         [
             'tag' => 'gepard',
             'name' => 'Gepard Protection',
-            'description' => 'This server supports anti-bot and anti-hack software.',
+            'description' => 'This listing supports anti-bot and anti-hack software.',
             'created_at' => now(),
         ],[
             'tag' => 'g-pack',
@@ -80,7 +80,7 @@ class CreateServerTable extends Migration
         ],[
             'tag' => 'android',
             'name' => 'Android Support',
-            'description' => 'This server can be installed, played and enjoyed on Android Devices.',
+            'description' => 'This listing can be installed, played and enjoyed on Android Devices.',
             'created_at' => now(),
         ],[
             'tag' => 'frost',
@@ -120,6 +120,21 @@ class CreateServerTable extends Migration
             $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade')->onUpdate('cascade');
         });
 
+        Schema::create('reviews', function(Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('listing_id');
+            $table->text('message');
+            $table->smallInteger('donation_score');
+            $table->smallInteger('update_score');
+            $table->smallInteger('class_score');
+            $table->smallInteger('item_score');
+            $table->smallInteger('support_score');
+            $table->smallInteger('hosting_score');
+            $table->smallInteger('content_score');
+            $table->smallInteger('event_score');
+            $table->timestamps();
+        });
+
         Schema::create('votes', function (Blueprint $table) {
             $table->increments('id');
             $table->ipAddress('ip_address');
@@ -147,6 +162,6 @@ class CreateServerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('server');
+        Schema::dropIfExists('listing');
     }
 }

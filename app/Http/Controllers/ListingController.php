@@ -2,28 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Listing;
 use Illuminate\Http\Request;
 
 /**
- * Class ServerController
+ * Class ListingController
  *
  * @package App\Http\Controllers
  */
-class ServerController extends Controller
+class ListingController extends Controller
 {
     /**
-     * The default index page of listing listings.
+     * Display a listing of the resource.
      *
-     * @throws \Exception
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $builder = Listing::filter('all', 'all', 'rank', 'asc');
-
-        return view('listing.index')->with('servers', $builder->simplePaginate(7));
+        return view('listing.index')->with('listings', app('listings'));
     }
 
     /**
@@ -50,13 +45,12 @@ class ServerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  Listing  $server
-     *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Listing $server)
+    public function show($id)
     {
-        return view('listing.show', ['listing' => $server]);
+        //
     }
 
     /**

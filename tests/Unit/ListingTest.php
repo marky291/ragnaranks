@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use App\Click;
 use App\Listings\Listing;
+use App\Review;
 use App\Tag;
 use App\Vote;
 use Illuminate\Support\Facades\Cache;
@@ -71,6 +72,18 @@ class ListingTest extends TestCase
         $server->tags()->save(Tag::all()->random());
 
         $this->assertCount(1, $server->tags);
+    }
+
+    /**
+     * @test
+     */
+    public function it_has_reviews()
+    {
+        $listing = $this->createListing([], 0,0);
+
+        $listing->reviews()->saveMany(factory(Review::class, 3)->create());
+
+        $this->assertCount(3, $listing->reviews);
     }
 
     /**
@@ -168,11 +181,11 @@ class ListingTest extends TestCase
     /**
      * @test
      */
-    public function it_gains_1_point_for_every_three_clicks()
+    public function it_gains_1_point_for_every_seven_clicks()
     {
         $listing = factory(Listing::class)->create();
 
-        $listing->clicks()->saveMany(factory(Click::class, 3)->create());
+        $listing->clicks()->saveMany(factory(Click::class, 7)->create());
 
         $this->assertEquals(1, $listing->points);
     }
@@ -194,11 +207,7 @@ class ListingTest extends TestCase
      */
     public function it_can_calculate_points_from_votes_and_clicks()
     {
-        $listing = factory(Listing::class)->create();
-
-        $listing->votes()->saveMany(factory(Vote::class, 8)->create());
-
-        $listing->clicks()->saveMany(factory(Click::class, 6)->create());
+        $listing = $this->createListing([], 9, 7);
 
         $this->assertEquals(10, $listing->points);
     }

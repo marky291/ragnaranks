@@ -4,6 +4,7 @@ namespace App\Listings;
 
 use App\Click;
 use App\Mode;
+use App\Review;
 use App\Tag;
 use App\User;
 use App\Vote;
@@ -15,7 +16,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * Class Listings
  *
- * @property int $rank
  * @property int $id
  * @property string $name
  * @property string $slug
@@ -36,6 +36,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property Collection tags
  * @property Vote|HasMany $votes
  * @property Click|HasMany $clicks
+ *
+ * @property int $rank
+ * @property int votes_count
+ * @property int clicks_count
  *
  * @package App
  */
@@ -69,7 +73,7 @@ class Listing extends Model
     }
 
     /**
-     * A server has one available mode.
+     * A listing has one available mode.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -79,7 +83,7 @@ class Listing extends Model
     }
 
     /**
-     * A server can have many clicks.
+     * A listing can have many clicks.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany|Vote
      */
@@ -89,7 +93,7 @@ class Listing extends Model
     }
 
     /**
-     * A server can have many clicks.
+     * A listing can have many clicks.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany|Vote
      *
@@ -100,7 +104,7 @@ class Listing extends Model
     }
 
     /**
-     * A server belongs to a single owner.
+     * A listing belongs to a single owner.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -110,13 +114,23 @@ class Listing extends Model
     }
 
     /**
-     * The tags that belong to this server.
+     * The tags that belong to this listing.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    /**
+     * A listing has many reviews.
+     *
+     * @return HasMany
+     */
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 
     /**
@@ -140,11 +154,11 @@ class Listing extends Model
      */
     public function getPointsAttribute()
     {
-        return $this->votes()->count() + ($this->clicks()->count() / 3);
+        return round($this->votes()->count() + ($this->clicks()->count() / 7), 0);
     }
 
     /**
-     * Get the EXP group that the server belongs to.
+     * Get the EXP group that the listing belongs to.
      *
      * @return string
      */

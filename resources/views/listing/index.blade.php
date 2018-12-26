@@ -61,9 +61,9 @@
     @component('slots.stage')
         @slot('content')
             <h4 class="title text-muted mb-0">Sponsored <i class="fas fa-info-circle"></i></h4>
-            <div class="server-stage">
-                @foreach(\App\Listing::all()->take(3) as $server)
-                    <div class="carousel-cell mr-3">@include('partials.cards.preview', ['server' => $server])</div>
+            <div class="listings-stage">
+                @foreach(app('listings')->take(3) as $listing)
+                    <div class="carousel-cell mr-3">@include('partials.cards.preview', ['listing' => $listing])</div>
                 @endforeach
             </div>
         @endslot
@@ -75,9 +75,9 @@
 
             <div class="col-8 py-5">
 
-                @foreach($servers as $server)
+                @foreach($listings as $listing)
 
-                    @include('partials.cards.normal', ['server' => $server])
+                    @include('partials.cards.normal', ['listing' => $listing])
 
                 @endforeach
 
@@ -92,22 +92,40 @@
                         </p>
                     </div>
 
-                    <div class="heading">
-                        <h3>Weekly Mentions</h3>
-                    </div>
-                    <?php /** @var \App\Listing $server */ ?>
-
-                    <div id="awards" class="content py-0">
+                    {{--<div class="heading">--}}
+                        {{--<h3>Weekly Mentions</h3>--}}
+                    {{--</div>--}}
+                    {{--<div id="awards" class="content py-0">--}}
                         {{--@include('partials.sidebar.statistic', [--}}
-                            {{--'server' => App\Listings::HighestVoteTrend()->first(),--}}
+{{--                            {{-listinger' => App\Listings::HighestVoteTrend()->first(),--}}{{----}}
                             {{--'message' => "Top Trending Votes",--}}
                             {{--'column' => 'votes_trend',--}}
                         {{--])--}}
                         {{--@include('partials.sidebar.statistic', [--}}
-                            {{--'server' => App\Listings::HighestClickTrend()->first(),--}}
+{{--                            {{-listinger' => App\Listings::HighestClickTrend()->first(),--}}{{----}}
                             {{--'message' => "Top Trending Visits",--}}
                             {{--'column' => 'clicks_trend',--}}
                         {{--])--}}
+                    {{--</div>--}}
+
+                    <div class="heading">
+                        <h3>Newest Additions</h3>
+                    </div>
+
+                    <div id="additions" class="content py-0">
+                        @foreach (app('listings')->filterSort('created_at')->take(4) as $listing)
+                            <div class="microcard">
+                                <div class="information d-flex flex-row py-3">
+                                    <div class="details flex-grow-1">
+                                        <h3 class="mb-0">{{ $listing->name }}</h3>
+                                        <p class="mt-1">Created {{ $listing->created_at->format('dS F Y') }}</p>
+                                    </div>
+                                    <div class="buttons w-25 d-flex align-items-center justify-content-end">
+                                        <a href="" tabindex="0" class="btn btn btn-primary btn-sm">Visit <i class="fas fa-long-arrow-alt-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
 
                     <div class="heading">
@@ -115,22 +133,22 @@
                     </div>
 
                     <div id="reviews" class="content py-0">
-                        @foreach (App\Listing::LatestReviews()->take(3) as $server)
-                            <div class="card card-basic listing d-flex flex-row">
-                                <div class="detail flex-fill">
-                                    <div class="top">
-                                        <a href="">No Review System</a>
-                                    </div>
-                                    <div class="bottom">
-                                        <i class="fas fa-server"></i> {{ $server->getExpGroupAttribute() }}
-                                        <i class="ml-2 fas fa-clock"></i> {{ $server->created_at->diffForHumans() }}
-                                    </div>
-                                </div>
-                                <div class="show-counter bg-light text-info d-flex align-items-center justify-content-center rounded">
-                                    {{ rand(15, 100) }}
-                                </div>
-                            </div>
-                        @endforeach
+                        {{--@foreach (\App\Listings\Listing::LatestReviews()->take(3) as $server)--}}
+                            {{--<div class="card card-basic listing d-flex flex-row">--}}
+                                {{--<div class="detail flex-fill">--}}
+                                    {{--<div class="top">--}}
+                                        {{--<a href="">No Review System</a>--}}
+                                    {{--</div>--}}
+                                    {{--<div class="bottom">--}}
+                                        {{--<i class="fas fa-server"></i> {{ $server->getExpGroupAttribute() }}--}}
+                                        {{--<i class="ml-2 fas fa-clock"></i> {{ $server->created_at->diffForHumans() }}--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="show-counter bg-light text-info d-flex align-items-center justify-content-center rounded">--}}
+                                    {{--{{ rand(15, 100) }}--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--@endforeach--}}
                     </div>
                 </div>
             </div>

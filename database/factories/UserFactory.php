@@ -1,6 +1,5 @@
 <?php
 
-use App\Mode;
 use Faker\Generator as Faker;
 
 /*
@@ -23,6 +22,20 @@ $factory->define(App\User::class, function (Faker $faker) {
     ];
 });
 
+$factory->define(\App\Review::class, function(Faker $faker) {
+    return [
+        'message' => $faker->realText(200),
+        'listing_id' => factory(\App\Listings\Listing::class)->create()->id,
+        'donation_score' => $faker->numberBetween(0, 10),
+        'update_score' => $faker->numberBetween(0, 10),
+        'class_score' => $faker->numberBetween(0, 10),
+        'item_score' => $faker->numberBetween(0, 10),
+        'support_score' => $faker->numberBetween(0, 10),
+        'hosting_score' => $faker->numberBetween(0, 10),
+        'content_score' => $faker->numberBetween(0, 10),
+        'event_score' => $faker->numberBetween(0, 10),
+    ];
+});
 
 $factory->define(App\Mode::class, function (Faker $faker) {
     return [

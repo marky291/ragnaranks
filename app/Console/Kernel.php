@@ -44,7 +44,7 @@ class Kernel extends ConsoleKernel
             }
         })->dailyAt('00:00');
 
-        // Calculate a server ranking for every sever every hour.
+        // Calculate a listing ranking for every sever every hour.
         $schedule->call(function() {
             RankServerCollection::dispatch(Listing::all());
         })->everyFiveMinutes();

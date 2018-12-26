@@ -17,12 +17,12 @@ use Illuminate\Support\Facades\Route;
 Illuminate\Support\Facades\Auth::routes();
 
 // default index page.
-Route::get('/')->uses('ServerController@index')->name('index');
+Route::get('/')->uses('ListingController@index')->name('index');
 
 
-Route::get('/server/{server}')->uses('ServerController@show')->name('server.show');
+Route::get('/listing/{listing}')->uses('ServerController@show')->name('listing.show');
 
-//Route::resource('server', 'ServerController');
+//Route::resource('listing', 'ServerController');
 
 // card filtering system.
 Route::get('/servers/{exp_group}/{mode}/{sort}/{orderBy}')->uses('QueryController@index')->name('filter.query');

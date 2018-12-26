@@ -1,7 +1,7 @@
 window.Flickity = require('flickity');
 
 $(document).ready(function e(){
-    new Flickity( '.server-stage', {
+    new Flickity( '.listings-stage', {
         // options, defaults listed
 
         accessibility: true,

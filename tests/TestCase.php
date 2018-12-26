@@ -6,8 +6,12 @@ use App\Click;
 use App\Listings\Listing;
 use App\User;
 use App\Vote;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+use Illuminate\Foundation\Testing\TestResponse;
+use Illuminate\Http\Response;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -15,7 +19,7 @@ abstract class TestCase extends BaseTestCase
     use CreatesApplication;
 
     /**
-     * Set up a fake user with a server.
+     * Set up a fake user with a listing.
      */
     public function signIn()
     {
@@ -33,5 +37,15 @@ abstract class TestCase extends BaseTestCase
         $listing->clicks()->saveMany(factory(Click::class, $clicks_count)->create(['created_at' => fake()->dateTimeBetween("-6 days", 'now')]));
 
         return $listing;
+    }
+
+    /**
+     * @param TestResponse $response
+     *
+     * @return Collection|Model
+     */
+    public function viewData(TestResponse $response)
+    {
+        return $response->getOriginalContent()->getData()['listings'];
     }
 }
