@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Listings\Listing;
 use Illuminate\Http\Request;
 
 /**
@@ -45,12 +46,12 @@ class ListingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param Listing $listing
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Listing $listing)
     {
-        //
+        return view('listing.show')->with('listing', $listing);
     }
 
     /**

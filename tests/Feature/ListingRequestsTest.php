@@ -29,4 +29,20 @@ class ListingRequestsTest extends TestCase
 
         $this->assertEquals('third', $this->viewData($response)->last()->name);
     }
+
+    /**
+     * @test
+     */
+    public function it_loads_a_server_profile()
+    {
+        $this->withoutExceptionHandling();
+
+        $listing = $this->createListing([], 0, 0);
+
+        $response = $this->get("/listing/{$listing->slug}");
+
+        $this->assertNotNull($response->original->listing->name);
+
+        $response->assertOk()->assertViewIs('listing.show')->assertViewHas('listing');
+    }
 }

@@ -121,7 +121,7 @@
                                         <p class="mt-1">Created {{ $listing->created_at->format('dS F Y') }}</p>
                                     </div>
                                     <div class="buttons w-25 d-flex align-items-center justify-content-end">
-                                        <a href="" tabindex="0" class="btn btn btn-primary btn-sm">Visit <i class="fas fa-long-arrow-alt-right"></i></a>
+                                        <a href="{{ route('listing.show', $listing) }}" tabindex="0" class="btn btn btn-primary btn-sm">Visit <i class="fas fa-long-arrow-alt-right"></i></a>
                                     </div>
                                 </div>
                             </div>

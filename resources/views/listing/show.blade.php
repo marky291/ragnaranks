@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <?php /** @var App\Listing $server */ ?>
+    <?php /** @var \App\Listings\Listing $listing */ ?>
 
     <nav id="spotlight" class="bg-white shadow-inner">
         <div class="container py-3">
@@ -34,17 +34,17 @@
                                 <li>Other Tags</li>
                             </ul>
                         </div>
-                        <h2 class="text-white font-weight-normal">{{ $server->name }}</h2>
+                        <h2 class="text-white font-weight-normal">{{ $listing->name }}</h2>
                         <div class="subheading mb-3">
-                            <a href="{{ $server->website }}" class="text-transparent">{{ $server->website }}</a>
+                            <a href="{{ $listing->website }}" class="text-transparent">{{ $listing->website }}</a>
                         </div>
                         <div class="description mb-5">
-                            <p class="text-white">{{ $server->description }}</p>
+                            <p class="text-white">{{ $listing->description }}</p>
                         </div>
                         <div class="stats mb-4">
                             <ul class="list-unstyled d-flex flex-row text-white font-weight-bold">
-                                <li class="mr-3"><i class="fas fa-mouse-pointer"></i> {{ $server->clicks_count }} Clicks</li>
-                                <li class="mr-3"><i class="fas fa-poll-h"></i> {{ $server->votes_count }} Votes</li>
+                                <li class="mr-3"><i class="fas fa-mouse-pointer"></i> {{ $listing->clicks_count }} Clicks</li>
+                                <li class="mr-3"><i class="fas fa-poll-h"></i> {{ $listing->votes_count }} Votes</li>
                                 {{--<li class="mr-3"><i class="fas fa-stethoscope"></i> Computed Score: {{ rand(1, 100) }}</li>--}}
                             </ul>
                         </div>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="col-4 d-flex align-items-center justify-content-center">
                         <div class="">
-                            <img class="rounded" src="{{ v }}" alt="" width="100%">
+                            <img class="rounded" src="{{ fake()->imageUrl(250, 250)  }}" alt="" width="100%">
                             <div class="stars d-flex flex-row text-white text-center mt-5">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -85,22 +85,22 @@
                 <h3 class="heading mb-4 text-dark heading-underline">Server Configuration Setup</h3>
                 <div class="row">
                     <div class="col-4 d-flex flex-column">
-                        @include('listing.partial.config', ['name'=>'Base Exp Rate', 'type' => 'exp', 'value' => $server->config->base_exp_rate])
-                        @include('listing.partial.config', ['name'=>'Job Exp Rate', 'type' => 'exp',  'value' => $server->config->job_exp_rate])
-                        @include('listing.partial.config', ['name'=>'Max Base Level', 'type' => 'exp',  'value' => $server->config->max_base_level])
-                        @include('listing.partial.config', ['name'=>'Max Job Level', 'type' => 'exp',  'value' => $server->config->max_job_level])
+                        @include('listing.partial.config', ['name'=>'Base Exp Rate', 'type' => 'exp', 'value' => $listing->configs['base_exp_rate']])
+                        @include('listing.partial.config', ['name'=>'Job Exp Rate', 'type' => 'exp',  'value' => $listing->configs['job_exp_rate']])
+                        @include('listing.partial.config', ['name'=>'Max Base Level', 'type' => 'exp',  'value' => $listing->configs['max_base_level']])
+                        @include('listing.partial.config', ['name'=>'Max Job Level', 'type' => 'exp',  'value' => $listing->configs['max_job_level']])
                     </div>
                     <div class="col-4 d-flex flex-column">
-                        @include('listing.partial.config', ['name'=>'Max Basic Stats', 'type' => 'stat',  'value' => $server->config->max_stats])
-                        @include('listing.partial.config', ['name'=>'Max ASPD', 'type' => 'stat',  'value' => $server->config-> max_aspd])
-                        @include('listing.partial.config', ['name'=>'Instant Cast Stat', 'type' => 'stat',  'value' => 'Dex: '.$server->config->instant_cast_stat])
+                        @include('listing.partial.config', ['name'=>'Max Basic Stats', 'type' => 'stat',  'value' => $listing->configs['max_stats']])
+                        @include('listing.partial.config', ['name'=>'Max ASPD', 'type' => 'stat',  'value' => $listing->configs['max_aspd']])
+                        @include('listing.partial.config', ['name'=>'Instant Cast Stat', 'type' => 'stat',  'value' => 'Dex: '.$listing->configs['instant_cast_stat']])
                     </div>
                     <div class="col-4 d-flex flex-column">
-                        @include('listing.partial.config', ['name'=>'Drop Base', 'type' => 'drop-base',  'value' => $server->config->drop_base_rate])
-                        @include('listing.partial.config', ['name'=>'Drop Base MVP', 'type' => 'drop-mvp-base',  'value' => $server->config->drop_base_mvp_rate])
+                        @include('listing.partial.config', ['name'=>'Drop Base', 'type' => 'drop-base',  'value' => $listing->configs['drop_base_rate']])
+                        @include('listing.partial.config', ['name'=>'Drop Base MVP', 'type' => 'drop-mvp-base',  'value' => $listing->configs['drop_base_mvp_rate']])
                         {{--@include('listing.partial.config', ['name'=>'Drop Base Special', 'type' => 'drop',  'value' => $listing->config->drop_base_special_rate])--}}
-                        @include('listing.partial.config', ['name'=>'Drop Card', 'type' => 'drop-card',  'value' => $server->config->drop_card_rate])
-                        @include('listing.partial.config', ['name'=>'Drop Card MVP', 'type' => 'drop-mvp-card',  'value' => $server->config->drop_card_mvp_rate])
+                        @include('listing.partial.config', ['name'=>'Drop Card', 'type' => 'drop-card',  'value' => $listing->configs['drop_card_rate']])
+                        @include('listing.partial.config', ['name'=>'Drop Card MVP', 'type' => 'drop-mvp-card',  'value' => $listing->configs['drop_card_mvp_rate']])
                         {{--@include('listing.partial.config', ['name'=>'Drop Card Special', 'type' => 'drop',  'value' => $listing->config->drop_card_special_rate])--}}
                     </div>
                 </div>
