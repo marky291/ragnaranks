@@ -36,6 +36,7 @@
                     </span>
                     <img src="img/English.gif" alt="english language">
                 </div>
+                <small class="bg-dark text-white px-2 rounded">Points: {{ $listing->points }}</small>
             </div>
         </div>
 
@@ -63,7 +64,7 @@
         </div>
 
         <div class="description my-3 text-justify">
-            <p>{{ fake()->text(600) }}</p>
+            <p>{{ $listing->description }}</p>
         </div>
     </div>
 

@@ -133,22 +133,23 @@
                     </div>
 
                     <div id="reviews" class="content py-0">
-                        {{--@foreach (\App\Listings\Listing::LatestReviews()->take(3) as $server)--}}
-                            {{--<div class="card card-basic listing d-flex flex-row">--}}
-                                {{--<div class="detail flex-fill">--}}
-                                    {{--<div class="top">--}}
-                                        {{--<a href="">No Review System</a>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="bottom">--}}
-                                        {{--<i class="fas fa-server"></i> {{ $server->getExpGroupAttribute() }}--}}
-                                        {{--<i class="ml-2 fas fa-clock"></i> {{ $server->created_at->diffForHumans() }}--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                                {{--<div class="show-counter bg-light text-info d-flex align-items-center justify-content-center rounded">--}}
-                                    {{--{{ rand(15, 100) }}--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--@endforeach--}}
+                        <?php /** @var \App\Review $review */ ?>
+                        @foreach (App\Review::latest()->with('listing')->take(5)->get() as $review)
+                            <div class="card card-basic listing d-flex flex-row">
+                                <div class="detail flex-fill">
+                                    <div class="top">
+                                        <a href="">{{ $review->listing->name }}</a>
+                                    </div>
+                                    <div class="bottom">
+                                        <i class="fas fa-server"></i> {{ $review->listing->expRateTitle }}
+                                        <i class="ml-2 fas fa-clock"></i> {{ $review->created_at->diffForHumans() }}
+                                    </div>
+                                </div>
+                                <div class="show-counter bg-light text-info d-flex align-items-center justify-content-center rounded">
+                                    {{ $review->average_score }}
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

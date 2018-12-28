@@ -36,6 +36,8 @@ class DatabaseSeeder extends Seeder
     {
         Artisan::call('migrate:fresh');
 
+        Artisan::call('cache:clear');
+
         $this->setup();
 
         $this->seedDatabase();
@@ -50,7 +52,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->progress_bar = new ProgressBar($this->command->getOutput(), 3);
 
-        $this->seed_counts = ['listings' => rand(20, 36), 'votes' => rand(200, 350), 'clicks' => rand(400, 500), 'reviews' => rand(15, 25)];
+        $this->seed_counts = ['listings' => rand(20, 36), 'votes' => rand(400, 750), 'clicks' => rand(800, 1000), 'reviews' => rand(15, 25)];
 
         $this->progress_bar->advance();
 
@@ -79,15 +81,15 @@ class DatabaseSeeder extends Seeder
     public function seedInteractions()
     {
         for ($i = 0; $i < $this->seed_counts['votes']; $i++) {
-            $this->listings->random()->first()->votes()->save(factory(Vote::class)->create());
+            $this->listings->random(1)->first()->votes()->save(factory(Vote::class)->create());
         }
 
         for ($i = 0; $i < $this->seed_counts['clicks']; $i++) {
-            $this->listings->random()->first()->clicks()->save(factory(Click::class)->create());
+            $this->listings->random(1)->first()->clicks()->save(factory(Click::class)->create());
         }
 
         for ($i = 0; $i < $this->seed_counts['reviews']; $i++) {
-            $this->listings->random()->first()->reviews()->save(factory(Review::class)->create());
+            $this->listings->random(1)->first()->reviews()->save(factory(Review::class)->create());
         }
 
         $this->progress_bar->advance();

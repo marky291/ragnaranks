@@ -4,6 +4,8 @@ namespace App;
 
 use App\Listings\Listing;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -22,6 +24,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property Listing $listing
  * @property Carbon $updated_at
  * @property Carbon $created_at
+ * @property double average_score
+ *
+ * @method static Collection latest()
  *
  * @package App
  */
@@ -35,5 +40,37 @@ class Review extends Model
     public function listing()
     {
         return $this->belongsTo(Listing::class);
+    }
+
+    /**
+     * Scope the query in order of latest.
+     *
+     * @param Builder $query
+     * @return Builder|\Illuminate\Database\Query\Builder
+     */
+    public function scopeLatest(Builder $query)
+    {
+        return $query->orderByDesc('created_at');
+    }
+
+    /**
+     * Get the average score of the review.
+     *
+     * @return float
+     */
+    public function getAverageScoreAttribute()
+    {
+        $scores = [
+            $this->content_score,
+            $this->hosting_score,
+            $this->support_score,
+            $this->event_score,
+            $this->item_score,
+            $this->class_score,
+            $this->update_score,
+            $this->donation_score,
+        ];
+
+        return round(array_sum($scores) / count($scores), 1);
     }
 }

@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use App\Listings\Listing;
 use App\Review;
+use Carbon\Carbon;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -108,10 +109,48 @@ class ReviewTest extends TestCase
     /**
      * @test
      */
+    public function it_has_an_average_score()
+    {
+        /** @var Review $review */
+        $review = factory(Review::class)->create(
+            [
+                'donation_score' => 8,
+                'update_score' => 4,
+                'class_score' => 10,
+                'item_score' => 9,
+                'support_score' => 10,
+                'hosting_score' => 2,
+                'content_score' => 2,
+                'event_score' => 1,
+            ]
+        );
+
+        $this->assertEquals(5.8, $review->average_score);
+    }
+
+    /**
+     * @test
+     */
     public function it_has_event_score()
     {
         $review = factory(Review::class)->create(['event_score' => 10]);
 
         $this->assertEquals(10, $review->event_score);
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_get_the_latest_reviews()
+    {
+        factory(Review::class)->create(['created_at' => Carbon::today()]);
+
+        factory(Review::class)->create(['created_at' => Carbon::yesterday()]);
+
+        $collection = Review::latest()->take(2)->get();
+
+        $this->assertCount(2, $collection);
+
+        $this->assertEquals(Carbon::today(), $collection->shift()->created_at);
     }
 }
