@@ -9,6 +9,10 @@ require('./flickity/stage-flickr');
 
 window.Vue = require('vue');
 
+$(document).ready(function() {
+    $('[data-toggle="tooltip"]').tooltip();
+});
+
 // allows carousel on profile page listing.
 import Vue from 'vue';
 import VueCarousel from 'vue-carousel';

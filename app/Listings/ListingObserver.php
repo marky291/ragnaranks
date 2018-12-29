@@ -2,8 +2,6 @@
 
 namespace App\Listings;
 
-use Illuminate\Support\Facades\Cache;
-
 /**
  * Class ListingObserver
  *
@@ -12,7 +10,7 @@ use Illuminate\Support\Facades\Cache;
 class ListingObserver
 {
     /**
-     * Handle the app listings listing "creating" event.
+     * Handle the app listings listing "created" event.
      *
      * @param Listing $listing
      * @return void
@@ -20,5 +18,16 @@ class ListingObserver
     public function created(Listing $listing)
     {
         AddListingToContainer::dispatchNow($listing);
+    }
+
+    /**
+     * Handle the app listings listing "creating" event.
+     *
+     * @param Listing $listing
+     * @return void
+     */
+    public function creating(Listing $listing)
+    {
+        $listing->generateDefaultSlug();
     }
 }

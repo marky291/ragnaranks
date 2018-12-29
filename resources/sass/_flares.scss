@@ -1,17 +1,18 @@
 
 .flare {
-  padding-left: 1em;
-  padding-right: 1em;
+  padding-left: 0.8em;
+  padding-right: 0.8em;
   width: fit-content;
   border-radius: 2px;
   text-transform: uppercase;
+  margin-right: 0.5em;
 
-  &.pre-renewal {
+  &.pk {
     color: white;
     background-color:#d77071;
   }
 
-  &.roleplay {
+  &.g-pack {
     color: white;
     background-color:#7899dc;
   }

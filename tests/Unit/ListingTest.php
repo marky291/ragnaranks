@@ -211,4 +211,26 @@ class ListingTest extends TestCase
 
         $this->assertEquals(10, $listing->points);
     }
+
+    /**
+     * @test
+     */
+    public function it_can_create_slugs_if_none_specified()
+    {
+        $listing = $this->createListing(['name' => 'PHP Unit', 'slug' => null], 0,0);
+
+        $this->assertEquals("php-unit", $listing->slug);
+    }
+
+    /**
+     * @test
+     */
+    public function it_has_a_rating_based_on_avg_review_scores()
+    {
+        $listing = $this->createListing([], 0,0);
+
+        $listing->reviews()->save(factory(Review::class)->create(['donation_score' => 10, 'update_score' => 10, 'class_score' => 10, 'item_score' => 10, 'support_score' => 10, 'hosting_score' => 10, 'content_score' => 10, 'event_score' => 10]));
+
+        $this->assertEquals(5, $listing->rating);
+    }
 }

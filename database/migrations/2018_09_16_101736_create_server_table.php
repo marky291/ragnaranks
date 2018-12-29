@@ -84,7 +84,7 @@ class CreateServerTable extends Migration
             'created_at' => now(),
         ],[
             'tag' => 'frost',
-            'name' => 'Frost Listings',
+            'name' => 'Frost Server',
             'description' => 'Players can obtain starting items once they login.',
             'created_at' => now(),
         ],[

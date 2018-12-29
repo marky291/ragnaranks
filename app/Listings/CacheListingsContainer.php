@@ -31,7 +31,8 @@ class CacheListingsContainer implements ShouldQueue
                     },
                     'clicks' => function($query) {
                         $query->betweenPeriod(now(), now()->subDays(7));
-                    }
+                    },
+                    'reviews'
                 ]
             )->with(['mode', 'tags'])->get();
 

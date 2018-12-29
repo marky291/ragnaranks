@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Schema;
 
 /**
  * Class Listings
@@ -21,6 +22,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $slug
  * @property string $points
  * @property string $website
+ * @property double $rating
  * @property string $description
  * @property string $banner_url
  * @property double $episode
@@ -33,7 +35,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property Carbon $updated_at
  *
  * @property User $user
- * @property Collection tags
+ * @property Collection $tags
+ * @property Collection $reviews
  * @property Vote|HasMany $votes
  * @property Click|HasMany $clicks
  *
@@ -70,6 +73,16 @@ class Listing extends Model
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    /**
+     * Generate a default slug for the column.
+     *
+     * @return string
+     */
+    public function generateDefaultSlug()
+    {
+        return $this->slug = str_slug($this->name);
     }
 
     /**
@@ -146,6 +159,16 @@ class Listing extends Model
     }
 
     /**
+     * Get the rating of this listing, based on average review scores.
+     *
+     * @return mixed
+     */
+    public function getRatingAttribute()
+    {
+        return $this->reviews()->selectRaw("round((sum(content_score+hosting_score+support_score+event_score+item_score+class_score+update_score+donation_score) / (count(donation_score) * 8) / 2), 1) as rating")->first()->rating;
+    }
+
+    /**
      * Get the total points of the listing.
      *
      * Used for ranking servers against others.
@@ -154,7 +177,7 @@ class Listing extends Model
      */
     public function getPointsAttribute()
     {
-        return round($this->votes()->count() + ($this->clicks()->count() / 7), 0);
+        return round($this->votes->count() + ($this->clicks->count() / 7), 0);
     }
 
     /**

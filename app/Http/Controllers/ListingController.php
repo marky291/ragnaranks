@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Listings\Listing;
+use App\Listings\ListingFilter;
 use Illuminate\Http\Request;
 
 /**

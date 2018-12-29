@@ -124,4 +124,18 @@ class ListingContainerTest extends TestCase
 
        $this->assertCount(2, $listings);
    }
+
+    /**
+     * @test
+     */
+    public function it_returns_a_single_listing_from_the_container()
+    {
+        factory(Listing::class, 3)->create();
+
+        $needle = $this->createListing([], 0, 0);
+
+        $listing = app('listings')->where('id', $needle->id)->first();
+
+        $this->assertSame($needle->id, $listing->id);
+    }
 }

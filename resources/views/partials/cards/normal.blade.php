@@ -36,7 +36,7 @@
                     </span>
                     <img src="img/English.gif" alt="english language">
                 </div>
-                <small class="bg-dark text-white px-2 rounded">Points: {{ $listing->points }}</small>
+                {{--<small class="bg-dark text-white px-2 rounded">Points: {{ $listing->points }}</small>--}}
             </div>
         </div>
 
@@ -45,21 +45,16 @@
 
             <div class="tags flex-grow-1 flex-1 d-flex">
                 <?php /** @var \App\Tag $tag */ ?>
-                <div class="flare mr-2 pre-renewal">Pre-Renewal</div>
-                <div class="flare roleplay">Role Playing</div>
-                @foreach ($listing->tags() as $tag)
-                    {{--<a href="" class="badge badge-{{ $tag->name }}" alt="{{ $tag->description }}">{{ $tag->name }}</a>ef="" class="badge badge-{{ $tag->name }}" alt="{{ $tag->description }}">{{ $tag->name }}</a>--}}
+                @foreach ($listing->tags as $tag)
+                    <a href="" data-toggle="tooltip" data-placement="bottom" title="{{ $tag->description }}" class="flare {{ $tag->tag }}">{{ $tag->name }}</a>
                 @endforeach
             </div>
 
             <div class="stars w-25 align-self-end text-right" style="font-size: 1em">
                 <span class="text-muted">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half"></i>
+                    @include('listing.partial.stars', ['rating' => $listing->rating])
                 </span>
-                <a href="" class="">24 Reviews</a>
+                <a href="" class="">{{ $listing->reviews_count }} {{ str_plural("Review", $listing->reviews_count) }}</a>
             </div>
         </div>
 

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Queue\Listener;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -27,6 +28,10 @@ class ListingServiceProvider extends ServiceProvider
     public function boot()
     {
         Listing::observe(ListingObserver::class);
+
+        Route::bind('listing', function ($value) {
+            return app('listings')->where('slug', $value)->first() ?? abort(404);
+        });
     }
 
     /**

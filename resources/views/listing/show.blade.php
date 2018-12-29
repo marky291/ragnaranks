@@ -27,11 +27,10 @@
                 <div class="row">
                     <div class="col-8">
                         <div class="labels mb-4 d-flex flex-row">
-                            <ul class="list-unstyled mr-2">
-                                <li>High Rate</li>
-                            </ul>
-                            <ul class="list-unstyled mr02">
-                                <li>Other Tags</li>
+                            <ul class="list-unstyled">
+                                @foreach($listing->tags as $tag)
+                                    <li class="mr-2">{{ $tag->name }}</li>
+                                @endforeach
                             </ul>
                         </div>
                         <h2 class="text-white font-weight-normal">{{ $listing->name }}</h2>
@@ -43,8 +42,8 @@
                         </div>
                         <div class="stats mb-4">
                             <ul class="list-unstyled d-flex flex-row text-white font-weight-bold">
-                                <li class="mr-3"><i class="fas fa-mouse-pointer"></i> {{ $listing->clicks_count }} Clicks</li>
-                                <li class="mr-3"><i class="fas fa-poll-h"></i> {{ $listing->votes_count }} Votes</li>
+                                <li class="mr-3"><i class="fas fa-mouse-pointer mr-1"></i> {{ $listing->clicks_count }} Clicks</li>
+                                <li class="mr-3"><i class="fas fa-poll-h mr-1"></i> {{ $listing->votes_count }} Votes</li>
                                 {{--<li class="mr-3"><i class="fas fa-stethoscope"></i> Computed Score: {{ rand(1, 100) }}</li>--}}
                             </ul>
                         </div>
@@ -58,11 +57,7 @@
                         <div class="">
                             <img class="rounded" src="{{ fake()->imageUrl(250, 250)  }}" alt="" width="100%">
                             <div class="stars d-flex flex-row text-white text-center mt-5">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                                <i class="far fa-star"></i>
+                                @include('listing.partial.stars', ['rating' => $listing->rating])
                             </div>
                             {{--<div class="screenshots">--}}
                                 {{--<carousel>--}}
