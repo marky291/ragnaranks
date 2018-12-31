@@ -233,4 +233,116 @@ class ListingTest extends TestCase
 
         $this->assertEquals(5, $listing->rating);
     }
+
+    /**
+     * @test
+     */
+    public function it_can_get_average_review_donation_scores()
+    {
+        /** @var Listing $listing */
+        $listing = $this->createListing([], 0,0);
+
+        $listing->reviews()->save(factory(Review::class)->create(['donation_score' => 0]));
+        $listing->reviews()->save(factory(Review::class)->create(['donation_score' => 10]));
+
+        $this->assertEquals(5.0, $listing->reviews()->average('donation_score'));
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_get_average_review_update_scores()
+    {
+        /** @var Listing $listing */
+        $listing = $this->createListing([], 0,0);
+
+        $listing->reviews()->save(factory(Review::class)->create(['update_score' => 2]));
+        $listing->reviews()->save(factory(Review::class)->create(['update_score' => 5]));
+
+        $this->assertEquals(3.5, $listing->reviews()->average('update_score'));
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_get_average_review_class_scores()
+    {
+        /** @var Listing $listing */
+        $listing = $this->createListing([], 0,0);
+
+        $listing->reviews()->save(factory(Review::class)->create(['class_score' => 7]));
+        $listing->reviews()->save(factory(Review::class)->create(['class_score' => 8]));
+
+        $this->assertEquals(7.5, $listing->reviews()->average('class_score'));
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_get_average_review_item_scores()
+    {
+        /** @var Listing $listing */
+        $listing = $this->createListing([], 0,0);
+
+        $listing->reviews()->save(factory(Review::class)->create(['item_score' => 9]));
+        $listing->reviews()->save(factory(Review::class)->create(['item_score' => 3]));
+
+        $this->assertEquals(6.0, $listing->reviews()->average('item_score'));
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_get_average_review_support_scores()
+    {
+        /** @var Listing $listing */
+        $listing = $this->createListing([], 0,0);
+
+        $listing->reviews()->save(factory(Review::class)->create(['support_score' => 8]));
+        $listing->reviews()->save(factory(Review::class)->create(['support_score' => 8]));
+
+        $this->assertEquals(8.0, $listing->reviews()->average('support_score'));
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_get_average_review_hosting_scores()
+    {
+        /** @var Listing $listing */
+        $listing = $this->createListing([], 0,0);
+
+        $listing->reviews()->save(factory(Review::class)->create(['hosting_score' => 8]));
+        $listing->reviews()->save(factory(Review::class)->create(['hosting_score' => 8]));
+
+        $this->assertEquals(8.0, $listing->reviews()->average('hosting_score'));
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_get_average_review_content_scores()
+    {
+        /** @var Listing $listing */
+        $listing = $this->createListing([], 0,0);
+
+        $listing->reviews()->save(factory(Review::class)->create(['content_score' => 2]));
+        $listing->reviews()->save(factory(Review::class)->create(['content_score' => 1]));
+
+        $this->assertEquals(1.5, $listing->reviews()->average('content_score'));
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_get_average_review_event_scores()
+    {
+        /** @var Listing $listing */
+        $listing = $this->createListing([], 0,0);
+
+        $listing->reviews()->save(factory(Review::class)->create(['event_score' => 9]));
+        $listing->reviews()->save(factory(Review::class)->create(['event_score' => 2]));
+
+        $this->assertEquals(5.5, $listing->reviews()->average('event_score'));
+    }
 }

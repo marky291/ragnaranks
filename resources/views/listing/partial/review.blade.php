@@ -1,3 +1,5 @@
+<?php /** @var \App\Review $review */ ?>
+
 
 <div class="review px-3 py-2">
     <div class="row">
@@ -12,38 +14,38 @@
         </span>
             </div>
             <div class="description">
-                {{ fake()->sentence(120) }}
+                {{ $review->message }}
             </div>
             <div class="scores d-flex flex-row">
-                <?php $score = rand(1, 10) ?>
+                <?php $score = $review->donation_score ?>
                 <div class="score score-is-{{ $score >= 7 ? "good" : ($score >= 4 ? "ok" : "bad") }}">
                     Donation Balance : <span class="font-weight-bold">{{ $score }}</span>
                 </div>
-                <?php $score = rand(1, 10) ?>
+                <?php $score = $review->update_score ?>
                 <div class="score score-is-{{ $score >= 7 ? "good" : ($score >= 4 ? "ok" : "bad") }}">
                     Update Balance : <span class="font-weight-bold">{{ $score }}</span>
                 </div>
-                <?php $score = rand(1, 10) ?>
+                <?php $score = $review->class_score ?>
                 <div class="score score-is-{{ $score >= 7 ? "good" : ($score >= 4 ? "ok" : "bad") }}">
                     Class Balance : <span class="font-weight-bold">{{ $score }}</span>
                 </div>
-                <?php $score = rand(1, 10) ?>
+                <?php $score = $review->item_score ?>
                 <div class="score score-is-{{ $score >= 7 ? "good" : ($score >= 4 ? "ok" : "bad") }}">
                     Item Balance : <span class="font-weight-bold">{{ $score }}</span>
                 </div>
-                <?php $score = rand(1, 10) ?>
+                <?php $score = $review->support_score ?>
                 <div class="score score-is-{{ $score >= 7 ? "good" : ($score >= 4 ? "ok" : "bad") }}">
                     Support : <span class="font-weight-bold">{{ $score }}</span>
                 </div>
-                <?php $score = rand(1, 10) ?>
+                <?php $score = $review->content_score ?>
                 <div class="score score-is-{{ $score >= 7 ? "good" : ($score >= 4 ? "ok" : "bad") }}">
                     Content : <span class="font-weight-bold">{{ $score }}</span>
                 </div>
-                <?php $score = rand(1, 10) ?>
+                <?php $score = $review->hosting_score ?>
                 <div class="score score-is-{{ $score >= 7 ? "good" : ($score >= 4 ? "ok" : "bad") }}">
                     Hosting : <span class="font-weight-bold">{{ $score }}</span>
                 </div>
-                <?php $score = rand(1, 10) ?>
+                <?php $score = $review->event_score ?>
                 <div class="score score-is-{{ $score >= 7 ? "good" : ($score >= 4 ? "ok" : "bad") }}">
                     Events : <span class="font-weight-bold">{{ $score }}</span>
                 </div>

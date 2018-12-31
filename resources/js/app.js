@@ -5,31 +5,29 @@
  */
 
 require('./bootstrap');
-require('./flickity/stage-flickr');
 
-window.Vue = require('vue');
+require('./flickity/stage-flickr');
 
 $(document).ready(function() {
     $('[data-toggle="tooltip"]').tooltip();
 });
 
-// allows carousel on profile page listing.
-import Vue from 'vue';
-import VueCarousel from 'vue-carousel';
-Vue.use(VueCarousel);
+window.Vue = require('vue');
+
+window.Event = new Vue();
 
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
  * components and automatically register them with their "basename".
  *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
+ * Eg. ./components/FlashComponent.vue -> <example-component></example-component>
  */
 
 // const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
+// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-//Vue.component('rating-circle', require('./components/RadialProgressionCircles'));
+Vue.component('flash', require('./components/FlashComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -38,5 +36,9 @@ Vue.use(VueCarousel);
  */
 
 const app = new Vue({
-    el: '#vue-container',
+    el: '#app',
 });
+
+window.flash = function (message) {
+    Event.$emit('flash', message);
+};

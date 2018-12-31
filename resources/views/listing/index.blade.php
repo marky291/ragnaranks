@@ -83,8 +83,8 @@
 
             </div>
 
-            <div id="sidebar" class="col-4 py-5" sticky-container>
-                <div v-sticky sticky-offset="offset" sticky-side="top">
+            <div id="sidebar" class="col-4 py-5">
+                <div>
                     <div class="content">
                         <h3 class=" text-orange">Site Messages</h3>
                         <p class="subheading">We are always interested in listening to feedback and improving our

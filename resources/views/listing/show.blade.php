@@ -107,19 +107,19 @@
                 <div class="py-3 mb-3 rounded" style="border:1px solid rgba(255, 255, 255, 0.2);">
                     <h3 class="heading mb-4 text-dark heading-underline">Balance Ratings</h3>
                     <div class="row no-gutters">
-                        @include('listing.partial.rating', ['name' => 'Donation Balance', 'description' => 'Can non-donators compete with donators.'])
-                        @include('listing.partial.rating', ['name' => 'Update Balance', 'description' => 'Do update increase or improve balance each time.'])
-                        @include('listing.partial.rating', ['name' => 'Class Balance', 'description' => 'Are classes equally as powerful.'])
-                        @include('listing.partial.rating', ['name' => 'Item Balance', 'description' => 'Do items have reasonable stats against others.'])
+                        @include('listing.partial.rating', ['name' => 'Donation Balance', 'rating' => $listing->reviews()->average('donation_score'), 'description' => 'Non-Donators can compete with Donators.'])
+                        @include('listing.partial.rating', ['name' => 'Update Balance', 'rating' => $listing->reviews()->average('update_score'), 'description' => 'Updates improve gameplay and balance each change.'])
+                        @include('listing.partial.rating', ['name' => 'Class Balance', 'rating' => $listing->reviews()->average('class_score'), 'description' => 'Classes are balanced against other classes.'])
+                        @include('listing.partial.rating', ['name' => 'Item Balance', 'rating' => $listing->reviews()->average('item_score'), 'description' => 'Item stats are fair and thought out.'])
                     </div>
                 </div>
                 <div class="py-3 mb-3 rounded" style="border:1px solid rgba(255, 255, 255, 0.2)">
                     <h3 class="heading mb-4 text-dark heading-underline">Server Ratings</h3>
                     <div class="row no-gutters">
-                        @include('listing.partial.rating', ['name' => 'Support', 'description' => 'GMs are available and are happy to help.'])
-                        @include('listing.partial.rating', ['name' => 'Hosting', 'description' => 'The availability and ping is playable and fun.'])
-                        @include('listing.partial.rating', ['name' => 'Content', 'description' => 'There is much to do in game and frequently new stuff added.'])
-                        @include('listing.partial.rating', ['name' => 'Events', 'description' => 'Events have good rewards and are usual.'])
+                        @include('listing.partial.rating', ['name' => 'Support', 'rating' => $listing->reviews()->average('support_score'), 'description' => 'You are likely to receive support and help.'])
+                        @include('listing.partial.rating', ['name' => 'Hosting', 'rating' => $listing->reviews()->average('hosting_score'), 'description' => 'The availability and ping is playable and fun.'])
+                        @include('listing.partial.rating', ['name' => 'Content', 'rating' => $listing->reviews()->average('content_score'), 'description' => 'There is much to do in game and frequently new stuff added.'])
+                        @include('listing.partial.rating', ['name' => 'Events', 'rating' => $listing->reviews()->average('event_score'), 'description' => 'Rewards are good and events are regular.'])
                     </div>
                 </div>
 
@@ -130,11 +130,7 @@
             <div class="container pl-5 pr-5 pb-5">
                 <h3 class="heading mb-4 text-dark heading-underline">Player Reviews</h3>
                 <div class="reviews">
-                    @include('listing.partial.review')
-                    @include('listing.partial.review')
-                    @include('listing.partial.review')
-                    @include('listing.partial.review')
-                    @include('listing.partial.review')
+                    @each('listing.partial.review', $listing->reviews, 'review')
                 </div>
             </div>
         </section>
