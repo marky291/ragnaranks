@@ -26,6 +26,7 @@ $factory->define(\App\Review::class, function(Faker $faker) {
     return [
         'message' => $faker->sentence(200),
         'listing_id' => factory(\App\Listings\Listing::class)->create()->id,
+        'publisher_id' => factory(\App\User::class)->create()->id,
         'donation_score' => $faker->numberBetween(0, 10),
         'update_score' => $faker->numberBetween(0, 10),
         'class_score' => $faker->numberBetween(0, 10),

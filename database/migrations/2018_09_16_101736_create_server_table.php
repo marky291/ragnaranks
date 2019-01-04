@@ -123,6 +123,7 @@ class CreateServerTable extends Migration
         Schema::create('reviews', function(Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('listing_id');
+            $table->unsignedInteger('publisher_id');
             $table->text('message');
             $table->smallInteger('donation_score');
             $table->smallInteger('update_score');

@@ -43,6 +43,16 @@ class Review extends Model
     }
 
     /**
+     * A review has a single publisher user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function publisher()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
      * Scope the query in order of latest.
      *
      * @param Builder $query

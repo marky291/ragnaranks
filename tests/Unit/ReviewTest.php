@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use App\Listings\Listing;
 use App\Review;
+use App\User;
 use Carbon\Carbon;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -24,6 +25,20 @@ class ReviewTest extends TestCase
         $review = factory(Review::class)->create();
 
         $this->assertInstanceOf(Listing::class, $review->listing);
+
+        $this->assertNotNull($review->publisher->getKey());
+    }
+
+    /**
+     * @test
+     */
+    public function it_has_a_publisher()
+    {
+        $review = factory(Review::class)->create();
+
+        $this->assertInstanceOf(User::class, $review->publisher);
+
+        $this->assertNotNull($review->publisher->getKey());
     }
 
     /**
