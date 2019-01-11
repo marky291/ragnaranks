@@ -41,21 +41,21 @@
             </div>
         </div>
 
-                <div class="rating p-3 bg-white d-flex flex-column">
-                    <div class="stars d-flex align-self-center mb-2">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <span class="text-center">
-                        {{ starCount }} out of 5
-                    </span>
-                    <div class="actions d-flex flex-fill align-items-end">
-                        <a href="" class="btn-sm btn-outline-primary">Delete Review</a>
-                    </div>
+            <div class="rating p-3 bg-white d-flex flex-column">
+                <div class="stars d-flex align-self-center mb-2">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <i class="far fa-star"></i>
                 </div>
+                <span class="text-center">
+                    {{ starCount }} out of 5
+                </span>
+                <div class="actions d-flex flex-fill align-items-end">
+                    <button class="btn-sm btn-outline-primary" @click="destroy">Delete Review</button>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -85,6 +85,14 @@
                     return "score-is-ok";
 
                 return "score-is-bad";
+            },
+
+            destroy: function() {
+                $(this.$el).fadeOut(300, () =>
+                {
+                    flash("Review was deleted.");
+                    this.$emit('review-deleted', this);
+                });
             }
         }
     }

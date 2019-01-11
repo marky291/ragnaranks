@@ -22,5 +22,8 @@ Route::get('/')->uses('ListingController@index')->name('index');
 // listing controllers.
 Route::resource('listing', 'ListingController');
 
+// listing reviews controllers.
+Route::resource('listing.reviews', 'ReviewController')->only(['store', 'update', 'destroy']);
+
 // card filtering system.
 Route::get('/servers/{exp_group}/{mode}/{sort}/{orderBy}')->uses('QueryController@index')->name('filter.query');

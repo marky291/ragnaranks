@@ -29,22 +29,36 @@ use Illuminate\Support\Facades\Schema;
  * @property array $configs
  * @property Mode $mode
  * @property string $expRateTitle
- *
- *
  * @property Carbon $created_at
  * @property Carbon $updated_at
- *
  * @property User $user
  * @property Collection $tags
- * @property Collection $reviews
+ * @property Collection|HasMany $reviews
  * @property Vote|HasMany $votes
  * @property Click|HasMany $clicks
- *
  * @property int $rank
  * @property int votes_count
  * @property int clicks_count
- *
  * @package App
+ * @property int $user_id
+ * @property int $mode_id
+ * @property-read string $exp_rate_title
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereBannerUrl($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereConfigs($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereEpisode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereModeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereWebsite($value)
+ * @mixin \Eloquent
  */
 class Listing extends Model
 {

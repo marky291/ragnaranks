@@ -28,6 +28,6 @@ class ListingObserver
      */
     public function creating(Listing $listing)
     {
-        $listing->generateDefaultSlug();
+        $listing->slug ?: $listing->generateDefaultSlug();
     }
 }

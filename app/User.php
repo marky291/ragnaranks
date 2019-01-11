@@ -13,6 +13,7 @@ use phpDocumentor\Reflection\Types\Iterable_;
  *
  * @property int id
  * @property Listing|iterable $listings
+ * @property Listing|iterable $reviews
  * @property int $membership_id
  * @property Carbon $membership_expiry
  *
@@ -46,7 +47,17 @@ class User extends Authenticatable
      */
     public function listings()
     {
-        return $this->hasMany(Listing::class, 'user_id', 'id');
+        return $this->hasMany(Listing::class, 'user_id');
+    }
+
+    /**
+     * A user can have many reviews.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function reviews()
+    {
+        return $this->hasMany(Review::class, 'publisher_id');
     }
 
 }

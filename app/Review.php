@@ -24,14 +24,39 @@ use Illuminate\Database\Eloquent\Model;
  * @property Listing $listing
  * @property Carbon $updated_at
  * @property Carbon $created_at
- * @property double average_score
- *
  * @method static Collection latest()
- *
  * @package App
+ * @property int $listing_id
+ * @property-read float $average_score
+ * @property-read \App\User $publisher
+ * @mixin \Eloquent
  */
 class Review extends Model
 {
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [];
+
+    /**
+     * The "booting" method of the model.
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function(Model $model) {
+            if (is_null($model->getAttribute('publisher_id'))) {
+                $model->setAttribute('publisher_id', auth()->user()->getAuthIdentifier());
+            }
+        });
+    }
+
+
     /**
      * A review belongs to a single listing.
      *

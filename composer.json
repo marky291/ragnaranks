@@ -13,7 +13,9 @@
         "predis/predis": "^1.1"
     },
     "require-dev": {
+        "doctrine/dbal": "^2.9",
         "barryvdh/laravel-debugbar": "^3.2",
+        "barryvdh/laravel-ide-helper": "^2.5",
         "beyondcode/laravel-dump-server": "^1.0",
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",

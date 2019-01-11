@@ -1,9 +1,12 @@
 <template>
 
     <div class="">
-        <div v-for="review in collection">
+        <div v-for="(review, index) in collection">
             <review :data="review"></review>
         </div>
+
+        <new-review @review-created="addReview"></new-review>
+
     </div>
 
 </template>
@@ -11,15 +14,17 @@
 <script>
 
     import Review from './ReviewComponent.vue';
+    import NewReview from '../components/NewReviewComponent.vue';
 
     export default {
 
         props: ['data'],
 
-        components: { Review },
+        components: { Review, NewReview },
 
         data: function() {
             return {
+                activated: false,
                 collection: this.data
             }
         },
@@ -42,6 +47,16 @@
 
             Rounded(number) {
                 return Math.round(number);
+            },
+
+            remove(index) {
+                this.collection.splice(index, 1);
+
+                flash("Review was removed");
+            },
+
+            addReview(review) {
+                this.collection.push(review);
             }
         }
     }
