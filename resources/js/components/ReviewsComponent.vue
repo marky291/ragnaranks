@@ -56,6 +56,8 @@
             },
 
             addReview(review) {
+                console.log(this.data);
+                console.log(review);
                 this.collection.push(review);
             }
         }

@@ -27,3 +27,6 @@ Route::resource('listing.reviews', 'ReviewController')->only(['store', 'update',
 
 // card filtering system.
 Route::get('/servers/{exp_group}/{mode}/{sort}/{orderBy}')->uses('QueryController@index')->name('filter.query');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

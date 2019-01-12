@@ -12,6 +12,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ReviewRequestTest extends TestCase
 {
+    use WithFaker;
+
     /**
      * @test
      */
@@ -23,13 +25,49 @@ class ReviewRequestTest extends TestCase
 
         $listing = factory(Listing::class)->create(['slug' => 'listing-name']);
 
-        $review = factory(Review::class)->make(['message' => "A sample review data message."]);
+        $review = factory(Review::class)->make(['message' => $this->faker->sentence(300)]);
 
         $this->post("/listing/listing-name/reviews", $review->toArray());
 
         $this->assertCount(1, $listing->reviews);
 
         $this->assertCount(1, Auth::user()->reviews);
+    }
+
+    /**
+     * @test
+     */
+    public function a_review_can_be_destroyed()
+    {
+        $this->signIn();
+
+        $this->withoutExceptionHandling();
+
+        $listing = $this->createListing([], 0,0);
+
+        $review = factory(Review::class)->create(['listing_id' => $listing->id]);
+
+        $this->delete("/listing/{$listing->slug}/reviews/{$review->id}");
+
+        $this->assertCount(0, $listing->reviews);
+    }
+
+    /**
+     * @test
+     */
+    public function a_review_can_be_updated()
+    {
+        $this->signIn();
+
+        $this->withoutExceptionHandling();
+
+        $listing = $this->createListing([], 0,0);
+
+        $review = factory(Review::class)->create(['listing_id' => $listing->id]);
+
+        $this->patch("/listing/{$listing->slug}/reviews/{$review->id}", ['message' => "foo bar"]);
+
+        $this->assertDatabaseHas('reviews', ['id' => $review->getkey(), 'message' => 'foo bar']);
     }
 
     /**
@@ -89,5 +127,17 @@ class ReviewRequestTest extends TestCase
         $review = factory(Review::class)->make(['donation_score' => "foo"]);
 
         $this->post("/listing/listing-name/reviews", $review->toArray())->assertSessionHasErrors(['donation_score']);
+    }
+
+    /**
+     * @test
+     */
+    public function a_review_form_invalidates_messages_under_200_characters()
+    {
+        $this->createListing(['slug' => 'listing-name'], 0,0);
+
+        $review = factory(Review::class)->make(['message' => 'A not very long message.']);
+
+        $this->post("/listing/listing-name/reviews", $review->toArray())->assertSessionHasErrors(['message']);
     }
 }

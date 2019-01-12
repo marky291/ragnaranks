@@ -28,23 +28,30 @@ class ReviewController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request $request
+     * @param Listing $listing
+     * @param Review $review
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Listing $listing, Review $review)
     {
-        //
+        $listing->reviews->find($review->id)->update($request->all());
+
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Listing $listing
+     * @param Review $review
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
-    public function destroy($id)
+    public function destroy(Listing $listing, Review $review)
     {
-        //
+        $listing->reviews->find($review->id)->delete();
+
+        return redirect()->back();
     }
 }

@@ -25,7 +25,7 @@ class StoreReviewRequest extends FormRequest
     public function rules()
     {
         return [
-            'message' => 'required',
+            'message' => 'string|required|min:200',
             'donation_score' => $this->validateScore(),
             'update_score' => $this->validateScore(),
             'class_score' => $this->validateScore(),
