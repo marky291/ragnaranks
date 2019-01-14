@@ -8,7 +8,7 @@
         <div class="col-5 collapse navbar-collapse order-3 order-md-2 px-0" id="navbar">
             <ul class="navbar-nav">
                 <li class="nav-item mr-2">
-                    <a class="nav-link text-dark" href="page-about.html">Home</a>
+                    <a class="nav-link text-dark" href="{{ route('index') }}">Home</a>
                 </li>
                 <li class="nav-item mr-2">
                     <a class="nav-link text-dark" href="page-contact.html">Advertise</a>
@@ -27,7 +27,11 @@
         <div class="col-5 collapse navbar-collapse order-4 order-md-4" id="navbar">
             <ul class="navbar-nav flex-fill justify-content-end">
                 <li class="nav-item mr-2">
-                    <a class="nav-link text-dark" href="page-about.html">Logout</a>
+                    @if(auth()->check())
+                        <a class="nav-link text-dark" href="{{ route('logout') }}">Logout</a>
+                    @else
+                        <a class="nav-link text-dark" href="{{ route('login') }}">Login</a>
+                    @endif
                 </li>
                 <li class="nav-item dropdown active rounded">
                     <a class="nav-link" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

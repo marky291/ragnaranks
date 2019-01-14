@@ -2163,9 +2163,13 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       $(this.$el).fadeOut(300, function () {
-        flash("Review was deleted.");
+        axios.delete(window.location.href + "/reviews/" + _this.item.id).then(function (response) {
+          _this.$emit('review-deleted', _this);
 
-        _this.$emit('review-deleted', _this);
+          flash("The review has been removed.");
+        }).catch(function (error) {
+          return _this.errors.record(error.response.data.errors);
+        });
       });
     }
   }
@@ -2200,7 +2204,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['data'],
+  props: ['data', 'policy'],
   components: {
     Review: _ReviewComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     NewReview: _components_NewReviewComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
@@ -2208,7 +2212,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       activated: false,
-      collection: this.data
+      collection: this.data,
+      reviewable: this.policy
     };
   },
   created: function created() {
@@ -2246,12 +2251,12 @@ __webpack_require__.r(__webpack_exports__);
     },
     remove: function remove(index) {
       this.collection.splice(index, 1);
-      flash("Review was removed");
+      this.CalculateAverages();
     },
     addReview: function addReview(review) {
-      console.log(this.data);
-      console.log(review);
+      this.reviewable = false;
       this.collection.push(review);
+      this.CalculateAverages();
     }
   }
 });
@@ -42575,7 +42580,9 @@ var render = function() {
         return _c("div", [_c("review", { attrs: { data: review } })], 1)
       }),
       _vm._v(" "),
-      _c("new-review", { on: { "review-created": _vm.addReview } })
+      _vm.reviewable
+        ? _c("new-review", { on: { "review-created": _vm.addReview } })
+        : _vm._e()
     ],
     2
   )

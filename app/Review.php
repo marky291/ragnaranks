@@ -25,6 +25,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon $updated_at
  * @property Carbon $created_at
  * @method static Collection latest()
+ * @method static Collection publishedBy($publisher)
  * @package App
  * @property int $listing_id
  * @property-read float $average_score
@@ -86,6 +87,11 @@ class Review extends Model
     public function scopeLatest(Builder $query)
     {
         return $query->orderByDesc('created_at');
+    }
+
+    public function scopePublishedBy(Builder $query, User $publisher)
+    {
+        return $query->where('publisher_id', $publisher->id);
     }
 
     /**

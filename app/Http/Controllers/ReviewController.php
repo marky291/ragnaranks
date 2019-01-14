@@ -6,7 +6,6 @@ use App\Http\Requests\StoreReviewRequest;
 use App\Listings\Listing;
 use App\Review;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
@@ -17,9 +16,12 @@ class ReviewController extends Controller
      * @param Listing $listing
      *
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function store(StoreReviewRequest $request, Listing $listing)
     {
+        $this->authorize('review', $listing);
+
         $listing->reviews()->create($request->validated());
 
         return redirect()->back();

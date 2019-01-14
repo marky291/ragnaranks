@@ -44,6 +44,18 @@ class ReviewTest extends TestCase
     /**
      * @test
      */
+    public function it_can_scope_reviews_from_a_publisher()
+    {
+        $publisher = factory(User::class)->create();
+
+        factory(Review::class)->create(['publisher_id' => $publisher->id]);
+
+        $this->assertCount(1, Review::publishedBy($publisher)->get());
+    }
+
+    /**
+     * @test
+     */
     public function it_has_a_message()
     {
         $review = factory(Review::class)->create(['message' => "Gr8 Server"]);
@@ -162,7 +174,7 @@ class ReviewTest extends TestCase
 
         factory(Review::class)->create(['created_at' => Carbon::yesterday()]);
 
-        $collection = Review::latest()->take(2)->get();
+$collection = Review::latest()->take(2)->get();
 
         $this->assertCount(2, $collection);
 

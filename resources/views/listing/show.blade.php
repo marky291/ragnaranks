@@ -138,7 +138,7 @@
                     <div class="container pl-5 pr-5 pb-5">
                         <h3 class="heading mb-4 text-dark heading-underline">Player Reviews</h3>
 
-                        <reviews :data="{{ $listing->reviews->load('publisher') }}"></reviews>
+                        <reviews :data="{{ $listing->reviews->load('publisher') }}" policy="{{ auth()->user()->can('review', $listing) }}"></reviews>
 
                     </div>
                 </section>

@@ -2,13 +2,8 @@
 
 namespace App\Listings;
 
-use App\Periods;
-use App\Vote;
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Queue\Listener;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
@@ -27,6 +22,8 @@ class ListingServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Gate::policy(Listing::class, ListingPolicy::class);
+
         Listing::observe(ListingObserver::class);
 
         Route::bind('listing', function ($value) {

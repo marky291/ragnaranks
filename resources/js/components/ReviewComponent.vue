@@ -90,8 +90,11 @@
             destroy: function() {
                 $(this.$el).fadeOut(300, () =>
                 {
-                    flash("Review was deleted.");
-                    this.$emit('review-deleted', this);
+                    axios.delete(window.location.href + "/reviews/" + this.item.id).then(response => {
+                        this.$emit('review-deleted', this);
+                        flash("The review has been removed.");
+                    }).catch(error => this.errors.record(error.response.data.errors));
+
                 });
             }
         }

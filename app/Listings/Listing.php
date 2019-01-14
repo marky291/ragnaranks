@@ -153,7 +153,7 @@ class Listing extends Model
     /**
      * A listing has many reviews.
      *
-     * @return HasMany
+     * @return HasMany|Review
      */
     public function reviews()
     {

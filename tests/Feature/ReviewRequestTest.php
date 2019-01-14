@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Listings\Listing;
 use App\Review;
 use const Grpc\STATUS_OK;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -139,5 +140,41 @@ class ReviewRequestTest extends TestCase
         $review = factory(Review::class)->make(['message' => 'A not very long message.']);
 
         $this->post("/listing/listing-name/reviews", $review->toArray())->assertSessionHasErrors(['message']);
+    }
+
+    /**
+     * @test
+     */
+    public function a_review_can_only_be_created_once_per_listing()
+    {
+        $this->signIn();
+
+        $this->withoutExceptionHandling();
+
+        $this->expectException(AuthorizationException::class);
+
+        $this->createListing(['slug' => 'listing-name'], 0,0);
+
+        $this->post("/listing/listing-name/reviews", factory(Review::class)->make()->toArray());
+
+        $this->post("/listing/listing-name/reviews", factory(Review::class)->make()->toArray());
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_be_destroyed()
+    {
+        $this->signIn();
+
+        $this->withoutExceptionHandling();
+
+        $listing = factory(Listing::class)->create();
+
+        $review = factory(Review::class)->create(['listing_id' => $listing->id]);
+
+        $this->delete("/listing/{$listing->slug}/reviews/{$review->id}");
+
+        $this->assertDatabaseMissing('reviews', ['id' => $review->get]);
     }
 }

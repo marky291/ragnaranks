@@ -5,7 +5,7 @@
             <review :data="review"></review>
         </div>
 
-        <new-review @review-created="addReview"></new-review>
+        <new-review @review-created="addReview" v-if="reviewable"></new-review>
 
     </div>
 
@@ -18,14 +18,15 @@
 
     export default {
 
-        props: ['data'],
+        props: ['data', 'policy'],
 
         components: { Review, NewReview },
 
         data: function() {
             return {
                 activated: false,
-                collection: this.data
+                collection: this.data,
+                reviewable: this.policy,
             }
         },
 
@@ -51,14 +52,13 @@
 
             remove(index) {
                 this.collection.splice(index, 1);
-
-                flash("Review was removed");
+                this.CalculateAverages();
             },
 
             addReview(review) {
-                console.log(this.data);
-                console.log(review);
+                this.reviewable = false;
                 this.collection.push(review);
+                this.CalculateAverages();
             }
         }
     }
