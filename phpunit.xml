@@ -28,10 +28,13 @@
         <env name="DB_DATABASE" value=":memory:"/>
         <env name="BCRYPT_ROUNDS" value="4"/>
         <env name="CACHE_DRIVER" value="array"/>
-        <env name="SESSION_DRIVER" value="array"/>
-        <env name="QUEUE_CONNECTION" value="sync"/>
         <env name="MAIL_DRIVER" value="array"/>
+<<<<<<< HEAD
         <env name="STRIPE_KEY" value="pk_test_Ia7BQgWt51g8CTrwEavjP2pS"/>
         <env name="STRIPE_SECRET" value="sk_test_mNiI4LuhupkyQl2hzWCMygV4"/>
+=======
+        <env name="QUEUE_CONNECTION" value="sync"/>
+        <env name="SESSION_DRIVER" value="array"/>
+>>>>>>> Laravel/master
     </php>
 </phpunit>
