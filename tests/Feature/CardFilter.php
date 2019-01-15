@@ -2,15 +2,12 @@
 
 namespace Tests\Feature;
 
-use App\Listing;
-use App\Click;
+use App\Listings\Listing;
 use App\Vote;
-use Carbon\Carbon;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class CardFilterTest extends TestCase
+class CardFilter extends TestCase
 {
     use RefreshDatabase;
 
