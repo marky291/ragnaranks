@@ -28,7 +28,12 @@
             <ul class="navbar-nav flex-fill justify-content-end">
                 <li class="nav-item mr-2">
                     @if(auth()->check())
-                        <a class="nav-link text-dark" href="{{ route('logout') }}">Logout</a>
+                        <a class="nav-link text-dark" href="{{ route('logout') }}"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     @else
                         <a class="nav-link text-dark" href="{{ route('login') }}">Login</a>
                     @endif
