@@ -11012,7 +11012,7 @@ footer .website-banner h1 {
 }
 
 #ratings .score {
-  top: -5px;
+  top: 0px;
   right: 24px;
   font-size: 5rem;
   letter-spacing: -15px;
