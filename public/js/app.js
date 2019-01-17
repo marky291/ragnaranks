@@ -2290,6 +2290,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['title', 'description', 'score'],
   methods: {
@@ -42630,18 +42634,18 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "col mr-2 d-flex align-items-center rounded overflow-hidden",
-      class: _vm.ScoreScale(this.score)
+      staticClass:
+        "col d-flex align-items-center rounded overflow-hidden d-flex flex-column"
     },
     [
       _c("div", { staticClass: "rating-block d-flex flex-row py-3 h-100" }, [
         _c("div", { staticClass: "d-flex align-items-center" }, [
           _c("div", { staticClass: "w-75" }, [
-            _c("h4", { staticClass: "text-light" }, [
+            _c("h4", { staticClass: "text-dark" }, [
               _vm._v(_vm._s(this.title))
             ]),
             _vm._v(" "),
-            _c("p", { staticClass: "text-light mb-0" }, [
+            _c("p", { staticClass: "text-dark mb-0" }, [
               _vm._v(_vm._s(this.description))
             ])
           ]),
@@ -42653,11 +42657,19 @@ var render = function() {
                 "score position-absolute text-transparent h-100 d-flex align-items-center"
             },
             [
-              _vm._v(
-                "\n                " + _vm._s(this.score) + "\n            "
-              )
+              _c("i", {
+                staticClass: "fas fa-medal",
+                class: _vm.ScoreScale(this.score)
+              })
             ]
           )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "w-100 bg-light py-1 px-2" }, [
+        _c("small", [
+          _c("b", [_vm._v("Score")]),
+          _vm._v(": " + _vm._s(_vm.score) + " / 10")
         ])
       ])
     ]

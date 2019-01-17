@@ -11011,15 +11011,6 @@ footer .website-banner h1 {
   box-shadow: 0px 1px 2px #dddddd;
 }
 
-#ratings .score {
-  top: 0px;
-  right: 24px;
-  font-size: 5rem;
-  letter-spacing: -15px;
-  color: #dadfe0;
-  text-shadow: 0 1px 3px #58585878;
-}
-
 #configuration .list .config {
   padding: 1.4em 1.2em;
   background: #fafafa;
@@ -11119,17 +11110,25 @@ footer .website-banner h1 {
   text-align: justify;
 }
 
-.score-is-good {
-  color: white;
-  background: radial-gradient(circle at 1% 1%, #ff2d58, #ec454f) !important;
+#ratings .score {
+  top: -5px;
+  right: 30px;
+  font-size: 4rem;
+  letter-spacing: -15px;
+  color: #dadfe0;
+  text-shadow: 0 1px 3px #58585878;
 }
 
-.score-is-ok {
-  background: #7e878f;
+#ratings .score-is-good {
+  color: #ffc300;
 }
 
-.score-is-bad {
-  background: #7e878f;
+#ratings .score-is-ok {
+  color: #C0C0C0;
+}
+
+#ratings .score-is-bad {
+  color: #cd7f32;
 }
 
 .overflow-hidden {
