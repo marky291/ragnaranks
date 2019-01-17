@@ -47,7 +47,12 @@
             },
 
             Rounded(number) {
-                return Math.round(number);
+                var value = Math.round(number);
+
+                if (value)
+                    return value;
+
+                return 0;
             },
 
             remove(index) {
