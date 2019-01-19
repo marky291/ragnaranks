@@ -22,12 +22,12 @@ class ReviewController extends Controller
      */
     public function store(StoreReviewRequest $request, Listing $listing)
     {
-        if ($this->authorize('review', $listing))
+        if (!$listing->reviews()->publishedBy(auth()->user())->count())
         {
             $listing->reviews()->create($request->validated());
         }
 
-        return redirect()->back();
+        return redirect()->back()->with(['flash' => 'You already made a review on this listing.']);
     }
 
     /**

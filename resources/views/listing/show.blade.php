@@ -46,7 +46,12 @@
                                     {{--</ul>--}}
                                 {{--</div>--}}
                                 <div class="actions">
-                                    <a href="" class="btn btn-primary">View Website</a>
+                                    <a class="btn btn-primary" href="#"
+                                       onclick="event.preventDefault(); document.getElementById('view-website').submit();"> View Website
+                                    </a>
+                                    <form id="view-website" action="{{ route('listing.clicks.store', $listing) }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                                     <a href="" class="btn btn-outline-primary">Write Review</a>
                                     <a href="" class="btn btn-outline-primary">Vote For Server</a>
                                 </div>

@@ -158,15 +158,13 @@ class ReviewRequestTest extends TestCase
     {
         $this->signIn();
 
-        $this->withoutExceptionHandling();
-
-        $this->expectException(AuthorizationException::class);
-
-        $this->createListing(['slug' => 'listing-name'], 0,0);
+        $listing = $this->createListing(['slug' => 'listing-name'], 0,0);
 
         $this->post("/listing/listing-name/reviews", factory(Review::class)->make()->toArray());
 
         $this->post("/listing/listing-name/reviews", factory(Review::class)->make()->toArray());
+
+        $this->assertCount(1, $listing->reviews);
     }
 
     /**

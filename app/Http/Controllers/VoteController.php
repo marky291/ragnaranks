@@ -14,12 +14,10 @@ class VoteController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Listing $listing
-     *
-     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function store(Listing $listing)
     {
-        if ($this->authorize('vote', $listing))
+        if (Vote::hasNotInteractedWith(6))
         {
             $listing->votes()->create(['ip_address' => request()->getClientIp()]);
         }

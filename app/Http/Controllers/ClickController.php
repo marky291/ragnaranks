@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Interactions\Click;
 use App\Listings\Listing;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
@@ -20,11 +21,11 @@ class ClickController extends Controller
      */
     public function store(Listing $listing)
     {
-        if ($this->authorize('click', $listing))
+        if (Click::hasNotInteractedWith(1))
         {
             $listing->clicks()->save(new Click());
         }
 
-        redirect($listing->website);
+        return redirect()->away($listing->website);
     }
 }

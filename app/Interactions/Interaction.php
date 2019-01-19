@@ -55,7 +55,7 @@ abstract class Interaction extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    protected function publisher()
+    public function publisher()
     {
         return $this->belongsTo(User::class);
     }
@@ -82,7 +82,7 @@ abstract class Interaction extends Model
      * @param int $hours
      * @return bool
      */
-    public static function hasInteractedWith(int $hours)
+    public static function hasNotInteractedWith(int $hours)
     {
         return Carbon::now()->subHours($hours) >= self::latestByCurrentClientIp()->pluck('created_at')->first();
     }
