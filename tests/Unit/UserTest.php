@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use App\Listings\Listing;
-use App\Review;
+use App\Interactions\Review;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;

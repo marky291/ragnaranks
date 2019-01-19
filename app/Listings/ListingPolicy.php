@@ -2,7 +2,9 @@
 
 namespace App\Listings;
 
+use App\Interactions\Vote;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ListingPolicy
@@ -19,6 +21,18 @@ class ListingPolicy
     public function review(User $user, Listing $listing)
     {
         return $listing->reviews()->publishedBy($user)->count() == false;
+    }
+
+    /**
+     * Determine whether the user can vote on the listing.
+     *
+     * @param User $user
+     * @param Listing $listing
+     * @return mixed
+     */
+    public function vote(?User $user, Listing $listing)
+    {
+        return (Carbon::now()->subHours(6) >= Vote::latestByCurrentClientIp()->pluck('created_at')->first());
     }
 
     /**

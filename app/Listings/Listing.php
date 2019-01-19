@@ -3,11 +3,11 @@
 namespace App\Listings;
 
 use App\Click;
+use App\Interactions\Review;
 use App\Mode;
-use App\Review;
 use App\Tag;
 use App\User;
-use App\Vote;
+use App\Interactions\Vote;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -34,7 +34,7 @@ use Illuminate\Support\Facades\Schema;
  * @property User $user
  * @property Collection $tags
  * @property Collection|HasMany $reviews
- * @property Vote|HasMany $votes
+ * @property \App\Interactions\Vote|HasMany $votes
  * @property Click|HasMany $clicks
  * @property int $rank
  * @property int votes_count
@@ -43,22 +43,7 @@ use Illuminate\Support\Facades\Schema;
  * @property int $user_id
  * @property int $mode_id
  * @property-read string $exp_rate_title
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing query()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereBannerUrl($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereConfigs($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereEpisode($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereModeId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereSlug($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereUserId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Listings\Listing whereWebsite($value)
- * @mixin \Eloquent
+ * @mixin \loquent
  */
 class Listing extends Model
 {
@@ -116,7 +101,7 @@ class Listing extends Model
      */
     public function votes()
     {
-        return $this->morphedByMany('App\Vote', 'interaction');
+        return $this->morphedByMany(Vote::class, 'interaction');
     }
 
     /**
@@ -128,6 +113,16 @@ class Listing extends Model
     public function clicks()
     {
         return $this->morphedByMany('App\Click', 'interaction');
+    }
+
+    /**
+     * A listing has many reviews.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany|Review
+     */
+    public function reviews()
+    {
+        return $this->morphedByMany(Review::class, 'interaction');
     }
 
     /**
@@ -148,16 +143,6 @@ class Listing extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
-    }
-
-    /**
-     * A listing has many reviews.
-     *
-     * @return HasMany|Review
-     */
-    public function reviews()
-    {
-        return $this->hasMany(Review::class);
     }
 
     /**

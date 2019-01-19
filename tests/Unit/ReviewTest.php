@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
+use App\Interactions\Review;
 use App\Listings\Listing;
-use App\Review;
 use App\User;
 use Carbon\Carbon;
 use Tests\TestCase;
@@ -22,7 +22,12 @@ class ReviewTest extends TestCase
      */
     public function it_belongs_to_a_listing()
     {
+        /** @var Review $review */
         $review = factory(Review::class)->create();
+
+        $listing = factory(Listing::class)->create();
+
+        $listing->reviews()->save($review);
 
         $this->assertInstanceOf(Listing::class, $review->listing);
 
@@ -71,6 +76,16 @@ class ReviewTest extends TestCase
         $review = factory(Review::class)->create(['donation_score' => 6]);
 
         $this->assertEquals(6, $review->donation_score);
+    }
+
+    /**
+     * @test
+     */
+    public function it_has_a_publisher_ip_address()
+    {
+        $review = factory(Review::class)->create(['ip_address' => '127.0.0.1']);
+
+        $this->assertEquals('127.0.0.1', $review->ip_address);
     }
 
     /**

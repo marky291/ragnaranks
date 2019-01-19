@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Interactions\Review;
 use App\Listings\Listing;
 use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;

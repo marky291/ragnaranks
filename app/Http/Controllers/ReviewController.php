@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreReviewRequest;
 use App\Listings\Listing;
-use App\Review;
+use App\Interactions\Review;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller

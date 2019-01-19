@@ -3,8 +3,7 @@
 namespace Tests\Feature;
 
 use App\Listings\Listing;
-use App\Review;
-use const Grpc\STATUS_OK;
+use App\Interactions\Review;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
@@ -14,6 +13,24 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class ReviewRequestTest extends TestCase
 {
     use WithFaker;
+
+    /**
+     * @var Listing
+     */
+    private $listing;
+
+    /**
+     * Setup the test environment.
+     *
+     * @return void
+     */
+    protected function setUp()
+    {
+        parent::setUp();
+
+        $this->listing = factory(Listing::class)->create();
+    }
+
 
     /**
      * @test
@@ -42,15 +59,11 @@ class ReviewRequestTest extends TestCase
     {
         $this->signIn();
 
-        $this->withoutExceptionHandling();
+        $this->listing->reviews()->save(factory(Review::class)->create());
 
-        $listing = $this->createListing([], 0,0);
+        $this->delete("/listing/{$this->listing->slug}/reviews/{$this->listing->reviews()->first()->id}");
 
-        $review = factory(Review::class)->create(['listing_id' => $listing->id]);
-
-        $this->delete("/listing/{$listing->slug}/reviews/{$review->id}");
-
-        $this->assertCount(0, $listing->reviews);
+        $this->assertCount(0, $this->listing->reviews);
     }
 
     /**
@@ -60,15 +73,11 @@ class ReviewRequestTest extends TestCase
     {
         $this->signIn();
 
-        $this->withoutExceptionHandling();
+        $this->listing->reviews()->save(factory(Review::class)->create());
 
-        $listing = $this->createListing([], 0,0);
+        $this->patch("/listing/{$this->listing->slug}/reviews/{$this->listing->reviews()->first()->id}", ['message' => "foo bar"]);
 
-        $review = factory(Review::class)->create(['listing_id' => $listing->id]);
-
-        $this->patch("/listing/{$listing->slug}/reviews/{$review->id}", ['message' => "foo bar"]);
-
-        $this->assertDatabaseHas('reviews', ['id' => $review->getkey(), 'message' => 'foo bar']);
+        $this->assertDatabaseHas('reviews', ['id' => $this->listing->reviews()->first()->getkey(), 'message' => 'foo bar']);
     }
 
     /**
@@ -167,14 +176,10 @@ class ReviewRequestTest extends TestCase
     {
         $this->signIn();
 
-        $this->withoutExceptionHandling();
+        $review = $this->listing->reviews()->save(factory(Review::class)->create());
 
-        $listing = factory(Listing::class)->create();
+        $this->delete("/listing/{$this->listing->slug}/reviews/{$review->getKey()}");
 
-        $review = factory(Review::class)->create(['listing_id' => $listing->id]);
-
-        $this->delete("/listing/{$listing->slug}/reviews/{$review->id}");
-
-        $this->assertDatabaseMissing('reviews', ['id' => $review->get]);
+        $this->assertDatabaseMissing('reviews', ['id' => $review->getKey()]);
     }
 }

@@ -3,10 +3,10 @@
 namespace Tests\Unit;
 
 use App\Click;
+use App\Interactions\Vote;
 use App\Listings\Listing;
-use App\Review;
+use App\Interactions\Review;
 use App\Tag;
-use App\Vote;
 use Illuminate\Support\Facades\Cache;
 use Mockery\Mock;
 use Tests\TestCase;

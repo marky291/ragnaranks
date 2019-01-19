@@ -6,7 +6,7 @@ use App\Click;
 use App\Listings\AddListingToContainer;
 use App\Listings\CacheListingsContainer;
 use App\Listings\Listing;
-use App\Vote;
+use App\Interactions\Vote;
 use Illuminate\Support\Facades\Queue;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
