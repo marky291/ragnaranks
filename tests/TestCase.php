@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-use App\Click;
+use App\Interactions\Click;
 use App\Listings\Listing;
 use App\User;
 use App\Interactions\Vote;

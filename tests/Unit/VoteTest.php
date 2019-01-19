@@ -5,6 +5,7 @@ namespace Tests\Unit;
 use App\Listings\Listing;
 use App\Interactions\Vote;
 use Carbon\Carbon;
+use Mockery\Mock;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -58,5 +59,25 @@ class VoteTest extends TestCase
         $listing->votes()->save(new Vote);
 
         $this->assertEquals(auth()->id(), $listing->votes()->first()->publisher->id);
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_publish_a_vote_without_requiring_authentication()
+    {
+        $listing = factory(Listing::class)->create();
+
+        $listing->votes()->save(new Vote);
+
+        $this->assertEquals(null, $listing->votes()->first()->publisher);
+    }
+
+    /**
+     * @test
+     */
+    public function it_stores_the_ip_address_using_observer_when_saved()
+    {
+        $this->assertEquals(request()->getClientIp(), Vote::create()->ip_address);
     }
 }

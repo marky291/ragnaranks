@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use App\Click;
+use App\Interactions\Click;
 use App\Listings\AddListingToContainer;
 use App\Listings\CacheListingsContainer;
 use App\Listings\Listing;

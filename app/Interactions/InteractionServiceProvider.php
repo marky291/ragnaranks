@@ -18,6 +18,8 @@ class InteractionServiceProvider extends ServiceProvider
     {
         Vote::observe(InteractionObserver::class);
 
+        Click::observe(InteractionObserver::class);
+
         Review::observe(InteractionObserver::class);
     }
 

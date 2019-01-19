@@ -47,7 +47,7 @@ $factory->define(App\Mode::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(\App\Click::class, function (Faker $faker) {
+$factory->define(\App\Interactions\Click::class, function (Faker $faker) {
     return [
         'ip_address' => $faker->ipv4,
         'created_at' => $faker->dateTimeThisMonth,

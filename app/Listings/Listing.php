@@ -2,7 +2,7 @@
 
 namespace App\Listings;
 
-use App\Click;
+use App\Interactions\Click;
 use App\Interactions\Review;
 use App\Mode;
 use App\Tag;
@@ -112,7 +112,7 @@ class Listing extends Model
      */
     public function clicks()
     {
-        return $this->morphedByMany('App\Click', 'interaction');
+        return $this->morphedByMany(Click::class, 'interaction');
     }
 
     /**
