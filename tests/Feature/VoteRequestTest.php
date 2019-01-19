@@ -12,7 +12,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class VoteRequestTest extends TestCase
 {
-
     /**
      * @test
      */

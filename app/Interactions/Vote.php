@@ -41,14 +41,4 @@ class Vote extends Interaction
      * @var string
      */
     const UPDATED_AT = null;
-
-    /**
-     * A review belongs to a single listing.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function listing()
-    {
-        return $this->belongsTo(Listing::class);
-    }
 }

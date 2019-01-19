@@ -2,28 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Interactions\Vote;
-use App\Interactions\VoteInteractionJob;
+use App\Interactions\Click;
 use App\Listings\Listing;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
-class VoteController extends Controller
+class ClickController extends Controller
 {
     /**
      * Store a newly created resource in storage.
      *
      * @param Listing $listing
      *
+     * @return void
+     *
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function store(Listing $listing)
     {
-        if ($this->authorize('vote', $listing))
+        if ($this->authorize('click', $listing))
         {
-            $listing->votes()->create(['ip_address' => request()->getClientIp()]);
+            $listing->clicks()->save(new Click());
         }
 
-        redirect()->back()->with(['flash' => 'You can only vote every 6 hours.']);
+        redirect($listing->website);
     }
 }

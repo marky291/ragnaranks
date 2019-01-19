@@ -13,6 +13,7 @@ use App\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
 
 /**
  * Class Interaction
@@ -72,8 +73,17 @@ abstract class Interaction extends Model
     /**
      * @param Builder $query
      */
-    public function scopelatestByCurrentClientIp(Builder $query)
+    public function scopeLatestByCurrentClientIp(Builder $query)
     {
         $query->byClientIp(request()->getClientIp())->latest()->limit(1);
+    }
+
+    /**
+     * @param int $hours
+     * @return bool
+     */
+    public static function hasInteractedWith(int $hours)
+    {
+        return Carbon::now()->subHours($hours) >= self::latestByCurrentClientIp()->pluck('created_at')->first();
     }
 }

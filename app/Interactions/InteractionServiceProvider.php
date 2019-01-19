@@ -6,6 +6,7 @@ use App\Interactions\InteractionObserver;
 use App\Interactions\Review;
 use App\Interactions\Vote;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class InteractionServiceProvider extends ServiceProvider
 {
@@ -21,6 +22,8 @@ class InteractionServiceProvider extends ServiceProvider
         Click::observe(InteractionObserver::class);
 
         Review::observe(InteractionObserver::class);
+
+        Gate::policy(Interaction::class, InteractionPolicy::class);
     }
 
     /**

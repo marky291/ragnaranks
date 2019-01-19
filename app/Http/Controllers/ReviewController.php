@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreReviewRequest;
+use App\Interactions\Interaction;
+use App\Interactions\Vote;
 use App\Listings\Listing;
 use App\Interactions\Review;
 use Illuminate\Http\Request;
@@ -20,9 +22,10 @@ class ReviewController extends Controller
      */
     public function store(StoreReviewRequest $request, Listing $listing)
     {
-        $this->authorize('review', $listing);
-
-        $listing->reviews()->create($request->validated());
+        if ($this->authorize('review', $listing))
+        {
+            $listing->reviews()->create($request->validated());
+        }
 
         return redirect()->back();
     }
