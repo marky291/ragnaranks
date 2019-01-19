@@ -1,18 +1,10 @@
 
   #curtain {
-    background: linear-gradient(180deg,#f44881,#ec454f);
-    .container {
-      .row {
-        padding-left:2em;
-        padding-right:2em;
-        padding-top:5em;
-        padding-bottom: 5em;
-      }
-    }
 
     h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
+      font-size: 3rem;
+      margin-bottom: 2.5rem;
+      color: #333a41;
     }
 
     .labels ul li {
@@ -21,8 +13,15 @@
       font-size: 9.5px;
       padding: .5rem 1rem;
       text-transform: uppercase;
-      background: rgba(0,0,0,.15);
-      color: white;
+      background: rgb(50, 58, 66);
+      color: #ffffff;
+    }
+
+    .image {
+      background-repeat: no-repeat !important;
+      -webkit-clip-path: polygon(25% 0, 0 500px, 500px 500px, 500px 0);
+      background-size: cover !important;
+      background-position: center !important;
     }
 
     .stars {
@@ -39,7 +38,6 @@
     .actions {
       .btn {
         margin-right: 1rem;
-        border-radius: 9px;
         padding-left: 1.5rem;
         padding-right: 1.5rem;
       }
@@ -48,51 +46,25 @@
         font-weight: bold;
         text-transform: uppercase;
         font-size: 12px;
-        color: #fff;
-        background: hsla(0,0%,100%,.2);
-        border: 1px solid hsla(0,0%,100%,.2);
+        background-color: #fafafa;
+        color: #22292f;
+        border: 1px solid #f1f1f1;
 
         &:hover, &.active {
-          background-color: #fff;
-          color: #22292f;
-          border: 1px solid #fff;
+          box-shadow: 0px 1px 2px #dddddd;
         }
       }
     }
   }
 
-  #ratings {
-    .score  {
-      top: -5px;
-      right: 24px;
-      font-size: 5rem;
-      letter-spacing: -15px;
-      color: #dadfe0;
-      text-shadow: 0 1px 3px #58585878;
-    }
-  }
-
   #configuration {
-    .heading {
-      color: white;
-      padding: 5px 10px;
-    }
-    .config {
-      padding: 1rem 1rem;
-      margin-bottom: 1em;
-      background: white;
-      border: 1px solid #dddddda6;
-      .icon {
-        //border-radius: 30px;
-        //border: 2px solid #ff1f4c;
+    .list {
+      .config {
+        padding: 1.4em 1.2em;
+        background: rgb(250, 250, 250);
       }
-      .details {
-
-      }
-      &:hover {
-        border-radius: .5rem;
-        background-color: #f6f6f6;
-        cursor: pointer;
+      .config:nth-child(2n) {
+        background: white;
       }
     }
   }
@@ -181,13 +153,24 @@
     }
   }
 
-  .score-is-good {
-    color: white;
-    background: radial-gradient(circle at 1% 1%, #ff2d58, #ec454f) !important;
-  }
-  .score-is-ok {
-    background: #7e878f;
-  }
-  .score-is-bad {
-    background: #7e878f;
+  #ratings {
+    .score  {
+      top: -5px;
+      right: 30px;
+      font-size: 4rem;
+      letter-spacing: -15px;
+      color: #dadfe0;
+      text-shadow: 0 1px 3px #58585878;
+    }
+
+    .score-is-good {
+      color: #ffc300;
+      //background: radial-gradient(circle at 1% 1%, #ff2d58, #ec454f) !important;
+    }
+    .score-is-ok {
+      color: #C0C0C0;
+    }
+    .score-is-bad {
+      color: #cd7f32;
+    }
   }

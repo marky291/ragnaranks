@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.5.21"
     },
     "dependencies": {
-        "flickity": "^2.1.2"
+        "flickity": "^2.1.2",
+        "vue-carousel": "^0.17.0"
     }
 }
