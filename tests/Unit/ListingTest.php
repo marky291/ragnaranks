@@ -345,4 +345,31 @@ class ListingTest extends TestCase
 
         $this->assertEquals(5.5, $listing->reviews()->average('event_score'));
     }
+
+    /**
+     * @test
+     */
+    public function it_can_verify_the_ip_address_has_not_interacted_with_vote()
+    {
+        /** @var Listing $listing */
+        $listing = factory(Listing::class)->create();
+
+        $status = $listing->votes()->hasClientInteractedWith(1);
+
+        $this->assertFalse($status);
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_verify_the_ip_address_has_interacted_with_vote()
+    {
+        $listing = factory(Listing::class)->create();
+
+        $listing->votes()->save(new Vote);
+
+        $status = $listing->votes()->hasClientInteractedWith(1);
+
+        $this->assertTrue($status);
+    }
 }

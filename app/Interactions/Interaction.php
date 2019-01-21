@@ -19,7 +19,8 @@ use Illuminate\Support\Carbon;
  * Class Interaction
  *
  * @method static Collection byClientIp($ip_address)
- * @method static Collection latestByCurrentClientIp()
+ * @method Collection latestByCurrentClientIp()
+ * @method Collection hasClientInteractedWith($hours)
  *
  * @property User $publisher
  *
@@ -79,11 +80,14 @@ abstract class Interaction extends Model
     }
 
     /**
+     * Return boolean of weather the current client IP has interacted.
+     *
+     * @param Builder $query
      * @param int $hours
      * @return bool
      */
-    public static function hasNotInteractedWith(int $hours)
-    {
-        return Carbon::now()->subHours($hours) >= self::latestByCurrentClientIp()->pluck('created_at')->first();
-    }
+   public function scopeHasClientInteractedWith(Builder $query, int $hours)
+   {
+       return Carbon::now()->subHours($hours) <= $query->latestByCurrentClientIp()->pluck('created_at')->first();
+   }
 }

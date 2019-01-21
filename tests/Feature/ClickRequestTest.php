@@ -17,7 +17,7 @@ class ClickRequestTest extends TestCase
     {
         $listing = factory(Listing::class)->create(['slug' => 'listing-name']);
 
-        $listing->clicks()->save(factory(Click::class)->create(['created_at' => now(), 'ip_address' => '127.0.0.1']));
+        $listing->clicks()->save(new Click);
 
         $this->post("/listing/listing-name/clicks", [], ['REMOTE_ADDR' => '127.0.0.1']);
 
@@ -29,6 +29,8 @@ class ClickRequestTest extends TestCase
      */
     public function it_can_store_a_new_click()
     {
+        $this->withoutExceptionHandling();
+
         $ip_address = '127.0.0.5';
 
         $listing = factory(Listing::class)->create(['slug' => 'listing-name']);

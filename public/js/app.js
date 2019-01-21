@@ -1771,6 +1771,31 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Reviews: _components_ReviewsComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     Scoreboards: _components_ScoreboardsComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  props: ['clicked', 'voted'],
+  data: function data() {
+    return {
+      validation: {
+        vote: this.voted,
+        click: this.clicked
+      }
+    };
+  },
+  methods: {
+    CastVote: function CastVote(route) {
+      this.validation.vote = true;
+      axios.post(window.location.href + route).then(function (response) {
+        return function () {
+          this.validation.vote = true;
+          flash('Your vote has been posted.');
+        };
+      }).catch(function (response) {
+        return function () {
+          console.log(response);
+          flash('Vote could not be processed right now sorry.');
+        };
+      });
+    }
   }
 });
 

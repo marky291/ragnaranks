@@ -79,4 +79,12 @@ class ClickTest extends TestCase
     {
         $this->assertEquals(request()->getClientIp(), Click::create()->ip_address);
     }
+
+    /**
+     * @test
+     */
+    public function it_has_a_configuration_for_spread()
+    {
+        $this->assertEquals(1, config('interaction.click.spread'));
+    }
 }

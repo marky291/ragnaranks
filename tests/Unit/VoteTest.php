@@ -80,4 +80,12 @@ class VoteTest extends TestCase
     {
         $this->assertEquals(request()->getClientIp(), Vote::create()->ip_address);
     }
+
+    /**
+     * @test
+     */
+    public function it_has_a_configuration_for_spread()
+    {
+        $this->assertEquals(6, config('interaction.vote.spread'));
+    }
 }

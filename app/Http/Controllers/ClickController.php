@@ -10,18 +10,19 @@ use Illuminate\Support\Carbon;
 
 class ClickController extends Controller
 {
+
     /**
      * Store a newly created resource in storage.
      *
      * @param Listing $listing
      *
-     * @return void
-     *
-     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @return RedirectResponse
      */
     public function store(Listing $listing)
     {
-        if (Click::hasNotInteractedWith(1))
+        $spread = config('interaction.click.spread');
+
+        if (!$listing->clicks()->hasClientInteractedWith($spread))
         {
             $listing->clicks()->save(new Click());
         }
