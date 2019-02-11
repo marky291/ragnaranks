@@ -35,7 +35,7 @@ abstract class Interaction extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
-    protected function listings()
+    public function listings()
     {
         return $this->morphToMany(Listing::class,'interaction');
     }

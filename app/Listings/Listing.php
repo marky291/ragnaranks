@@ -164,7 +164,8 @@ class Listing extends Model
      */
     public function getRatingAttribute()
     {
-        return $this->reviews()->selectRaw("round((sum(content_score+hosting_score+support_score+event_score+item_score+class_score+update_score+donation_score) / (count(donation_score) * 8) / 2), 1) as rating")->first()->rating;
+        return 5; // @TODO, use sql to get real rating attribute.
+        //return $this->reviews()->selectRaw("round((sum(content_score+hosting_score+support_score+event_score+item_score+class_score+update_score+donation_score) / (count(donation_score) * 8) / 2), 1) as rating")->first()->rating;
     }
 
     /**

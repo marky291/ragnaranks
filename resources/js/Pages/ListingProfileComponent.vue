@@ -7,7 +7,10 @@
 
         components: { Reviews, Scoreboards },
 
-        props: ['clicked', 'voted'],
+        props: {
+            clicked: Boolean,
+            voted: Boolean,
+        },
 
         data() {
             return {

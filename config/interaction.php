@@ -12,10 +12,16 @@ return [
     */
 
     'vote' => [
+        /*
+         | Spread is the hourly time.
+         */
         'spread' => 6
     ],
 
     'click' => [
+        /*
+         | Spread is the hourly time.
+         */
         'spread' => 1
     ]
 ];
