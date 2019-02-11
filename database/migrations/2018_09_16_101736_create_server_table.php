@@ -122,8 +122,8 @@ class CreateServerTable extends Migration
 
         Schema::create('reviews', function(Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('listing_id');
             $table->unsignedInteger('publisher_id');
+            $table->ipAddress('ip_address');
             $table->text('message');
             $table->smallInteger('donation_score');
             $table->smallInteger('update_score');
@@ -138,21 +138,25 @@ class CreateServerTable extends Migration
 
         Schema::create('votes', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('publisher_id')->nullable();
             $table->ipAddress('ip_address');
             $table->timestamp('created_at');
         });
 
         Schema::create('clicks', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('publisher_id')->nullable();
             $table->ipAddress('ip_address');
             $table->timestamp('created_at')->useCurrent();
         });
 
         Schema::create('interactions', function(Blueprint $table)
         {
-            $table->increments('id');
             $table->unsignedInteger('listing_id');
-            $table->morphs('interaction');
+            $table->unsignedBigInteger("interaction_id");
+            $table->string("interaction_type");
+            $table->index(["interaction_type", "interaction_id"]);
+
         });
     }
 

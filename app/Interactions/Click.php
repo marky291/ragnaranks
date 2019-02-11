@@ -1,8 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Interactions;
 
-use App\Listing;
+use App\Listings\Listing;
+use App\Periods;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
@@ -19,7 +20,7 @@ use Illuminate\Support\Collection;
  *
  * @package App
  */
-class Click extends Model
+class Click extends Interaction
 {
 
     /**

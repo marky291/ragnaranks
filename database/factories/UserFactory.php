@@ -23,11 +23,11 @@ $factory->define(App\User::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(\App\Review::class, function(Faker $faker) {
+$factory->define(\App\Interactions\Review::class, function(Faker $faker) {
     return [
         'message' => $faker->sentence(200),
-        'listing_id' => factory(\App\Listings\Listing::class)->create()->id,
         'publisher_id' => factory(\App\User::class)->create()->id,
+        'ip_address' => $faker->ipv4,
         'donation_score' => $faker->numberBetween(0, 10),
         'update_score' => $faker->numberBetween(0, 10),
         'class_score' => $faker->numberBetween(0, 10),
@@ -47,14 +47,14 @@ $factory->define(App\Mode::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(\App\Click::class, function (Faker $faker) {
+$factory->define(\App\Interactions\Click::class, function (Faker $faker) {
     return [
         'ip_address' => $faker->ipv4,
         'created_at' => $faker->dateTimeThisMonth,
     ];
 });
 
-$factory->define(\App\Vote::class, function (Faker $faker) {
+$factory->define(\App\Interactions\Vote::class, function (Faker $faker) {
     return [
         'ip_address' => $faker->ipv4,
         'created_at' => $faker->dateTimeThisMonth,

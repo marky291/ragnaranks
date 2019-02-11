@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreReviewRequest;
+use App\Interactions\Interaction;
+use App\Interactions\Vote;
 use App\Listings\Listing;
-use App\Review;
+use App\Interactions\Review;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
@@ -20,11 +22,12 @@ class ReviewController extends Controller
      */
     public function store(StoreReviewRequest $request, Listing $listing)
     {
-        $this->authorize('review', $listing);
+        if (!$listing->reviews()->publishedBy(auth()->user())->count())
+        {
+            $listing->reviews()->create($request->validated());
+        }
 
-        $listing->reviews()->create($request->validated());
-
-        return redirect()->back();
+        return redirect()->back()->with(['flash' => 'You already made a review on this listing.']);
     }
 
     /**

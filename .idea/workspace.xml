@@ -3,16 +3,25 @@
   <component name="AnalysisUIOptions">
     <option name="SCOPE_TYPE" value="3" />
   </component>
+  <component name="AutoTestManager">
+    <enabled-run-configurations>
+      <run-configuration type="PHPUnitRunConfigurationType" name="ClickTest" />
+      <run-configuration type="PHPUnitRunConfigurationType" name="ReviewTest.it_belongs_to_a_listing" />
+      <run-configuration type="PHPUnitRunConfigurationType" name="Rerun Failed Tests" />
+      <run-configuration type="PHPUnitRunConfigurationType" name="Rerun Failed Tests" />
+      <run-configuration type="PHPUnitRunConfigurationType" name="Rerun Failed Tests" />
+      <run-configuration type="PHPUnitRunConfigurationType" name="Rerun Failed Tests" />
+    </enabled-run-configurations>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5c3af05-4cb1-407b-a377-26e729e13b17" name="Redesign V1" comment="">
+    <list default="true" id="f5c3af05-4cb1-407b-a377-26e729e13b17" name="Redesign V1" comment="Rename config for local servers to fake listings.">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/ScoreboardComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ScoreboardComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/_server-profile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/_server-profile.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Interactions/Interaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Interactions/Interaction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Listings/Listing.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listings/Listing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/interaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/interaction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/ListingProfileComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/ListingProfileComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/listing/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/listing/index.blade.php" afterDir="false" />
     </list>
     <list id="58f96053-e5bd-4b41-bbae-58099ecbebc5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,16 +34,19 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/ragnaranks$ListingTest_it_has_a_vote_interaction.xml" NAME="ListingTest.it_has_a_vote_interaction Coverage Results" MODIFIED="1545233276914" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/ragnaranks$ListingTest__1_.xml" NAME="ListingTest (1) Coverage Results" MODIFIED="1545306007257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/ragnaranks$ListingFilterTest_it_can_filter_all_with_incorrect_keys.xml" NAME="ListingFilterTest.it_can_filter_all_with_incorrect_keys Coverage Results" MODIFIED="1545316924844" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/ragnaranks$ListingContainerTest_it_can_add_new_listings_to_the_container.xml" NAME="ListingContainerTest.it_can_add_new_listings_to_the_container Coverage Results" MODIFIED="1545580173133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/ragnaranks$ListingContainerTest.xml" NAME="ListingContainerTest Coverage Results" MODIFIED="1545574744397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Magnolia$Unit.xml" NAME="Unit Coverage Results" MODIFIED="1537101767328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/ragnaranks$Unit.xml" NAME="Unit Coverage Results" MODIFIED="1545596387612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ragnaranks$ListingContainerTest_it_can_add_new_listings_to_the_container.xml" NAME="ListingContainerTest.it_can_add_new_listings_to_the_container Coverage Results" MODIFIED="1545580173133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ragnaranks$ClickRequestTest_it_can_store_a_new_vote.xml" NAME="ClickRequestTest.it_can_store_a_new_vote Coverage Results" MODIFIED="1547861695004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ragnaranks$tests.xml" NAME="tests Coverage Results" MODIFIED="1547898159581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ragnaranks$ListingContainerTest.xml" NAME="ListingContainerTest Coverage Results" MODIFIED="1545574744397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/ragnaranks$ListingTest.xml" NAME="ListingTest Coverage Results" MODIFIED="1545573046283" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ragnaranks$Unit.xml" NAME="Unit Coverage Results" MODIFIED="1545596387612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/ragnaranks$Feature.xml" NAME="Feature Coverage Results" MODIFIED="1545475094333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ragnaranks$ListingTest__1_.xml" NAME="ListingTest (1) Coverage Results" MODIFIED="1545306007257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/ragnaranks$ListingFilterTest.xml" NAME="ListingFilterTest Coverage Results" MODIFIED="1545344020867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ragnaranks$ListingFilterTest_it_can_filter_all_with_incorrect_keys.xml" NAME="ListingFilterTest.it_can_filter_all_with_incorrect_keys Coverage Results" MODIFIED="1545316924844" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ragnaranks$ClickRequestTest_it_can_store_a_new_click.xml" NAME="ClickRequestTest.it_can_store_a_new_click Coverage Results" MODIFIED="1547861760067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ragnaranks$ListingTest_it_has_a_vote_interaction.xml" NAME="ListingTest.it_has_a_vote_interaction Coverage Results" MODIFIED="1545233276914" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/ragnaranks$ListingRequestsTest_it_loads_the_homepage.xml" NAME="ListingRequestsTest.it_loads_the_homepage Coverage Results" MODIFIED="1545600377694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CoverageOptionsProvider">
@@ -55,256 +67,120 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="magnolia@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="magnolia@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="magnolia@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="magnolia: schema" type="c314c289:MysqlImplModel$Schema" />
+      </path>
+    </expand>
     <select />
-  </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-1852496454">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="9" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.6" value="2" />
-          <entry key="project.open.time.7" value="2" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="9" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="css" value="4" />
-          <entry key="js" value="4" />
-          <entry key="php" value="55" />
-          <entry key="scss" value="7" />
-          <entry key="svg" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Blade" value="10" />
-          <entry key="CSS" value="4" />
-          <entry key="JavaScript" value="4" />
-          <entry key="PHP" value="45" />
-          <entry key="SCSS" value="7" />
-          <entry key="SVG" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="dummy" value="64" />
-          <entry key="js" value="76" />
-          <entry key="php" value="11599" />
-          <entry key="scss" value="3512" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="Blade" value="2574" />
-          <entry key="JavaScript" value="76" />
-          <entry key="PHP" value="9025" />
-          <entry key="PLAIN_TEXT" value="64" />
-          <entry key="SCSS" value="3512" />
-        </counts>
-      </usages-collector>
-    </session>
-    <session id="-214186817">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="49" />
-          <entry key="project.open.time.1" value="3" />
-          <entry key="project.open.time.10" value="2" />
-          <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.5" value="8" />
-          <entry key="project.open.time.6" value="4" />
-          <entry key="project.open.time.7" value="12" />
-          <entry key="project.open.time.8" value="14" />
-          <entry key="project.open.time.9" value="7" />
-          <entry key="project.opened" value="54" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="css" value="7" />
-          <entry key="ea-dev" value="1" />
-          <entry key="env" value="7" />
-          <entry key="example" value="1" />
-          <entry key="gif" value="1" />
-          <entry key="gitattributes" value="1" />
-          <entry key="gitignore" value="1" />
-          <entry key="html" value="1" />
-          <entry key="interactions" value="1" />
-          <entry key="js" value="57" />
-          <entry key="json" value="19" />
-          <entry key="listing_configs" value="1" />
-          <entry key="listing_tag" value="1" />
-          <entry key="php" value="922" />
-          <entry key="png" value="2" />
-          <entry key="reviews" value="2" />
-          <entry key="scss" value="123" />
-          <entry key="servers" value="2" />
-          <entry key="servers_rank_votes_count_clicks_count_episode_index" value="1" />
-          <entry key="sql" value="2" />
-          <entry key="ts" value="1" />
-          <entry key="txt" value="1" />
-          <entry key="users" value="1" />
-          <entry key="vue" value="28" />
-          <entry key="xml" value="5" />
-          <entry key="yml" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Blade" value="180" />
-          <entry key="CSS" value="7" />
-          <entry key="Database Element" value="8" />
-          <entry key="HTML" value="1" />
-          <entry key="Image" value="3" />
-          <entry key="JSON" value="19" />
-          <entry key="JavaScript" value="57" />
-          <entry key="PHP" value="742" />
-          <entry key="PLAIN_TEXT" value="12" />
-          <entry key="SCSS" value="123" />
-          <entry key="SQL" value="1" />
-          <entry key="Scratch" value="2" />
-          <entry key="TypeScript" value="1" />
-          <entry key="Vue.js" value="28" />
-          <entry key="XML" value="5" />
-          <entry key="YAML" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="cell" value="1" />
-          <entry key="dummy" value="619" />
-          <entry key="env" value="91" />
-          <entry key="example" value="5" />
-          <entry key="js" value="1845" />
-          <entry key="json" value="105" />
-          <entry key="php" value="131083" />
-          <entry key="scss" value="8934" />
-          <entry key="sql" value="20" />
-          <entry key="txt" value="2389" />
-          <entry key="vue" value="12224" />
-          <entry key="xml" value="70" />
-          <entry key="yml" value="9" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="Blade" value="35622" />
-          <entry key="JSON" value="105" />
-          <entry key="JavaScript" value="1845" />
-          <entry key="PHP" value="95461" />
-          <entry key="PLAIN_TEXT" value="3104" />
-          <entry key="SCSS" value="8934" />
-          <entry key="Scratch" value="21" />
-          <entry key="Vue.js" value="12224" />
-          <entry key="XML" value="70" />
-          <entry key="YAML" value="9" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.php.new.class">
-        <counts>
-          <entry key="PHP Class.type" value="9" />
-          <entry key="PHP Interface.type" value="1" />
-          <entry key="PHP Trait.type" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.vcs.git.usages">
-        <counts>
-          <entry key="git.branch.create.new" value="1" />
-          <entry key="git.branch.delete.local" value="1" />
-        </counts>
-      </usages-collector>
-    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/sass/_server-profile.scss">
+        <entry file="file://$PROJECT_DIR$/app/Interactions/Interaction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="37">
-              <caret line="157" column="13" selection-start-line="157" selection-start-column="13" selection-end-line="157" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/sass/_spotlight.scss">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/sass/_stage.scss">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/sass/_colours.scss">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/sass/_agile-carousel.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/listing/show.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="73" column="105" selection-start-line="73" selection-start-column="105" selection-end-line="73" selection-end-column="105" />
+            <state relative-caret-position="202">
+              <caret line="37" column="29" lean-forward="true" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
               <folding>
-                <element signature="e#2989#3136#0#HTML" expanded="true" />
-                <element signature="e#3246#6026#0#HTML" />
+                <element signature="e#123#148#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/fake/listings.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="151">
+              <caret line="48" column="9" lean-forward="true" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Listings/Listing.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="169" lean-forward="true" selection-start-line="169" selection-end-line="169" />
+              <folding>
+                <element signature="e#32#59#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-44" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="11" column="66" lean-forward="true" selection-start-line="11" selection-start-column="66" selection-end-line="11" selection-end-column="66" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/Feature/ListingRequestsTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/Pages/ListingProfileComponent.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="97">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/ScoreboardComponent.vue">
+        <entry file="file://$PROJECT_DIR$/resources/views/listing/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#template#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="169">
+              <caret line="136" column="84" selection-start-line="136" selection-start-column="84" selection-end-line="136" selection-end-column="84" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Feature/CardFilter.php">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/ReviewComponent.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
+            <state relative-caret-position="2139">
+              <caret line="93" column="59" selection-start-line="93" selection-start-column="24" selection-end-line="93" selection-end-column="59" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/partials/cards/normal.blade.php">
+        <entry file="file://$PROJECT_DIR$/config/interaction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="48" column="108" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="108" />
+            <state relative-caret-position="543">
+              <caret line="26" column="2" lean-forward="true" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -320,27 +196,17 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>points</find>
-      <find>listings</find>
-      <find>star</find>
-      <find>stick</find>
-      <find>sticy</find>
-      <find>sticky</find>
-      <find>REVIEWS</find>
       <find>getroute</find>
       <find>donation</find>
       <find>delete</find>
       <find>test</find>
-      <find>listing</find>
       <find>guard</find>
-      <find>review</find>
       <find>revuews</find>
       <find>reviews</find>
       <find>store</find>
       <find>logout</find>
       <find>home</find>
       <find>latest</find>
-      <find>publisher</find>
       <find>config</find>
       <find>configura</find>
       <find>configuration</find>
@@ -350,6 +216,16 @@
       <find>score</find>
       <find>rating</find>
       <find>ratings</find>
+      <find>vote</find>
+      <find>clicks</find>
+      <find>interaction</find>
+      <find>listing</find>
+      <find>list</find>
+      <find>review</find>
+      <find>publisher</find>
+      <find>listings</find>
+      <find>ratingattribute</find>
+      <find>@foreach</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -364,82 +240,72 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="VoteFeature" />
       </map>
     </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/js/app.js" />
-        <option value="$PROJECT_DIR$/resources/js/components/FlashComponent.vue" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/frame.blade.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/Collections/ReviewsComponent.vue" />
-        <option value="$PROJECT_DIR$/resources/views/listing/partial/review.blade.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/Listing/ShowListingComponent.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/Pages/ListingProfileComponent.vue" />
-        <option value="$PROJECT_DIR$/database/migrations/2018_09_16_101736_create_server_table.php" />
-        <option value="$PROJECT_DIR$/database/factories/UserFactory.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/ScoreboardsComponent.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/NewReview.vue" />
-        <option value="$PROJECT_DIR$/resources/js/Pages/ListingProfileComponent.vue" />
-        <option value="$PROJECT_DIR$/app/Listings/ListingObserver.php" />
-        <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/StoreReviewValidate.php" />
-        <option value="$PROJECT_DIR$/app/User.php" />
-        <option value="$PROJECT_DIR$/tests/Unit/UserTest.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/NewReviewComponent.vue" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/StoreReviewRequest.php" />
-        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Support/Providers/AuthServiceProvider.php" />
-        <option value="$PROJECT_DIR$/app/Policies/ReviewPolicy.php" />
-        <option value="$PROJECT_DIR$/tests/Unit/ListingTest.php" />
-        <option value="$PROJECT_DIR$/app/Review.php" />
-        <option value="$PROJECT_DIR$/tests/Unit/ReviewTest.php" />
-        <option value="$PROJECT_DIR$/app/Listings/Listing.php" />
-        <option value="$PROJECT_DIR$/app/Policies/ListingPolicy.php" />
-        <option value="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ReviewController.php" />
-        <option value="$PROJECT_DIR$/app/Listings/ListingServiceProvider.php" />
-        <option value="$PROJECT_DIR$/app/Listings/ListingPolicy.php" />
-        <option value="$PROJECT_DIR$/tests/Feature/ReviewRequestTest.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/ReviewComponent.vue" />
-        <option value="$PROJECT_DIR$/phpunit.xml" />
-        <option value="$PROJECT_DIR$/.travis.yml" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/e8df93af-190f-4543-b9b3-e034f2769a7d/console.sql" />
-        <option value="$PROJECT_DIR$/tests/Feature/CardFilterTest.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/resources/views/layouts/header.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/listing/partial/config.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue" />
         <option value="$PROJECT_DIR$/resources/js/app.js" />
         <option value="$PROJECT_DIR$/resources/views/listing/partial/rating.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/listing/show.blade.php" />
         <option value="$PROJECT_DIR$/tests/Feature/CardFilter.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/cards/normal.blade.php" />
         <option value="$PROJECT_DIR$/resources/sass/_server-profile.scss" />
         <option value="$PROJECT_DIR$/resources/js/components/ScoreboardComponent.vue" />
+        <option value="$PROJECT_DIR$/app/Review.php" />
+        <option value="$PROJECT_DIR$/app/Listings/ListingServiceProvider.php" />
+        <option value="$PROJECT_DIR$/app/Listings/CacheListingsContainer.php" />
+        <option value="$PROJECT_DIR$/app/Jobs/VoteInteractionJob.php" />
+        <option value="$PROJECT_DIR$/app/Interactions/VoteInteractionJob.php" />
+        <option value="$PROJECT_DIR$/app/Interactions/VotePolicy.php" />
+        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
+        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php" />
+        <option value="$PROJECT_DIR$/tests/Unit/UserTest.php" />
+        <option value="$PROJECT_DIR$/app/User.php" />
+        <option value="$PROJECT_DIR$/tests/Unit/ReviewTest.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2018_09_16_101736_create_server_table.php" />
+        <option value="$PROJECT_DIR$/config/app.php" />
+        <option value="$PROJECT_DIR$/app/Interactions/InteractionObserver.php" />
+        <option value="$PROJECT_DIR$/database/factories/UserFactory.php" />
+        <option value="$PROJECT_DIR$/app/Interactions/Click.php" />
+        <option value="$PROJECT_DIR$/tests/TestCase.php" />
+        <option value="$PROJECT_DIR$/tests/Unit/ListingContainerTest.php" />
+        <option value="$PROJECT_DIR$/tests/Feature/VoteRequestTest.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/app/Interactions/InteractionServiceProvider.php" />
+        <option value="$PROJECT_DIR$/app/Interactions/InteractionPolicy.php" />
+        <option value="$PROJECT_DIR$/app/Interactions/Vote.php" />
+        <option value="$PROJECT_DIR$/app/Helpers/EverythingHelper.php" />
+        <option value="$PROJECT_DIR$/app/Interactions/Review.php" />
+        <option value="$PROJECT_DIR$/app/Listings/ListingPolicy.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ReviewController.php" />
+        <option value="$PROJECT_DIR$/tests/Feature/ReviewRequestTest.php" />
+        <option value="$PROJECT_DIR$/tests/Unit/ListingTest.php" />
+        <option value="$PROJECT_DIR$/tests/Unit/ClickTest.php" />
+        <option value="$PROJECT_DIR$/tests/Unit/InteractionTest.php" />
+        <option value="$PROJECT_DIR$/tests/Unit/VoteTest.php" />
+        <option value="$PROJECT_DIR$/tests/Feature/ClickRequestTest.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ClickController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/VoteController.php" />
+        <option value="$PROJECT_DIR$/resources/views/listing/show.blade.php" />
+        <option value="$PROJECT_DIR$/tests/Feature/ListingRequestsTest.php" />
+        <option value="$PROJECT_DIR$/config/interaction.php" />
+        <option value="$PROJECT_DIR$/app/Interactions/Interaction.php" />
+        <option value="$PROJECT_DIR$/app/Listings/Listing.php" />
+        <option value="$PROJECT_DIR$/resources/js/Pages/ListingProfileComponent.vue" />
+        <option value="$PROJECT_DIR$/resources/views/listing/index.blade.php" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
-    <package-json value="$PROJECT_DIR$/package.json" />
-  </component>
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/node_modules" />
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths>
-      <path value="$PROJECT_DIR$/package.json" />
-    </packageJsonPaths>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
@@ -533,9 +399,11 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-3" />
+    <option name="y" value="401" />
     <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="height" value="704" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -543,12 +411,41 @@
         <expanded-state>
           <State />
           <State>
+            <id>Data flowJavaScript</id>
+          </State>
+          <State>
+            <id>ECMAScript 6 migration aidsJavaScript</id>
+          </State>
+          <State>
             <id>General</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>Symfony</id>
+          </State>
+          <State>
+            <id>TemplateSymfony</id>
+          </State>
+          <State>
+            <id>TwigSymfony</id>
+          </State>
+          <State>
+            <id>Vue</id>
           </State>
           <State>
             <id>XPath</id>
           </State>
+          <State>
+            <id>XSLT</id>
+          </State>
         </expanded-state>
+        <selected-state>
+          <State>
+            <id>Angular</id>
+          </State>
+        </selected-state>
       </profile-state>
     </entry>
   </component>
@@ -569,28 +466,35 @@
             <path>
               <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
               <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
               <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="sass" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Listings" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
-              <item name="Database Consoles" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
+              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
-              <item name="Database Consoles" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
-              <item name="e8df93af-190f-4543-b9b3-e034f2769a7d" type="1e004dc1:ScratchProjectViewPane$MyRootNode$1$1" />
+              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="Feature" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="Unit" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -601,7 +505,7 @@
   <component name="PropertiesComponent">
     <property name="Constants" value="false" />
     <property name="DatabaseDriversLRU" value="mysql" />
-    <property name="SearchEverywhereHistoryKey" value="scoreboard&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/js/components/ScoreboardComponent.vue&#10;normal.blade.&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/partials/cards/normal.blade.php&#10;card&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/tests/Feature/CardFilter.php&#10;scoreb&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/js/components/ScoreboardComponent.vue&#10;rating.blade&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/listing/partial/rating.blade.php&#10;show.b&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/listing/show.blade.php&#10;config&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/listing/partial/config.blade.php&#10;show.blade.php&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/listing/show.blade.php&#10;app.js&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/js/app.js&#10;package&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/package.json&#10;frame.b&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/layouts/frame.blade.php&#10;frame.blade&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/layouts/frame.blade.php&#10;web.php&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/routes/web.php&#10;show.blade&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/listing/show.blade.php&#10;database.php&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/config/database.php&#10;reviewsc&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/js/components/ReviewsComponent.vue&#10;reviewcom&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/js/components/ReviewComponent.vue&#10;reviews&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/js/components/ReviewsComponent.vue&#10;newrev&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/js/components/NewReviewComponent.vue&#10;reviewcompon&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/js/components/ReviewComponent.vue&#10;review&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/tests/Feature/ReviewRequestTest.php&#10;reviewscom&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/js/components/ReviewsComponent.vue&#10;reviewcompone&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/js/components/ReviewsComponent.vue&#10;show.&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/listing/show.blade.php&#10;polic&#9;null&#9;null&#10;auth&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Providers/AuthServiceProvider.php&#10;authservice&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/vendor/laravel/framework/src/Illuminate/Foundation/Support/Providers/AuthServiceProvider.php&#10;listing&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Listings/Listing.php&#10;rev&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Review.php&#10;reviewtest&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/tests/Unit/ReviewTest.php&#10;listingtest&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/tests/Unit/ListingTest.php&#10;Listingpo&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Policies/ListingPolicy.php&#10;authser&#9;null&#9;null&#10;index.blade&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/listing/index.blade.php&#10;reviewre&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/tests/Feature/ReviewRequestTest.php&#10;store&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Http/Requests/StoreReviewRequest.php&#10;create&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/database/migrations/2018_09_16_101736_create_server_table.php&#10;reviewcon&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Http/Controllers/ReviewController.php&#10;index.&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/listing/index.blade.php&#10;user&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/User.php&#10;usertest&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/tests/Unit/UserTest.php&#10;Review&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Review.php&#10;composer.json&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/composer.json&#10;reviewt&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/tests/Unit/ReviewTest.php&#10;web&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/routes/web.php&#10;REVIEWS&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/js/components/ReviewsComponent.vue&#10;show&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/listing/show.blade.php&#10;app.&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/js/app.js&#10;show.bl&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/listing/show.blade.php&#10;user.blade&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/listing/partial/user-score.blade.php" />
+    <property name="SearchEverywhereHistoryKey" value="listingcontr&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Http/Controllers/ListingController.php&#10;show.b&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/listing/show.blade.php&#10;votecontr&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Http/Controllers/VoteController.php&#10;review&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/js/components/ReviewComponent.vue&#10;listingpr&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/js/Pages/ListingProfileComponent.vue&#10;interactio&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Interactions/Interaction.php&#10;click&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Http/Controllers/ClickController.php&#10;show.&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/listing/show.blade.php&#10;clickcontroller&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Http/Controllers/ClickController.php&#10;show.bl&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/listing/show.blade.php&#10;clicktest&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/tests/Unit/ClickTest.php&#10;votetest&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/tests/Unit/VoteTest.php&#10;interact&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Interactions/Interaction.php&#10;listin&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/tests/Unit/ListingTest.php&#10;listingtr&#9;null&#9;null&#10;Inter&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Interactions/Interaction.php&#10;listingte&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/tests/Unit/ListingTest.php&#10;votecontro&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Http/Controllers/VoteController.php&#10;interaction&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Interactions/Interaction.php&#10;reviewcomp&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/js/components/ReviewComponent.vue&#10;scoreboard&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/js/components/ScoreboardComponent.vue&#10;profile&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/js/Pages/ListingProfileComponent.vue&#10;show.blade&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/listing/show.blade.php&#10;reviewcon&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Http/Controllers/ReviewController.php&#10;voteco&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Http/Controllers/VoteController.php&#10;normal.b&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/partials/cards/normal.blade.php&#10;clickre&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/tests/Feature/ClickRequestTest.php&#10;clickcontr&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Http/Controllers/ClickController.php&#10;polic&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Listings/ListingPolicy.php&#10;header.b&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/layouts/header.blade.php&#10;votereq&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/tests/Feature/VoteRequestTest.php&#10;votere&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/tests/Feature/VoteRequestTest.php&#10;listing&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Listings/ListingPolicy.php&#10;listi&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Listings/ListingPolicy.php&#10;reviewcontr&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Http/Controllers/ReviewController.php&#10;listingpo&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Listings/ListingPolicy.php&#10;listingcontroller&#9;null&#9;null&#10;web.php&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/routes/web.php&#10;listinpo&#9;null&#9;null&#10;vote&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/tests/Unit/VoteTest.php&#10;intera&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Interactions/InteractionObserver.php&#10;userfac&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/database/factories/UserFactory.php&#10;snippet&#9;null&#9;null&#10;app.php&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/config/app.php&#10;create&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/database/migrations/2018_09_16_101736_create_server_table.php&#10;user&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/User.php&#10;index.&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/listing/index.blade.php&#10;index.blade.&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/listing/index.blade.php&#10;rev&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Interactions/Review.php&#10;listingtest&#9;null&#9;null" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
@@ -617,21 +521,21 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="COPY_ALWAYS" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="tasks.timeTracking" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/Listings" />
-      <recent name="$PROJECT_DIR$/resources/js" />
-      <recent name="$PROJECT_DIR$/resources/js/components" />
-      <recent name="$PROJECT_DIR$/resources/js/components/Collections" />
-      <recent name="$PROJECT_DIR$/app" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/resources/js/flickity" />
       <recent name="$PROJECT_DIR$/resources/img" />
       <recent name="$PROJECT_DIR$/resources/views/partials" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Interactions" />
+      <recent name="$PROJECT_DIR$/app/Listings" />
+      <recent name="$PROJECT_DIR$/resources/js" />
+      <recent name="$PROJECT_DIR$/resources/js/components" />
+      <recent name="$PROJECT_DIR$/resources/js/components/Collections" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -646,21 +550,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.tests">
-    <configuration name="CardFilterTest.it_can_display_an_exp_group_as_a_filter" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\CardFilterTest" directory="$PROJECT_DIR$/tests" file="$PROJECT_DIR$/tests/Feature/CardFilter.php" method="it_can_display_an_exp_group_as_a_filter" scope="Method" />
+  <component name="RunManager" selected="PHPUnit.ListingRequestsTest.it_loads_the_homepage">
+    <configuration name="ClickRequestTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\ClickRequestTest" file="$PROJECT_DIR$/tests/Feature/ClickRequestTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="Feature" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner directory="$PROJECT_DIR$/tests/Feature" />
+    <configuration name="ClickRequestTest.it_will_not_count_more_than_one_click_per_hour_from_ip_address" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\ClickRequestTest" directory="$PROJECT_DIR$/tests" file="$PROJECT_DIR$/tests/Feature/ClickRequestTest.php" method="it_will_not_count_more_than_one_click_per_hour_from_ip_address" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="ReviewRequestTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\ReviewRequestTest" file="$PROJECT_DIR$/tests/Feature/ReviewRequestTest.php" scope="Class" />
+    <configuration name="ClickTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\ClickTest" file="$PROJECT_DIR$/tests/Unit/ClickTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="Unit" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner directory="$PROJECT_DIR$/tests/Unit" />
+    <configuration name="ListingRequestsTest.it_loads_the_homepage" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\ListingRequestsTest" file="$PROJECT_DIR$/tests/Feature/ListingRequestsTest.php" method="it_loads_the_homepage" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="tests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -668,19 +572,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="PHPUnit.ReviewRequestTest" />
-      <item itemvalue="PHPUnit.Unit" />
       <item itemvalue="PHPUnit.tests" />
-      <item itemvalue="PHPUnit.CardFilterTest.it_can_display_an_exp_group_as_a_filter" />
-      <item itemvalue="PHPUnit.Feature" />
+      <item itemvalue="PHPUnit.ClickRequestTest.it_will_not_count_more_than_one_click_per_hour_from_ip_address" />
+      <item itemvalue="PHPUnit.ClickTest" />
+      <item itemvalue="PHPUnit.ClickRequestTest" />
+      <item itemvalue="PHPUnit.ListingRequestsTest.it_loads_the_homepage" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.ListingRequestsTest.it_loads_the_homepage" />
         <item itemvalue="PHPUnit.tests" />
-        <item itemvalue="PHPUnit.Feature" />
-        <item itemvalue="PHPUnit.CardFilterTest.it_can_display_an_exp_group_as_a_filter" />
-        <item itemvalue="PHPUnit.ReviewRequestTest" />
-        <item itemvalue="PHPUnit.Unit" />
+        <item itemvalue="PHPUnit.ClickRequestTest.it_will_not_count_more_than_one_click_per_hour_from_ip_address" />
+        <item itemvalue="PHPUnit.ClickRequestTest" />
+        <item itemvalue="PHPUnit.ClickTest" />
       </list>
     </recent_temporary>
   </component>
@@ -757,48 +661,7 @@
       <workItem from="1547547351742" duration="3199000" />
       <workItem from="1547663658706" duration="3603000" />
       <workItem from="1547729456093" duration="221000" />
-    </task>
-    <task id="LOCAL-00001" summary="Move auth route to top.">
-      <created>1544110752332</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1544110752332</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Remove caching of configuration check.">
-      <created>1544110820392</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1544110820392</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Code update and styles (footer)">
-      <created>1544125872847</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1544125872847</updated>
-    </task>
-    <task id="LOCAL-00004" summary="sticky nav">
-      <created>1544132666912</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1544132666912</updated>
-    </task>
-    <task id="LOCAL-00005" summary="sticky nav">
-      <created>1544139691772</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1544139691772</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Controller now sit as seperate entities, query and server.">
-      <created>1544181681662</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1544181681662</updated>
+      <workItem from="1549896496655" duration="425000" />
     </task>
     <task id="LOCAL-00007" summary="Servers now have a slug generation of their server name for SEO.">
       <created>1544187423382</created>
@@ -1101,7 +964,49 @@
       <option name="project" value="LOCAL" />
       <updated>1547555601264</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Scoreboard design.">
+      <created>1547755358489</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1547755358489</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Interactions now consist of review and vote.&#10;Interaction observers added for these models.&#10;Interaction service providers added for models.&#10;Abstracted interaction class parent for the models.">
+      <created>1547857038481</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1547857038481</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Clicks now part of interaction.">
+      <created>1547858175393</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1547858175393</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Click testing, policies and controllers.">
+      <created>1547861930707</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1547861930707</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Remove listing policy, moved logic to the interaction controller.">
+      <created>1547898118590</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1547898118590</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Rename config for local servers to fake listings.">
+      <created>1547898261065</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1547898261065</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers>
       <GitHub url="https://github.com">
         <token>df9fdfc8df9fdf99df9cdf9fdf93dfcedf9adfcfdf9fdf98df98df9fdf9ddfc9df9fdf93df92dfccdf9bdfccdf93df9fdfcbdf92df99dfcfdfcfdfc9dfcbdf98df98dfccdfcfdfccdf93df9edf93dfc9</token>
@@ -1111,40 +1016,40 @@
     </servers>
   </component>
   <component name="TestHistory">
-    <history-entry file="tests - 2019.01.15 at 10h 42m 35s.xml">
+    <history-entry file="ClickRequestTest_it_will_not_count_more_than_one_click_per_hour_from_ip_address - 2019.01.21 at 11h 42m 25s.xml">
+      <configuration name="ClickRequestTest.it_will_not_count_more_than_one_click_per_hour_from_ip_address" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="ClickRequestTest_it_will_not_count_more_than_one_click_per_hour_from_ip_address - 2019.01.21 at 11h 42m 55s.xml">
+      <configuration name="ClickRequestTest.it_will_not_count_more_than_one_click_per_hour_from_ip_address" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="ClickRequestTest_it_will_not_count_more_than_one_click_per_hour_from_ip_address - 2019.01.21 at 11h 43m 30s.xml">
+      <configuration name="ClickRequestTest.it_will_not_count_more_than_one_click_per_hour_from_ip_address" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="tests - 2019.01.21 at 11h 43m 42s.xml">
       <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="tests - 2019.01.15 at 10h 43m 08s.xml">
+    <history-entry file="tests - 2019.01.21 at 11h 44m 17s.xml">
       <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="tests - 2019.01.15 at 10h 44m 02s.xml">
+    <history-entry file="tests - 2019.01.21 at 11h 44m 39s.xml">
       <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="tests - 2019.01.15 at 10h 44m 59s.xml">
+    <history-entry file="tests - 2019.01.21 at 11h 45m 43s.xml">
       <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="CardFilterTest_it_can_display_an_exp_group_as_a_filter - 2019.01.15 at 10h 45m 28s.xml">
-      <configuration name="CardFilterTest.it_can_display_an_exp_group_as_a_filter" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="CardFilterTest_it_can_display_an_exp_group_as_a_filter - 2019.01.15 at 10h 45m 34s.xml">
-      <configuration name="CardFilterTest.it_can_display_an_exp_group_as_a_filter" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Feature - 2019.01.15 at 10h 46m 57s.xml">
-      <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Feature - 2019.01.15 at 10h 48m 04s.xml">
-      <configuration name="Feature" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="tests - 2019.01.15 at 10h 48m 16s.xml">
+    <history-entry file="tests - 2019.01.21 at 12h 09m 00s.xml">
       <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="tests - 2019.01.15 at 10h 57m 06s.xml">
-      <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="ListingRequestsTest_it_loads_the_homepage - 2019.01.21 at 12h 09m 06s.xml">
+      <configuration name="ListingRequestsTest.it_loads_the_homepage" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="ListingRequestsTest_it_loads_the_homepage - 2019.01.21 at 12h 09m 28s.xml">
+      <configuration name="ListingRequestsTest.it_loads_the_homepage" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
     <option name="enabled" value="true" />
-    <option name="totallyTimeSpent" value="463993000" />
+    <option name="totallyTimeSpent" value="498566000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1156,15 +1061,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="-3" y="401" width="1440" height="704" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8484252" visible="true" weight="0.19742489" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8484252" visible="true" weight="0.1695279" />
       <window_info id="Structure" order="1" sideWeight="0.1515748" side_tool="true" weight="0.19148937" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49928468" weight="0.3280098" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6144492" weight="0.31326783" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6144492" visible="true" weight="0.3181818" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4899857" weight="0.31572482" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1173,7 +1079,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32923833" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3280098" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.3855508" side_tool="true" weight="0.29759037" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4914163" visible="true" weight="0.32063884" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4914163" weight="0.34275183" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.3280098" />
       <window_info anchor="bottom" id="File Transfer" order="14" weight="0.47710842" />
@@ -1190,21 +1096,12 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/vendor/adamwathan/laravel-preset" />
     </ignored-roots>
-    <MESSAGE value="Images from Zurina" />
-    <MESSAGE value="Phillipine RO Chaos was removed." />
-    <MESSAGE value="Backend recreated.&#10;&#10;- Servers are now called Listings&#10;- Major changes to config (now json)&#10;&#10;etc... too lazy to type the rest." />
-    <MESSAGE value="Test suites created for listings, and list filtering.&#10;&#10;Filtering moved to its own class.&#10;&#10;Listings now has its own directory.&#10;&#10;Listings can now be taken from a cache rather than live data." />
-    <MESSAGE value="Listings now have statistics for tracking data that frequently changes eg. rank, votes &amp; clicks.&#10;&#10;Full test suite for ListingFilter.php" />
-    <MESSAGE value="Listing observer model events." />
     <MESSAGE value="Scope vote and clicks between periods." />
     <MESSAGE value="Clicks now have a test suite for period scoping." />
     <MESSAGE value="Listing observer for newly created listings.&#10;&#10;- Listings are created with their rank as the ID." />
@@ -1224,7 +1121,13 @@
     <MESSAGE value="Reviews can be added, deleted or updated." />
     <MESSAGE value="Logout functionality" />
     <MESSAGE value="Resource file build" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resource file build" />
+    <MESSAGE value="Scoreboard design." />
+    <MESSAGE value="Interactions now consist of review and vote.&#10;Interaction observers added for these models.&#10;Interaction service providers added for models.&#10;Abstracted interaction class parent for the models." />
+    <MESSAGE value="Clicks now part of interaction." />
+    <MESSAGE value="Click testing, policies and controllers." />
+    <MESSAGE value="Remove listing policy, moved logic to the interaction controller." />
+    <MESSAGE value="Rename config for local servers to fake listings." />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename config for local servers to fake listings." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1244,326 +1147,366 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tests/Unit/ReviewTest.php">
+    <entry file="file://$PROJECT_DIR$/app/Listings/ListingServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="65" column="7" lean-forward="true" selection-start-line="65" selection-start-column="7" selection-end-line="65" selection-end-column="7" />
+        <state relative-caret-position="115">
+          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ReviewController.php">
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authorize.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
-          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+          <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/Access/AuthorizesRequests.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="22" column="65" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
+        <state relative-caret-position="219">
+          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Support/Providers/AuthServiceProvider.php">
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Contracts/Auth/Access/Gate.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+        <state relative-caret-position="359">
+          <caret line="98" column="31" lean-forward="true" selection-start-line="98" selection-start-column="31" selection-end-line="98" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Feature/ReviewRequestTest.php">
+    <entry file="file://$PROJECT_DIR$/app/Periods.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4071">
-          <caret line="177" column="72" selection-start-line="177" selection-start-column="72" selection-end-line="177" selection-end-column="72" />
+        <state relative-caret-position="-230" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listings/AddListingToContainer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-601" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Interactions/InteractionObserver.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="21" column="49" lean-forward="true" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/ReviewComponent.vue">
+    <entry file="file://$PROJECT_DIR$/app/Interactions/InteractionServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2254">
-          <caret line="98" column="13" selection-start-line="98" selection-start-column="13" selection-end-line="98" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/NewReviewComponent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4232">
-          <caret line="184" column="86" selection-start-line="180" selection-start-column="20" selection-end-line="184" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listings/ListingServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listings/ListingPolicy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" column="37" lean-forward="true" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-87" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpunit.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="32" column="46" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e8df93af-190f-4543-b9b3-e034f2769a7d/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="20" selection-start-column="20" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listings/Listing.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="72" column="6" lean-forward="true" selection-start-line="72" selection-start-column="6" selection-end-line="72" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Feature/ServerActionsTest.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/storage/framework/views/f564abfa40cbbee8707efd31306f49cac05ba1ed.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="142" lean-forward="true" selection-start-line="142" selection-end-line="142" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Feature/ListingRequestsTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/ListingFilterTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="107" selection-start-line="107" selection-end-line="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php" />
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="851">
-          <caret line="38" column="1" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ListingController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="71" column="49" lean-forward="true" selection-start-line="71" selection-start-column="49" selection-end-line="71" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/header.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/frame.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="63" selection-start-line="57" selection-end-line="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/_variables.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/_tailwindsnippets.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/listing/partial/config.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="52" column="33" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/_flares.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="6" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="386">
+          <caret line="32" column="7" lean-forward="true" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
           <folding>
-            <element signature="e#422#444#0" expanded="true" />
+            <element signature="e#36#77#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/flickity/stage-flickr.js">
+    <entry file="file://$PROJECT_DIR$/app/Interactions/Vote.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+          <folding>
+            <element signature="e#36#61#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QueryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-335" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-286" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Validation/ValidatesRequests.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/listing/partial/rating.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/StoreReviewRequest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+        <state relative-caret-position="736">
+          <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/_cards.scss">
+    <entry file="file://$PROJECT_DIR$/app/Helpers/EverythingHelper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1720">
-          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        <state relative-caret-position="266">
+          <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/FlashComponent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="9" column="20" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/_spotlight.scss">
+    <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/_stage.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/_colours.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/_agile-carousel.scss">
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/header.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Feature/CardFilter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
+        <state relative-caret-position="293">
+          <caret line="36" column="25" lean-forward="true" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/partials/cards/normal.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="48" column="108" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="108" />
+        <state relative-caret-position="256">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/_server-profile.scss">
+    <entry file="file://$PROJECT_DIR$/app/Listings/ListingPolicy.php" />
+    <entry file="file://$PROJECT_DIR$/tests/Feature/ReviewRequestTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37">
-          <caret line="157" column="13" selection-start-line="157" selection-start-column="13" selection-end-line="157" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/listing/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="73" column="105" selection-start-line="73" selection-start-column="105" selection-end-line="73" selection-end-column="105" />
+        <state relative-caret-position="338">
+          <caret line="169" column="7" lean-forward="true" selection-start-line="169" selection-start-column="7" selection-end-line="169" selection-end-column="7" />
           <folding>
-            <element signature="e#2989#3136#0#HTML" expanded="true" />
-            <element signature="e#3246#6026#0#HTML" />
+            <element signature="e#33#58#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ReviewController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="e#40#81#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Interactions/Review.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="35" column="26" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Interactions/Click.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/ScoreboardComponent.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+        <state relative-caret-position="-149">
           <folding>
             <element signature="n#div#0;n#div#0;n#template#0;n#!!top" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/ListingTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="371" lean-forward="true" selection-start-line="371" selection-end-line="371" />
+          <folding>
+            <element signature="e#30#57#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Feature/ServerActionsTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/logging.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/hashing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" selection-start-line="4" selection-end-line="15" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/InteractionTest.php" />
+    <entry file="file://$PROJECT_DIR$/tests/Unit/ListingContainerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/ClickTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1834">
+          <caret line="87" column="29" selection-start-line="87" selection-start-column="29" selection-end-line="87" selection-end-column="29" />
+          <folding>
+            <element signature="e#30#57#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/VoteTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+          <folding>
+            <element signature="e#30#55#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Feature/ClickRequestTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding>
+            <element signature="e#33#60#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Feature/VoteRequestTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+          <folding>
+            <element signature="e#33#59#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ClickController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+          <folding>
+            <element signature="e#40#67#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/storage/framework/views/f564abfa40cbbee8707efd31306f49cac05ba1ed.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/listing/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1978">
+          <caret line="86" column="50" selection-start-line="86" selection-start-column="50" selection-end-line="86" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ListingController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VoteController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
+          <folding>
+            <element signature="e#40#66#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/ReviewComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2139">
+          <caret line="93" column="59" selection-start-line="93" selection-start-column="24" selection-end-line="93" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Feature/ListingRequestsTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/interaction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="26" column="2" lean-forward="true" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Interactions/Interaction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="37" column="29" lean-forward="true" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
+          <folding>
+            <element signature="e#123#148#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/fake/listings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="48" column="9" lean-forward="true" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listings/Listing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="169" lean-forward="true" selection-start-line="169" selection-end-line="169" />
+          <folding>
+            <element signature="e#32#59#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-44" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="66" lean-forward="true" selection-start-line="11" selection-start-column="66" selection-end-line="11" selection-end-column="66" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/Pages/ListingProfileComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/listing/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="136" column="84" selection-start-line="136" selection-start-column="84" selection-end-line="136" selection-end-column="84" />
         </state>
       </provider>
     </entry>

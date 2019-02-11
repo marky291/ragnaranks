@@ -2,9 +2,9 @@
 
 use App\Click;
 use App\Listings\Listing;
-use App\Review;
+use App\Interactions\Review;
 use App\Tag;
-use App\Vote;
+use App\Interactions\Vote;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;

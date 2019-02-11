@@ -134,7 +134,7 @@
 
                     <div id="reviews" class="content py-0">
                         <?php /** @var \App\Review $review */ ?>
-                        @foreach (App\Review::latest()->with('listing')->take(5)->get() as $review)
+                        @foreach (\App\Interactions\Review::latest()->with('listings')->take(5)->get() as $review)
                             <div class="card card-basic listing d-flex flex-row">
                                 <div class="detail flex-fill">
                                     <div class="top">

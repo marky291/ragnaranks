@@ -1,8 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Interactions;
 
 use App\Listings\Listing;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
@@ -13,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int $id
  * @property string $message
+ * @property string $ip_address
  * @property int $donation_score
  * @property int $update_score
  * @property int $class_score
@@ -21,18 +23,17 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $hosting_score
  * @property int $content_score
  * @property int $event_score
- * @property Listing $listing
  * @property Carbon $updated_at
  * @property Carbon $created_at
  * @method static Collection latest()
+ * @property Listing listing
  * @method static Collection publishedBy($publisher)
  * @package App
- * @property int $listing_id
  * @property-read float $average_score
  * @property-read \App\User $publisher
  * @mixin \Eloquent
  */
-class Review extends Model
+class Review extends Interaction
 {
     /**
      * The attributes that aren't mass assignable.
@@ -40,43 +41,6 @@ class Review extends Model
      * @var array
      */
     protected $guarded = [];
-
-    /**
-     * The "booting" method of the model.
-     *
-     * @return void
-     */
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function(Model $model) {
-            if (is_null($model->getAttribute('publisher_id'))) {
-                $model->setAttribute('publisher_id', auth()->user()->getAuthIdentifier());
-            }
-        });
-    }
-
-
-    /**
-     * A review belongs to a single listing.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function listing()
-    {
-        return $this->belongsTo(Listing::class);
-    }
-
-    /**
-     * A review has a single publisher user
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function publisher()
-    {
-        return $this->belongsTo(User::class);
-    }
 
     /**
      * Scope the query in order of latest.
@@ -89,6 +53,13 @@ class Review extends Model
         return $query->orderByDesc('created_at');
     }
 
+    /**
+     * Scope the query based on publisher.
+     *
+     * @param Builder $query
+     * @param User $publisher
+     * @return Builder
+     */
     public function scopePublishedBy(Builder $query, User $publisher)
     {
         return $query->where('publisher_id', $publisher->id);

@@ -4,7 +4,7 @@
 
     <?php /** @var \App\Listings\Listing $listing */ ?>
 
-    <listing-profile inline-template>
+    <listing-profile voted="{{ $listing->votes()->hasClientInteractedWith(config('interaction.vote.spread')) }}" clicked="{{ $listing->clicks()->hasClientInteractedWith(config('interaction.click.spread')) }}" inline-template>
         <div class="">
             <nav id="spotlight" class="bg-white shadow-inner" style="border-bottom: 1px solid #e4e4e4;">
                 <div class="container py-3">
@@ -35,8 +35,16 @@
                                         @endforeach
                                     </ul>
                                 </div>
-                                <div class="description mb-5">
+                                <div class="description mb-4">
                                     <p class="">{{ $listing->description }}</p>
+                                </div>
+                                <div class="validation mb-4">
+                                    <div class="" v-if="validation.vote">
+                                        <i class="far fa-thumbs-up"></i> You have already voted within {{ config('interaction.vote.spread') }} hours.<br>
+                                    </div>
+                                    <div class="" v-if="validation.click">
+                                        <i class="far fa-thumbs-up"></i> You have viewed this listing within {{ config('interaction.click.spread') }} hour.
+                                    </div>
                                 </div>
                                 {{--<div class="stats mb-4">--}}
                                     {{--<ul class="list-unstyled d-flex flex-row font-weight-bold">--}}
@@ -46,9 +54,39 @@
                                     {{--</ul>--}}
                                 {{--</div>--}}
                                 <div class="actions">
-                                    <a href="" class="btn btn-primary">View Website</a>
+                                    <a class="btn btn-primary" href="#"
+                                       onclick="event.preventDefault(); document.getElementById('view-website').submit();"> View Website
+                                    </a>
+                                    <form id="view-website" action="{{ route('listing.clicks.store', $listing) }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
                                     <a href="" class="btn btn-outline-primary">Write Review</a>
-                                    <a href="" class="btn btn-outline-primary">Vote For Server</a>
+                                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#vote_modal" :disabled="validation.vote">
+                                        Vote For Server
+                                    </button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="vote_modal" tabindex="-1" role="dialog" aria-labelledby="voting_modal" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title text-dark" id="voting_modal">Vote for {{ $listing->name }}</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p class="text-dark">
+                                                        Your vote helps {{ $listing->name }} be found by other players who browse ragnaranks,
+                                                        a vote can be casted every 6 hours, which in turn increases the ranking and score weight
+                                                        that this server holds against others.
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button v-on:click="CastVote('/votes')" class="btn btn-outline-primary" :disabled="validation.vote" data-toggle="modal" data-target="#vote_modal">Send Vote</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-4 image" style="background: url('https://talonro.com/images/screenshots/talonro-port-malaya.jpg')"></div>
