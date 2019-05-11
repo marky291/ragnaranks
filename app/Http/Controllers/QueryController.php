@@ -26,9 +26,24 @@ class QueryController extends Controller
      */
     public function index($exp_group = "all", $mode = "all", $sort = "any", $orderBy = 'desc')
     {
-        $listings  = app('listings')->filterSort('rank');
+        $listings = app('listings');
 
-        return response()->json(['listings' => $listings]);
+        if ($exp_group)
+        {
+            $listings = $listings->filterGroup($exp_group);
+        }
+
+        if ($mode)
+        {
+            $listings = $listings->filterMode($mode);
+        }
+
+        if ($sort)
+        {
+            $listings = $listings->filterSort($sort);
+        }
+
+        return response()->json(['listings' => $listings->all()]);
 
 //        $builder = Listing::filter($exp_group, $mode, $sort, $orderBy);
 //

@@ -35,6 +35,10 @@ Vue.use(VueCarousel);
 
 Vue.component('flash', require('./components/FlashComponent.vue').default);
 
+Vue.component('filtered-search', require('./components/FilteredListingSearch.vue').default);
+
+Vue.component('filtered-listings', require('./components/FilteredListingContainer.vue').default);
+
 Vue.component('listing-profile', require('./Pages/ListingProfileComponent.vue').default);
 
 /**

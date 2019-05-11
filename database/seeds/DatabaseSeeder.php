@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->progress_bar = new ProgressBar($this->command->getOutput(), 3);
 
-        $this->seed_counts = ['listings' => rand(5, 9), 'votes' => rand(25, 50), 'clicks' => rand(50, 100), 'reviews' => rand(10, 20)];
+        $this->seed_counts = ['listings' => rand(15, 23), 'votes' => rand(25, 50), 'clicks' => rand(50, 100), 'reviews' => rand(10, 20)];
 
         $this->progress_bar->advance();
 

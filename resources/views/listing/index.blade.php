@@ -104,53 +104,14 @@
                             <h3>Filtered Search</h3>
                         </div>
 
-                        <div id="filters" class="d-flex flex-column content p-2 rounded">
-                            <select class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
-                                <option value="all">Any Rates</option>
-                                <option value="">Official Rates</option>
-                                <option value="">Low Rates</option>
-                                <option value="">Mid Rates</option>
-                                <option value="">High Rates</option>
-                                <option value="">Super Rates</option>
-                                <option value="">Instant Rates</option>
-                            </select>
-
-                            <select class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
-                                <option value="all">Any Mode</option>
-                                @foreach(\App\Mode::all() as $mode)
-                                    <option value="">{{ ucfirst($mode->name) }} Mode</option>
-                                @endforeach
-                            </select>
-
-                            <select class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
-                                <option value="all">With Any Tags</option>
-                                @foreach(\App\Tag::all() as $tag)
-                                    <option>With {{ ucfirst($tag->name) }}</option>
-                                @endforeach
-                            </select>
-
-                            <select class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
-                                <option>Sorted by Score</option>
-                                <option>Sorted by Rank Position</option>
-                                <option>Sorted by Date added</option>
-                                <option>Sorted by Online since</option>
-                            </select>
-
-                            <select class="form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
-                                <option>And show 50 servers</option>
-                                <option>And show 100 servers</option>
-                                <option>And show 250 servers</option>
-                                <option>And show 500 servers</option>
-                            </select>
-
-                        </div>
+                        <filtered-search></filtered-search>
 
                         <div class="heading">
                             <h3>Newest Additions</h3>
                         </div>
 
                         <div id="additions" class="content py-0 rounded">
-                            @foreach (app('listings')->filterSort('created_at')->take(4) as $listing)
+                            @foreach (app('listings')->filterSort('created_at')->take(8) as $listing)
                                 <div class="microcard" style="{{ $loop->last ? null : 'border-bottom: 1px dashed #e3e3e3;' }}">
                                     <div class="information d-flex flex-row py-3">
                                         <div class="icon text-green align-self-center mr-3">
@@ -172,14 +133,16 @@
 
                 <div class="col-8 py-5">
 
-                    @foreach($listings as $listing)
+                    <filtered-listings></filtered-listings>
+
+{{--                    @foreach($listings as $listing)--}}
 {{--                        @if ($loop->first)--}}
 {{--                            {{ $listing }}--}}
 {{--                        @endif--}}
-                        <div class="mb-4">
-                            @include('partials.cards.normal', ['listing' => $listing])
-                        </div>
-                    @endforeach
+{{--                        <div class="mb-4">--}}
+{{--                            @include('partials.cards.normal', ['listing' => $listing])--}}
+{{--                        </div>--}}
+{{--                    @endforeach--}}
 
                 </div>
 
