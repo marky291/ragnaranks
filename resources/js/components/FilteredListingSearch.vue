@@ -26,10 +26,9 @@
             </select>
 
             <select @change="filterChanged" v-model="sort" class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
-                <option value="name" selected>Sorted by Server Name</option>
-                <option value="rank">Sorted by Rank Position</option>
-                <option value="created_at">Sorted by Date added</option>
-                <option value="created_at">Sorted by Online since</option>
+                <option value="rank" selected>Sorted by Rank Position</option>
+                <option value="name">Sorted by Server Name</option>
+                <option value="created_at">Sorted by Date Added</option>
             </select>
 
             <select @change="filterChanged" v-model="quantity" class="form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
@@ -54,7 +53,7 @@
             return {
                 rate: 'all',
                 mode: 'any',
-                sort: 'name',
+                sort: 'rank',
 
                 // not implemented
                 tag: '',

@@ -1,10 +1,9 @@
 <template>
     <transition-group name="fade" mode="out-in">
         <div v-for="listing in listings" :key="listing['id']">
+            {{ listing['created_at'] }}
                 <div class="mb-3 server-card item flex-fill shadow border rounded">
-                    <div class="server-card-head image rounded-top" v-bind:style="{ 'background-image': 'url(' + listing['banner_url'] + ')' }">
-
-                    </div>
+                    <div class="server-card-head image rounded-top" v-bind:style="{ 'background-image': 'url(' + listing['banner_url'] + ')' }"></div>
                     <div class="server-card-head overlap d-flex">
                         <div class="left-side d-flex w-75 flex-column align-items-start px-4 py-2 align-self-end">
                             <h1 class="text-white font-weight-bold mb-0" style="font-size: 24px;">{{ listing['name'] }}</h1>

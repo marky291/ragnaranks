@@ -9,14 +9,17 @@
     </enabled-run-configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5c3af05-4cb1-407b-a377-26e729e13b17" name="Redesign V1" comment="seed more">
+    <list default="true" id="f5c3af05-4cb1-407b-a377-26e729e13b17" name="Redesign V1" comment="Ranking fixed.">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/EverythingHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/EverythingHelper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QueryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QueryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Listings/CacheListingsContainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listings/CacheListingsContainer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Listings/Listing.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listings/Listing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Listings/ListingServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listings/ListingServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/ListingFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ListingFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/ListingRequestsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/ListingRequestsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/FilteredListingSearch.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/FilteredListingSearch.vue" afterDir="false" />
     </list>
     <list id="58f96053-e5bd-4b41-bbae-58099ecbebc5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -78,43 +81,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/listing/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-879">
-              <caret line="77" column="32" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="32" />
-              <folding>
-                <marker date="1557605702080" expanded="true" signature="392:1014" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Listings/CacheListingsContainer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="37" selection-start-line="37" selection-end-line="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Listings/Listing.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="109" column="71" selection-start-line="109" selection-start-column="71" selection-end-line="109" selection-end-column="71" />
-              <folding>
-                <element signature="e#32#59#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="65" column="80" selection-start-line="65" selection-start-column="80" selection-end-line="65" selection-end-column="80" />
+            <state relative-caret-position="101">
+              <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -122,26 +92,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Listings/ListingServiceProvider.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Unit/ListingContainerTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ListingController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-690">
-              <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
+            <state relative-caret-position="22">
+              <caret line="33" column="7" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -149,8 +101,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QueryController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+            <state relative-caret-position="582">
+              <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
               <folding>
                 <element signature="e#40#65#0#PHP" expanded="true" />
               </folding>
@@ -159,22 +111,70 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Feature/ListingRequestsTest.php">
+        <entry file="file://$PROJECT_DIR$/app/Listings/ListingFilter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+            <state relative-caret-position="214">
+              <caret line="81" column="43" lean-forward="true" selection-start-line="81" selection-start-column="43" selection-end-line="81" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/factories/ListingFactory.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="33" column="70" selection-start-line="33" selection-start-column="70" selection-end-line="33" selection-end-column="70" />
               <folding>
-                <element signature="e#33#62#0#PHP" expanded="true" />
+                <element signature="e#8#33#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/FilteredListingSearch.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="139">
+              <caret line="64" column="32" selection-start-line="64" selection-start-column="32" selection-end-line="64" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="54" column="107" selection-start-line="54" selection-start-column="107" selection-end-line="54" selection-end-column="107" />
+              <folding>
+                <element signature="e#7#34#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Unit/VoteTest.php">
+        <entry file="file://$PROJECT_DIR$/tests/Unit/ListingTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+            <state relative-caret-position="21">
+              <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/Unit/ListingFilterTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="250">
+              <caret line="54" column="40" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -190,7 +190,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ratingattribute</find>
       <find>@foreach</find>
       <find>card</find>
       <find>listing</find>
@@ -219,6 +218,7 @@
       <find>getpoints</find>
       <find>votes</find>
       <find>get</find>
+      <find>name</find>
       <find>points</find>
     </findStrings>
     <replaceStrings>
@@ -256,7 +256,6 @@
         <option value="$PROJECT_DIR$/config/interaction.php" />
         <option value="$PROJECT_DIR$/app/Interactions/Interaction.php" />
         <option value="$PROJECT_DIR$/resources/js/Pages/ListingProfileComponent.vue" />
-        <option value="$PROJECT_DIR$/database/factories/ListingFactory.php" />
         <option value="$PROJECT_DIR$/public/css/new.css" />
         <option value="$PROJECT_DIR$/resources/views/assets/index.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
@@ -275,9 +274,6 @@
         <option value="$PROJECT_DIR$/resources/js/components/ListingFiltering.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/ListingsResponse.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue" />
-        <option value="$PROJECT_DIR$/app/Listings/ListingFilter.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/FilteredListingSearch.vue" />
-        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/frame.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/listing/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/app.js" />
@@ -286,12 +282,16 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/ListingController.php" />
         <option value="$PROJECT_DIR$/tests/Feature/ListingJsonRequestTest.php" />
         <option value="$PROJECT_DIR$/app/Helpers/EverythingHelper.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/QueryController.php" />
         <option value="$PROJECT_DIR$/tests/Feature/ListingRequestsTest.php" />
         <option value="$PROJECT_DIR$/tests/Unit/ListingContainerTest.php" />
         <option value="$PROJECT_DIR$/app/Listings/Listing.php" />
         <option value="$PROJECT_DIR$/app/Listings/CacheListingsContainer.php" />
+        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/app/Listings/ListingServiceProvider.php" />
+        <option value="$PROJECT_DIR$/database/factories/ListingFactory.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/FilteredListingSearch.vue" />
+        <option value="$PROJECT_DIR$/app/Listings/ListingFilter.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/QueryController.php" />
         <option value="$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue" />
       </list>
     </option>
@@ -667,14 +667,7 @@
       <workItem from="1557443434418" duration="1580000" />
       <workItem from="1557498148145" duration="5862000" />
       <workItem from="1557529160342" duration="8938000" />
-      <workItem from="1557578372760" duration="20889000" />
-    </task>
-    <task id="LOCAL-00014" summary="changes">
-      <created>1544831195254</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1544831195254</updated>
+      <workItem from="1557578372760" duration="24657000" />
     </task>
     <task id="LOCAL-00015" summary="changes">
       <created>1544987180683</created>
@@ -1012,7 +1005,14 @@
       <option name="project" value="LOCAL" />
       <updated>1557606483864</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="Ranking fixed.">
+      <created>1557613769227</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1557613769228</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="marky291" />
@@ -1054,7 +1054,7 @@
   </component>
   <component name="TimeTrackingManager">
     <option name="enabled" value="true" />
-    <option name="totallyTimeSpent" value="536033000" />
+    <option name="totallyTimeSpent" value="539801000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1069,13 +1069,13 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8484252" visible="true" weight="0.18266475" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8484252" visible="true" weight="0.18266475" />
       <window_info id="Structure" order="1" sideWeight="0.1515748" side_tool="true" weight="0.19148937" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49928468" weight="0.3280098" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6144492" visible="true" weight="0.3181818" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6144492" weight="0.3181818" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4899857" weight="0.31572482" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1084,7 +1084,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32923833" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3280098" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.3855508" side_tool="true" weight="0.29759037" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4914163" weight="0.27641279" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4914163" visible="true" weight="0.27641279" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.3280098" />
       <window_info anchor="bottom" id="File Transfer" order="14" weight="0.47710842" />
@@ -1092,7 +1092,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" sideWeight="0.49759036" weight="0.19027181" />
+      <window_info anchor="right" id="Database" order="3" sideWeight="0.49759036" visible="true" weight="0.18982808" />
       <window_info anchor="right" id="Coverage" order="4" sideWeight="0.50240964" side_tool="true" visible="true" weight="0.19027181" />
       <window_info anchor="right" id="Remote Host" order="5" weight="0.25894135" />
       <window_info anchor="right" id="Time Tracking" order="6" weight="0.12660944" />
@@ -1107,7 +1107,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/vendor/adamwathan/laravel-preset" />
     </ignored-roots>
-    <MESSAGE value="Listing cache container improvements.&#10;&#10;- better filtering of the container.&#10;- test suite for container." />
     <MESSAGE value="Listings now have reviews.&#10;Homepage get request is now tested.&#10;Fixes to interface." />
     <MESSAGE value="Userfactory dosnt like faking real text (memory exhaustion)" />
     <MESSAGE value="Seeder now feels more natural and lifelike with interaction counts and how data is put into database," />
@@ -1132,24 +1131,11 @@
     <MESSAGE value="Filter dropdown selected on load." />
     <MESSAGE value="Initial listings on first page load." />
     <MESSAGE value="seed more" />
-    <option name="LAST_COMMIT_MESSAGE" value="seed more" />
+    <MESSAGE value="Ranking fixed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Ranking fixed." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tests/Unit/ReviewTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/new.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569793">
-          <caret line="27133" selection-start-line="27133" selection-end-line="27133" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/images/footer-banner.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -1312,30 +1298,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listings/ListingFilter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="987">
-          <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/FilteredListingSearch.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="55" column="28" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/factories/ListingFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="17" column="43" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="43" />
-          <folding>
-            <element signature="e#8#33#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/factories/UserFactory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10">
@@ -1377,30 +1339,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-266">
-          <caret line="47" column="7" lean-forward="true" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
-          <folding>
-            <element signature="e#7#34#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/ListingTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7086">
-          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/ListingFilterTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1193">
-          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/phpunit.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="623">
@@ -1439,23 +1377,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QueryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
-          <folding>
-            <element signature="e#40#65#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/ListingContainerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ListingController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-690">
@@ -1473,20 +1394,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listings/CacheListingsContainer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listings/ListingServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/listing/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-879">
@@ -1497,10 +1404,99 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Collection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ec3e80a4-3d9d-451e-9fff-a7da777b876a/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/ListingContainerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="72" column="67" selection-start-line="72" selection-start-column="63" selection-end-line="72" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/ListingTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/ListingFilterTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="54" column="40" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="54" column="107" selection-start-line="54" selection-start-column="107" selection-end-line="54" selection-end-column="107" />
+          <folding>
+            <element signature="e#7#34#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listings/CacheListingsContainer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/factories/ListingFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="33" column="70" selection-start-line="33" selection-start-column="70" selection-end-line="33" selection-end-column="70" />
+          <folding>
+            <element signature="e#8#33#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listings/ListingServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="33" column="7" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/FilteredListingSearch.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="64" column="32" selection-start-line="64" selection-start-column="32" selection-end-line="64" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listings/ListingFilter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="81" column="43" lean-forward="true" selection-start-line="81" selection-start-column="43" selection-end-line="81" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QueryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="582">
+          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+          <folding>
+            <element signature="e#40#65#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="65" column="80" selection-start-line="65" selection-start-column="80" selection-end-line="65" selection-end-column="80" />
+        <state relative-caret-position="42">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>

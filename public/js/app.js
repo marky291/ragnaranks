@@ -1859,7 +1859,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['initial-listings'],
@@ -1942,7 +1941,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.emitFilterEvent();
@@ -1951,7 +1949,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       rate: 'all',
       mode: 'any',
-      sort: 'name',
+      sort: 'rank',
       // not implemented
       tag: '',
       quantity: '25'
@@ -42084,6 +42082,7 @@ var render = function() {
     { attrs: { name: "fade", mode: "out-in" } },
     _vm._l(_vm.listings, function(listing) {
       return _c("div", { key: listing["id"] }, [
+        _vm._v("\n        " + _vm._s(listing["created_at"]) + "\n            "),
         _c(
           "div",
           {
@@ -42468,20 +42467,16 @@ var render = function() {
             }
           },
           [
-            _c("option", { attrs: { value: "name", selected: "" } }, [
-              _vm._v("Sorted by Server Name")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "rank" } }, [
+            _c("option", { attrs: { value: "rank", selected: "" } }, [
               _vm._v("Sorted by Rank Position")
             ]),
             _vm._v(" "),
-            _c("option", { attrs: { value: "created_at" } }, [
-              _vm._v("Sorted by Date added")
+            _c("option", { attrs: { value: "name" } }, [
+              _vm._v("Sorted by Server Name")
             ]),
             _vm._v(" "),
             _c("option", { attrs: { value: "created_at" } }, [
-              _vm._v("Sorted by Online since")
+              _vm._v("Sorted by Date Added")
             ])
           ]
         ),
