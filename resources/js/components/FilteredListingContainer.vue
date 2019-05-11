@@ -63,7 +63,7 @@
             this.$root.$on('filter:changed', (param) => {
                 console.log('Received Query: ' + param);
                 this.listings = null;
-                axios.get(param).then(response => (this.listings = response.data.listings)).then(function(error){
+                axios.get(param).then(response => (this.listings = response.data)).then(function(error){
                     console.log(error);
                 });
                 //this.$forceUpdate();

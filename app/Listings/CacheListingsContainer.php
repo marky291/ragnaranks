@@ -3,6 +3,7 @@
 namespace App\Listings;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -24,17 +25,7 @@ class CacheListingsContainer implements ShouldQueue
     {
         Cache::rememberForever('listings', function()
         {
-            $listings = Listing::query()->withCount(
-                [
-                    'votes' => function($query) {
-                        $query->betweenPeriod(now(), now()->subDays(7));
-                    },
-                    'clicks' => function($query) {
-                        $query->betweenPeriod(now(), now()->subDays(7));
-                    },
-                    'reviews'
-                ]
-            )->with(['mode', 'tags'])->get();
+            $listings = Listing::query()->withCount(['votes', 'clicks'])->with(['mode', 'tags'])->get();
 
             $listings = $listings->sortByDesc(function(Listing $listing)  {
                 return $listing->points;

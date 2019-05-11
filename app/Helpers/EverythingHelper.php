@@ -5,13 +5,13 @@
  *
  * @param string $exp_group
  * @param string $mode
- * @param string $column_name
+ * @param string $sorting
  * @param string $orderBy
  * @return string
  */
-function filter_query($exp_group = "all", $mode = "any", $column_name = "all", $orderBy = 'desc')
+function filter_query($exp_group = "all", $mode = "any", $sorting = "all", $orderBy = 'desc')
 {
-    return route('filter.query', [$exp_group, $mode, $column_name, $orderBy]);
+    return route('filter.query', [$exp_group, $mode, $sorting, $orderBy]);
 }
 
 /**

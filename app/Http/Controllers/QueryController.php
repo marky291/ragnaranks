@@ -43,13 +43,6 @@ class QueryController extends Controller
             $listings = $listings->filterSort($sort);
         }
 
-        return response()->json(['listings' => $listings->all()]);
-
-//        $builder = Listing::filter($exp_group, $mode, $sort, $orderBy);
-//
-//        return json_encode($builder->get());
-
-//        return view('listing.index')->with('servers', $builder->simplePaginate(7));
-
+        return response()->json($listings);
     }
 }

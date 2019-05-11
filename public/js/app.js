@@ -1878,7 +1878,7 @@ __webpack_require__.r(__webpack_exports__);
       console.log('Received Query: ' + param);
       _this.listings = null;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(param).then(function (response) {
-        return _this.listings = response.data.listings;
+        return _this.listings = response.data;
       }).then(function (error) {
         console.log(error);
       }); //this.$forceUpdate();

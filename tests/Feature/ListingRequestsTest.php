@@ -2,16 +2,14 @@
 
 namespace Tests\Feature;
 
+use mysql_xdevapi\Collection;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ListingRequestsTest extends TestCase
 {
-    /**
-     * @test
-     */
-    public function it_loads_the_homepage()
+    public function test_it_loads_initial_listings_on_the_homepage()
     {
         $this->withoutExceptionHandling();
 
@@ -30,10 +28,7 @@ class ListingRequestsTest extends TestCase
         $this->assertEquals('third', $this->viewData($response)->last()->name);
     }
 
-    /**
-     * @test
-     */
-    public function it_loads_a_server_profile()
+    public function test_it_loads_the_server_profile()
     {
         $this->withoutExceptionHandling();
 
@@ -44,5 +39,27 @@ class ListingRequestsTest extends TestCase
         $this->assertNotNull($response->original->listing->name);
 
         $response->assertOk()->assertViewIs('listing.show')->assertViewHas('listing');
+    }
+
+    public function test_it_can_get_a_json_response_from_queryAPI()
+    {
+        $listing = $this->createListing([], 0, 0);
+
+        $response = $this->json('get','https://ragnaranks.com/servers/all/any/all/desc');
+
+        $response->assertJson([['name' => $listing->name]]);
+    }
+
+    public function test_it_returns_ordered_rank_from_queryAPI()
+    {
+        $listing2 = $this->createListing(['name' => 'last'], 0, 0);
+        $listing1 = $this->createListing(['name' => 'first'],  5, 5);
+
+        $response = $this->json('get',filter_query('all', 'any', 'rank', 'desc'));
+
+        $collection = collect($response->original);
+
+        $this->assertEquals('first', $collection->first()->name);
+        $this->assertEquals('last', $collection->last()->name);
     }
 }

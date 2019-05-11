@@ -101,7 +101,7 @@ class Listing extends Model
      */
     public function votes()
     {
-        return $this->morphedByMany(Vote::class, 'interaction');
+        return $this->morphedByMany(Vote::class, 'interaction')->whereDate('created_at', '>=',' DATE_SUB(NOW(), INTERVAL 7 DAY)');
     }
 
     /**
@@ -112,7 +112,7 @@ class Listing extends Model
      */
     public function clicks()
     {
-        return $this->morphedByMany(Click::class, 'interaction');
+        return $this->morphedByMany(Click::class, 'interaction')->whereDate('created_at', '>=',' DATE_SUB(NOW(), INTERVAL 7 DAY)');;
     }
 
     /**
