@@ -104,8 +104,8 @@
                             <h3>Filtered Search</h3>
                         </div>
 
-                        <div id="filters" class="content py-0 p-2 rounded">
-                            <select class="form-control-sm mr-2">
+                        <div id="filters" class="d-flex flex-column content p-2 rounded">
+                            <select class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
                                 <option value="all">Any Rates</option>
                                 <option value="">Official Rates</option>
                                 <option value="">Low Rates</option>
@@ -114,6 +114,35 @@
                                 <option value="">Super Rates</option>
                                 <option value="">Instant Rates</option>
                             </select>
+
+                            <select class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
+                                <option value="all">Any Mode</option>
+                                @foreach(\App\Mode::all() as $mode)
+                                    <option value="">{{ ucfirst($mode->name) }} Mode</option>
+                                @endforeach
+                            </select>
+
+                            <select class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
+                                <option value="all">With Any Tags</option>
+                                @foreach(\App\Tag::all() as $tag)
+                                    <option>With {{ ucfirst($tag->name) }}</option>
+                                @endforeach
+                            </select>
+
+                            <select class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
+                                <option>Sorted by Score</option>
+                                <option>Sorted by Rank Position</option>
+                                <option>Sorted by Date added</option>
+                                <option>Sorted by Online since</option>
+                            </select>
+
+                            <select class="form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
+                                <option>And show 50 servers</option>
+                                <option>And show 100 servers</option>
+                                <option>And show 250 servers</option>
+                                <option>And show 500 servers</option>
+                            </select>
+
                         </div>
 
                         <div class="heading">
@@ -122,14 +151,14 @@
 
                         <div id="additions" class="content py-0 rounded">
                             @foreach (app('listings')->filterSort('created_at')->take(4) as $listing)
-                                <div class="microcard" style="border-bottom: 1px dashed #e3e3e3;">
+                                <div class="microcard" style="{{ $loop->last ? null : 'border-bottom: 1px dashed #e3e3e3;' }}">
                                     <div class="information d-flex flex-row py-3">
                                         <div class="icon text-green align-self-center mr-3">
                                             <i class="fas fa-plus"></i>
                                         </div>
                                         <div class="details flex-grow-1">
-                                            <h3 class="mb-0">{{ $listing->name }}</h3>
-                                            <p class="">Created {{ $listing->created_at->format('dS F Y') }}</p>
+                                            <h3 class="mb-0 tw-text-grey-darkest tw-text-xs">{{ $listing->name }}</h3>
+                                            <p class="tw-text-grey-dark tw-text-xs">Created {{ $listing->created_at->format('dS F Y') }}</p>
                                         </div>
                                         <div class="buttons w-25 d-flex align-items-center justify-content-end">
                                             <a href="{{ route('listing.show', $listing) }}" tabindex="0" class="btn btn-blue btn-sm">Visit <i class="fas fa-long-arrow-alt-right"></i></a>
@@ -144,22 +173,12 @@
                 <div class="col-8 py-5">
 
                     @foreach($listings as $listing)
-
+{{--                        @if ($loop->first)--}}
+{{--                            {{ $listing }}--}}
+{{--                        @endif--}}
                         <div class="mb-4">
-                            @include('partials.cards.normal',
-                            [
-                                'name' => $listing->name,
-                                'tags' => ['tags'],
-                                'image' => $listing->banner_url,
-                                'language' => 'english',
-                                'score' => $listing->rank,
-                                'vote_count' => $listing->votes_count,
-                                'click_count' => $listing->clicks_count,
-                                'rate' => $listing->getExpRateTitleAttribute(),
-                                'description' => $listing->description
-                            ])
+                            @include('partials.cards.normal', ['listing' => $listing])
                         </div>
-
                     @endforeach
 
                 </div>

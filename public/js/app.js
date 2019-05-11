@@ -6665,7 +6665,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.alert-flash {\n    position: fixed;\n    right: 25px;\n    bottom: 25px;\n    z-index: 99;\n}\n.fade-enter-active, .fade-leave-active {\n    transition: opacity .5s;\n}\n.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {\n    opacity: 0;\n}\n", ""]);
+exports.push([module.i, ".alert-flash {\n  position: fixed;\n  right: 25px;\n  bottom: 25px;\n  z-index: 99;\n}\n.fade-enter-active,\n.fade-leave-active {\n  transition: opacity .5s;\n}\n.fade-enter,\n.fade-leave-to {\n  opacity: 0;\n}\n", ""]);
 
 // exports
 
@@ -6684,7 +6684,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.invalid-feedback:empty {\n    display: none !important;\n}\n.invalid-feedback {\n    display: block !important;\n}\n", ""]);
+exports.push([module.i, ".invalid-feedback:empty {\n  display: none !important;\n}\n.invalid-feedback {\n  display: block !important;\n}\n", ""]);
 
 // exports
 

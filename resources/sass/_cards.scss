@@ -33,8 +33,9 @@ $color-blue: #10a9f5;
   border: 3px solid #43A418;
 }
 .right-side .card-counter {
-  font-size: 60px;
-  line-height: 50px;
+  $size: 50px;
+  font-size: $size;
+  line-height: $size - 10;
 }
 .right-side .card-counter-title {
   font-size: 19px;

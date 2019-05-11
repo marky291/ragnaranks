@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Listing;
+use App\Listings\Listing;
+use App\Listings\ListingFilter;
 
 /**
  * Class QueryController
@@ -25,9 +26,15 @@ class QueryController extends Controller
      */
     public function index($exp_group = "all", $mode = "all", $sort = "any", $orderBy = 'desc')
     {
-        $builder = Listing::filter($exp_group, $mode, $sort, $orderBy);
+        $listings  = app('listings')->filterSort('rank');
 
-        return view('listing.index')->with('servers', $builder->simplePaginate(7));
+        return response()->json(['listings' => $listings]);
+
+//        $builder = Listing::filter($exp_group, $mode, $sort, $orderBy);
+//
+//        return json_encode($builder->get());
+
+//        return view('listing.index')->with('servers', $builder->simplePaginate(7));
 
     }
 }
