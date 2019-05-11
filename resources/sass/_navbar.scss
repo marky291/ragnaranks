@@ -1,5 +1,8 @@
 #navbar-top {
-  background: radial-gradient(circle at 50% 1%, #604ea6, #3b3592);
+  //background: radial-gradient(circle at 50% 1%, #604ea6, #3b3592);
+  //background: radial-gradient(circle at 50% 1%, rgb(147, 54, 180), rgba(56,39,180,1));
+  //background: rgb(56,39,180);
+  background: linear-gradient(90deg, rgba(56,39,180,1) 0%, rgba(108,24,164,1) 100%);
 }
 
 #logo {

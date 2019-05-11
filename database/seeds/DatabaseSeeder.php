@@ -1,6 +1,6 @@
 <?php
 
-use App\Click;
+use App\Interactions\Click;
 use App\Listings\Listing;
 use App\Interactions\Review;
 use App\Tag;

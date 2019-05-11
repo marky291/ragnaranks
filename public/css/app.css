@@ -10660,15 +10660,15 @@ a.text-dark:focus {
 }
 
 .text-orange {
-  color: #ff7500;
+  color: #F2910E;
 }
 
 .border-left-orange-1 {
-  border-left: 1px solid #ff7500;
+  border-left: 1px solid #F2910E;
 }
 
 .background-orange-faded {
-  background-color: rgba(255, 117, 0, 0.08);
+  background-color: rgba(242, 145, 14, 0.08);
 }
 
 .text-red {
@@ -10688,7 +10688,7 @@ a.text-dark:focus {
 }
 
 #navbar-top {
-  background: radial-gradient(circle at 50% 1%, #604ea6, #3b3592);
+  background: linear-gradient(90deg, #3827b4 0%, #6c18a4 100%);
 }
 
 #logo {
@@ -10757,105 +10757,57 @@ a.text-dark:focus {
   padding: 0 0 0.4rem 1rem;
 }
 
-.microcard .information h3 {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #525860;
-  margin: 0;
-  line-height: 1;
-  padding-bottom: 0.2rem;
+.server-card {
+  background: white;
 }
 
-.microcard .information p {
-  font-size: 0.75rem;
-  margin: 0;
-  line-height: 1;
-  color: rgba(0, 0, 0, 0.6);
+.server-card-body {
+  /*padding: 15px;*/
 }
 
-.server .counter {
-  font-size: 24px;
-  font-weight: 900;
-  color: #525860;
-  line-height: 1.2;
+.server-card-head {
+  height: 170px;
+  background: linear-gradient(rgba(247, 247, 247, 0) 0%, rgba(139, 139, 139, 0.21) 32.51%, rgba(0, 0, 0, 0.81) 100%);
 }
 
-.card {
-  border: none;
-  border-radius: 0;
+.server-card-head.image {
+  background-position: right;
+  background-size: cover;
 }
 
-.card .overview {
-  color: white;
-  background-color: #fcfbff;
-  border-bottom: 1px solid #dde2e5;
+.server-card-head.overlap {
+  margin-top: -170px;
 }
 
-.card .overview .rank {
-  background-color: #10a9f5;
-  text-transform: uppercase;
+.tag-list {
+  color: #C9CDD1;
 }
 
-.card .overview .rank .score {
-  font-weight: bold;
+.tag-list li {
+  margin-right: 5px;
 }
 
-.card .overview .rank .title {
-  font-size: 10px;
-  letter-spacing: 2px;
-  background-color: #43484d;
+.tag-list li:last-child {
+  margin-right: 0px;
 }
 
-.card .overview .interactions {
-  color: rgba(0, 0, 0, 0.3);
+.rating {
+  color: #43A418;
+  border: 3px solid #43A418;
 }
 
-.card .overview .interactions > div {
-  font-weight: bold;
-  text-transform: uppercase;
+.right-side .card-counter {
+  font-size: 60px;
+  line-height: 50px;
 }
 
-.card .detailed .name h3 {
-  margin: 0;
-  padding: 0;
-  line-height: 1;
+.right-side .card-counter-title {
+  font-size: 19px;
+  line-height: 15px;
 }
 
-.card .detailed .description {
-  padding-left: 1em;
-  border-left: 1px solid #10a9f5;
-}
-
-.card .detailed .flares {
-  font-size: 0.8em;
-}
-
-.card-basic {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  color: rgba(82, 88, 96, 0.75);
-  border-bottom: 2px solid #f8f9fb;
-}
-
-.card-basic .top {
-  font-weight: bold;
-  margin-bottom: 6px;
-}
-
-.card-basic .top a {
-  color: #10a9f5;
-}
-
-.card-basic .stat {
-  font-size: 1.2em;
-}
-
-.card-basic .show-counter {
-  background: #dae0ea;
-  color: #644cac;
-  font-weight: bold;
-  height: 50px;
-  width: 50px;
+.transparency {
+  color: rgba(247, 247, 247, 0.7);
 }
 
 .btn-primary {
@@ -10864,13 +10816,23 @@ a.text-dark:focus {
   border-color: #10a9f5;
 }
 
+.btn-blue {
+  color: white;
+  background-color: #3724BC;
+  border-color: #3624ba;
+}
+
+.btn-blue:hover {
+  background-color: #6917a5;
+  border-color: #6817a3;
+}
+
 #sidebar .heading,
 #sidebar .heading h3 {
   color: #525860;
   position: relative;
   padding-left: 1rem;
   padding-top: 1rem;
-  padding-bottom: 0.5rem;
   font-size: 1.125rem;
   font-weight: 700;
 }
@@ -10883,7 +10845,6 @@ a.text-dark:focus {
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
   background: #FFF;
   border-radius: 2px;
-  margin-bottom: 1rem;
   padding: 1.5em;
 }
 
@@ -11140,18 +11101,16 @@ html {
 }
 
 body {
+  color: #4E5259;
+  background: #F9F9F9;
   font-family: "Open Sans", sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #525860;
-  font-weight: normal;
-  background: white;
+  background: url(/images/background.jpg?94059e0dd029a5b7aba61d10c3680c44);
+  background-attachment: fixed;
 }
 
 p {
-  font-size: 0.875rem;
-  color: rgba(82, 88, 96, 0.7);
-  line-height: 1.375rem;
+  font-size: 12px;
+  margin-bottom: initial;
 }
 
 h1,
@@ -11159,17 +11118,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "Roboto", sans-serif;
-  color: #10a9f5;
-  font-weight: 700;
-}
-
-h3 {
-  font-size: 1.2rem;
-}
-
-h4 {
-  font-size: 1rem;
+  font-size: 16px;
 }
 
 .subheading {

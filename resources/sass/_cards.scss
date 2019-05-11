@@ -1,102 +1,45 @@
 $color-blue: #10a9f5;
 
-.microcard {
-  .information {
-    h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #525860;
-      margin: 0;
-      line-height: 1;
-      padding-bottom: 0.2rem;
-    }
-    p {
-      font-size: 0.75rem;
-      margin: 0;
-      line-height: 1;
-      color: rgba(0, 0, 0, 0.6);
-    }
-  }
+.server-card {
+  //width: 750px;
+  background: white;
 }
-
-.server {
-  .counter {
-    font-size: 24px;
-    font-weight: 900;
-    color: #525860;
-    line-height: 1.2;
-  }
+.server-card-body  {
+  /*padding: 15px;*/
 }
+.server-card-head {
+  height:170px;
+  background: linear-gradient(rgba(247, 247, 247, 0) 0%, rgba(139, 139, 139, 0.21) 32.51%, rgba(0, 0, 0, 0.81) 100%);
 
-.card {
-  border: none;
-  border-radius: 0;
-
-  .overview {
-    color: white;
-    background-color: #fcfbff;
-    border-bottom: 1px solid #dde2e5;
-    .rank {
-      background-color: $color-blue;
-      text-transform: uppercase;
-      .score {
-        font-weight: bold;
-      }
-      .title {
-        font-size: 10px;
-        letter-spacing: 2px;
-        background-color: #43484d;
-      }
-    }
-    .interactions {
-      color: rgba(0, 0, 0, 0.3);
-      &>div {
-        font-weight: bold;
-        text-transform: uppercase;
-      }
-    }
-  }
-
-  .detailed {
-    .name h3 {
-      margin: 0;
-      padding: 0;
-      line-height: 1;
-    }
-    .description {
-      padding-left:1em;
-      border-left:1px solid $color-blue;
-    }
-    .flares {
-      font-size: 0.8em;
-    }
-  }
 }
-
-
-.card-basic {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  color: rgba(82, 88, 96, 0.75);
-  border-bottom: 2px solid #f8f9fb;
-
-  .top {
-    font-weight: bold;
-    a {
-      color: $color-blue;
-    }
-    margin-bottom: 6px;
-  }
-
-  .stat {
-    font-size: 1.2em;
-  }
-
-  .show-counter {
-    background: #dae0ea;
-    color: #644cac;
-    font-weight: bold;
-    height:50px;
-    width:50px;
-  }
+.server-card-head.image {
+  background-position: right;
+  background-size: cover;
+}
+.server-card-head.overlap{
+  margin-top: -170px;
+}
+.tag-list {
+  color: #C9CDD1;
+}
+.tag-list li {
+  margin-right: 5px;
+}
+.tag-list li:last-child {
+  margin-right: 0px;
+}
+.rating {
+  color: #43A418;
+  border: 3px solid #43A418;
+}
+.right-side .card-counter {
+  font-size: 60px;
+  line-height: 50px;
+}
+.right-side .card-counter-title {
+  font-size: 19px;
+  line-height: 15px;
+}
+.transparency {
+  color: rgba(247, 247, 247, 0.7);
 }

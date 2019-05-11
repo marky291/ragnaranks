@@ -16,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 // authentication routes (login & logout)
 Illuminate\Support\Facades\Auth::routes();
 
+Route::get('/assets/cards', function()
+{
+    return view('assets.cards');
+});
+
+
 // default index page.
 Route::get('/')->uses('ListingController@index')->name('index');
 

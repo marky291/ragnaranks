@@ -1772,7 +1772,10 @@ __webpack_require__.r(__webpack_exports__);
     Reviews: _components_ReviewsComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     Scoreboards: _components_ScoreboardsComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  props: ['clicked', 'voted'],
+  props: {
+    clicked: Boolean,
+    voted: Boolean
+  },
   data: function data() {
     return {
       validation: {

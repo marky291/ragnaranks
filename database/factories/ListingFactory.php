@@ -1,12 +1,15 @@
 <?php
 
-use App\Listings\Listing;
 
+use App\Listings\Listing;
 use Faker\Generator as Faker;
 
 $factory->define(Listing::class, function (Faker $faker) {
+
+    $server = array_random(config('fake.listings'));
+
     return [
-        'name' => $faker->company . " " . $faker->randomElement(['Online', 'RO', 'Ragnarok', 'Ragnarok Online']),
+        'name' => $server['name'],
         'configs' => [
             'max_base_level' => rand(config('filter.exp.low-rate.min'), config('filter.exp.high-rate.max')),
             'max_job_level' => rand(99, 255),
@@ -25,8 +28,8 @@ $factory->define(Listing::class, function (Faker $faker) {
         'user_id' => factory('App\User')->create()->id,
         'website' => $faker->url,
         'mode_id' => \App\Mode::inRandomOrder()->first(),
-        'description' => $faker->sentence(100),
+        'description' => $server['description'],
         'episode' => collect([13.10, 13.09, 13.05, 12.11])->random(),
-        'banner_url' => $faker->imageUrl(468, 60),
+        'banner_url' => $server['banner'],
     ];
 });

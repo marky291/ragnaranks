@@ -2,63 +2,28 @@
 
     return [
         [
-            'name' => 'TalonRO',
-            'banner' => 'https://www.top100arena.com/siteBanners/site_0000016173_d6713827.gif',
-            'description' =>'5/5/3 ~ 8/8/3 • Stable/Lagfree/Balanced • No Wipes, Up for 10+ years • Ep 14.1 • 180+ Custom Hair • 1000+ Hats • 1400-1900 Players • Custom Dye/Pets/Q...',
+            'name' => 'Lychee Ragnarok Online',
+            'banner' => 'https://scontent.fdub2-1.fna.fbcdn.net/v/t1.0-9/59295836_2302946656648580_4601660632750620672_o.jpg?_nc_cat=101&_nc_ht=scontent.fdub2-1.fna&oh=a13b166d63dc4588e75d673feb0b34b0&oe=5D698327',
+            'description' =>'Lychee Ragnarok Online will open this May 11, 2019. Saturday. A 255/120 Transcendent Class Frost Server. This Server is almost the same as DarkRO Force. Let\'s back the old days!',
         ],
         [
-            'name' => 'Forsaken Listings Online',
-            'banner' => 'https://forsaken-ro.net/images/votebanners/hq/forsakenrobanner1.gif',
-            'description' =>'6k/6k/100 max lvl 255/255 questable/votable donations guild/newbie packs up for 5+ years, no wipes, stable intense WOE/GVG/PVP',
+            'name' => 'Ragnarok Clashed Server',
+            'banner' => 'https://scontent.fdub2-2.fna.fbcdn.net/v/t1.0-9/60110823_395099434410828_8948002145701986304_o.jpg?_nc_cat=107&_nc_ht=scontent.fdub2-2.fna&oh=fe7c3f72aae1da2c63281f59cc884c1c&oe=5D758177',
+            'description' =>'One Guild Leader, died on a battle. Then 4 of his members want to take his position. They want to proved that they are strong...',
         ],
         [
-            'name' => 'Dreamer RO',
-            'banner' => 'http://playdreamerro.com/img/bannertest.gif',
-            'description' => 'Rates: 8k/8k/3k // MaxLvl: 500/120 // Renewal content with some Pre-RE mechanics // 3rd Jobs // Oboro, Kagerou, Rebellion, Dorams // Active PvP // Bat...',
+            'name' => 'Hera Server RO',
+            'banner' => 'https://scontent.fdub2-2.fna.fbcdn.net/v/t1.0-9/59979427_2326897360855638_6534815671694393344_n.png?_nc_cat=105&_nc_ht=scontent.fdub2-2.fna&oh=5ebac4e093b2fb5c4b3753a86a35fbf6&oe=5D5E3D36',
+            'description' => ' Server Settings : Pre - Renewal Transcended Server, Server Based : MyRO, BattleRO Server, Enabled God Item, Lighthalzen Ca...',
         ],
         [
-            'name' => 'Listings Online Island',
-            'banner' => 'https://www.top100arena.com/siteBanners/site_0000093898_5fa09420.png',
-            'description' => 'ONLINE 1000+ | Launched: 13. June 2018 | International Mid-Rate (df listing) | Pre-RE | Episode 13.3+ | Rates: 77x77x33x~99x99x44x | BattleGrounds 2.0...',
+            'name' => 'Delu Ragnarok Online',
+            'banner' => 'https://scontent.fdub2-1.fna.fbcdn.net/v/t1.0-9/33077656_965931366900437_5135841357625032704_o.jpg?_nc_cat=108&_nc_ht=scontent.fdub2-1.fna&oh=b3a2c3eb93da38d6d205031868037ffa&oe=5D555694',
+            'description' => 'Dito na PvP at Quest Server also hunt server at siguradong tatagal ang server basta\'t kasama kayo.',
         ],
         [
-            'name' => 'Estland Listings Online',
-            'banner' => 'https://www.top100arena.com/siteBanners/site_0000087155_778d886e.jpeg',
-            'description' => '[ 500+ Players Online ] [ Low & Mid 99/70 - Pre-Re Servers ] [ Low: 13x13x5x ~ 15x15x7x ] [ Mid: 130x130x30x ~ 150x150x50x ] [ Stable working eAmod ] ...',
-        ],
-        [
-            'name' => 'Melee-RO',
-            'banner' => 'http://www.top100arena.com/siteBanners/site_0000093881_b48ddabe.gif',
-            'description' => 'Pre-Renewal. Rates 75x/75x/50x. Cartas 0.16% y MvP 0.02%. Max 99/70. Sin CASH SHOP/ANTI Pay-2-Win. Gepard Shield 3.0. PACK DE BIENVENIDA y GUILD PACK!...',
-        ],
-        [
-            'name' => 'Limit RO',
-            'banner' => 'https://www.limitro.com/images/limitrobanner2017.png',
-            'description' => 'Rates: 100/100/25 - MaxLevel: 175/60 - Stable/Lagfree/Balanced - Since 2009, no wipes - Episode 16 - Great GMs and Players - Many Minigames - WoE/BG/PvP Intesnse - Daily Quests - Most close to official renewal gaming with Star Emperor / Soul Reaper',
-        ],
-        [
-            'name' => 'RebirthRO',
-            'banner' => 'http://rebirthro.com/images/hotlink-ok/468x60.gif',
-            'description' => 'RebirthRO 1000 + Hats many Custom Instances New renewal 3rd jobs Rebellion - Kagerou - Oboro listing named Thor 100/100/10/2 Two classic servers: Loki 100/100/20 and Eir 5/5/3 1000+ players online 100,000+ active players 100 secure website Free Pokemon pets 24/7 uptime Active WoE and BG',
-        ],
-        [
-            'name' => 'Chapter R [ Now Open ]',
-            'banner' => 'https://chapter-ragnarok.net/static/img/banner-small.png',
-            'description' => 'Chapter R is back after 7 years We didnt change over the years: 8/9/10 rates, Pre-renewal with adjusted and balanced 3rd classes for a full content without abuse Unique RP instances and much more',
-        ],
-        [
-            'name' => 'Liberation Listings Online',
-            'banner' => 'https://www.arena-top100.com/images/users/libro2k18.png',
-            'description' => 'PLAYABLE IN MOBILE ANDROIDJoin us and experience the MIDRATE classic days listing for Job Transcendent class. Max Level 9970 MidRate 100x10050x - up to 250x250x50x FloatingHappy hour Rates Pre-Renewal Episode 13.2 with Free JOB PACKAGE',
-        ],
-        [
-            'name' => 'Shinning Moon',
-            'banner' => 'https://www.arena-top100.com/images/users/fr0sty123456789.gif',
-            'description' => 'Renewal Pre-Renewal. Set your own EXP-rates between 1-100 20x droprates Class Change, Soul System, Monster Hunter, Treasure Caches, Over 400 custom headgears, Warper warp, BufferHealer, Weapon Evolution, Daily Rewards, Automated Events and much more features. Active Development Join us',
-        ],
-        [
-            'name' => 'No Mercy RO',
-            'banner' => 'https://www.arena-top100.com/images/users/Smusmus.jpg',
-            'description' => 'German P Listings Gaming Community! 3 RO Servers: lowrate 5/5/5 L99/70 Pre-Renewal | midrate 50/50/50 L175 Renewal | highrate 5k/5k/1k L999 Renewal | 24/7 Uptime German/English Support! Visit Our Site for more info!',
+            'name' => 'Ragnarok Champions',
+            'banner' => 'https://scontent.fdub2-1.fna.fbcdn.net/v/t1.0-9/59625025_565703400603739_6771623564052267008_n.png?_nc_cat=102&_nc_ht=scontent.fdub2-1.fna&oh=5885911b518bdb21037fd9be74ad775a&oe=5D6011EA',
+            'description' => 'We are calling out all Ragnarok Players who wants to try our server',
         ],
     ];
