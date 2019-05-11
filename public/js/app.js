@@ -1860,11 +1860,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1898,8 +1893,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -1946,19 +1939,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
+  created: function created() {
     this.emitFilterEvent();
   },
   data: function data() {
     return {
       rate: 'all',
       mode: 'any',
-      sort: 'all',
+      sort: 'name',
       // not implemented
       tag: '',
-      quantity: ''
+      quantity: '25'
     };
   },
   methods: {
@@ -1970,7 +1962,6 @@ __webpack_require__.r(__webpack_exports__);
       this.emitFilterEvent();
     },
     emitFilterEvent: function emitFilterEvent() {
-      console.log('trying');
       this.$root.$emit('filter:changed', this.getUrl());
     }
   }
@@ -42233,9 +42224,9 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                            " +
+                      "\n                        " +
                         _vm._s(listing["rank"]) +
-                        "\n                        "
+                        "\n                    "
                     )
                   ]
                 ),
@@ -42473,7 +42464,7 @@ var render = function() {
             }
           },
           [
-            _c("option", { attrs: { value: "name" } }, [
+            _c("option", { attrs: { value: "name", selected: "" } }, [
               _vm._v("Sorted by Server Name")
             ]),
             _vm._v(" "),
@@ -42524,7 +42515,7 @@ var render = function() {
             }
           },
           [
-            _c("option", { attrs: { value: "25" } }, [
+            _c("option", { attrs: { value: "25", selected: "" } }, [
               _vm._v("And show 25 servers")
             ]),
             _vm._v(" "),

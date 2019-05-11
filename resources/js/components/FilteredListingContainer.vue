@@ -1,7 +1,6 @@
 <template>
     <transition-group name="fade" mode="out-in">
         <div v-for="listing in listings" :key="listing['id']">
-<!--            {{ listing }}-->
                 <div class="mb-3 server-card item flex-fill shadow border rounded">
                     <div class="server-card-head image rounded-top" v-bind:style="{ 'background-image': 'url(' + listing['banner_url'] + ')' }">
 
@@ -13,10 +12,6 @@
                                 <span v-for="tag in listing.tags">
                                     <li class="mr-2">#{{ tag['name']}}</li>
                                 </span>
-                                <!--                            <?php /** @var \App\Tag $tag */ ?>-->
-                                <!--                            @foreach ($listing->tags as $tag)-->
-                                <!--                            <li>#{{ $tag->name }}</li>-->
-                                <!--                            @endforeach-->
                             </ul>
                         </div>
                         <div class="right-side flex-fill d-flex justify-content-end pr-3" style="padding-bottom:12px;">

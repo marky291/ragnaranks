@@ -26,14 +26,14 @@
             </select>
 
             <select @change="filterChanged" v-model="sort" class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
-                <option value="name">Sorted by Server Name</option>
+                <option value="name" selected>Sorted by Server Name</option>
                 <option value="rank">Sorted by Rank Position</option>
                 <option value="created_at">Sorted by Date added</option>
                 <option value="created_at">Sorted by Online since</option>
             </select>
 
             <select @change="filterChanged" v-model="quantity" class="form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
-                <option value="25">And show 25 servers</option>
+                <option value="25" selected>And show 25 servers</option>
                 <option value="50">And show 50 servers</option>
                 <option value="100">And show 100 servers</option>
                 <option value="250">And show 250 servers</option>
@@ -45,10 +45,8 @@
 </template>
 
 <script>
-    import axios from "axios";
-
     export default {
-        mounted: function () {
+        created: function () {
             this.emitFilterEvent();
         },
 
@@ -56,11 +54,11 @@
             return {
                 rate: 'all',
                 mode: 'any',
-                sort: 'all',
+                sort: 'name',
 
                 // not implemented
                 tag: '',
-                quantity: '',
+                quantity: '25',
             }
         },
 
@@ -73,7 +71,6 @@
                 this.emitFilterEvent();
             },
             emitFilterEvent: function() {
-                console.log('trying');
                 this.$root.$emit('filter:changed', this.getUrl());
             }
         }
