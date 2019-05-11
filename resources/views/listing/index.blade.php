@@ -133,7 +133,7 @@
 
                 <div class="col-8 py-5">
 
-                    <filtered-listings></filtered-listings>
+                    <filtered-listings :initial-listings="{{ $listings }}"></filtered-listings>
 
 {{--                    @foreach($listings as $listing)--}}
 {{--                        @if ($loop->first)--}}

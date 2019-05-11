@@ -47,20 +47,26 @@
     import axios from 'axios';
 
     export default {
+
+        props: ['initial-listings'],
+
         data: function () {
             return {
-                listings: '',
+                listings: {},
             }
         },
 
+        created: function(){
+            this.listings = this.initialListings;
+        },
         mounted() {
             this.$root.$on('filter:changed', (param) => {
                 console.log('Received Query: ' + param);
                 this.listings = null;
-                axios
-                    .get(param)
-                    .then(response => (this.listings = response.data.listings));
-                this.$forceUpdate();
+                axios.get(param).then(response => (this.listings = response.data.listings)).then(function(error){
+                    console.log(error);
+                });
+                //this.$forceUpdate();
             })
         }
     }

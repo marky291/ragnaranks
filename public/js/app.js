@@ -1862,10 +1862,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['initial-listings'],
   data: function data() {
     return {
-      listings: ''
+      listings: {}
     };
+  },
+  created: function created() {
+    this.listings = this.initialListings;
   },
   mounted: function mounted() {
     var _this = this;
@@ -1875,9 +1879,9 @@ __webpack_require__.r(__webpack_exports__);
       _this.listings = null;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(param).then(function (response) {
         return _this.listings = response.data.listings;
-      });
-
-      _this.$forceUpdate();
+      }).then(function (error) {
+        console.log(error);
+      }); //this.$forceUpdate();
     });
   }
 });
