@@ -27,13 +27,17 @@ class ListingCacheContainer implements ShouldQueue
         {
             $listings = Listing::query()->withCount(['votes', 'clicks'])->with(['mode', 'tags'])->get();
 
-            return $listings->values()
-                ->sortByDesc(static function(Listing $listing) {
-                    return $listing->points;
-                })->each(static function (Listing $listing, int $key) {
-                    $listing->setAttribute('rank', $key + 1);
-                    $listing->setAttribute('type', $listing->expRateTitle);
-                });
+            $listings = $listings->sortByDesc(function(Listing $listing)  {
+                return $listing->points;
+            });
+
+            $listings = $listings->values()->each(function (Listing $listing, int $key) {
+                $listing->setAttribute('rank', $key + 1);
+                $listing->setAttribute('points', $listing->points);
+                $listing->setAttribute('type', $listing->expRateTitle);
+            });
+
+            return $listings;
         });
     }
 }

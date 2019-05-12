@@ -1948,7 +1948,7 @@ __webpack_require__.r(__webpack_exports__);
       mode: 'any',
       sort: 'rank',
       tag: 'all',
-      paginate: '25'
+      paginate: '7'
     };
   },
   methods: {
@@ -42531,8 +42531,16 @@ var render = function() {
             }
           },
           [
-            _c("option", { attrs: { value: "25", selected: "" } }, [
-              _vm._v("And show 25 servers")
+            _c("option", { attrs: { value: "7", selected: "" } }, [
+              _vm._v("And show 7 servers")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "15" } }, [
+              _vm._v("And show 15 servers")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "30" } }, [
+              _vm._v("And show 30 servers")
             ]),
             _vm._v(" "),
             _c("option", { attrs: { value: "50" } }, [
@@ -42541,14 +42549,6 @@ var render = function() {
             _vm._v(" "),
             _c("option", { attrs: { value: "100" } }, [
               _vm._v("And show 100 servers")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "250" } }, [
-              _vm._v("And show 250 servers")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "500" } }, [
-              _vm._v("And show 500 servers")
             ])
           ]
         )

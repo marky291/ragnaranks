@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="ragnaranks.com" uploadOnCheckin="ae67c1ed-d3bf-4039-b7f6-f1964036ddf1">
+  <component name="PublishConfigData" autoUpload="Always" serverName="ragnaranks.com" uploadOnCheckin="ae67c1ed-d3bf-4039-b7f6-f1964036ddf1" autoUploadExternalChanges="true">
     <serverData>
       <paths name="ragnaranks.com">
         <serverdata>
@@ -11,5 +11,6 @@
       </paths>
     </serverData>
     <option name="myUploadOnCheckinName" value="ragnaranks.com" />
+    <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>
