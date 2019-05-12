@@ -1858,7 +1858,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['initial-listings'],
@@ -42082,7 +42081,6 @@ var render = function() {
     { attrs: { name: "fade", mode: "out-in" } },
     _vm._l(_vm.listings, function(listing) {
       return _c("div", { key: listing["id"] }, [
-        _vm._v("\n        " + _vm._s(listing["created_at"]) + "\n            "),
         _c(
           "div",
           {
