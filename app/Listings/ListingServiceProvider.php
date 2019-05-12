@@ -40,8 +40,6 @@ class ListingServiceProvider extends ServiceProvider
     {
         $this->app->singleton('listings', function($app)
         {
-            Cache::forget('listings');
-
             if (!Cache::has('listings')) {
                 CacheListingsContainer::dispatchNow();
             }
