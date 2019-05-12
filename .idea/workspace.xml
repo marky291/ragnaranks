@@ -8,28 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5c3af05-4cb1-407b-a377-26e729e13b17" name="Redesign V1" comment="Compiled vue for frontend.">
-      <change afterPath="$PROJECT_DIR$/app/Listings/CardCacheContainer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/APICardRequestTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/CardContainerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ListingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ListingController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QueryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QueryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Listings/CacheListingsContainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listings/ListingCacheContainer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Listings/ListingFilter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listings/ListingFilter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Listings/ListingServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listings/ListingServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Tag.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/FilteredListingSearch.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/FilteredListingSearch.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/listing/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/listing/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/TestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestCase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/ListingContainerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/ListingContainerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/ListingFilterTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/ListingFilterTest.php" afterDir="false" />
     </list>
     <list id="58f96053-e5bd-4b41-bbae-58099ecbebc5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -136,11 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QueryController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
+            <state relative-caret-position="427">
+              <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
               <folding>
                 <element signature="e#40#65#0#PHP" expanded="true" />
               </folding>
@@ -148,13 +129,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/listing/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="135" selection-start-line="135" selection-end-line="135" />
+            <state relative-caret-position="220">
+              <caret line="133" column="63" lean-forward="true" selection-start-line="133" selection-start-column="63" selection-end-line="133" selection-end-column="63" />
               <folding>
-                <marker date="1557699365703" expanded="true" signature="392:1014" ph="..." />
+                <marker date="1557699506654" expanded="true" signature="392:1014" ph="..." />
               </folding>
             </state>
           </provider>
@@ -241,8 +222,8 @@
       <find>UPDATEDAT</find>
       <find>tag</find>
       <find>filtertag</find>
-      <find>sidebar</find>
       <find>rate</find>
+      <find>sidebar</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -313,9 +294,9 @@
         <option value="$PROJECT_DIR$/tests/Unit/ListingFilterTest.php" />
         <option value="$PROJECT_DIR$/app/Providers/CollectionServiceProvider.php" />
         <option value="$PROJECT_DIR$/app/Listings/ListingFilter.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/QueryController.php" />
         <option value="$PROJECT_DIR$/resources/js/components/FilteredListingSearch.vue" />
         <option value="$PROJECT_DIR$/resources/views/listing/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/QueryController.php" />
       </list>
     </option>
   </component>
@@ -533,7 +514,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="COPY_ALWAYS" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="web.server" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -679,14 +660,7 @@
       <workItem from="1557498148145" duration="5862000" />
       <workItem from="1557529160342" duration="8938000" />
       <workItem from="1557578372760" duration="24768000" />
-      <workItem from="1557658735620" duration="11951000" />
-    </task>
-    <task id="LOCAL-00020" summary="Images from Zurina">
-      <created>1545075835646</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1545075835646</updated>
+      <workItem from="1557658735620" duration="12303000" />
     </task>
     <task id="LOCAL-00021" summary="Images from Zurina">
       <created>1545079719378</created>
@@ -1024,7 +998,14 @@
       <option name="project" value="LOCAL" />
       <updated>1557659251904</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Compiled vue for frontend.">
+      <created>1557699383286</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1557699383286</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="marky291" />
@@ -1066,7 +1047,7 @@
   </component>
   <component name="TimeTrackingManager">
     <option name="enabled" value="true" />
-    <option name="totallyTimeSpent" value="551863000" />
+    <option name="totallyTimeSpent" value="552215000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1501,16 +1482,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QueryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
-          <folding>
-            <element signature="e#40#65#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/FilteredListingSearch.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-603">
@@ -1520,10 +1491,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/listing/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="135" selection-start-line="135" selection-end-line="135" />
+        <state relative-caret-position="220">
+          <caret line="133" column="63" lean-forward="true" selection-start-line="133" selection-start-column="63" selection-end-line="133" selection-end-column="63" />
           <folding>
-            <marker date="1557699365703" expanded="true" signature="392:1014" ph="..." />
+            <marker date="1557699506654" expanded="true" signature="392:1014" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QueryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+          <folding>
+            <element signature="e#40#65#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

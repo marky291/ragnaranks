@@ -48,8 +48,6 @@ class QueryController extends Controller
             $listings = $listings->filterSort($sortByAttribute);
         }
 
-        $listings->take($paginate);
-
-        return response()->json(array_values($listings->toArray()));
+        return response()->json(array_values($listings->take($paginate)->toArray()));
     }
 }
