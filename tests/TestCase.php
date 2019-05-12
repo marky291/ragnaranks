@@ -4,6 +4,7 @@ namespace Tests;
 
 use App\Interactions\Click;
 use App\Listings\Listing;
+use App\Tag;
 use App\User;
 use App\Interactions\Vote;
 use Illuminate\Database\Eloquent\Collection;
@@ -28,13 +29,15 @@ abstract class TestCase extends BaseTestCase
         $this->be($user);
     }
 
-    public function createListing(array $attributes, int $votes_count, int $clicks_count)
+    public function createListing(array $attributes, int $votes_count, int $clicks_count, int $tag_count)
     {
         $listing = factory(Listing::class)->create($attributes);
 
         $listing->votes()->saveMany(factory(Vote::class, $votes_count)->create(['created_at' => fake()->dateTimeBetween("-6 days", 'now')]));
 
         $listing->clicks()->saveMany(factory(Click::class, $clicks_count)->create(['created_at' => fake()->dateTimeBetween("-6 days", 'now')]));
+
+        $listing->tags()->saveMany(Tag::all()->random($tag_count)->unique('id'));
 
         return $listing;
     }

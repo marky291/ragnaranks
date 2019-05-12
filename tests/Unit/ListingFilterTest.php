@@ -5,6 +5,7 @@ namespace Tests\Unit;
 use App\Listings\Listing;
 use App\Listings\ListingFilter;
 use App\Mode;
+use App\Tag;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Query\Builder;
@@ -149,5 +150,17 @@ class ListingFilterTest extends TestCase
         $this->assertEquals($listings->shift()->created_at, Carbon::today());
 
         $this->assertEquals($listings->shift()->created_at, Carbon::yesterday());
+    }
+
+    public function test_it_can_filter_by_tag()
+    {
+        /** @var Listing $listing */
+        $listing1 = $this->createListing([], 0, 0,0);
+        $listing2 = $this->createListing([], 0, 0,0);
+
+        $listing1->tags()->save(factory(Tag::class)->make(['tag' => 'foo']));
+        $listing2->tags()->save(factory(Tag::class)->make(['tag' => 'bar']));
+
+        $this->assertEquals(1, app('listings')->filterTag('foo')->count());
     }
 }

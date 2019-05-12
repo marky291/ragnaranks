@@ -20,6 +20,12 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Tag extends Model
 {
+
+    /**
+     * Disable updated_at column
+     */
+    const UPDATED_AT = null;
+
     /**
      * The servers that belongs to this tag.
      *

@@ -3,14 +3,33 @@
   <component name="AnalysisUIOptions">
     <option name="SCOPE_TYPE" value="3" />
   </component>
-  <component name="AutoTestManager">
-    <enabled-run-configurations>
-      <run-configuration type="PHPUnitRunConfigurationType" name="ClickTest" />
-    </enabled-run-configurations>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/app/Http/Controllers/QueryController.php" line="26" mnemonic="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5c3af05-4cb1-407b-a377-26e729e13b17" name="Redesign V1" comment="Remove date from card indices">
+    <list default="true" id="f5c3af05-4cb1-407b-a377-26e729e13b17" name="Redesign V1" comment="Compiled vue for frontend.">
+      <change afterPath="$PROJECT_DIR$/app/Listings/CardCacheContainer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Feature/APICardRequestTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/CardContainerTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ListingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ListingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QueryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QueryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Listings/CacheListingsContainer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listings/ListingCacheContainer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Listings/ListingFilter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listings/ListingFilter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Listings/ListingServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listings/ListingServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Tag.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/FilteredListingSearch.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/FilteredListingSearch.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/listing/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/listing/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/ListingContainerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/ListingContainerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/ListingFilterTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/ListingFilterTest.php" afterDir="false" />
     </list>
     <list id="58f96053-e5bd-4b41-bbae-58099ecbebc5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,34 +85,53 @@
         <item name="magnolia@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="ragnaranks@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Listings/CacheListingsContainer.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Listings/ListingServiceProvider.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="41" column="9" lean-forward="true" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+            <state relative-caret-position="288">
+              <caret line="37" column="7" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
+              <folding>
+                <element signature="e#32#42#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Listings/AddListingToContainer.php">
+        <entry file="file://$PROJECT_DIR$/app/Providers/EventServiceProvider.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-133">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="315">
+              <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Providers/RouteServiceProvider.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="67" column="50" selection-start-line="67" selection-start-column="50" selection-end-line="67" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Listings/ListingFilter.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="82">
+              <caret line="90" column="7" selection-start-line="90" selection-start-column="7" selection-end-line="90" selection-end-column="7" />
+              <folding>
+                <element signature="e#119#131#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -101,8 +139,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QueryController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-75">
-              <caret line="23" column="6" lean-forward="true" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+            <state relative-caret-position="309">
+              <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
               <folding>
                 <element signature="e#40#65#0#PHP" expanded="true" />
               </folding>
@@ -110,23 +148,35 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Listings/Listing.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/listing/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1264">
-              <caret line="109" column="71" selection-start-line="109" selection-start-column="71" selection-end-line="109" selection-end-column="71" />
+            <state relative-caret-position="262">
+              <caret line="135" selection-start-line="135" selection-end-line="135" />
               <folding>
-                <element signature="e#32#59#0#PHP" expanded="true" />
+                <marker date="1557699365703" expanded="true" signature="392:1014" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+            <state relative-caret-position="-800">
+              <caret line="2" column="40" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Listings/CardCacheContainer.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-124">
+              <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+              <folding>
+                <element signature="e#33#45#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -134,26 +184,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/FilteredListingSearch.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="52" column="20" lean-forward="true" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/api.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Unit/ListingTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+            <state relative-caret-position="-603">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -161,8 +193,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Unit/ListingFilterTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
-              <caret line="54" column="40" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
+            <state relative-caret-position="251">
+              <caret line="156" column="18" selection-start-line="156" selection-start-column="18" selection-end-line="156" selection-end-column="18" />
+              <folding>
+                <element signature="e#30#55#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -178,17 +213,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>@foreach</find>
-      <find>card</find>
-      <find>listing</find>
-      <find>laracasts</find>
-      <find>larac</find>
-      <find>4</find>
       <find>rating</find>
-      <find>tag</find>
       <find>tag-list</find>
       <find>navbar</find>
-      <find>sidebar</find>
       <find>message</find>
       <find>viewmore</find>
       <find>information</find>
@@ -202,12 +229,20 @@
       <find>visit</find>
       <find>reviews</find>
       <find>exprate</find>
-      <find>rate</find>
-      <find>getpoints</find>
       <find>votes</find>
       <find>get</find>
       <find>name</find>
       <find>points</find>
+      <find>ex</find>
+      <find>tags</find>
+      <find>getpoints</find>
+      <find>$server_type</find>
+      <find>tag::class</find>
+      <find>UPDATEDAT</find>
+      <find>tag</find>
+      <find>filtertag</find>
+      <find>sidebar</find>
+      <find>rate</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -230,23 +265,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Listings/ListingPolicy.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ReviewController.php" />
-        <option value="$PROJECT_DIR$/tests/Feature/ReviewRequestTest.php" />
-        <option value="$PROJECT_DIR$/tests/Unit/ListingTest.php" />
-        <option value="$PROJECT_DIR$/tests/Unit/ClickTest.php" />
-        <option value="$PROJECT_DIR$/tests/Unit/InteractionTest.php" />
-        <option value="$PROJECT_DIR$/tests/Unit/VoteTest.php" />
-        <option value="$PROJECT_DIR$/tests/Feature/ClickRequestTest.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ClickController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/VoteController.php" />
-        <option value="$PROJECT_DIR$/resources/views/listing/show.blade.php" />
-        <option value="$PROJECT_DIR$/config/interaction.php" />
-        <option value="$PROJECT_DIR$/app/Interactions/Interaction.php" />
-        <option value="$PROJECT_DIR$/resources/js/Pages/ListingProfileComponent.vue" />
         <option value="$PROJECT_DIR$/public/css/new.css" />
         <option value="$PROJECT_DIR$/resources/views/assets/index.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/assets/cards.blade.php" />
         <option value="$PROJECT_DIR$/config/fake/listings.php" />
         <option value="$PROJECT_DIR$/resources/sass/_navbar.scss" />
@@ -263,11 +283,9 @@
         <option value="$PROJECT_DIR$/resources/js/components/ListingsResponse.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue" />
         <option value="$PROJECT_DIR$/resources/views/layouts/frame.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/listing/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/app.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/app/Console/Kernel.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ListingController.php" />
         <option value="$PROJECT_DIR$/tests/Feature/ListingJsonRequestTest.php" />
         <option value="$PROJECT_DIR$/app/Helpers/EverythingHelper.php" />
         <option value="$PROJECT_DIR$/tests/Feature/ListingRequestsTest.php" />
@@ -276,11 +294,28 @@
         <option value="$PROJECT_DIR$/app/Listings/CacheListingsContainer.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/database/factories/ListingFactory.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/FilteredListingSearch.vue" />
+        <option value="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/CardAPIController.php" />
+        <option value="$PROJECT_DIR$/app/Listings/ListingsCacheContainer.php" />
+        <option value="$PROJECT_DIR$/tests/Unit/CardContainerTest.php" />
+        <option value="$PROJECT_DIR$/app/Listings/CardCacheContainer.php" />
+        <option value="$PROJECT_DIR$/tests/Feature/APICardRequestTest.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/CardController.php" />
+        <option value="$PROJECT_DIR$/app/Listings/ListingServiceProvider.php" />
+        <option value="$PROJECT_DIR$/app/Listings/ListingCacheContainer.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ListingController.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/tests/TestCase.php" />
+        <option value="$PROJECT_DIR$/database/factories/UserFactory.php" />
+        <option value="$PROJECT_DIR$/app/Tag.php" />
+        <option value="$PROJECT_DIR$/tests/Unit/ListingFilterTest.php" />
+        <option value="$PROJECT_DIR$/app/Providers/CollectionServiceProvider.php" />
         <option value="$PROJECT_DIR$/app/Listings/ListingFilter.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/QueryController.php" />
-        <option value="$PROJECT_DIR$/app/Listings/ListingServiceProvider.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/FilteredListingSearch.vue" />
+        <option value="$PROJECT_DIR$/resources/views/listing/index.blade.php" />
       </list>
     </option>
   </component>
@@ -453,25 +488,7 @@
               <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
               <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Listings" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Providers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
@@ -545,41 +562,41 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.ListingContainerTest.it_returns_listings_with_a_rank">
-    <configuration name="ListingContainerTest.it_returns_listings_with_a_rank" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Unit\ListingContainerTest" file="$PROJECT_DIR$/tests/Unit/ListingContainerTest.php" method="it_returns_listings_with_a_rank" scope="Method" />
+  <component name="RunManager" selected="PHPUnit.ListingFilterTest.test_it_can_filter_by_tag">
+    <configuration name="APICardRequestTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\APICardRequestTest" file="$PROJECT_DIR$/tests/Feature/APICardRequestTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="ListingRequestsTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\ListingRequestsTest" file="$PROJECT_DIR$/tests/Feature/ListingRequestsTest.php" scope="Class" />
+    <configuration name="APICardRequestTest.test_it_returns_json_response" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\APICardRequestTest" file="$PROJECT_DIR$/tests/Feature/APICardRequestTest.php" method="test_it_returns_json_response" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="ListingRequestsTest.test_it_can_get_a_json_response_from_queryAPI" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\ListingRequestsTest" file="$PROJECT_DIR$/tests/Feature/ListingRequestsTest.php" method="test_it_can_get_a_json_response_from_queryAPI" scope="Method" />
+    <configuration name="CardContainerTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\CardContainerTest" file="$PROJECT_DIR$/tests/Unit/CardContainerTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="ListingRequestsTest.test_it_returns_ordered_rank_from_queryAPI" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\ListingRequestsTest" file="$PROJECT_DIR$/tests/Feature/ListingRequestsTest.php" method="test_it_returns_ordered_rank_from_queryAPI" scope="Method" />
+    <configuration name="CardContainerTest.test_it_can_create_an_container" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\CardContainerTest" file="$PROJECT_DIR$/tests/Unit/CardContainerTest.php" method="test_it_can_create_an_container" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="tests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner directory="$PROJECT_DIR$/tests" />
+    <configuration name="ListingFilterTest.test_it_can_filter_by_tag" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\ListingFilterTest" file="$PROJECT_DIR$/tests/Unit/ListingFilterTest.php" method="test_it_can_filter_by_tag" scope="Method" />
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="PHPUnit.tests" />
-      <item itemvalue="PHPUnit.ListingRequestsTest.test_it_can_get_a_json_response_from_queryAPI" />
-      <item itemvalue="PHPUnit.ListingRequestsTest" />
-      <item itemvalue="PHPUnit.ListingRequestsTest.test_it_returns_ordered_rank_from_queryAPI" />
-      <item itemvalue="PHPUnit.ListingContainerTest.it_returns_listings_with_a_rank" />
+      <item itemvalue="PHPUnit.APICardRequestTest" />
+      <item itemvalue="PHPUnit.CardContainerTest" />
+      <item itemvalue="PHPUnit.APICardRequestTest.test_it_returns_json_response" />
+      <item itemvalue="PHPUnit.CardContainerTest.test_it_can_create_an_container" />
+      <item itemvalue="PHPUnit.ListingFilterTest.test_it_can_filter_by_tag" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.ListingContainerTest.it_returns_listings_with_a_rank" />
-        <item itemvalue="PHPUnit.ListingRequestsTest" />
-        <item itemvalue="PHPUnit.ListingRequestsTest.test_it_can_get_a_json_response_from_queryAPI" />
-        <item itemvalue="PHPUnit.ListingRequestsTest.test_it_returns_ordered_rank_from_queryAPI" />
-        <item itemvalue="PHPUnit.tests" />
+        <item itemvalue="PHPUnit.ListingFilterTest.test_it_can_filter_by_tag" />
+        <item itemvalue="PHPUnit.CardContainerTest.test_it_can_create_an_container" />
+        <item itemvalue="PHPUnit.APICardRequestTest.test_it_returns_json_response" />
+        <item itemvalue="PHPUnit.CardContainerTest" />
+        <item itemvalue="PHPUnit.APICardRequestTest" />
       </list>
     </recent_temporary>
   </component>
@@ -662,14 +679,7 @@
       <workItem from="1557498148145" duration="5862000" />
       <workItem from="1557529160342" duration="8938000" />
       <workItem from="1557578372760" duration="24768000" />
-      <workItem from="1557658735620" duration="402000" />
-    </task>
-    <task id="LOCAL-00019" summary="Images from Zurina">
-      <created>1545075757494</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1545075757494</updated>
+      <workItem from="1557658735620" duration="11951000" />
     </task>
     <task id="LOCAL-00020" summary="Images from Zurina">
       <created>1545075835646</created>
@@ -1007,7 +1017,14 @@
       <option name="project" value="LOCAL" />
       <updated>1557659195808</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="Compiled vue for frontend.">
+      <created>1557659251903</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1557659251904</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="marky291" />
@@ -1016,40 +1033,40 @@
     </servers>
   </component>
   <component name="TestHistory">
-    <history-entry file="ListingRequestsTest_test_it_returns_ordered_rank_from_queryAPI - 2019.05.11 at 22h 27m 01s.xml">
-      <configuration name="ListingRequestsTest.test_it_returns_ordered_rank_from_queryAPI" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="ListingFilterTest_test_it_can_filter_by_tag - 2019.05.12 at 22h 59m 30s.xml">
+      <configuration name="ListingFilterTest.test_it_can_filter_by_tag" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="ListingRequestsTest_test_it_returns_ordered_rank_from_queryAPI - 2019.05.11 at 22h 27m 20s.xml">
-      <configuration name="ListingRequestsTest.test_it_returns_ordered_rank_from_queryAPI" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="ListingFilterTest_test_it_can_filter_by_tag - 2019.05.12 at 22h 59m 48s.xml">
+      <configuration name="ListingFilterTest.test_it_can_filter_by_tag" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="ListingRequestsTest_test_it_returns_ordered_rank_from_queryAPI - 2019.05.11 at 22h 27m 28s.xml">
-      <configuration name="ListingRequestsTest.test_it_returns_ordered_rank_from_queryAPI" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="ListingFilterTest_test_it_can_filter_by_tag - 2019.05.12 at 23h 00m 51s.xml">
+      <configuration name="ListingFilterTest.test_it_can_filter_by_tag" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="ListingRequestsTest - 2019.05.11 at 22h 27m 39s.xml">
-      <configuration name="ListingRequestsTest" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="ListingFilterTest_test_it_can_filter_by_tag - 2019.05.12 at 23h 01m 07s.xml">
+      <configuration name="ListingFilterTest.test_it_can_filter_by_tag" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="ListingRequestsTest - 2019.05.11 at 22h 27m 52s.xml">
-      <configuration name="ListingRequestsTest" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="ListingFilterTest_test_it_can_filter_by_tag - 2019.05.12 at 23h 01m 12s.xml">
+      <configuration name="ListingFilterTest.test_it_can_filter_by_tag" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="ListingRequestsTest - 2019.05.11 at 22h 28m 04s.xml">
-      <configuration name="ListingRequestsTest" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="ListingFilterTest_test_it_can_filter_by_tag - 2019.05.12 at 23h 01m 17s.xml">
+      <configuration name="ListingFilterTest.test_it_can_filter_by_tag" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="ListingRequestsTest_test_it_can_get_a_json_response_from_queryAPI - 2019.05.11 at 22h 28m 46s.xml">
-      <configuration name="ListingRequestsTest.test_it_can_get_a_json_response_from_queryAPI" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="ListingFilterTest_test_it_can_filter_by_tag - 2019.05.12 at 23h 01m 51s.xml">
+      <configuration name="ListingFilterTest.test_it_can_filter_by_tag" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="ListingRequestsTest - 2019.05.11 at 22h 28m 51s.xml">
-      <configuration name="ListingRequestsTest" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="ListingFilterTest_test_it_can_filter_by_tag - 2019.05.12 at 23h 02m 21s.xml">
+      <configuration name="ListingFilterTest.test_it_can_filter_by_tag" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="ListingContainerTest_it_returns_listings_with_a_rank - 2019.05.11 at 22h 31m 39s.xml">
-      <configuration name="ListingContainerTest.it_returns_listings_with_a_rank" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="ListingFilterTest_test_it_can_filter_by_tag - 2019.05.12 at 23h 02m 27s.xml">
+      <configuration name="ListingFilterTest.test_it_can_filter_by_tag" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="ListingContainerTest_it_returns_listings_with_a_rank - 2019.05.11 at 22h 31m 43s.xml">
-      <configuration name="ListingContainerTest.it_returns_listings_with_a_rank" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="ListingFilterTest_test_it_can_filter_by_tag - 2019.05.12 at 23h 02m 37s.xml">
+      <configuration name="ListingFilterTest.test_it_can_filter_by_tag" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
     <option name="enabled" value="true" />
-    <option name="totallyTimeSpent" value="540314000" />
+    <option name="totallyTimeSpent" value="551863000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1064,8 +1081,8 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8484252" visible="true" weight="0.18553008" />
-      <window_info id="Structure" order="1" sideWeight="0.1515748" side_tool="true" weight="0.19148937" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8455008" visible="true" weight="0.18553008" />
+      <window_info id="Structure" order="1" sideWeight="0.15449916" side_tool="true" visible="true" weight="0.18553008" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1079,7 +1096,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32923833" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3280098" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.3855508" side_tool="true" weight="0.29759037" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4914163" visible="true" weight="0.27641279" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4914163" visible="true" weight="0.27641279" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.3280098" />
       <window_info anchor="bottom" id="File Transfer" order="14" weight="0.47710842" />
@@ -1102,7 +1119,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/vendor/adamwathan/laravel-preset" />
     </ignored-roots>
-    <MESSAGE value="Listings now display points, for admin debugging.&#10;Review system with scoring added, with test suite." />
     <MESSAGE value="Test suite for showing a listing, listing resource controller created." />
     <MESSAGE value="Average rating score out of 5." />
     <MESSAGE value="Flash messaging with Vue, and listing scores/averages." />
@@ -1127,115 +1143,15 @@
     <MESSAGE value="QueryController returns correct json response (ordering)" />
     <MESSAGE value="Remove debugging code (forget cache on every load)" />
     <MESSAGE value="Remove date from card indices" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove date from card indices" />
+    <MESSAGE value="Compiled vue for frontend." />
+    <option name="LAST_COMMIT_MESSAGE" value="Compiled vue for frontend." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/assets/cards.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="59" column="117" selection-start-line="59" selection-start-column="50" selection-end-line="59" selection-end-column="117" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/dist/css/eadev.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161826">
-          <caret line="7706" column="1" selection-start-line="7706" selection-start-column="1" selection-end-line="7706" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/_buttons.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/_sidebar.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/fake/listings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/_colours.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/_navbar.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/_tailwindsnippets.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/_tailwind-directives.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack.mix.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tailwind.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="974" column="16" selection-start-line="974" selection-start-column="16" selection-end-line="974" selection-end-column="16" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/sass/_cards.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
         </state>
       </provider>
     </entry>
@@ -1284,13 +1200,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-815">
           <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/factories/UserFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10">
-          <caret line="23" column="3" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -1360,46 +1269,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ListingController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-690">
-          <caret line="28" column="40" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/listing/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-879">
-          <caret line="77" column="32" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="32" />
-          <folding>
-            <marker date="1557605702080" expanded="true" signature="392:1014" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Collection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ec3e80a4-3d9d-451e-9fff-a7da777b876a/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/ListingContainerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="72" column="67" selection-start-line="72" selection-start-column="63" selection-end-line="72" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listings/ListingFilter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1575">
-          <caret line="81" column="43" selection-start-line="81" selection-start-column="43" selection-end-line="81" selection-end-column="43" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/factories/ListingFactory.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1411,16 +1282,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="966">
-          <caret line="54" column="107" selection-start-line="54" selection-start-column="107" selection-end-line="54" selection-end-column="107" />
-          <folding>
-            <element signature="e#7#34#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/Unit/ListingTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -1428,72 +1289,242 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Unit/ListingFilterTest.php">
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Container/Container.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="54" column="40" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
+        <state relative-caret-position="162">
+          <caret line="765" selection-start-line="765" selection-end-line="765" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="294">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Collection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="341" lean-forward="true" selection-start-line="341" selection-end-line="341" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listings/AddListingToContainer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="39" column="19" lean-forward="true" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="58" column="56" selection-start-line="58" selection-start-column="56" selection-end-line="58" selection-end-column="56" />
+          <folding>
+            <element signature="e#7#34#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/ListingContainerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/CardContainerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+          <folding>
+            <element signature="e#32#44#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Listings/Listing.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1264">
-          <caret line="109" column="71" selection-start-line="109" selection-start-column="71" selection-end-line="109" selection-end-column="71" />
+        <state relative-caret-position="317">
+          <caret line="183" column="42" selection-start-line="183" selection-start-column="42" selection-end-line="183" selection-end-column="42" />
           <folding>
             <element signature="e#32#59#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listings/AddListingToContainer.php">
+    <entry file="file://$PROJECT_DIR$/tests/Feature/APICardRequestTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-133">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="391">
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+          <folding>
+            <element signature="e#34#84#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/CardController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ListingController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listings/ListingCacheContainer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="30" column="63" selection-start-line="30" selection-start-column="62" selection-end-line="30" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/TestCase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="39" column="81" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/factories/UserFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="54" column="45" lean-forward="true" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasTimestamps.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="670">
+          <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Tag.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Unit/ListingFilterTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="156" column="18" selection-start-line="156" selection-start-column="18" selection-end-line="156" selection-end-column="18" />
+          <folding>
+            <element signature="e#30#55#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/CacheServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listings/ListingServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="37" column="7" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
+          <folding>
+            <element signature="e#32#42#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/RouteServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="67" column="50" selection-start-line="67" selection-start-column="50" selection-end-line="67" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/CollectionServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="17" selection-start-line="17" selection-end-line="21" selection-end-column="11" />
+          <folding>
+            <element signature="e#33#69#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/EventServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-800">
+          <caret line="2" column="40" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listings/CardCacheContainer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-124">
+          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+          <folding>
+            <element signature="e#33#45#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listings/ListingFilter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="90" column="7" selection-start-line="90" selection-start-column="7" selection-end-line="90" selection-end-column="7" />
+          <folding>
+            <element signature="e#119#131#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/QueryController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-75">
-          <caret line="23" column="6" lean-forward="true" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+        <state relative-caret-position="309">
+          <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
           <folding>
             <element signature="e#40#65#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listings/CacheListingsContainer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listings/ListingServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="41" column="9" lean-forward="true" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/FilteredListingSearch.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="52" column="20" lean-forward="true" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
+        <state relative-caret-position="-603">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue">
+    <entry file="file://$PROJECT_DIR$/resources/views/listing/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+        <state relative-caret-position="262">
+          <caret line="135" selection-start-line="135" selection-end-line="135" />
+          <folding>
+            <marker date="1557699365703" expanded="true" signature="392:1014" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

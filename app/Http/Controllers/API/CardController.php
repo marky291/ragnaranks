@@ -1,40 +1,38 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
-use App\Listings\Listing;
-use App\Listings\ListingFilter;
-use App\Tag;
 use Illuminate\Http\Request;
 
-/**
- * Class ListingController
- *
- * @package App\Http\Controllers
- */
-class ListingController extends Controller
+use App\Http\Controllers\Controller;
+
+class CardController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($rate = 'all', $mode = 'all', $tag, $sorting = 'all', $limit = 25)
     {
-        return view('listing.index')->with([
-            'listings' => app('listings'),
-            'tags' => Tag::all(),
-        ]);
-    }
+        $listings = app('cards');
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        if ($rate)
+        {
+            $listings = $listings->filterGroup($rate);
+        }
+
+        if ($mode)
+        {
+            $listings = $listings->filterMode($mode);
+        }
+
+        if ($sort)
+        {
+            $listings = $listings->filterSort($sort);
+        }
+
+        return response()->json(array_values($listings->toArray()));
     }
 
     /**
@@ -51,21 +49,10 @@ class ListingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Listing $listing
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Listing $listing)
-    {
-        return view('listing.show')->with('listing', $listing);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function show($id)
     {
         //
     }

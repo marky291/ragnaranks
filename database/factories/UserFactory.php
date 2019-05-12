@@ -47,6 +47,15 @@ $factory->define(App\Mode::class, function (Faker $faker) {
     ];
 });
 
+$factory->define(\App\Tag::class, function (Faker $faker) {
+    $name = $faker->colorName;
+    return [
+        'tag' => str_slug($name),
+        'name' => $name,
+        'description' => $faker->sentence(7),
+    ];
+});
+
 $factory->define(\App\Interactions\Click::class, function (Faker $faker) {
     return [
         'ip_address' => $faker->ipv4,

@@ -13,6 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::apiResources([
+    'cards' => 'CardController',
+]);
+
+//Route::get('cards')->uses('App/Listings/SomethingController');
+
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    return $request->user();
 //});

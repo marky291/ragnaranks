@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Listings\Listing;
 use App\Listings\ListingFilter;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\View\View;
 
 /**
  * Class QueryController
@@ -15,33 +17,38 @@ class QueryController extends Controller
     /**
      * Form Controller search as part of our "Im Looking for" selects.
      *
-     * @param string $exp_group
-     * @param string $mode
-     * @param string $sort
-     * @param string $orderBy
-     *
-     * @throws \Exception
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @param string $serverType
+     * @param string $serverMode
+     * @param string $withTag
+     * @param string $sortByAttribute
+     * @param int $paginate
+     * @return Factory|View
      */
-    public function index($exp_group = "all", $mode = "all", $sort = "any", $orderBy = 'desc')
+    public function index($serverType = 'all', $serverMode = 'all', $withTag = 'all', $sortByAttribute = 'any', $paginate = 25)
     {
         $listings = app('listings');
 
-        if ($exp_group)
+        if ($serverType)
         {
-            $listings = $listings->filterGroup($exp_group);
+            $listings = $listings->filterGroup($serverType);
         }
 
-        if ($mode)
+        if ($serverMode)
         {
-            $listings = $listings->filterMode($mode);
+            $listings = $listings->filterMode($serverMode);
         }
 
-        if ($sort)
+        if ($withTag)
         {
-            $listings = $listings->filterSort($sort);
+            $listings = $listings->filterTag($withTag);
         }
+
+        if ($sortByAttribute)
+        {
+            $listings = $listings->filterSort($sortByAttribute);
+        }
+
+        $listings->take($paginate);
 
         return response()->json(array_values($listings->toArray()));
     }

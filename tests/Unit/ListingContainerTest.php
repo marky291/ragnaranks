@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use App\Interactions\Click;
 use App\Listings\AddListingToContainer;
-use App\Listings\CacheListingsContainer;
+use App\Listings\ListingCacheContainer;
 use App\Listings\Listing;
 use App\Interactions\Vote;
 use Illuminate\Support\Facades\Queue;
@@ -78,7 +78,7 @@ class ListingContainerTest extends TestCase
      */
     public function it_builds_the_cache_when_no_cache_exists()
     {
-        $this->expectsJobs(CacheListingsContainer::class);
+        $this->expectsJobs(ListingCacheContainer::class);
 
         factory(Listing::class, 5)->create();
 

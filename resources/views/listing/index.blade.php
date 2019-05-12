@@ -104,7 +104,7 @@
                             <h3>Filtered Search</h3>
                         </div>
 
-                        <filtered-search></filtered-search>
+                        <filtered-search :tags="{{ $tags }}"></filtered-search>
 
                         <div class="heading">
                             <h3>Newest Additions</h3>
@@ -128,6 +128,16 @@
                                 </div>
                             @endforeach
                         </div>
+
+                        <div class="social content shadow-inner bg-transparent p-3 tw-text-grey tw-text-4xl d-flex text-center">
+                            <div class="tw-flex-1">
+                                <i class="fab fa-facebook"></i>
+                            </div>
+                            <div class="tw-flex-1">
+                                <i class="fab fa-reddit"></i>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 

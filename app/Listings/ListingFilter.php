@@ -8,6 +8,7 @@
 
 namespace App\Listings;
 
+use App\Tag;
 use App\User;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -71,12 +72,29 @@ class ListingFilter extends Collection
     }
 
     /**
+     * Filter out listings that have a specific tag.
+     *
+     * @param string $tag
+     * @return ListingFilter
+     */
+    public function filterTag(string $tag)
+    {
+        if (in_array($tag, Tag::all()->pluck('tag')->toArray(), true)) {
+            return $this->filter(static function(Listing $listing) use ($tag) {
+                return $listing->tags->contains('tag', $tag);
+            });
+        }
+
+        return $this;
+    }
+
+    /**
      * Sort the filter based on a key entry.
      *
      * @param string $key
      * @return $this|ListingFilter
      */
-    public function filterSort(string $key = "any")
+    public function filterSort(string $key = "all")
     {
         if (in_array($key, ['episode', 'created_at', 'votes_count', 'clicks_count'])) {
             return $this->sortByDesc($key);

@@ -37,4 +37,4 @@ Route::resource('listing.votes', 'VoteController')->only(['store']);
 Route::resource('listing.clicks', 'ClickController')->only(['store']);
 
 // card filtering system.
-Route::get('/servers/{exp_group}/{mode}/{sort}/{orderBy}')->uses('QueryController@index')->name('filter.query');
+Route::get('/servers/{exp_group}/{mode}/{tag}/{sort}/{limit}')->uses('QueryController@index')->name('filter.query');

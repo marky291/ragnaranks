@@ -10,7 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Support\Facades\Cache;
 
-class CacheListingsContainer implements ShouldQueue
+class ListingCacheContainer implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -23,19 +23,17 @@ class CacheListingsContainer implements ShouldQueue
      */
     public function handle()
     {
-        Cache::rememberForever('listings', function()
+        return cache()->rememberForever('listings', static function()
         {
             $listings = Listing::query()->withCount(['votes', 'clicks'])->with(['mode', 'tags'])->get();
 
-            $listings = $listings->sortByDesc(function(Listing $listing)  {
-                return $listing->points;
-            });
-
-            $listings = $listings->values()->each(function (Listing $listing, int $key) {
-                $listing->setAttribute('rank', $key + 1);
-            });
-
-            return $listings;
+            return $listings->values()
+                ->sortByDesc(static function(Listing $listing) {
+                    return $listing->points;
+                })->each(static function (Listing $listing, int $key) {
+                    $listing->setAttribute('rank', $key + 1);
+                    $listing->setAttribute('type', $listing->expRateTitle);
+                });
         });
     }
 }

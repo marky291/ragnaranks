@@ -1937,26 +1937,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
     this.emitFilterEvent();
   },
+  props: ['tags'],
   data: function data() {
     return {
-      rate: 'all',
+      type: 'all',
       mode: 'any',
       sort: 'rank',
-      // not implemented
-      tag: '',
-      quantity: '25'
+      tag: 'all',
+      paginate: '25'
     };
   },
   methods: {
     getUrl: function getUrl() {
-      return "servers/" + this.rate + "/" + this.mode + "/" + this.sort + "/desc";
+      return "servers/" + this.type + "/" + this.mode + "/" + this.tag + "/" + this.sort + "/" + this.paginate;
     },
     filterChanged: function filterChanged() {
       console.log('Sending Query: ' + this.getUrl());
@@ -42235,7 +42232,8 @@ var render = function() {
                 _c("div", { staticClass: "flex-fill pr-3" }, [
                   _c("p", { staticClass: "font-weight-bold mb-0" }, [
                     _vm._v(
-                      "N/A (" +
+                      _vm._s(listing["type"]) +
+                        " (" +
                         _vm._s(listing["configs"]["base_exp_rate"]) +
                         "x/" +
                         _vm._s(listing["configs"]["job_exp_rate"]) +
@@ -42306,8 +42304,8 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.rate,
-                expression: "rate"
+                value: _vm.type,
+                expression: "type"
               }
             ],
             staticClass:
@@ -42323,7 +42321,7 @@ var render = function() {
                       var val = "_value" in o ? o._value : o.value
                       return val
                     })
-                  _vm.rate = $event.target.multiple
+                  _vm.type = $event.target.multiple
                     ? $$selectedVal
                     : $$selectedVal[0]
                 },
@@ -42410,26 +42408,47 @@ var render = function() {
         _c(
           "select",
           {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.tag,
+                expression: "tag"
+              }
+            ],
             staticClass:
-              "mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none"
+              "mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none",
+            on: {
+              change: [
+                function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.tag = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+                _vm.filterChanged
+              ]
+            }
           },
           [
-            _c(
-              "option",
-              {
-                attrs: { value: "all" },
-                on: { change: _vm.filterChanged },
-                model: {
-                  value: _vm.tag,
-                  callback: function($$v) {
-                    _vm.tag = $$v
-                  },
-                  expression: "tag"
-                }
-              },
-              [_vm._v("With Any Tags")]
-            )
-          ]
+            _c("option", { attrs: { value: "all", selected: "" } }, [
+              _vm._v("With Any Tags")
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.tags, function(tag) {
+              return _c("option", { domProps: { value: tag["tag"] } }, [
+                _vm._v(_vm._s(tag["name"]))
+              ])
+            })
+          ],
+          2
         ),
         _vm._v(" "),
         _c(
@@ -42486,8 +42505,8 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.quantity,
-                expression: "quantity"
+                value: _vm.paginate,
+                expression: "paginate"
               }
             ],
             staticClass:
@@ -42503,7 +42522,7 @@ var render = function() {
                       var val = "_value" in o ? o._value : o.value
                       return val
                     })
-                  _vm.quantity = $event.target.multiple
+                  _vm.paginate = $event.target.multiple
                     ? $$selectedVal
                     : $$selectedVal[0]
                 },

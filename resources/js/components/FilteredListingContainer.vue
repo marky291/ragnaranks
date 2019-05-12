@@ -31,7 +31,7 @@
                             {{ listing['rank'] }}
                         </div>
                         <div class="flex-fill pr-3">
-                            <p class="font-weight-bold mb-0">N/A ({{ listing['configs']['base_exp_rate'] }}x/{{ listing['configs']['job_exp_rate']}}x)</p>
+                            <p class="font-weight-bold mb-0">{{ listing['type'] }} ({{ listing['configs']['base_exp_rate'] }}x/{{ listing['configs']['job_exp_rate']}}x)</p>
                             <p class="text-muted">{{ listing['description']}}</p>
                         </div>
                         <button type="button" class="btn btn-blue btn-sm text-white" style="min-width: 60px;">View <i class="fas fa-long-arrow-alt-right"></i></button>

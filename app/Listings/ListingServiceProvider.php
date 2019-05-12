@@ -2,7 +2,7 @@
 
 namespace App\Listings;
 
-use Illuminate\Support\Facades\Cache;
+use Cache;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -38,13 +38,14 @@ class ListingServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('listings', function($app)
-        {
-            if (!Cache::has('listings')) {
-                CacheListingsContainer::dispatchNow();
-            }
+        // cards are what the user browses on front page. [cached]
+        $this->app->singleton('cards', static function () {
+            return CardCacheContainer::dispatchNow();
+        });
 
-            return Cache::get('listings');
+        // listings are everything... [cached]
+        $this->app->singleton('listings', static function() {
+            return ListingCacheContainer::dispatchNow();
         });
     }
 }
