@@ -43,6 +43,6 @@ class QueryController extends Controller
             $listings = $listings->filterSort($sort);
         }
 
-        return response()->json($listings);
+        return response()->json(array_values($listings->toArray()));
     }
 }
