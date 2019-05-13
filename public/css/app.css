@@ -17084,7 +17084,7 @@ a.text-dark:focus {
 
 footer {
   padding-top: 7rem;
-  background: radial-gradient(circle at 1% 1%, #604ea6, #3b3592);
+  background: linear-gradient(#6719a5 0%, #651aa6 5.83%, #4e20ad 100%);
 }
 
 footer h2 {

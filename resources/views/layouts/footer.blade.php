@@ -1,15 +1,14 @@
+x
+    <div class="website-banner container text-uppercase text-left mb-4">
+        <h1 class="text-transparent">
+            <img src="{{ asset('images/footer-banner.png') }}" alt="">
+        </h1>
+    </div>
 
     <footer class="shadow-inner">
-
-        <div class="website-banner container text-uppercase text-left mb-4">
-            <h1 class="text-transparent">
-                <img src="{{ asset('images/footer-banner.png') }}" alt="">
-            </h1>
-        </div>
-
         <div class="container d-flex mb-5">
             <div class="w-50 mr-5">
-                <h2 class="pb-1">RagnaRanks</h2>
+                <h2 class="pb-1">Ragnaranks.com</h2>
                 <p>
                     Our web-service is designed in a way that allows you to easily find the server
                     you are searching for in the box of never ending server advertisements, we accomplish this
