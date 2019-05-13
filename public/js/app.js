@@ -1869,11 +1869,15 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.listings = this.initialListings;
   },
+  methods: {
+    visit: function visit(slug) {
+      window.location.href = '/listing/' + slug;
+    }
+  },
   mounted: function mounted() {
     var _this = this;
 
     this.$root.$on('filter:changed', function (param) {
-      console.log('Received Query: ' + param);
       _this.listings = null;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(param).then(function (response) {
         return _this.listings = response.data;
@@ -1956,7 +1960,6 @@ __webpack_require__.r(__webpack_exports__);
       return "servers/" + this.type + "/" + this.mode + "/" + this.tag + "/" + this.sort + "/" + this.paginate;
     },
     filterChanged: function filterChanged() {
-      console.log('Sending Query: ' + this.getUrl());
       this.emitFilterEvent();
     },
     emitFilterEvent: function emitFilterEvent() {
@@ -42251,7 +42254,12 @@ var render = function() {
                   {
                     staticClass: "btn btn-blue btn-sm text-white",
                     staticStyle: { "min-width": "60px" },
-                    attrs: { type: "button" }
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        _vm.visit(listing["slug"])
+                      }
+                    }
                   },
                   [
                     _vm._v("View "),

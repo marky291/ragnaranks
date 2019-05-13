@@ -16958,7 +16958,7 @@ a.text-dark:focus {
 }
 
 .server-card {
-  background: white;
+  background: rgba(255, 255, 255, .96);
 }
 
 .server-card-body {
@@ -16971,7 +16971,7 @@ a.text-dark:focus {
 }
 
 .server-card-head.image {
-  background-position: right;
+  background-position: center;
   background-size: cover;
 }
 
@@ -17023,6 +17023,17 @@ a.text-dark:focus {
 }
 
 .btn-blue:hover {
+  background-color: #6917a5;
+  border-color: #6817a3;
+}
+
+.btn-purple {
+  color: white;
+  background-color: #6c18a4;
+  border-color: #6b18a2;
+}
+
+.btn-purple:hover {
   background-color: #6917a5;
   border-color: #6817a3;
 }
@@ -17083,8 +17094,10 @@ a.text-dark:focus {
 }
 
 footer {
+  border-top: 9px solid #532eb4;
   padding-top: 7rem;
-  background: linear-gradient(#6719a5 0%, #651aa6 5.83%, #4e20ad 100%);
+  background: linear-gradient(90deg, #4822af 0%, #4822af 100%), url(/img/overlay-stripe.jpg) !important;
+  background-blend-mode: overlay;
 }
 
 footer h2 {
@@ -17108,7 +17121,7 @@ footer .icon {
 }
 
 footer #copyrights {
-  background-color: rgba(52, 44, 115, .28);
+  background-color: #4721ab;
   font-size: .9rem;
   margin-top: 4rem;
   padding-top: 1rem;

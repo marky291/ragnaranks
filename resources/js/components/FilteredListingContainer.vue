@@ -34,7 +34,7 @@
                             <p class="font-weight-bold mb-0">{{ listing['type'] }} ({{ listing['configs']['base_exp_rate'] }}x/{{ listing['configs']['job_exp_rate']}}x)</p>
                             <p class="text-muted">{{ listing['description']}}</p>
                         </div>
-                        <button type="button" class="btn btn-blue btn-sm text-white" style="min-width: 60px;">View <i class="fas fa-long-arrow-alt-right"></i></button>
+                        <button @click="visit(listing['slug'])" type="button" class="btn btn-blue btn-sm text-white" style="min-width: 60px;">View <i class="fas fa-long-arrow-alt-right"></i></button>
                     </div>
                 </div>
             </div>
@@ -57,9 +57,13 @@
         created: function(){
             this.listings = this.initialListings;
         },
+        methods: {
+            visit: function(slug) {
+                window.location.href = '/listing/' + slug;
+            },
+        },
         mounted() {
             this.$root.$on('filter:changed', (param) => {
-                console.log('Received Query: ' + param);
                 this.listings = null;
                 axios.get(param).then(response => (this.listings = response.data)).then(function(error){
                     console.log(error);

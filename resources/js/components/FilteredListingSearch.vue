@@ -63,7 +63,6 @@
                 return "servers/" + this.type + "/" + this.mode + "/"  + this.tag + "/" + this.sort + "/" + this.paginate;
             },
             filterChanged: function() {
-                console.log('Sending Query: ' + this.getUrl());
                 this.emitFilterEvent();
             },
             emitFilterEvent: function() {

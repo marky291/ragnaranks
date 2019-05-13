@@ -2,7 +2,7 @@ $color-blue: #10a9f5;
 
 .server-card {
   //width: 750px;
-  background: white;
+  background: rgba(255, 255, 255, 0.96);
 }
 .server-card-body  {
   /*padding: 15px;*/
@@ -13,7 +13,7 @@ $color-blue: #10a9f5;
 
 }
 .server-card-head.image {
-  background-position: right;
+  background-position: center;
   background-size: cover;
 }
 .server-card-head.overlap{

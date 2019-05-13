@@ -1,8 +1,9 @@
 
   footer {
+    border-top: 9px solid #532eb4;
     padding-top: 7rem;
-    //background: radial-gradient(circle at 1% 1%,#604ea6, #3b3592);
-    background: linear-gradient(#6719a5 0%, #651aa6 5.83%, #4e20ad 100%);
+    background: linear-gradient(90deg, #4822af 0%, #4822af 100%), url(/img/overlay-stripe.jpg) !important;
+    background-blend-mode: overlay;
 
 
     h2 {
@@ -28,7 +29,7 @@
     }
 
     #copyrights {
-      background-color: rgba(52, 44, 115, 0.28);
+      background-color: rgb(71, 33, 171);
       font-size:0.9rem;
       margin-top:4rem;
       padding-top: 1rem;
