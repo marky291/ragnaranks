@@ -45,7 +45,7 @@ class ListingRequestsTest extends TestCase
     {
         $listing = $this->createListing([], 0, 0);
 
-        $response = $this->json('get','https://ragnaranks.com/servers/all/any/all/desc');
+        $response = $this->json('get','/servers/all/all/all/all/1');
 
         $response->assertJson([['name' => $listing->name]]);
     }
@@ -55,7 +55,7 @@ class ListingRequestsTest extends TestCase
         $listing2 = $this->createListing(['name' => 'last'], 0, 0);
         $listing1 = $this->createListing(['name' => 'first'],  5, 5);
 
-        $response = $this->json('get',filter_query('all', 'any', 'rank', 'desc'));
+        $response = $this->json('get', '/servers/all/all/all/rank/2');
 
         $collection = collect($response->original);
 

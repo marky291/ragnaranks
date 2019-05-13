@@ -94,7 +94,7 @@ class ListingFilter extends Collection
      * @param string $key
      * @return $this|ListingFilter
      */
-    public function filterSort(string $key = "all")
+    public function filterSort(string $key = 'all')
     {
         if (in_array($key, ['episode', 'created_at', 'votes_count', 'clicks_count'])) {
             return $this->sortByDesc($key);

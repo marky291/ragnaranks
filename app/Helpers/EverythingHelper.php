@@ -9,9 +9,9 @@
  * @param string $orderBy
  * @return string
  */
-function filter_query($exp_group = "all", $mode = "any", $sorting = "all", $orderBy = 'desc')
+function filter_query($exp_group = "all", $mode = "any", $tags = "any", $sorting = "all", $paginate = 7)
 {
-    return route('filter.query', [$exp_group, $mode, $sorting, $orderBy]);
+    return route('filter.query', [$exp_group, $mode, $tags, $sorting, $paginate]);
 }
 
 /**

@@ -29,7 +29,7 @@ abstract class TestCase extends BaseTestCase
         $this->be($user);
     }
 
-    public function createListing(array $attributes, int $votes_count, int $clicks_count, int $tag_count)
+    public function createListing(array $attributes, int $votes_count, int $clicks_count, int $tag_count = 0)
     {
         $listing = factory(Listing::class)->create($attributes);
 
