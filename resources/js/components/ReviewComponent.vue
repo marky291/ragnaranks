@@ -11,7 +11,7 @@
                     <small>Posted 22 Hours ago</small>
                 </div>
                 <div class="description">
-                    {{ item.message }}
+                    <p>{{ item.message }}</p>
                 </div>
                 <div class="scores d-flex flex-row">
                 <div :class="ScoreScale(item.donation_score)" class="score">

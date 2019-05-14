@@ -151,7 +151,7 @@
                                             <div class="list col-4 d-flex flex-column">
                                                 @include('listing.partial.config', ['name'=>'Max Basic Stats', 'type' => 'stat',  'value' => $listing->configs['max_stats']])
                                                 @include('listing.partial.config', ['name'=>'Max ASPD', 'type' => 'stat',  'value' => $listing->configs['max_aspd']])
-                                                @include('listing.partial.config', ['name'=>'Instant Cast Stat', 'type' => 'stat',  'value' => 'Dex: '.$listing->configs['instant_cast_stat']])
+                                                @include('listing.partial.config', ['name'=>'Instant Cast Stat', 'type' => 'stat',  'value' => $listing->configs['instant_cast_stat']])
                                             </div>
                                             <div class="list col-4 d-flex flex-column">
                                                 @include('listing.partial.config', ['name'=>'Drop Base', 'type' => 'drop-base',  'value' => $listing->configs['drop_base_rate']])
@@ -172,10 +172,10 @@
                                             <div class="row no-gutters">
                                                 <scoreboards inline-template>
                                                     <div class="d-flex">
-                                                        <scoreboard title="Donation Balance" description="Non-Donators can compete with Donators." :score="avg_donation_score"></scoreboard>
-                                                        <scoreboard title="Update Balance" description="Updates improve gameplay and balance each change." :score="avg_update_score"></scoreboard>
-                                                        <scoreboard title="Class Balance" description="Classes are balanced against other classes." :score="avg_class_score"></scoreboard>
-                                                        <scoreboard title="Item Balance" description="Item stats are fair and thought out." :score="avg_item_score"></scoreboard>
+                                                        <scoreboard title="Donations" description="Non-Donators can compete with Donators." :score="avg_donation_score"></scoreboard>
+                                                        <scoreboard title="Updates" description="Improvements made each update." :score="avg_update_score"></scoreboard>
+                                                        <scoreboard title="Classes" description="Classes are balanced against other classes." :score="avg_class_score"></scoreboard>
+                                                        <scoreboard title="Items" description="Item stats are fair and well thought out." :score="avg_item_score"></scoreboard>
                                                     </div>
                                                 </scoreboards>
                                             </div>
@@ -187,7 +187,7 @@
                                                     <div class="d-flex">
                                                         <scoreboard title="Support" description="Non-Donators can compete with Donators." :score="avg_support_score"></scoreboard>
                                                         <scoreboard title="Hosting" description="The availability and ping is playable and fun." :score="avg_hosting_score"></scoreboard>
-                                                        <scoreboard title="Content" description="There is much to do in game and frequently new stuff added." :score="avg_content_score"></scoreboard>
+                                                        <scoreboard title="Content" description="There is much to do and progress upon." :score="avg_content_score"></scoreboard>
                                                         <scoreboard title="Events" description="Rewards are good and events are regular." :score="avg_event_score"></scoreboard>
                                                     </div>
                                                 </scoreboards></div>
@@ -198,14 +198,7 @@
                                     <div class="container px-5 pb-5">
                                         <h3 class="heading mb-4 text-dark heading-underline">Screenshot Previews</h3>
                                         <div class="mb-3">
-                                            <carousel :autoplay="true" :pagination-enabled="false" :navigation-enabled="true" :loop="true">
-                                                <slide>
-                                                    <img width="500" src="http://i12.photobucket.com/albums/a213/Ademist/screenXiLeROPK327-1.jpg" alt="">
-                                                </slide>
-                                                <slide>
-                                                    <img width="500" src="https://i.imgur.com/HqQckm8.jpg" alt="">
-                                                </slide>
-                                            </carousel>
+                                            Screenshots
                                         </div>
                                     </div>
                                 </section>

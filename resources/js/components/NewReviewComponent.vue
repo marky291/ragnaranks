@@ -1,98 +1,18 @@
 <template>
-    <div class="">
-        <form @submit.prevent="addReview" @keydown="errors.clear($event.target.name)">
-            <div class="row">
-                <div class="col-3">
-                    <div class="form-group">
-                        <label for="donation_score">Donation Score</label>
-                        <select class="form-control" name="donation_score" id="donation_score" v-model="form.donation_score">
-                            <option v-for="option in options" v-bind:value="option.value">
-                                {{ option.text }}
-                            </option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="form-group">
-                        <label for="update_score">Update Score</label>
-                        <select class="form-control" name="update_score" id="update_score" v-model="form.update_score">
-                            <option v-for="option in options" v-bind:value="option.value">
-                                {{ option.text }}
-                            </option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="form-group">
-                        <label for="class_score">Class Score</label>
-                        <select class="form-control" name="class_score" id="class_score" v-model="form.class_score">
-                            <option v-for="option in options" v-bind:value="option.value">
-                                {{ option.text }}
-                            </option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="form-group">
-                        <label for="item_score">Item Score</label>
-                        <select class="form-control" name="item_score" id="item_score" v-model="form.item_score">
-                            <option v-for="option in options" v-bind:value="option.value">
-                                {{ option.text }}
-                            </option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-3">
-                    <div class="form-group">
-                        <label for="support_score">Support Score</label>
-                        <select class="form-control" name="support_score" id="support_score" v-model="form.support_score">
-                            <option v-for="option in options" v-bind:value="option.value">
-                                {{ option.text }}
-                            </option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="form-group">
-                        <label for="hosting_score">Hosting Score</label>
-                        <select class="form-control" name="hosting_score" id="hosting_score"  v-model="form.hosting_score">
-                            <option v-for="option in options" v-bind:value="option.value">
-                                {{ option.text }}
-                            </option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="form-group">
-                        <label for="content_score">Content Score</label>
-                        <select class="form-control" name="content_score" id="content_score"  v-model="form.content_score">
-                            <option v-for="option in options" v-bind:value="option.value">
-                                {{ option.text }}
-                            </option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="form-group">
-                        <label for="event_score">Event Score</label>
-                        <select class="form-control" name="event_score" id="event_score"  v-model="form.event_score">
-                            <option v-for="option in options" v-bind:value="option.value">
-                                {{ option.text }}
-                            </option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="message">Comment</label>
-                <textarea class="form-control" id="message" name="message" rows="5" placeholder="Why not write about your experience?" v-model="form.message"></textarea>
-                <div class="invalid-feedback" v-text="errors.get('message')"></div>
-            </div>
-
-            <button type="submit" class="btn btn-default" :disabled="errors.any()""">Submit</button>
-        </form>
+    <div @click="changeReviewState()" id="comment-reply" class="tw-mt-4 create-reply tw-flex tw-items-center rounded tw-cursor-pointer tw-border tw-border-dashed hover:tw-border-blue focus:tw-border-blue">
+        <div class="tw-p-4 tw-flex tw-w-full tw-items-center">
+<!--            <div class="tw-rounded-full tw-h-16 tw-w-16 tw-flex avatar-circle tw-items-center tw-justify-center tw-mr-6 tw-bg-grey">-->
+<!--                <img class="tw-rounded-full avatar-circle" src="//www.gravatar.com/avatar/c2d52abc9f91d455e15a48d59fecd746?s=100&amp;d=https%3A%2F%2Fs3.amazonaws.com%2Flaracasts%2Fimages%2Fdefault-square-avatar.jpg" alt="">-->
+<!--            </div>-->
+            <span v-if="isCreatingReview" id="reply-action" class="tw-w-full">
+                <p class="tw-text-grey-darker">You are creating a <span class="tw-text-blue">Review</span></p>
+                 <textarea ref="input" class="tw-w-full tw-my-4 focus:tw-outline-none" name="comment" id="comment" cols="30" rows="7" placeholder="Write something nice..."></textarea>
+                 <button id="submit-comment" class="tw-text-left tw-text-xs tw-bg-blue-light tw-w-full hover:tw-bg-blue-dark tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded-r tw-rounded-l">
+                    Commit my reply
+                 </button>
+            </span>
+            <p v-else id="reply-brief" class="text-grey-darkest font-weight-bold">Write my own review of this server</p>
+        </div>
     </div>
 </template>
 
@@ -131,6 +51,9 @@
 
         data() {
             return {
+
+                isCreatingReview: false,
+
                 form: {
                     message: "",
                     donation_score: 5,
@@ -183,7 +106,13 @@
                         flash("Your review has been posted.");
                         this.form = this.default;
                     }).catch(error => this.errors.record(error.response.data.errors));
-            }
+            },
+            changeReviewState() {
+                this.isCreatingReview = true;
+                setTimeout(() => {
+                    this.$refs.input.focus()
+                })
+            },
         }
     }
 

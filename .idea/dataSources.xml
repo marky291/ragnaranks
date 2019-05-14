@@ -15,11 +15,11 @@
         <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="ragnaranks@localhost" uuid="ec3e80a4-3d9d-451e-9fff-a7da777b876a">
+    <data-source source="LOCAL" name="magnolia@localhost [2]" uuid="ec3e80a4-3d9d-451e-9fff-a7da777b876a">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/ragnaranks</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/magnolia</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="CONVERT_TO_NULL" />

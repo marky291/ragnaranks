@@ -2067,86 +2067,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var Errors =
 /*#__PURE__*/
 function () {
@@ -2187,6 +2107,7 @@ function () {
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      isCreatingReview: false,
       form: {
         message: "",
         donation_score: 5,
@@ -2258,6 +2179,14 @@ function () {
         _this.form = _this.default;
       }).catch(function (error) {
         return _this.errors.record(error.response.data.errors);
+      });
+    },
+    changeReviewState: function changeReviewState() {
+      var _this2 = this;
+
+      this.isCreatingReview = true;
+      setTimeout(function () {
+        _this2.$refs.input.focus();
       });
     }
   }
@@ -2407,11 +2336,12 @@ __webpack_require__.r(__webpack_exports__);
     return {
       activated: false,
       collection: this.data,
-      reviewable: this.policy
+      reviewable: true
     };
   },
   created: function created() {
     this.CalculateAverages();
+    console.log("Reviewable policy vue.js");
   },
   methods: {
     CalculateAverages: function CalculateAverages() {
@@ -2483,18 +2413,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['title', 'description', 'score'],
   methods: {
+    /**
+     * @return {string}
+     */
     ScoreScale: function ScoreScale(score) {
-      if (score >= 7) return "score-is-good";
-      if (score >= 4) return "score-is-ok";
-      return "score-is-bad";
+      if (score >= 10) return "scale-1";
+      if (score >= 9) return "scale-2";
+      if (score >= 8) return "scale-3";
+      if (score >= 6) return "scale-4";
+      if (score >= 4) return "scale-5";
+      if (score >= 2) return "scale-6";
+      if (score >= 0) return "scale-7";
     }
   }
 });
@@ -42624,498 +42556,77 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {}, [
-    _c(
-      "form",
-      {
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.addReview($event)
-          },
-          keydown: function($event) {
-            _vm.errors.clear($event.target.name)
-          }
+  return _c(
+    "div",
+    {
+      staticClass:
+        "tw-mt-4 create-reply tw-flex tw-items-center rounded tw-cursor-pointer tw-border tw-border-dashed hover:tw-border-blue focus:tw-border-blue",
+      attrs: { id: "comment-reply" },
+      on: {
+        click: function($event) {
+          _vm.changeReviewState()
         }
-      },
-      [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-3" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "donation_score" } }, [
-                _vm._v("Donation Score")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.form.donation_score,
-                      expression: "form.donation_score"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { name: "donation_score", id: "donation_score" },
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.form,
-                        "donation_score",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    }
+      }
+    },
+    [
+      _c("div", { staticClass: "tw-p-4 tw-flex tw-w-full tw-items-center" }, [
+        _vm.isCreatingReview
+          ? _c(
+              "span",
+              { staticClass: "tw-w-full", attrs: { id: "reply-action" } },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("textarea", {
+                  ref: "input",
+                  staticClass: "tw-w-full tw-my-4 focus:tw-outline-none",
+                  attrs: {
+                    name: "comment",
+                    id: "comment",
+                    cols: "30",
+                    rows: "7",
+                    placeholder: "Write something nice..."
                   }
-                },
-                _vm._l(_vm.options, function(option) {
-                  return _c("option", { domProps: { value: option.value } }, [
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(option.text) +
-                        "\n                        "
-                    )
-                  ])
                 }),
-                0
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-3" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "update_score" } }, [
-                _vm._v("Update Score")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.form.update_score,
-                      expression: "form.update_score"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { name: "update_score", id: "update_score" },
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.form,
-                        "update_score",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    }
-                  }
-                },
-                _vm._l(_vm.options, function(option) {
-                  return _c("option", { domProps: { value: option.value } }, [
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "tw-text-left tw-text-xs tw-bg-blue-light tw-w-full hover:tw-bg-blue-dark tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded-r tw-rounded-l",
+                    attrs: { id: "submit-comment" }
+                  },
+                  [
                     _vm._v(
-                      "\n                            " +
-                        _vm._s(option.text) +
-                        "\n                        "
+                      "\n                    Commit my reply\n                 "
                     )
-                  ])
-                }),
-                0
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-3" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "class_score" } }, [
-                _vm._v("Class Score")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.form.class_score,
-                      expression: "form.class_score"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { name: "class_score", id: "class_score" },
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.form,
-                        "class_score",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    }
-                  }
-                },
-                _vm._l(_vm.options, function(option) {
-                  return _c("option", { domProps: { value: option.value } }, [
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(option.text) +
-                        "\n                        "
-                    )
-                  ])
-                }),
-                0
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-3" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "item_score" } }, [
-                _vm._v("Item Score")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.form.item_score,
-                      expression: "form.item_score"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { name: "item_score", id: "item_score" },
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.form,
-                        "item_score",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    }
-                  }
-                },
-                _vm._l(_vm.options, function(option) {
-                  return _c("option", { domProps: { value: option.value } }, [
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(option.text) +
-                        "\n                        "
-                    )
-                  ])
-                }),
-                0
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-3" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "support_score" } }, [
-                _vm._v("Support Score")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.form.support_score,
-                      expression: "form.support_score"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { name: "support_score", id: "support_score" },
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.form,
-                        "support_score",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    }
-                  }
-                },
-                _vm._l(_vm.options, function(option) {
-                  return _c("option", { domProps: { value: option.value } }, [
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(option.text) +
-                        "\n                        "
-                    )
-                  ])
-                }),
-                0
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-3" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "hosting_score" } }, [
-                _vm._v("Hosting Score")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.form.hosting_score,
-                      expression: "form.hosting_score"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { name: "hosting_score", id: "hosting_score" },
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.form,
-                        "hosting_score",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    }
-                  }
-                },
-                _vm._l(_vm.options, function(option) {
-                  return _c("option", { domProps: { value: option.value } }, [
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(option.text) +
-                        "\n                        "
-                    )
-                  ])
-                }),
-                0
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-3" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "content_score" } }, [
-                _vm._v("Content Score")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.form.content_score,
-                      expression: "form.content_score"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { name: "content_score", id: "content_score" },
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.form,
-                        "content_score",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    }
-                  }
-                },
-                _vm._l(_vm.options, function(option) {
-                  return _c("option", { domProps: { value: option.value } }, [
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(option.text) +
-                        "\n                        "
-                    )
-                  ])
-                }),
-                0
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-3" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "event_score" } }, [
-                _vm._v("Event Score")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.form.event_score,
-                      expression: "form.event_score"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { name: "event_score", id: "event_score" },
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.form,
-                        "event_score",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    }
-                  }
-                },
-                _vm._l(_vm.options, function(option) {
-                  return _c("option", { domProps: { value: option.value } }, [
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(option.text) +
-                        "\n                        "
-                    )
-                  ])
-                }),
-                0
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { attrs: { for: "message" } }, [_vm._v("Comment")]),
-          _vm._v(" "),
-          _c("textarea", {
-            directives: [
+                  ]
+                )
+              ]
+            )
+          : _c(
+              "p",
               {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.form.message,
-                expression: "form.message"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              id: "message",
-              name: "message",
-              rows: "5",
-              placeholder: "Why not write about your experience?"
-            },
-            domProps: { value: _vm.form.message },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.form, "message", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("div", {
-            staticClass: "invalid-feedback",
-            domProps: { textContent: _vm._s(_vm.errors.get("message")) }
-          })
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-default",
-            attrs: { type: "submit", disabled: _vm.errors.any() }
-          },
-          [_vm._v("Submit")]
-        )
-      ]
-    )
-  ])
+                staticClass: "text-grey-darkest font-weight-bold",
+                attrs: { id: "reply-brief" }
+              },
+              [_vm._v("Write my own review of this server")]
+            )
+      ])
+    ]
+  )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "tw-text-grey-darker" }, [
+      _vm._v("You are creating a "),
+      _c("span", { staticClass: "tw-text-blue" }, [_vm._v("Review")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -43145,9 +42656,7 @@ var render = function() {
         _vm._m(1),
         _vm._v(" "),
         _c("div", { staticClass: "description" }, [
-          _vm._v(
-            "\n                " + _vm._s(_vm.item.message) + "\n            "
-          )
+          _c("p", [_vm._v(_vm._s(_vm.item.message))])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "scores d-flex flex-row" }, [
@@ -43351,15 +42860,11 @@ var render = function() {
     "div",
     {},
     [
-      _vm._l(_vm.collection, function(review, index) {
-        return _c("div", [_c("review", { attrs: { data: review } })], 1)
-      }),
-      _vm._v(" "),
       _vm.reviewable
         ? _c("new-review", { on: { "review-created": _vm.addReview } })
         : _vm._e()
     ],
-    2
+    1
   )
 }
 var staticRenderFns = []
@@ -43388,41 +42893,23 @@ var render = function() {
     "div",
     {
       staticClass:
-        "col d-flex align-items-center rounded overflow-hidden d-flex flex-column"
+        "rating-block tw-shadow-md tw-tracking-tight tw-flex-1 p-2 d-flex align-items-center rounded overflow-hidden flex-column",
+      class: _vm.ScoreScale(_vm.score)
     },
     [
-      _c("div", { staticClass: "rating-block d-flex flex-row py-3 h-100" }, [
-        _c("div", { staticClass: "d-flex align-items-center" }, [
-          _c("div", { staticClass: "w-75" }, [
-            _c("h4", { staticClass: "text-dark" }, [
-              _vm._v(_vm._s(this.title))
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "text-dark mb-0" }, [
-              _vm._v(_vm._s(this.description))
-            ])
+      _c("div", { staticClass: "d-flex flex-row" }, [
+        _c("div", {}, [
+          _c("h4", { staticClass: "tw-font-bold" }, [
+            _vm._v(_vm._s(this.title))
           ]),
           _vm._v(" "),
-          _c(
-            "span",
-            {
-              staticClass:
-                "score position-absolute text-transparent h-100 d-flex align-items-center"
-            },
-            [
-              _c("i", {
-                staticClass: "fas fa-medal",
-                class: _vm.ScoreScale(this.score)
-              })
-            ]
-          )
+          _c("p", { staticClass: "mb-0" }, [_vm._v(_vm._s(this.description))])
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "w-100 bg-light py-1 px-2" }, [
-        _c("small", [
-          _c("b", [_vm._v("Score")]),
-          _vm._v(": " + _vm._s(_vm.score) + " / 10")
+      _c("div", { staticClass: "w-100 h-100 align-items-end d-flex" }, [
+        _c("p", { staticClass: "tw-text-2xl text-right tw-font-bold" }, [
+          _vm._v(_vm._s(_vm.score) + " / 10")
         ])
       ])
     ]

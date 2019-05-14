@@ -1,9 +1,9 @@
 <template>
 
     <div class="">
-        <div v-for="(review, index) in collection">
-            <review :data="review"></review>
-        </div>
+<!--        <div v-for="(review, index) in collection">-->
+<!--            <review :data="review"></review>-->
+<!--        </div>-->
 
         <new-review @review-created="addReview" v-if="reviewable"></new-review>
 
@@ -26,12 +26,13 @@
             return {
                 activated: false,
                 collection: this.data,
-                reviewable: this.policy,
+                reviewable: true,
             }
         },
 
         created: function() {
             this.CalculateAverages()
+            console.log("Reviewable policy vue.js");
         },
 
         methods: {

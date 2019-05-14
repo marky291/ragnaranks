@@ -17186,7 +17186,6 @@ footer .website-banner h1 {
 }
 
 #configuration .list .config {
-  padding: 1.4em 1.2em;
   background: #fafafa;
 }
 
@@ -17284,6 +17283,14 @@ footer .website-banner h1 {
   text-align: justify;
 }
 
+.rating-block {
+  margin-right: .5rem;
+}
+
+.rating-block:last-child {
+  margin-right: 0;
+}
+
 #ratings .score {
   top: -5px;
   right: 30px;
@@ -17293,16 +17300,39 @@ footer .website-banner h1 {
   text-shadow: 0 1px 3px #58585878;
 }
 
-#ratings .score-is-good {
-  color: #ffc300;
+#ratings .scale-1 {
+  color: white;
+  background-color: #38a169;
 }
 
-#ratings .score-is-ok {
-  color: #c0c0c0;
+#ratings .scale-2 {
+  color: white;
+  background-color: #38a169;
 }
 
-#ratings .score-is-bad {
-  color: #cd7f32;
+#ratings .scale-3 {
+  color: white;
+  background-color: #38a169;
+}
+
+#ratings .scale-4 {
+  color: white;
+  background-color: #68d391;
+}
+
+#ratings .scale-5 {
+  color: white;
+  background-color: #68d391;
+}
+
+#ratings .scale-6 {
+  color: white;
+  background-color: #68d391;
+}
+
+#ratings .scale-7 {
+  color: white;
+  background-color: #fc8181;
 }
 
 .overflow-hidden {
