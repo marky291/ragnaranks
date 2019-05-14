@@ -4,23 +4,16 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
-
-require('./flickity/stage-flickr');
-
-$(document).ready(function() {
-    $('[data-toggle="tooltip"]').tooltip();
-});
-
 window.Vue = require('vue');
 
 window.Event = new Vue();
 
 // Carousel Element.
 import Vue from 'vue';
-import VueCarousel from 'vue-carousel';
+import AtComponents from 'at-ui'
+// import 'at-ui-style'    // Import CSS
 
-Vue.use(VueCarousel);
+Vue.use(AtComponents);
 // =-=-=-=-=-=-=-=-=-=-=-=
 
 /**
@@ -51,7 +44,3 @@ Vue.component('listing-profile', require('./Pages/ListingProfileComponent.vue').
 const app = new Vue({
     el: '#app',
 });
-
-window.flash = function (message) {
-    Event.$emit('flash', message);
-};

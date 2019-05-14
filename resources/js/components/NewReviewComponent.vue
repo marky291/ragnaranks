@@ -5,10 +5,43 @@
 <!--                <img class="tw-rounded-full avatar-circle" src="//www.gravatar.com/avatar/c2d52abc9f91d455e15a48d59fecd746?s=100&amp;d=https%3A%2F%2Fs3.amazonaws.com%2Flaracasts%2Fimages%2Fdefault-square-avatar.jpg" alt="">-->
 <!--            </div>-->
             <span v-if="isCreatingReview" id="reply-action" class="tw-w-full">
-                <p class="tw-text-grey-darker">You are creating a <span class="tw-text-blue">Review</span></p>
-                 <textarea ref="input" class="tw-w-full tw-my-4 focus:tw-outline-none" name="comment" id="comment" cols="30" rows="7" placeholder="Write something nice..."></textarea>
-                 <button id="submit-comment" class="tw-text-left tw-text-xs tw-bg-blue-light tw-w-full hover:tw-bg-blue-dark tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded-r tw-rounded-l">
-                    Commit my reply
+                <div class="row">
+                    <div class="col-7">
+                    <p class="tw-text-grey-darker">You are creating a <span class="tw-text-blue">Review</span></p>
+                    <textarea ref="input" class="tw-w-full tw-my-4 focus:tw-outline-none" name="comment" id="comment" cols="30" rows="7" placeholder="Write something nice..."></textarea>
+                </div>
+                    <div class="col-5">
+                    <h3 class="heading text-dark">Donations rating</h3>
+                    <at-rate :show-text="true" :count="5" v-model="form.donation_score">
+                        <span>{{ form.donation_score }} stars</span>
+                    </at-rate>
+                    <h3 class="heading text-dark">Update rating</h3>
+                    <at-rate :show-text="true" :count="5" v-model="form.update_score">
+                        <span>{{ form.update_score }} stars</span>
+                    </at-rate>
+                    <h3 class="heading text-dark">Class rating</h3>
+                    <at-rate :show-text="true" :count="5" v-model="form.class_score">
+                        <span>{{ form.class_score }} stars</span>
+                    </at-rate>
+                    <at-rate :show-text="true" :count="5" v-model="form.item_score">
+                        <span>{{ form.item_score }} stars</span>
+                    </at-rate>
+                    <at-rate :show-text="true" :count="5" v-model="form.support_score">
+                        <span>{{ form.support_score }} stars</span>
+                    </at-rate>
+                    <at-rate :show-text="true" :count="5" v-model="form.hosting_score">
+                        <span>{{ form.hosting_score }} stars</span>
+                    </at-rate>
+                    <at-rate :show-text="true" :count="5" v-model="form.content_score">
+                        <span>{{ form.content_score }} stars</span>
+                    </at-rate>
+                    <at-rate :show-text="true" :count="5" v-model="form.event_score">
+                        <span>{{ form.event_score }} stars</span>
+                    </at-rate>
+                </div>
+                </div>
+                <button id="submit-comment" class="tw-text-left tw-text-xs tw-bg-blue-light tw-w-full hover:tw-bg-blue-dark tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded-r tw-rounded-l">
+                    Post my Review
                  </button>
             </span>
             <p v-else id="reply-brief" class="text-grey-darkest font-weight-bold">Write my own review of this server</p>
@@ -109,8 +142,12 @@
             },
             changeReviewState() {
                 this.isCreatingReview = true;
+                this.$Notify.success({
+                    title: 'Here is Title',
+                    message: 'Here is Content~~~'
+                });
                 setTimeout(() => {
-                    this.$refs.input.focus()
+                    // this.$refs.input.focus()
                 })
             },
         }

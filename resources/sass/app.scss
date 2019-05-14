@@ -4,12 +4,18 @@
 
 // import tailwind
 @import 'tailwind-directives';
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+@import '~at-ui-style/src/mixins/index.scss';
+@import '~at-ui-style/src/variables/index.scss';
+@import 'at-ui';
+@import '~at-ui-style/src/components/index.scss';
 
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
 
 // flickity sliders
 @import "~flickity/dist/flickity.css";
