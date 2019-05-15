@@ -1,5 +1,6 @@
 <script>
 
+    import _ from 'lodash';
     import Review from './ReviewComponent.vue';
     import NewReview from '../components/NewReviewComponent.vue';
 
@@ -46,12 +47,10 @@
         },
 
         created: function() {
-            // this.CalculateAverages();
-            console.log("Reviewable policy vue.js");
-
             this.$root.$on('toggle:review', (param) => {
                 this.changeReviewState();
             });
+            this.emitReviewScores();
         },
 
         methods: {
@@ -65,25 +64,22 @@
                 Event.$emit('update:avg-content-score', this.Rounded(_.meanBy(this.collection, function(item) { return item.content_score; })));
                 Event.$emit('update:avg-event-score', this.Rounded(_.meanBy(this.collection, function(item) { return item.event_score; })));
             },
-
-            Rounded(number) {
-                var value = Math.round(number);
-
-                if (value)
-                    return value;
-
-                return 0;
+            getAverageOfCollection(element) {
+                return _.meanBy(this.collection, function(item) {
+                    return item[element];
+                });
             },
-
+            Rounded(number) {
+                if (Math.round(number)) return Math.round(number); else return 0;
+            },
             remove(index) {
                 this.collection.splice(index, 1);
-                this.CalculateAverages();
+                this.emitReviewScores();
             },
-
             addReview(review) {
                 this.reviewable = false;
                 this.collection.push(review);
-                this.CalculateAverages();
+                this.emitReviewScores();
             },
             ratingScore(score) {
                 if (score === 5)
