@@ -37,9 +37,9 @@
                                 <h3>User Actions</h3>
                             </div>
                             <div id="user-actions" class="content py-0 rounded py-3 d-flex flex-column">
-                                <button class="mb-2 btn btn-outline-primary btn-sm">Back to Searching</button>
-                                <button class="mb-2 btn btn-outline-primary btn-sm">Visit Website</button>
-                                <button class="btn btn-primary btn-sm">Vote for Server</button>
+                                <at-button class="mb-2">Back to Searching</at-button>
+                                <at-button class="mb-2">Visit Website</at-button>
+                                <at-button class="mb-2">Vote for Server</at-button>
                             </div>
 
                             {{--<div class="heading">--}}
@@ -127,7 +127,7 @@
                                     </div>
                                 </div>
 
-                                <section id="description" class="content-block mt-4">
+                                <section v-if="!creating_review" id="description" class="content-block mt-4">
                                     <div class="container px-5 py-4">
                                         <h3 class="heading mb-4 text-dark heading-underline">Description</h3>
                                         <div class="row">
@@ -138,7 +138,7 @@
                                     </div>
                                 </section>
 
-                                <section id="configuration" class="content-block">
+                                <section v-if="!creating_review" id="configuration" class="content-block">
                                     <div class="container px-5 py-4">
                                         <h3 class="heading mb-4 text-dark heading-underline">Server Configuration Setup</h3>
                                         <div class="row">
@@ -165,7 +165,7 @@
                                     </div>
                                 </section>
 
-                                <section id="ratings">
+                                <section v-if="!creating_review" id="ratings">
                                     <div class="container pl-5 pr-5">
                                         <div class="py-3 mb-3 rounded" style="border:1px solid rgba(255, 255, 255, 0.2);">
                                             <h3 class="heading mb-4 text-dark heading-underline">Balance Ratings</h3>
@@ -194,7 +194,7 @@
                                         </div>
                                     </div>
                                 </section>
-                                <section id="previews">
+                                <section v-if="!creating_review" id="previews">
                                     <div class="container px-5 pb-5">
                                         <h3 class="heading mb-4 text-dark heading-underline">Screenshot Previews</h3>
                                         <div class="mb-3">
@@ -205,7 +205,7 @@
 
                                 <section id="reviews">
                                     <div class="container pl-5 pr-5 pb-5 mb-5">
-                                        <h3 class="heading mb-4 text-dark heading-underline">Player Reviews</h3>
+                                        <h3 v-if="!creating_review" class="heading mb-4 text-dark heading-underline">Player Reviews</h3>
 
                                         <reviews :data="{{ $listing->reviews->load('publisher') }}" policy="{{ auth()->check() && auth()->user()->can('review', $listing) }}"></reviews>
 

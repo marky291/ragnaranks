@@ -12,8 +12,15 @@
             voted: Boolean,
         },
 
+        created: function() {
+            this.$root.$on('creating:review', (param) => {
+                this.creating_review = param; // when review is made hide shit.
+            });
+        },
+
         data() {
             return {
+                creating_review: false,
                 validation: {
                     vote: this.voted,
                     click: this.clicked,

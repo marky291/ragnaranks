@@ -31,7 +31,7 @@
         },
 
         created: function() {
-            this.CalculateAverages()
+            this.CalculateAverages();
             console.log("Reviewable policy vue.js");
         },
 
