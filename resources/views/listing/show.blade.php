@@ -40,6 +40,12 @@
                                 <at-button class="mb-2" type="primary" hollow>Back to Searching</at-button>
                                 <at-button class="mb-2" hollow>Visit Website</at-button>
                                 <at-button class="mb-2" hollow>Vote for Server</at-button>
+                                <span v-if="!creating_review">
+                                    <at-button v-if="!creating_review" @click="toggleReview" type="success" class="w-100" hollow>Create a review!</at-button>
+                                </span>
+                                <span v-else>
+                                    <at-button @click="toggleReview" type="error" class="w-100" hollow>Review Later!</at-button>
+                                </span>
                             </div>
 
                             {{--<div class="heading">--}}
@@ -127,17 +133,6 @@
                                     </div>
                                 </div>
 
-                                <section class="content-block mt-4">
-                                    <div class="container px-5 pt-4">
-                                        <span v-if="!creating_review" >
-                                            <at-button @click="toggleReview" type="info" class="w-100 tw-font-bold">Create a review for this server!</at-button>
-                                        </span>
-                                        <span v-else>
-                                            <at-button @click="toggleReview" type="error" class="w-100 tw-font-bold">Maybe I will create one later!</at-button>
-                                        </span>
-                                    </div>
-                                </section>
-
                                 <section v-if="!creating_review" id="description" class="content-block mt-4">
                                     <div class="container px-5 py-4">
                                         <h3 class="heading mb-4 text-dark heading-underline">Description</h3>
@@ -215,13 +210,106 @@
                                 </section>
 
                                 <section id="reviews">
-                                    <div class="container pl-5 pr-5 pb-5 mb-5">
+                                    <div class="container px-5 pb-5">
                                         <h3 v-if="!creating_review" class="heading mb-4 text-dark heading-underline">Player Reviews</h3>
 
-                                        <reviews :data="{{ $listing->reviews->load('publisher') }}" policy="{{ auth()->check() && auth()->user()->can('review', $listing) }}"></reviews>
+                                        <reviews :data="{{ $listing->reviews->load('publisher') }}" policy="{{ auth()->check() && auth()->user()->can('review', $listing) }}" inline-template>
+                                            <div class="">
+                                                <div v-if="!isCreatingReview" v-for="(review, index) in collection">
+                                                    <review :data="review"></review>
+                                                </div>
+
+                                                <div v-if="reviewable" @review-created="addReview" id="comment-reply" class="tw-mt-4 create-reply tw-flex tw-items-center rounded tw-cursor-pointer">
+                                                    <div class="tw-p-4 tw-flex tw-w-full tw-items-center">
+                                                        <span v-if="isCreatingReview" id="reply-action" class="tw-w-full">
+                                                            <div class="row">
+                                                                <div class="py-3">
+                                                                    <h3 class="heading tw-mb-1 text-dark mb-4 heading-underline">You are creating a <span class="tw-text-blue">Review</span></h3>
+                                                                    <p class="tw-text-grey-dark mb-4">Focus on being factual and objective. Don't use aggressive language and don't post personal details...</p>
+                                                                    <at-textarea ref="textarea" v-model="form.review_input" min-rows="8" autosize placeholder="Your experience, Your review"></at-textarea>
+                                                                </div>
+                                                                <div class="row tw-mb-5">
+                                                                    <div class="col-6">
+                                                                        <div class="tw-p-2 tw-rounded tw-mb-4">
+                                                                            <p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Donation Experience</p>
+                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the experience against non-donators</p>
+                                                                            <at-rate :show-text="true" :count="5" v-model="form.donation_score" class="tw-flex">
+                                                                                <p class="tw-font-bold">@{{ ratingScore(form.donation_score) }}</p>
+                                                                            </at-rate>
+                                                                        </div>
+
+                                                                        <div class="tw-p-2 tw-rounded tw-mb-4">
+                                                                            <p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Update Experience</p>
+                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">Are updates regular with positive effect on the server</p>
+                                                                            <at-rate :show-text="true" :count="5" v-model="form.update_score" class="tw-flex">
+                                                                                <p class="tw-font-bold">@{{ ratingScore(form.update_score) }}</p>
+                                                                            </at-rate>
+                                                                        </div>
+
+                                                                        <div class="tw-p-2 tw-rounded tw-mb-4">
+                                                                            <p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Class Experience</p>
+                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the experience against non-donators</p>
+                                                                            <at-rate :show-text="true" :count="5" v-model="form.class_score" class="tw-flex">
+                                                                                <p class="tw-font-bold">@{{ ratingScore(form.class_score) }}</p>
+                                                                            </at-rate>
+                                                                        </div>
+
+                                                                        <div class="tw-p-2 tw-rounded tw-mb-4">
+                                                                            <p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Item Experience</p>
+                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the experience against non-donators</p>
+                                                                            <at-rate :show-text="true" :count="5" v-model="form.item_score" class="tw-flex">
+                                                                                <p class="tw-font-bold">@{{ ratingScore(form.item_score) }}</p>
+                                                                            </at-rate>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-6">
+
+                                                                        <div class="tw-p-2 tw-rounded tw-mb-4">
+                                                                            <p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Support Experience</p>
+                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the experience against non-donators</p>
+                                                                            <at-rate :show-text="true" :count="5" v-model="form.support_score" class="tw-flex">
+                                                                                <p class="tw-font-bold">@{{ ratingScore(form.support_score) }}</p>
+                                                                            </at-rate>
+                                                                        </div>
+
+                                                                        <div class="tw-p-2 tw-rounded tw-mb-4">
+                                                                            <h4 class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Hosting Experience</h4>
+                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the experience against non-donators</p>
+                                                                            <at-rate :show-text="true" :count="5" v-model="form.hosting_score" class="tw-flex">
+                                                                                <p class="tw-font-bold">@{{ ratingScore(form.hosting_score) }}</p>
+                                                                            </at-rate>
+                                                                        </div>
+
+                                                                        <div class="tw-p-2 tw-rounded tw-mb-4">
+                                                                            <h4 class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Content Experience</h4>
+                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the experience against non-donators</p>
+                                                                            <at-rate :show-text="true" :count="5" v-model="form.content_score" class="tw-flex">
+                                                                                <p class="tw-font-bold">@{{ ratingScore(form.content_score) }}</p>
+                                                                            </at-rate>
+                                                                        </div>
+
+                                                                        <div class="tw-p-2 tw-rounded tw-mb-4">
+                                                                            <h4 class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Event Experience</h4>
+                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the experience against non-donators</p>
+                                                                            <at-rate :show-text="true" :count="5" v-model="form.event_score" class="tw-flex">
+                                                                                <p class="tw-font-bold">@{{ ratingScore(form.event_score) }}</p>
+                                                                            </at-rate>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <at-button type="primary" class="flex-fill">Post my Review!</at-button>
+                                                            <at-button @click="changeReviewState" type="info" hollow>Maybe I will create one later!</at-button>
+                                                            </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </reviews>
 
                                     </div>
                                 </section>
+
                             </div>
                         </transition>
                     </div>
