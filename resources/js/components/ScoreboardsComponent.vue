@@ -20,14 +20,16 @@
         },
 
         created: function() {
-            Event.$on('update:avg-donation-score', score => this.avg_donation_score = score);
-            Event.$on('update:avg-update-score', score => this.avg_update_score = score);
-            Event.$on('update:avg-class-score', score => this.avg_class_score = score);
-            Event.$on('update:avg-item-score', score => this.avg_item_score = score);
-            Event.$on('update:avg-support-score', score => this.avg_support_score = score);
-            Event.$on('update:avg-hosting-score', score => this.avg_hosting_score = score);
-            Event.$on('update:avg-content-score', score => this.avg_content_score = score);
-            Event.$on('update:avg-event-score', score => this.avg_event_score = score);
+            this.$root.$on('update:scoreboard', (param) => {
+                this.avg_donation_score = param.donation_score;
+                this.avg_update_score = param.update_score;
+                this.avg_class_score = param.class_score;
+                this.avg_item_score = param.item_score;
+                this.avg_support_score = param.support_score;
+                this.avg_hosting_score = param.hosting_score;
+                this.avg_content_score = param.content_score;
+                this.avg_event_score = param.event_score;
+            });
         }
     }
 
