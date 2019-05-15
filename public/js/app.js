@@ -15316,6 +15316,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['initial-listings'],
@@ -15484,252 +15485,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NewReviewComponent.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/NewReviewComponent.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var Errors =
-/*#__PURE__*/
-function () {
-  function Errors() {
-    _classCallCheck(this, Errors);
-
-    this.errors = {};
-  }
-
-  _createClass(Errors, [{
-    key: "get",
-    value: function get(field) {
-      if (this.errors[field]) {
-        return this.errors[field][0];
-      }
-    }
-  }, {
-    key: "record",
-    value: function record(errors) {
-      this.errors = errors;
-    }
-  }, {
-    key: "clear",
-    value: function clear(field) {
-      console.log(field);
-      delete this.errors[field];
-    }
-  }, {
-    key: "any",
-    value: function any() {
-      return Object.keys(this.errors).length > 0;
-    }
-  }]);
-
-  return Errors;
-}();
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      isCreatingReview: false,
-      form: {
-        review_input: "",
-        donation_score: 5,
-        update_score: 5,
-        class_score: 5,
-        item_score: 5,
-        support_score: 5,
-        hosting_score: 5,
-        content_score: 5,
-        event_score: 5
-      },
-      default: {
-        message: "",
-        donation_score: 5,
-        update_score: 5,
-        class_score: 5,
-        item_score: 5,
-        support_score: 5,
-        hosting_score: 5,
-        content_score: 5,
-        event_score: 5
-      },
-      errors: new Errors(),
-      endpoint: window.location.href + "/reviews",
-      options: [{
-        text: '0',
-        value: 0
-      }, {
-        text: '1',
-        value: 1
-      }, {
-        text: '2',
-        value: 2
-      }, {
-        text: '3',
-        value: 3
-      }, {
-        text: '4',
-        value: 4
-      }, {
-        text: '5',
-        value: 5
-      }, {
-        text: '6',
-        value: 6
-      }, {
-        text: '7',
-        value: 7
-      }, {
-        text: '8',
-        value: 8
-      }, {
-        text: '9',
-        value: 9
-      }, {
-        text: '10',
-        value: 10
-      }]
-    };
-  },
-  methods: {
-    ratingScore: function ratingScore(score) {
-      if (score === 5) return 'Excellent';
-      if (score === 4) return 'Good';
-      if (score === 3) return 'Ok';
-      if (score === 2) return 'Bad';
-      if (score === 1) return 'Terrible';
-    },
-    addReview: function addReview() {
-      var _this = this;
-
-      axios.post(this.endpoint, this.form).then(function (response) {
-        _this.$emit('review-created', _this.form);
-
-        flash("Your review has been posted.");
-        _this.form = _this.default;
-      }).catch(function (error) {
-        return _this.errors.record(error.response.data.errors);
-      });
-    },
-    changeReviewState: function changeReviewState() {
-      this.$Message("Your time spent reviewing this server listing is appreciated and helps others");
-      this.$root.$emit('creating:review', this.isCreatingReview = !this.isCreatingReview);
-      this.$Message("CreatingReview" + this.isCreatingReview);
-      setTimeout(function () {// this.$refs.input.focus()
-      });
-    }
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ReviewComponent.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ReviewComponent.vue?vue&type=script&lang=js& ***!
@@ -15847,6 +15602,100 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ReviewComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ReviewComponent.vue */ "./resources/js/components/ReviewComponent.vue");
 /* harmony import */ var _components_NewReviewComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/NewReviewComponent.vue */ "./resources/js/components/NewReviewComponent.vue");
+var _methods;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -15865,21 +15714,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['data', 'policy'],
   components: {
-    Review: _ReviewComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    NewReview: _components_NewReviewComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    Review: _ReviewComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
       activated: false,
       collection: this.data,
-      reviewable: true
+      reviewable: true,
+      isCreatingReview: false,
+      form: {
+        review_input: "",
+        donation_score: 5,
+        update_score: 5,
+        class_score: 5,
+        item_score: 5,
+        support_score: 5,
+        hosting_score: 5,
+        content_score: 5,
+        event_score: 5
+      },
+      default: {
+        message: "",
+        donation_score: 5,
+        update_score: 5,
+        class_score: 5,
+        item_score: 5,
+        support_score: 5,
+        hosting_score: 5,
+        content_score: 5,
+        event_score: 5
+      },
+      endpoint: window.location.href + "/reviews"
     };
   },
   created: function created() {
     this.CalculateAverages();
     console.log("Reviewable policy vue.js");
   },
-  methods: {
+  methods: (_methods = {
     CalculateAverages: function CalculateAverages() {
       Event.$emit('update:avg-donation-score', this.Rounded(_.meanBy(this.collection, function (item) {
         return Math.round(item.donation_score);
@@ -15919,8 +15791,24 @@ __webpack_require__.r(__webpack_exports__);
       this.reviewable = false;
       this.collection.push(review);
       this.CalculateAverages();
+    },
+    ratingScore: function ratingScore(score) {
+      if (score === 5) return 'Excellent';
+      if (score === 4) return 'Good';
+      if (score === 3) return 'Ok';
+      if (score === 2) return 'Bad';
+      if (score === 1) return 'Terrible';
     }
-  }
+  }, _defineProperty(_methods, "addReview", function addReview() {//
+  }), _defineProperty(_methods, "changeReviewState", function changeReviewState() {
+    this.$Message("Your time spent reviewing this server listing is appreciated and helps others");
+    this.$root.$emit('creating:review', this.isCreatingReview = !this.isCreatingReview);
+    this.$Message("CreatingReview" + this.isCreatingReview);
+    setTimeout(function () {// this.$refs.input.focus()
+    });
+  }), _defineProperty(_methods, "ReviewsExist", function ReviewsExist() {
+    return count(this.collection);
+  }), _methods)
 });
 
 /***/ }),
@@ -16066,29 +15954,10 @@ exports.push([module.i, ".alert-flash {\n  position: fixed;\n  right: 25px;\n  b
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NewReviewComponent.vue?vue&type=style&index=0&lang=css&":
-/*!************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/NewReviewComponent.vue?vue&type=style&index=0&lang=css& ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".invalid-feedback:empty {\n  display: none !important;\n}\n.invalid-feedback {\n  display: block !important;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NewReviewComponent.vue?vue&type=style&index=1&lang=css&":
-/*!************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/NewReviewComponent.vue?vue&type=style&index=1&lang=css& ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ReviewsComponent.vue?vue&type=style&index=0&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ReviewsComponent.vue?vue&type=style&index=0&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16676,45 +16545,15 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NewReviewComponent.vue?vue&type=style&index=0&lang=css&":
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/NewReviewComponent.vue?vue&type=style&index=0&lang=css& ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ReviewsComponent.vue?vue&type=style&index=0&lang=css&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ReviewsComponent.vue?vue&type=style&index=0&lang=css& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./NewReviewComponent.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NewReviewComponent.vue?vue&type=style&index=0&lang=css&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NewReviewComponent.vue?vue&type=style&index=1&lang=css&":
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/NewReviewComponent.vue?vue&type=style&index=1&lang=css& ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./NewReviewComponent.vue?vue&type=style&index=1&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NewReviewComponent.vue?vue&type=style&index=1&lang=css&");
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./ReviewsComponent.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ReviewsComponent.vue?vue&type=style&index=0&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -17509,11 +17348,9 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c(
-                  "button",
+                  "at-button",
                   {
-                    staticClass: "btn btn-blue btn-sm text-white",
-                    staticStyle: { "min-width": "60px" },
-                    attrs: { type: "button" },
+                    attrs: { type: "primary" },
                     on: {
                       click: function($event) {
                         _vm.visit(listing["slug"])
@@ -17521,11 +17358,12 @@ var render = function() {
                     }
                   },
                   [
-                    _vm._v("View "),
-                    _c("i", { staticClass: "fas fa-long-arrow-alt-right" })
+                    _vm._v("Visit "),
+                    _c("i", { staticClass: "icon icon-arrow-right" })
                   ]
                 )
-              ]
+              ],
+              1
             )
           ]
         )
@@ -17868,539 +17706,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NewReviewComponent.vue?vue&type=template&id=2966a1f0&":
-/*!*********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/NewReviewComponent.vue?vue&type=template&id=2966a1f0& ***!
-  \*********************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass:
-        "tw-mt-4 create-reply tw-flex tw-items-center rounded tw-cursor-pointer",
-      attrs: { id: "comment-reply" },
-      on: {
-        click: function($event) {
-          _vm.changeReviewState()
-        }
-      }
-    },
-    [
-      _c(
-        "div",
-        { staticClass: "tw-p-4 tw-flex tw-w-full tw-items-center" },
-        [
-          _vm.isCreatingReview
-            ? _c(
-                "span",
-                { staticClass: "tw-w-full", attrs: { id: "reply-action" } },
-                [
-                  _c("div", { staticClass: "row" }, [
-                    _c(
-                      "div",
-                      { staticClass: "col-12 tw-mb-5" },
-                      [
-                        _vm._m(0),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "tw-text-grey-dark tw-mb-5" }, [
-                          _vm._v(
-                            "Focus on being factual and objective. Don't use aggressive language and don't post personal details..."
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("at-textarea", {
-                          attrs: {
-                            "min-rows": "8",
-                            autosize: "",
-                            placeholder: "Your experience, Your review"
-                          },
-                          model: {
-                            value: _vm.review_input,
-                            callback: function($$v) {
-                              _vm.review_input = $$v
-                            },
-                            expression: "review_input"
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-12 row tw-mb-5" }, [
-                      _c("div", { staticClass: "col-6" }, [
-                        _c(
-                          "div",
-                          { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
-                          [
-                            _c(
-                              "p",
-                              {
-                                staticClass:
-                                  "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
-                              },
-                              [_vm._v("Donation Experience")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "p",
-                              {
-                                staticClass:
-                                  "tw-text-xs tw-mb-2 tw-text-grey-darker"
-                              },
-                              [
-                                _vm._v(
-                                  "How did you find the experience against non-donators"
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "at-rate",
-                              {
-                                staticClass: "tw-flex",
-                                attrs: { "show-text": true, count: 5 },
-                                model: {
-                                  value: _vm.form.donation_score,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.form, "donation_score", $$v)
-                                  },
-                                  expression: "form.donation_score"
-                                }
-                              },
-                              [
-                                _c("p", { staticClass: "tw-font-bold" }, [
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.ratingScore(_vm.form.donation_score)
-                                    )
-                                  )
-                                ])
-                              ]
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
-                          [
-                            _c(
-                              "p",
-                              {
-                                staticClass:
-                                  "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
-                              },
-                              [_vm._v("Update Experience")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "p",
-                              {
-                                staticClass:
-                                  "tw-text-xs tw-mb-2 tw-text-grey-darker"
-                              },
-                              [
-                                _vm._v(
-                                  "Are updates regular with positive effect on the server"
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "at-rate",
-                              {
-                                staticClass: "tw-flex",
-                                attrs: { "show-text": true, count: 5 },
-                                model: {
-                                  value: _vm.form.update_score,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.form, "update_score", $$v)
-                                  },
-                                  expression: "form.update_score"
-                                }
-                              },
-                              [
-                                _c("p", { staticClass: "tw-font-bold" }, [
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.ratingScore(_vm.form.update_score)
-                                    )
-                                  )
-                                ])
-                              ]
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
-                          [
-                            _c(
-                              "p",
-                              {
-                                staticClass:
-                                  "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
-                              },
-                              [_vm._v("Class Experience")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "p",
-                              {
-                                staticClass:
-                                  "tw-text-xs tw-mb-2 tw-text-grey-darker"
-                              },
-                              [
-                                _vm._v(
-                                  "How did you find the experience against non-donators"
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "at-rate",
-                              {
-                                staticClass: "tw-flex",
-                                attrs: { "show-text": true, count: 5 },
-                                model: {
-                                  value: _vm.form.class_score,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.form, "class_score", $$v)
-                                  },
-                                  expression: "form.class_score"
-                                }
-                              },
-                              [
-                                _c("p", { staticClass: "tw-font-bold" }, [
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.ratingScore(_vm.form.class_score)
-                                    )
-                                  )
-                                ])
-                              ]
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
-                          [
-                            _c(
-                              "p",
-                              {
-                                staticClass:
-                                  "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
-                              },
-                              [_vm._v("Item Experience")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "p",
-                              {
-                                staticClass:
-                                  "tw-text-xs tw-mb-2 tw-text-grey-darker"
-                              },
-                              [
-                                _vm._v(
-                                  "How did you find the experience against non-donators"
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "at-rate",
-                              {
-                                staticClass: "tw-flex",
-                                attrs: { "show-text": true, count: 5 },
-                                model: {
-                                  value: _vm.form.item_score,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.form, "item_score", $$v)
-                                  },
-                                  expression: "form.item_score"
-                                }
-                              },
-                              [
-                                _c("p", { staticClass: "tw-font-bold" }, [
-                                  _vm._v(
-                                    _vm._s(_vm.ratingScore(_vm.form.item_score))
-                                  )
-                                ])
-                              ]
-                            )
-                          ],
-                          1
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-6" }, [
-                        _c(
-                          "div",
-                          { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
-                          [
-                            _c(
-                              "p",
-                              {
-                                staticClass:
-                                  "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
-                              },
-                              [_vm._v("Support Experience")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "p",
-                              {
-                                staticClass:
-                                  "tw-text-xs tw-mb-2 tw-text-grey-darker"
-                              },
-                              [
-                                _vm._v(
-                                  "How did you find the experience against non-donators"
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "at-rate",
-                              {
-                                staticClass: "tw-flex",
-                                attrs: { "show-text": true, count: 5 },
-                                model: {
-                                  value: _vm.form.support_score,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.form, "support_score", $$v)
-                                  },
-                                  expression: "form.support_score"
-                                }
-                              },
-                              [
-                                _c("p", { staticClass: "tw-font-bold" }, [
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.ratingScore(_vm.form.support_score)
-                                    )
-                                  )
-                                ])
-                              ]
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
-                          [
-                            _c(
-                              "h4",
-                              {
-                                staticClass:
-                                  "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
-                              },
-                              [_vm._v("Hosting Experience")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "p",
-                              {
-                                staticClass:
-                                  "tw-text-xs tw-mb-2 tw-text-grey-darker"
-                              },
-                              [
-                                _vm._v(
-                                  "How did you find the experience against non-donators"
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "at-rate",
-                              {
-                                staticClass: "tw-flex",
-                                attrs: { "show-text": true, count: 5 },
-                                model: {
-                                  value: _vm.form.hosting_score,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.form, "hosting_score", $$v)
-                                  },
-                                  expression: "form.hosting_score"
-                                }
-                              },
-                              [
-                                _c("p", { staticClass: "tw-font-bold" }, [
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.ratingScore(_vm.form.hosting_score)
-                                    )
-                                  )
-                                ])
-                              ]
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
-                          [
-                            _c(
-                              "h4",
-                              {
-                                staticClass:
-                                  "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
-                              },
-                              [_vm._v("Content Experience")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "p",
-                              {
-                                staticClass:
-                                  "tw-text-xs tw-mb-2 tw-text-grey-darker"
-                              },
-                              [
-                                _vm._v(
-                                  "How did you find the experience against non-donators"
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "at-rate",
-                              {
-                                staticClass: "tw-flex",
-                                attrs: { "show-text": true, count: 5 },
-                                model: {
-                                  value: _vm.form.content_score,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.form, "content_score", $$v)
-                                  },
-                                  expression: "form.content_score"
-                                }
-                              },
-                              [
-                                _c("p", { staticClass: "tw-font-bold" }, [
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.ratingScore(_vm.form.content_score)
-                                    )
-                                  )
-                                ])
-                              ]
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
-                          [
-                            _c(
-                              "h4",
-                              {
-                                staticClass:
-                                  "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
-                              },
-                              [_vm._v("Event Experience")]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "p",
-                              {
-                                staticClass:
-                                  "tw-text-xs tw-mb-2 tw-text-grey-darker"
-                              },
-                              [
-                                _vm._v(
-                                  "How did you find the experience against non-donators"
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "at-rate",
-                              {
-                                staticClass: "tw-flex",
-                                attrs: { "show-text": true, count: 5 },
-                                model: {
-                                  value: _vm.form.event_score,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.form, "event_score", $$v)
-                                  },
-                                  expression: "form.event_score"
-                                }
-                              },
-                              [
-                                _c("p", { staticClass: "tw-font-bold" }, [
-                                  _vm._v(
-                                    _vm._s(
-                                      _vm.ratingScore(_vm.form.event_score)
-                                    )
-                                  )
-                                ])
-                              ]
-                            )
-                          ],
-                          1
-                        )
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "at-button",
-                    { staticClass: "flex-fill", attrs: { type: "primary" } },
-                    [_vm._v("Post my Review!")]
-                  )
-                ],
-                1
-              )
-            : _c("at-button", [_vm._v("Create a review for this server!")])
-        ],
-        1
-      )
-    ]
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "h3",
-      { staticClass: "heading tw-mb-1 text-dark heading-underline" },
-      [
-        _vm._v("You are writing a "),
-        _c("span", { staticClass: "tw-text-blue" }, [_vm._v("Review")])
-      ]
-    )
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ReviewComponent.vue?vue&type=template&id=e5fd6b2c&":
 /*!******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ReviewComponent.vue?vue&type=template&id=e5fd6b2c& ***!
@@ -18624,18 +17929,581 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {},
-    [
-      _vm.reviewable
-        ? _c("new-review", { on: { "review-created": _vm.addReview } })
-        : _vm._e()
-    ],
-    1
-  )
+  return _c("div", {}, [
+    _vm.reviewable
+      ? _c(
+          "div",
+          {
+            staticClass:
+              "tw-mt-4 create-reply tw-flex tw-items-center rounded tw-cursor-pointer",
+            attrs: { id: "comment-reply" },
+            on: {
+              "review-created": _vm.addReview,
+              click: function($event) {
+                _vm.changeReviewState()
+              }
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "tw-p-4 tw-flex tw-w-full tw-items-center" },
+              [
+                _vm.isCreatingReview
+                  ? _c(
+                      "span",
+                      {
+                        staticClass: "tw-w-full",
+                        attrs: { id: "reply-action" }
+                      },
+                      [
+                        _c("div", { staticClass: "row" }, [
+                          _c(
+                            "div",
+                            { staticClass: "col-12 tw-mb-5" },
+                            [
+                              _vm._m(0),
+                              _vm._v(" "),
+                              _c(
+                                "p",
+                                { staticClass: "tw-text-grey-dark tw-mb-5" },
+                                [
+                                  _vm._v(
+                                    "Focus on being factual and objective. Don't use aggressive language and don't post personal details..."
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("at-textarea", {
+                                attrs: {
+                                  "min-rows": "8",
+                                  autosize: "",
+                                  placeholder: "Your experience, Your review"
+                                },
+                                model: {
+                                  value: _vm.review_input,
+                                  callback: function($$v) {
+                                    _vm.review_input = $$v
+                                  },
+                                  expression: "review_input"
+                                }
+                              })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-12 row tw-mb-5" }, [
+                            _c("div", { staticClass: "col-6" }, [
+                              _c(
+                                "div",
+                                { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
+                                [
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
+                                    },
+                                    [_vm._v("Donation Experience")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "tw-text-xs tw-mb-2 tw-text-grey-darker"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "How did you find the experience against non-donators"
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "at-rate",
+                                    {
+                                      staticClass: "tw-flex",
+                                      attrs: { "show-text": true, count: 5 },
+                                      model: {
+                                        value: _vm.form.donation_score,
+                                        callback: function($$v) {
+                                          _vm.$set(
+                                            _vm.form,
+                                            "donation_score",
+                                            $$v
+                                          )
+                                        },
+                                        expression: "form.donation_score"
+                                      }
+                                    },
+                                    [
+                                      _c("p", { staticClass: "tw-font-bold" }, [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm.ratingScore(
+                                              _vm.form.donation_score
+                                            )
+                                          )
+                                        )
+                                      ])
+                                    ]
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
+                                [
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
+                                    },
+                                    [_vm._v("Update Experience")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "tw-text-xs tw-mb-2 tw-text-grey-darker"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "Are updates regular with positive effect on the server"
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "at-rate",
+                                    {
+                                      staticClass: "tw-flex",
+                                      attrs: { "show-text": true, count: 5 },
+                                      model: {
+                                        value: _vm.form.update_score,
+                                        callback: function($$v) {
+                                          _vm.$set(
+                                            _vm.form,
+                                            "update_score",
+                                            $$v
+                                          )
+                                        },
+                                        expression: "form.update_score"
+                                      }
+                                    },
+                                    [
+                                      _c("p", { staticClass: "tw-font-bold" }, [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm.ratingScore(
+                                              _vm.form.update_score
+                                            )
+                                          )
+                                        )
+                                      ])
+                                    ]
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
+                                [
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
+                                    },
+                                    [_vm._v("Class Experience")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "tw-text-xs tw-mb-2 tw-text-grey-darker"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "How did you find the experience against non-donators"
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "at-rate",
+                                    {
+                                      staticClass: "tw-flex",
+                                      attrs: { "show-text": true, count: 5 },
+                                      model: {
+                                        value: _vm.form.class_score,
+                                        callback: function($$v) {
+                                          _vm.$set(_vm.form, "class_score", $$v)
+                                        },
+                                        expression: "form.class_score"
+                                      }
+                                    },
+                                    [
+                                      _c("p", { staticClass: "tw-font-bold" }, [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm.ratingScore(
+                                              _vm.form.class_score
+                                            )
+                                          )
+                                        )
+                                      ])
+                                    ]
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
+                                [
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
+                                    },
+                                    [_vm._v("Item Experience")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "tw-text-xs tw-mb-2 tw-text-grey-darker"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "How did you find the experience against non-donators"
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "at-rate",
+                                    {
+                                      staticClass: "tw-flex",
+                                      attrs: { "show-text": true, count: 5 },
+                                      model: {
+                                        value: _vm.form.item_score,
+                                        callback: function($$v) {
+                                          _vm.$set(_vm.form, "item_score", $$v)
+                                        },
+                                        expression: "form.item_score"
+                                      }
+                                    },
+                                    [
+                                      _c("p", { staticClass: "tw-font-bold" }, [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm.ratingScore(_vm.form.item_score)
+                                          )
+                                        )
+                                      ])
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-6" }, [
+                              _c(
+                                "div",
+                                { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
+                                [
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
+                                    },
+                                    [_vm._v("Support Experience")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "tw-text-xs tw-mb-2 tw-text-grey-darker"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "How did you find the experience against non-donators"
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "at-rate",
+                                    {
+                                      staticClass: "tw-flex",
+                                      attrs: { "show-text": true, count: 5 },
+                                      model: {
+                                        value: _vm.form.support_score,
+                                        callback: function($$v) {
+                                          _vm.$set(
+                                            _vm.form,
+                                            "support_score",
+                                            $$v
+                                          )
+                                        },
+                                        expression: "form.support_score"
+                                      }
+                                    },
+                                    [
+                                      _c("p", { staticClass: "tw-font-bold" }, [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm.ratingScore(
+                                              _vm.form.support_score
+                                            )
+                                          )
+                                        )
+                                      ])
+                                    ]
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
+                                [
+                                  _c(
+                                    "h4",
+                                    {
+                                      staticClass:
+                                        "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
+                                    },
+                                    [_vm._v("Hosting Experience")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "tw-text-xs tw-mb-2 tw-text-grey-darker"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "How did you find the experience against non-donators"
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "at-rate",
+                                    {
+                                      staticClass: "tw-flex",
+                                      attrs: { "show-text": true, count: 5 },
+                                      model: {
+                                        value: _vm.form.hosting_score,
+                                        callback: function($$v) {
+                                          _vm.$set(
+                                            _vm.form,
+                                            "hosting_score",
+                                            $$v
+                                          )
+                                        },
+                                        expression: "form.hosting_score"
+                                      }
+                                    },
+                                    [
+                                      _c("p", { staticClass: "tw-font-bold" }, [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm.ratingScore(
+                                              _vm.form.hosting_score
+                                            )
+                                          )
+                                        )
+                                      ])
+                                    ]
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
+                                [
+                                  _c(
+                                    "h4",
+                                    {
+                                      staticClass:
+                                        "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
+                                    },
+                                    [_vm._v("Content Experience")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "tw-text-xs tw-mb-2 tw-text-grey-darker"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "How did you find the experience against non-donators"
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "at-rate",
+                                    {
+                                      staticClass: "tw-flex",
+                                      attrs: { "show-text": true, count: 5 },
+                                      model: {
+                                        value: _vm.form.content_score,
+                                        callback: function($$v) {
+                                          _vm.$set(
+                                            _vm.form,
+                                            "content_score",
+                                            $$v
+                                          )
+                                        },
+                                        expression: "form.content_score"
+                                      }
+                                    },
+                                    [
+                                      _c("p", { staticClass: "tw-font-bold" }, [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm.ratingScore(
+                                              _vm.form.content_score
+                                            )
+                                          )
+                                        )
+                                      ])
+                                    ]
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
+                                [
+                                  _c(
+                                    "h4",
+                                    {
+                                      staticClass:
+                                        "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
+                                    },
+                                    [_vm._v("Event Experience")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "tw-text-xs tw-mb-2 tw-text-grey-darker"
+                                    },
+                                    [
+                                      _vm._v(
+                                        "How did you find the experience against non-donators"
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "at-rate",
+                                    {
+                                      staticClass: "tw-flex",
+                                      attrs: { "show-text": true, count: 5 },
+                                      model: {
+                                        value: _vm.form.event_score,
+                                        callback: function($$v) {
+                                          _vm.$set(_vm.form, "event_score", $$v)
+                                        },
+                                        expression: "form.event_score"
+                                      }
+                                    },
+                                    [
+                                      _c("p", { staticClass: "tw-font-bold" }, [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm.ratingScore(
+                                              _vm.form.event_score
+                                            )
+                                          )
+                                        )
+                                      ])
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            ])
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "at-button",
+                          {
+                            staticClass: "flex-fill",
+                            attrs: { type: "primary" }
+                          },
+                          [_vm._v("Post my Review!")]
+                        )
+                      ],
+                      1
+                    )
+                  : _c("at-button", [
+                      _vm.ReviewsExist
+                        ? _c("span", [
+                            _vm._v(
+                              "\n                        Create a review for this server!\n                    "
+                            )
+                          ])
+                        : _c("span", [
+                            _vm._v(
+                              "\n                        Be the first to create a review for this server!\n                    "
+                            )
+                          ])
+                    ])
+              ],
+              1
+            )
+          ]
+        )
+      : _vm._e()
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "h3",
+      { staticClass: "heading tw-mb-1 text-dark heading-underline" },
+      [
+        _vm._v("You are writing a "),
+        _c("span", { staticClass: "tw-text-blue" }, [_vm._v("Review")])
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 
@@ -30273,24 +30141,17 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _NewReviewComponent_vue_vue_type_template_id_2966a1f0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NewReviewComponent.vue?vue&type=template&id=2966a1f0& */ "./resources/js/components/NewReviewComponent.vue?vue&type=template&id=2966a1f0&");
-/* harmony import */ var _NewReviewComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NewReviewComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/NewReviewComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _NewReviewComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NewReviewComponent.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/NewReviewComponent.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _NewReviewComponent_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./NewReviewComponent.vue?vue&type=style&index=1&lang=css& */ "./resources/js/components/NewReviewComponent.vue?vue&type=style&index=1&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_4__["default"])(
-  _NewReviewComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _NewReviewComponent_vue_vue_type_template_id_2966a1f0___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _NewReviewComponent_vue_vue_type_template_id_2966a1f0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
   false,
   null,
   null,
@@ -30298,74 +30159,8 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   
 )
 
-/* hot reload */
-if (false) { var api; }
 component.options.__file = "resources/js/components/NewReviewComponent.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/NewReviewComponent.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************!*\
-  !*** ./resources/js/components/NewReviewComponent.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NewReviewComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./NewReviewComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NewReviewComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NewReviewComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/NewReviewComponent.vue?vue&type=style&index=0&lang=css&":
-/*!*****************************************************************************************!*\
-  !*** ./resources/js/components/NewReviewComponent.vue?vue&type=style&index=0&lang=css& ***!
-  \*****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NewReviewComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./NewReviewComponent.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NewReviewComponent.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NewReviewComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NewReviewComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NewReviewComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NewReviewComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NewReviewComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "./resources/js/components/NewReviewComponent.vue?vue&type=style&index=1&lang=css&":
-/*!*****************************************************************************************!*\
-  !*** ./resources/js/components/NewReviewComponent.vue?vue&type=style&index=1&lang=css& ***!
-  \*****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NewReviewComponent_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./NewReviewComponent.vue?vue&type=style&index=1&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NewReviewComponent.vue?vue&type=style&index=1&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NewReviewComponent_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NewReviewComponent_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NewReviewComponent_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NewReviewComponent_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NewReviewComponent_vue_vue_type_style_index_1_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "./resources/js/components/NewReviewComponent.vue?vue&type=template&id=2966a1f0&":
-/*!***************************************************************************************!*\
-  !*** ./resources/js/components/NewReviewComponent.vue?vue&type=template&id=2966a1f0& ***!
-  \***************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NewReviewComponent_vue_vue_type_template_id_2966a1f0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./NewReviewComponent.vue?vue&type=template&id=2966a1f0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NewReviewComponent.vue?vue&type=template&id=2966a1f0&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NewReviewComponent_vue_vue_type_template_id_2966a1f0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NewReviewComponent_vue_vue_type_template_id_2966a1f0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
 
 /***/ }),
 
@@ -30449,7 +30244,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ReviewsComponent_vue_vue_type_template_id_0bcae88d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ReviewsComponent.vue?vue&type=template&id=0bcae88d& */ "./resources/js/components/ReviewsComponent.vue?vue&type=template&id=0bcae88d&");
 /* harmony import */ var _ReviewsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ReviewsComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/ReviewsComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _ReviewsComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ReviewsComponent.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/ReviewsComponent.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -30457,7 +30254,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _ReviewsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _ReviewsComponent_vue_vue_type_template_id_0bcae88d___WEBPACK_IMPORTED_MODULE_0__["render"],
   _ReviewsComponent_vue_vue_type_template_id_0bcae88d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -30486,6 +30283,22 @@ component.options.__file = "resources/js/components/ReviewsComponent.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ReviewsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ReviewsComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ReviewsComponent.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ReviewsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/ReviewsComponent.vue?vue&type=style&index=0&lang=css&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/ReviewsComponent.vue?vue&type=style&index=0&lang=css& ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ReviewsComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./ReviewsComponent.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ReviewsComponent.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ReviewsComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ReviewsComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ReviewsComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ReviewsComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ReviewsComponent_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 

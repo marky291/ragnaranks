@@ -34,7 +34,8 @@
                             <p class="font-weight-bold mb-0">{{ listing['type'] }} ({{ listing['configs']['base_exp_rate'] }}x/{{ listing['configs']['job_exp_rate']}}x)</p>
                             <p class="text-muted">{{ listing['description']}}</p>
                         </div>
-                        <button @click="visit(listing['slug'])" type="button" class="btn btn-blue btn-sm text-white" style="min-width: 60px;">View <i class="fas fa-long-arrow-alt-right"></i></button>
+
+                        <at-button @click="visit(listing['slug'])" type="primary">Visit <i class="icon icon-arrow-right"></i></at-button>
                     </div>
                 </div>
             </div>

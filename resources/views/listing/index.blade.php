@@ -122,7 +122,8 @@
                                             <p class="tw-text-grey-dark tw-text-xs">Created {{ $listing->created_at->format('dS F Y') }}</p>
                                         </div>
                                         <div class="buttons w-25 d-flex align-items-center justify-content-end">
-                                            <a href="{{ route('listing.show', $listing) }}" tabindex="0" class="btn btn-blue btn-sm">Visit <i class="fas fa-long-arrow-alt-right"></i></a>
+                                            <at-button type="primary">Visit <i class="icon icon-arrow-right"></i></at-button>
+{{--                                            <a href="{{ route('listing.show', $listing) }}" tabindex="0" class="btn btn-blue btn-sm">Visit <i class="icon icon-arrow-right"></i></a>--}}
                                         </div>
                                     </div>
                                 </div>
