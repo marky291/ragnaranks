@@ -35,7 +35,7 @@
                             <p class="text-muted">{{ listing['description']}}</p>
                         </div>
 
-                        <at-button @click="visit(listing['slug'])" type="primary">Visit <i class="icon icon-arrow-right"></i></at-button>
+                        <at-button @click="visit(listing['slug'])" type="info">Visit <i class="icon icon-arrow-right"></i></at-button>
                     </div>
                 </div>
             </div>

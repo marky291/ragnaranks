@@ -37,9 +37,9 @@
                                 <h3>User Actions</h3>
                             </div>
                             <div id="user-actions" class="content py-0 rounded py-3 d-flex flex-column">
-                                <at-button class="mb-2" hollow>Back to Searching</at-button>
-                                <at-button class="mb-2">Visit Website</at-button>
-                                <at-button class="mb-2">Vote for Server</at-button>
+                                <at-button class="mb-2" type="primary" hollow>Back to Searching</at-button>
+                                <at-button class="mb-2" hollow>Visit Website</at-button>
+                                <at-button class="mb-2" hollow>Vote for Server</at-button>
                             </div>
 
                             {{--<div class="heading">--}}
@@ -80,7 +80,7 @@
                                                 <p class="tw-text-grey-dark tw-text-xs">Created {{ $listing->created_at->format('dS F Y') }}</p>
                                             </div>
                                             <div class="buttons w-25 d-flex align-items-center justify-content-end">
-                                                <at-button type="primary">Visit <i class="icon icon-arrow-right"></i></at-button>
+                                                <at-button type="info">Visit <i class="icon icon-arrow-right"></i></at-button>
                                             </div>
                                         </div>
                                     </div>
@@ -129,7 +129,7 @@
 
                                 <section class="content-block mt-4">
                                     <div class="container px-5 pt-4">
-                                        <at-button v-if="!created_review" type="success" class="w-100 tw-font-bold">Create a review for this server!</at-button>
+                                        <at-button v-if="!created_review" type="info" class="w-100 tw-font-bold">Create a review for this server!</at-button>
                                     </div>
                                 </section>
 

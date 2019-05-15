@@ -17350,7 +17350,7 @@ var render = function() {
                 _c(
                   "at-button",
                   {
-                    attrs: { type: "primary" },
+                    attrs: { type: "info" },
                     on: {
                       click: function($event) {
                         _vm.visit(listing["slug"])
