@@ -9,14 +9,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f5c3af05-4cb1-407b-a377-26e729e13b17" name="Redesign V1" comment="Reviews.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/NewReviewComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/NewReviewComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/ListingProfileComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/ListingProfileComponent.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/_server-profile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/_server-profile.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/listing/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/listing/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/listing/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/listing/show.blade.php" afterDir="false" />
     </list>
     <list id="58f96053-e5bd-4b41-bbae-58099ecbebc5" name="Default Changelist" comment="" />
@@ -94,27 +90,26 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/listing/index.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/ScoreboardComponent.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="124" selection-start-line="124" selection-end-line="125" />
-              <folding>
-                <marker date="1557882797909" expanded="true" signature="392:1014" ph="..." />
-              </folding>
+            <state relative-caret-position="-7">
+              <caret line="24" column="15" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/NewReviewComponent.vue">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/resources/js/components/ScoreboardsComponent.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-7" />
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+            <state relative-caret-position="-16">
+              <caret line="66" column="57" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="57" />
               <folding>
                 <element signature="n#style#0;n#h1#0;n#div#0;n#div#1;n#div#0;n#div#0;n#transition-group#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#transition-group#0;n#template#0;n#!!top" expanded="true" />
@@ -128,19 +123,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/ScoreboardComponent.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="24" column="15" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/Pages/ListingProfileComponent.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+            <state relative-caret-position="945">
+              <caret line="45" column="47" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="47" />
               <folding>
                 <element signature="e#14#71#0" expanded="true" />
               </folding>
@@ -152,7 +138,7 @@
         <entry file="file://$PROJECT_DIR$/resources/sass/_server-profile.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="207">
-              <caret line="189" column="32" lean-forward="true" selection-start-line="189" selection-start-column="32" selection-end-line="189" selection-end-column="32" />
+              <caret line="189" column="32" selection-start-line="189" selection-start-column="32" selection-end-line="189" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -166,35 +152,46 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/listing/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="75" column="69" selection-start-line="75" selection-start-column="58" selection-end-line="75" selection-end-column="69" />
+            <state relative-caret-position="153">
+              <caret line="132" column="131" selection-start-line="132" selection-start-column="116" selection-end-line="132" selection-end-column="131" />
               <folding>
+                <element signature="e#1283#6009#0#HTML" />
                 <element signature="e#4149#4220#0#HTML" expanded="true" />
+                <element signature="e#6407#8598#0#HTML" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/at-ui/src/components/button/src/button.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-16">
+              <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="93" column="55" selection-start-line="93" selection-start-column="40" selection-end-line="93" selection-end-column="55" />
+            <state relative-caret-position="136">
+              <caret line="87" column="23" selection-start-line="87" selection-start-column="23" selection-end-line="87" selection-end-column="23" />
+              <folding>
+                <element signature="e#6900#6943#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/app.js">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/ReviewComponent.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="915">
-              <caret line="46" selection-start-line="46" selection-end-line="46" />
-              <folding>
-                <element signature="e#443#465#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-16">
+              <caret line="74" column="15" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -210,34 +207,34 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sidebar</find>
-      <find>rate</find>
-      <find>copyright</find>
-      <find>button</find>
-      <find>overlay</find>
-      <find>insta</find>
-      <find>rating</find>
-      <find>grey</find>
-      <find>hover</find>
-      <find>row</find>
-      <find>font</find>
-      <find>carou</find>
-      <find>10</find>
-      <find>at-rate__list</find>
-      <find>base</find>
-      <find>&lt;p class=&quot;heading text-dark&quot;&gt;</find>
       <find>&lt;h4 class=&quot;tw-text-sm heading text-dark tw-mb-2 tw-font-semibold&quot;&gt;</find>
       <find>error</find>
       <find>ratingscore</find>
-      <find>review</find>
       <find>descr</find>
       <find>view</find>
       <find>player</find>
       <find>VISIT</find>
-      <find>visit</find>
       <find>back to</find>
-      <find>cr</find>
+      <find>review_input</find>
+      <find>calculateaverages</find>
+      <find>message</find>
+      <find>creating</find>
+      <find>created</find>
+      <find>at-button</find>
+      <find>review</find>
+      <find>created_review</find>
+      <find>reviews</find>
+      <find>created_re</find>
+      <find>.$on</find>
+      <find>visit</find>
+      <find>.on</find>
+      <find>reviews\</find>
+      <find>create a</find>
       <find>profi</find>
+      <find>maybe later</find>
+      <find>cr</find>
+      <find>reply-action</find>
+      <find>textarea</find>
       <find>create</find>
       <find>create a review</find>
     </findStrings>
@@ -300,7 +297,6 @@
         <option value="$PROJECT_DIR$/resources/sass/_cards.scss" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/resources/js/components/ScoreboardComponent.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/ReviewComponent.vue" />
         <option value="$PROJECT_DIR$/resources/sass/_variables_at-ui.scss" />
         <option value="$PROJECT_DIR$/resources/views/layouts/header.blade.php" />
         <option value="$PROJECT_DIR$/resources/sass/app.scss" />
@@ -308,13 +304,14 @@
         <option value="$PROJECT_DIR$/resources/js/app.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/resources/views/listing/partial/config.blade.php" />
-        <option value="$PROJECT_DIR$/resources/js/Pages/ListingProfileComponent.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/NewReviewComponent.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue" />
         <option value="$PROJECT_DIR$/resources/views/listing/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue" />
         <option value="$PROJECT_DIR$/resources/sass/_server-profile.scss" />
+        <option value="$PROJECT_DIR$/resources/js/components/ReviewComponent.vue" />
         <option value="$PROJECT_DIR$/resources/views/listing/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/Pages/ListingProfileComponent.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue" />
       </list>
     </option>
   </component>
@@ -478,6 +475,51 @@
               <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
               <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="at-ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="at-ui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="at-ui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="at-ui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="button" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="at-ui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="button" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -504,7 +546,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="COPY_ALWAYS" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.deploy.options" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -1040,7 +1082,7 @@
   </component>
   <component name="TimeTrackingManager">
     <option name="enabled" value="true" />
-    <option name="totallyTimeSpent" value="591742000" />
+    <option name="totallyTimeSpent" value="596349000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1055,7 +1097,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8427788" visible="true" weight="0.19126074" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8427788" visible="true" weight="0.19126074" />
       <window_info id="Structure" order="1" sideWeight="0.15722121" side_tool="true" visible="true" weight="0.19126074" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -1070,7 +1112,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.4004914" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3280098" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.3855508" side_tool="true" weight="0.29759037" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4914163" visible="true" weight="0.3280098" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4914163" visible="true" weight="0.3280098" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.3280098" />
       <window_info anchor="bottom" id="File Transfer" order="14" weight="0.35670358" />
@@ -1132,20 +1174,6 @@
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/frame.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/app.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-397" />
@@ -1274,20 +1302,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/ReviewComponent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/_variables_at-ui.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/sass/_variables_at-ui.scss" />
     <entry file="file://$PROJECT_DIR$/resources/sass/_variables.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1430,13 +1445,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/ScoreboardComponent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="24" column="15" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="915">
@@ -1447,23 +1455,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/Pages/ListingProfileComponent.vue">
+    <entry file="file://$PROJECT_DIR$/resources/js/components/NewReviewComponent.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/listing/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+        <state relative-caret-position="153">
+          <caret line="65" column="88" selection-start-line="65" selection-start-column="84" selection-end-line="65" selection-end-column="88" />
           <folding>
-            <element signature="e#14#71#0" expanded="true" />
+            <marker date="1557884562139" expanded="true" signature="392:1014" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/NewReviewComponent.vue">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/resources/js/components/ReviewComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-16">
+          <caret line="74" column="15" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/ScoreboardComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="24" column="15" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/ScoreboardsComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/sass/_server-profile.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="189" column="32" selection-start-line="189" selection-start-column="32" selection-end-line="189" selection-end-column="32" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+        <state relative-caret-position="-16">
+          <caret line="66" column="57" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="57" />
           <folding>
             <element signature="n#style#0;n#h1#0;n#div#0;n#div#1;n#div#0;n#div#0;n#transition-group#0;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#transition-group#0;n#template#0;n#!!top" expanded="true" />
@@ -1475,13 +1509,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/listing/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/node_modules/at-ui/src/components/button/src/button.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="124" selection-start-line="124" selection-end-line="125" />
-          <folding>
-            <marker date="1557882797909" expanded="true" signature="392:1014" ph="..." />
-          </folding>
+        <state relative-caret-position="-16">
+          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -1492,26 +1523,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/_server-profile.scss">
+    <entry file="file://$PROJECT_DIR$/resources/js/Pages/ListingProfileComponent.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="189" column="32" lean-forward="true" selection-start-line="189" selection-start-column="32" selection-end-line="189" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="93" column="55" selection-start-line="93" selection-start-column="40" selection-end-line="93" selection-end-column="55" />
+        <state relative-caret-position="945">
+          <caret line="45" column="47" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="47" />
+          <folding>
+            <element signature="e#14#71#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/listing/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="75" column="69" selection-start-line="75" selection-start-column="58" selection-end-line="75" selection-end-column="69" />
+        <state relative-caret-position="153">
+          <caret line="132" column="131" selection-start-line="132" selection-start-column="116" selection-end-line="132" selection-end-column="131" />
           <folding>
+            <element signature="e#1283#6009#0#HTML" />
             <element signature="e#4149#4220#0#HTML" expanded="true" />
+            <element signature="e#6407#8598#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="87" column="23" selection-start-line="87" selection-start-column="23" selection-end-line="87" selection-end-column="23" />
+          <folding>
+            <element signature="e#6900#6943#0" expanded="true" />
           </folding>
         </state>
       </provider>

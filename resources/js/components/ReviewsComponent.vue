@@ -1,18 +1,18 @@
 <template>
 
     <div class="">
-<!--        <div v-for="(review, index) in collection">-->
-<!--            <review :data="review"></review>-->
-<!--        </div>-->
+        <div v-if="!isCreatingReview" v-for="(review, index) in collection">
+            <review :data="review"></review>
+        </div>
 
-        <div v-if="reviewable" @review-created="addReview" @click="changeReviewState()" id="comment-reply" class="tw-mt-4 create-reply tw-flex tw-items-center rounded tw-cursor-pointer">
+        <div v-if="reviewable" @review-created="addReview" id="comment-reply" class="tw-mt-4 create-reply tw-flex tw-items-center rounded tw-cursor-pointer">
             <div class="tw-p-4 tw-flex tw-w-full tw-items-center">
                 <span v-if="isCreatingReview" id="reply-action" class="tw-w-full">
                 <div class="row">
                     <div class="col-12 tw-mb-5">
-                        <h3 class="heading tw-mb-1 text-dark heading-underline">You are writing a <span class="tw-text-blue">Review</span></h3>
+                        <h3 class="heading tw-mb-1 text-dark heading-underline">You are creating a <span class="tw-text-blue">Review</span></h3>
                         <p class="tw-text-grey-dark tw-mb-5">Focus on being factual and objective. Don't use aggressive language and don't post personal details...</p>
-                        <at-textarea v-model="review_input" min-rows="8" autosize placeholder="Your experience, Your review"></at-textarea>
+                        <at-textarea ref="textarea" v-model="form.review_input" min-rows="8" autosize placeholder="Your experience, Your review"></at-textarea>
                     </div>
                     <div class="col-12 row tw-mb-5">
                         <div class="col-6">
@@ -86,14 +86,6 @@
                 </div>
                 <at-button type="primary" class="flex-fill">Post my Review!</at-button>
                 </span>
-                <at-button v-else>
-                    <span v-if="ReviewsExist">
-                        Create a review for this server!
-                    </span>
-                    <span v-else>
-                        Be the first to create a review for this server!
-                    </span>
-                </at-button>
             </div>
         </div>
 
@@ -149,8 +141,12 @@
         },
 
         created: function() {
-            this.CalculateAverages();
+            // this.CalculateAverages();
             console.log("Reviewable policy vue.js");
+
+            this.$root.$on('toggle:review', (param) => {
+                this.changeReviewState();
+            });
         },
 
         methods: {
@@ -196,20 +192,18 @@
                 if (score === 1)
                     return 'Terrible'
             },
-            addReview() {
-                //
-            },
             changeReviewState() {
-                this.$Message("Your time spent reviewing this server listing is appreciated and helps others");
                 this.$root.$emit('creating:review', this.isCreatingReview = !this.isCreatingReview);
-                this.$Message("CreatingReview" + this.isCreatingReview);
-                setTimeout(() => {
-                    // this.$refs.input.focus()
-                })
+                if (this.isCreatingReview) {
+                    this.$Message("Your time spent reviewing this server listing is appreciated and helps others");
+                    setTimeout(() => {
+                        this.$refs.textarea.focus()
+                    })
+                }
             },
             ReviewsExist() {
                 return count(this.collection);
-            },
+            }
         }
     }
 

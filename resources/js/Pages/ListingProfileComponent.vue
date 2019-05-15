@@ -5,7 +5,7 @@
 
     export default {
 
-        components: { Reviews, Scoreboards },
+        components: { Scoreboards, Reviews },
 
         props: {
             clicked: Boolean,
@@ -38,6 +38,12 @@
                     console.log(response);
                     flash('Vote could not be processed right now sorry.')
                 });
+            },
+            handler: function() {
+                console.log('handles');
+            },
+            toggleReview: function() {
+                this.$root.$emit('toggle:review');
             }
         }
     }

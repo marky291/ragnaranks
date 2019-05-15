@@ -15219,8 +15219,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    Reviews: _components_ReviewsComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    Scoreboards: _components_ScoreboardsComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    Scoreboards: _components_ScoreboardsComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Reviews: _components_ReviewsComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: {
     clicked: Boolean,
@@ -15256,6 +15256,12 @@ __webpack_require__.r(__webpack_exports__);
           flash('Vote could not be processed right now sorry.');
         };
       });
+    },
+    handler: function handler() {
+      console.log('handles');
+    },
+    toggleReview: function toggleReview() {
+      this.$root.$emit('toggle:review');
     }
   }
 });
@@ -15602,18 +15608,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ReviewComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ReviewComponent.vue */ "./resources/js/components/ReviewComponent.vue");
 /* harmony import */ var _components_NewReviewComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/NewReviewComponent.vue */ "./resources/js/components/NewReviewComponent.vue");
-var _methods;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -15748,10 +15742,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   created: function created() {
-    this.CalculateAverages();
+    var _this = this;
+
+    // this.CalculateAverages();
     console.log("Reviewable policy vue.js");
+    this.$root.$on('toggle:review', function (param) {
+      _this.changeReviewState();
+    });
   },
-  methods: (_methods = {
+  methods: {
     CalculateAverages: function CalculateAverages() {
       Event.$emit('update:avg-donation-score', this.Rounded(_.meanBy(this.collection, function (item) {
         return Math.round(item.donation_score);
@@ -15798,17 +15797,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (score === 3) return 'Ok';
       if (score === 2) return 'Bad';
       if (score === 1) return 'Terrible';
+    },
+    changeReviewState: function changeReviewState() {
+      var _this2 = this;
+
+      this.$root.$emit('creating:review', this.isCreatingReview = !this.isCreatingReview);
+
+      if (this.isCreatingReview) {
+        this.$Message("Your time spent reviewing this server listing is appreciated and helps others");
+        setTimeout(function () {
+          _this2.$refs.textarea.focus();
+        });
+      }
+    },
+    ReviewsExist: function ReviewsExist() {
+      return count(this.collection);
     }
-  }, _defineProperty(_methods, "addReview", function addReview() {//
-  }), _defineProperty(_methods, "changeReviewState", function changeReviewState() {
-    this.$Message("Your time spent reviewing this server listing is appreciated and helps others");
-    this.$root.$emit('creating:review', this.isCreatingReview = !this.isCreatingReview);
-    this.$Message("CreatingReview" + this.isCreatingReview);
-    setTimeout(function () {// this.$refs.input.focus()
-    });
-  }), _defineProperty(_methods, "ReviewsExist", function ReviewsExist() {
-    return count(this.collection);
-  }), _methods)
+  }
 });
 
 /***/ }),
@@ -17929,565 +17934,605 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {}, [
-    _vm.reviewable
-      ? _c(
-          "div",
-          {
-            staticClass:
-              "tw-mt-4 create-reply tw-flex tw-items-center rounded tw-cursor-pointer",
-            attrs: { id: "comment-reply" },
-            on: {
-              "review-created": _vm.addReview,
-              click: function($event) {
-                _vm.changeReviewState()
-              }
-            }
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "tw-p-4 tw-flex tw-w-full tw-items-center" },
-              [
-                _vm.isCreatingReview
-                  ? _c(
-                      "span",
-                      {
-                        staticClass: "tw-w-full",
-                        attrs: { id: "reply-action" }
-                      },
-                      [
-                        _c("div", { staticClass: "row" }, [
-                          _c(
-                            "div",
-                            { staticClass: "col-12 tw-mb-5" },
-                            [
-                              _vm._m(0),
-                              _vm._v(" "),
-                              _c(
-                                "p",
-                                { staticClass: "tw-text-grey-dark tw-mb-5" },
-                                [
-                                  _vm._v(
-                                    "Focus on being factual and objective. Don't use aggressive language and don't post personal details..."
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c("at-textarea", {
-                                attrs: {
-                                  "min-rows": "8",
-                                  autosize: "",
-                                  placeholder: "Your experience, Your review"
-                                },
-                                model: {
-                                  value: _vm.review_input,
-                                  callback: function($$v) {
-                                    _vm.review_input = $$v
+  return _c(
+    "div",
+    {},
+    [
+      _vm._l(_vm.collection, function(review, index) {
+        return !_vm.isCreatingReview
+          ? _c("div", [_c("review", { attrs: { data: review } })], 1)
+          : _vm._e()
+      }),
+      _vm._v(" "),
+      _vm.reviewable
+        ? _c(
+            "div",
+            {
+              staticClass:
+                "tw-mt-4 create-reply tw-flex tw-items-center rounded tw-cursor-pointer",
+              attrs: { id: "comment-reply" },
+              on: { "review-created": _vm.addReview }
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "tw-p-4 tw-flex tw-w-full tw-items-center" },
+                [
+                  _vm.isCreatingReview
+                    ? _c(
+                        "span",
+                        {
+                          staticClass: "tw-w-full",
+                          attrs: { id: "reply-action" }
+                        },
+                        [
+                          _c("div", { staticClass: "row" }, [
+                            _c(
+                              "div",
+                              { staticClass: "col-12 tw-mb-5" },
+                              [
+                                _vm._m(0),
+                                _vm._v(" "),
+                                _c(
+                                  "p",
+                                  { staticClass: "tw-text-grey-dark tw-mb-5" },
+                                  [
+                                    _vm._v(
+                                      "Focus on being factual and objective. Don't use aggressive language and don't post personal details..."
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("at-textarea", {
+                                  ref: "textarea",
+                                  attrs: {
+                                    "min-rows": "8",
+                                    autosize: "",
+                                    placeholder: "Your experience, Your review"
                                   },
-                                  expression: "review_input"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-12 row tw-mb-5" }, [
-                            _c("div", { staticClass: "col-6" }, [
-                              _c(
-                                "div",
-                                { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
-                                [
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass:
-                                        "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
+                                  model: {
+                                    value: _vm.form.review_input,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.form, "review_input", $$v)
                                     },
-                                    [_vm._v("Donation Experience")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass:
-                                        "tw-text-xs tw-mb-2 tw-text-grey-darker"
-                                    },
-                                    [
-                                      _vm._v(
-                                        "How did you find the experience against non-donators"
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "at-rate",
-                                    {
-                                      staticClass: "tw-flex",
-                                      attrs: { "show-text": true, count: 5 },
-                                      model: {
-                                        value: _vm.form.donation_score,
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            _vm.form,
-                                            "donation_score",
-                                            $$v
-                                          )
-                                        },
-                                        expression: "form.donation_score"
-                                      }
-                                    },
-                                    [
-                                      _c("p", { staticClass: "tw-font-bold" }, [
-                                        _vm._v(
-                                          _vm._s(
-                                            _vm.ratingScore(
-                                              _vm.form.donation_score
-                                            )
-                                          )
-                                        )
-                                      ])
-                                    ]
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
-                                [
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass:
-                                        "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
-                                    },
-                                    [_vm._v("Update Experience")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass:
-                                        "tw-text-xs tw-mb-2 tw-text-grey-darker"
-                                    },
-                                    [
-                                      _vm._v(
-                                        "Are updates regular with positive effect on the server"
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "at-rate",
-                                    {
-                                      staticClass: "tw-flex",
-                                      attrs: { "show-text": true, count: 5 },
-                                      model: {
-                                        value: _vm.form.update_score,
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            _vm.form,
-                                            "update_score",
-                                            $$v
-                                          )
-                                        },
-                                        expression: "form.update_score"
-                                      }
-                                    },
-                                    [
-                                      _c("p", { staticClass: "tw-font-bold" }, [
-                                        _vm._v(
-                                          _vm._s(
-                                            _vm.ratingScore(
-                                              _vm.form.update_score
-                                            )
-                                          )
-                                        )
-                                      ])
-                                    ]
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
-                                [
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass:
-                                        "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
-                                    },
-                                    [_vm._v("Class Experience")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass:
-                                        "tw-text-xs tw-mb-2 tw-text-grey-darker"
-                                    },
-                                    [
-                                      _vm._v(
-                                        "How did you find the experience against non-donators"
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "at-rate",
-                                    {
-                                      staticClass: "tw-flex",
-                                      attrs: { "show-text": true, count: 5 },
-                                      model: {
-                                        value: _vm.form.class_score,
-                                        callback: function($$v) {
-                                          _vm.$set(_vm.form, "class_score", $$v)
-                                        },
-                                        expression: "form.class_score"
-                                      }
-                                    },
-                                    [
-                                      _c("p", { staticClass: "tw-font-bold" }, [
-                                        _vm._v(
-                                          _vm._s(
-                                            _vm.ratingScore(
-                                              _vm.form.class_score
-                                            )
-                                          )
-                                        )
-                                      ])
-                                    ]
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
-                                [
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass:
-                                        "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
-                                    },
-                                    [_vm._v("Item Experience")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass:
-                                        "tw-text-xs tw-mb-2 tw-text-grey-darker"
-                                    },
-                                    [
-                                      _vm._v(
-                                        "How did you find the experience against non-donators"
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "at-rate",
-                                    {
-                                      staticClass: "tw-flex",
-                                      attrs: { "show-text": true, count: 5 },
-                                      model: {
-                                        value: _vm.form.item_score,
-                                        callback: function($$v) {
-                                          _vm.$set(_vm.form, "item_score", $$v)
-                                        },
-                                        expression: "form.item_score"
-                                      }
-                                    },
-                                    [
-                                      _c("p", { staticClass: "tw-font-bold" }, [
-                                        _vm._v(
-                                          _vm._s(
-                                            _vm.ratingScore(_vm.form.item_score)
-                                          )
-                                        )
-                                      ])
-                                    ]
-                                  )
-                                ],
-                                1
-                              )
-                            ]),
+                                    expression: "form.review_input"
+                                  }
+                                })
+                              ],
+                              1
+                            ),
                             _vm._v(" "),
-                            _c("div", { staticClass: "col-6" }, [
-                              _c(
-                                "div",
-                                { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
-                                [
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass:
-                                        "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
-                                    },
-                                    [_vm._v("Support Experience")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass:
-                                        "tw-text-xs tw-mb-2 tw-text-grey-darker"
-                                    },
-                                    [
-                                      _vm._v(
-                                        "How did you find the experience against non-donators"
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "at-rate",
-                                    {
-                                      staticClass: "tw-flex",
-                                      attrs: { "show-text": true, count: 5 },
-                                      model: {
-                                        value: _vm.form.support_score,
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            _vm.form,
-                                            "support_score",
-                                            $$v
-                                          )
-                                        },
-                                        expression: "form.support_score"
-                                      }
-                                    },
-                                    [
-                                      _c("p", { staticClass: "tw-font-bold" }, [
+                            _c("div", { staticClass: "col-12 row tw-mb-5" }, [
+                              _c("div", { staticClass: "col-6" }, [
+                                _c(
+                                  "div",
+                                  { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
+                                  [
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
+                                      },
+                                      [_vm._v("Donation Experience")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "tw-text-xs tw-mb-2 tw-text-grey-darker"
+                                      },
+                                      [
                                         _vm._v(
-                                          _vm._s(
-                                            _vm.ratingScore(
-                                              _vm.form.support_score
-                                            )
-                                          )
+                                          "How did you find the experience against non-donators"
                                         )
-                                      ])
-                                    ]
-                                  )
-                                ],
-                                1
-                              ),
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "at-rate",
+                                      {
+                                        staticClass: "tw-flex",
+                                        attrs: { "show-text": true, count: 5 },
+                                        model: {
+                                          value: _vm.form.donation_score,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.form,
+                                              "donation_score",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "form.donation_score"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "p",
+                                          { staticClass: "tw-font-bold" },
+                                          [
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm.ratingScore(
+                                                  _vm.form.donation_score
+                                                )
+                                              )
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
+                                  [
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
+                                      },
+                                      [_vm._v("Update Experience")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "tw-text-xs tw-mb-2 tw-text-grey-darker"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "Are updates regular with positive effect on the server"
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "at-rate",
+                                      {
+                                        staticClass: "tw-flex",
+                                        attrs: { "show-text": true, count: 5 },
+                                        model: {
+                                          value: _vm.form.update_score,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.form,
+                                              "update_score",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "form.update_score"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "p",
+                                          { staticClass: "tw-font-bold" },
+                                          [
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm.ratingScore(
+                                                  _vm.form.update_score
+                                                )
+                                              )
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
+                                  [
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
+                                      },
+                                      [_vm._v("Class Experience")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "tw-text-xs tw-mb-2 tw-text-grey-darker"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "How did you find the experience against non-donators"
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "at-rate",
+                                      {
+                                        staticClass: "tw-flex",
+                                        attrs: { "show-text": true, count: 5 },
+                                        model: {
+                                          value: _vm.form.class_score,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.form,
+                                              "class_score",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "form.class_score"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "p",
+                                          { staticClass: "tw-font-bold" },
+                                          [
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm.ratingScore(
+                                                  _vm.form.class_score
+                                                )
+                                              )
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
+                                  [
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
+                                      },
+                                      [_vm._v("Item Experience")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "tw-text-xs tw-mb-2 tw-text-grey-darker"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "How did you find the experience against non-donators"
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "at-rate",
+                                      {
+                                        staticClass: "tw-flex",
+                                        attrs: { "show-text": true, count: 5 },
+                                        model: {
+                                          value: _vm.form.item_score,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.form,
+                                              "item_score",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "form.item_score"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "p",
+                                          { staticClass: "tw-font-bold" },
+                                          [
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm.ratingScore(
+                                                  _vm.form.item_score
+                                                )
+                                              )
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                )
+                              ]),
                               _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
-                                [
-                                  _c(
-                                    "h4",
-                                    {
-                                      staticClass:
-                                        "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
-                                    },
-                                    [_vm._v("Hosting Experience")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass:
-                                        "tw-text-xs tw-mb-2 tw-text-grey-darker"
-                                    },
-                                    [
-                                      _vm._v(
-                                        "How did you find the experience against non-donators"
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "at-rate",
-                                    {
-                                      staticClass: "tw-flex",
-                                      attrs: { "show-text": true, count: 5 },
-                                      model: {
-                                        value: _vm.form.hosting_score,
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            _vm.form,
-                                            "hosting_score",
-                                            $$v
-                                          )
-                                        },
-                                        expression: "form.hosting_score"
-                                      }
-                                    },
-                                    [
-                                      _c("p", { staticClass: "tw-font-bold" }, [
+                              _c("div", { staticClass: "col-6" }, [
+                                _c(
+                                  "div",
+                                  { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
+                                  [
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
+                                      },
+                                      [_vm._v("Support Experience")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "tw-text-xs tw-mb-2 tw-text-grey-darker"
+                                      },
+                                      [
                                         _vm._v(
-                                          _vm._s(
-                                            _vm.ratingScore(
-                                              _vm.form.hosting_score
-                                            )
-                                          )
+                                          "How did you find the experience against non-donators"
                                         )
-                                      ])
-                                    ]
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
-                                [
-                                  _c(
-                                    "h4",
-                                    {
-                                      staticClass:
-                                        "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
-                                    },
-                                    [_vm._v("Content Experience")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass:
-                                        "tw-text-xs tw-mb-2 tw-text-grey-darker"
-                                    },
-                                    [
-                                      _vm._v(
-                                        "How did you find the experience against non-donators"
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "at-rate",
-                                    {
-                                      staticClass: "tw-flex",
-                                      attrs: { "show-text": true, count: 5 },
-                                      model: {
-                                        value: _vm.form.content_score,
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            _vm.form,
-                                            "content_score",
-                                            $$v
-                                          )
-                                        },
-                                        expression: "form.content_score"
-                                      }
-                                    },
-                                    [
-                                      _c("p", { staticClass: "tw-font-bold" }, [
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "at-rate",
+                                      {
+                                        staticClass: "tw-flex",
+                                        attrs: { "show-text": true, count: 5 },
+                                        model: {
+                                          value: _vm.form.support_score,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.form,
+                                              "support_score",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "form.support_score"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "p",
+                                          { staticClass: "tw-font-bold" },
+                                          [
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm.ratingScore(
+                                                  _vm.form.support_score
+                                                )
+                                              )
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
+                                  [
+                                    _c(
+                                      "h4",
+                                      {
+                                        staticClass:
+                                          "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
+                                      },
+                                      [_vm._v("Hosting Experience")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "tw-text-xs tw-mb-2 tw-text-grey-darker"
+                                      },
+                                      [
                                         _vm._v(
-                                          _vm._s(
-                                            _vm.ratingScore(
-                                              _vm.form.content_score
-                                            )
-                                          )
+                                          "How did you find the experience against non-donators"
                                         )
-                                      ])
-                                    ]
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
-                                [
-                                  _c(
-                                    "h4",
-                                    {
-                                      staticClass:
-                                        "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
-                                    },
-                                    [_vm._v("Event Experience")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass:
-                                        "tw-text-xs tw-mb-2 tw-text-grey-darker"
-                                    },
-                                    [
-                                      _vm._v(
-                                        "How did you find the experience against non-donators"
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "at-rate",
-                                    {
-                                      staticClass: "tw-flex",
-                                      attrs: { "show-text": true, count: 5 },
-                                      model: {
-                                        value: _vm.form.event_score,
-                                        callback: function($$v) {
-                                          _vm.$set(_vm.form, "event_score", $$v)
-                                        },
-                                        expression: "form.event_score"
-                                      }
-                                    },
-                                    [
-                                      _c("p", { staticClass: "tw-font-bold" }, [
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "at-rate",
+                                      {
+                                        staticClass: "tw-flex",
+                                        attrs: { "show-text": true, count: 5 },
+                                        model: {
+                                          value: _vm.form.hosting_score,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.form,
+                                              "hosting_score",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "form.hosting_score"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "p",
+                                          { staticClass: "tw-font-bold" },
+                                          [
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm.ratingScore(
+                                                  _vm.form.hosting_score
+                                                )
+                                              )
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
+                                  [
+                                    _c(
+                                      "h4",
+                                      {
+                                        staticClass:
+                                          "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
+                                      },
+                                      [_vm._v("Content Experience")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "tw-text-xs tw-mb-2 tw-text-grey-darker"
+                                      },
+                                      [
                                         _vm._v(
-                                          _vm._s(
-                                            _vm.ratingScore(
-                                              _vm.form.event_score
-                                            )
-                                          )
+                                          "How did you find the experience against non-donators"
                                         )
-                                      ])
-                                    ]
-                                  )
-                                ],
-                                1
-                              )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "at-rate",
+                                      {
+                                        staticClass: "tw-flex",
+                                        attrs: { "show-text": true, count: 5 },
+                                        model: {
+                                          value: _vm.form.content_score,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.form,
+                                              "content_score",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "form.content_score"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "p",
+                                          { staticClass: "tw-font-bold" },
+                                          [
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm.ratingScore(
+                                                  _vm.form.content_score
+                                                )
+                                              )
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "tw-p-2 tw-rounded tw-mb-4" },
+                                  [
+                                    _c(
+                                      "h4",
+                                      {
+                                        staticClass:
+                                          "tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold"
+                                      },
+                                      [_vm._v("Event Experience")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "tw-text-xs tw-mb-2 tw-text-grey-darker"
+                                      },
+                                      [
+                                        _vm._v(
+                                          "How did you find the experience against non-donators"
+                                        )
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "at-rate",
+                                      {
+                                        staticClass: "tw-flex",
+                                        attrs: { "show-text": true, count: 5 },
+                                        model: {
+                                          value: _vm.form.event_score,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.form,
+                                              "event_score",
+                                              $$v
+                                            )
+                                          },
+                                          expression: "form.event_score"
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "p",
+                                          { staticClass: "tw-font-bold" },
+                                          [
+                                            _vm._v(
+                                              _vm._s(
+                                                _vm.ratingScore(
+                                                  _vm.form.event_score
+                                                )
+                                              )
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                )
+                              ])
                             ])
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "at-button",
-                          {
-                            staticClass: "flex-fill",
-                            attrs: { type: "primary" }
-                          },
-                          [_vm._v("Post my Review!")]
-                        )
-                      ],
-                      1
-                    )
-                  : _c("at-button", [
-                      _vm.ReviewsExist
-                        ? _c("span", [
-                            _vm._v(
-                              "\n                        Create a review for this server!\n                    "
-                            )
-                          ])
-                        : _c("span", [
-                            _vm._v(
-                              "\n                        Be the first to create a review for this server!\n                    "
-                            )
-                          ])
-                    ])
-              ],
-              1
-            )
-          ]
-        )
-      : _vm._e()
-  ])
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "at-button",
+                            {
+                              staticClass: "flex-fill",
+                              attrs: { type: "primary" }
+                            },
+                            [_vm._v("Post my Review!")]
+                          )
+                        ],
+                        1
+                      )
+                    : _vm._e()
+                ]
+              )
+            ]
+          )
+        : _vm._e()
+    ],
+    2
+  )
 }
 var staticRenderFns = [
   function() {
@@ -18498,7 +18543,7 @@ var staticRenderFns = [
       "h3",
       { staticClass: "heading tw-mb-1 text-dark heading-underline" },
       [
-        _vm._v("You are writing a "),
+        _vm._v("You are creating a "),
         _c("span", { staticClass: "tw-text-blue" }, [_vm._v("Review")])
       ]
     )

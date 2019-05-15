@@ -129,7 +129,12 @@
 
                                 <section class="content-block mt-4">
                                     <div class="container px-5 pt-4">
-                                        <at-button v-if="!created_review" type="info" class="w-100 tw-font-bold">Create a review for this server!</at-button>
+                                        <span v-if="!creating_review" >
+                                            <at-button @click="toggleReview" type="info" class="w-100 tw-font-bold">Create a review for this server!</at-button>
+                                        </span>
+                                        <span v-else>
+                                            <at-button @click="toggleReview" type="error" class="w-100 tw-font-bold">Maybe I will create one later!</at-button>
+                                        </span>
                                     </div>
                                 </section>
 
