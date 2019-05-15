@@ -144,6 +144,21 @@
                                     </div>
                                 </section>
 
+                                <section v-if="!creating_review" id="previews">
+                                    <div class="container px-5 pt-4 pb-3">
+                                        <h3 class="heading mb-4 text-dark heading-underline">Screenshot Previews</h3>
+                                        <div class="mb-3">
+                                            <carousel-3d :disable3d="true" :space="360" :height="200" :width="350" :autoplay="true" :autoplay-timeout="5000" :controls-visible="true"  :controls-width="30" :controls-height="60" :clickable="false">
+                                                @for ($i = 0; $i < 7; $i++)
+                                                    <slide :index="{{ $i }}">
+                                                        <img class="h-100" src="https://o.aolcdn.com/images/dims?quality=85&image_uri=http%3A%2F%2Fwww.blogcdn.com%2Fmassively.joystiq.com%2Fmedia%2F2011%2F04%2Frag.jpg&client=amp-blogside-v2&signature=3b85eeb6a08455faef2f40eaf515cabd0402d20b" alt="Image {{ $i }}">
+                                                    </slide>
+                                                @endfor
+                                            </carousel-3d>
+                                        </div>
+                                    </div>
+                                </section>
+
                                 <section v-if="!creating_review" id="configuration" class="content-block">
                                     <div class="container px-5 py-4">
                                         <h3 class="heading mb-4 text-dark heading-underline">Server Configuration Setup</h3>
@@ -200,17 +215,8 @@
                                         </div>
                                     </div>
                                 </section>
-                                <section v-if="!creating_review" id="previews">
-                                    <div class="container px-5 pb-5">
-                                        <h3 class="heading mb-4 text-dark heading-underline">Screenshot Previews</h3>
-                                        <div class="mb-3">
-                                            Screenshots
-                                        </div>
-                                    </div>
-                                </section>
-
                                 <section id="reviews">
-                                    <div class="container px-5 pb-5">
+                                    <div class="container px-5 py-4">
                                         <h3 v-if="!creating_review" class="heading mb-4 text-dark heading-underline">Player Reviews</h3>
 
                                         <reviews :data="{{ $listing->reviews->load('publisher') }}" policy="{{ auth()->check() && auth()->user()->can('review', $listing) }}" inline-template>

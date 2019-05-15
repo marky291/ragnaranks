@@ -23,7 +23,7 @@ class ListingCacheContainer implements ShouldQueue
      */
     public function handle()
     {
-        return cache()->rememberForever('listings', static function()
+        return cache()->remember('listings', 1, static function()
         {
             $listings = Listing::query()->withCount(['votes', 'clicks'])->with(['mode', 'tags'])->get();
 

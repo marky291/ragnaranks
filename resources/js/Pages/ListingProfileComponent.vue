@@ -2,11 +2,15 @@
 
     import Reviews from '../components/ReviewsComponent.vue';
     import Scoreboards from '../components/ScoreboardsComponent.vue';
+    import { Carousel3d, Slide } from 'vue-carousel-3d';
 
     export default {
-
-        components: { Scoreboards, Reviews },
-
+        components: {
+            Scoreboards,
+            Reviews,
+            Carousel3d,
+            Slide
+        },
         props: {
             clicked: Boolean,
             voted: Boolean,
