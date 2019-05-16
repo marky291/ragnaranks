@@ -59,7 +59,7 @@ class ListingRequestsTest extends TestCase
 
         $collection = collect($response->original);
 
-        $this->assertEquals('first', $collection->first()->name);
-        $this->assertEquals('last', $collection->last()->name);
+        $this->assertEquals('first', $collection->first()['name']);
+        $this->assertEquals('last', $collection->last()['name']);
     }
 }
