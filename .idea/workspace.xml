@@ -11,12 +11,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/ScoreboardsComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ScoreboardsComponent.vue" afterDir="false" />
     </list>
     <list id="58f96053-e5bd-4b41-bbae-58099ecbebc5" name="Default Changelist" comment="" />
     <list id="f5c3af05-4cb1-407b-a377-26e729e13b17" name="Redesign V1" comment="Review cleanup of components">
       <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -91,11 +89,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1680">
-              <caret line="80" selection-start-line="80" selection-end-line="80" />
+            <state relative-caret-position="176">
+              <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
               <folding>
                 <element signature="e#14#37#0" expanded="true" />
               </folding>
@@ -104,31 +102,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/listing/show.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="111" column="30" selection-start-line="111" selection-start-column="30" selection-end-line="111" selection-end-column="30" />
-              <folding>
-                <element signature="e#4599#4670#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/components/ScoreboardComponent.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
-              <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/components/ScoreboardsComponent.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="25" column="26" lean-forward="true" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+            <state relative-caret-position="124">
+              <caret line="22" column="45" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -158,7 +135,6 @@
       <find>cr</find>
       <find>reply-action</find>
       <find>textarea</find>
-      <find>create a</find>
       <find>create a review</find>
       <find>heading</find>
       <find>create</find>
@@ -247,8 +223,8 @@
         <option value="$PROJECT_DIR$/resources/sass/_server-profile.scss" />
         <option value="$PROJECT_DIR$/app/Listings/ListingCacheContainer.php" />
         <option value="$PROJECT_DIR$/resources/js/components/ReviewComponent.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/ScoreboardsComponent.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue" />
       </list>
     </option>
   </component>
@@ -257,22 +233,6 @@
     <exe-path />
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="3" changelist="3e373db1-1d5b-461c-abb0-abc44c43e59a" />
-        <range start1="48" end1="51" start2="49" end2="49" changelist="3e373db1-1d5b-461c-abb0-abc44c43e59a" />
-        <range start1="54" end1="54" start2="52" end2="53" changelist="3e373db1-1d5b-461c-abb0-abc44c43e59a" />
-        <range start1="57" end1="66" start2="56" end2="67" changelist="f5c3af05-4cb1-407b-a377-26e729e13b17" />
-        <range start1="67" end1="68" start2="68" end2="73" changelist="3e373db1-1d5b-461c-abb0-abc44c43e59a" />
-        <range start1="69" end1="75" start2="74" end2="75" changelist="3e373db1-1d5b-461c-abb0-abc44c43e59a" />
-        <range start1="76" end1="77" start2="76" end2="76" changelist="3e373db1-1d5b-461c-abb0-abc44c43e59a" />
-        <range start1="79" end1="80" start2="78" end2="79" changelist="3e373db1-1d5b-461c-abb0-abc44c43e59a" />
-        <range start1="81" end1="82" start2="80" end2="80" changelist="3e373db1-1d5b-461c-abb0-abc44c43e59a" />
-        <range start1="85" end1="86" start2="83" end2="84" changelist="3e373db1-1d5b-461c-abb0-abc44c43e59a" />
-      </ranges>
-    </file>
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
@@ -420,7 +380,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
     </panes>
   </component>
@@ -989,7 +959,7 @@
   </component>
   <component name="TimeTrackingManager">
     <option name="enabled" value="true" />
-    <option name="totallyTimeSpent" value="610377000" />
+    <option name="totallyTimeSpent" value="610632000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1004,8 +974,8 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8420139" visible="true" weight="0.19126074" />
-      <window_info id="Structure" order="1" sideWeight="0.1579861" side_tool="true" visible="true" weight="0.19126074" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.83231086" visible="true" weight="0.19126074" />
+      <window_info id="Structure" order="1" sideWeight="0.16768916" side_tool="true" visible="true" weight="0.19126074" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1016,10 +986,10 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3280098" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.4004914" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.49928367" visible="true" weight="0.3992629" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3280098" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.3855508" side_tool="true" weight="0.29759037" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4914163" visible="true" weight="0.29238328" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007163" side_tool="true" weight="0.3992629" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49068767" weight="0.29274294" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.3280098" />
       <window_info anchor="bottom" id="File Transfer" order="14" weight="0.35670358" />
@@ -1447,20 +1417,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue">
+    <entry file="file://$PROJECT_DIR$/resources/js/components/ScoreboardsComponent.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1680">
-          <caret line="80" selection-start-line="80" selection-end-line="80" />
-          <folding>
-            <element signature="e#14#37#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="124">
+          <caret line="22" column="45" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/ScoreboardsComponent.vue">
+    <entry file="file://$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="25" column="26" lean-forward="true" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+        <state relative-caret-position="176">
+          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+          <folding>
+            <element signature="e#14#37#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

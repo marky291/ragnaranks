@@ -54,15 +54,17 @@
         },
 
         methods: {
-            CalculateAverages() {
-                Event.$emit('update:avg-donation-score', this.Rounded(_.meanBy(this.collection, function(item) { return Math.round(item.donation_score); })));
-                Event.$emit('update:avg-update-score', this.Rounded(_.meanBy(this.collection, function(item) { return Math.round(item.update_score); })));
-                Event.$emit('update:avg-class-score', this.Rounded(_.meanBy(this.collection, function(item) { return item.class_score; })));
-                Event.$emit('update:avg-item-score', this.Rounded(_.meanBy(this.collection, function(item) { return item.item_score; })));
-                Event.$emit('update:avg-support-score', this.Rounded(_.meanBy(this.collection, function(item) { return item.support_score; })));
-                Event.$emit('update:avg-hosting-score', this.Rounded(_.meanBy(this.collection, function(item) { return item.hosting_score; })));
-                Event.$emit('update:avg-content-score', this.Rounded(_.meanBy(this.collection, function(item) { return item.content_score; })));
-                Event.$emit('update:avg-event-score', this.Rounded(_.meanBy(this.collection, function(item) { return item.event_score; })));
+            emitReviewScores() {
+                this.$root.$emit('update:scoreboard', {
+                    donation_score: this.getAverageOfCollection('donation_score'),
+                    update_score: this.getAverageOfCollection('update_score'),
+                    class_score: this.getAverageOfCollection('class_score'),
+                    item_score: this.getAverageOfCollection('item_score'),
+                    support_score: this.getAverageOfCollection('support_score'),
+                    hosting_score: this.getAverageOfCollection('hosting_score'),
+                    content_score: this.getAverageOfCollection('content_score'),
+                    event_score: this.getAverageOfCollection('event_score'),
+                });
             },
             getAverageOfCollection(element) {
                 return _.meanBy(this.collection, function(item) {
