@@ -60,5 +60,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(Review::class, 'publisher_id');
     }
-
 }

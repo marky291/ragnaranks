@@ -24,6 +24,7 @@
 
         data() {
             return {
+                currentView: 'listing',
                 creating_review: false,
                 validation: {
                     vote: this.voted,
@@ -33,6 +34,9 @@
         },
 
         methods: {
+            theCurrentViewIs: function (view) {
+                return this.currentView === view;
+            },
             CastVote: function(route) {
                 this.validation.vote = true;
                 axios.post(window.location.href + route).then(response => function() {
@@ -48,6 +52,9 @@
             },
             toggleReview: function() {
                 this.$root.$emit('toggle:review');
+            },
+            setView: function(view) {
+                return this.currentView = view;
             }
         }
     }

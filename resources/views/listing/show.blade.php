@@ -32,12 +32,17 @@
                             <div id="user-actions" class="content py-0 rounded py-3 d-flex flex-column">
                                 <at-button class="mb-2" type="primary" hollow>Back to Searching</at-button>
                                 <at-button class="mb-2" hollow>Visit Website</at-button>
-                                <at-button class="mb-2" hollow>Vote for Server</at-button>
-                                <span v-if="!creating_review">
-                                    <at-button v-if="!creating_review" @click="toggleReview" type="success" class="w-100" hollow>Create a review!</at-button>
+                                <span v-if="!theCurrentViewIs('voting')">
+                                    <at-button @click="setView('voting')" class="w-100 mb-2" hollow>Vote for Server</at-button>
                                 </span>
                                 <span v-else>
-                                    <at-button @click="toggleReview" type="error" class="w-100" hollow>Review Later!</at-button>
+                                    <at-button @click="setView('listing')" type="error" class="w-100 mb-2" hollow>View Listing!</at-button>
+                                </span>
+                                <span v-if="!theCurrentViewIs('reviewing')">
+                                    <at-button @click="setView('reviewing')" type="success" class="w-100" hollow>Create a review!</at-button>
+                                </span>
+                                <span v-else>
+                                    <at-button @click="setView('listing')" type="error" class="w-100" hollow>View Listing!</at-button>
                                 </span>
                             </div>
                         @endcomponent
@@ -71,18 +76,13 @@
                                     </div>
                                 </div>
 
-                                <section v-if="!creating_review" id="description" class="content-block mt-4">
-                                    <div class="container px-5 py-4">
-                                        <h3 class="heading mb-4 text-dark heading-underline">Description</h3>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
+                                <span v-if="theCurrentViewIs('listing')">
+                                    @component('listing.partial.wrapper', ['view' => 'description', 'heading' => 'Description'])
+                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy.</p>
+                                    @endcomponent
+                                </span>
 
-                                <section v-if="!creating_review" id="previews">
+                                <section v-if="theCurrentViewIs('listing')" id="previews">
                                     <div class="container px-5 pt-4 pb-3">
                                         <h3 class="heading mb-4 text-dark heading-underline">Screenshot Previews</h3>
                                         <div class="mb-3">
@@ -97,7 +97,7 @@
                                     </div>
                                 </section>
 
-                                <section v-if="!creating_review" id="configuration" class="content-block">
+                                <section v-if="theCurrentViewIs('listing')" id="configuration" class="content-block">
                                     <div class="container px-5 py-4">
                                         <h3 class="heading mb-4 text-dark heading-underline">Server Configuration Setup</h3>
                                         <div class="row">
@@ -124,7 +124,7 @@
                                     </div>
                                 </section>
 
-                                <section v-if="!creating_review" id="ratings">
+                                <section v-if="theCurrentViewIs('listing')" id="ratings">
                                     <div class="container pl-5 pr-5">
                                         <div class="py-3 mb-3 rounded" style="border:1px solid rgba(255, 255, 255, 0.2);">
                                             <h3 class="heading mb-4 text-dark heading-underline">Balance Ratings</h3>
@@ -153,19 +153,20 @@
                                         </div>
                                     </div>
                                 </section>
+
                                 <section id="reviews">
                                     <div class="container px-5 py-4">
-                                        <h3 v-if="!creating_review" class="heading mb-4 text-dark heading-underline">Player Reviews</h3>
+                                        <h3 v-if="theCurrentViewIs('listing')" class="heading mb-4 text-dark heading-underline">Player Reviews</h3>
 
                                         <reviews :data="{{ $listing->reviews->load('publisher') }}" policy="{{ auth()->check() && auth()->user()->can('review', $listing) }}" inline-template>
                                             <div class="">
-                                                <div v-if="!isCreatingReview" v-for="(review, index) in collection">
+                                                <div v-if="$parent.theCurrentViewIs('listing')" v-for="(review, index) in collection">
                                                     <review :data="review"></review>
                                                 </div>
 
-                                                <div v-if="reviewable" @review-created="addReview" id="comment-reply" class="tw-mt-4 create-reply tw-flex tw-items-center rounded tw-cursor-pointer">
+                                                <div v-if="$parent.theCurrentViewIs('reviewing')" @review-created="addReview" id="comment-reply" class="tw-mt-4 create-reply tw-flex tw-items-center rounded tw-cursor-pointer">
                                                     <div class="tw-p-4 tw-flex tw-w-full tw-items-center">
-                                                        <span v-if="isCreatingReview" id="reply-action" class="tw-w-full">
+                                                        <span id="reply-action" class="tw-w-full">
                                                             <div class="row">
                                                                 <div class="py-3">
                                                                     <h3 class="heading tw-mb-1 text-dark mb-4 heading-underline">You are creating a <span class="tw-text-blue">Review</span></h3>
@@ -243,7 +244,7 @@
                                                                 </div>
                                                             </div>
                                                             <at-button type="primary" class="flex-fill">Post my Review!</at-button>
-                                                            <at-button @click="changeReviewState" type="info" hollow>Maybe I will create one later!</at-button>
+                                                            <at-button @click="$parent.setView('listing')" type="info" hollow>Maybe I will create one later!</at-button>
                                                             </span>
                                                     </div>
                                                 </div>
@@ -253,6 +254,14 @@
 
                                     </div>
                                 </section>
+
+                                <span v-if="theCurrentViewIs('voting')">
+                                    @component('listing.partial.wrapper', ['view' => 'voting','heading' => "You are voting for $listing->name"])
+                                        <p class="tw-font-bold mb-3 tw-text-green">You have (1) vote remaining!</p>
+                                        <p class="mb-3">Your vote will have a cooling period of <b>{{ config('interaction.vote.spread') }} hours</b>, this cannot be returned and will remain on {{ $listing->name }} for 7 days starting from the time and date of your cast</p>
+                                        <at-button type="primary" icon="icon-log-out" class="mt-2">Vote for {{ $listing->name }}</at-button>
+                                    @endcomponent
+                                </span>
 
                             </div>
                         </transition>
