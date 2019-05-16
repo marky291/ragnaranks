@@ -33,16 +33,16 @@
                                 <at-button class="mb-2" type="primary" hollow>Back to Searching</at-button>
                                 <at-button class="mb-2" hollow>Visit Website</at-button>
                                 <span v-if="!theCurrentViewIs('voting')">
-                                    <at-button @click="setView('voting')" class="w-100 mb-2" hollow>Vote for Server</at-button>
+                                    <at-button @click="setView('voting')" class="w-100 mb-2" hollow>Vote for server</at-button>
                                 </span>
                                 <span v-else>
-                                    <at-button @click="setView('listing')" type="error" class="w-100 mb-2" hollow>View Listing!</at-button>
+                                    <at-button @click="setView('listing')" type="error" class="w-100 mb-2" hollow>Back to Listing</at-button>
                                 </span>
                                 <span v-if="!theCurrentViewIs('reviewing')">
-                                    <at-button @click="setView('reviewing')" type="success" class="w-100" hollow>Create a review!</at-button>
+                                    <at-button @click="setView('reviewing')" type="success" class="w-100" hollow>Create a review</at-button>
                                 </span>
                                 <span v-else>
-                                    <at-button @click="setView('listing')" type="error" class="w-100" hollow>View Listing!</at-button>
+                                    <at-button @click="setView('listing')" type="error" class="w-100" hollow>Back to Listing</at-button>
                                 </span>
                             </div>
                         @endcomponent
