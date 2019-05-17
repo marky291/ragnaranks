@@ -25,7 +25,7 @@ class ListingCacheContainer implements ShouldQueue
     {
         return cache()->remember('listings', 1, static function()
         {
-            $listings = Listing::query()->withCount(['votes', 'clicks'])->with(['mode', 'tags'])->get();
+            $listings = Listing::query()->withCount(['votes', 'clicks'])->with(['mode', 'tags', 'screenshots'])->get();
 
             $listings = $listings->sortByDesc(function(Listing $listing)  {
                 return $listing->points;
