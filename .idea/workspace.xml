@@ -12,15 +12,12 @@
     <bookmark url="file://$PROJECT_DIR$/app/Http/Controllers/QueryController.php" line="26" mnemonic="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58f96053-e5bd-4b41-bbae-58099ecbebc5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e8df93af-190f-4543-b9b3-e034f2769a7d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e8df93af-190f-4543-b9b3-e034f2769a7d.xml" afterDir="false" />
+    <list default="true" id="58f96053-e5bd-4b41-bbae-58099ecbebc5" name="Default Changelist" comment="Database seeding and model naming.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Listings/Listing.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listings/Listing.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Listings/ListingScreenshot.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listings/ListingScreenshots.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Listings/ListingScreenshots.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listings/ListingScreenshot.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/factories/ListingFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ListingFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/listing/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/listing/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Unit/ListingTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/ListingTest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -88,19 +85,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2018_09_16_101736_create_server_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="118" column="32" selection-start-line="118" selection-start-column="32" selection-end-line="118" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Unit/ListingTest.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="183">
-              <caret line="380" column="84" selection-start-line="380" selection-start-column="8" selection-end-line="380" selection-end-column="84" />
+              <caret line="380" column="83" selection-start-line="380" selection-start-column="8" selection-end-line="380" selection-end-column="83" />
               <folding>
                 <element signature="e#30#57#0#PHP" expanded="true" />
               </folding>
@@ -126,11 +114,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/listing/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="97" column="42" lean-forward="true" selection-start-line="97" selection-start-column="42" selection-end-line="97" selection-end-column="42" />
+            <state relative-caret-position="326">
+              <caret line="96" column="42" lean-forward="true" selection-start-line="96" selection-start-column="42" selection-end-line="96" selection-end-column="42" />
               <folding>
                 <element signature="e#4374#4394#0#HTML" expanded="true" />
               </folding>
@@ -152,17 +140,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
+            <state relative-caret-position="189">
               <caret line="98" selection-start-line="98" selection-end-line="98" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Listings/Listing.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="138" column="7" selection-start-line="138" selection-start-column="7" selection-end-line="138" selection-end-column="7" />
+            <state relative-caret-position="318">
+              <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Listings/ListingScreenshot.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -298,9 +295,9 @@
         <option value="$PROJECT_DIR$/database/factories/ListingFactory.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_09_16_101736_create_server_table.php" />
         <option value="$PROJECT_DIR$/app/Listings/ListingCacheContainer.php" />
-        <option value="$PROJECT_DIR$/app/Listings/Listing.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/resources/views/listing/show.blade.php" />
+        <option value="$PROJECT_DIR$/app/Listings/Listing.php" />
       </list>
     </option>
   </component>
@@ -476,12 +473,6 @@
               <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
               <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Listings" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
@@ -674,13 +665,6 @@
       <workItem from="1557742221291" duration="15346000" />
       <workItem from="1557845670747" duration="6356000" />
       <workItem from="1558049398895" duration="141000" />
-    </task>
-    <task id="LOCAL-00040" summary="Seeder now feels more natural and lifelike with interaction counts and how data is put into database,">
-      <created>1545866847288</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1545866847288</updated>
     </task>
     <task id="LOCAL-00041" summary="Listings now display points, for admin debugging.&#10;Review system with scoring added, with test suite.">
       <created>1546016004709</created>
@@ -1025,7 +1009,14 @@
       <option name="project" value="LOCAL" />
       <updated>1558094180035</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="Database seeding and model naming.">
+      <created>1558095588546</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1558095588546</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="marky291" />
@@ -1034,12 +1025,6 @@
     </servers>
   </component>
   <component name="TestHistory">
-    <history-entry file="ListingTest_test_it_can_have_screenshots - 2019.05.17 at 12h 20m 00s.xml">
-      <configuration name="ListingTest.test_it_can_have_screenshots" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="ListingTest_test_it_can_have_screenshots - 2019.05.17 at 12h 20m 16s.xml">
-      <configuration name="ListingTest.test_it_can_have_screenshots" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
     <history-entry file="ListingTest_test_it_can_have_screenshots - 2019.05.17 at 12h 20m 49s.xml">
       <configuration name="ListingTest.test_it_can_have_screenshots" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
@@ -1064,10 +1049,16 @@
     <history-entry file="tests - 2019.05.17 at 12h 26m 56s.xml">
       <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
+    <history-entry file="tests - 2019.05.17 at 13h 19m 30s.xml">
+      <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="tests - 2019.05.17 at 13h 23m 20s.xml">
+      <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
     <option name="enabled" value="true" />
-    <option name="totallyTimeSpent" value="620033000" />
+    <option name="totallyTimeSpent" value="620351000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1130,7 +1121,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/vendor/adamwathan/laravel-preset" />
     </ignored-roots>
-    <MESSAGE value="Click testing, policies and controllers." />
     <MESSAGE value="Remove listing policy, moved logic to the interaction controller." />
     <MESSAGE value="Rename config for local servers to fake listings." />
     <MESSAGE value="Design of frontpage" />
@@ -1155,7 +1145,8 @@
     <MESSAGE value="Vote for server page implementation #10" />
     <MESSAGE value="Migration and modelling for listing screenshots. #7" />
     <MESSAGE value="Added screenshot modelling to show.blade.php from the container" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added screenshot modelling to show.blade.php from the container" />
+    <MESSAGE value="Database seeding and model naming." />
+    <option name="LAST_COMMIT_MESSAGE" value="Database seeding and model naming." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -1409,13 +1400,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listings/ListingScreenshots.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/fake/listings.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -1466,7 +1450,7 @@
     <entry file="file://$PROJECT_DIR$/tests/Unit/ListingTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
-          <caret line="380" column="84" selection-start-line="380" selection-start-column="8" selection-end-line="380" selection-end-column="84" />
+          <caret line="380" column="83" selection-start-line="380" selection-start-column="8" selection-end-line="380" selection-end-column="83" />
           <folding>
             <element signature="e#30#57#0#PHP" expanded="true" />
           </folding>
@@ -1477,20 +1461,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-86">
           <caret line="8" column="68" selection-start-line="8" selection-start-column="68" selection-end-line="8" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listings/Listing.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="138" column="7" selection-start-line="138" selection-start-column="7" selection-end-line="138" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
         </state>
       </provider>
     </entry>
@@ -1505,11 +1475,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/listing/show.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="97" column="42" lean-forward="true" selection-start-line="97" selection-start-column="42" selection-end-line="97" selection-end-column="42" />
+        <state relative-caret-position="326">
+          <caret line="96" column="42" lean-forward="true" selection-start-line="96" selection-start-column="42" selection-end-line="96" selection-end-column="42" />
           <folding>
             <element signature="e#4374#4394#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listings/ListingScreenshot.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listings/Listing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
         </state>
       </provider>
     </entry>

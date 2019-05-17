@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Support\Facades\Schema;
+use App\Listings\ListingScreenshot;
 
 /**
  * Class Listings
@@ -133,7 +134,7 @@ class Listing extends Model
      */
     public function screenshots(): HasMany
     {
-        return $this->hasMany('App\Listings\ListingScreenshots');
+        return $this->hasMany(ListingScreenshot::class);
     }
 
     /**

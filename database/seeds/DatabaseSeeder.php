@@ -3,7 +3,7 @@
 use App\Interactions\Click;
 use App\Listings\Listing;
 use App\Interactions\Review;
-use App\Listings\ListingScreenshots;
+use App\Listings\ListingScreenshot;
 use App\Tag;
 use App\Interactions\Vote;
 use Illuminate\Database\Eloquent\Collection;
@@ -94,7 +94,7 @@ class DatabaseSeeder extends Seeder
         }
 
         for ($i = 0; $i < $this->seed_counts['screenshots']; $i++) {
-            $this->listings->random(1)->first()->screenshots()->save(factory(ListingScreenshots::class)->create());
+            $this->listings->random(1)->first()->screenshots()->save(factory(ListingScreenshot::class)->create());
         }
 
         $this->progress_bar->advance();

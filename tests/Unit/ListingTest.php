@@ -6,7 +6,7 @@ use App\Interactions\Click;
 use App\Interactions\Vote;
 use App\Listings\Listing;
 use App\Interactions\Review;
-use App\Listings\ListingScreenshots;
+use App\Listings\ListingScreenshot;
 use App\Tag;
 use Illuminate\Support\Facades\Cache;
 use Mockery\Mock;
@@ -378,7 +378,7 @@ class ListingTest extends TestCase
     {
         $listing = factory(Listing::class)->create();
 
-        $listing->screenshots()->save(factory(ListingScreenshots::class)->create());
+        $listing->screenshots()->save(factory(ListingScreenshot::class)->create());
 
         $this->assertCount(1, $listing->screenshots);
 
