@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Support\Facades\Schema;
 
 /**
@@ -97,7 +98,7 @@ class Listing extends Model
     /**
      * A listing can have many clicks.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany|Vote
+     * @return MorphToMany|Vote
      */
     public function votes()
     {
@@ -107,7 +108,7 @@ class Listing extends Model
     /**
      * A listing can have many clicks.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany|Vote
+     * @return MorphToMany|Vote
      *
      */
     public function clicks()
@@ -118,11 +119,21 @@ class Listing extends Model
     /**
      * A listing has many reviews.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany|Review
+     * @return MorphToMany|Review
      */
     public function reviews()
     {
         return $this->morphedByMany(Review::class, 'interaction');
+    }
+
+    /**
+     * A listing can upload and have many url screenshots.
+     *
+     * @return HasMany
+     */
+    public function screenshots(): HasMany
+    {
+        return $this->hasMany(ListingScreenshot::class);
     }
 
     /**

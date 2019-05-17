@@ -120,6 +120,14 @@ class CreateServerTable extends Migration
             $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade')->onUpdate('cascade');
         });
 
+        Schema::create('listing_screenshots', function(Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('listing_id');
+            $table->string('link');
+            $table->timestamps();
+            $table->foreign('listing_id')->references('id')->on('listings')->onDelete('cascade')->onUpdate('cascade');
+        });
+
         Schema::create('reviews', function(Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('publisher_id');
