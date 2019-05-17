@@ -3,6 +3,7 @@
 use App\Interactions\Click;
 use App\Listings\Listing;
 use App\Interactions\Review;
+use App\Listings\ListingScreenshots;
 use App\Tag;
 use App\Interactions\Vote;
 use Illuminate\Database\Eloquent\Collection;
@@ -52,7 +53,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->progress_bar = new ProgressBar($this->command->getOutput(), 3);
 
-        $this->seed_counts = ['listings' => rand(10, 15), 'votes' => rand(50, 90), 'clicks' => rand(60, 120), 'reviews' => rand(10, 20)];
+        $this->seed_counts = ['listings' => rand(10, 15), 'votes' => rand(50, 90), 'clicks' => rand(60, 120), 'reviews' => rand(10, 20), 'screenshots' => rand(15, 40)];
 
         $this->progress_bar->advance();
 
@@ -90,6 +91,10 @@ class DatabaseSeeder extends Seeder
 
         for ($i = 0; $i < $this->seed_counts['reviews']; $i++) {
             $this->listings->random(1)->first()->reviews()->save(factory(Review::class)->create());
+        }
+
+        for ($i = 0; $i < $this->seed_counts['screenshots']; $i++) {
+            $this->listings->random(1)->first()->screenshots()->save(factory(ListingScreenshots::class)->create());
         }
 
         $this->progress_bar->advance();

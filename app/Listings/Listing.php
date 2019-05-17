@@ -133,7 +133,7 @@ class Listing extends Model
      */
     public function screenshots(): HasMany
     {
-        return $this->hasMany(ListingScreenshot::class);
+        return $this->hasMany('App\Listings\ListingScreenshots');
     }
 
     /**

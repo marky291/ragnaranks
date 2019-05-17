@@ -4,7 +4,7 @@
 use App\Listings\Listing;
 use Faker\Generator as Faker;
 
-$factory->define(\App\Listings\ListingScreenshot::class, function (Faker $faker) {
+$factory->define(\App\Listings\ListingScreenshots::class, function (Faker $faker) {
     return [
         'listing_id' => factory(Listing::class)->create()->getKey(),
         'link' => $faker->imageUrl(640, 480, 'cats'),
