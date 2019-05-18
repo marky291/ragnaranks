@@ -80,3 +80,9 @@ h1,h2,h3,h4,h5 {
   border-bottom: 1px solid #ddd;
   padding-bottom: 0.7em !important;
 }
+
+.invalid-feedback {
+  display: block;
+  color: #e3342f;
+  font-size: .75rem;
+}

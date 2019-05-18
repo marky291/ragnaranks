@@ -33,13 +33,10 @@ Vue.mixin({
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('flash', require('./components/FlashComponent.vue').default);
-
 Vue.component('filtered-search', require('./components/FilteredListingSearch.vue').default);
-
 Vue.component('filtered-listings', require('./components/FilteredListingContainer.vue').default);
-
 Vue.component('listing-profile', require('./Pages/ListingProfileComponent.vue').default);
+Vue.component('login-component', require('./components/LoginComponent').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

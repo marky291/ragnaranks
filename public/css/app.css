@@ -30035,6 +30035,12 @@ h5 {
   padding-bottom: .7em !important;
 }
 
+.invalid-feedback {
+  display: block;
+  color: #e3342f;
+  font-size: .75rem;
+}
+
 @media (min-width: 576px) {
   .sm\:tw-list-reset {
     list-style: none;

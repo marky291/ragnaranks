@@ -23,8 +23,6 @@
 
             @include('layouts.footer')
 
-            <flash message="{{ session('flash') }}"></flash>
-
         </div>
 
         <script src="{{ mix('/js/app.js') }}"></script>
