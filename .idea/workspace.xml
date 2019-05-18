@@ -12,13 +12,10 @@
     <bookmark url="file://$PROJECT_DIR$/app/Http/Controllers/QueryController.php" line="26" mnemonic="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58f96053-e5bd-4b41-bbae-58099ecbebc5" name="Default Changelist" comment="Database seeding and model naming.">
+    <list default="true" id="58f96053-e5bd-4b41-bbae-58099ecbebc5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Listings/Listing.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listings/Listing.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Listings/ListingScreenshots.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listings/ListingScreenshot.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/ListingFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ListingFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/ListingTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/ListingTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/listing/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/listing/index.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -85,13 +82,41 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Unit/ListingTest.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/listing/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="380" column="83" selection-start-line="380" selection-start-column="8" selection-end-line="380" selection-end-column="83" />
+            <state relative-caret-position="315">
+              <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="5" column="65" selection-start-line="5" selection-start-column="65" selection-end-line="5" selection-end-column="65" />
               <folding>
-                <element signature="e#30#57#0#PHP" expanded="true" />
+                <element signature="n#style#0;n#h1#0;n#div#0;n#div#1;n#div#0;n#div#0;n#transition-group#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#transition-group#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#transition-group#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#transition-group#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#1;n#div#1;n#div#0;n#div#0;n#transition-group#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#transition-group#0;n#template#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/layouts/frame.blade.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="326">
+              <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -99,17 +124,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/factories/ListingFactory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-86">
+            <state relative-caret-position="147">
               <caret line="8" column="68" selection-start-line="8" selection-start-column="68" selection-end-line="8" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Feature/ListingRequestsTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="49" selection-start-line="49" selection-end-line="49" />
             </state>
           </provider>
         </entry>
@@ -117,11 +133,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/listing/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="96" column="42" lean-forward="true" selection-start-line="96" selection-start-column="42" selection-end-line="96" selection-end-column="42" />
-              <folding>
-                <element signature="e#4374#4394#0#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="1806">
+              <caret line="86" column="117" selection-start-line="86" selection-start-column="40" selection-end-line="86" selection-end-column="117" />
             </state>
           </provider>
         </entry>
@@ -140,17 +153,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="98" selection-start-line="98" selection-end-line="98" />
+            <state relative-caret-position="84">
+              <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+              <folding>
+                <element signature="e#7#34#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Listings/Listing.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
+            <state relative-caret-position="2562">
+              <caret line="134" column="42" selection-start-line="134" selection-start-column="42" selection-end-line="134" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -159,25 +175,7 @@
         <entry file="file://$PROJECT_DIR$/app/Listings/ListingScreenshot.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Unit/ListingFilterTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1312">
-              <caret line="85" selection-start-line="85" selection-end-line="85" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Listings/ListingCacheContainer.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -247,7 +245,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/API/CardController.php" />
         <option value="$PROJECT_DIR$/app/Listings/ListingServiceProvider.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/database/factories/UserFactory.php" />
@@ -281,7 +278,6 @@
         <option value="$PROJECT_DIR$/resources/js/components/ScoreboardsComponent.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue" />
         <option value="$PROJECT_DIR$/tests/Feature/ListingRequestsTest.php" />
-        <option value="$PROJECT_DIR$/resources/views/listing/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/app.js" />
         <option value="$PROJECT_DIR$/composer.json" />
@@ -298,6 +294,8 @@
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/resources/views/listing/show.blade.php" />
         <option value="$PROJECT_DIR$/app/Listings/Listing.php" />
+        <option value="$PROJECT_DIR$/resources/views/listing/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
       </list>
     </option>
   </component>
@@ -462,6 +460,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -485,11 +484,28 @@
               <item name="database" type="462c0819:PsiDirectoryNode" />
               <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="auth" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -588,7 +604,6 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="58f96053-e5bd-4b41-bbae-58099ecbebc5" name="Default Changelist" comment="" />
-      <changelist id="" name="Redesign V1" comment="" />
       <created>1537021496410</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -665,13 +680,7 @@
       <workItem from="1557742221291" duration="15346000" />
       <workItem from="1557845670747" duration="6356000" />
       <workItem from="1558049398895" duration="141000" />
-    </task>
-    <task id="LOCAL-00041" summary="Listings now display points, for admin debugging.&#10;Review system with scoring added, with test suite.">
-      <created>1546016004709</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1546016004709</updated>
+      <workItem from="1558172868562" duration="8000" />
     </task>
     <task id="LOCAL-00042" summary="Test suite for showing a listing, listing resource controller created.">
       <created>1546023196727</created>
@@ -960,10 +969,9 @@
       <option name="project" value="LOCAL" />
       <updated>1557948216854</updated>
     </task>
-    <task active="true" id="ragnaranks-12" summary="Scoreboards should reflect review scores">
+    <task id="ragnaranks-12" summary="Scoreboards should reflect review scores">
       <branch name="master" repository="$PROJECT_DIR$" original="true" />
       <branch name="ragnaranks-12" repository="$PROJECT_DIR$" />
-      <changelist id="" name="ragnaranks-12 Scoreboards should reflect review scores" comment="" />
       <created>1557946315000</created>
       <option name="issue" value="true" />
       <url>https://github.com/marky291/ragnaranks/issues/12</url>
@@ -1016,7 +1024,14 @@
       <option name="project" value="LOCAL" />
       <updated>1558095588546</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="Corrected has many naming convention back to singular. #7">
+      <created>1558095851561</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1558095851561</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="marky291" />
@@ -1058,7 +1073,7 @@
   </component>
   <component name="TimeTrackingManager">
     <option name="enabled" value="true" />
-    <option name="totallyTimeSpent" value="620351000" />
+    <option name="totallyTimeSpent" value="624834000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1070,11 +1085,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1440" height="803" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8363274" visible="true" weight="0.19412607" />
-      <window_info id="Structure" order="1" sideWeight="0.16367266" side_tool="true" visible="true" weight="0.19412607" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.83366334" visible="true" weight="0.1969914" />
+      <window_info id="Structure" order="1" sideWeight="0.16633664" side_tool="true" visible="true" weight="0.1969914" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1088,7 +1102,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49928367" weight="0.3992629" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3280098" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.2858166" side_tool="true" weight="0.29238328" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.7141834" visible="true" weight="0.3845209" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.7141834" visible="true" weight="0.2733813" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.3280098" />
       <window_info anchor="bottom" id="File Transfer" order="14" weight="0.35670358" />
@@ -1121,7 +1135,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/vendor/adamwathan/laravel-preset" />
     </ignored-roots>
-    <MESSAGE value="Remove listing policy, moved logic to the interaction controller." />
     <MESSAGE value="Rename config for local servers to fake listings." />
     <MESSAGE value="Design of frontpage" />
     <MESSAGE value="tailwind file added." />
@@ -1146,20 +1159,11 @@
     <MESSAGE value="Migration and modelling for listing screenshots. #7" />
     <MESSAGE value="Added screenshot modelling to show.blade.php from the container" />
     <MESSAGE value="Database seeding and model naming." />
-    <option name="LAST_COMMIT_MESSAGE" value="Database seeding and model naming." />
+    <MESSAGE value="Corrected has many naming convention back to singular. #7" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrected has many naming convention back to singular. #7" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/at-ui-style/src/core/grid.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/at-ui-style/src/core/index.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -1273,16 +1277,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/listing/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="51" column="42" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="42" />
-          <folding>
-            <marker date="1558033366540" expanded="true" signature="392:1014" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/listing/partial/user-score.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1325,21 +1319,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/ScoreboardsComponent.vue">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1386">
-          <caret line="66" column="57" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="57" />
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#div#0;n#div#1;n#div#0;n#div#0;n#transition-group#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#transition-group#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#transition-group#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#transition-group#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#div#1;n#div#0;n#div#0;n#transition-group#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#transition-group#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/sass/_server-profile.scss">
       <provider selected="true" editor-type-id="text-editor">
@@ -1457,10 +1436,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/listing/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="65" selection-start-line="5" selection-start-column="65" selection-end-line="5" selection-end-column="65" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#div#0;n#div#1;n#div#0;n#div#0;n#transition-group#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#transition-group#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#transition-group#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#transition-group#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#1;n#div#0;n#div#0;n#transition-group#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#transition-group#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/frame.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/database/factories/ListingFactory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-86">
+        <state relative-caret-position="147">
           <caret line="8" column="68" selection-start-line="8" selection-start-column="68" selection-end-line="8" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/listing/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1806">
+          <caret line="86" column="117" selection-start-line="86" selection-start-column="40" selection-end-line="86" selection-end-column="117" />
         </state>
       </provider>
     </entry>
@@ -1473,34 +1484,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/listing/show.blade.php">
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="96" column="42" lean-forward="true" selection-start-line="96" selection-start-column="42" selection-end-line="96" selection-end-column="42" />
+        <state relative-caret-position="84">
+          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
           <folding>
-            <element signature="e#4374#4394#0#HTML" expanded="true" />
+            <element signature="e#7#34#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listings/Listing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2562">
+          <caret line="134" column="42" selection-start-line="134" selection-start-column="42" selection-end-line="134" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Listings/ListingScreenshot.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listings/Listing.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
+        <state relative-caret-position="326">
+          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
         </state>
       </provider>
     </entry>
