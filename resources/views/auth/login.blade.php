@@ -8,7 +8,7 @@
                 <div class="w-50 m-auto mt-5 p-2 tw-rounded tw-items-center tw-flex" style="height: 75vh;">
                     <div class="mb-4 tw-flex-1 tw-bg-white px-5 py-4 tw-rounded shadow">
                         <login-component inline-template>
-                            <form action="" @keydown="form.onKeydown($event)">
+                            <form action="" @keydown="form.onKeydown($event)" @keydown.enter="attemptLogin">
                                 <div class="tw-flex tw-flex-row tw-items-center mb-3">
                                     <img src="https://pngimage.net/wp-content/uploads/2018/06/poring-png-4.png" alt="poring monster" width="75">
                                     <h2 class="ml-2 tw-font-bold mb-0">Be Part of the Community, Login! <br><small>Don't have an account? <span><a href="">Register now!</a></span></small></h2>
