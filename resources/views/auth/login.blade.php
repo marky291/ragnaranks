@@ -11,15 +11,15 @@
                             <form action="" @keydown="form.onKeydown($event)" @keydown.enter="attemptLogin">
                                 <div class="tw-flex tw-flex-row tw-items-center mb-3">
                                     <img src="https://pngimage.net/wp-content/uploads/2018/06/poring-png-4.png" alt="poring monster" width="75">
-                                    <h2 class="ml-2 tw-font-bold mb-0">Be Part of the Community, Login! <br><small>Don't have an account? <span><a href="">Register now!</a></span></small></h2>
+                                    <h2 class="ml-2 tw-font-bold mb-0">Be Part of the Community, Login! <br><small>Don't have an account? <span><a href="/register">Register now!</a></span></small></h2>
                                 </div>
-                                <div class="form-group">
-                                    <p class="tw-font-bold mb-1">Enter your Email Account</p>
-                                    <at-input v-model="form.email" :status="form.errors.has('email') ? 'error' : ''" placeholder="{{ __('E-Mail Address') }}" name="email"></at-input>
+                                <div class="item-group">
+                                    <label>Enter your Email Account</label>
+                                    <at-input autofocus id="email" v-model="form.email" :status="form.errors.has('email') ? 'error' : ''" placeholder="{{ __('E-Mail Address') }}" name="email"></at-input>
                                     <has-error :form="form" field="email"></has-error>
                                 </div>
-                                <div class="form-group">
-                                    <p class="tw-font-bold mb-1">Enter your password</p>
+                                <div class="item-group">
+                                    <label class="tw-font-bold mb-1">Enter your password</label>
                                     <at-input v-model="form.password" :status="form.errors.has('password') ? 'error' : ''" type="password" placeholder="{{ __('Password') }}" name="password"></at-input>
                                     <has-error :form="form" field="password"></has-error>
                                 </div>

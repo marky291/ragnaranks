@@ -29796,6 +29796,27 @@ footer .website-banner h1 {
   color: rgba(255, 255, 255, .1);
 }
 
+form .item-group {
+  margin-bottom: 10px;
+}
+
+form .item-group label {
+  font-size: .75rem !important;
+  color: #4a5568 !important;
+  margin-bottom: .5rem !important;
+  font-weight: 700 !important;
+  letter-spacing: .025em !important;
+  text-transform: uppercase !important;
+}
+
+form .item-group input {
+  color: #4a5568 !important;
+  padding: .75rem 1rem !important;
+  margin-bottom: .75rem !important;
+  line-height: 1.25 !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06) !important;
+}
+
 #curtain h2 {
   font-size: 3rem;
   margin-bottom: 2.5rem;

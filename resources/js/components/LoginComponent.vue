@@ -9,7 +9,7 @@
     data: function() {
         return {
             form: new Form({
-                username: '',
+                email: '',
                 password: '',
                 rememberMe: false,
             })
@@ -17,7 +17,6 @@
     },
     methods: {
       attemptLogin: function() {
-          this.form.attemptingLogin = true;
           this.form.post('/login').then(({ data }) => { window.location = '/'; }).catch((response) => {
             // response ?
           });

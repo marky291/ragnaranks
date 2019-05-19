@@ -37,6 +37,7 @@ Vue.component('filtered-search', require('./components/FilteredListingSearch.vue
 Vue.component('filtered-listings', require('./components/FilteredListingContainer.vue').default);
 Vue.component('listing-profile', require('./Pages/ListingProfileComponent.vue').default);
 Vue.component('login-component', require('./components/LoginComponent').default);
+Vue.component('register-component', require('./components/RegisterComponent').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
