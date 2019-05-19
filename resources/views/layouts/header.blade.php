@@ -19,47 +19,27 @@
             <img src="{{ asset('img/logo.png') }}" alt="" style="height:64px; width: auto;">
         </a>
 
-        <div class="tw-w-1/3 collapse navbar-collapse order-4 order-md-4" id="navbar">
-            <ul class="navbar-nav flex-fill justify-content-end">
-                <li class="nav-item mr-2">
-                    @if(auth()->check())
-                        <a class="nav-link text-dark" href="{{ route('logout') }}"
-                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Logout
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    @else
-                        <a class="nav-link text-dark" href="{{ route('login') }}">Login</a>
-                    @endif
-                </li>
-                <li class="nav-item dropdown active rounded">
-                    <a class="nav-link" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="member d-flex flex-row align-items-center">
-                            {{--<div class="avatar">--}}
-                            {{--<img src="{{ fake()->imageUrl(35,35) }}" alt="">--}}
-                            {{--</div>--}}
-                            <div class="details mx-2 flex-grow-1" style="line-height: 1.1em">
-                                <p class="mb-0">
-                                    {{--{{ fake()->userName }} <br>--}}
-                                    Account
-                                </p>
-                            </div>
-                            <div class="carrot">
-                                <i class="fas fa-caret-down"></i>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown02">
-                        <a class="dropdown-item" href="home-onecolumn.html">One column</a>
-                        <a class="dropdown-item" href="home-twocolumn.html">Two column</a>
-                        <a class="dropdown-item" href="home-threecolumn.html">Three column</a>
-                        <a class="dropdown-item" href="home-fourcolumn.html">Four column</a>
-                        <a class="dropdown-item" href="home-featured.html">Featured posts</a>
-                        <a class="dropdown-item" href="home-fullwidth.html">Full width</a>
-                    </div>
-                </li>
-            </ul>
+        <div class="tw-w-1/3 collapse tw-justify-end navbar-collapse order-4 order-md-4" id="navbar-right">
+            <at-menu mode="horizontal" active-name="{{ request()->route()->uri }}" class="bg-transparent" @on-select="navigate">
+                @if (auth()->check())
+                    <at-menu-item name="notification">
+                        <at-badge :value="1048" :max-num="12">
+                            <span><i class="icon icon-bell"></i>Notifications</span>
+                        </at-badge>
+                    </at-menu-item>
+                    <at-submenu>
+                        <template slot="title"><i class="icon icon-user"></i>My Account</template>
+                        <at-menu-item name="logout"><i class="icon icon-settings"></i>Logout</at-menu-item>
+                    </at-submenu>
+                @else
+                    <at-menu-item name="login">
+                        <span><i class="icon icon-bell"></i>Login</span>
+                    </at-menu-item>
+                    <at-menu-item name="register">
+                        <span><i class="icon icon-bell"></i>Register</span>
+                    </at-menu-item>
+                @endif
+            </at-menu>
         </div>
     </div>
 </nav>

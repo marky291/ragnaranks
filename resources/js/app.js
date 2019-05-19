@@ -4,6 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import * as axios from "axios";
+
 window.Vue = require('vue');
 
 window.Event = new Vue();
@@ -50,4 +52,22 @@ Vue.component('verify-account-component', require('./components/VerifyAccountCom
 
 const app = new Vue({
     el: '#app',
+
+    methods: {
+        navigate: function(name) {
+            switch (name) {
+                case 'logout':
+                    axios.post('/logout').then((response) => {
+                        window.location = '/';
+                    });
+                    break;
+                case 'login':
+                    window.location = '/login';
+                    break;
+                case 'register':
+                    window.location = '/register';
+                    break;
+            }
+        }
+    }
 });
