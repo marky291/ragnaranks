@@ -23,7 +23,7 @@
             <at-menu mode="horizontal" active-name="{{ request()->route()->uri }}" class="bg-transparent" @on-select="navigate">
                 @if (auth()->check())
                     <at-menu-item name="notification">
-                        <at-badge :value="1048" :max-num="12">
+                        <at-badge :value="{{ auth()->user()->unreadNotifications->count() }}" :max-num="12">
                             <span><i class="icon icon-bell"></i>Notifications</span>
                         </at-badge>
                     </at-menu-item>

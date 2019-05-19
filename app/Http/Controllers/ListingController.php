@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Listings\Listing;
 use App\Listings\ListingFilter;
+use App\Notifications\WelcomeNotification;
 use App\Tag;
 use Illuminate\Http\Request;
+use Notification;
 
 /**
  * Class ListingController
