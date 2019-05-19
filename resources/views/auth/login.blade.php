@@ -25,7 +25,7 @@
                                 </div>
                                 <at-checkbox v-model="form.rememberMe" style="display:inherit" class="mb-4" label="Remember">{{ __('Remember Me') }}</at-checkbox>
                                 <at-button @click="attemptLogin" :loading="form.busy" type="primary">{{ __('Login') }}</at-button>
-                                <at-button type="text">{{ __('Forgot Your Password?') }}</at-button>
+                                <at-button @click="redirect('/password/reset')" type="text">{{ __('Forgot Your Password?') }}</at-button>
                             </form>
                         </login-component>
                     </div>

@@ -1,8 +1,40 @@
 
 form {
+  .action-group {
+    margin-top: 1rem!important;
+  }
+  .alert-dismissible .close {
+    padding: .35rem 1rem;
+  }
+  .alert-success {
+    color: #53664a!important;
+    border-color: #b8f0d1!important;
+    background-color: #e3f9ed!important;
+  }
+  .alert-danger {
+    color: #ad3430!important;
+    border-color: #ffc8c8!important;
+    background-color: #ffe9e9!important;
+  }
+  .alert-success, .alert-danger {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    padding: 8px 16px;
+    color: #53664a;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-transition: opacity .3s;
+    transition: opacity .3s;
+    overflow: hidden;
+    opacity: 1;
+    font-size: 13px;
+  }
   .item-group {
     margin-bottom: 10px;
-
     label {
       font-size: .75rem!important;;
       color: #4a5568!important;

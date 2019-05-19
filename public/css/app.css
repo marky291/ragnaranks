@@ -29796,6 +29796,42 @@ footer .website-banner h1 {
   color: rgba(255, 255, 255, .1);
 }
 
+form .action-group {
+  margin-top: 1rem !important;
+}
+
+form .alert-dismissible .close {
+  padding: .35rem 1rem;
+}
+
+form .alert-success {
+  color: #53664a !important;
+  border-color: #b8f0d1 !important;
+  background-color: #e3f9ed !important;
+}
+
+form .alert-danger {
+  color: #ad3430 !important;
+  border-color: #ffc8c8 !important;
+  background-color: #ffe9e9 !important;
+}
+
+form .alert-success,
+form .alert-danger {
+  position: relative;
+  display: flex;
+  width: 100%;
+  padding: 8px 16px;
+  color: #53664a;
+  line-height: 1.5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: opacity .3s;
+  overflow: hidden;
+  opacity: 1;
+  font-size: 13px;
+}
+
 form .item-group {
   margin-bottom: 10px;
 }

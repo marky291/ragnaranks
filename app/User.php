@@ -23,6 +23,8 @@ use phpDocumentor\Reflection\Types\Iterable_;
 class User extends Authenticatable
 {
 
+    use Notifiable;
+
     /**
      * The attributes that are mass assignable.
      *
