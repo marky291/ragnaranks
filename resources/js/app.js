@@ -40,6 +40,7 @@ Vue.component('login-component', require('./components/LoginComponent').default)
 Vue.component('register-component', require('./components/RegisterComponent').default);
 Vue.component('forgot-password-component', require('./components/ForgotPasswordComponent').default);
 Vue.component('reset-password-component', require('./components/ResetPasswordComponent').default);
+Vue.component('verify-account-component', require('./components/VerifyAccountComponent').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
