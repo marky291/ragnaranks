@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // authentication routes (login & logout)
-Illuminate\Support\Facades\Auth::routes();
+Auth::routes(['verify' => true]);
 
 // default index page.
 Route::get('/')->uses('ListingController@index')->name('index');
