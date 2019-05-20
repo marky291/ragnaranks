@@ -158,7 +158,7 @@
                                     <div class="container px-5 py-4">
                                         <h3 v-if="theCurrentViewIs('listing')" class="heading mb-4 text-dark heading-underline">Player Reviews</h3>
 
-                                        <reviews :data="{{ $listing->reviews->load('publisher') }}" policy="{{ auth()->check() && auth()->user()->can('review', $listing) }}" inline-template>
+                                        <reviews :data="{{ $listing->reviews->load('publisher') }}" inline-template>
                                             <div class="">
                                                 <div v-if="$parent.theCurrentViewIs('listing')" v-for="(review, index) in collection">
                                                     <review :data="review"></review>

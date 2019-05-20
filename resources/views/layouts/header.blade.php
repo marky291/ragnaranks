@@ -1,17 +1,19 @@
 <nav id="navbar-top" class="navbar navbar-expand-md navbar-dark text-white absolute-top">
     <div class="tw-flex tw-container tw-mx-auto">
-        <div class="tw-w-1/3 collapse navbar-collapse order-3 order-md-2 px-0" id="navbar">
-            <ul class="navbar-nav">
-                <li class="nav-item mr-2">
-                    <a class="nav-link text-dark" href="{{ route('index') }}">Home</a>
-                </li>
-                <li class="nav-item mr-2">
-                    <a class="nav-link text-dark" href="page-contact.html">Advertise</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="page-contact.html">API Integration</a>
-                </li>
-            </ul>
+        <div class="tw-w-1/3 collapse navbar-collapse order-3 order-md-2 px-0" id="navbar-left">
+            <at-menu mode="horizontal" active-name="{{ request()->route()->uri }}" class="bg-transparent" @on-select="navigate">
+                <at-menu-item name="/">
+                    <span>Home</span>
+                </at-menu-item>
+                <at-menu-item name="/api">
+                    <span>API Guide</span>
+                </at-menu-item>
+                <at-menu-item name="/advertising">
+                    <span>Advertising</span>
+                </at-menu-item>
+
+            </at-menu>
+
         </div>
 
         <a id="logo" class="tw-w-1/3  navbar-brand mx-auto order-1 order-md-3 font-weight-bold text-center" href="{{ route('index') }}">
