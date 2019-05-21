@@ -58,21 +58,12 @@ const app = new Vue({
 
     methods: {
         navigate: function(name) {
-            switch (name) {
-                case 'logout':
-                    axios.post('/logout').then((response) => {
-                        window.location = '/';
-                    });
-                    break;
-                case 'login':
-                    window.location = '/login';
-                    break;
-                case 'register':
-                    window.location = '/register';
-                    break;
-                case 'notifications':
-                    window.location = '/account/notifications';
-                    break;
+            if (name === 'logout') {
+                axios.post('/logout').then((response) => {
+                    window.location = '/';
+                });
+            } else {
+                window.location = '/' + name;
             }
         }
     }

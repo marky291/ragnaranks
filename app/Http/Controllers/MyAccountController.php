@@ -13,6 +13,9 @@ class MyAccountController extends Controller
     public function notifications() {
         return view('account.notifications', ['notifications' => auth()->user()->notifications]);
     }
+    public function servers() {
+        return view('account.servers', ['listings' => app('listings')->where('user_id', auth()->id())->sortByDesc('created_at')]);
+    }
 
     public function markNotificationRead(string $key) {
         auth()->user()->notifications->firstWhere('id', $key)->markAsRead();

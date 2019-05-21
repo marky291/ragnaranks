@@ -24,13 +24,15 @@
         <div class="tw-w-1/3 collapse tw-justify-end navbar-collapse order-4 order-md-4" id="navbar-right">
             <at-menu mode="horizontal" active-name="{{ request()->route()->uri }}" class="bg-transparent" @on-select="navigate">
                 @if (auth()->check())
-                    <at-menu-item name="notifications">
+                    <at-menu-item name="account/notifications">
                         <at-badge :value="{{ auth()->user()->unreadNotifications->count() }}" :max-num="12">
                             <span><i class="icon icon-bell"></i>Notifications</span>
                         </at-badge>
                     </at-menu-item>
                     <at-submenu>
-                        <template slot="title"><i class="icon icon-user"></i>My Account</template>
+                        <template slot="title"><i class="icon icon-user"></i>{{ auth()->user()->username }}</template>
+                        <at-menu-item name="account"><i class="icon icon-settings"></i>My Account</at-menu-item>
+                        <at-menu-item name="account/servers"><i class="icon icon-settings"></i>Listings</at-menu-item>
                         <at-menu-item name="logout"><i class="icon icon-settings"></i>Logout</at-menu-item>
                     </at-submenu>
                 @else
