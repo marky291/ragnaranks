@@ -15371,10 +15371,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/notifications/read/' + this.id).then(function (response) {
         _this.read = true;
-
-        _this.$Message.success('You successfully marked this notification as read');
-      })["catch"](function (error) {
-        _this.$Message.error('Could not mark this notification at this time.');
+      })["catch"](function (error) {//
       });
     },
     markUnread: function markUnread() {
@@ -15382,10 +15379,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/notifications/unread/' + this.id).then(function (response) {
         _this2.read = false;
-
-        _this2.$Message.success('You successfully marked this notification as unread');
-      })["catch"](function (error) {
-        _this2.$Message.error('Could not mark this notification at this time.');
+      })["catch"](function (error) {//
       });
     }
   }

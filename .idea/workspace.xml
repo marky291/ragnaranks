@@ -12,268 +12,7 @@
     <bookmark url="file://$PROJECT_DIR$/app/Http/Controllers/QueryController.php" line="26" mnemonic="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58f96053-e5bd-4b41-bbae-58099ecbebc5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/Magnolia.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/e8df93af-190f-4543-b9b3-e034f2769a7d.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/e8df93af-190f-4543-b9b3-e034f2769a7d/storage_v2/_src_/schema/k00233238_northwind.PseEVw.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/e8df93af-190f-4543-b9b3-e034f2769a7d/storage_v2/_src_/schema/northwind.je5zGg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/markhester.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_ide_helper_models.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Helpers/EverythingHelper.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ClickController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ListingController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/QueryController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ReviewController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/VoteController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckForMaintenanceMode.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/EncryptCookies.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/TrimStrings.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/TrustProxies.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/StoreReviewRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Interactions/Click.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Interactions/Interaction.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Interactions/InteractionObserver.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Interactions/InteractionServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Interactions/Review.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Interactions/Vote.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Listings/AddListingToContainer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Listings/CardCacheContainer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Listings/Listing.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Listings/ListingCacheContainer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Listings/ListingFilter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Listings/ListingObserver.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Listings/ListingScreenshot.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Listings/ListingServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Mode.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Notifications/WelcomeNotification.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Periods.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Tag.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/artisan" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/app.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/cache/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/broadcasting.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/cache.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/fake/listings.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/filter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/hashing.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/interaction.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/logging.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/queue.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/session.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/view.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/ListingFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2018_09_16_101736_create_server_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2018_09_28_124400_create_jobs_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2018_09_28_124414_create_failed_jobs_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_05_19_222734_create_notifications_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/fonts/feather.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/fonts/feather.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/fonts/feather.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/fonts/feather.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/footer-banner.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/sponsor-bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/English.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/ads.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/eadev.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/flags/english.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/footer-banner.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/forsaken.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/icons/butterfly_wing.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/icons/circle-template.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/icons/magnifyer.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/limit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/logo-old.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/overlay-stripe.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/sponsor-bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/talon.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/svg/403.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/svg/404.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/svg/500.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/svg/503.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/web.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/img/background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/img/cursors/cursor_normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/img/monsters/angeling.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/img/monsters/backpackPoring.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/img/sponsor-bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/Pages/ListingProfileComponent.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/FilteredListingSearch.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/FlashComponent.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/ForgotPasswordComponent.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/LoginComponent.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/NewReviewComponent.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/RegisterComponent.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/ResetPasswordComponent.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/ReviewComponent.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/ScoreboardComponent.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/ScoreboardsComponent.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/VerifyAccountComponent.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/flickity/stage-flickr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/auth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/pagination.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/passwords.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_agile-carousel.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_at-ui.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_cards.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_colours.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_filter.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_flares.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_footer.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_logo.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_navbar.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_server-profile.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_sidebar.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_spotlight.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_stage.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_tailwind-directives.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_tailwindsnippets.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/assets/cards.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/footer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/frame.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/listing/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/listing/partial/config.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/listing/partial/review.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/listing/partial/stars.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/listing/partial/user-score.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/listing/partial/wrapper.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/listing/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/partials/cards/normal.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/partials/cards/preview.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/partials/sidebar/statistic.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/slots/spotlight.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/slots/stage.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/channels.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/console.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/debugbar/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/cache/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/cache/data/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/sessions/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/testing/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/views/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/logs/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tailwind.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/template/dist/css/eadev.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/template/dist/js/eadev.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/template/dist/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/template/img/English.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/template/img/ads.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/template/img/eadev.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/template/img/forsaken.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/template/img/limit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/template/img/sponsor-bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/template/img/talon.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/template/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/CreatesApplication.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/CardFilter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/ClickRequestTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/ListingRequestsTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/ReviewRequestTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/ServerActionsTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Feature/VoteRequestTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/TestCase.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/ClickTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/ListingContainerTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/ListingFilterTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/ListingObserverTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/ListingTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/ReviewTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/UserTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Unit/VoteTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/account/frame.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/format/buttons.blade.php" beforeDir="false" />
-    </list>
+    <list default="true" id="58f96053-e5bd-4b41-bbae-58099ecbebc5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -338,11 +77,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/account/notifications.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+            <state relative-caret-position="304">
+              <caret line="16" column="75" selection-start-line="16" selection-start-column="75" selection-end-line="16" selection-end-column="75" />
             </state>
           </provider>
         </entry>
@@ -411,11 +150,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/js/components/AccountNotificationComponent.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+            <state relative-caret-position="413">
+              <caret line="30" column="3" lean-forward="true" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -552,8 +291,8 @@
         <option value="$PROJECT_DIR$/resources/views/layouts/header.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MyAccountController.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/AccountNotificationComponent.vue" />
         <option value="$PROJECT_DIR$/resources/views/account/notifications.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/AccountNotificationComponent.vue" />
       </list>
     </option>
   </component>
@@ -907,13 +646,6 @@
       <workItem from="1558172868562" duration="8000" />
       <workItem from="1558172891666" duration="35765000" />
     </task>
-    <task id="LOCAL-00051" summary="Interactions now consist of review and vote.&#10;Interaction observers added for these models.&#10;Interaction service providers added for models.&#10;Abstracted interaction class parent for the models.">
-      <created>1547857038481</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1547857038481</updated>
-    </task>
     <task id="LOCAL-00052" summary="Clicks now part of interaction.">
       <created>1547858175393</created>
       <option name="number" value="00052" />
@@ -1256,7 +988,14 @@
       <option name="project" value="LOCAL" />
       <updated>1558425645455</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="Notification #22">
+      <created>1558439401030</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1558439401030</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers>
       <GitHub url="https://github.com">
         <option name="repoAuthor" value="marky291" />
@@ -1298,7 +1037,7 @@
   </component>
   <component name="TimeTrackingManager">
     <option name="enabled" value="true" />
-    <option name="totallyTimeSpent" value="683836000" />
+    <option name="totallyTimeSpent" value="683942000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1313,8 +1052,8 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8321799" visible="true" weight="0.20558739" />
-      <window_info id="Structure" order="1" sideWeight="0.16782007" side_tool="true" visible="true" weight="0.20558739" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8318891" visible="true" weight="0.20558739" />
+      <window_info id="Structure" order="1" sideWeight="0.16811092" side_tool="true" visible="true" weight="0.20558739" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1328,7 +1067,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49928367" weight="0.3992629" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3280098" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.28653294" side_tool="true" weight="0.5159705" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.71346706" visible="true" weight="0.2899263" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.71346706" visible="true" weight="0.2902829" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.3280098" />
       <window_info anchor="bottom" id="File Transfer" order="14" weight="0.35626537" />
@@ -1361,7 +1100,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/vendor/adamwathan/laravel-preset" />
     </ignored-roots>
-    <MESSAGE value="Remove debugging code (forget cache on every load)" />
     <MESSAGE value="Remove date from card indices" />
     <MESSAGE value="Compiled vue for frontend." />
     <MESSAGE value="Paginate cards" />
@@ -1386,7 +1124,8 @@
     <MESSAGE value="Verification middleware design. #15" />
     <MESSAGE value="Right side navigation #17" />
     <MESSAGE value="Account design initial #22" />
-    <option name="LAST_COMMIT_MESSAGE" value="Account design initial #22" />
+    <MESSAGE value="Notification #22" />
+    <option name="LAST_COMMIT_MESSAGE" value="Notification #22" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1751,17 +1490,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/AccountNotificationComponent.vue">
+    <entry file="file://$PROJECT_DIR$/resources/views/account/notifications.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+        <state relative-caret-position="304">
+          <caret line="16" column="75" selection-start-line="16" selection-start-column="75" selection-end-line="16" selection-end-column="75" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/account/notifications.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/js/components/AccountNotificationComponent.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        <state relative-caret-position="413">
+          <caret line="30" column="3" lean-forward="true" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
         </state>
       </provider>
     </entry>
