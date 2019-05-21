@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>RagnaRanks</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link rel="stylesheet" href="dist/css/eadev.css" crossorigin="anonymous">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg bg-gradient">
+		<div class="container">
+			<a class="navbar-brand" href="#">
+				<span class="logo-icon"><i class="fas fa-chess-queen"></i></span>
+				<span class="navbar-brand-name">Ragna<strong>Ranks</strong></span>
+			</a>
+			<div class="collapse navbar-collapse" id="mainNavigation">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Top Listing</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Advertising</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Voting Check</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Faqs</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Contact</a>
+					</li>
+				</ul>
+			</div>
+			<div class="ml-auto account-buttons">
+	            <a class="btn btn-blue" href="#"><i class="fas fa-plus"></i>&nbsp;Add Site</a>
+	            <a class="btn btn-blue" href="#"><i class="fas fa-sign-in-alt"></i>&nbsp;Login</a>
+			</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavigation">
+				<i class="fas fa-bars"></i>
+			</button>
+		</div>
+	</nav>
+	<nav class="navbar navbar-secondary navbar-expand bg-white">
+		<div class="container">
+			<button class="navbar-toggler" type="button" data-toggle="collapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarsExample07">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="#">All</a>
+					</li>
+					<li class="nav-item active">
+						<a class="nav-link" href="#">High Rates</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Mid Rates</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Low Rates</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Instant Level</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="sponsor-block">
+		<div class="container">
+
+			<div class="sponsored">Sponsored <i class="fas fa-info-circle"></i></div>
+
+			<div id="sponsor_slider" class="sponsors" data-speed="5000">
+				<div class="sponsor-slide">
+					<div class="sponsor-image">
+						<img src="img/talon.gif" alt="">
+					</div>
+					<div class="sponsor-description">
+						<h3>Talon Ragnarok Online</h3>
+						<p>Rates: 5/5/3 ~ 8/8/3</p>
+						<a href="" class="btn btn-blue btn-sm">Visit <i class="fas fa-long-arrow-alt-right"></i></a>
+					</div>
+				</div>
+				<div class="sponsor-slide">
+					<div class="sponsor-image">
+						<img src="img/limit.png" alt="">
+					</div>
+					<div class="sponsor-description">
+						<h3>Talon Ragnarok Online</h3>
+						<p>Rates: 5/5/3 ~ 8/8/3</p>
+						<a href="" class="btn btn-blue btn-sm">Visit <i class="fas fa-long-arrow-alt-right"></i></a>
+					</div>
+				</div>
+				<div class="sponsor-slide">
+					<div class="sponsor-image">
+						<img src="img/forsaken.gif" alt="">
+					</div>
+					<div class="sponsor-description">
+						<h3>Talon Ragnarok Online</h3>
+						<p>Rates: 5/5/3 ~ 8/8/3</p>
+						<a href="" class="btn btn-blue btn-sm">Visit <i class="fas fa-long-arrow-alt-right"></i></a>
+					</div>
+				</div>
+				<div class="sponsor-slide">
+					<div class="sponsor-image">
+						<img src="img/talon.gif" alt="">
+					</div>
+					<div class="sponsor-description">
+						<h3>Talon Ragnarok Online</h3>
+						<p>Rates: 5/5/3 ~ 8/8/3</p>
+						<a href="" class="btn btn-blue btn-sm">Visit <i class="fas fa-long-arrow-alt-right"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-lg-8">
+				<div class="sorting">
+					<span>Sorting:</span>
+					<div class="sorting-scroll">
+						<div class="sorting-inner">
+							<select name="" id="">
+								<option value="">Server Modes</option>
+							</select>
+							<select name="" id="">
+								<option value="">Server Types</option>
+							</select>
+							<select name="" id="">
+								<option value="">Popularity</option>
+							</select>
+							<select name="" id="">
+								<option value="">Country</option>
+							</select>
+							<select name="" id="">
+								<option value="">New Server</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<div class="server-ranking">
+					
+					<div class="ranking">
+						<div class="server-header">
+							<div class="server-rank">
+								1.<span>Rank</span>
+							</div>
+							<div class="server-image">
+								<img src="img/forsaken.gif" alt="">
+							</div>
+							<div class="server-statistics">
+								<div class="server-clicks appear">
+									<small><i class="fas fa-long-arrow-alt-down color-danger"></i> Clicks</small>
+									<div class="countTo" data-count="11325">0</div>
+								</div>
+								<div class="server-votes appear">
+									<small><i class="fas fa-long-arrow-alt-up color-success"></i> Votes</small>
+									<div class="countTo" data-count="22563">0</div>
+								</div>
+							</div>
+						</div>
+						<div class="server-body">
+							<div class="server-name">
+								<h3><a href="">Talon Ragnarok Online ( 8x/8x/2x )</a></h3>
+								<small class="subheading">Online Since: 12 May 2008</small>
+								<div class="server-languages">
+									<img src="img/English.gif" alt="">
+								</div>
+							</div>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+							<div class="server-basic-info">
+								<ul>
+									<li><strong>Rates:</strong>3K/3K/3K</li>
+									<li><strong>Episode:</strong>15.1</li>
+									<li><strong>Max Level:</strong>255/170</li>
+									<li><strong>Daily Online:</strong>1,252</li>
+								</ul>
+							</div>
+						</div>
+						<div class="server-footer">
+							<span>Server Tags:</span>
+							<a href="" class="badge badge-pre-renewal">Pre Renewal</a>
+							<a href="" class="badge badge-role-play">Role Play</a>
+
+							<div class="server-social">
+								<iframe src="https://www.facebook.com/plugins/like.php?href=https://facebook.com/EADevOfficial%2F&width=124&layout=button_count&action=like&size=small&show_faces=false&share=true&height=46&appId=508842139484989" width="124" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+							</div>
+						</div>
+					</div>
+
+					<div class="ranking">
+						<div class="server-header">
+							<div class="server-rank">
+								2.<span>Rank</span>
+							</div>
+							<div class="server-image">
+								<img src="img/forsaken.gif" alt="">
+							</div>
+							<div class="server-statistics appear">
+								<div class="server-clicks">
+									<small><i class="fas fa-long-arrow-alt-down color-danger"></i> Clicks</small>
+									<div class="countTo" data-count="11325">0</div>
+								</div>
+								<div class="server-votes appear">
+									<small><i class="fas fa-long-arrow-alt-up color-success"></i> Votes</small>
+									<div class="countTo" data-count="22653">0</div>
+								</div>
+							</div>
+						</div>
+						<div class="server-body">
+							<div class="server-name">
+								<h3><a href="">Talon Ragnarok Online ( 8x/8x/2x )</a></h3>
+								<small class="subheading">Online Since: 12 May 2008</small>
+								<div class="server-languages">
+									<img src="img/English.gif" alt="">
+								</div>
+							</div>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+							<div class="server-basic-info">
+								<ul>
+									<li><strong>Rates:</strong>3K/3K/3K</li>
+									<li><strong>Episode:</strong>15.1</li>
+									<li><strong>Max Level:</strong>255/170</li>
+									<li><strong>Daily Online:</strong>1,252</li>
+								</ul>
+							</div>
+						</div>
+						<div class="server-footer">
+							<span>Server Tags:</span>
+							<a href="" class="badge badge-pre-renewal">Pre Renewal</a>
+							<a href="" class="badge badge-role-play">Role Play</a>
+
+							<div class="server-social">
+								<iframe src="https://www.facebook.com/plugins/like.php?href=https://facebook.com/EADevOfficial%2F&width=124&layout=button_count&action=like&size=small&show_faces=false&share=true&height=46&appId=508842139484989" width="124" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+							</div>
+						</div>
+					</div>
+
+					<div class="ranking">
+						<div class="server-header">
+							<div class="server-rank">
+								3.<span>Rank</span>
+							</div>
+							<div class="server-image">
+								<img src="img/forsaken.gif" alt="">
+							</div>
+							<div class="server-statistics">
+								<div class="server-clicks appear">
+									<small><i class="fas fa-long-arrow-alt-down color-danger"></i> Clicks</small>
+									<div class="countTo" data-count="11325">0</div>
+								</div>
+								<div class="server-votes appear">
+									<small><i class="fas fa-long-arrow-alt-up color-success"></i> Votes</small>
+									<div class="countTo" data-count="22653">0</div>
+								</div>
+							</div>
+						</div>
+						<div class="server-body">
+							<div class="server-name">
+								<h3><a href="">Talon Ragnarok Online ( 8x/8x/2x )</a></h3>
+								<small class="subheading">Online Since: 12 May 2008</small>
+								<div class="server-languages">
+									<img src="img/English.gif" alt="">
+								</div>
+							</div>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+							<div class="server-basic-info">
+								<ul>
+									<li><strong>Rates:</strong>3K/3K/3K</li>
+									<li><strong>Episode:</strong>15.1</li>
+									<li><strong>Max Level:</strong>255/170</li>
+									<li><strong>Daily Online:</strong>1,252</li>
+								</ul>
+							</div>
+						</div>
+						<div class="server-footer">
+							<span>Server Tags:</span>
+							<a href="" class="badge badge-pre-renewal">Pre Renewal</a>
+							<a href="" class="badge badge-role-play">Role Play</a>
+
+							<div class="server-social">
+								<iframe src="https://www.facebook.com/plugins/like.php?href=https://facebook.com/EADevOfficial%2F&width=124&layout=button_count&action=like&size=small&show_faces=false&share=true&height=46&appId=508842139484989" width="124" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+							</div>
+						</div>
+					</div>
+
+					<div class="server-ads">
+						<img src="img/ads.jpg" alt="">
+					</div>
+
+					<div class="ranking">
+						<div class="server-header">
+							<div class="server-rank">
+								4.<span>Rank</span>
+							</div>
+							<div class="server-image">
+								<img src="img/forsaken.gif" alt="">
+							</div>
+							<div class="server-statistics">
+								<div class="server-clicks appear">
+									<small><i class="fas fa-long-arrow-alt-down color-danger"></i> Clicks</small>
+									<div class="countTo" data-count="11325">0</div>
+								</div>
+								<div class="server-votes appear">
+									<small><i class="fas fa-long-arrow-alt-up color-success"></i> Votes</small>
+									<div class="countTo" data-count="22563">0</div>
+								</div>
+							</div>
+						</div>
+						<div class="server-body">
+							<div class="server-name">
+								<h3><a href="">Talon Ragnarok Online ( 8x/8x/2x )</a></h3>
+								<small class="subheading">Online Since: 12 May 2008</small>
+								<div class="server-languages">
+									<img src="img/English.gif" alt="">
+								</div>
+							</div>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+							<div class="server-basic-info">
+								<ul>
+									<li><strong>Rates:</strong>3K/3K/3K</li>
+									<li><strong>Episode:</strong>15.1</li>
+									<li><strong>Max Level:</strong>255/170</li>
+									<li><strong>Daily Online:</strong>1,252</li>
+								</ul>
+							</div>
+						</div>
+						<div class="server-footer">
+							<span>Server Tags:</span>
+							<a href="" class="badge badge-pre-renewal">Pre Renewal</a>
+							<a href="" class="badge badge-role-play">Role Play</a>
+
+							<div class="server-social">
+								<iframe src="https://www.facebook.com/plugins/like.php?href=https://facebook.com/EADevOfficial%2F&width=124&layout=button_count&action=like&size=small&show_faces=false&share=true&height=46&appId=508842139484989" width="124" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+							</div>
+						</div>
+					</div>
+
+					<div class="ranking">
+						<div class="server-header">
+							<div class="server-rank">
+								5.<span>Rank</span>
+							</div>
+							<div class="server-image">
+								<img src="img/forsaken.gif" alt="">
+							</div>
+							<div class="server-statistics">
+								<div class="server-clicks appear">
+									<small><i class="fas fa-long-arrow-alt-down color-danger"></i> Clicks</small>
+									<div class="countTo" data-count="11325">0</div>
+								</div>
+								<div class="server-votes appear">
+									<small><i class="fas fa-long-arrow-alt-up color-success"></i> Votes</small>
+									<div class="countTo" data-count="22563">0</div>
+								</div>
+							</div>
+						</div>
+						<div class="server-body">
+							<div class="server-name">
+								<h3><a href="">Talon Ragnarok Online ( 8x/8x/2x )</a></h3>
+								<small class="subheading">Online Since: 12 May 2008</small>
+								<div class="server-languages">
+									<img src="img/English.gif" alt="">
+								</div>
+							</div>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+							<div class="server-basic-info">
+								<ul>
+									<li><strong>Rates:</strong>3K/3K/3K</li>
+									<li><strong>Episode:</strong>15.1</li>
+									<li><strong>Max Level:</strong>255/170</li>
+									<li><strong>Daily Online:</strong>1,252</li>
+								</ul>
+							</div>
+						</div>
+						<div class="server-footer">
+							<span>Server Tags:</span>
+							<a href="" class="badge badge-pre-renewal">Pre Renewal</a>
+							<a href="" class="badge badge-role-play">Role Play</a>
+
+							<div class="server-social">
+								<iframe src="https://www.facebook.com/plugins/like.php?href=https://facebook.com/EADevOfficial%2F&width=124&layout=button_count&action=like&size=small&show_faces=false&share=true&height=46&appId=508842139484989" width="124" height="46" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+			<div class="col-md-12 col-lg-4">
+				
+				<div class="box newest-servers">
+					<div class="box-body">
+						<div id="newservers-slider" class="newservers" data-speed="5000">
+							<div class="new-server text-center">
+								<div class="new-server-header">
+									<h3 class="mb-0">Delta Ragnarok Online</h3>
+									<small class="subheading">Joined 2 days ago..</small>
+								</div>
+								<div class="new-server-body">
+									<p>We, at DeltaRO, aim to be the best Ragnarok server out there and we will cater each player with utmost respect and fair play. We want to give the best Ragnarok gaming experience!</p>
+								</div>
+							</div>
+							<div class="new-server text-center">
+								<div class="new-server-header">
+									<h3 class="mb-0">Delta Ragnarok Online</h3>
+									<small class="subheading">Joined 2 days ago..</small>
+								</div>
+								<div class="new-server-body">
+									<p>We, at DeltaRO, aim to be the best Ragnarok server out there and we will cater each player with utmost respect and fair play. We want to give the best Ragnarok gaming experience!</p>
+								</div>
+							</div>
+							<div class="new-server text-center">
+								<div class="new-server-header">
+									<h3 class="mb-0">Delta Ragnarok Online</h3>
+									<small class="subheading">Joined 2 days ago..</small>
+								</div>
+								<div class="new-server-body">
+									<p>We, at DeltaRO, aim to be the best Ragnarok server out there and we will cater each player with utmost respect and fair play. We want to give the best Ragnarok gaming experience!</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="box-footer">
+						<button class="new-server-prev"><i class="fas fa-angle-left"></i></button>
+						Newest Server
+						<button class="new-server-next"><i class="fas fa-angle-right"></i></button>
+					</div>
+				</div>
+
+				<h3 class="box-title">
+					Latest Reviews
+					<select name="" id="" class="subheading">
+						<option value="">Latest</option>
+						<option value="">Highest</option>
+					</select>
+				</h3>
+				<div class="box latest-reviews">
+					<ul class="list-group">
+						<li class="list-group-item latest-review">
+							<a href="">DreamerRO Renewal-ish</a>
+							<ul>
+								<li><i class="fas fa-server"></i> High Rate</li>
+								<li><i class="fas fa-clock"></i> 2 hours ago</li>
+							</ul>
+							<div class="reviews appear"><span class="countTo" data-count="100">0</span></div>
+						</li>
+						<li class="list-group-item latest-review">
+							<a href="">DreamerRO Renewal-ish</a>
+							<ul>
+								<li><i class="fas fa-server"></i> High Rate</li>
+								<li><i class="fas fa-clock"></i> 2 hours ago</li>
+							</ul>
+							<div class="reviews appear"><span class="countTo" data-count="75">0</span></div>
+						</li>
+						<li class="list-group-item latest-review">
+							<a href="">DreamerRO Renewal-ish</a>
+							<ul>
+								<li><i class="fas fa-server"></i> High Rate</li>
+								<li><i class="fas fa-clock"></i> 2 hours ago</li>
+							</ul>
+							<div class="reviews appear"><span class="countTo" data-count="60">0</span></div>
+						</li>
+						<li class="list-group-item latest-review">
+							<a href="">DreamerRO Renewal-ish</a>
+							<ul>
+								<li><i class="fas fa-server"></i> High Rate</li>
+								<li><i class="fas fa-clock"></i> 2 hours ago</li>
+							</ul>
+							<div class="reviews appear"><span class="countTo" data-count="80">0</span></div>
+						</li>
+					</ul>
+				</div>
+
+				<h3 class="box-title">Website Statistics</h3>
+				<div class="box widget-box">
+					<div class="widget-stat br-1 bb-1 appear">
+						<div class="countTo" data-count="128151">0</div>
+						<small class="subheading">Average <strong>Vistors</strong></small>
+					</div>
+					<div class="widget-stat bb-1 appear">
+						<div class="countTo" data-count="128151">0</div>
+						<small class="subheading">Active <strong>Servers</strong></small>
+					</div>
+					<div class="widget-stat br-1 appear">
+						<div class="countTo" data-count="128151">0</div>
+						<small class="subheading">Average <strong>in</strong> Clicks</small>
+					</div>
+					<div class="widget-stat appear">
+						<div class="countTo" data-count="128151">0</div>
+						<small class="subheading">Average <strong>Out</strong> Clicks</small>
+					</div>
+				</div>
+
+				<h3 class="box-title">Social Network</h3>
+				<div class="social-networks d-flex">
+					<a href="" class="twitter"><i class="fab fa-twitter-square"></i> <span>Twitter</span></a>
+					<a href="" class="discord"><i class="fab fa-discord"></i> <span>Discord</span></a>
+				</div>
+
+				<div class="facebook">
+					<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FEADevOfficial%2F&tabs=timeline&width=350&height=256&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=508842139484989" width="350" height="256" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="top-reviewers">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-lg-3 col-xl-3">
+					<div class="reviewer bg-gradient">
+						<div class="user-info">
+							<div class="user-image">M</div>
+							<div class="user-name">Mark Hester <small class="subheading">Limit Ragnarok Online</small></div>
+						</div>
+						<div class="user-review-text">
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p>
+						</div>
+						<div class="user-review">
+							<ul>
+								<li><i class="far fa-heart"></i> 100%</li>
+								<li><i class="far fa-clock"></i> 02nd Oct 2018</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-3 col-xl-3">
+					<div class="reviewer bg-gradient-2">
+						<div class="user-info">
+							<div class="user-image">M</div>
+							<div class="user-name">Mark Hester <small class="subheading">Limit Ragnarok Online</small></div>
+						</div>
+						<div class="user-review-text">
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p>
+						</div>
+						<div class="user-review">
+							<ul>
+								<li><i class="far fa-heart"></i> 100%</li>
+								<li><i class="far fa-clock"></i> 02nd Oct 2018</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-3 col-xl-3">
+					<div class="reviewer bg-gradient">
+						<div class="user-info">
+							<div class="user-image">M</div>
+							<div class="user-name">Mark Hester <small class="subheading">Limit Ragnarok Online</small></div>
+						</div>
+						<div class="user-review-text">
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p>
+						</div>
+						<div class="user-review">
+							<ul>
+								<li><i class="far fa-heart"></i> 100%</li>
+								<li><i class="far fa-clock"></i> 02nd Oct 2018</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-3 col-xl-3">
+					<div class="reviewer bg-gradient-2">
+						<div class="user-info">
+							<div class="user-image">M</div>
+							<div class="user-name">Mark Hester <small class="subheading">Limit Ragnarok Online</small></div>
+						</div>
+						<div class="user-review-text">
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p>
+						</div>
+						<div class="user-review">
+							<ul>
+								<li><i class="far fa-heart"></i> 100%</li>
+								<li><i class="far fa-clock"></i> 02nd Oct 2018</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-lg-4">
+					<h4>About Ragna Ranks</h4>
+					<p>	It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.</p>
+					<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </p>
+				</div>
+				<div class="col-md-3 col-lg-2">
+					<h4>Navigation</h4>
+					<ul>
+						<li><a href="">Top Listing</a></li>
+						<li><a href="">Advertising</a></li>
+						<li><a href="">Voting Check</a></li>
+						<li><a href="">Faq</a></li>
+						<li><a href="">Contact</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 col-lg-2">
+					<h4>Server Rates</h4>
+					<ul>
+						<li><a href="">All</a></li>
+						<li><a href="">High Rates</a></li>
+						<li><a href="">Mid Rates</a></li>
+						<li><a href="">Low Rates</a></li>
+						<li><a href="">Instant Level</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4 d-md-none d-lg-block">
+					<div class="discordapp">
+						<iframe src="https://discordapp.com/widget?id=320938828061736960&theme=dark" width="350" height="220" allowtransparency="true" frameborder="0"></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="copyrights">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<p class="m-0">Copyright 2018! All Registered Trademarks belong to their Respective Owners and Gravity Co.LTD. Website Design and Coded by <a href="http://ea-dev.com/EADevOfficial" target="_blank">EADev</a>.</p>
+				</div>
+				<div class="col-md-4 text-right">
+					<a href="http://ea-dev.com/EADevOfficial"><img src="img/eadev.png" alt=""></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="dist/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="dist/js/eadev.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://localhost:35729/livereload.js"></script>
+</body>
+</html>

@@ -1,0 +1,1769 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="AutoTestManager">
+    <enabled-run-configurations>
+      <run-configuration type="PHPUnitRunConfigurationType" name="Rerun Failed Tests" />
+    </enabled-run-configurations>
+  </component>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/app/Http/Controllers/QueryController.php" line="26" mnemonic="4" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="58f96053-e5bd-4b41-bbae-58099ecbebc5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Magnolia.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/e8df93af-190f-4543-b9b3-e034f2769a7d.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/e8df93af-190f-4543-b9b3-e034f2769a7d/storage_v2/_src_/schema/k00233238_northwind.PseEVw.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/e8df93af-190f-4543-b9b3-e034f2769a7d/storage_v2/_src_/schema/northwind.je5zGg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/markhester.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_ide_helper_models.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Helpers/EverythingHelper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ClickController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ListingController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/QueryController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ReviewController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/VoteController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckForMaintenanceMode.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/EncryptCookies.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/TrimStrings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/TrustProxies.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/StoreReviewRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Interactions/Click.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Interactions/Interaction.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Interactions/InteractionObserver.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Interactions/InteractionServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Interactions/Review.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Interactions/Vote.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Listings/AddListingToContainer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Listings/CardCacheContainer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Listings/Listing.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Listings/ListingCacheContainer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Listings/ListingFilter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Listings/ListingObserver.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Listings/ListingScreenshot.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Listings/ListingServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Mode.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Notifications/WelcomeNotification.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Periods.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Tag.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/artisan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap/app.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap/cache/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/broadcasting.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/cache.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/fake/listings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/filter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/hashing.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/interaction.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/logging.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/queue.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/session.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/view.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/ListingFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2018_09_16_101736_create_server_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2018_09_28_124400_create_jobs_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2018_09_28_124414_create_failed_jobs_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_05_19_222734_create_notifications_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/fonts/feather.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/fonts/feather.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/fonts/feather.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/fonts/feather.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/footer-banner.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/sponsor-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/English.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/ads.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/eadev.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/flags/english.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/footer-banner.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/forsaken.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/icons/butterfly_wing.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/icons/circle-template.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/icons/magnifyer.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/limit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/logo-old.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/overlay-stripe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/sponsor-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/talon.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/svg/403.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/svg/404.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/svg/500.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/svg/503.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/web.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/img/background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/img/cursors/cursor_normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/img/monsters/angeling.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/img/monsters/backpackPoring.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/img/sponsor-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/ListingProfileComponent.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/FilteredListingSearch.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/FlashComponent.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/ForgotPasswordComponent.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/LoginComponent.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/NewReviewComponent.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/RegisterComponent.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/ResetPasswordComponent.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/ReviewComponent.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/ReviewsComponent.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/ScoreboardComponent.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/ScoreboardsComponent.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/VerifyAccountComponent.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/flickity/stage-flickr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/en/auth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/en/pagination.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/en/passwords.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/_agile-carousel.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/_at-ui.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/_buttons.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/_cards.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/_colours.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/_filter.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/_flares.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/_footer.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/_forms.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/_logo.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/_navbar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/_server-profile.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/_sidebar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/_spotlight.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/_stage.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/_tailwind-directives.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/_tailwindsnippets.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/assets/cards.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/frame.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/listing/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/listing/partial/config.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/listing/partial/review.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/listing/partial/stars.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/listing/partial/user-score.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/listing/partial/wrapper.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/listing/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/partials/cards/normal.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/partials/cards/preview.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/partials/sidebar/statistic.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/slots/spotlight.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/slots/stage.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/channels.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/console.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/app/public/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/debugbar/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/cache/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/cache/data/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/sessions/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/testing/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/framework/views/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/logs/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tailwind.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/dist/css/eadev.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/dist/js/eadev.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/dist/js/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/img/English.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/img/ads.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/img/eadev.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/img/forsaken.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/img/limit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/img/sponsor-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/img/talon.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/CreatesApplication.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Feature/CardFilter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Feature/ClickRequestTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Feature/ListingRequestsTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Feature/ReviewRequestTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Feature/ServerActionsTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Feature/VoteRequestTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/TestCase.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/ClickTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/ListingContainerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/ListingFilterTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/ListingObserverTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/ListingTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/ReviewTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/UserTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Unit/VoteTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/account/frame.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/format/buttons.blade.php" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Magnolia$Unit.xml" NAME="Unit Coverage Results" MODIFIED="1537101767328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ragnaranks$ListingContainerTest_it_can_add_new_listings_to_the_container.xml" NAME="ListingContainerTest.it_can_add_new_listings_to_the_container Coverage Results" MODIFIED="1545580173133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ragnaranks$ClickRequestTest_it_can_store_a_new_vote.xml" NAME="ClickRequestTest.it_can_store_a_new_vote Coverage Results" MODIFIED="1547861695004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ragnaranks$tests.xml" NAME="tests Coverage Results" MODIFIED="1547898159581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ragnaranks$ListingContainerTest.xml" NAME="ListingContainerTest Coverage Results" MODIFIED="1545574744397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ragnaranks$ListingTest.xml" NAME="ListingTest Coverage Results" MODIFIED="1545573046283" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ragnaranks$Unit.xml" NAME="Unit Coverage Results" MODIFIED="1545596387612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ragnaranks$Feature.xml" NAME="Feature Coverage Results" MODIFIED="1545475094333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ragnaranks$ListingTest__1_.xml" NAME="ListingTest (1) Coverage Results" MODIFIED="1545306007257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ragnaranks$ListingFilterTest.xml" NAME="ListingFilterTest Coverage Results" MODIFIED="1545344020867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ragnaranks$ListingFilterTest_it_can_filter_all_with_incorrect_keys.xml" NAME="ListingFilterTest.it_can_filter_all_with_incorrect_keys Coverage Results" MODIFIED="1545316924844" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ragnaranks$ClickRequestTest_it_can_store_a_new_click.xml" NAME="ClickRequestTest.it_can_store_a_new_click Coverage Results" MODIFIED="1547861760067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ragnaranks$ListingTest_it_has_a_vote_interaction.xml" NAME="ListingTest.it_has_a_vote_interaction Coverage Results" MODIFIED="1545233276914" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ragnaranks$ListingRequestsTest_it_loads_the_homepage.xml" NAME="ListingRequestsTest.it_loads_the_homepage Coverage Results" MODIFIED="1545600377694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="PhpCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="1" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myAutoScrollToSource" value="true" />
+    <option name="myElementSize" value="159" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="magnolia@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="magnolia@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="magnolia@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="magnolia: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/account/notifications.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="388">
+              <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="57" column="28" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://e8df93af-190f-4543-b9b3-e034f2769a7d/schema/magnolia/table/users">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true">
+                <filter text="" />
+              </filtering>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MyAccountController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+              <folding>
+                <element signature="e#40#68#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="413">
+              <caret line="30" column="28" selection-start-line="29" selection-end-line="30" selection-end-column="28" />
+              <folding>
+                <element signature="e#7#44#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Notifications/DatabaseNotification.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="71" column="7" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://e8df93af-190f-4543-b9b3-e034f2769a7d/schema/magnolia/table/notifications">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true">
+                <filter text="" />
+              </filtering>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/AccountNotificationComponent.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="202">
+              <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/components/ReviewComponent.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="163">
+              <caret line="8" column="254" selection-start-line="8" selection-start-column="254" selection-end-line="8" selection-end-column="254" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>created</find>
+      <find>calcul</find>
+      <find>calc</find>
+      <find>$on</find>
+      <find>visit</find>
+      <find>bar</find>
+      <find>vote for</find>
+      <find>vote for server</find>
+      <find>sidebar</find>
+      <find>theCurrentViewIs</find>
+      <find>votes</find>
+      <find>flash</find>
+      <find>Remember Me</find>
+      <find>login</find>
+      <find>attempting</find>
+      <find>name</find>
+      <find>redirect</find>
+      <find>from</find>
+      <find>Laravel</find>
+      <find>larave</find>
+      <find>laravel</find>
+      <find>ax</find>
+      <find>on</find>
+      <find>via</find>
+      <find>FORM</find>
+      <find>level</find>
+      <find>notification</find>
+      <find>prett</find>
+      <find>axios</find>
+      <find>acios</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+      <replace>score</replace>
+      <replace>listing</replace>
+      <replace>Ragnaranks</replace>
+      <replace>5</replace>
+      <replace>p class</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/resources/sass</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/resources/views/layouts/frame.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/CardController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/API/LoginController.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/FormHasErrors.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/LoginComponent.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/RegisterComponent.vue" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
+        <option value="$PROJECT_DIR$/config/app.php" />
+        <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/ResetEmailComponent.vue" />
+        <option value="$PROJECT_DIR$/resources/sass/_forms.scss" />
+        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/ResetsPasswords.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/ResetPasswordComponent.vue" />
+        <option value="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" />
+        <option value="$PROJECT_DIR$/app/User.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/VerifyAccount.vue" />
+        <option value="$PROJECT_DIR$/resources/views/auth/verify.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/VerifyAccountComponent.vue" />
+        <option value="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/ForgotPasswordComponent.vue" />
+        <option value="$PROJECT_DIR$/resources/sass/_navbar.scss" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
+        <option value="$PROJECT_DIR$/app/Notifications/WelcomeNotification.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ListingController.php" />
+        <option value="$PROJECT_DIR$/resources/views/listing/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/sass/app.scss" />
+        <option value="$PROJECT_DIR$/resources/js/components/UpdateAccountComponent.vue" />
+        <option value="$PROJECT_DIR$/database/factories/UserFactory.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
+        <option value="$PROJECT_DIR$/resources/views/format/buttons.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/AccountDetailsComponent" />
+        <option value="$PROJECT_DIR$/resources/views/format/inputText.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/format/heading.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/account/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/AccountComponent.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/AccountDetailsComponent.vue" />
+        <option value="$PROJECT_DIR$/database/migrations/2018_09_16_101736_create_server_table.php" />
+        <option value="$PROJECT_DIR$/resources/js/app.js" />
+        <option value="$PROJECT_DIR$/resources/views/account/frame.blade.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/header.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/MyAccountController.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/AccountNotificationComponent.vue" />
+        <option value="$PROJECT_DIR$/resources/views/account/notifications.blade.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.2">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
+      <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/vendor/erusev/parsedown" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/jakub-onderka/php-console-highlighter" />
+      <path value="$PROJECT_DIR$/vendor/jakub-onderka/php-console-color" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/vendor/fideloper/proxy" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/predis/predis" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/vendor/laravel-frontend-presets/tailwindcss" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/laravel/slack-notification-channel" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/symfony/contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-iconv" />
+      <path value="$PROJECT_DIR$/vendor/opis/closure" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/laravel/nexmo-notification-channel" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/nexmo/client" />
+      <path value="$PROJECT_DIR$/vendor/php-http/guzzle6-adapter" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/vendor/php-http/promise" />
+      <path value="$PROJECT_DIR$/vendor/php-http/httplug" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-diactoros" />
+    </include_path>
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>Data flowJavaScript</id>
+          </State>
+          <State>
+            <id>ECMAScript 6 migration aidsJavaScript</id>
+          </State>
+          <State>
+            <id>General</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>Symfony</id>
+          </State>
+          <State>
+            <id>TemplateSymfony</id>
+          </State>
+          <State>
+            <id>TwigSymfony</id>
+          </State>
+          <State>
+            <id>Vue</id>
+          </State>
+          <State>
+            <id>XPath</id>
+          </State>
+          <State>
+            <id>XSLT</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Angular</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Constants" value="false" />
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="listingcontr&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Http/Controllers/ListingController.php&#10;show.b&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/listing/show.blade.php&#10;votecontr&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Http/Controllers/VoteController.php&#10;review&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/js/components/ReviewComponent.vue&#10;listingpr&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/js/Pages/ListingProfileComponent.vue&#10;interactio&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Interactions/Interaction.php&#10;click&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Http/Controllers/ClickController.php&#10;show.&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/listing/show.blade.php&#10;clickcontroller&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Http/Controllers/ClickController.php&#10;show.bl&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/listing/show.blade.php&#10;clicktest&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/tests/Unit/ClickTest.php&#10;votetest&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/tests/Unit/VoteTest.php&#10;interact&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Interactions/Interaction.php&#10;listin&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/tests/Unit/ListingTest.php&#10;listingtr&#9;null&#9;null&#10;Inter&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Interactions/Interaction.php&#10;listingte&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/tests/Unit/ListingTest.php&#10;votecontro&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Http/Controllers/VoteController.php&#10;interaction&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Interactions/Interaction.php&#10;reviewcomp&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/js/components/ReviewComponent.vue&#10;scoreboard&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/js/components/ScoreboardComponent.vue&#10;profile&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/js/Pages/ListingProfileComponent.vue&#10;show.blade&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/listing/show.blade.php&#10;reviewcon&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Http/Controllers/ReviewController.php&#10;voteco&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Http/Controllers/VoteController.php&#10;normal.b&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/partials/cards/normal.blade.php&#10;clickre&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/tests/Feature/ClickRequestTest.php&#10;clickcontr&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Http/Controllers/ClickController.php&#10;polic&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Listings/ListingPolicy.php&#10;header.b&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/layouts/header.blade.php&#10;votereq&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/tests/Feature/VoteRequestTest.php&#10;votere&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/tests/Feature/VoteRequestTest.php&#10;listing&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Listings/ListingPolicy.php&#10;listi&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Listings/ListingPolicy.php&#10;reviewcontr&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Http/Controllers/ReviewController.php&#10;listingpo&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Listings/ListingPolicy.php&#10;listingcontroller&#9;null&#9;null&#10;web.php&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/routes/web.php&#10;listinpo&#9;null&#9;null&#10;vote&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/tests/Unit/VoteTest.php&#10;intera&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Interactions/InteractionObserver.php&#10;userfac&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/database/factories/UserFactory.php&#10;snippet&#9;null&#9;null&#10;app.php&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/config/app.php&#10;create&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/database/migrations/2018_09_16_101736_create_server_table.php&#10;user&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/User.php&#10;index.&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/listing/index.blade.php&#10;index.blade.&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/resources/views/listing/index.blade.php&#10;rev&#9;FILE&#9;file:///Users/markhester/Documents/Websites/ragnaranks/app/Interactions/Review.php&#10;listingtest&#9;null&#9;null" />
+    <property name="TODO_SCOPE" value="All Places" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="auto.test.manager.delay" value="2000" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Auth" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="COPY_ALWAYS" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
+    <property name="tasks.close.task.update.state.enabled" value="true" />
+    <property name="tasks.open.task.update.state.enabled" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Auth" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/API" />
+      <recent name="$PROJECT_DIR$/app/Listings" />
+      <recent name="$PROJECT_DIR$/public/css/fonts" />
+      <recent name="$PROJECT_DIR$/app/Interactions" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Auth" />
+      <recent name="$PROJECT_DIR$/public/img" />
+      <recent name="$PROJECT_DIR$/resources/img" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/resources/js/flickity" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="PHPUnit.tests">
+    <configuration name="APICardRequestTest.test_it_returns_json_response" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Feature\APICardRequestTest" file="$PROJECT_DIR$/tests/Feature/APICardRequestTest.php" method="test_it_returns_json_response" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="CardContainerTest.test_it_can_create_an_container" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\CardContainerTest" file="$PROJECT_DIR$/tests/Unit/CardContainerTest.php" method="test_it_can_create_an_container" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ListingFilterTest.test_it_can_filter_by_tag" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\ListingFilterTest" file="$PROJECT_DIR$/tests/Unit/ListingFilterTest.php" method="test_it_can_filter_by_tag" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ListingTest.test_it_can_have_screenshots" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\ListingTest" file="$PROJECT_DIR$/tests/Unit/ListingTest.php" method="test_it_can_have_screenshots" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner directory="$PROJECT_DIR$/tests" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="PHPUnit.APICardRequestTest.test_it_returns_json_response" />
+      <item itemvalue="PHPUnit.CardContainerTest.test_it_can_create_an_container" />
+      <item itemvalue="PHPUnit.ListingFilterTest.test_it_can_filter_by_tag" />
+      <item itemvalue="PHPUnit.tests" />
+      <item itemvalue="PHPUnit.ListingTest.test_it_can_have_screenshots" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHPUnit.tests" />
+        <item itemvalue="PHPUnit.ListingTest.test_it_can_have_screenshots" />
+        <item itemvalue="PHPUnit.ListingFilterTest.test_it_can_filter_by_tag" />
+        <item itemvalue="PHPUnit.CardContainerTest.test_it_can_create_an_container" />
+        <item itemvalue="PHPUnit.APICardRequestTest.test_it_returns_json_response" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="58f96053-e5bd-4b41-bbae-58099ecbebc5" name="Default Changelist" comment="" />
+      <created>1537021496410</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1558049398842</updated>
+      <workItem from="1537021497582" duration="1063000" />
+      <workItem from="1537092006191" duration="12457000" />
+      <workItem from="1537128767946" duration="1700000" />
+      <workItem from="1537209488730" duration="4930000" />
+      <workItem from="1537258557987" duration="2940000" />
+      <workItem from="1537272900167" duration="8163000" />
+      <workItem from="1537300649228" duration="3447000" />
+      <workItem from="1537386008112" duration="3042000" />
+      <workItem from="1537431761618" duration="347000" />
+      <workItem from="1537457697255" duration="3513000" />
+      <workItem from="1537517860275" duration="813000" />
+      <workItem from="1537526395108" duration="19485000" />
+      <workItem from="1537629845034" duration="640000" />
+      <workItem from="1537637670274" duration="22791000" />
+      <workItem from="1537810213848" duration="159000" />
+      <workItem from="1537810396844" duration="194000" />
+      <workItem from="1537817926362" duration="9994000" />
+      <workItem from="1537883402533" duration="2951000" />
+      <workItem from="1537897393491" duration="10264000" />
+      <workItem from="1537966641671" duration="1690000" />
+      <workItem from="1537982830803" duration="1379000" />
+      <workItem from="1538061361931" duration="10044000" />
+      <workItem from="1538138299399" duration="8000" />
+      <workItem from="1538138328443" duration="8884000" />
+      <workItem from="1538151053347" duration="9827000" />
+      <workItem from="1538312791020" duration="11787000" />
+      <workItem from="1538418344002" duration="1484000" />
+      <workItem from="1538467424936" duration="938000" />
+      <workItem from="1538482621865" duration="2732000" />
+      <workItem from="1538555228844" duration="406000" />
+      <workItem from="1538755845870" duration="174000" />
+      <workItem from="1543238787942" duration="1028000" />
+      <workItem from="1543268243995" duration="2086000" />
+      <workItem from="1543358365129" duration="3390000" />
+      <workItem from="1543400560888" duration="4581000" />
+      <workItem from="1543504907191" duration="16149000" />
+      <workItem from="1543567937996" duration="757000" />
+      <workItem from="1543585193373" duration="2742000" />
+      <workItem from="1543589420203" duration="16573000" />
+      <workItem from="1543865544213" duration="277000" />
+      <workItem from="1543870933942" duration="3844000" />
+      <workItem from="1543961628607" duration="4513000" />
+      <workItem from="1544036186434" duration="3205000" />
+      <workItem from="1544090816696" duration="33975000" />
+      <workItem from="1544398874193" duration="27000" />
+      <workItem from="1544399071385" duration="7664000" />
+      <workItem from="1544557745819" duration="24619000" />
+      <workItem from="1544970646515" duration="32000" />
+      <workItem from="1544970920195" duration="31683000" />
+      <workItem from="1545239301818" duration="53875000" />
+      <workItem from="1545783722658" duration="109000" />
+      <workItem from="1545783969562" duration="8206000" />
+      <workItem from="1546015610974" duration="17256000" />
+      <workItem from="1546208032901" duration="878000" />
+      <workItem from="1546208991813" duration="22276000" />
+      <workItem from="1546539394816" duration="12415000" />
+      <workItem from="1547134306639" duration="3941000" />
+      <workItem from="1547160368522" duration="1354000" />
+      <workItem from="1547225491879" duration="17007000" />
+      <workItem from="1547547351742" duration="3199000" />
+      <workItem from="1547663658706" duration="3603000" />
+      <workItem from="1547729456093" duration="221000" />
+      <workItem from="1549896496655" duration="425000" />
+      <workItem from="1557443231090" duration="198000" />
+      <workItem from="1557443434418" duration="1580000" />
+      <workItem from="1557498148145" duration="5862000" />
+      <workItem from="1557529160342" duration="8938000" />
+      <workItem from="1557578372760" duration="24768000" />
+      <workItem from="1557658735620" duration="14469000" />
+      <workItem from="1557742221291" duration="15346000" />
+      <workItem from="1557845670747" duration="6356000" />
+      <workItem from="1558049398895" duration="141000" />
+      <workItem from="1558172868562" duration="8000" />
+      <workItem from="1558172891666" duration="35765000" />
+    </task>
+    <task id="LOCAL-00051" summary="Interactions now consist of review and vote.&#10;Interaction observers added for these models.&#10;Interaction service providers added for models.&#10;Abstracted interaction class parent for the models.">
+      <created>1547857038481</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1547857038481</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Clicks now part of interaction.">
+      <created>1547858175393</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1547858175393</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Click testing, policies and controllers.">
+      <created>1547861930707</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1547861930707</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Remove listing policy, moved logic to the interaction controller.">
+      <created>1547898118590</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1547898118590</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Rename config for local servers to fake listings.">
+      <created>1547898261065</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1547898261065</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Design of frontpage">
+      <created>1557579389891</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1557579389892</updated>
+    </task>
+    <task id="LOCAL-00057" summary="tailwind file added.">
+      <created>1557582799653</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1557582799653</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Vue cards frontpage">
+      <created>1557604086483</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1557604086484</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Filter dropdown selected on load.">
+      <created>1557605211983</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1557605211983</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Initial listings on first page load.">
+      <created>1557605758978</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1557605758978</updated>
+    </task>
+    <task id="LOCAL-00061" summary="seed more">
+      <created>1557606473408</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1557606473408</updated>
+    </task>
+    <task id="LOCAL-00062" summary="seed more">
+      <created>1557606483864</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1557606483864</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Ranking fixed.">
+      <created>1557613769227</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1557613769228</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Ranking fixed.">
+      <created>1557617820162</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1557617820162</updated>
+    </task>
+    <task id="LOCAL-00065" summary="QueryController returns correct json response (ordering)">
+      <created>1557659146903</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1557659146904</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Remove debugging code (forget cache on every load)">
+      <created>1557659167162</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1557659167162</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Remove date from card indices">
+      <created>1557659195808</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1557659195808</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Compiled vue for frontend.">
+      <created>1557659251903</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1557659251904</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Compiled vue for frontend.">
+      <created>1557699383286</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1557699383286</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Paginate cards">
+      <created>1557699781780</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1557699781780</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Take 7 on initial load.">
+      <created>1557701567040</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1557701567041</updated>
+    </task>
+    <task id="LOCAL-00072" summary="limited amount of cards.">
+      <created>1557701598370</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1557701598371</updated>
+    </task>
+    <task id="LOCAL-00073" summary="Listing container corrected rank assignment.">
+      <created>1557701618550</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1557701618550</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Listing container corrected rank assignment.">
+      <created>1557742242000</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1557742242000</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Listing container corrected rank assignment.">
+      <created>1557742539117</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1557742539117</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Listing container corrected rank assignment.">
+      <created>1557784591084</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1557784591084</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Listing container corrected rank assignment.">
+      <created>1557873480031</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1557873480031</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Listing container corrected rank assignment.">
+      <created>1557873603285</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1557873603285</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Reviews.">
+      <created>1557880968738</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1557880968738</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Reviews.">
+      <created>1557928102664</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1557928102665</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Review cleanup of components">
+      <created>1557931783825</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1557931783825</updated>
+    </task>
+    <task id="LOCAL-00082" summary="Review cleanup of components">
+      <created>1557948216854</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1557948216854</updated>
+    </task>
+    <task id="ragnaranks-12" summary="Scoreboards should reflect review scores">
+      <branch name="master" repository="$PROJECT_DIR$" original="true" />
+      <branch name="ragnaranks-12" repository="$PROJECT_DIR$" />
+      <created>1557946315000</created>
+      <option name="issue" value="true" />
+      <url>https://github.com/marky291/ragnaranks/issues/12</url>
+      <option name="number" value="12" />
+      <option name="presentableId" value="ragnaranks-12" />
+      <option name="project" value="ragnaranks" />
+      <option name="type" value="BUG" />
+      <updated>1557952309233</updated>
+      <workItem from="1557952309315" duration="2083000" />
+    </task>
+    <task id="LOCAL-00083" summary="Missed commit of file. (Corrects scoreboards)">
+      <created>1558032680502</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1558032680502</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Tests now pass succesfully.">
+      <created>1558032720098</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1558032720098</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Vote for server page implementation #10">
+      <created>1558049379552</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1558049379552</updated>
+    </task>
+    <task id="LOCAL-00086" summary="Migration and modelling for listing screenshots. #7">
+      <created>1558092451874</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1558092451874</updated>
+    </task>
+    <task id="LOCAL-00087" summary="Added screenshot modelling to show.blade.php from the container">
+      <created>1558094180034</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1558094180035</updated>
+    </task>
+    <task id="LOCAL-00088" summary="Database seeding and model naming.">
+      <created>1558095588546</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1558095588546</updated>
+    </task>
+    <task id="LOCAL-00089" summary="Corrected has many naming convention back to singular. #7">
+      <created>1558095851561</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1558095851561</updated>
+    </task>
+    <task id="LOCAL-00090" summary="Initial layout of the login form #15">
+      <created>1558172933891</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1558172933893</updated>
+    </task>
+    <task id="LOCAL-00091" summary="Login Form with validation #15">
+      <created>1558221575794</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1558221575794</updated>
+    </task>
+    <task id="LOCAL-00092" summary="Use enter key to attempt login with form #15">
+      <created>1558221891402</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1558221891404</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Register an account #15">
+      <created>1558270050865</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1558270050865</updated>
+    </task>
+    <task id="LOCAL-00094" summary="Passwords can now be reset #15">
+      <created>1558288077170</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1558288077170</updated>
+    </task>
+    <task id="LOCAL-00095" summary="Must verify email notice and implementation #15">
+      <created>1558289083082</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1558289083082</updated>
+    </task>
+    <task id="LOCAL-00096" summary="Verification middleware design. #15">
+      <created>1558291759949</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1558291759949</updated>
+    </task>
+    <task id="LOCAL-00097" summary="Right side navigation #17">
+      <created>1558304743361</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1558304743361</updated>
+    </task>
+    <task id="LOCAL-00098" summary="Account design initial #22">
+      <created>1558425645455</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1558425645455</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
+    <servers>
+      <GitHub url="https://github.com">
+        <option name="repoAuthor" value="marky291" />
+        <option name="repoName" value="ragnaranks" />
+      </GitHub>
+    </servers>
+  </component>
+  <component name="TestHistory">
+    <history-entry file="ListingTest_test_it_can_have_screenshots - 2019.05.17 at 12h 20m 49s.xml">
+      <configuration name="ListingTest.test_it_can_have_screenshots" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="ListingTest_test_it_can_have_screenshots - 2019.05.17 at 12h 20m 56s.xml">
+      <configuration name="ListingTest.test_it_can_have_screenshots" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="ListingTest_test_it_can_have_screenshots - 2019.05.17 at 12h 21m 05s.xml">
+      <configuration name="ListingTest.test_it_can_have_screenshots" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="ListingTest_test_it_can_have_screenshots - 2019.05.17 at 12h 21m 18s.xml">
+      <configuration name="ListingTest.test_it_can_have_screenshots" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="ListingTest_test_it_can_have_screenshots - 2019.05.17 at 12h 21m 23s.xml">
+      <configuration name="ListingTest.test_it_can_have_screenshots" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="ListingTest_test_it_can_have_screenshots - 2019.05.17 at 12h 21m 32s.xml">
+      <configuration name="ListingTest.test_it_can_have_screenshots" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="tests - 2019.05.17 at 12h 26m 19s.xml">
+      <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="tests - 2019.05.17 at 12h 26m 56s.xml">
+      <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="tests - 2019.05.17 at 13h 19m 30s.xml">
+      <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="tests - 2019.05.17 at 13h 23m 20s.xml">
+      <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="enabled" value="true" />
+    <option name="totallyTimeSpent" value="683836000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8321799" visible="true" weight="0.20558739" />
+      <window_info id="Structure" order="1" sideWeight="0.16782007" side_tool="true" visible="true" weight="0.20558739" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49928468" weight="0.3280098" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.61389685" weight="0.3181818" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4899857" weight="0.31572482" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3280098" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49928367" weight="0.3992629" />
+      <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3280098" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.28653294" side_tool="true" weight="0.5159705" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.71346706" visible="true" weight="0.2899263" />
+      <window_info anchor="bottom" id="Messages" order="12" />
+      <window_info anchor="bottom" id="Database Console" order="13" weight="0.3280098" />
+      <window_info anchor="bottom" id="File Transfer" order="14" weight="0.35626537" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="15" weight="0.32891566" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" sideWeight="0.49759036" visible="true" weight="0.10458453" />
+      <window_info anchor="right" id="Coverage" order="4" sideWeight="0.50240964" side_tool="true" visible="true" weight="0.19027181" />
+      <window_info anchor="right" id="Remote Host" order="5" weight="0.25894135" />
+      <window_info anchor="right" id="Time Tracking" order="6" weight="0.12660944" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/vendor/adamwathan/laravel-preset" />
+    </ignored-roots>
+    <MESSAGE value="Remove debugging code (forget cache on every load)" />
+    <MESSAGE value="Remove date from card indices" />
+    <MESSAGE value="Compiled vue for frontend." />
+    <MESSAGE value="Paginate cards" />
+    <MESSAGE value="Take 7 on initial load." />
+    <MESSAGE value="limited amount of cards." />
+    <MESSAGE value="Listing container corrected rank assignment." />
+    <MESSAGE value="Reviews." />
+    <MESSAGE value="Review cleanup of components" />
+    <MESSAGE value="Missed commit of file. (Corrects scoreboards)" />
+    <MESSAGE value="Tests now pass succesfully." />
+    <MESSAGE value="Vote for server page implementation #10" />
+    <MESSAGE value="Migration and modelling for listing screenshots. #7" />
+    <MESSAGE value="Added screenshot modelling to show.blade.php from the container" />
+    <MESSAGE value="Database seeding and model naming." />
+    <MESSAGE value="Corrected has many naming convention back to singular. #7" />
+    <MESSAGE value="Initial layout of the login form #15" />
+    <MESSAGE value="Login Form with validation #15" />
+    <MESSAGE value="Use enter key to attempt login with form #15" />
+    <MESSAGE value="Register an account #15" />
+    <MESSAGE value="Passwords can now be reset #15" />
+    <MESSAGE value="Must verify email notice and implementation #15" />
+    <MESSAGE value="Verification middleware design. #15" />
+    <MESSAGE value="Right side navigation #17" />
+    <MESSAGE value="Account design initial #22" />
+    <option name="LAST_COMMIT_MESSAGE" value="Account design initial #22" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php</url>
+          <line>13</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-312">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Notifications/Notification.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="81" column="7" selection-start-line="81" selection-start-column="7" selection-end-line="81" selection-end-column="7" />
+          <folding>
+            <element signature="e#45#87#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Notifications/WelcomeNotification.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+          <folding>
+            <element signature="e#37#50#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ListingController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_ide_helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="6550" column="11" selection-start-line="6550" selection-start-column="11" selection-end-line="6550" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/listing/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/tailwindcss/defaultTheme.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/tailwindcss/stubs/simpleConfig.stub.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/tailwindcss/stubs/defaultConfig.stub.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="23" selection-end-line="488" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack.mix.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tailwind.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="478" column="14" selection-start-line="478" selection-start-column="14" selection-end-line="478" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/sass/_tailwind-directives.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/tailwindcss/defaultConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/tailwindcss/tailwind.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="4" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/ScoreboardComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-347" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/ScoreboardsComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="10" selection-start-line="8" selection-start-column="8" selection-end-line="19" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/LoginComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" selection-start-line="1" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-111">
+          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="21" column="53" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/listing/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="68" column="68" selection-start-line="68" selection-start-column="68" selection-end-line="68" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/format/buttons.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/account/menu-item.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/format/inputText.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/VerifyAccountComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-24" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/AccountComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/account/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2018_09_16_101736_create_server_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="91" column="37" selection-start-line="91" selection-start-column="37" selection-end-line="91" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Notifications/HasDatabaseNotifications.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/AccountDetailsComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" selection-start-line="11" selection-end-line="12" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="77" column="5" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
+          <folding>
+            <element signature="e#334#356#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/account/frame.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/worker-farm/lib/child/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="48" column="33" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/format/heading.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="52" selection-start-column="52" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/header.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="40" column="56" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/factories/UserFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/NotificationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e8df93af-190f-4543-b9b3-e034f2769a7d/schema/magnolia/table/users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true">
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/ReviewComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="8" column="254" selection-start-line="8" selection-start-column="254" selection-end-line="8" selection-end-column="254" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="57" column="28" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://e8df93af-190f-4543-b9b3-e034f2769a7d/schema/magnolia/table/notifications">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true">
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="30" column="28" selection-start-line="29" selection-end-line="30" selection-end-column="28" />
+          <folding>
+            <element signature="e#7#44#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Notifications/DatabaseNotification.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="71" column="7" selection-start-line="71" selection-start-column="7" selection-end-line="71" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MyAccountController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding>
+            <element signature="e#40#68#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/AccountNotificationComponent.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/account/notifications.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

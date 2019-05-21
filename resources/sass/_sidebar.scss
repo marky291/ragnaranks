@@ -1,0 +1,32 @@
+
+#sidebar {
+  .heading, .heading h3 {
+    color: #525860;
+    position: relative;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+
+  .heading h3 {
+    padding-left: 0;
+  }
+
+  .content {
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+    background: #FFF;
+    border-radius: 2px;
+    padding:1.5em;
+  }
+
+
+  #awards {
+
+    .listing {
+      padding-bottom: 0.75rem;
+    }
+  }
+
+
+}

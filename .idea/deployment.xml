@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="ragnaranks.com" uploadOnCheckin="ae67c1ed-d3bf-4039-b7f6-f1964036ddf1">
+    <serverData>
+      <paths name="ragnaranks.com">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/httpdocs" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myUploadOnCheckinName" value="ragnaranks.com" />
+  </component>
+</project>

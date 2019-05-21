@@ -1,0 +1,46 @@
+$color-blue: #10a9f5;
+
+.server-card {
+  //width: 750px;
+  background: rgba(255, 255, 255, 0.96);
+}
+.server-card-body  {
+  /*padding: 15px;*/
+}
+.server-card-head {
+  height:170px;
+  background: linear-gradient(rgba(247, 247, 247, 0) 0%, rgba(139, 139, 139, 0.21) 32.51%, rgba(0, 0, 0, 0.81) 100%);
+
+}
+.server-card-head.image {
+  background-position: center;
+  background-size: cover;
+}
+.server-card-head.overlap{
+  margin-top: -170px;
+}
+.tag-list {
+  color: #C9CDD1;
+}
+.tag-list li {
+  margin-right: 5px;
+}
+.tag-list li:last-child {
+  margin-right: 0px;
+}
+.rating {
+  color: #43A418;
+  border: 3px solid #43A418;
+}
+.right-side .card-counter {
+  $size: 50px;
+  font-size: $size;
+  line-height: $size - 10;
+}
+.right-side .card-counter-title {
+  font-size: 19px;
+  line-height: 15px;
+}
+.transparency {
+  color: rgba(247, 247, 247, 0.7);
+}
