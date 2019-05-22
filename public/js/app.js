@@ -15753,19 +15753,28 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_1__);
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['review'],
+  components: {
+    'has-error': vform__WEBPACK_IMPORTED_MODULE_1__["HasError"],
+    'alert-error': vform__WEBPACK_IMPORTED_MODULE_1__["AlertError"]
+  },
   data: function data() {
     return {
       starCount: 0,
       viewingDetails: false,
       commenting: false,
-      commentMessage: ''
+      comment: new vform__WEBPACK_IMPORTED_MODULE_1__["Form"]({
+        message: ''
+      })
     };
   },
   computed: {
-    reportButtonText: function reportButtonText() {
+    commentButtonText: function commentButtonText() {
       return this.viewingDetails ? 'Close comment' : 'Comment as server owner';
     },
     detailButtonText: function detailButtonText() {
@@ -15789,7 +15798,17 @@ __webpack_require__.r(__webpack_exports__);
       return moment__WEBPACK_IMPORTED_MODULE_0___default()(this.review.created_at).startOf('day').fromNow();
     },
     postComment: function postComment() {
-      this.commenting = true;
+      var _this = this;
+
+      this.comment.post('/review/' + this.review.id + '/comment').then(function (response) {
+        _this.$Message.success('Great! We have notified this user of your comment');
+
+        _this.review.comments.push(response.data.comment);
+
+        _this.commenting = false;
+      })["catch"](function (error) {
+        _this.$Message.error(error.message);
+      });
     },
     reportReview: function reportReview() {}
   }

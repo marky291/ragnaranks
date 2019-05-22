@@ -1,18 +1,26 @@
 <script>
 		import moment from 'moment';
+    import { Form, HasError, AlertError } from 'vform';
 
     export default {
         props: ['review'],
+        components: {
+            'has-error': HasError,
+            'alert-error': AlertError,
+        },
         data() {
             return {
                 starCount: 0,
                 viewingDetails: false,
                 commenting: false,
-								commentMessage: '',
+
+                comment: new Form({
+                    message: '',
+                })
             }
         },
 				computed: {
-            reportButtonText: function() {
+            commentButtonText: function() {
                 return this.viewingDetails ? 'Close comment' : 'Comment as server owner';
 						},
 						detailButtonText: function() {
@@ -36,7 +44,13 @@
 						    return moment(this.review.created_at).startOf('day').fromNow();
 						},
 						postComment() {
-							this.commenting = true;
+							this.comment.post('/review/'+this.review.id+'/comment').then(response => {
+							    this.$Message.success('Great! We have notified this user of your comment');
+							    this.review.comments.push(response.data.comment);
+							    this.commenting = false;
+							}).catch(error => {
+                  this.$Message.error(error.message);
+							})
 						},
 						reportReview() {
 

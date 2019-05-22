@@ -17,6 +17,10 @@ use Illuminate\Support\Facades\Auth;
 // authentication routes (login & logout)
 Auth::routes(['verify' => true]);
 
+Route::resource('review.comment', 'ReviewCommentController', ['middleware'=>['auth']])->only([
+    'store'
+]);
+
 // default index page.
 Route::get('/')->uses('ListingController@index')->name('index');
 

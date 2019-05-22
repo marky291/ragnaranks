@@ -180,7 +180,8 @@
                                                                     </div>
                                                                     <div v-show="commenting" class="tw-mt-3">
                                                                         <p class="tw-text-red tw-font-semibold">Comment on this review as server owner</p>
-                                                                        <at-textarea v-model="commentMessage" min-rows="5" class="tw-mt-2" autosize placeholder="Write your reply towards this review"></at-textarea>
+                                                                        <at-textarea v-model="comment.message" min-rows="5" class="tw-mt-2" autosize placeholder="Write your reply towards this review"></at-textarea>
+                                                                        <has-error :form="comment" field="message"></has-error>
                                                                         <at-button @click="postComment" type="error" class="tw-mt-2">Post Comment</at-button>
                                                                     </div>
                                                                     <div class="tw-flex tw-justify-end">
