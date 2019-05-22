@@ -15966,12 +15966,9 @@ __webpack_require__.r(__webpack_exports__);
      * @return {string}
      */
     ScoreScale: function ScoreScale(score) {
-      if (score >= 10) return "scale-1";
-      if (score >= 9) return "scale-2";
-      if (score >= 8) return "scale-3";
-      if (score >= 6) return "scale-4";
-      if (score >= 4) return "scale-5";
-      if (score >= 2) return "scale-6";
+      if (score >= 5) return "scale-1";
+      if (score >= 4) return "scale-2";
+      if (score >= 3) return "scale-3";
       if (score >= 0) return "scale-7";
     }
   }
@@ -53519,7 +53516,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "w-100 h-100 align-items-end d-flex" }, [
         _c("p", { staticClass: "tw-text-2xl text-right tw-font-bold" }, [
-          _vm._v(_vm._s(_vm.score) + " / 10")
+          _vm._v(_vm._s(_vm.score) + " / 5")
         ])
       ])
     ]

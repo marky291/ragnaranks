@@ -44,6 +44,6 @@ class ReviewRequest extends FormRequest
      */
     public function scoreRules(): string
     {
-        return 'numeric|required|min:0|max:10';
+        return 'numeric|required|min:0|max:5';
     }
 }

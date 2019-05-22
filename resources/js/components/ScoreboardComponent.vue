@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="w-100 h-100 align-items-end d-flex">
-            <p class="tw-text-2xl text-right tw-font-bold">{{ score }} / 10</p>
+            <p class="tw-text-2xl text-right tw-font-bold">{{ score }} / 5</p>
         </div>
     </div>
 </template>
@@ -24,18 +24,12 @@
              * @return {string}
              */
             ScoreScale: function(score) {
-                if (score >= 10)
+                if (score >= 5)
                     return "scale-1";
-                if (score >= 9)
-                    return "scale-2";
-                if (score >= 8)
-                    return "scale-3";
-                if (score >= 6)
-                    return "scale-4";
                 if (score >= 4)
-                    return "scale-5";
-                if (score >= 2)
-                    return "scale-6";
+                    return "scale-2";
+                if (score >= 3)
+                    return "scale-3";
                 if (score >= 0)
                     return "scale-7";
             },

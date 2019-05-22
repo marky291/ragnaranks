@@ -29,14 +29,14 @@ $factory->define(\App\Interactions\Review::class, function(Faker $faker) {
         'message' => $faker->text(rand(300, 500)),
         'publisher_id' => factory(\App\User::class)->create()->id,
         'ip_address' => $faker->ipv4,
-        'donation_score' => $faker->numberBetween(0, 10),
-        'update_score' => $faker->numberBetween(0, 10),
-        'class_score' => $faker->numberBetween(0, 10),
-        'item_score' => $faker->numberBetween(0, 10),
-        'support_score' => $faker->numberBetween(0, 10),
-        'hosting_score' => $faker->numberBetween(0, 10),
-        'content_score' => $faker->numberBetween(0, 10),
-        'event_score' => $faker->numberBetween(0, 10),
+        'donation_score' => $faker->numberBetween(0, 5),
+        'update_score' => $faker->numberBetween(0, 5),
+        'class_score' => $faker->numberBetween(0, 5),
+        'item_score' => $faker->numberBetween(0, 5),
+        'support_score' => $faker->numberBetween(0, 5),
+        'hosting_score' => $faker->numberBetween(0, 5),
+        'content_score' => $faker->numberBetween(0, 5),
+        'event_score' => $faker->numberBetween(0, 5),
     ];
 });
 
