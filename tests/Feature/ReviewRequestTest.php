@@ -14,6 +14,8 @@ class ReviewRequestTest extends TestCase
 {
     use WithFaker;
 
+    use RefreshDatabase;
+
     /**
      * @var Listing
      */
@@ -78,93 +80,6 @@ class ReviewRequestTest extends TestCase
         $this->patch("/listing/{$this->listing->slug}/reviews/{$this->listing->reviews()->first()->id}", ['message' => "foo bar"]);
 
         $this->assertDatabaseHas('reviews', ['id' => $this->listing->reviews()->first()->getkey(), 'message' => 'foo bar']);
-    }
-
-    /**
-     * @test
-     */
-    public function a_review_form_invalidates_required_attributes()
-    {
-        $this->withExceptionHandling();
-
-        $this->createListing(['slug' => 'listing-name'], 0,0);
-
-        $this->post("/listing/listing-name/reviews", [])->assertSessionHasErrors(
-            [
-                'message',
-                'donation_score',
-                'update_score',
-                'class_score',
-                'item_score',
-                'support_score',
-                'hosting_score',
-                'content_score',
-                'event_score'
-            ]);
-    }
-
-    /**
-     * @test
-     */
-    public function a_review_form_invalidates_scores_above_10()
-    {
-        $this->createListing(['slug' => 'listing-name'], 0,0);
-
-        $review = factory(Review::class)->make(['donation_score' => 15]);
-
-        $this->post("/listing/listing-name/reviews", $review->toArray())->assertSessionHasErrors(['donation_score']);
-    }
-
-    /**
-     * @test
-     */
-    public function a_review_form_invalidates_scores_below_0()
-    {
-        $this->createListing(['slug' => 'listing-name'], 0,0);
-
-        $review = factory(Review::class)->make(['donation_score' => -5]);
-
-        $this->post("/listing/listing-name/reviews", $review->toArray())->assertSessionHasErrors(['donation_score']);
-    }
-
-    /**
-     * @test
-     */
-    public function a_review_form_invalidates_scores_that_are_not_integer()
-    {
-        $this->createListing(['slug' => 'listing-name'], 0,0);
-
-        $review = factory(Review::class)->make(['donation_score' => "foo"]);
-
-        $this->post("/listing/listing-name/reviews", $review->toArray())->assertSessionHasErrors(['donation_score']);
-    }
-
-    /**
-     * @test
-     */
-    public function a_review_form_invalidates_messages_under_200_characters()
-    {
-        $this->createListing(['slug' => 'listing-name'], 0,0);
-
-        $review = factory(Review::class)->make(['message' => 'A not very long message.']);
-
-        $this->post("/listing/listing-name/reviews", $review->toArray())->assertSessionHasErrors(['message']);
-    }
-
-    /**
-     * @test
-     */
-    public function a_review_can_only_be_created_once_per_listing()
-    {
-        $this->signIn();
-
-        $listing = $this->createListing(['slug' => 'listing-name'], 0,0);
-
-        $this->post("/listing/listing-name/reviews", factory(Review::class)->make()->toArray());
-
-        $this->post("/listing/listing-name/reviews", factory(Review::class)->make()->toArray());
-
-        $this->assertCount(1, $listing->reviews);
     }
 
     /**

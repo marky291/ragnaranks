@@ -26,7 +26,6 @@ class ConfigParsingTest extends TestCase
 
     public function test_it_can_get_a_config_value()
     {
-        dd($this->parser->configs);
         $this->assertEquals(100, $this->parser->configs->get('item_rate_equip'));
     }
 
