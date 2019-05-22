@@ -162,7 +162,7 @@
                                             <div class="">
                                                 <div v-if="$parent.theCurrentViewIs('listing')" v-for="(review, index) in collection">
                                                     <review :review="review" inline-template>
-                                                        <div class="review tw-shadow tw-mb-4 tw-p-3">
+                                                        <div class="review tw-mb-4 tw-p-3">
                                                             <div class="row no-gutters">
                                                                 <div class="col bg-white pb-3 content">
                                                                     <div class="tw-flex mb-3 tw-items-center">
