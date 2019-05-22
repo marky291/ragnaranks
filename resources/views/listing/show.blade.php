@@ -97,33 +97,6 @@
                                     </div>
                                 </section>
 
-                                <section v-if="theCurrentViewIs('listing')" id="configuration" class="content-block">
-                                    <div class="container px-5 py-4">
-                                        <h3 class="heading mb-4 tw-font-bold text-dark heading-underline">Server Configuration Setup</h3>
-                                        <div class="row">
-                                            <div class="list col-4 d-flex flex-column">
-                                                @include('listing.partial.config', ['name'=>'Base Exp Rate', 'type' => 'exp', 'value' => $listing->configs['base_exp_rate']])
-                                                @include('listing.partial.config', ['name'=>'Job Exp Rate', 'type' => 'exp',  'value' => $listing->configs['job_exp_rate']])
-                                                @include('listing.partial.config', ['name'=>'Max Base Level', 'type' => 'exp',  'value' => $listing->configs['max_base_level']])
-                                                @include('listing.partial.config', ['name'=>'Max Job Level', 'type' => 'exp',  'value' => $listing->configs['max_job_level']])
-                                            </div>
-                                            <div class="list col-4 d-flex flex-column">
-                                                @include('listing.partial.config', ['name'=>'Max Basic Stats', 'type' => 'stat',  'value' => $listing->configs['max_stats']])
-                                                @include('listing.partial.config', ['name'=>'Max ASPD', 'type' => 'stat',  'value' => $listing->configs['max_aspd']])
-                                                @include('listing.partial.config', ['name'=>'Instant Cast Stat', 'type' => 'stat',  'value' => $listing->configs['instant_cast_stat']])
-                                            </div>
-                                            <div class="list col-4 d-flex flex-column">
-                                                @include('listing.partial.config', ['name'=>'Drop Base', 'type' => 'drop-base',  'value' => $listing->configs['drop_base_rate']])
-                                                @include('listing.partial.config', ['name'=>'Drop Base MVP', 'type' => 'drop-mvp-base',  'value' => $listing->configs['drop_base_mvp_rate']])
-                                                {{--@include('listing.partial.config', ['name'=>'Drop Base Special', 'type' => 'drop',  'value' => $listing->config->drop_base_special_rate])--}}
-                                                @include('listing.partial.config', ['name'=>'Drop Card', 'type' => 'drop-card',  'value' => $listing->configs['drop_card_rate']])
-                                                @include('listing.partial.config', ['name'=>'Drop Card MVP', 'type' => 'drop-mvp-card',  'value' => $listing->configs['drop_card_mvp_rate']])
-                                                {{--@include('listing.partial.config', ['name'=>'Drop Card Special', 'type' => 'drop',  'value' => $listing->config->drop_card_special_rate])--}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
-
                                 <section v-if="theCurrentViewIs('listing')" id="ratings">
                                     <div class="container pl-5 pr-5">
                                         <div class="py-3 mb-3 rounded" style="border:1px solid rgba(255, 255, 255, 0.2);">
@@ -213,7 +186,7 @@
                                                                     <div class="tw-flex tw-justify-end">
                                                                         <at-button @click="viewingDetails = !viewingDetails" icon="icon-maximize-2" type="text">@{{ detailButtonText }}</at-button>
                                                                         <at-button @click="reportReview" icon="icon-flag" type="text">Report</at-button>
-                                                                        <at-button v-if="!review.comments.length" @click="commenting = !commenting" icon="icon-paperclip" type="text">@{{ reportButtonText }}</at-button>
+                                                                        <at-button v-if="!review.comments.length" @click="commenting = !commenting" icon="icon-paperclip" type="text">@{{ commentButtonText }}</at-button>
                                                                     </div>
                                                                 </div>
                                                             </div>
