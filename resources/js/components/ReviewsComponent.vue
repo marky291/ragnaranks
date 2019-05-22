@@ -2,47 +2,36 @@
 
     import _ from 'lodash';
     import Review from './ReviewComponent.vue';
-    import NewReview from '../components/NewReviewComponent.vue';
+    import { Form, HasError, AlertError } from 'vform';
 
     export default {
 
         props: ['data', 'policy'],
 
-        components: { Review },
+        components: {
+            Review,
+            'has-error': HasError,
+            'alert-error': AlertError,
+        },
 
         data: function() {
             return {
                 activated: false,
                 collection: this.data,
                 reviewable: true,
-
                 isCreatingReview: false,
 
-                form: {
-                    review_input: "",
-                    donation_score: 5,
-                    update_score: 5,
-                    class_score: 5,
-                    item_score: 5,
-                    support_score: 5,
-                    hosting_score: 5,
-                    content_score: 5,
-                    event_score: 5,
-                },
-
-                default: {
+                review: new Form({
                     message: "",
-                    donation_score: 5,
-                    update_score: 5,
-                    class_score: 5,
-                    item_score: 5,
-                    support_score: 5,
-                    hosting_score: 5,
-                    content_score: 5,
-                    event_score: 5,
-                },
-
-                endpoint: window.location.href + "/reviews",
+                    donation_score: 3,
+                    update_score: 3,
+                    class_score: 3,
+                    item_score: 3,
+                    support_score: 3,
+                    hosting_score: 3,
+                    content_score: 3,
+                    event_score: 3,
+                })
             }
         },
 
@@ -78,9 +67,16 @@
                 this.collection.splice(index, 1);
                 this.emitReviewScores();
             },
-            addReview(review) {
+            postReview(url) {
                 this.reviewable = false;
-                this.collection.push(review);
+                this.review.post(url).then(response => {
+										this.$Message.success('Review has been posted, thank you!');
+										this.collection.push(response.data.review);
+                    this.$parent.setView('listing');
+								}).catch(error => {
+                    this.$Message.error(error.message);
+								});
+                //this.collection.push(review);
                 this.emitReviewScores();
             },
             ratingScore(score) {

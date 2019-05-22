@@ -15828,14 +15828,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _ReviewComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ReviewComponent.vue */ "./resources/js/components/ReviewComponent.vue");
-/* harmony import */ var _components_NewReviewComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/NewReviewComponent.vue */ "./resources/js/components/NewReviewComponent.vue");
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['data', 'policy'],
   components: {
-    Review: _ReviewComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    Review: _ReviewComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    'has-error': vform__WEBPACK_IMPORTED_MODULE_2__["HasError"],
+    'alert-error': vform__WEBPACK_IMPORTED_MODULE_2__["AlertError"]
   },
   data: function data() {
     return {
@@ -15843,29 +15846,17 @@ __webpack_require__.r(__webpack_exports__);
       collection: this.data,
       reviewable: true,
       isCreatingReview: false,
-      form: {
-        review_input: "",
-        donation_score: 5,
-        update_score: 5,
-        class_score: 5,
-        item_score: 5,
-        support_score: 5,
-        hosting_score: 5,
-        content_score: 5,
-        event_score: 5
-      },
-      "default": {
+      review: new vform__WEBPACK_IMPORTED_MODULE_2__["Form"]({
         message: "",
-        donation_score: 5,
-        update_score: 5,
-        class_score: 5,
-        item_score: 5,
-        support_score: 5,
-        hosting_score: 5,
-        content_score: 5,
-        event_score: 5
-      },
-      endpoint: window.location.href + "/reviews"
+        donation_score: 3,
+        update_score: 3,
+        class_score: 3,
+        item_score: 3,
+        support_score: 3,
+        hosting_score: 3,
+        content_score: 3,
+        event_score: 3
+      })
     };
   },
   created: function created() {
@@ -15901,9 +15892,20 @@ __webpack_require__.r(__webpack_exports__);
       this.collection.splice(index, 1);
       this.emitReviewScores();
     },
-    addReview: function addReview(review) {
+    postReview: function postReview(url) {
+      var _this2 = this;
+
       this.reviewable = false;
-      this.collection.push(review);
+      this.review.post(url).then(function (response) {
+        _this2.$Message.success('Review has been posted, thank you!');
+
+        _this2.collection.push(response.data.review);
+
+        _this2.$parent.setView('listing');
+      })["catch"](function (error) {
+        _this2.$Message.error(error.message);
+      }); //this.collection.push(review);
+
       this.emitReviewScores();
     },
     ratingScore: function ratingScore(score) {
@@ -15914,14 +15916,14 @@ __webpack_require__.r(__webpack_exports__);
       if (score === 1) return 'Terrible';
     },
     changeReviewState: function changeReviewState() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.$root.$emit('creating:review', this.isCreatingReview = !this.isCreatingReview);
 
       if (this.isCreatingReview) {
         this.$Message("Your time spent reviewing this server listing is appreciated and helps others");
         setTimeout(function () {
-          _this2.$refs.textarea.focus();
+          _this3.$refs.textarea.focus();
         });
       }
     },
@@ -66199,38 +66201,6 @@ component.options.__file = "resources/js/components/LoginComponent.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./LoginComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LoginComponent.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/NewReviewComponent.vue":
-/*!********************************************************!*\
-  !*** ./resources/js/components/NewReviewComponent.vue ***!
-  \********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-var render, staticRenderFns
-var script = {}
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
-  script,
-  render,
-  staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-component.options.__file = "resources/js/components/NewReviewComponent.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 

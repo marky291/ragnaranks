@@ -26,7 +26,7 @@ $factory->define(App\User::class, function (Faker $faker) {
 
 $factory->define(\App\Interactions\Review::class, function(Faker $faker) {
     return [
-        'message' => $faker->sentence(200),
+        'message' => $faker->text(rand(300, 500)),
         'publisher_id' => factory(\App\User::class)->create()->id,
         'ip_address' => $faker->ipv4,
         'donation_score' => $faker->numberBetween(0, 10),

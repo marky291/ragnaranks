@@ -20,6 +20,9 @@ Auth::routes(['verify' => true]);
 Route::resource('review.comment', 'ReviewCommentController', ['middleware'=>['auth']])->only([
     'store'
 ]);
+Route::resource('listing.reviews', 'ReviewController', ['middleware' => ['auth']])->only([
+    'store', 'update', 'destroy'
+]);
 
 // default index page.
 Route::get('/')->uses('ListingController@index')->name('index');
@@ -35,7 +38,6 @@ Route::post('/notifications/unread/{notification}')->middleware('auth')->uses('M
 Route::resource('listing', 'ListingController');
 
 // listing reviews controllers.
-Route::resource('listing.reviews', 'ReviewController')->only(['store', 'update', 'destroy']);
 
 // listing votes controllers.
 Route::resource('listing.votes', 'VoteController')->only(['store']);

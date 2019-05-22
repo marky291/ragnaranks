@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReviewRequest;
 use App\Http\Requests\StoreReviewRequest;
 use App\Interactions\Interaction;
 use App\Interactions\Vote;
 use App\Listings\Listing;
 use App\Interactions\Review;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
@@ -17,17 +19,13 @@ class ReviewController extends Controller
      * @param StoreReviewRequest $request
      * @param Listing $listing
      *
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @return RedirectResponse
      */
-    public function store(StoreReviewRequest $request, Listing $listing)
+    public function store(ReviewRequest $request, Listing $listing)
     {
-        if (!$listing->reviews()->publishedBy(auth()->user())->count())
-        {
-            $listing->reviews()->create($request->validated());
-        }
+        $review = $listing->reviews()->create($request->validated());
 
-        return redirect()->back()->with(['flash' => 'You already made a review on this listing.']);
+        return response()->json(['review' => $review], 200);
     }
 
     /**
@@ -36,7 +34,7 @@ class ReviewController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @param Listing $listing
      * @param Review $review
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function update(Request $request, Listing $listing, Review $review)
     {
@@ -50,7 +48,7 @@ class ReviewController extends Controller
      *
      * @param Listing $listing
      * @param Review $review
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      * @throws \Exception
      */
     public function destroy(Listing $listing, Review $review)
