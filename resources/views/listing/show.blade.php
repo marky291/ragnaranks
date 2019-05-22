@@ -208,16 +208,16 @@
                                                                 <div class="row tw-mb-5">
                                                                     <div class="col-6">
                                                                         <div class="tw-p-2 tw-rounded tw-mb-4">
-                                                                            <p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Donation Experience</p>
-                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the experience against non-donators</p>
+                                                                            <p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Donations</p>
+                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the experience against non-donators on the server?</p>
                                                                             <at-rate :show-text="true" :count="5" v-model="review.donation_score" class="tw-flex">
                                                                                 <p class="tw-font-bold">@{{ ratingScore(review.donation_score) }}</p>
                                                                             </at-rate>
                                                                         </div>
 
                                                                         <div class="tw-p-2 tw-rounded tw-mb-4">
-                                                                            <p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Update Experience</p>
-                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">Are updates regular with positive effect on the server</p>
+                                                                            <p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Updates</p>
+                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the updates and their effects on the server?</p>
                                                                             <at-rate :show-text="true" :count="5" v-model="review.update_score" class="tw-flex">
                                                                                 <p class="tw-font-bold">@{{ ratingScore(review.update_score) }}</p>
                                                                             </at-rate>
@@ -225,15 +225,15 @@
 
                                                                         <div class="tw-p-2 tw-rounded tw-mb-4">
                                                                             <p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Class Experience</p>
-                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the experience against non-donators</p>
+                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the class diversity and balance on the server?</p>
                                                                             <at-rate :show-text="true" :count="5" v-model="review.class_score" class="tw-flex">
                                                                                 <p class="tw-font-bold">@{{ ratingScore(review.class_score) }}</p>
                                                                             </at-rate>
                                                                         </div>
 
                                                                         <div class="tw-p-2 tw-rounded tw-mb-4">
-                                                                            <p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Item Experience</p>
-                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the experience against non-donators</p>
+                                                                            <p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Custom Items</p>
+                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the item balance and customization on the server?</p>
                                                                             <at-rate :show-text="true" :count="5" v-model="review.item_score" class="tw-flex">
                                                                                 <p class="tw-font-bold">@{{ ratingScore(review.item_score) }}</p>
                                                                             </at-rate>
@@ -242,32 +242,32 @@
                                                                     <div class="col-6">
 
                                                                         <div class="tw-p-2 tw-rounded tw-mb-4">
-                                                                            <p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Support Experience</p>
-                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the experience against non-donators</p>
+                                                                            <p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Staff Support</p>
+                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the experience of reaching the Staff and their support of the server?</p>
                                                                             <at-rate :show-text="true" :count="5" v-model="review.support_score" class="tw-flex">
                                                                                 <p class="tw-font-bold">@{{ ratingScore(review.support_score) }}</p>
                                                                             </at-rate>
                                                                         </div>
 
                                                                         <div class="tw-p-2 tw-rounded tw-mb-4">
-                                                                            <h4 class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Hosting Experience</h4>
-                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the experience against non-donators</p>
+                                                                            <h4 class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Server Latency</h4>
+                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the latency on the server?</p>
                                                                             <at-rate :show-text="true" :count="5" v-model="review.hosting_score" class="tw-flex">
                                                                                 <p class="tw-font-bold">@{{ ratingScore(review.hosting_score) }}</p>
                                                                             </at-rate>
                                                                         </div>
 
                                                                         <div class="tw-p-2 tw-rounded tw-mb-4">
-                                                                            <h4 class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Content Experience</h4>
-                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the experience against non-donators</p>
+                                                                            <h4 class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Custom Content</h4>
+                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the overall customization of the server?</p>
                                                                             <at-rate :show-text="true" :count="5" v-model="review.content_score" class="tw-flex">
                                                                                 <p class="tw-font-bold">@{{ ratingScore(review.content_score) }}</p>
                                                                             </at-rate>
                                                                         </div>
 
                                                                         <div class="tw-p-2 tw-rounded tw-mb-4">
-                                                                            <h4 class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Event Experience</h4>
-                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the experience against non-donators</p>
+                                                                            <h4 class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Events</h4>
+                                                                            <p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the eventfullness of automated and/or GM hosted events on the server?</p>
                                                                             <at-rate :show-text="true" :count="5" v-model="review.event_score" class="tw-flex">
                                                                                 <p class="tw-font-bold">@{{ ratingScore(review.event_score) }}</p>
                                                                             </at-rate>
