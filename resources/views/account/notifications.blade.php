@@ -13,6 +13,9 @@
 						<h4 class="tw-font-semibold tw-mb-0">{{ $notification->data['title'] }}</h4>
 						<p class="tw-text-xs tw-text-grey-darker tw-mb-2">{{ $notification->created_at->diffForHumans() }}</p>
 						<p>{{ $notification->data['message'] }}</p>
+						@if (isset($notification->data['link']))
+							<a href="{{ $notification->data['link'] }}">View</a>
+						@endif
 					</div>
 					<div class="tw-mt-3 tw-bg-grey-lightest tw-rounded-full">
 						<at-button v-if="!read" @click="markRead" type="text"><i class="icon icon-eye tw-mr-1"></i>Mark as read</at-button>
