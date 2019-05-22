@@ -4,8 +4,10 @@ namespace Tests\Unit;
 
 use App\Interactions\Review;
 use App\Listings\Listing;
+use App\ReviewComment;
 use App\User;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -32,6 +34,17 @@ class ReviewTest extends TestCase
         $this->assertInstanceOf(Listing::class, $review->listing);
 
         $this->assertNotNull($review->publisher->getKey());
+    }
+
+    public function test_it_has_a_comment()
+    {
+        $review = factory(Review::class)->create();
+
+        $review->comments()->save(factory(ReviewComment::class)->make());
+
+        $this->assertCount(1, $review->comments);
+
+        $this->assertInstanceOf(Collection::class, $review->comments);
     }
 
     /**

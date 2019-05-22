@@ -58,7 +58,7 @@ class ListingController extends Controller
      */
     public function show(Listing $listing)
     {
-        return view('listing.show')->with('listing', $listing);
+        return view('listing.show')->with('listing', $listing->load(['reviews', 'reviews.comments']));
     }
 
     /**

@@ -144,6 +144,13 @@ class CreateServerTable extends Migration
             $table->timestamps();
         });
 
+        Schema::create('review_comments', function(Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('review_id');
+            $table->longText('message');
+            $table->timestamps();
+        });
+
         Schema::create('votes', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('publisher_id')->nullable();

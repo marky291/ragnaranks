@@ -70,3 +70,9 @@ $factory->define(\App\Interactions\Vote::class, function (Faker $faker) {
         'created_at' => $faker->dateTimeThisMonth,
     ];
 });
+
+$factory->define(\App\ReviewComment::class, function (Faker $faker) {
+    return [
+        'message' => $faker->sentence(random_int(70, 150)),
+    ];
+});

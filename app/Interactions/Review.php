@@ -3,11 +3,13 @@
 namespace App\Interactions;
 
 use App\Listings\Listing;
+use App\ReviewComment;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Validator;
 
 /**
  * Class Review
@@ -41,6 +43,21 @@ class Review extends Interaction
      * @var array
      */
     protected $guarded = [];
+
+    public function validator(array $data)
+    {
+        return Validator::make($data, [
+            // validation for data.
+        ]);
+    }
+
+    /**
+     * A review has many comments
+     */
+    public function comments()
+    {
+        return $this->hasMany(ReviewComment::class);
+    }
 
     /**
      * Scope the query in order of latest.

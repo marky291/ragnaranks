@@ -15759,19 +15759,39 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       starCount: 0,
-      detailedView: false
+      viewingDetails: false,
+      commenting: false,
+      commentMessage: ''
     };
   },
-  methods: {
-    getStarCount: function getStarCount() {
+  computed: {
+    reportButtonText: function reportButtonText() {
+      return this.viewingDetails ? 'Close comment' : 'Comment as server owner';
+    },
+    detailButtonText: function detailButtonText() {
+      return this.viewingDetails ? 'Less Detail' : 'View Details';
+    },
+    averageScore: function averageScore() {
       return ((this.review.donation_score + this.review.update_score + this.review.class_score + this.review.item_score + this.review.support_score + this.review.hosting_score + this.review.content_score + this.review.event_score) / 8 / 2).toFixed(1);
     },
+    averageRating: function averageRating() {
+      return this.$parent.ratingScore(4);
+    }
+  },
+  methods: {
     toggleDetailedView: function toggleDetailedView() {
       this.detailedView = !this.detailedView;
     },
+    memberSinceDate: function memberSinceDate() {
+      return moment__WEBPACK_IMPORTED_MODULE_0___default()(this.review.created_at).format('dddd, MMMM Do YYYY');
+    },
     formattedDate: function formattedDate() {
       return moment__WEBPACK_IMPORTED_MODULE_0___default()(this.review.created_at).startOf('day').fromNow();
-    }
+    },
+    postComment: function postComment() {
+      this.commenting = true;
+    },
+    reportReview: function reportReview() {}
   }
 });
 
