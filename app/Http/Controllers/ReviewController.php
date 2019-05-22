@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ReviewRequest;
-use App\Http\Requests\StoreReviewRequest;
 use App\Interactions\Interaction;
 use App\Interactions\Vote;
 use App\Listings\Listing;
 use App\Interactions\Review;
+use App\Notifications\ReviewPublished;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -16,14 +17,16 @@ class ReviewController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreReviewRequest $request
      * @param Listing $listing
      *
-     * @return RedirectResponse
+     * @param ReviewRequest $request
+     * @return JsonResponse
      */
-    public function store(ReviewRequest $request, Listing $listing)
+    public function store(Listing $listing, ReviewRequest $request): JsonResponse
     {
         $review = $listing->reviews()->create($request->validated());
+
+        $listing->user->notify(new ReviewPublished($listing));
 
         return response()->json(['review' => $review], 200);
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ReviewCommentRequest;
 use App\Interactions\Review;
+use App\Notifications\ReviewCommentPublished;
 use App\ReviewComment;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -20,9 +21,9 @@ class ReviewCommentController extends Controller
      */
     public function store(Review $review, ReviewCommentRequest $request)
     {
-        $comment = ReviewComment::make($request->validated());
+        $reviewComment = $review->comments()->create($request->validated());
 
-        $reviewComment = $review->comments()->save($comment);
+        $review->publisher->notify(new ReviewCommentPublished($review));
 
         return response()->json(['comment' => $reviewComment], 200);
     }
