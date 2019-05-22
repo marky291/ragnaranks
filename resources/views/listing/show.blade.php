@@ -161,7 +161,67 @@
                                         <reviews :data="{{ $listing->reviews->load('publisher') }}" inline-template>
                                             <div class="">
                                                 <div v-if="$parent.theCurrentViewIs('listing')" v-for="(review, index) in collection">
-                                                    <review :data="review"></review>
+                                                    <review :review="review" inline-template>
+                                                        <div class="review">
+                                                            <div class="row">
+                                                                <div class="col bg-white pb-3 content">
+
+                                                                    <div class="tw-flex mb-3 tw-items-center">
+                                                                        <div class="tw-rounded-full tw-h-16 tw-w-16 tw-flex tw-avatar-circle tw-items-center tw-justify-center tw-mr-3 tw-bg-grey">
+                                                                            <a href="/profile/update?username=Marky">
+                                                                                <img class="border hover:tw-border-solid hover:tw-border-grey hover:tw-shadow tw-rounded-full tw-avatar-circle" src="//www.gravatar.com/avatar/c2d52abc9f91d455e15a48d59fecd746?s=100&amp;d=https%3A%2F%2Fs3.amazonaws.com%2Flaracasts%2Fimages%2Fdefault-square-avatar.jpg" alt="">
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="tw-flex tw-flex-col tw-flex-1">
+                                                                            <div class="info d-flex align-items-center tw-flex mb-1">
+                                                                                <p class="h5 tw-flex-1 tw-text-grey-darkest tw-font-bold tw-mb-0">@{{ review.publisher.username }}</p>
+                                                                            </div>
+                                                                            <div class="tw-flex">
+                                                                                <at-rate
+                                                                                        :allow-half="true"
+                                                                                        :show-text="true"
+                                                                                        :value="getStarCount()"
+                                                                                        :disabled="true">
+                                                                                </at-rate>
+                                                                                <p class="tw-flex-1 tw-text-right tw-underline">@{{ formattedDate() }}</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="description">
+                                                                        <p class="tw-text-grey-dark">@{{ review.message }}</p>
+                                                                    </div>
+                                                                    <div v-show="detailedView" class="tw-flex tw-border-t tw-border-grey-light py-3 mt-3">
+                                                                        <ul class="tw-flex-1 mb-0">
+                                                                            <li class="tw-text-xs"><b>Donation Score</b>: @{{ review.donation_score }}</li>
+                                                                            <li class="tw-text-xs"><b>Update Score</b>: @{{ review.update_score }}</li>
+                                                                        </ul>
+                                                                        <ul class="tw-flex-1 mb-0">
+                                                                            <li class="tw-text-xs"><b>Classes Score</b>: @{{ review.class_score }}</li>
+                                                                            <li class="tw-text-xs"><b>Items Score</b>: @{{ review.item_score }}</li>
+                                                                        </ul>
+                                                                        <ul class="tw-flex-1 mb-0">
+                                                                            <li class="tw-text-xs"><b>Support Score</b>: @{{ review.support_score }}</li>
+                                                                            <li class="tw-text-xs"><b>Hosting Score</b>: @{{ review.hosting_score }}</li>
+                                                                        </ul>
+                                                                        <ul class="tw-flex-1 mb-0">
+                                                                            <li class="tw-text-xs"><b>Content Score</b>: @{{ review.content_score }}</li>
+                                                                            <li class="tw-text-xs"><b>Events Score</b>: @{{ review.event_score }}</li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="tw-flex tw-justify-end">
+                                                                        <span v-if="!detailedView">
+                                                                            <at-button @click="toggleDetailedView()" icon="icon-maximize-2" type="text">Detailed</at-button>
+                                                                        </span>
+                                                                        <span v-else>
+                                                                            <at-button @click="toggleDetailedView()" icon="icon-minimize-2" type="text">Less Detail</at-button>
+                                                                        </span>
+                                                                        <at-button @click="reply" icon="icon-flag" type="text">Reply</at-button>
+                                                                        <at-button @click="report" icon="icon-flag" type="text">Report</at-button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </review>
                                                 </div>
 
                                                 <div v-if="$parent.theCurrentViewIs('reviewing')" @review-created="addReview" id="comment-reply" class="tw-mt-4 create-reply tw-flex tw-items-center rounded tw-cursor-pointer">
