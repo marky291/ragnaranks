@@ -183,7 +183,7 @@
                                                                                         :value="getStarCount()"
                                                                                         :disabled="true">
                                                                                 </at-rate>
-                                                                                <p class="tw-flex-1 tw-text-right tw-underline">@{{ formattedDate() }}</p>
+                                                                                <p class="tw-flex-1 tw-text-right tw-font-semibold">Posted @{{ formattedDate() }}</p>
                                                                             </div>
                                                                         </div>
                                                                     </div>
