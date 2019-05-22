@@ -84,7 +84,7 @@
 
                                 <section v-if="theCurrentViewIs('listing')" id="previews">
                                     <div class="container px-5 pt-4 pb-3">
-                                        <h3 class="heading mb-4 text-dark heading-underline">Screenshot Previews</h3>
+                                        <h3 class="heading mb-4 tw-font-bold text-dark heading-underline">Screenshot Previews</h3>
                                         <div class="mb-3">
                                             <carousel-3d :disable3d="true" :space="360" :height="200" :width="350" :autoplay="true" :autoplay-timeout="5000" :controls-visible="true"  :controls-width="30" :controls-height="60" :clickable="false">
                                                 @foreach($listing->screenshots as $index => $screenshot)
@@ -99,7 +99,7 @@
 
                                 <section v-if="theCurrentViewIs('listing')" id="configuration" class="content-block">
                                     <div class="container px-5 py-4">
-                                        <h3 class="heading mb-4 text-dark heading-underline">Server Configuration Setup</h3>
+                                        <h3 class="heading mb-4 tw-font-bold text-dark heading-underline">Server Configuration Setup</h3>
                                         <div class="row">
                                             <div class="list col-4 d-flex flex-column">
                                                 @include('listing.partial.config', ['name'=>'Base Exp Rate', 'type' => 'exp', 'value' => $listing->configs['base_exp_rate']])
@@ -127,7 +127,7 @@
                                 <section v-if="theCurrentViewIs('listing')" id="ratings">
                                     <div class="container pl-5 pr-5">
                                         <div class="py-3 mb-3 rounded" style="border:1px solid rgba(255, 255, 255, 0.2);">
-                                            <h3 class="heading mb-4 text-dark heading-underline">Balance Ratings</h3>
+                                            <h3 class="heading mb-4 tw-font-bold text-dark heading-underline">Balance Ratings</h3>
                                             <div class="row no-gutters">
                                                 <scoreboards inline-template>
                                                     <div class="d-flex">
@@ -140,7 +140,7 @@
                                             </div>
                                         </div>
                                         <div class="py-3 mb-3 rounded" style="border:1px solid rgba(255, 255, 255, 0.2)">
-                                            <h3 class="heading mb-4 text-dark heading-underline">Server Ratings</h3>
+                                            <h3 class="heading mb-4 tw-font-bold text-dark heading-underline">Server Ratings</h3>
                                             <div class="row no-gutters">
                                                 <scoreboards inline-template>
                                                     <div class="d-flex">
@@ -156,13 +156,13 @@
 
                                 <section id="reviews">
                                     <div class="container px-5 py-4">
-                                        <h3 v-if="theCurrentViewIs('listing')" class="heading mb-4 text-dark heading-underline">Player Reviews</h3>
+                                        <h3 v-if="theCurrentViewIs('listing')" class="heading mb-4 tw-font-bold text-dark heading-underline">Player Reviews</h3>
 
                                         <reviews :data="{{ $listing->reviews->load('publisher') }}" inline-template>
                                             <div class="">
                                                 <div v-if="$parent.theCurrentViewIs('listing')" v-for="(review, index) in collection">
                                                     <review :review="review" inline-template>
-                                                        <div class="review tw-shadow-md tw-mb-4 tw-p-3">
+                                                        <div class="review tw-shadow tw-mb-4 tw-p-3">
                                                             <div class="row no-gutters">
                                                                 <div class="col bg-white pb-3 content">
                                                                     <div class="tw-flex mb-3 tw-items-center">
@@ -226,7 +226,7 @@
                                                         <span id="reply-action" class="tw-w-full">
                                                             <div class="row">
                                                                 <div class="py-3">
-                                                                    <h3 class="heading tw-mb-1 text-dark mb-4 heading-underline">You are creating a <span class="tw-text-blue">Review</span></h3>
+                                                                    <h3 class="heading tw-mb-1 tw-font-bold text-dark mb-4 heading-underline">You are creating a <span class="tw-text-blue">Review</span></h3>
                                                                     <p class="tw-text-grey-dark mb-4">Focus on being factual and objective. Don't use aggressive language and don't post personal details...</p>
                                                                     <at-textarea ref="textarea" v-model="form.review_input" min-rows="8" autosize placeholder="Your experience, Your review"></at-textarea>
                                                                 </div>
