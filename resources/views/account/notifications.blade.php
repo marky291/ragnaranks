@@ -5,8 +5,8 @@
 		<account-notification-component id="{{ $notification->getKey() }}" status="{{ $notification->read() }}" inline-template>
 			<div class="notification tw-py-4 tw-px-4 tw-rounded shadow-sm tw-border tw-mb-2 tw-flex">
 				<div class="">
-					<img v-if="!read" src="/img/icons/icon_status_mail_unread.bmp" alt="">
-					<img v-if="read" src="/img/icons/icon_status_mail_read.bmp" alt="">
+					<img v-if="!read" src="/img/icons/icon_status_mail_unread.png" alt="">
+					<img v-if="read" src="/img/icons/icon_status_mail_read.png" alt="">
 				</div>
 				<div class="">
 					<div class="tw-ml-4">

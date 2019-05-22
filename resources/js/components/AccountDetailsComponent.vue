@@ -21,7 +21,16 @@
         methods: {
             sendProfileAvatar: function() {
                 this.$parent.setAvatar(this.account.avatarUrl);
-            }
+            },
+            saveAccount: function() {
+                this.form.post('/account/update').then(response => {
+                    this.$Message.success('Changes to your account saved');
+								}).catch(response => {
+								    if (response.status != 422){
+                        this.$Message.error(error.message);
+										}
+								});
+						}
         }
   }
 </script>

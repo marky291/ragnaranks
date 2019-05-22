@@ -5,9 +5,13 @@ namespace App;
 use App\Interactions\Review;
 use App\Listings\Listing;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use phpDocumentor\Reflection\Types\Iterable_;
 /**
  * Class User
@@ -44,9 +48,22 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     /**
+     * @param array $data
+     * @return mixed
+     */
+    public function validator(array $data)
+    {
+        return Validator::make($data, [
+            'username' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($data['email'], 'email')],
+            'password' => ['required', 'string', 'min:6', 'confirmed', 'sometimes'],
+        ]);
+    }
+
+    /**
      * A user can have many servers.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function listings()
     {
@@ -56,7 +73,7 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * A user can have many reviews.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return HasMany
      */
     public function reviews()
     {

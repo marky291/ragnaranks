@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Notification;
 
@@ -13,6 +14,18 @@ class MyAccountController extends Controller
     public function notifications() {
         return view('account.notifications', ['notifications' => auth()->user()->notifications]);
     }
+
+    public function updateDetails(Request $request)
+    {
+        $user = auth()->user();
+
+        $user->validator($request->all())->validate();
+
+        $user->fill($request->toArray())->save();
+
+        return response()->json(['status' => true], 200);
+    }
+
     public function servers() {
         return view('account.servers', ['listings' => app('listings')->where('user_id', auth()->id())->sortByDesc('created_at')]);
     }

@@ -5,7 +5,7 @@
             @include('format.inputText', ['model' => 'username', 'title' => 'Username'])
             @include('format.inputText', ['model' => 'email', 'title' => 'E-Mail Address'])
             @include('format.inputText', ['model' => 'avatarUrl', 'title' => 'Avatar Image', 'onChange' => 'sendProfileAvatar'])
-            <at-button :loading="form.busy" type="primary" class="mt-4">Save Changes</at-button>
+            <at-button @click="saveAccount" :loading="form.busy" type="primary" class="mt-4">Save Changes</at-button>
         </div>
     </account-details-component>
 @endcomponent

@@ -23,6 +23,7 @@ Route::get('/')->uses('ListingController@index')->name('index');
 Route::get('/account')->middleware('auth')->uses('MyAccountController@index')->name('myAccount');
 Route::get('/account/servers')->middleware('auth')->uses('MyAccountController@servers')->name('servers');
 Route::get('/account/notifications')->middleware('auth')->uses('MyAccountController@notifications')->name('notifications');
+Route::post('/account/update')->middleware('auth')->uses('MyAccountController@updateDetails');
 Route::post('/notifications/read/{notification}')->middleware('auth')->uses('MyAccountController@markNotificationRead');
 Route::post('/notifications/unread/{notification}')->middleware('auth')->uses('MyAccountController@markNotificationUnread');
 
