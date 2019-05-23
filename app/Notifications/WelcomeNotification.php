@@ -48,7 +48,7 @@ class WelcomeNotification extends Notification
     {
         return [
             'title' => 'Welcome to RagnaRanks!',
-            'message' => 'Our team is very pleased to bring you along on our journey...',
+            'message' => 'Thank you for joining~ We hope you enjoy your experience with us in finding your perfect server.',
         ];
     }
 }
