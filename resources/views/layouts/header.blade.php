@@ -5,13 +5,6 @@
                 <at-menu-item name="/">
                     <span>Home</span>
                 </at-menu-item>
-                <at-menu-item name="/api">
-                    <span>API Guide</span>
-                </at-menu-item>
-                <at-menu-item name="/advertising">
-                    <span>Advertising</span>
-                </at-menu-item>
-
             </at-menu>
 
         </div>

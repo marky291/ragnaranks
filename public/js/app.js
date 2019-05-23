@@ -65856,6 +65856,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
         axios__WEBPACK_IMPORTED_MODULE_0__["post"]('/logout').then(function (response) {
           window.location = '/';
         });
+      } else if (name === '/') {
+        window.location = '/';
       } else {
         window.location = '/' + name;
       }

@@ -64,6 +64,8 @@ const app = new Vue({
                 axios.post('/logout').then((response) => {
                     window.location = '/';
                 });
+            } else if (name === '/') {
+                window.location = '/'
             } else {
                 window.location = '/' + name;
             }
