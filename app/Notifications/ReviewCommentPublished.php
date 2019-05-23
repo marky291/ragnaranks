@@ -47,8 +47,8 @@ class ReviewCommentPublished extends Notification
     public function toArray($notifiable)
     {
         return [
-            'title' => 'Comment was made on a review',
-            'message' => 'Your review.......',
+            'title' => 'Comment was made on a review you made!',
+            'message' => 'A response has been made to your review by the Server Owner.',
             'link' => "/listing/{$this->review->listing->slug}"
         ];
     }

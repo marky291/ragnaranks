@@ -49,7 +49,7 @@ class ReviewPublished extends Notification
     {
         return [
             'title' => 'Listing received a review',
-            'message' => 'A user has just left a review on your listing and we thought that you would like to know, should any issues regarding this review arise, please use the report button found underneath',
+            'message' => 'A user has just left a review on your server listing. If you find this or any reviews made on your listing to be breaking review guidelines, please use the report option found at the bottom of the review.',
             'link' => "/listing/{$this->listing->slug}"
         ];
     }
