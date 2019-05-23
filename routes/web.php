@@ -17,6 +17,10 @@ use Illuminate\Support\Facades\Auth;
 // authentication routes (login & logout)
 Auth::routes(['verify' => true]);
 
+// listing controllers.
+Route::resource('listing', 'ListingController')->only([
+    'index', 'show', 'create'
+]);
 Route::resource('review.comment', 'ReviewCommentController', ['middleware'=>['auth']])->only([
     'store'
 ]);
@@ -33,9 +37,6 @@ Route::get('/account/notifications')->middleware('auth')->uses('MyAccountControl
 Route::post('/account/update')->middleware('auth')->uses('MyAccountController@updateDetails');
 Route::post('/notifications/read/{notification}')->middleware('auth')->uses('MyAccountController@markNotificationRead');
 Route::post('/notifications/unread/{notification}')->middleware('auth')->uses('MyAccountController@markNotificationUnread');
-
-// listing controllers.
-Route::resource('listing', 'ListingController');
 
 // listing reviews controllers.
 

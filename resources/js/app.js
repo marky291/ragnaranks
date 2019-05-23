@@ -46,6 +46,8 @@ Vue.component('verify-account-component', require('./components/VerifyAccountCom
 Vue.component('account-component', require('./components/AccountComponent').default);
 Vue.component('account-details-component', require('./components/AccountDetailsComponent').default);
 Vue.component('account-notification-component', require('./components/AccountNotificationComponent').default);
+Vue.component('listing-profile', require('./components/ListingProfile').default);
+Vue.component('listing-configurator', require('./components/ListingConfigurator').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
