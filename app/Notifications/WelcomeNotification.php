@@ -47,8 +47,8 @@ class WelcomeNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            'title' => 'Welcome to Ragnaranks',
-            'message' => 'Our team is very pleased to have bring you along on our journey... ',
+            'title' => 'Welcome to RagnaRanks!',
+            'message' => 'Our team is very pleased to bring you along on our journey...',
         ];
     }
 }
