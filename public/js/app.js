@@ -15757,12 +15757,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     attemptRegister: function attemptRegister() {
-      this.form.post('/register').then(function (_ref) {
-        var data = _ref.data;
+      this.form.post('/register').then(function (response) {
         window.location = '/';
       })["catch"](function (response) {
-        console.log(response);
-
         if (response.status === 302) {
           window.location = '/';
         }

@@ -18,10 +18,10 @@
       },
       methods: {
           attemptRegister: function() {
-              this.form.post('/register').then(({ data }) => { window.location = '/'; }).catch((response) => {
-                  console.log(response);
-                  if (response.status === 302)
-                  {
+              this.form.post('/register').then(response => {
+                  window.location = '/'; })
+							.catch((response) => {
+                  if (response.status === 302) {
                       window.location = '/';
                   }
               });
