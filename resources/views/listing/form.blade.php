@@ -50,10 +50,13 @@
 								</div>
 								<div class="tw-mt-3">
 									<p class="tw-font-semibold tw-mb-1">Screenshots</p>
-									<at-input @change="updateListing" v-model="listing.background" class="tw-flex-1 tw-mr-2 tw-mt-2" placeholder="Enter an Image URL"></at-input>
 									<div class="tw-flex tw-flex-row">
-										<at-button class="tw-h-1 tw-w-1 tw-mt-2 tw-mr-2" type="primary" icon="icon-plus" circle></at-button>
+										<at-input @change="updateListing" v-model="screenshot" class="tw-flex-1 tw-mr-2" placeholder="Enter an Image URL"></at-input>
+										<at-button @click="addScreenshot" class="tw-h-1 tw-w-1 tw-mt-2 tw-mr-2" type="primary" icon="icon-plus" circle></at-button>
 									</div>
+									<span v-for="screenshot in listing.screenshots">
+										<p>@{{ screenshot }}</p>
+									</span>
 								</div>
 							</at-collapse-item>
 						</at-collapse>

@@ -5,7 +5,7 @@
     <?php /** @var \App\Listings\Listing $listing */ ?>
     <?php /** @var \App\Tag $tag */ ?>
 
-    <listing-profile voted="{{ $listing->votes()->hasClientInteractedWith(config('interaction.vote.spread')) }}" clicked="{{ $listing->clicks()->hasClientInteractedWith(config('interaction.click.spread')) }}" inline-template>
+    <listing-profile-old voted="{{ $listing->votes()->hasClientInteractedWith(config('interaction.vote.spread')) }}" clicked="{{ $listing->clicks()->hasClientInteractedWith(config('interaction.click.spread')) }}" inline-template>
 
         <div class="">
 {{--            <nav id="spotlight" class="bg-white shadow-inner" style="border-bottom: 1px solid #e4e4e4;">--}}
@@ -301,6 +301,6 @@
                 </div>
             </div>
         </div>
-    </listing-profile>
+    </listing-profile-old>
 
 @endsection

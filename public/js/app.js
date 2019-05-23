@@ -15631,6 +15631,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['tags'],
   data: function data() {
     return {
+      screenshot: '',
       listing: {
         name: '',
         tags: [],
@@ -15642,6 +15643,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    addScreenshot: function addScreenshot() {
+      this.listing.screenshots.push(this.screenshot);
+    },
     updateListing: function updateListing() {
       this.$root.$emit('listing:profile:modified', {
         data: this.listing
@@ -65830,7 +65834,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.mixin({
 
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('filtered-search', __webpack_require__(/*! ./components/FilteredListingSearch.vue */ "./resources/js/components/FilteredListingSearch.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('filtered-listings', __webpack_require__(/*! ./components/FilteredListingContainer.vue */ "./resources/js/components/FilteredListingContainer.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('listing-profile', __webpack_require__(/*! ./Pages/ListingProfileComponent.vue */ "./resources/js/Pages/ListingProfileComponent.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('listing-profile-old', __webpack_require__(/*! ./Pages/ListingProfileComponent.vue */ "./resources/js/Pages/ListingProfileComponent.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('login-component', __webpack_require__(/*! ./components/LoginComponent */ "./resources/js/components/LoginComponent.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('register-component', __webpack_require__(/*! ./components/RegisterComponent */ "./resources/js/components/RegisterComponent.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('forgot-password-component', __webpack_require__(/*! ./components/ForgotPasswordComponent */ "./resources/js/components/ForgotPasswordComponent.vue")["default"]);

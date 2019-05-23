@@ -37,7 +37,7 @@ Vue.mixin({
 
 Vue.component('filtered-search', require('./components/FilteredListingSearch.vue').default);
 Vue.component('filtered-listings', require('./components/FilteredListingContainer.vue').default);
-Vue.component('listing-profile', require('./Pages/ListingProfileComponent.vue').default);
+Vue.component('listing-profile-old', require('./Pages/ListingProfileComponent.vue').default);
 Vue.component('login-component', require('./components/LoginComponent').default);
 Vue.component('register-component', require('./components/RegisterComponent').default);
 Vue.component('forgot-password-component', require('./components/ForgotPasswordComponent').default);
