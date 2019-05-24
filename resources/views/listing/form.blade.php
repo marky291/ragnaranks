@@ -6,7 +6,7 @@
 			<div class="row pb-5 pt-2">
 				<div id="sidebar" class="col-4">
 					<listing-configurator inline-template :tags="{{ $tags }}">
-						<at-collapse accordion value="details">
+						<at-collapse accordion value="uploader">
 							<at-collapse-item name="details">
 								<div slot="title">Detailing</div>
 								<div class="">
@@ -61,8 +61,21 @@
 							</at-collapse-item>
 							<at-collapse-item name="configs">
 								<div slot="title">Configuration</div>
-								<div class="">
-									<p class="tw-font-semibold tw-mb-1">EXP Rates</p>
+								<div class="tw-flex tw-justify-between">
+									<div class="tw-w-32">
+										<div class="">
+											<p class="tw-font-semibold tw-mb-1">item_rate_common</p>
+											<at-input-number size="small" v-model="num"></at-input-number><br>
+										</div>
+										<div class="">
+											<p class="tw-font-semibold tw-mb-1">item_rate_common_boss</p>
+											<at-input-number size="small" v-model="num"></at-input-number><br>
+										</div>
+										<div class="">
+											<p class="tw-font-semibold tw-mb-1">item_rate_common_mvp</p>
+											<at-input-number size="small" v-model="num"></at-input-number><br>
+										</div>
+									</div>
 								</div>
 							</at-collapse-item>
 							<at-collapse-item name="uploader">
@@ -78,7 +91,7 @@
 										<at-button>drops.conf</at-button>
 										</div>
 									</div>
-									<vue-dropzone :options="{url: 'https://httpbin.org/post', thumbnailWidth: 25, addRemoveLinks: false, maxFiles: 5, acceptedFiles: '.conf'}" :useCustomSlot=true>
+									<vue-dropzone @vdropzone-success="handleParsedConfig" :options="dropzoneOptions" :useCustomSlot=true>
 										<div class="dropzone-custom-content">
 											<h3 class="dropzone-custom-title">Drag and drop to upload content!</h3>
 											<div class="subtitle">...or click to select a file from your computer</div>

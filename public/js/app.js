@@ -15641,13 +15641,23 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       screenshot: '',
+      uploadedConfigs: {},
       listing: {
         name: '',
         tags: [],
         language: '',
         description: '',
         background: '',
-        screenshots: []
+        screenshots: [],
+        configs: []
+      },
+      dropzoneOptions: {
+        url: '/config/parse',
+        thumbnailWidth: 150,
+        maxFilesize: 0.5,
+        headers: {
+          "X-CSRF-TOKEN": document.head.querySelector("[name=csrf-token]").content
+        }
       }
     };
   },
@@ -15659,6 +15669,11 @@ __webpack_require__.r(__webpack_exports__);
       this.$root.$emit('listing:profile:modified', {
         data: this.listing
       });
+    },
+    handleParsedConfig: function handleParsedConfig(file, response) {
+      console.log(file, response);
+      this.uploadedConfigs[file.name] = response;
+      this.$Message.success('The configuration inside ' + file.name + " has been added to your listing");
     }
   }
 });

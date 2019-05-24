@@ -25,13 +25,11 @@ class ConfigParser
     /**
      * ConfigParser constructor.
      *
-     * @param string $contents
+     * @param Collection $collection
      */
-    public function __construct(string $contents)
+    public function __construct(Collection $collection)
     {
-        $this->configs = new Collection;
-
-        $this->convertToConfiguration($contents);
+        $this->configs = $collection;
     }
 
     public function convertToConfiguration(string $contents): Collection

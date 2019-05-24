@@ -1,7 +1,7 @@
 
 <div class="mb-3 server-card item flex-fill shadow border rounded">
 	<div id="profile-card" class="profile-block">
-		<div class="server-card-head image rounded-top" style="height:250px;" v-bind:style="{ backgroundImage: 'url(' + listing.background + ')' }"></div>
+		<div class="server-card-head image rounded-top" style="height:350px;" v-bind:style="{ backgroundImage: 'url(' + listing.background + ')' }"></div>
 		<div class="server-card-head overlap d-flex" style="margin-top:-169px;">
 			<i class="fas fa-arrow-left tw-text-white tw-text-2xl tw-absolute tw-align-top"></i>
 			<div class="left-side d-flex w-75 flex-column align-items-start px-4 py-2 align-self-end">
@@ -36,6 +36,57 @@
 			</div>
 		</div>
 	</div>
+
+	<section v-if="!creating_review" id="configuration" class="content-block">
+		<div class="container px-5 py-4">
+			<h3 class="heading mb-4 tw-font-bold text-dark heading-underline">Server Setup</h3>
+			<at-tabs>
+				<at-tab-pane label="Overview" name="overview" icon="icon-book">
+					<p>Content of Tab Pane 1</p>
+				</at-tab-pane>
+				<at-tab-pane label="Configs" name="rates" icon="icon-bar-chart-2">
+					<div class="row">
+						<div class="list col-4 d-flex flex-column mb-3">
+							@include('listing.partial.config', ['name'=>'item_rate_common', 'type' => 'exp', 'value' => 0])
+							@include('listing.partial.config', ['name'=>'item_rate_common_boss', 'type' => 'exp',  'value' => 0])
+							@include('listing.partial.config', ['name'=>'item_rate_common_mvp', 'type' => 'exp',  'value' => 0])
+						</div>
+						<div class="list col-4 d-flex flex-column mb-3">
+							@include('listing.partial.config', ['name'=>'item_rate_heal', 'type' => 'stat',  'value' => 0])
+							@include('listing.partial.config', ['name'=>'item_rate_heal_boss', 'type' => 'stat',  'value' => 0])
+							@include('listing.partial.config', ['name'=>'item_rate_heal_mvp', 'type' => 'stat',  'value' => 0])
+						</div>
+						<div class="list col-4 d-flex flex-column mb-3">
+							@include('listing.partial.config', ['name'=>'item_rate_use', 'type' => 'drop-base',  'value' =>  0])
+							@include('listing.partial.config', ['name'=>'item_rate_use_boss', 'type' => 'drop-mvp-base',  'value' => 0])
+							@include('listing.partial.config', ['name'=>'item_rate_use_mvp', 'type' => 'drop-card',  'value' => 0])
+						</div>
+						<div class="list col-4 d-flex flex-column mb-3">
+							@include('listing.partial.config', ['name'=>'item_rate_equip', 'type' => 'drop-base',  'value' =>  0])
+							@include('listing.partial.config', ['name'=>'item_rate_equip_boss', 'type' => 'drop-mvp-base',  'value' => 0])
+							@include('listing.partial.config', ['name'=>'item_rate_equip_mvp', 'type' => 'drop-card',  'value' => 0])
+						</div>
+						<div class="list col-4 d-flex flex-column mb-3">
+							@include('listing.partial.config', ['name'=>'item_rate_card', 'type' => 'drop-base',  'value' =>  0])
+							@include('listing.partial.config', ['name'=>'item_rate_card_boss', 'type' => 'drop-mvp-base',  'value' => 0])
+							@include('listing.partial.config', ['name'=>'item_rate_card_mvp', 'type' => 'drop-card',  'value' => 0])
+						</div>
+						<div class="list col-4 d-flex flex-column mb-3">
+							@include('listing.partial.config', ['name'=>'item_rate_mvp', 'type' => 'drop-base',  'value' =>  0])
+							@include('listing.partial.config', ['name'=>'item_rate_adddrop', 'type' => 'drop-mvp-base',  'value' => 0])
+							@include('listing.partial.config', ['name'=>'item_rate_treasure', 'type' => 'drop-card',  'value' => 0])
+						</div>
+					</div>
+				</at-tab-pane>
+				<at-tab-pane label="Comamnds" name="commands" icon="icon-target">
+					<p>Content of Tab Pane 2</p>
+				</at-tab-pane>
+				<at-tab-pane label="Features" name="features" icon="icon-award">
+					<p>Content of Tab Pane 2</p>
+				</at-tab-pane>
+			</at-tabs>
+		</div>
+	</section>
 
 	<section v-if="listing.screenshots" id="previews">
 		<div class="container px-5 pt-4 pb-3">

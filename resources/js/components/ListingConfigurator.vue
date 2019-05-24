@@ -9,6 +9,7 @@
         data: function() {
             return {
                 screenshot: '',
+								uploadedConfigs: {},
                 listing: {
                     name: '',
                     tags: [],
@@ -16,7 +17,15 @@
                     description: '',
                     background: '',
                     screenshots: [],
+										configs: [
+										],
                 },
+                dropzoneOptions: {
+                    url: '/config/parse',
+                    thumbnailWidth: 150,
+                    maxFilesize: 0.5,
+                    headers: { "X-CSRF-TOKEN": document.head.querySelector("[name=csrf-token]").content }
+                }
             }
         },
         methods: {
@@ -27,7 +36,12 @@
                 this.$root.$emit('listing:profile:modified', {
                     data: this.listing,
                 });
-            }
+            },
+            handleParsedConfig(file, response) {
+                console.log(file, response);
+                this.uploadedConfigs[file.name] = response;
+                this.$Message.success('The configuration inside ' + file.name + " has been added to your listing");
+						}
         }
 	}
 </script>

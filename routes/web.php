@@ -30,7 +30,6 @@ Route::resource('listing.reviews', 'ReviewController', ['middleware' => ['auth']
 
 // default index page.
 Route::get('/')->uses('ListingController@index')->name('index');
-
 Route::get('/account')->middleware('auth')->uses('MyAccountController@index')->name('myAccount');
 Route::get('/account/servers')->middleware('auth')->uses('MyAccountController@servers')->name('servers');
 Route::get('/account/notifications')->middleware('auth')->uses('MyAccountController@notifications')->name('notifications');
@@ -42,8 +41,9 @@ Route::post('/notifications/unread/{notification}')->middleware('auth')->uses('M
 
 // listing votes controllers.
 Route::resource('listing.votes', 'VoteController')->only(['store']);
-
 Route::resource('listing.clicks', 'ClickController')->only(['store']);
+
+Route::post('/config/parse')->uses('ConfigController@parse');
 
 // card filtering system.
 Route::get('/servers/{exp_group}/{mode}/{tag}/{sort}/{limit}')->uses('QueryController@index')->name('filter.query');
