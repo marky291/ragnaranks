@@ -26,9 +26,9 @@
 		</div>
 	</div>
 
-	<div class="tw-container tw-px-4 tw-py-5">
+	<div v-if="listing.description" class="tw-container mt-4">
 		<div id="description" class="profile-block">
-			<div class="container py-4">
+			<div class="container px-5 py-4">
 				<h3 class="heading tw-font-bold mb-4 text-dark heading-underline">Description</h3>
 				<div class="row no-gutters">
 					<p>@{{ listing.description }}</p>
@@ -37,7 +37,7 @@
 		</div>
 	</div>
 
-	<section id="previews">
+	<section v-if="listing.screenshots" id="previews">
 		<div class="container px-5 pt-4 pb-3">
 			<h3 class="heading mb-4 tw-font-bold text-dark heading-underline">Screenshot Previews</h3>
 			<div class="mb-3">
@@ -46,6 +46,36 @@
 							<img class="h-100" :src="screenshot">
 						</slide>
 				</carousel-3d>
+			</div>
+		</div>
+	</section>
+
+	<section id="ratings">
+		<div class="container pl-5 pr-5">
+			<div class="py-3 mb-3 rounded" style="border:1px solid rgba(255, 255, 255, 0.2);">
+				<h3 class="heading mb-4 tw-font-bold text-dark heading-underline">Balance Ratings</h3>
+				<div class="row no-gutters">
+					<scoreboards inline-template>
+						<div class="d-flex">
+							<scoreboard title="Donations" description="Non-Donators can compete with Donators." :score="avg_donation_score"></scoreboard>
+							<scoreboard title="Updates" description="Improvements made each update." :score="avg_update_score"></scoreboard>
+							<scoreboard title="Classes" description="Classes are balanced against other classes." :score="avg_class_score"></scoreboard>
+							<scoreboard title="Items" description="Item stats are fair and well thought out." :score="avg_item_score"></scoreboard>
+						</div>
+					</scoreboards>
+				</div>
+			</div>
+			<div class="py-3 mb-3 rounded" style="border:1px solid rgba(255, 255, 255, 0.2)">
+				<h3 class="heading mb-4 tw-font-bold text-dark heading-underline">Server Ratings</h3>
+				<div class="row no-gutters">
+					<scoreboards inline-template>
+						<div class="d-flex">
+							<scoreboard title="Support" description="Non-Donators can compete with Donators." :score="avg_support_score"></scoreboard>
+							<scoreboard title="Hosting" description="The availability and ping is playable and fun." :score="avg_hosting_score"></scoreboard>
+							<scoreboard title="Content" description="There is much to do and progress upon." :score="avg_content_score"></scoreboard>
+							<scoreboard title="Events" description="Rewards are good and events are regular." :score="avg_event_score"></scoreboard>
+						</div>
+					</scoreboards></div>
 			</div>
 		</div>
 	</section>

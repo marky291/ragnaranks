@@ -33,6 +33,7 @@
         "vee-validate": "^2.2.8",
         "vform": "^1.0.0",
         "vue-carousel": "^0.17.0",
-        "vue-carousel-3d": "^0.2.0"
+        "vue-carousel-3d": "^0.2.0",
+        "vue2-dropzone": "^3.5.9"
     }
 }

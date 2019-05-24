@@ -6,7 +6,7 @@
 			<div class="row pb-5 pt-2">
 				<div id="sidebar" class="col-4">
 					<listing-configurator inline-template :tags="{{ $tags }}">
-						<at-collapse accordion :value="value">
+						<at-collapse accordion value="details">
 							<at-collapse-item name="details">
 								<div slot="title">Detailing</div>
 								<div class="">
@@ -57,6 +57,33 @@
 									<span v-for="screenshot in listing.screenshots">
 										<p>@{{ screenshot }}</p>
 									</span>
+								</div>
+							</at-collapse-item>
+							<at-collapse-item name="configs">
+								<div slot="title">Configuration</div>
+								<div class="">
+									<p class="tw-font-semibold tw-mb-1">EXP Rates</p>
+								</div>
+							</at-collapse-item>
+							<at-collapse-item name="uploader">
+								<div slot="title">Config Uploader</div>
+								<div class="">
+									<div class="mb-3">
+										<p class="tw-font-semibold tw-mb-1">Config Uploader</p>
+										<p class="tw-mb-2">This handy uploader will parse multiple server configuration files and automatically generate your listing to save you time and to provide better accuracy.</p>
+									</div>
+									<div class="mb-3">
+										<p class="tw-font-semibold tw-mb-1">Available File Types</p>
+										<div class="tw-mb-3">
+										<at-button>drops.conf</at-button>
+										</div>
+									</div>
+									<vue-dropzone :options="{url: 'https://httpbin.org/post', thumbnailWidth: 25, addRemoveLinks: false, maxFiles: 5, acceptedFiles: '.conf'}" :useCustomSlot=true>
+										<div class="dropzone-custom-content">
+											<h3 class="dropzone-custom-title">Drag and drop to upload content!</h3>
+											<div class="subtitle">...or click to select a file from your computer</div>
+										</div>
+									</vue-dropzone>
 								</div>
 							</at-collapse-item>
 						</at-collapse>
