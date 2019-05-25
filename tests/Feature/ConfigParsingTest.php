@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\ConfigParser;
+use Illuminate\Support\Collection;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -21,7 +22,9 @@ class ConfigParsingTest extends TestCase
     {
         parent::setUp();
 
-        $this->parser = new ConfigParser($this->fileContents());
+        $this->parser = new ConfigParser(new Collection);
+
+        $this->parser->convertToConfiguration($this->fileContents());
     }
 
     public function test_it_can_get_a_config_value()
