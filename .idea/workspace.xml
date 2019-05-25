@@ -6,23 +6,16 @@
   <component name="AutoTestManager">
     <enabled-run-configurations>
       <run-configuration type="PHPUnitRunConfigurationType" name="ConfigParsingTest.test_it_can_find_a_single_option" />
-      <run-configuration type="PHPUnitRunConfigurationType" name="ReviewTest.test_it_has_a_comment" />
     </enabled-run-configurations>
   </component>
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/app/Http/Controllers/QueryController.php" line="26" mnemonic="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e03bd396-be56-4b32-b970-f4b7d0b6f632" name="ragnaranks-31 No redirect on account register" comment="More accords, dropzone, refactor and tidying. #27">
+    <list default="true" id="e03bd396-be56-4b32-b970-f4b7d0b6f632" name="ragnaranks-31 No redirect on account register" comment="Tests pass #27">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ConfigParser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/ConfigParser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/ListingConfigurator.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ListingConfigurator.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/listing/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/listing/form.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/listing/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/listing/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/ConfigParsingTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/ConfigParsingTest.php" afterDir="false" />
     </list>
     <list id="58f96053-e5bd-4b41-bbae-58099ecbebc5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -89,20 +82,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/listing/profile.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1239">
-              <caret line="59" column="104" selection-start-line="59" selection-start-column="104" selection-end-line="59" selection-end-column="104" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/listing/form.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1953">
-              <caret line="93" column="68" selection-start-line="93" selection-start-column="68" selection-end-line="93" selection-end-column="68" />
+            <state relative-caret-position="311">
+              <caret line="44" column="92" selection-start-line="44" selection-start-column="92" selection-end-line="44" selection-end-column="92" />
             </state>
           </provider>
         </entry>
@@ -143,8 +127,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/ConfigParser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="777">
-              <caret line="38" column="58" selection-start-line="38" selection-start-column="58" selection-end-line="38" selection-end-column="58" />
+            <state relative-caret-position="390">
+              <caret line="44" column="5" lean-forward="true" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -170,11 +154,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/js/components/ListingConfigurator.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="21" column="18" lean-forward="true" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+            <state relative-caret-position="433">
+              <caret line="26" column="45" lean-forward="true" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/Feature/ConfigParsingTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+              <folding>
+                <element signature="e#761#9352#0#PHP" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -281,7 +277,6 @@
         <option value="$PROJECT_DIR$/database/factories/ListingFactory.php" />
         <option value="$PROJECT_DIR$/app/Listings/Listing.php" />
         <option value="$PROJECT_DIR$/resources/js/components/FilteredListingContainer.vue" />
-        <option value="$PROJECT_DIR$/tests/Feature/ConfigParsingTest.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/ReviewCommentRequest.php" />
         <option value="$PROJECT_DIR$/app/ReviewComment.php" />
         <option value="$PROJECT_DIR$/database/factories/UserFactory.php" />
@@ -302,15 +297,16 @@
         <option value="$PROJECT_DIR$/resources/sass/app.scss" />
         <option value="$PROJECT_DIR$/resources/lang/en/listing.php" />
         <option value="$PROJECT_DIR$/resources/js/components/ListingProfile.vue" />
-        <option value="$PROJECT_DIR$/resources/views/listing/profile.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/ParseController.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/app/ConfigParser.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/ParseConfigRequest.php" />
         <option value="$PROJECT_DIR$/resources/views/listing/form.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ConfigController.php" />
         <option value="$PROJECT_DIR$/resources/js/components/ListingConfigurator.vue" />
+        <option value="$PROJECT_DIR$/app/ConfigParser.php" />
+        <option value="$PROJECT_DIR$/tests/Feature/ConfigParsingTest.php" />
+        <option value="$PROJECT_DIR$/resources/views/listing/profile.blade.php" />
       </list>
     </option>
   </component>
@@ -431,6 +427,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -441,44 +438,12 @@
             <path>
               <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
               <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Requests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ragnaranks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ragnaranks" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-              <item name="en" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -534,7 +499,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.ConfigParsingTest.test_it_can_get_a_config_value">
+  <component name="RunManager" selected="PHPUnit.ConfigParsingTest">
     <configuration name="ConfigParsingTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Feature\ConfigParsingTest" file="$PROJECT_DIR$/tests/Feature/ConfigParsingTest.php" scope="Class" />
       <method v="2" />
@@ -551,8 +516,8 @@
       <TestRunner class="Tests\Feature\ConfigParsingTest" file="$PROJECT_DIR$/tests/Feature/ConfigParsingTest.php" method="test_it_can_get_a_config_value" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="ConfigParsingTest.test_it_holds_contents" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Feature\ConfigParsingTest" file="$PROJECT_DIR$/tests/Feature/ConfigParsingTest.php" method="test_it_holds_contents" scope="Method" />
+    <configuration name="tests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner directory="$PROJECT_DIR$/tests" />
       <method v="2" />
     </configuration>
     <list>
@@ -560,15 +525,15 @@
       <item itemvalue="PHPUnit.ConfigParsingTest.test_it_can_count_40_configs" />
       <item itemvalue="PHPUnit.ConfigParsingTest.test_it_can_find_a_single_option" />
       <item itemvalue="PHPUnit.ConfigParsingTest.test_it_can_get_a_config_value" />
-      <item itemvalue="PHPUnit.ConfigParsingTest.test_it_holds_contents" />
+      <item itemvalue="PHPUnit.tests" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.ConfigParsingTest.test_it_can_get_a_config_value" />
         <item itemvalue="PHPUnit.ConfigParsingTest" />
+        <item itemvalue="PHPUnit.tests" />
+        <item itemvalue="PHPUnit.ConfigParsingTest.test_it_can_get_a_config_value" />
         <item itemvalue="PHPUnit.ConfigParsingTest.test_it_can_count_40_configs" />
         <item itemvalue="PHPUnit.ConfigParsingTest.test_it_can_find_a_single_option" />
-        <item itemvalue="PHPUnit.ConfigParsingTest.test_it_holds_contents" />
       </list>
     </recent_temporary>
   </component>
@@ -657,20 +622,6 @@
       <workItem from="1558172868562" duration="8000" />
       <workItem from="1558172891666" duration="35765000" />
       <workItem from="1558514897604" duration="1874000" />
-    </task>
-    <task id="LOCAL-00070" summary="Paginate cards">
-      <created>1557699781780</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1557699781780</updated>
-    </task>
-    <task id="LOCAL-00071" summary="Take 7 on initial load.">
-      <created>1557701567040</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1557701567041</updated>
     </task>
     <task id="LOCAL-00072" summary="limited amount of cards.">
       <created>1557701598370</created>
@@ -1007,7 +958,7 @@
       <option name="type" value="BUG" />
       <updated>1558641905245</updated>
       <workItem from="1558641906205" duration="180000" />
-      <workItem from="1558730001186" duration="18000" />
+      <workItem from="1558730001186" duration="1311000" />
     </task>
     <task id="LOCAL-00114" summary="#31 No redirect on account register">
       <created>1558641952472</created>
@@ -1023,7 +974,21 @@
       <option name="project" value="LOCAL" />
       <updated>1558656864800</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="Config uploader 80% completed #27">
+      <created>1558730098292</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1558730098293</updated>
+    </task>
+    <task id="LOCAL-00117" summary="Tests pass #27">
+      <created>1558786522032</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1558786522032</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <option name="clearContext" value="false" />
     <option name="createBranch" value="false" />
     <option name="commitChanges" value="false" />
@@ -1038,40 +1003,40 @@
     </servers>
   </component>
   <component name="TestHistory">
-    <history-entry file="ConfigParsingTest - 2019.05.22 at 18h 28m 20s.xml">
+    <history-entry file="tests - 2019.05.25 at 13h 14m 30s.xml">
+      <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="tests - 2019.05.25 at 13h 14m 31s.xml">
+      <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="tests - 2019.05.25 at 13h 14m 43s.xml">
+      <configuration name="tests" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="ConfigParsingTest - 2019.05.25 at 13h 22m 17s.xml">
       <configuration name="ConfigParsingTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="ConfigParsingTest_test_it_can_get_a_config_value - 2019.05.22 at 18h 36m 04s.xml">
-      <configuration name="ConfigParsingTest.test_it_can_get_a_config_value" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="ConfigParsingTest - 2019.05.22 at 18h 36m 33s.xml">
+    <history-entry file="ConfigParsingTest - 2019.05.25 at 13h 23m 07s.xml">
       <configuration name="ConfigParsingTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="ConfigParsingTest_test_it_can_get_a_config_value - 2019.05.22 at 18h 39m 14s.xml">
-      <configuration name="ConfigParsingTest.test_it_can_get_a_config_value" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="ConfigParsingTest - 2019.05.25 at 13h 25m 17s.xml">
+      <configuration name="ConfigParsingTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="ConfigParsingTest_test_it_can_get_a_config_value - 2019.05.22 at 18h 39m 25s.xml">
-      <configuration name="ConfigParsingTest.test_it_can_get_a_config_value" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="ConfigParsingTest - 2019.05.25 at 13h 25m 27s.xml">
+      <configuration name="ConfigParsingTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="ConfigParsingTest_test_it_can_get_a_config_value - 2019.05.22 at 19h 09m 10s.xml">
-      <configuration name="ConfigParsingTest.test_it_can_get_a_config_value" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="ConfigParsingTest - 2019.05.25 at 13h 25m 28s.xml">
+      <configuration name="ConfigParsingTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="ConfigParsingTest_test_it_can_get_a_config_value - 2019.05.22 at 19h 09m 38s.xml">
-      <configuration name="ConfigParsingTest.test_it_can_get_a_config_value" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="ConfigParsingTest - 2019.05.25 at 13h 25m 29s.xml">
+      <configuration name="ConfigParsingTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="ConfigParsingTest_test_it_can_get_a_config_value - 2019.05.22 at 20h 11m 03s.xml">
-      <configuration name="ConfigParsingTest.test_it_can_get_a_config_value" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="ConfigParsingTest_test_it_can_get_a_config_value - 2019.05.22 at 20h 11m 23s.xml">
-      <configuration name="ConfigParsingTest.test_it_can_get_a_config_value" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="ConfigParsingTest_test_it_can_get_a_config_value - 2019.05.22 at 22h 18m 15s.xml">
-      <configuration name="ConfigParsingTest.test_it_can_get_a_config_value" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="ConfigParsingTest - 2019.05.25 at 13h 26m 28s.xml">
+      <configuration name="ConfigParsingTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
     <option name="enabled" value="true" />
-    <option name="totallyTimeSpent" value="733707000" />
+    <option name="totallyTimeSpent" value="735000000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1086,13 +1051,13 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8318891" weight="0.1726361" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8318891" visible="true" weight="0.1726361" />
       <window_info id="Structure" order="1" sideWeight="0.16782007" side_tool="true" weight="0.20558739" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49928468" weight="0.3280098" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.61389685" weight="0.31326783" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.61389685" visible="true" weight="0.31326783" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4899857" weight="0.31572482" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1101,7 +1066,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49928367" weight="0.55159706" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3280098" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.28653294" side_tool="true" weight="0.5159705" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.71346706" weight="0.23616236" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.71346706" weight="0.23587224" />
       <window_info anchor="bottom" id="Messages" order="12" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.3280098" />
       <window_info anchor="bottom" id="File Transfer" order="14" weight="0.35626537" />
@@ -1163,8 +1128,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/vendor/adamwathan/laravel-preset" />
     </ignored-roots>
-    <MESSAGE value="Corrected has many naming convention back to singular. #7" />
-    <MESSAGE value="Initial layout of the login form #15" />
     <MESSAGE value="Login Form with validation #15" />
     <MESSAGE value="Use enter key to attempt login with form #15" />
     <MESSAGE value="Register an account #15" />
@@ -1188,17 +1151,12 @@
     <MESSAGE value="Fix for clashing naming" />
     <MESSAGE value="#31 No redirect on account register" />
     <MESSAGE value="More accords, dropzone, refactor and tidying. #27" />
-    <option name="LAST_COMMIT_MESSAGE" value="More accords, dropzone, refactor and tidying. #27" />
+    <MESSAGE value="Config uploader 80% completed #27" />
+    <MESSAGE value="Tests pass #27" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tests pass #27" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Schema/Blueprint.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="640" column="20" selection-start-line="640" selection-start-column="20" selection-end-line="640" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/GuardsAttributes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1498,13 +1456,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/listing/profile.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1239">
-          <caret line="59" column="104" selection-start-line="59" selection-start-column="104" selection-end-line="59" selection-end-column="104" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/listing/form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1953">
@@ -1539,13 +1490,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/ConfigParser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="777">
-          <caret line="38" column="58" selection-start-line="38" selection-start-column="58" selection-end-line="38" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/helpers.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8694">
@@ -1575,8 +1519,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/ListingConfigurator.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="21" column="18" lean-forward="true" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+        <state relative-caret-position="433">
+          <caret line="26" column="45" lean-forward="true" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ConfigParser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="44" column="5" lean-forward="true" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Feature/ConfigParsingTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+          <folding>
+            <element signature="e#761#9352#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/listing/profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="44" column="92" selection-start-line="44" selection-start-column="92" selection-end-line="44" selection-end-column="92" />
         </state>
       </provider>
     </entry>

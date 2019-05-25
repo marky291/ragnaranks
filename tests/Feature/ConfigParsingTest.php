@@ -23,21 +23,23 @@ class ConfigParsingTest extends TestCase
         parent::setUp();
 
         $this->parser = new ConfigParser(new Collection);
-
-        $this->parser->convertToConfiguration($this->fileContents());
     }
 
     public function test_it_can_get_a_config_value()
     {
+        $this->parser->convertToConfiguration($this->dropConfigContents());
+
         $this->assertEquals(100, $this->parser->configs->get('item_rate_equip'));
     }
 
     public function test_it_can_count_40_configs()
     {
+        $this->parser->convertToConfiguration($this->dropConfigContents());
+
         $this->assertEquals(40, $this->parser->configs->count());
     }
 
-    public function fileContents()
+    private function dropConfigContents(): string
     {
         return <<<TAG
             //================= Hercules Configuration ================================

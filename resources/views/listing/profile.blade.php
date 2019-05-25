@@ -26,23 +26,23 @@
 		</div>
 	</div>
 
-	<div v-if="listing.description" class="tw-container mt-4">
-		<div id="description" class="profile-block">
-			<div class="container px-5 py-4">
-				<h3 class="heading tw-font-bold mb-4 text-dark heading-underline">Description</h3>
-				<div class="row no-gutters">
-					<p>@{{ listing.description }}</p>
-				</div>
-			</div>
-		</div>
-	</div>
+{{--	<div v-if="listing.description" class="tw-container mt-4">--}}
+{{--		<div id="description" class="profile-block">--}}
+{{--			<div class="container px-5 py-4">--}}
+{{--				<h3 class="heading tw-font-bold mb-4 text-dark heading-underline">Description</h3>--}}
+{{--				<div class="row no-gutters">--}}
+{{--					<p>@{{ listing.description }}</p>--}}
+{{--				</div>--}}
+{{--			</div>--}}
+{{--		</div>--}}
+{{--	</div>--}}
 
 	<section v-if="!creating_review" id="configuration" class="content-block">
 		<div class="container px-5 py-4">
-			<h3 class="heading mb-4 tw-font-bold text-dark heading-underline">Server Setup</h3>
+{{--			<h3 class="heading mb-4 tw-font-bold text-dark heading-underline">Server Setup</h3>--}}
 			<at-tabs>
-				<at-tab-pane label="Overview" name="overview" icon="icon-book">
-					<p>Content of Tab Pane 1</p>
+				<at-tab-pane label="Description" name="description" icon="icon-book">
+					<p class="tw-tracking-normal tw-whitespace-pre-wrap" style="font-size:14px;">@{{ listing.description }}</p>
 				</at-tab-pane>
 				<at-tab-pane label="Configs" name="rates" icon="icon-bar-chart-2">
 					<div class="row">
