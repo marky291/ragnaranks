@@ -30162,6 +30162,19 @@ form .item-group input {
   background-color: #c9c9c9;
 }
 
+#description .markdown-compiled h1 {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: .7em !important;
+  color: #343a40 !important;
+  letter-spacing: -0.05em;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+#description .markdown-compiled p {
+  font-size: 13px;
+}
+
 .overflow-hidden {
   overflow: hidden;
 }

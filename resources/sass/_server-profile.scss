@@ -155,7 +155,6 @@
       margin-right: 0;
     }
   }
-
   #ratings {
     .score  {
       top: -5px;
@@ -193,5 +192,21 @@
     .scale-7 {
       color: white;
       background-color: #C9C9C9;
+    }
+  }
+
+  #description {
+    .markdown-compiled {
+      h1 {
+        border-bottom: 1px solid #ddd;
+        padding-bottom: .7em !important;
+        color: #343a40 !important;
+        letter-spacing: -0.05em;
+        font-weight: 700;
+        font-size: 16px;
+      }
+      p {
+        font-size: 13px;
+      }
     }
   }

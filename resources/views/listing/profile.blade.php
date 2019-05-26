@@ -1,5 +1,5 @@
 
-<div class="mb-3 server-card item flex-fill shadow border rounded">
+<div data-aos="fade-down" data-aos-once="true" class="mb-3 server-card item flex-fill shadow border rounded">
 	<div id="profile-card" class="profile-block">
 		<div class="server-card-head image rounded-top" style="height:350px;" v-bind:style="{ backgroundImage: 'url(' + listing.background + ')' }"></div>
 		<div class="server-card-head overlap d-flex" style="margin-top:-169px;">
@@ -27,10 +27,9 @@
 		</div>
 	</div>
 
-	<div class="tw-container mt-4">
+	<div data-aos="fade-up" data-aos-once="true" class="tw-container mt-4">
 		<div id="description" class="profile-block">
 			<div class="container px-5 py-4">
-				<h3 class="heading tw-font-bold mb-4 text-dark heading-underline tw-tracking-tight">Description</h3>
 				<div class="row no-gutters">
 					<div class="tw-tracking-normal tw-whitespace-pre-wrap markdown-compiled" v-html="compiledMarkdown"></div>
 				</div>
@@ -38,7 +37,7 @@
 		</div>
 	</div>
 
-	<section id="previews">
+	<section data-aos="fade-up" data-aos-once="true" id="previews">
 		<div class="container px-5 pt-4 pb-3">
 			<h3 class="heading mb-4 tw-font-bold text-dark heading-underline tw-tracking-tight">Specifications</h3>
 			<div class="tw-my-0 w-flex">
@@ -51,7 +50,7 @@
 		</div>
 	</section>
 
-	<section id="configuration" class="content-block">
+	<section id="configuration" data-aos="fade-up" data-aos-once="true" class="content-block">
 		<div class="container px-5 py-4">
 {{--			<h3 class="heading mb-4 tw-font-bold text-dark heading-underline">Server Setup</h3>--}}
 			<at-tabs>
@@ -140,7 +139,7 @@
 
 	<section id="ratings">
 		<div class="container pl-5 pr-5">
-			<div class="py-3 mb-3 rounded" style="border:1px solid rgba(255, 255, 255, 0.2);">
+			<div class="py-3 mb-3 rounded" data-aos="fade-up" data-aos-once="true" style="border:1px solid rgba(255, 255, 255, 0.2);">
 				<h3 class="heading mb-4 tw-font-bold text-dark heading-underline tw-tracking-tight">Balance Ratings</h3>
 				<div class="row no-gutters">
 					<scoreboards inline-template>
@@ -153,7 +152,7 @@
 					</scoreboards>
 				</div>
 			</div>
-			<div class="py-3 mb-3 rounded" style="border:1px solid rgba(255, 255, 255, 0.2)">
+			<div class="py-3 mb-3 rounded" data-aos="fade-up" data-aos-once="true" style="border:1px solid rgba(255, 255, 255, 0.2)">
 				<h3 class="heading mb-4 tw-font-bold text-dark heading-underline tw-tracking-tight">Server Ratings</h3>
 				<div class="row no-gutters">
 					<scoreboards inline-template>

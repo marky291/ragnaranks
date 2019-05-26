@@ -2,7 +2,7 @@
 	import vue2Dropzone from 'vue2-dropzone'
 	import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 	export default {
-        props: ['tags'],
+        props: ['tags', 'defaultDescription'],
 				components: {
 						vueDropzone: vue2Dropzone
 				},
@@ -13,7 +13,7 @@
                     name: '',
                     tags: [],
                     language: '',
-                    description: '',
+                    description: this.defaultDescription,
                     background: '',
                     screenshots: [],
 										accent: '',

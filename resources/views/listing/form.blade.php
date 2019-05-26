@@ -5,7 +5,7 @@
 		<div class="container pt-4">
 			<div class="row pb-5 pt-2">
 				<div id="sidebar" class="col-4">
-					<listing-configurator inline-template :tags="{{ $tags }}">
+					<listing-configurator inline-template :tags="{{ $tags }}" default-description="{{ __('profile.creator.default_description') }}">
 						<at-collapse accordion value="graphics">
 							<at-collapse-item name="details">
 								<div slot="title">Detailing</div>
@@ -92,7 +92,7 @@
 				</div>
 				<div class="col-8">
 
-					<listing-profile :listing="{{ new \App\Listings\Listing() }}" default-description="{{ __('profile.creator.default_description') }}" inline-template>
+					<listing-profile :listing="{{ new \App\Listings\Listing() }}" inline-template>
 						<div class="">
 							@include('listing.profile')
 						</div>

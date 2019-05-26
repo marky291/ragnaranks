@@ -4,7 +4,6 @@
     import marked from 'marked'
 
     export default {
-        props: ['defaultDescription'],
         components: {
             Scoreboards,
             Carousel3d,
@@ -32,7 +31,7 @@
               	return _.isEmpty(this.listing.tags) ? 'RelatableRagnarokTags' : this.listing.tags;
 						},
             compiledMarkdown: function () {
-                return _.isEmpty(this.listing.description ? this.defaultDescription : marked(this.listing.description, {sanitize: true}))
+                return marked(this.listing.description, {sanitize: true});
             }
         },
         methods: {
