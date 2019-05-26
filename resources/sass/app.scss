@@ -16,13 +16,8 @@
 // Variables
 @import 'variables';
 
-
-// flickity sliders
-@import "~flickity/dist/flickity.css";
-
 // management of logo styles.
 @import 'logo';
-
 @import 'colours';
 @import 'navbar';
 @import 'spotlight';
@@ -36,6 +31,7 @@
 @import 'forms';
 @import 'server-profile';
 @import 'tailwindsnippets.scss';
+@import 'accents.scss';
 
 html {
   font-size: 100%;

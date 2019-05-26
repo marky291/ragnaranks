@@ -9,7 +9,6 @@
         data: function() {
             return {
                 screenshot: '',
-								uploadedConfigs: {},
                 listing: {
                     name: '',
                     tags: [],
@@ -17,8 +16,8 @@
                     description: '',
                     background: '',
                     screenshots: [],
-										configs: [
-										],
+										accent: '',
+										configs: {},
                 },
                 dropzoneOptions: {
                     url: '/config/parse',
@@ -28,7 +27,22 @@
                 }
             }
         },
+				mounted() {
+					// show a random styling and background preset
+					this.generatePreset();
+				},
         methods: {
+            generatePreset() {
+                let preset = _.sample([
+                    { accent: 'dark', background: '/img/preset/card-dark.png'},
+										{ accent: 'purple', background: '/img/preset/card-purple.png'},
+										{ accent: 'green', background: '/img/preset/card-green.png'},
+										{ accent: 'blue', background: '/img/preset/card-blue.png'},
+									]);
+                this.listing.accent = preset.accent;
+                this.listing.background = preset.background;
+                this.updateListing();
+						},
             addScreenshot() {
                 this.listing.screenshots.push(this.screenshot);
             },
@@ -38,9 +52,9 @@
                 });
             },
             handleParsedConfig(file, response) {
-                console.log(file, response);
-                this.uploadedConfigs[file.name] = response;
+                this.listing.configs[file.name.split(".")[0]] = response;
                 this.$Message.success('The configuration inside ' + file.name + " has been added to your listing");
+                this.updateListing();
 						}
         }
 	}

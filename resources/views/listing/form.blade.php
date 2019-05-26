@@ -6,7 +6,7 @@
 			<div class="row pb-5 pt-2">
 				<div id="sidebar" class="col-4">
 					<listing-configurator inline-template :tags="{{ $tags }}">
-						<at-collapse accordion value="uploader">
+						<at-collapse accordion value="graphics">
 							<at-collapse-item name="details">
 								<div slot="title">Detailing</div>
 								<div class="">
@@ -27,7 +27,8 @@
 								</div>
 								<div class="tw-mt-3">
 									<p class="tw-font-semibold tw-mb-1">Description</p>
-									<at-textarea @change="updateListing" v-model="listing.description" min-rows="5" max-rows="15" placeholder="Write something catchy"></at-textarea>
+									<p>Markdown Supported (<a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Guide Here</a>)</p>
+									<at-textarea @change="updateListing" v-model="listing.description" min-rows="5" max-rows="15" placeholder="Write something catchy">@{{ compiledMarkdown }}</at-textarea>
 								</div>
 							</at-collapse-item>
 							<at-collapse-item name="graphics">
@@ -38,7 +39,7 @@
 								</div>
 								<div class="tw-mt-3">
 									<p class="tw-font-semibold tw-mb-1">Accent Colors</p>
-									<at-select v-model="model8" filterable>
+									<at-select v-model="listing.accent" filterable>
 										<at-option value="silver" class="important:tw-flex tw-items-center">Silver
 											<div class="tw-flex-1 tw-flex tw-flex-row">
 												<div class="tw-h-2 tw-w-2 tw-flex-1" style="background-color:#C9C9C9"></div>
@@ -62,20 +63,7 @@
 							<at-collapse-item name="configs">
 								<div slot="title">Configuration</div>
 								<div class="tw-flex tw-justify-between">
-									<div class="tw-w-32">
-										<div class="">
-											<p class="tw-font-semibold tw-mb-1">item_rate_common</p>
-											<at-input-number size="small" v-model="num"></at-input-number><br>
-										</div>
-										<div class="">
-											<p class="tw-font-semibold tw-mb-1">item_rate_common_boss</p>
-											<at-input-number size="small" v-model="num"></at-input-number><br>
-										</div>
-										<div class="">
-											<p class="tw-font-semibold tw-mb-1">item_rate_common_mvp</p>
-											<at-input-number size="small" v-model="num"></at-input-number><br>
-										</div>
-									</div>
+									//
 								</div>
 							</at-collapse-item>
 							<at-collapse-item name="uploader">
@@ -91,7 +79,7 @@
 										<at-button>drops.conf</at-button>
 										</div>
 									</div>
-									<vue-dropzone @vdropzone-success="handleParsedConfig" :options="dropzoneOptions" :useCustomSlot=true>
+									<vue-dropzone id="configUploader" @vdropzone-success="handleParsedConfig" :options="dropzoneOptions" :use-custom-slot="true">
 										<div class="dropzone-custom-content">
 											<h3 class="dropzone-custom-title">Drag and drop to upload content!</h3>
 											<div class="subtitle">...or click to select a file from your computer</div>
@@ -104,7 +92,7 @@
 				</div>
 				<div class="col-8">
 
-					<listing-profile :listing="{{ new \App\Listings\Listing() }}" inline-template>
+					<listing-profile :listing="{{ new \App\Listings\Listing() }}" default-description="{{ __('profile.creator.default_description') }}" inline-template>
 						<div class="">
 							@include('listing.profile')
 						</div>

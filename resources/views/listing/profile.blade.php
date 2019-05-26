@@ -5,9 +5,10 @@
 		<div class="server-card-head overlap d-flex" style="margin-top:-169px;">
 			<i class="fas fa-arrow-left tw-text-white tw-text-2xl tw-absolute tw-align-top"></i>
 			<div class="left-side d-flex w-75 flex-column align-items-start px-4 py-2 align-self-end">
-				<h1 class="text-white font-weight-bold mb-0" style="font-size: 24px;">@{{ listing.name }}</h1>
+				<h1 class="text-white font-weight-bold mb-0" style="font-size: 24px;">@{{ serverName }}</h1>
 				<ul class="tag-list list-unstyled d-flex tw-text-xs tw-text-green-light">
 					<li class="mr-2" v-for="tag in listing.tags">#@{{ tag.name }}</li>
+					<li class="mr-2" v-if="!listing.tags.length">#TagYourServerFunctionality</li>
 				</ul>
 			</div>
 			<div class="right-side flex-fill d-flex justify-content-end pr-3" style="padding-bottom:12px;">
@@ -26,55 +27,101 @@
 		</div>
 	</div>
 
-{{--	<div v-if="listing.description" class="tw-container mt-4">--}}
-{{--		<div id="description" class="profile-block">--}}
-{{--			<div class="container px-5 py-4">--}}
-{{--				<h3 class="heading tw-font-bold mb-4 text-dark heading-underline">Description</h3>--}}
-{{--				<div class="row no-gutters">--}}
-{{--					<p>@{{ listing.description }}</p>--}}
-{{--				</div>--}}
-{{--			</div>--}}
-{{--		</div>--}}
-{{--	</div>--}}
+	<div class="tw-container mt-4">
+		<div id="description" class="profile-block">
+			<div class="container px-5 py-4">
+				<h3 class="heading tw-font-bold mb-4 text-dark heading-underline tw-tracking-tight">Description</h3>
+				<div class="row no-gutters">
+					<div class="tw-tracking-normal tw-whitespace-pre-wrap markdown-compiled" v-html="compiledMarkdown"></div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-	<section v-if="!creating_review" id="configuration" class="content-block">
+	<section id="previews">
+		<div class="container px-5 pt-4 pb-3">
+			<h3 class="heading mb-4 tw-font-bold text-dark heading-underline tw-tracking-tight">Specifications</h3>
+			<div class="tw-my-0 w-flex">
+				<carousel-3d :count="listing.screenshots.length" :height="220" :width="380" :controls-visible="true">
+					<slide v-for="(slide, i) in listing.screenshots" :index="i" :key="i">
+						<img class="tw-h-full tw-w-full" :data-index="index" :class="{ current: isCurrent, onLeft: (leftIndex >= 0), onRight: (rightIndex >= 0) }" src="https://originsro.org/user/images/screenshots/screenOriginsRO-OBT150.jpg">
+					</slide>
+				</carousel-3d>
+			</div>
+		</div>
+	</section>
+
+	<section id="configuration" class="content-block">
 		<div class="container px-5 py-4">
 {{--			<h3 class="heading mb-4 tw-font-bold text-dark heading-underline">Server Setup</h3>--}}
 			<at-tabs>
-				<at-tab-pane label="Description" name="description" icon="icon-book">
-					<p class="tw-tracking-normal tw-whitespace-pre-wrap" style="font-size:14px;">@{{ listing.description }}</p>
-				</at-tab-pane>
 				<at-tab-pane label="Configs" name="rates" icon="icon-bar-chart-2">
 					<div class="row">
 						<div class="list col-4 d-flex flex-column mb-3">
-							@include('listing.partial.config', ['name'=>'item_rate_common', 'type' => 'exp', 'value' => 0])
-							@include('listing.partial.config', ['name'=>'item_rate_common_boss', 'type' => 'exp',  'value' => 0])
-							@include('listing.partial.config', ['name'=>'item_rate_common_mvp', 'type' => 'exp',  'value' => 0])
+							@component('listing.partial.config', ['name' => __('configs.item_rate_common')])
+								@{{ getDrop('item_rate_common') }}
+							@endcomponent
+							@component('listing.partial.config', ['name' => 'item_rate_common_boss'])
+								@{{ getDrop('item_rate_common_boss') }}
+							@endcomponent
+							@component('listing.partial.config', ['name' => 'item_rate_common_mvp'])
+								@{{ getDrop('item_rate_common_mvp') }}
+							@endcomponent
 						</div>
 						<div class="list col-4 d-flex flex-column mb-3">
-							@include('listing.partial.config', ['name'=>'item_rate_heal', 'type' => 'stat',  'value' => 0])
-							@include('listing.partial.config', ['name'=>'item_rate_heal_boss', 'type' => 'stat',  'value' => 0])
-							@include('listing.partial.config', ['name'=>'item_rate_heal_mvp', 'type' => 'stat',  'value' => 0])
+							@component('listing.partial.config', ['name' => 'item_rate_heal'])
+								@{{ getDrop('item_rate_heal') }}
+							@endcomponent
+							@component('listing.partial.config', ['name' => 'item_rate_heal_boss'])
+								@{{ getDrop('item_rate_heal_boss') }}
+							@endcomponent
+							@component('listing.partial.config', ['name' => 'item_rate_heal_mvp'])
+								@{{ getDrop('item_rate_heal_mvp') }}
+							@endcomponent
 						</div>
 						<div class="list col-4 d-flex flex-column mb-3">
-							@include('listing.partial.config', ['name'=>'item_rate_use', 'type' => 'drop-base',  'value' =>  0])
-							@include('listing.partial.config', ['name'=>'item_rate_use_boss', 'type' => 'drop-mvp-base',  'value' => 0])
-							@include('listing.partial.config', ['name'=>'item_rate_use_mvp', 'type' => 'drop-card',  'value' => 0])
+							@component('listing.partial.config', ['name' => 'item_rate_use'])
+								@{{ getDrop('item_rate_use') }}
+							@endcomponent
+							@component('listing.partial.config', ['name' => 'item_rate_use_boss'])
+								@{{ getDrop('item_rate_use_boss') }}
+							@endcomponent
+							@component('listing.partial.config', ['name' => 'item_rate_use_mvp'])
+								@{{ getDrop('item_rate_use_mvp') }}
+							@endcomponent
 						</div>
 						<div class="list col-4 d-flex flex-column mb-3">
-							@include('listing.partial.config', ['name'=>'item_rate_equip', 'type' => 'drop-base',  'value' =>  0])
-							@include('listing.partial.config', ['name'=>'item_rate_equip_boss', 'type' => 'drop-mvp-base',  'value' => 0])
-							@include('listing.partial.config', ['name'=>'item_rate_equip_mvp', 'type' => 'drop-card',  'value' => 0])
+							@component('listing.partial.config', ['name' => 'item_rate_equip'])
+								@{{ getDrop('item_rate_equip') }}
+							@endcomponent
+							@component('listing.partial.config', ['name' => 'item_rate_equip_boss'])
+								@{{ getDrop('item_rate_equip_boss') }}
+							@endcomponent
+							@component('listing.partial.config', ['name' => 'item_rate_equip_mvp'])
+								@{{ getDrop('item_rate_equip_mvp') }}
+							@endcomponent
 						</div>
 						<div class="list col-4 d-flex flex-column mb-3">
-							@include('listing.partial.config', ['name'=>'item_rate_card', 'type' => 'drop-base',  'value' =>  0])
-							@include('listing.partial.config', ['name'=>'item_rate_card_boss', 'type' => 'drop-mvp-base',  'value' => 0])
-							@include('listing.partial.config', ['name'=>'item_rate_card_mvp', 'type' => 'drop-card',  'value' => 0])
+							@component('listing.partial.config', ['name' => 'item_rate_card'])
+								@{{ getDrop('item_rate_card') }}
+							@endcomponent
+							@component('listing.partial.config', ['name' => 'item_rate_card_boss'])
+								@{{ getDrop('item_rate_card_boss') }}
+							@endcomponent
+							@component('listing.partial.config', ['name' => 'item_rate_card_mvp'])
+								@{{ getDrop('item_rate_card_mvp') }}
+							@endcomponent
 						</div>
 						<div class="list col-4 d-flex flex-column mb-3">
-							@include('listing.partial.config', ['name'=>'item_rate_mvp', 'type' => 'drop-base',  'value' =>  0])
-							@include('listing.partial.config', ['name'=>'item_rate_adddrop', 'type' => 'drop-mvp-base',  'value' => 0])
-							@include('listing.partial.config', ['name'=>'item_rate_treasure', 'type' => 'drop-card',  'value' => 0])
+							@component('listing.partial.config', ['name' => 'item_rate_mvp'])
+								@{{ getDrop('item_rate_mvp') }}
+							@endcomponent
+							@component('listing.partial.config', ['name' => 'item_rate_adddrop'])
+								@{{ getDrop('item_rate_adddrop') }}
+							@endcomponent
+							@component('listing.partial.config', ['name' => 'item_rate_treasure'])
+								@{{ getDrop('item_rate_treasure') }}
+							@endcomponent
 						</div>
 					</div>
 				</at-tab-pane>
@@ -84,27 +131,17 @@
 				<at-tab-pane label="Features" name="features" icon="icon-award">
 					<p>Content of Tab Pane 2</p>
 				</at-tab-pane>
+				<at-tab-pane label="Woe Times" name="timetable" icon="icon-target">
+					<p>Content of Tab Pane 4</p>
+				</at-tab-pane>
 			</at-tabs>
-		</div>
-	</section>
-
-	<section v-if="listing.screenshots" id="previews">
-		<div class="container px-5 pt-4 pb-3">
-			<h3 class="heading mb-4 tw-font-bold text-dark heading-underline">Screenshot Previews</h3>
-			<div class="mb-3">
-				<carousel-3d :disable3d="true" :space="360" :height="200" :width="350" :autoplay="true" :autoplay-timeout="5000" :controls-visible="true"  :controls-width="30" :controls-height="60" :clickable="false">
-						<slide v-for="(screenshot, index) in listing.screenshots" :index="index">
-							<img class="h-100" :src="screenshot">
-						</slide>
-				</carousel-3d>
-			</div>
 		</div>
 	</section>
 
 	<section id="ratings">
 		<div class="container pl-5 pr-5">
 			<div class="py-3 mb-3 rounded" style="border:1px solid rgba(255, 255, 255, 0.2);">
-				<h3 class="heading mb-4 tw-font-bold text-dark heading-underline">Balance Ratings</h3>
+				<h3 class="heading mb-4 tw-font-bold text-dark heading-underline tw-tracking-tight">Balance Ratings</h3>
 				<div class="row no-gutters">
 					<scoreboards inline-template>
 						<div class="d-flex">
@@ -117,7 +154,7 @@
 				</div>
 			</div>
 			<div class="py-3 mb-3 rounded" style="border:1px solid rgba(255, 255, 255, 0.2)">
-				<h3 class="heading mb-4 tw-font-bold text-dark heading-underline">Server Ratings</h3>
+				<h3 class="heading mb-4 tw-font-bold text-dark heading-underline tw-tracking-tight">Server Ratings</h3>
 				<div class="row no-gutters">
 					<scoreboards inline-template>
 						<div class="d-flex">
