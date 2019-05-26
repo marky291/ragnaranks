@@ -45,7 +45,7 @@
         created() {
             this.$root.$on('listing:profile:modified', event => {
                 this.listing = event.data;
-            })
+            });
         },
     }
 </script>
