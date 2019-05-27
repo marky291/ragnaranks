@@ -30178,118 +30178,238 @@ form .item-group input {
   overflow: hidden;
 }
 
+.bg-poring-lightest {
+  background-color: #ffc1cb;
+}
+
+.bg-poring-light {
+  background-color: #ffbcc6;
+}
+
+.bg-poring-base {
+  background-color: #ffb8c3;
+}
+
+.bg-poring-dark {
+  background-color: #ffacb7;
+}
+
+.bg-poring-darkest {
+  background-color: #ffa4b0;
+}
+
 .use-accent-poring strong {
-  color: #FFA4B0;
+  color: #ffa4b0;
 }
 
 .use-accent-poring .scoreboard-low {
   color: #343a40;
-  background-color: #FFC1CB;
+  background-color: #ffc1cb;
 }
 
 .use-accent-poring .scoreboard-mid {
   color: #343a40;
-  background-color: #FFBCC6;
+  background-color: #ffbcc6;
 }
 
 .use-accent-poring .scoreboard-high {
   color: #343a40;
-  background-color: #FFB8C3;
+  background-color: #ffb8c3;
+}
+
+.bg-deviling-lightest {
+  background-color: #c3b1e3;
+}
+
+.bg-deviling-light {
+  background-color: #af9ad1;
+}
+
+.bg-deviling-base {
+  background-color: #9176b9;
+}
+
+.bg-deviling-dark {
+  background-color: #8165a8;
+}
+
+.bg-deviling-darkest {
+  background-color: #7a5aa4;
 }
 
 .use-accent-deviling strong {
-  color: #7A5AA4;
+  color: #7a5aa4;
 }
 
 .use-accent-deviling .scoreboard-low {
   color: #343a40;
-  background-color: #AF9AD1;
+  background-color: #c3b1e3;
 }
 
 .use-accent-deviling .scoreboard-mid {
   color: #343a40;
-  background-color: #9176B9;
+  background-color: #af9ad1;
 }
 
 .use-accent-deviling .scoreboard-high {
   color: #343a40;
-  background-color: #8165A8;
+  background-color: #9176b9;
+}
+
+.bg-ghostring-lightest {
+  background-color: #cad0eb;
+}
+
+.bg-ghostring-light {
+  background-color: #c3cbe8;
+}
+
+.bg-ghostring-base {
+  background-color: #bec6e5;
+}
+
+.bg-ghostring-dark {
+  background-color: #b8c1e3;
+}
+
+.bg-ghostring-darkest {
+  background-color: #b4bde0;
 }
 
 .use-accent-ghostring strong {
-  color: #B4BDE0;
+  color: #b4bde0;
 }
 
 .use-accent-ghostring .scoreboard-low {
   color: #343a40;
-  background-color: #C3CBE8;
+  background-color: #cad0eb;
 }
 
 .use-accent-ghostring .scoreboard-mid {
   color: #343a40;
-  background-color: #BEC6E5;
+  background-color: #c3cbe8;
 }
 
 .use-accent-ghostring .scoreboard-high {
   color: #343a40;
-  background-color: #B8C1E3;
+  background-color: #bec6e5;
+}
+
+.bg-drops-lightest {
+  background-color: #fdd194;
+}
+
+.bg-drops-light {
+  background-color: #ffc989;
+}
+
+.bg-drops-base {
+  background-color: #ffc28b;
+}
+
+.bg-drops-dark {
+  background-color: #ffbb7e;
+}
+
+.bg-drops-darkest {
+  background-color: #ffb47d;
 }
 
 .use-accent-drops strong {
-  color: #FFB47D;
+  color: #ffb47d;
 }
 
 .use-accent-drops .scoreboard-low {
   color: #343a40;
-  background-color: #FDD194;
+  background-color: #fdd194;
 }
 
 .use-accent-drops .scoreboard-mid {
   color: #343a40;
-  background-color: #FFC989;
+  background-color: #ffc989;
 }
 
 .use-accent-drops .scoreboard-high {
   color: #343a40;
-  background-color: #FFC28B;
+  background-color: #ffc28b;
+}
+
+.bg-poporing-lightest {
+  background-color: #b6d987;
+}
+
+.bg-poporing-light {
+  background-color: #a5d074;
+}
+
+.bg-poporing-base {
+  background-color: #9bc16c;
+}
+
+.bg-poporing-dark {
+  background-color: #96bc69;
+}
+
+.bg-poporing-darkest {
+  background-color: #719a4e;
 }
 
 .use-accent-poporing strong {
-  color: #719A4E;
+  color: #719a4e;
 }
 
 .use-accent-poporing .scoreboard-low {
   color: #343a40;
-  background-color: #B6D987;
+  background-color: #b6d987;
 }
 
 .use-accent-poporing .scoreboard-mid {
   color: #343a40;
-  background-color: #A5D074;
+  background-color: #a5d074;
 }
 
 .use-accent-poporing .scoreboard-high {
   color: #343a40;
-  background-color: #9BC16C;
+  background-color: #9bc16c;
+}
+
+.bg-pouring-lightest {
+  background-color: #a4dfff;
+}
+
+.bg-pouring-light {
+  background-color: #8cd3ff;
+}
+
+.bg-pouring-base {
+  background-color: #6cc0ff;
+}
+
+.bg-pouring-dark {
+  background-color: #56b2ff;
+}
+
+.bg-pouring-darkest {
+  background-color: #499dff;
 }
 
 .use-accent-pouring strong {
-  color: #499DFF;
+  color: #499dff;
 }
 
 .use-accent-pouring .scoreboard-low {
   color: #343a40;
-  background-color: #A4DFFF;
+  background-color: #a4dfff;
 }
 
 .use-accent-pouring .scoreboard-mid {
   color: #343a40;
-  background-color: #8CD3FF;
+  background-color: #8cd3ff;
 }
 
 .use-accent-pouring .scoreboard-high {
   color: #343a40;
-  background-color: #6CC0FF;
+  background-color: #6cc0ff;
 }
 
 html {

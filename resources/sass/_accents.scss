@@ -15,28 +15,28 @@ $accents: (
 	dark: #8165A8,
 	darkest: #7A5AA4,
   ),
-    ghostring: (
+  ghostring: (
     lightest: #CAD0EB,
     light: #C3CBE8,
     base: #BEC6E5,
     dark: #B8C1E3,
-    darkest: #B4BDE0,
-    ),
-    drops: (
+  	darkest: #B4BDE0,
+  ),
+  drops: (
     lightest: #FDD194,
     light: #FFC989,
     base: #FFC28B,
     dark: #FFBB7E,
     darkest: #FFB47D,
-    ),
-    poporing: (
+  ),
+  poporing: (
     lightest: #B6D987,
     light: #A5D074,
     base: #9BC16C,
     dark: #96BC69,
     darkest: #719A4E,
-    ),
-    pouring: (
+  ),
+  pouring: (
     lightest: #A4DFFF,
     light: #8CD3FF,
     base: #6CC0FF,
@@ -45,22 +45,27 @@ $accents: (
     ),
 );
 
-@each $key, $val in $accents {
+@each $key, $accent in $accents {
+  @each $label, $hex in $accent {
+	.bg-#{$key}-#{$label} {
+	  background-color: $hex;
+	}
+  }
   .use-accent-#{$key} {
 	strong {
-	  color: map_get($val, darkest);
+	  color: map_get($accent, darkest);
 	}
 	.scoreboard-low {
 	  color: #343a40;
-	  background-color: map_get($val, lightest)
+	  background-color: map_get($accent, lightest)
 	 }
 	.scoreboard-mid {
 	  color: #343a40;
-	  background-color: map_get($val, light)
+	  background-color: map_get($accent, light)
 	}
 	.scoreboard-high {
 	  color: #343a40;
-	  background-color: map_get($val, base)
+	  background-color: map_get($accent, base)
 	}
   }
 }
