@@ -54,7 +54,10 @@
                 <i class="fab fa-facebook"></i>
             </div>
             <div class="tw-flex-1">
-                <i class="fab fa-reddit"></i>
+                <i class="fab fa-discord"></i>
+            </div>
+            <div class="tw-flex-1">
+                <i class="fab fa-reddit"><a href="https://www.reddit.com/r/RagnaRanks/"></a></i>
             </div>
         </div>
 
