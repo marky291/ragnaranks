@@ -34,7 +34,7 @@
         methods: {
             generatePreset() {
                 let preset = _.sample([
-                    { accent: 'dark', background: '/img/preset/card-dark.png'},
+                    { accent: 'red', background: '/img/preset/card-red.png'},
 										{ accent: 'purple', background: '/img/preset/card-purple.png'},
 										{ accent: 'green', background: '/img/preset/card-green.png'},
 										{ accent: 'blue', background: '/img/preset/card-blue.png'},
