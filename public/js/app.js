@@ -16156,10 +16156,9 @@ __webpack_require__.r(__webpack_exports__);
      * @return {string}
      */
     ScoreScale: function ScoreScale(score) {
-      if (score >= 5) return "scale-1";
-      if (score >= 4) return "scale-2";
-      if (score >= 3) return "scale-3";
-      if (score >= 0) return "scale-7";
+      if (score >= 5) return "scoreboard-high";
+      if (score >= 3) return "scoreboard-mid";
+      if (score >= 0) return "scoreboard-low";
     }
   }
 });

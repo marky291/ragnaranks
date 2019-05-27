@@ -25,13 +25,11 @@
              */
             ScoreScale: function(score) {
                 if (score >= 5)
-                    return "scale-1";
-                if (score >= 4)
-                    return "scale-2";
+                    return "scoreboard-high";
                 if (score >= 3)
-                    return "scale-3";
+                    return "scoreboard-mid";
                 if (score >= 0)
-                    return "scale-7";
+                    return "scoreboard-low";
             },
         }
     }

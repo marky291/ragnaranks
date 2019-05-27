@@ -1,1 +1,31 @@
+$scoreboard-text: #4b4b4b;
 
+$accents: (
+  poring: (
+	lightest: #FFE2DF,
+	light: #FFD6DC,
+	base: #F5C1C7,
+	dark: #E8A0AB,
+	darkest: #E8707B,
+  ),
+);
+
+@each $key, $val in $accents {
+  .use-accent-#{$key} {
+	strong {
+	  color: map_get($val, darkest);
+	}
+	.scoreboard-low {
+	  color: #343a40;
+	  background-color: map_get($val, lightest)
+	 }
+	.scoreboard-mid {
+	  color: #343a40;
+	  background-color: map_get($val, light)
+	}
+	.scoreboard-high {
+	  color: #343a40;
+	  background-color: map_get($val, base)
+	}
+  }
+}

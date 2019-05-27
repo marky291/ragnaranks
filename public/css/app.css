@@ -30165,7 +30165,6 @@ form .item-group input {
 #description .markdown-compiled h1 {
   border-bottom: 1px solid #ddd;
   padding-bottom: .7em !important;
-  color: #343a40 !important;
   letter-spacing: -0.05em;
   font-weight: 700;
   font-size: 16px;
@@ -30177,6 +30176,25 @@ form .item-group input {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.use-accent-poring strong {
+  color: #e8707b;
+}
+
+.use-accent-poring .scoreboard-low {
+  color: #343a40;
+  background-color: #ffe2df;
+}
+
+.use-accent-poring .scoreboard-mid {
+  color: #343a40;
+  background-color: #ffd6dc;
+}
+
+.use-accent-poring .scoreboard-high {
+  color: #343a40;
+  background-color: #f5c1c7;
 }
 
 html {
