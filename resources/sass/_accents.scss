@@ -15,6 +15,27 @@ $accents: (
 	dark: #876CAB,
 	darkest: #7958A3,
   ),
+//   ghostring: (
+//	lightest: #E8ECF8,
+//	light: #DCE2F4,
+//	base: #D2D9EF,
+//	dark: #C5CDE9,
+//	darkest: #B8C1E3,
+//  ),
+//   drops: (
+//	lightest: #FFF5CF,
+//	light: #F5E3AD,
+//	base: #EAC699,
+//	dark: #E0A884,
+//	darkest: #D58C71,
+//  ),
+//   poporing: (
+//	lightest: #EAF1CF,
+//	light: #CAE19D,
+//	base: #AED680,
+//	dark: #A5D074,
+//	darkest: #91B867,
+//  ),
 );
 
 @each $key, $val in $accents {
@@ -36,10 +57,3 @@ $accents: (
 	}
   }
 }
-
-//   ghostring: (
-//	lightest: #,
-//	light: #,
-//	base: #,
-//	dark: #,
-//	darkest: #,
