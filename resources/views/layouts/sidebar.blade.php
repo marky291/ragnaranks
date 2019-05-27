@@ -51,10 +51,10 @@
 
         <div class="social content shadow-inner bg-transparent p-3 tw-text-grey tw-text-4xl d-flex text-center">
             <div class="tw-flex-1">
-                <i class="fab fa-facebook"></i>
+                <a href="https://www.facebook.com/ragnaranks/"><i class="fab fa-facebook"></i></a>
             </div>
             <div class="tw-flex-1">
-                <i class="fab fa-discord"></i>
+                <a href="http://discord.gg/WGSAce2"><i class="fab fa-discord"></i></a>
             </div>
             <div class="tw-flex-1">
                 <a href="https://www.reddit.com/r/RagnaRanks/"><i class="fab fa-reddit"></i></a>
