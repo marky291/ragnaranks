@@ -1,1 +1,16 @@
 
+.accent-purple {
+    $Wilderness-1-hsla: hsla(247, 28, 35, 1);
+    $Wilderness-2-hsla: hsla(241, 29, 42, 1);
+    $Wilderness-3-hsla: hsla(241, 28, 65, 1);
+    $Wilderness-4-hsla: hsla(213, 31, 26, 1);
+    $Wilderness-5-hsla: hsla(0, 0, 15, 1);
+    
+    h1 {
+        color: $Wilderness-1-hsla;
+    }
+    
+    p {
+        color: $Wilderness-2-hsla
+    }
+}
