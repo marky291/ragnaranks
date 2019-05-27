@@ -15706,8 +15706,8 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     generatePreset: function generatePreset() {
       var preset = _.sample([{
-        accent: 'dark',
-        background: '/img/preset/card-dark.png'
+        accent: 'red',
+        background: '/img/preset/card-red.png'
       }, {
         accent: 'purple',
         background: '/img/preset/card-purple.png'
@@ -15717,6 +15717,18 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         accent: 'blue',
         background: '/img/preset/card-blue.png'
+      }, {
+        accent: 'aqua',
+        background: '/img/preset/card-aqua.png'
+      }, {
+        accent: 'black',
+        background: '/img/preset/card-black.png'
+      }, {
+        accent: 'mauve',
+        background: '/img/preset/card-mauve.png'
+      }, {
+        accent: 'pink',
+        background: '/img/preset/card-pink.png'
       }]);
 
       this.listing.accent = preset.accent;

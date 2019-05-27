@@ -8,12 +8,13 @@ $accents: (
 	dark: #FE9BA8,
 	darkest: #FE95A3,
   ),
-    deviling: (
-    lightest: #E4D9FF,
-    light: #C3B1E5,
-    base: #A188C7,
-    dark: #876CAB,
-    darkest: #7958A3,
+  deviling: (
+	lightest: #E4D9FF,
+	light: #C3B1E5,
+	base: #A188C7,
+	dark: #876CAB,
+	darkest: #7958A3,
+  ),
 );
 
 @each $key, $val in $accents {

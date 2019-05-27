@@ -30179,22 +30179,41 @@ form .item-group input {
 }
 
 .use-accent-poring strong {
-  color: #e8707b;
+  color: #fe95a3;
 }
 
 .use-accent-poring .scoreboard-low {
   color: #343a40;
-  background-color: #ffe2df;
+  background-color: #ffd8de;
 }
 
 .use-accent-poring .scoreboard-mid {
   color: #343a40;
-  background-color: #ffd6dc;
+  background-color: #ffc1cb;
 }
 
 .use-accent-poring .scoreboard-high {
   color: #343a40;
-  background-color: #f5c1c7;
+  background-color: #ffb1bc;
+}
+
+.use-accent-deviling strong {
+  color: #7958a3;
+}
+
+.use-accent-deviling .scoreboard-low {
+  color: #343a40;
+  background-color: #e4d9ff;
+}
+
+.use-accent-deviling .scoreboard-mid {
+  color: #343a40;
+  background-color: #c3b1e5;
+}
+
+.use-accent-deviling .scoreboard-high {
+  color: #343a40;
+  background-color: #a188c7;
 }
 
 html {
