@@ -2,40 +2,47 @@ $scoreboard-text: #4b4b4b;
 
 $accents: (
   poring: (
-	lightest: #FFD8DE,
-	light: #FFC1CB,
-	base: #FFB1BC,
-	dark: #FE9BA8,
-	darkest: #FE95A3,
+	lightest: #FFC1CB,
+	light: #FFBCC6,
+	base: #FFB8C3,
+	dark: #FFACB7,
+	darkest: #FFA4B0,
   ),
   deviling: (
-	lightest: #E4D9FF,
-	light: #C3B1E5,
-	base: #A188C7,
-	dark: #876CAB,
-	darkest: #7958A3,
+	lightest: #C3B1E3,
+	light: #AF9AD1,
+	base: #9176B9,
+	dark: #8165A8,
+	darkest: #7A5AA4,
   ),
-//   ghostring: (
-//	lightest: #E8ECF8,
-//	light: #DCE2F4,
-//	base: #D2D9EF,
-//	dark: #C5CDE9,
-//	darkest: #B8C1E3,
-//  ),
-//   drops: (
-//	lightest: #FFF5CF,
-//	light: #F5E3AD,
-//	base: #EAC699,
-//	dark: #E0A884,
-//	darkest: #D58C71,
-//  ),
-//   poporing: (
-//	lightest: #EAF1CF,
-//	light: #CAE19D,
-//	base: #AED680,
-//	dark: #A5D074,
-//	darkest: #91B867,
-//  ),
+    ghostring: (
+    lightest: #CAD0EB,
+    light: #C3CBE8,
+    base: #BEC6E5,
+    dark: #B8C1E3,
+    darkest: #B4BDE0,
+    ),
+    drops: (
+    lightest: #FDD194,
+    light: #FFC989,
+    base: #FFC28B,
+    dark: #FFBB7E,
+    darkest: #FFB47D,
+    ),
+    poporing: (
+    lightest: #B6D987,
+    light: #A5D074,
+    base: #9BC16C,
+    dark: #96BC69,
+    darkest: #719A4E,
+    ),
+    pouring: (
+    lightest: #A4DFFF,
+    light: #8CD3FF,
+    base: #6CC0FF,
+    dark: #56B2FF,
+    darkest: #499DFF,
+    ),
 );
 
 @each $key, $val in $accents {
