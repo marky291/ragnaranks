@@ -36,6 +36,7 @@
 								<div class="">
 									<p class="tw-font-semibold tw-mb-1">Card Background</p>
 									<at-input @change="updateListing" v-model="listing.background" placeholder="Enter an Image URL"></at-input>
+                                    <p class="tw-font-normal tw-mb-1">Optimal banner size of 608x350px is recommended.</a>
 								</div>
 								<div class="tw-mt-3">
 									<p class="tw-font-semibold tw-mb-1">Accent Colors</p>
