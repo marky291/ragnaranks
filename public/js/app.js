@@ -15689,6 +15689,7 @@ __webpack_require__.r(__webpack_exports__);
         accent: '',
         configs: {}
       },
+      accents: ['nightmare', 'poring'],
       dropzoneOptions: {
         url: '/config/parse',
         thumbnailWidth: 150,

@@ -40,12 +40,14 @@
 								</div>
 								<div class="tw-mt-3">
 									<p class="tw-font-semibold tw-mb-1">Accent Colors</p>
-									<at-select v-model="listing.accent" filterable>
-										<at-option value="silver" class="important:tw-flex tw-items-center">Silver
+									<at-select v-model="listing.accent">
+										<at-option v-for="(accent,i) in accents" :key="i" value="accent" class="important:tw-flex tw-items-center">@{{ accent }}
 											<div class="tw-flex-1 tw-flex tw-flex-row">
-												<div class="tw-h-2 tw-w-2 tw-flex-1" style="background-color:#C9C9C9"></div>
-												<div class="tw-h-2 tw-w-2 tw-flex-1" style="background-color:#B9B9B9"></div>
-												<div class="tw-h-2 tw-w-2 tw-flex-1" style="background-color:#9B9B9B"></div>
+												<div class="tw-h-4 tw-w-2 tw-flex-1 bg-nightmare-lightest"></div>
+												<div class="tw-h-4 tw-w-2 tw-flex-1 bg-nightmare-light"></div>
+												<div class="tw-h-4 tw-w-2 tw-flex-1 bg-nightmare-base"></div>
+												<div class="tw-h-4 tw-w-2 tw-flex-1 bg-nightmare-dark"></div>
+												<div class="tw-h-4 tw-w-2 tw-flex-1 bg-nightmare-darkest"></div>
 											</div>
 										</at-option>
 									</at-select>

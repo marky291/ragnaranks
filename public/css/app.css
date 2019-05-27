@@ -30178,6 +30178,45 @@ form .item-group input {
   overflow: hidden;
 }
 
+.bg-nightmare-lightest {
+  background-color: #4e5259;
+}
+
+.bg-nightmare-light {
+  background-color: #4e5259;
+}
+
+.bg-nightmare-base {
+  background-color: #4e5259;
+}
+
+.bg-nightmare-dark {
+  background-color: #4e5259;
+}
+
+.bg-nightmare-darkest {
+  background-color: #4e5259;
+}
+
+.use-accent-nightmare strong {
+  color: #4e5259;
+}
+
+.use-accent-nightmare .scoreboard-low {
+  color: #343a40;
+  background-color: #4e5259;
+}
+
+.use-accent-nightmare .scoreboard-mid {
+  color: #343a40;
+  background-color: #4e5259;
+}
+
+.use-accent-nightmare .scoreboard-high {
+  color: #343a40;
+  background-color: #4e5259;
+}
+
 .bg-poring-lightest {
   background-color: #ffc1cb;
 }
@@ -30470,6 +30509,10 @@ h5 {
   display: block;
   color: #e3342f;
   font-size: .75rem;
+}
+
+.at-collapse__content {
+  overflow: initial;
 }
 
 @media (min-width: 576px) {
