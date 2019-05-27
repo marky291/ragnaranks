@@ -17,8 +17,9 @@
                     found otherwise.
                 </p>
                 <div class="social pt-2">
-                    <i class="icon fab fa-facebook text-white mr-1"></i>
-                    <i class="icon fab fa-reddit-square text-white mr-1"></i>
+                    <a href="https://www.facebook.com/ragnaranks/"><i class="icon fab fa-facebook text-white mr-1"></i></a>
+                    <a href="http://discord.gg/WGSAce2"><i class="icon fab fa-discord text-white mr-1"></i></a>
+                    <a href="https://www.reddit.com/r/RagnaRanks/"><i class="icon fab fa-reddit-square text-white mr-1"></i></a>
                 </div>
             </div>
             <div class="w-50 d-flex flex-row justify-content-between">
