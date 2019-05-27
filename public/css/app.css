@@ -30179,41 +30179,117 @@ form .item-group input {
 }
 
 .use-accent-poring strong {
-  color: #fe95a3;
+  color: #FFA4B0;
 }
 
 .use-accent-poring .scoreboard-low {
   color: #343a40;
-  background-color: #ffd8de;
+  background-color: #FFC1CB;
 }
 
 .use-accent-poring .scoreboard-mid {
   color: #343a40;
-  background-color: #ffc1cb;
+  background-color: #FFBCC6;
 }
 
 .use-accent-poring .scoreboard-high {
   color: #343a40;
-  background-color: #ffb1bc;
+  background-color: #FFB8C3;
 }
 
 .use-accent-deviling strong {
-  color: #7958a3;
+  color: #7A5AA4;
 }
 
 .use-accent-deviling .scoreboard-low {
   color: #343a40;
-  background-color: #e4d9ff;
+  background-color: #AF9AD1;
 }
 
 .use-accent-deviling .scoreboard-mid {
   color: #343a40;
-  background-color: #c3b1e5;
+  background-color: #9176B9;
 }
 
 .use-accent-deviling .scoreboard-high {
   color: #343a40;
-  background-color: #a188c7;
+  background-color: #8165A8;
+}
+
+.use-accent-ghostring strong {
+  color: #B4BDE0;
+}
+
+.use-accent-ghostring .scoreboard-low {
+  color: #343a40;
+  background-color: #C3CBE8;
+}
+
+.use-accent-ghostring .scoreboard-mid {
+  color: #343a40;
+  background-color: #BEC6E5;
+}
+
+.use-accent-ghostring .scoreboard-high {
+  color: #343a40;
+  background-color: #B8C1E3;
+}
+
+.use-accent-drops strong {
+  color: #FFB47D;
+}
+
+.use-accent-drops .scoreboard-low {
+  color: #343a40;
+  background-color: #FDD194;
+}
+
+.use-accent-drops .scoreboard-mid {
+  color: #343a40;
+  background-color: #FFC989;
+}
+
+.use-accent-drops .scoreboard-high {
+  color: #343a40;
+  background-color: #FFC28B;
+}
+
+.use-accent-poporing strong {
+  color: #719A4E;
+}
+
+.use-accent-poporing .scoreboard-low {
+  color: #343a40;
+  background-color: #B6D987;
+}
+
+.use-accent-poporing .scoreboard-mid {
+  color: #343a40;
+  background-color: #A5D074;
+}
+
+.use-accent-poporing .scoreboard-high {
+  color: #343a40;
+  background-color: #9BC16C;
+}
+
+.use-accent-pouring strong {
+  color: #499DFF;
+}
+
+.use-accent-pouring .scoreboard-low {
+  color: #343a40;
+  background-color: #A4DFFF;
+}
+
+.use-accent-pouring .scoreboard-mid {
+  color: #343a40;
+  background-color: #8CD3FF;
+}
+
+.use-accent-pouring .scoreboard-high {
+  color: #343a40;
+  background-color: #6CC0FF;
 }
 
 html {
