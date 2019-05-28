@@ -28,6 +28,7 @@ class ListingController extends Controller
      */
     public function index()
     {
+        dd('RIPP');
         return view('listing.index')->with([
             'listings' => app('listings')->take(7),
             'tags' => Tag::all(),
