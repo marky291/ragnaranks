@@ -34,13 +34,12 @@
 							<at-collapse-item name="graphics">
 								<div slot="title">Graphics</div>
 								<div class="">
-									<p class="tw-font-semibold tw-mb-1">Card Background</p>
+									<p class="tw-font-semibold tw-mb-1">Card Background <small>(Optimal size 608x350px)</small></p>
 									<at-input @change="updateListing" v-model="listing.background" placeholder="Enter an Image URL"></at-input>
-                                    <p class="tw-font-normal tw-mb-1">Optimal banner size of 608x350px is recommended.</a>
 								</div>
 								<div class="tw-mt-3">
 									<p class="tw-font-semibold tw-mb-1">Accent Colors</p>
-									<at-select v-model="listing.accent">
+									<at-select v-model="listing.accent" class="tw-capitalize">
 										<at-option v-for="(accent,i) in accents" :label="accent" :key="i" :value="accent" class="tw-items-center">@{{ accent }}
 											<div class="tw-flex-1 tw-flex tw-flex-row">
 												<div class="tw-h-4 tw-w-2 tw-flex-1" :class="'bg-'+accent+'-lightest'"></div>
