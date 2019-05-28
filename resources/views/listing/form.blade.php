@@ -43,7 +43,7 @@
 									<at-select v-model="listing.accent">
 										<at-option v-for="(accent,i) in accents" :key="i" value="accent" class="important:tw-flex tw-items-center">@{{ accent }}
 											<div class="tw-flex-1 tw-flex tw-flex-row">
-												<div class="tw-h-4 tw-w-2 tw-flex-1 bg-poring-lightest"></div>
+												<div class="tw-h-4 tw-w-2 tw-flex-1 bg-nightmare-lightest"></div>
 												<div class="tw-h-4 tw-w-2 tw-flex-1 bg-nightmare-light"></div>
 												<div class="tw-h-4 tw-w-2 tw-flex-1 bg-nightmare-base"></div>
 												<div class="tw-h-4 tw-w-2 tw-flex-1 bg-nightmare-dark"></div>
