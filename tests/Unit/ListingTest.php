@@ -378,4 +378,11 @@ class ListingTest extends TestCase
 
         $this->assertDatabaseHas('listing_screenshots', ['listing_id' => $listing->id]);
     }
+
+    public function test_it_has_the_default_accent_color()
+    {
+        $listing = factory(Listing::class)->create();
+
+        $this->assertDatabaseHas('listings', ['id' => $listing->id, 'accent' => 'nightmare']);
+    }
 }

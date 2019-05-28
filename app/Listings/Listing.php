@@ -27,6 +27,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @property string $banner_url
  * @property float $episode
  * @property array $configs
+ * @property string $accent
  * @property Mode $mode
  * @property string $expRateTitle
  * @property Carbon $created_at
