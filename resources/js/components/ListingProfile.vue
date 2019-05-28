@@ -1,6 +1,6 @@
 <script>
     import Scoreboards from '../components/ScoreboardsComponent.vue';
-    import { Carousel3d, Slide } from 'vue-carousel-3d';
+    import {Carousel3d, Slide} from 'vue-carousel-3d';
     import marked from 'marked'
 
     export default {
@@ -20,22 +20,22 @@
                     screenshots: [],
                     accent: '',
                     configs: {},
-								},
+                },
             }
         },
         computed: {
-            serverName: function() {
+            serverName: function () {
                 return _.isEmpty(this.listing.name) ? 'Default RO' : this.listing.name;
-						},
-						serverTags: function() {
-              	return _.isEmpty(this.listing.tags) ? 'RelatableRagnarokTags' : this.listing.tags;
-						},
+            },
+            serverTags: function () {
+                return _.isEmpty(this.listing.tags) ? 'RelatableRagnarokTags' : this.listing.tags;
+            },
             compiledMarkdown: function () {
                 return marked(this.listing.description, {sanitize: true});
             }
         },
         methods: {
-            getDrop: function(element) {
+            getDrop: function (element) {
                 if (_.isObject(this.listing.configs.drops)) {
                     return this.listing.configs.drops[element];
                 }
