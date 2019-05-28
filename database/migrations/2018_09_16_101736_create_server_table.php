@@ -105,6 +105,7 @@ class CreateServerTable extends Migration
             $table->longText('description');
             $table->string('website');
             $table->unsignedInteger('mode_id');
+            $table->string('accent')->default('nightmare');
             $table->double('episode')->nullable();
             $table->timestamps();
             $table->index(['episode']);
