@@ -7,7 +7,10 @@
 import * as axios from "axios";
 import AOS from 'aos';
 import SimpleVueValidation from 'simple-vue-validator';
+
 import 'aos/dist/aos.css'; // You can also use <link> for styles
+
+import Sticky from 'vue-sticky-directive';
 
 AOS.init();
 
@@ -87,7 +90,7 @@ Vue.component('listing-configurator', require('./components/ListingConfigurator'
 
 const app = new Vue({
     el: '#app',
-
+    directives: {Sticky},
     methods: {
         navigate: function(name) {
             if (name === 'logout') {

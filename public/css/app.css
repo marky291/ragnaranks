@@ -30164,10 +30164,13 @@ form .item-group input {
 
 #description .markdown-compiled h1 {
   border-bottom: 1px solid #ddd;
-  padding-bottom: .7em !important;
   letter-spacing: -0.05em;
   font-weight: 700;
   font-size: 16px;
+  padding: .4rem 1rem;
+  border-radius: .25rem;
+  margin-right: -20px;
+  margin-left: -20px;
 }
 
 #description .markdown-compiled p {
@@ -30195,6 +30198,11 @@ form .item-group input {
 }
 
 .bg-nightmare-darkest {
+  background-color: #4e5259;
+}
+
+.use-accent-nightmare .markdown-compiled h1 {
+  color: white;
   background-color: #4e5259;
 }
 
@@ -30237,6 +30245,11 @@ form .item-group input {
   background-color: #ffa4b0;
 }
 
+.use-accent-poring .markdown-compiled h1 {
+  color: white;
+  background-color: #ffa4b0;
+}
+
 .use-accent-poring strong {
   color: #ffa4b0;
 }
@@ -30273,6 +30286,11 @@ form .item-group input {
 }
 
 .bg-deviling-darkest {
+  background-color: #7a5aa4;
+}
+
+.use-accent-deviling .markdown-compiled h1 {
+  color: white;
   background-color: #7a5aa4;
 }
 
@@ -30315,6 +30333,11 @@ form .item-group input {
   background-color: #b4bde0;
 }
 
+.use-accent-ghostring .markdown-compiled h1 {
+  color: white;
+  background-color: #b4bde0;
+}
+
 .use-accent-ghostring strong {
   color: #b4bde0;
 }
@@ -30351,6 +30374,11 @@ form .item-group input {
 }
 
 .bg-drops-darkest {
+  background-color: #ffb47d;
+}
+
+.use-accent-drops .markdown-compiled h1 {
+  color: white;
   background-color: #ffb47d;
 }
 
@@ -30393,6 +30421,11 @@ form .item-group input {
   background-color: #719a4e;
 }
 
+.use-accent-poporing .markdown-compiled h1 {
+  color: white;
+  background-color: #719a4e;
+}
+
 .use-accent-poporing strong {
   color: #719a4e;
 }
@@ -30429,6 +30462,11 @@ form .item-group input {
 }
 
 .bg-pouring-darkest {
+  background-color: #499dff;
+}
+
+.use-accent-pouring .markdown-compiled h1 {
+  color: white;
   background-color: #499dff;
 }
 

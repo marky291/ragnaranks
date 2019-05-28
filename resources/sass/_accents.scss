@@ -59,6 +59,12 @@ $accents: (
 	}
   }
   .use-accent-#{$key} {
+	.markdown-compiled {
+	  h1 {
+		color: white;
+		background-color: map_get($accent, darkest);
+	  }
+	}
 	strong {
 	  color: map_get($accent, darkest);
 	}
