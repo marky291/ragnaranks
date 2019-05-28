@@ -25,11 +25,7 @@
         },
         computed: {
             screenshots: function() {
-                return _.isEmpty(this.listing.screenshots) ? [
-                    '/img/preset/slider_one.png',
-                    '/img/preset/slider_two.png',
-                    '/img/preset/slider_three.png'
-                ] : this.listing.screenshots;
+                return _.isEmpty(this.listing.screenshots) ? ['/img/preset/slider_one.png', '/img/preset/slider_two.png', '/img/preset/slider_three.png'] : this.listing.screenshots;
             },
             serverName: function () {
                 return _.isEmpty(this.listing.name) ? 'Default RO' : this.listing.name;
