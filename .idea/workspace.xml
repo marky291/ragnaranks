@@ -12,9 +12,9 @@
     <bookmark url="file://$PROJECT_DIR$/app/Http/Controllers/QueryController.php" line="26" mnemonic="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e03bd396-be56-4b32-b970-f4b7d0b6f632" name="ragnaranks-31 No redirect on account register" comment="Accents compiled by mitsunebewbs #44">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ListingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ListingController.php" afterDir="false" />
+    <list default="true" id="e03bd396-be56-4b32-b970-f4b7d0b6f632" name="ragnaranks-31 No redirect on account register" comment="nightmare to poring accent #44">
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
     </list>
     <list id="58f96053-e5bd-4b41-bbae-58099ecbebc5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -73,8 +73,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/listing/form.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="47" column="109" selection-start-line="47" selection-start-column="109" selection-end-line="47" selection-end-column="109" />
+            <state relative-caret-position="277">
+              <caret line="45" column="93" selection-start-line="45" selection-start-column="93" selection-end-line="45" selection-end-column="93" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="62483" column="19" lean-forward="true" selection-start-line="62483" selection-start-column="19" selection-end-line="62483" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -88,29 +97,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="88" column="39" lean-forward="true" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ListingController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+            <state relative-caret-position="168">
+              <caret line="79" column="60" lean-forward="true" selection-start-line="79" selection-start-column="60" selection-end-line="79" selection-end-column="60" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/sass/_tailwindsnippets.scss">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ListingController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+            <state relative-caret-position="221">
+              <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -235,7 +235,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/js/components/AccountDetailsComponent.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/AccountNotificationComponent.vue" />
         <option value="$PROJECT_DIR$/app/Interactions/ReviewComment.php" />
         <option value="$PROJECT_DIR$/database/migrations/2018_09_16_101736_create_server_table.php" />
@@ -282,10 +281,11 @@
         <option value="$PROJECT_DIR$/resources/sass/_accents.scss" />
         <option value="$PROJECT_DIR$/resources/sass/app.scss" />
         <option value="$PROJECT_DIR$/resources/js/components/ListingConfigurator.vue" />
-        <option value="$PROJECT_DIR$/resources/views/listing/form.blade.php" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ListingController.php" />
+        <option value="$PROJECT_DIR$/resources/views/listing/form.blade.php" />
+        <option value="$PROJECT_DIR$/public/js/app.js" />
+        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
       </list>
     </option>
   </component>
@@ -598,33 +598,6 @@
       <workItem from="1558172891666" duration="35765000" />
       <workItem from="1558514897604" duration="1874000" />
     </task>
-    <task id="LOCAL-00081" summary="Review cleanup of components">
-      <created>1557931783825</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1557931783825</updated>
-    </task>
-    <task id="LOCAL-00082" summary="Review cleanup of components">
-      <created>1557948216854</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1557948216854</updated>
-    </task>
-    <task id="ragnaranks-12" summary="Scoreboards should reflect review scores">
-      <branch name="master" repository="$PROJECT_DIR$" original="true" />
-      <branch name="ragnaranks-12" repository="$PROJECT_DIR$" />
-      <created>1557946315000</created>
-      <option name="issue" value="true" />
-      <url>https://github.com/marky291/ragnaranks/issues/12</url>
-      <option name="number" value="12" />
-      <option name="presentableId" value="ragnaranks-12" />
-      <option name="project" value="ragnaranks" />
-      <option name="type" value="BUG" />
-      <updated>1557952309233</updated>
-      <workItem from="1557952309315" duration="2083000" />
-    </task>
     <task id="LOCAL-00083" summary="Missed commit of file. (Corrects scoreboards)">
       <created>1558032680502</created>
       <option name="number" value="00083" />
@@ -872,7 +845,7 @@
       <workItem from="1558641906205" duration="180000" />
       <workItem from="1558730001186" duration="24971000" />
       <workItem from="1558966392380" duration="7071000" />
-      <workItem from="1559001833574" duration="1136000" />
+      <workItem from="1559001833574" duration="1435000" />
     </task>
     <task id="LOCAL-00114" summary="#31 No redirect on account register">
       <created>1558641952472</created>
@@ -965,7 +938,28 @@
       <option name="project" value="LOCAL" />
       <updated>1559002921311</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="Accents compiled by mitsunebewbs #44">
+      <created>1559002991178</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1559002991178</updated>
+    </task>
+    <task id="LOCAL-00128" summary="fix">
+      <created>1559003063174</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1559003063174</updated>
+    </task>
+    <task id="LOCAL-00129" summary="nightmare to poring accent #44">
+      <created>1559003242694</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1559003242694</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
     <option name="clearContext" value="false" />
     <option name="createBranch" value="false" />
     <option name="commitChanges" value="false" />
@@ -1013,7 +1007,7 @@
   </component>
   <component name="TimeTrackingManager">
     <option name="enabled" value="true" />
-    <option name="totallyTimeSpent" value="768638000" />
+    <option name="totallyTimeSpent" value="768937000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1076,8 +1070,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/vendor/adamwathan/laravel-preset" />
     </ignored-roots>
-    <MESSAGE value="Notification #22" />
-    <MESSAGE value="Validation, messages &amp; icons #22" />
     <MESSAGE value="Refactor vue component to blade inline template #20" />
     <MESSAGE value="Moment.js for date fields relativity #20" />
     <MESSAGE value="Review commenting, review design, refactor of vue components #20" />
@@ -1097,21 +1089,16 @@
     <MESSAGE value="Overall development, design, configs, more options, presets. #27" />
     <MESSAGE value="Description is not editable. #27" />
     <MESSAGE value="Default description moved to configurator component. #27" />
-    <MESSAGE value="Accents compiled by mitsunebewbs #44" />
     <MESSAGE value="Change" />
     <MESSAGE value="RIP TEST" />
     <MESSAGE value="fix rip test" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix rip test" />
+    <MESSAGE value="Accents compiled by mitsunebewbs #44" />
+    <MESSAGE value="fix" />
+    <MESSAGE value="nightmare to poring accent #44" />
+    <option name="LAST_COMMIT_MESSAGE" value="nightmare to poring accent #44" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/header.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="22" column="35" lean-forward="true" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/lang/en/listing.php" />
     <entry file="file://$PROJECT_DIR$/resources/js/components/ReviewComponent.vue">
       <provider selected="true" editor-type-id="text-editor">
@@ -1367,13 +1354,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/listing/form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="47" column="109" selection-start-line="47" selection-start-column="109" selection-end-line="47" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1381,17 +1361,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ListingController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="88" column="39" lean-forward="true" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
+        <state relative-caret-position="221">
+          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ListingController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/listing/form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+        <state relative-caret-position="277">
+          <caret line="45" column="93" selection-start-line="45" selection-start-column="93" selection-end-line="45" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="62483" column="19" lean-forward="true" selection-start-line="62483" selection-start-column="19" selection-end-line="62483" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="79" column="60" lean-forward="true" selection-start-line="79" selection-start-column="60" selection-end-line="79" selection-end-column="60" />
         </state>
       </provider>
     </entry>

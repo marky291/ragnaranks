@@ -16,13 +16,13 @@
                     description: this.defaultDescription,
                     background: '',
                     screenshots: [],
-										accent: '',
-										configs: {},
+                    accent: '',
+                    configs: {},
                 },
-								accents: [
+                accents: [
                     'nightmare',
                     'poring',
-								],
+                ],
                 dropzoneOptions: {
                     url: '/config/parse',
                     thumbnailWidth: 150,
@@ -39,14 +39,14 @@
             generatePreset() {
                 let preset = _.sample([
                     { accent: 'red', background: '/img/preset/card-red.png'},
-										{ accent: 'purple', background: '/img/preset/card-purple.png'},
-										{ accent: 'green', background: '/img/preset/card-green.png'},
-										{ accent: 'blue', background: '/img/preset/card-blue.png'},
-										{ accent: 'aqua', background: '/img/preset/card-aqua.png'},
-										{ accent: 'black', background: '/img/preset/card-black.png'},
-										{ accent: 'mauve', background: '/img/preset/card-mauve.png'},
-										{ accent: 'pink', background: '/img/preset/card-pink.png'},
-									]);
+                    { accent: 'purple', background: '/img/preset/card-purple.png'},
+                    { accent: 'green', background: '/img/preset/card-green.png'},
+                    { accent: 'blue', background: '/img/preset/card-blue.png'},
+                    { accent: 'aqua', background: '/img/preset/card-aqua.png'},
+                    { accent: 'black', background: '/img/preset/card-black.png'},
+                    { accent: 'mauve', background: '/img/preset/card-mauve.png'},
+                    { accent: 'pink', background: '/img/preset/card-pink.png'},
+                ]);
                 this.listing.accent = preset.accent;
                 this.listing.background = preset.background;
                 this.updateListing();
