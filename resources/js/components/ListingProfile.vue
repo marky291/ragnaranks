@@ -38,9 +38,9 @@
             }
         },
         methods: {
-            getDrop: function (element) {
-                if (_.isObject(this.listing.configs.drops)) {
-                    return this.listing.configs.drops[element];
+            getConfig: function (file, element) {
+                if (_.isObject(this.listing.configs[file])) {
+                    return this.listing.configs[file][element];
                 }
                 return 0;
             },

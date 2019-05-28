@@ -15683,11 +15683,11 @@ __webpack_require__.r(__webpack_exports__);
     return {
       screenshot: '',
       listing: {
-        name: String,
+        name: '',
         tags: [],
-        language: String,
+        language: 'english',
         description: this.defaultDescription,
-        background: String,
+        background: '',
         screenshots: [],
         accent: String,
         configs: {}
@@ -15822,9 +15822,9 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    getDrop: function getDrop(element) {
-      if (_.isObject(this.listing.configs.drops)) {
-        return this.listing.configs.drops[element];
+    getConfig: function getConfig(file, element) {
+      if (_.isObject(this.listing.configs[file])) {
+        return this.listing.configs[file][element];
       }
 
       return 0;

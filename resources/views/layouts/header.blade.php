@@ -5,6 +5,9 @@
                 <at-menu-item name="/">
                     <span>Home</span>
                 </at-menu-item>
+                <at-menu-item name="listing/create">
+                    <span>Add Your Server</span>
+                </at-menu-item>
             </at-menu>
 
         </div>

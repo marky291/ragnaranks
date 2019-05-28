@@ -12,11 +12,11 @@
             return {
                 screenshot: '',
                 listing: {
-                    name: String,
+                    name: '',
                     tags: [],
-                    language: String,
+                    language: 'english',
                     description: this.defaultDescription,
-                    background: String,
+                    background: '',
                     screenshots: [],
                     accent: String,
                     configs: {},
