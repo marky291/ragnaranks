@@ -6,7 +6,7 @@
 			<div class="row pb-5 pt-2">
 				<div id="sidebar" class="col-4">
 					<listing-configurator inline-template :tags="{{ $tags }}" default-description="{{ __('profile.creator.default_description') }}">
-						<at-collapse accordion value="graphics">
+						<at-collapse accordion value="graphics" style="overflow:visible">
 							<at-collapse-item name="details">
 								<div slot="title">Detailing</div>
 								<div class="">
@@ -41,13 +41,13 @@
 								<div class="tw-mt-3">
 									<p class="tw-font-semibold tw-mb-1">Accent Colors</p>
 									<at-select v-model="listing.accent">
-										<at-option v-for="(accent,i) in accents" :key="i" value="accent" class="important:tw-flex tw-items-center">@{{ accent }}
+										<at-option v-for="(accent,i) in accents" :label="accent" :key="i" :value="accent" class="tw-items-center">@{{ accent }}
 											<div class="tw-flex-1 tw-flex tw-flex-row">
-												<div class="tw-h-4 tw-w-2 tw-flex-1 bg-nightmare-lightest"></div>
-												<div class="tw-h-4 tw-w-2 tw-flex-1 bg-nightmare-light"></div>
-												<div class="tw-h-4 tw-w-2 tw-flex-1 bg-nightmare-base"></div>
-												<div class="tw-h-4 tw-w-2 tw-flex-1 bg-nightmare-dark"></div>
-												<div class="tw-h-4 tw-w-2 tw-flex-1 bg-nightmare-darkest"></div>
+												<div class="tw-h-4 tw-w-2 tw-flex-1" :class="'bg-'+accent+'-lightest'"></div>
+												<div class="tw-h-4 tw-w-2 tw-flex-1" :class="'bg-'+accent+'-light'"></div>
+												<div class="tw-h-4 tw-w-2 tw-flex-1" :class="'bg-'+accent+'-base'"></div>
+												<div class="tw-h-4 tw-w-2 tw-flex-1" :class="'bg-'+accent+'-dark'"></div>
+												<div class="tw-h-4 tw-w-2 tw-flex-1" :class="'bg-'+accent+'-darkest'"></div>
 											</div>
 										</at-option>
 									</at-select>

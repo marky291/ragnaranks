@@ -1,6 +1,6 @@
 
-<div data-aos="fade-down" data-aos-once="true" class="mb-3 use-accent-poring server-card item flex-fill shadow border rounded">
-	<div id="profile-card" class="profile-block">
+<div :class="'use-accent-'+listing.accent" class="mb-3 server-card item flex-fill shadow border rounded">
+	<div id="profile-card" class="profile-block" data-aos="fade-down" data-aos-once="true">
 		<div class="server-card-head image rounded-top" style="height:350px;" v-bind:style="{ backgroundImage: 'url(' + listing.background + ')' }"></div>
 		<div class="server-card-head overlap d-flex" style="margin-top:-169px;">
 			<i class="fas fa-arrow-left tw-text-white tw-text-2xl tw-absolute tw-align-top"></i>

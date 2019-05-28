@@ -15689,7 +15689,7 @@ __webpack_require__.r(__webpack_exports__);
         accent: '',
         configs: {}
       },
-      accents: ['nightmare', 'poring'],
+      accents: ['nightmare', 'poring', 'deviling', 'ghostring', 'drops', 'poporing', 'pouring'],
       dropzoneOptions: {
         url: '/config/parse',
         thumbnailWidth: 150,
@@ -15707,28 +15707,28 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     generatePreset: function generatePreset() {
       var preset = _.sample([{
-        accent: 'red',
+        accent: 'nightmare',
         background: '/img/preset/card-red.png'
       }, {
-        accent: 'purple',
+        accent: 'deviling',
         background: '/img/preset/card-purple.png'
       }, {
-        accent: 'green',
+        accent: 'poporing',
         background: '/img/preset/card-green.png'
       }, {
-        accent: 'blue',
+        accent: 'pouring',
         background: '/img/preset/card-blue.png'
       }, {
-        accent: 'aqua',
+        accent: 'ghostring',
         background: '/img/preset/card-aqua.png'
       }, {
-        accent: 'black',
+        accent: 'nightmare',
         background: '/img/preset/card-black.png'
       }, {
-        accent: 'mauve',
+        accent: 'drops',
         background: '/img/preset/card-mauve.png'
       }, {
-        accent: 'pink',
+        accent: 'poring',
         background: '/img/preset/card-pink.png'
       }]);
 
@@ -68733,8 +68733,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Zina\Documents\Websites\ragnaranks\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Zina\Documents\Websites\ragnaranks\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/markhester/Documents/Websites/ragnaranks/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/markhester/Documents/Websites/ragnaranks/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
