@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class ServerModes
+ * Class ServerModes.
  *
  * @property int $id
  * @property string $tag
@@ -14,7 +14,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $description
  * @property Carbon $updated_at
  * @property Carbon $created_at
- * @package App
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Mode newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Mode newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Mode query()

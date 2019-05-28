@@ -2,17 +2,13 @@
 
 namespace Tests\Unit;
 
+use Carbon\Carbon;
+use Tests\TestCase;
 use App\Listings\Listing;
 use App\Interactions\Vote;
-use Carbon\Carbon;
-use Mockery\Mock;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class VoteTest extends TestCase
 {
-
     /**
      * @test
      */

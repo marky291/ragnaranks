@@ -15,13 +15,13 @@ return [
         /*
          | Spread is the hourly time.
          */
-        'spread' => 6
+        'spread' => 6,
     ],
 
     'click' => [
         /*
          | Spread is the hourly time.
          */
-        'spread' => 1
-    ]
+        'spread' => 1,
+    ],
 ];

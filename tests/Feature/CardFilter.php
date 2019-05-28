@@ -2,9 +2,9 @@
 
 namespace Tests\Feature;
 
-use App\Listings\Listing;
 use App\Vote;
 use Tests\TestCase;
+use App\Listings\Listing;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CardFilter extends TestCase
@@ -12,7 +12,7 @@ class CardFilter extends TestCase
     use RefreshDatabase;
 
     /**
-     * Setup
+     * Setup.
      */
     protected function setUp()
     {
@@ -149,9 +149,8 @@ class CardFilter extends TestCase
 
         $collection = $response->getOriginalContent()->getData()['servers'];
 
-        /** @var Listing $item */
-        foreach ($collection as $server)
-        {
+        /* @var Listing $item */
+        foreach ($collection as $server) {
             $this->assertEquals('Low Rate', $server->exp_group);
         }
     }
@@ -163,8 +162,8 @@ class CardFilter extends TestCase
     {
         $server = factory(Listing::class, 2)->create();
 
-        $server[0]->mode->update(["name" => "renewal"]);
-        $server[1]->mode->update(["name" => "pre-renewal"]);
+        $server[0]->mode->update(['name' => 'renewal']);
+        $server[1]->mode->update(['name' => 'pre-renewal']);
 
         $response = $this->get('/servers/all/renewal/votes_count/desc');
 
@@ -172,8 +171,7 @@ class CardFilter extends TestCase
 
         $collection = $response->getOriginalContent()->getData()['servers'];
 
-        foreach ($collection as $item)
-        {
+        foreach ($collection as $item) {
             $this->assertEquals('renewal', $item->mode->name);
         }
     }

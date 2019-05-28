@@ -2,17 +2,12 @@
 
 namespace Tests\Unit;
 
-use App\Listings\Listing;
-use App\Listings\ListingFilter;
-use App\Mode;
 use App\Tag;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Query\Builder;
-use Illuminate\Support\Facades\Cache;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Listings\Listing;
+use App\Listings\ListingFilter;
+use Illuminate\Database\Eloquent\Collection;
 
 class ListingFilterTest extends TestCase
 {
@@ -29,7 +24,7 @@ class ListingFilterTest extends TestCase
 
         $this->assertCount(3, $listings->filterMode('renewal')->all());
     }
-    
+
     /**
      * @test
      */
@@ -79,8 +74,8 @@ class ListingFilterTest extends TestCase
      */
     public function it_can_order_the_filter_by_rank()
     {
-        $listing2 = $this->createListing(['name' => 'second'], 3,3);
-        $listing1 = $this->createListing(['name' => 'first'], 6,2);
+        $listing2 = $this->createListing(['name' => 'second'], 3, 3);
+        $listing1 = $this->createListing(['name' => 'first'], 6, 2);
 
         /** @var Collection $listings */
         $listings = app('listings');
@@ -97,9 +92,9 @@ class ListingFilterTest extends TestCase
      */
     public function it_can_order_the_filter_by_vote_count()
     {
-        $listing2 = $this->createListing(['name' => 'second'], 1,3);
+        $listing2 = $this->createListing(['name' => 'second'], 1, 3);
 
-        $listing1 = $this->createListing(['name' => 'first'], 3,3);
+        $listing1 = $this->createListing(['name' => 'first'], 3, 3);
 
         /** @var Collection $listings */
         $listings = app('listings')->filterSort('votes_count');
@@ -112,9 +107,9 @@ class ListingFilterTest extends TestCase
      */
     public function it_can_order_the_filter_by_clicks_count()
     {
-        $listing2 = $this->createListing(['name' => 'second'], 3,1);
+        $listing2 = $this->createListing(['name' => 'second'], 3, 1);
 
-        $listing1 = $this->createListing(['name' => 'first'], 1,3);
+        $listing1 = $this->createListing(['name' => 'first'], 1, 3);
 
         /** @var Collection $listings */
         $listings = app('listings')->filterSort('clicks_count');
@@ -155,8 +150,8 @@ class ListingFilterTest extends TestCase
     public function test_it_can_filter_by_tag()
     {
         /** @var Listing $listing */
-        $listing1 = $this->createListing([], 0, 0,0);
-        $listing2 = $this->createListing([], 0, 0,0);
+        $listing1 = $this->createListing([], 0, 0, 0);
+        $listing2 = $this->createListing([], 0, 0, 0);
 
         $listing1->tags()->save(factory(Tag::class)->make(['tag' => 'foo']));
         $listing2->tags()->save(factory(Tag::class)->make(['tag' => 'bar']));

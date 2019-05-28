@@ -12,7 +12,6 @@ $factory->define(\App\Listings\ListingScreenshot::class, function (Faker $faker)
 });
 
 $factory->define(Listing::class, function (Faker $faker) {
-
     $server = array_random(config('fake.listings'));
 
     return [

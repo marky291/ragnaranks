@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ReviewCommentRequest;
 use App\Interactions\Review;
-use App\Notifications\ReviewCommentPublished;
-use App\ReviewComment;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Http\Requests\ReviewCommentRequest;
+use App\Notifications\ReviewCommentPublished;
 
 class ReviewCommentController extends Controller
 {
-
     /**
      * Store a newly created resource in storage.
      *

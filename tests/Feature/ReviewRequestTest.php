@@ -2,18 +2,16 @@
 
 namespace Tests\Feature;
 
+use Tests\TestCase;
 use App\Listings\Listing;
 use App\Interactions\Review;
-use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\Auth;
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ReviewRequestTest extends TestCase
 {
     use WithFaker;
-
     use RefreshDatabase;
 
     /**
@@ -33,7 +31,6 @@ class ReviewRequestTest extends TestCase
         $this->listing = factory(Listing::class)->create();
     }
 
-
     /**
      * @test
      */
@@ -47,7 +44,7 @@ class ReviewRequestTest extends TestCase
 
         $review = factory(Review::class)->make(['message' => $this->faker->sentence(300)]);
 
-        $this->post("/listing/listing-name/reviews", $review->toArray());
+        $this->post('/listing/listing-name/reviews', $review->toArray());
 
         $this->assertCount(1, $listing->reviews);
 
@@ -77,7 +74,7 @@ class ReviewRequestTest extends TestCase
 
         $this->listing->reviews()->save(factory(Review::class)->create());
 
-        $this->patch("/listing/{$this->listing->slug}/reviews/{$this->listing->reviews()->first()->id}", ['message' => "foo bar"]);
+        $this->patch("/listing/{$this->listing->slug}/reviews/{$this->listing->reviews()->first()->id}", ['message' => 'foo bar']);
 
         $this->assertDatabaseHas('reviews', ['id' => $this->listing->reviews()->first()->getkey(), 'message' => 'foo bar']);
     }

@@ -2,11 +2,8 @@
 
 namespace Tests\Unit;
 
-use App\Listings\Listing;
-use Illuminate\Support\Facades\Cache;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Listings\Listing;
 
 class ListingObserverTest extends TestCase
 {

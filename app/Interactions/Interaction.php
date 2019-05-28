@@ -3,28 +3,26 @@
  * Created by PhpStorm.
  * User: markhester
  * Date: 17/01/2019
- * Time: 21:10
+ * Time: 21:10.
  */
 
 namespace App\Interactions;
 
-use App\Listings\Listing;
 use App\User;
-use Illuminate\Database\Eloquent\Collection;
+use App\Listings\Listing;
+use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 
 /**
- * Class Interaction
+ * Class Interaction.
  *
  * @method static Collection byClientIp($ip_address)
  * @method Collection latestByCurrentClientIp()
  * @method Collection hasClientInteractedWith($hours)
  *
  * @property User $publisher
- *
- * @package App\Interactions
  */
 abstract class Interaction extends Model
 {
@@ -37,7 +35,7 @@ abstract class Interaction extends Model
      */
     public function listings()
     {
-        return $this->morphToMany(Listing::class,'interaction');
+        return $this->morphToMany(Listing::class, 'interaction');
     }
 
     /**
@@ -52,7 +50,7 @@ abstract class Interaction extends Model
     }
 
     /**
-     * A review has a single publisher user
+     * A review has a single publisher user.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -62,7 +60,7 @@ abstract class Interaction extends Model
     }
 
     /**
-     * Scope votes to the current logged in IP Address
+     * Scope votes to the current logged in IP Address.
      * @param Builder $query
      * @param string $ip_address
      */
@@ -86,8 +84,8 @@ abstract class Interaction extends Model
      * @param int $hours
      * @return bool
      */
-   public function scopeHasClientInteractedWith(Builder $query, int $hours)
-   {
-       return Carbon::now()->subHours($hours) <= $query->latestByCurrentClientIp()->pluck('created_at')->first();
-   }
+    public function scopeHasClientInteractedWith(Builder $query, int $hours)
+    {
+        return Carbon::now()->subHours($hours) <= $query->latestByCurrentClientIp()->pluck('created_at')->first();
+    }
 }

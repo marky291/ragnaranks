@@ -1,7 +1,7 @@
 <?php
 
 /**
- * /servers/{exp_group}/{mode}/{sort}/{orderBy}
+ * /servers/{exp_group}/{mode}/{sort}/{orderBy}.
  *
  * @param string $exp_group
  * @param string $mode
@@ -9,7 +9,7 @@
  * @param string $orderBy
  * @return string
  */
-function filter_query($exp_group = "all", $mode = "any", $tags = "any", $sorting = "all", $paginate = 7)
+function filter_query($exp_group = 'all', $mode = 'any', $tags = 'any', $sorting = 'all', $paginate = 7)
 {
     return route('filter.query', [$exp_group, $mode, $tags, $sorting, $paginate]);
 }

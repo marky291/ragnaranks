@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Tags
+ * Class Tags.
  *
  * @property int $id
  * @property string $tag
@@ -15,14 +15,11 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property Carbon $created_at
  * @property Carbon $updated_at
- *
- * @package App
  */
 class Tag extends Model
 {
-
     /**
-     * Disable updated_at column
+     * Disable updated_at column.
      */
     const UPDATED_AT = null;
 

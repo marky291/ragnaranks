@@ -3,17 +3,14 @@
 namespace App\Listings;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Support\Facades\Cache;
 
 /**
- * Class AddListingToContainer
- *
- * @package App\Listings
+ * Class AddListingToContainer.
  */
 class AddListingToContainer implements ShouldQueue
 {
@@ -41,8 +38,7 @@ class AddListingToContainer implements ShouldQueue
      */
     public function handle()
     {
-        if (Cache::has('listings'))
-        {
+        if (Cache::has('listings')) {
             $this->listing->setAttribute('rank', $this->listing->id);
 
             Cache::get('listings')->push($this->listing);

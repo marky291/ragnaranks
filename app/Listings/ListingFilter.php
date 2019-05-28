@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: markhester
  * Date: 20/12/2018
- * Time: 11:40
+ * Time: 11:40.
  */
 
 namespace App\Listings;
@@ -13,11 +13,9 @@ use App\User;
 use Illuminate\Database\Eloquent\Collection;
 
 /**
- * Class ListingFilter
+ * Class ListingFilter.
  *
  * Allows filtering Based on the url query input.
- *
- * @package App\Listings
  */
 class ListingFilter extends Collection
 {
@@ -28,10 +26,10 @@ class ListingFilter extends Collection
      *
      * @return ListingFilter
      */
-    public function filterMode(string $mode = "all")
+    public function filterMode(string $mode = 'all')
     {
         if (in_array($mode, ['renewal', 'pre-renewal', 'classic', 'custom'])) {
-            return $this->filter(function(Listing $listing) use ($mode) {
+            return $this->filter(function (Listing $listing) use ($mode) {
                 return $listing->mode->name == $mode;
             });
         }
@@ -46,10 +44,10 @@ class ListingFilter extends Collection
      *
      * @return ListingFilter
      */
-    public function filterGroup(string $rate = "all")
+    public function filterGroup(string $rate = 'all')
     {
         if (in_array($rate, ['low-rate', 'mid-rate', 'high-rate', 'custom', 'classic'])) {
-            return $this->filter(function(Listing $listing) use ($rate) {
+            return $this->filter(function (Listing $listing) use ($rate) {
                 return ucwords(str_replace('-', ' ', $rate)) == $listing->expRateTitle;
             });
         }
@@ -66,7 +64,7 @@ class ListingFilter extends Collection
      */
     public function filterOwner(User $user)
     {
-        return $this->filter(function(Listing $listing) use ($user) {
+        return $this->filter(function (Listing $listing) use ($user) {
             return $listing->user->is($user);
         });
     }
@@ -80,7 +78,7 @@ class ListingFilter extends Collection
     public function filterTag(string $tag)
     {
         if (in_array($tag, Tag::all()->pluck('tag')->toArray(), true)) {
-            return $this->filter(static function(Listing $listing) use ($tag) {
+            return $this->filter(static function (Listing $listing) use ($tag) {
                 return $listing->tags->contains('tag', $tag);
             });
         }

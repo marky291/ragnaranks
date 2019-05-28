@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,13 +19,13 @@ Auth::routes(['verify' => true]);
 
 // listing controllers.
 Route::resource('listing', 'ListingController')->only([
-    'index', 'show', 'create'
+    'index', 'show', 'create',
 ]);
 Route::resource('review.comment', 'ReviewCommentController', ['middleware'=>['auth']])->only([
-    'store'
+    'store',
 ]);
 Route::resource('listing.reviews', 'ReviewController', ['middleware' => ['auth']])->only([
-    'store', 'update', 'destroy'
+    'store', 'update', 'destroy',
 ]);
 
 // default index page.
