@@ -6,6 +6,7 @@
 
 import * as axios from "axios";
 import AOS from 'aos';
+import SimpleVueValidation from 'simple-vue-validator';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 
 AOS.init();
@@ -44,6 +45,7 @@ import Vue from 'vue';
 import AtComponents from 'at-ui'
 
 Vue.use(AtComponents);
+Vue.use(SimpleVueValidation);
 // =-=-=-=-=-=-=-=-=-=-=-=
 
 Vue.mixin({

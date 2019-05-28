@@ -53,13 +53,19 @@
 									</at-select>
 								</div>
 								<div class="tw-mt-3">
-									<p class="tw-font-semibold tw-mb-1">Screenshots</p>
-									<div class="tw-flex tw-flex-row">
-										<at-input @change="updateListing" v-model="screenshot" class="tw-flex-1 tw-mr-2" placeholder="Enter an Image URL"></at-input>
-										<at-button @click="addScreenshot" class="tw-h-1 tw-w-1 tw-mt-2 tw-mr-2" type="primary" icon="icon-plus" circle></at-button>
+									<div class="tw-flex tw-flex-row tw-justify-around">
+										<p class="tw-flex-1 tw-font-semibold tw-mb-1">Screenshots</p>
+										<div class="tw-flex-1 tw-text-right help-block invalid-feedback">@{{ validation.firstError('screenshot') }}</div>
 									</div>
-									<span v-for="screenshot in listing.screenshots">
-										<p>@{{ screenshot }}</p>
+									<div class="tw-flex tw-flex-row tw-mb-3">
+										<at-input @keyup.enter.native="addScreenshot" :status="validation.hasError('screenshot') ? 'error' : ''" @change="updateListing" icon="link" type="url" v-model="screenshot" class="tw-flex-1 tw-mr-2" placeholder="Enter an Image URL"></at-input>
+										<at-button :disabled="validation.hasError('screenshot')" @click="addScreenshot" type="primary" icon="icon-plus"></at-button>
+									</div>
+									<span v-for="(screenshot, i) in listing.screenshots">
+										<span class="tw-flex tw-flex-row tw-mb-2">
+											<at-button @click="removeScreenshot(i)" size="small" icon="icon-trash-2 tw-text-red" class="tw-mr-2" circle></at-button>
+											<at-input size="small" :placeholder="screenshot" class="tw-flex-1" disabled></at-input>
+										</span>
 									</span>
 								</div>
 							</at-collapse-item>

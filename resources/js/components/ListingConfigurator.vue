@@ -1,6 +1,7 @@
 <script>
-    import vue2Dropzone from 'vue2-dropzone'
-    import 'vue2-dropzone/dist/vue2Dropzone.min.css'
+    import vue2Dropzone from 'vue2-dropzone';
+    import 'vue2-dropzone/dist/vue2Dropzone.min.css';
+    import {Validator} from 'simple-vue-validator';
 
     export default {
         props: ['tags', 'defaultDescription'],
@@ -11,13 +12,13 @@
             return {
                 screenshot: '',
                 listing: {
-                    name: '',
+                    name: String,
                     tags: [],
-                    language: '',
+                    language: String,
                     description: this.defaultDescription,
-                    background: '',
+                    background: String,
                     screenshots: [],
-                    accent: '',
+                    accent: String,
                     configs: {},
                 },
                 accents: [
@@ -42,6 +43,9 @@
             this.generatePreset();
         },
         methods: {
+            removeScreenshot(index) {
+                this.listing.screenshots.splice(index, 1);
+            },
             generatePreset() {
                 let preset = _.sample([
                     {accent: 'nightmare', background: '/img/preset/card-red.png'},
@@ -58,7 +62,10 @@
                 this.updateListing();
             },
             addScreenshot() {
-                this.listing.screenshots.push(this.screenshot);
+                if (!_.isEmpty(this.screenshot)) {
+                    this.listing.screenshots.push(this.screenshot);
+                    this.screenshot = '';
+                }
             },
             updateListing() {
                 this.$root.$emit('listing:profile:modified', {
@@ -69,6 +76,11 @@
                 this.listing.configs[file.name.split(".")[0]] = response;
                 this.$Message.success('The configuration inside ' + file.name + " has been added to your listing");
                 this.updateListing();
+            }
+        },
+        validators: {
+            screenshot: function (value) {
+                return Validator.value(value).url();
             }
         }
     }
