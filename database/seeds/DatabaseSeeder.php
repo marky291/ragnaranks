@@ -77,7 +77,7 @@ class DatabaseSeeder extends Seeder
     }
 
     /**
-     * Seed some interactions that would be made on the site.
+     * Seed some interactions that would be made on the site
      */
     public function seedInteractions()
     {
