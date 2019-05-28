@@ -15792,6 +15792,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   computed: {
+    screenshots: function screenshots() {
+      return _.isEmpty(this.listing.screenshots) ? ['/img/preset/slider_one.png', '/img/preset/slider_two.png', '/img/preset/slider_three.png'] : this.listing.screenshots;
+    },
     serverName: function serverName() {
       return _.isEmpty(this.listing.name) ? 'Default RO' : this.listing.name;
     },
