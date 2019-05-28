@@ -63,15 +63,15 @@ $accents: (
 	  color: map_get($accent, darkest);
 	}
 	.scoreboard-low {
-	  color: #343a40;
-	  background-color: map_get($accent, lightest)
+		color: $scoreboard-text;
+		background-color: map_get($accent, lightest)
 	 }
 	.scoreboard-mid {
-	  color: #343a40;
+		color: $scoreboard-text;
 	  background-color: map_get($accent, light)
 	}
 	.scoreboard-high {
-	  color: #343a40;
+	  color: $scoreboard-text;
 	  background-color: map_get($accent, base)
 	}
   }

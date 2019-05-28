@@ -62467,7 +62467,7 @@ function parseFilters (exp) {
     pushFilter();
   }
 
-  function git pushFilter () {
+  function pushFilter () {
     (filters || (filters = [])).push(exp.slice(lastFilterIndex, i).trim());
     lastFilterIndex = i + 1;
   }
