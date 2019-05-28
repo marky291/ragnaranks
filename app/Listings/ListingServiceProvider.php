@@ -2,19 +2,15 @@
 
 namespace App\Listings;
 
-use Cache;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Class ListingServiceProvider
- *
- * @package App\Listings
+ * Class ListingServiceProvider.
  */
 class ListingServiceProvider extends ServiceProvider
 {
-
     /**
      * Bootstrap any application services.
      *
@@ -44,7 +40,7 @@ class ListingServiceProvider extends ServiceProvider
         });
 
         // listings are everything... [cached]
-        $this->app->singleton('listings', static function() {
+        $this->app->singleton('listings', static function () {
             return ListingCacheContainer::dispatchNow();
         });
     }

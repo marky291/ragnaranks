@@ -3,12 +3,9 @@
 namespace App;
 
 use Illuminate\Support\Collection;
-use Illuminate\Support\Str;
 
 /**
- * Class ConfigParser
- *
- * @package App
+ * Class ConfigParser.
  */
 class ConfigParser
 {
@@ -38,7 +35,7 @@ class ConfigParser
 
         foreach (array_flatten($this->matches) as $line) {
             $segment = explode(': ', $line);
-            $this->configs->put($segment[0], (int)$segment[1]);
+            $this->configs->put($segment[0], (int) $segment[1]);
         }
 
         return $this->configs;

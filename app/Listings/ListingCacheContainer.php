@@ -3,12 +3,11 @@
 namespace App\Listings;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Support\Facades\Cache;
 
 class ListingCacheContainer implements ShouldQueue
 {
@@ -23,11 +22,10 @@ class ListingCacheContainer implements ShouldQueue
      */
     public function handle()
     {
-        return cache()->remember('listings', 1, static function()
-        {
+        return cache()->remember('listings', 1, static function () {
             $listings = Listing::query()->withCount(['votes', 'clicks'])->with(['mode', 'tags', 'screenshots'])->get();
 
-            $listings = $listings->sortByDesc(function(Listing $listing)  {
+            $listings = $listings->sortByDesc(function (Listing $listing) {
                 return $listing->points;
             });
 

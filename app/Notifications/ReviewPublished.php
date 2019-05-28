@@ -5,8 +5,6 @@ namespace App\Notifications;
 use App\Listings\Listing;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 
 class ReviewPublished extends Notification
 {
@@ -24,7 +22,6 @@ class ReviewPublished extends Notification
      */
     public function __construct(Listing $listing)
     {
-
         $this->listing = $listing;
     }
 
@@ -50,7 +47,7 @@ class ReviewPublished extends Notification
         return [
             'title' => 'Listing received a review',
             'message' => 'A user has just left a review on your server listing. If you find this or any reviews made on your listing to be breaking review guidelines, please use the report option found at the bottom of the review.',
-            'link' => "/listing/{$this->listing->slug}"
+            'link' => "/listing/{$this->listing->slug}",
         ];
     }
 }

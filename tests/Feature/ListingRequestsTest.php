@@ -2,10 +2,7 @@
 
 namespace Tests\Feature;
 
-use mysql_xdevapi\Collection;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ListingRequestsTest extends TestCase
 {
@@ -45,7 +42,7 @@ class ListingRequestsTest extends TestCase
     {
         $listing = $this->createListing([], 0, 0);
 
-        $response = $this->json('get','/servers/all/all/all/all/1');
+        $response = $this->json('get', '/servers/all/all/all/all/1');
 
         $response->assertJson([['name' => $listing->name]]);
     }
@@ -53,7 +50,7 @@ class ListingRequestsTest extends TestCase
     public function test_it_returns_ordered_rank_from_queryAPI()
     {
         $listing2 = $this->createListing(['name' => 'last'], 0, 0);
-        $listing1 = $this->createListing(['name' => 'first'],  5, 5);
+        $listing1 = $this->createListing(['name' => 'first'], 5, 5);
 
         $response = $this->json('get', '/servers/all/all/all/rank/2');
 

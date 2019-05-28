@@ -2,11 +2,9 @@
 
 namespace Tests\Feature;
 
-use App\Interactions\Click;
-use App\Listings\Listing;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Listings\Listing;
+use App\Interactions\Click;
 
 class ClickRequestTest extends TestCase
 {
@@ -19,7 +17,7 @@ class ClickRequestTest extends TestCase
 
         $listing->clicks()->save(new Click);
 
-        $this->post("/listing/listing-name/clicks", [], ['REMOTE_ADDR' => '127.0.0.1']);
+        $this->post('/listing/listing-name/clicks', [], ['REMOTE_ADDR' => '127.0.0.1']);
 
         $this->assertCount(1, $listing->clicks);
     }
@@ -35,7 +33,7 @@ class ClickRequestTest extends TestCase
 
         $listing = factory(Listing::class)->create(['slug' => 'listing-name']);
 
-        $this->post("/listing/listing-name/clicks", [], ['REMOTE_ADDR' => $ip_address]);
+        $this->post('/listing/listing-name/clicks', [], ['REMOTE_ADDR' => $ip_address]);
 
         $this->assertCount(1, $listing->clicks);
 

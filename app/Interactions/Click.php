@@ -2,14 +2,11 @@
 
 namespace App\Interactions;
 
-use App\Listings\Listing;
 use App\Periods;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Collection;
 
 /**
- * Class Click
+ * Class Click.
  *
  * @property int $id
  * @property string $ip_address
@@ -17,13 +14,10 @@ use Illuminate\Support\Collection;
  *
  * @property Carbon $created_at
  * @property Carbon $updated_at
- *
- * @package App
  */
 class Click extends Interaction
 {
-
-    /**
+    /*
      * Scope methods for certain days.
      */
     use Periods;

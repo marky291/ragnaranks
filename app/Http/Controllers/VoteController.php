@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Interactions\Vote;
 use App\Listings\Listing;
-use Carbon\Carbon;
+use App\Interactions\Vote;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Response;
 
 class VoteController extends Controller
 {
@@ -19,16 +17,14 @@ class VoteController extends Controller
     {
         $spread = config('interaction.vote.spread');
 
-        if (!$listing->votes()->hasClientInteractedWith($spread))
-        {
+        if (! $listing->votes()->hasClientInteractedWith($spread)) {
             $listing->votes()->create(['ip_address' => request()->getClientIp()]);
         }
 
-        if ($request->expectsJson())
-        {
+        if ($request->expectsJson()) {
             return;
         }
 
-        redirect()->back()->with(["flash" => "You can only vote every {$spread} hours."]);
+        redirect()->back()->with(['flash' => "You can only vote every {$spread} hours."]);
     }
 }

@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ReviewRequest;
-use App\Interactions\Interaction;
-use App\Interactions\Vote;
 use App\Listings\Listing;
 use App\Interactions\Review;
-use App\Notifications\ReviewPublished;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use App\Http\Requests\ReviewRequest;
+use Illuminate\Http\RedirectResponse;
+use App\Notifications\ReviewPublished;
 
 class ReviewController extends Controller
 {

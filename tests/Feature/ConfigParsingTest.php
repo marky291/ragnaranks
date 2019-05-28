@@ -2,11 +2,9 @@
 
 namespace Tests\Feature;
 
+use Tests\TestCase;
 use App\ConfigParser;
 use Illuminate\Support\Collection;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ConfigParsingTest extends TestCase
 {

@@ -2,11 +2,8 @@
 
 namespace App\Interactions;
 
-use App\Interactions\InteractionObserver;
-use App\Interactions\Review;
-use App\Interactions\Vote;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\ServiceProvider;
 
 class InteractionServiceProvider extends ServiceProvider
 {

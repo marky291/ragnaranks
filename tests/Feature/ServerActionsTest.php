@@ -2,9 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Listings\Listing;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
+use App\Listings\Listing;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ServerActionsTest extends TestCase
@@ -12,7 +11,7 @@ class ServerActionsTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * Setup
+     * Setup.
      */
     protected function setUp()
     {

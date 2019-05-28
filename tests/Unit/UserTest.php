@@ -2,13 +2,11 @@
 
 namespace Tests\Unit;
 
+use App\User;
+use Tests\TestCase;
 use App\Listings\Listing;
 use App\Interactions\Review;
-use App\User;
 use Illuminate\Support\Facades\Auth;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class UserTest extends TestCase
 {

@@ -13,7 +13,7 @@ class CreateServerTable extends Migration
      */
     public function up()
     {
-        Schema::create('modes', function(Blueprint $table) {
+        Schema::create('modes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('tag');
             $table->string('name');
@@ -28,7 +28,7 @@ class CreateServerTable extends Migration
             'name' => 'renewal',
             'description' => 'This listing is based on renewal format',
             'created_at' => now(),
-        ],[
+        ], [
             'tag' => 'pre-re',
             'name' => 'pre-renewal',
             'description' => 'This listing is based on pre-renewal format',
@@ -43,10 +43,10 @@ class CreateServerTable extends Migration
             'name' => 'classic',
             'description' => 'This listing uses a classic format.',
             'created_at' => now(),
-        ]
+        ],
         ]);
 
-        Schema::create('tags', function(Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->increments('id');
             $table->string('tag');
             $table->string('name');
@@ -67,32 +67,32 @@ class CreateServerTable extends Migration
             'name' => 'Gepard Protection',
             'description' => 'This listing supports anti-bot and anti-hack software.',
             'created_at' => now(),
-        ],[
+        ], [
             'tag' => 'g-pack',
             'name' => 'Guild Pack',
             'description' => 'A guild can obtain a large amount of freebies for their members once they login.',
             'created_at' => now(),
-        ],[
+        ], [
             'tag' => 'pk',
             'name' => 'PK Mode',
             'description' => 'Players are able to engage in player vs player in all areas except towns.',
             'created_at' => now(),
-        ],[
+        ], [
             'tag' => 'mobile',
             'name' => 'Mobile Support',
             'description' => 'This server can be installed, played and enjoyed on Android Devices.',
             'created_at' => now(),
-        ],[
+        ], [
             'tag' => 'frost',
             'name' => 'Frost Server',
             'description' => 'Players can obtain starting items once they login.',
             'created_at' => now(),
-        ],[
+        ], [
             'tag' => 'no donations',
             'name' => 'No Donations',
             'description' => 'Players are unable to obtain items through donation methods.',
             'created_at' => now(),
-        ]
+        ],
         ]);
 
         Schema::create('listings', function (Blueprint $table) {
@@ -112,7 +112,7 @@ class CreateServerTable extends Migration
             $table->foreign('mode_id')->references('id')->on('modes')->onUpdate('cascade');
         });
 
-        Schema::create('listing_tag', function(Blueprint $table) {
+        Schema::create('listing_tag', function (Blueprint $table) {
             $table->unsignedInteger('listing_id');
             $table->unsignedInteger('tag_id');
             $table->primary(['listing_id', 'tag_id']);
@@ -120,7 +120,7 @@ class CreateServerTable extends Migration
             $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade')->onUpdate('cascade');
         });
 
-        Schema::create('listing_screenshots', function(Blueprint $table) {
+        Schema::create('listing_screenshots', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('listing_id');
             $table->string('link');
@@ -128,7 +128,7 @@ class CreateServerTable extends Migration
             $table->foreign('listing_id')->references('id')->on('listings')->onDelete('cascade')->onUpdate('cascade');
         });
 
-        Schema::create('reviews', function(Blueprint $table) {
+        Schema::create('reviews', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('publisher_id');
             $table->ipAddress('ip_address');
@@ -144,7 +144,7 @@ class CreateServerTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('review_comments', function(Blueprint $table) {
+        Schema::create('review_comments', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('review_id');
             $table->longText('message');
@@ -165,13 +165,11 @@ class CreateServerTable extends Migration
             $table->timestamp('created_at')->useCurrent();
         });
 
-        Schema::create('interactions', function(Blueprint $table)
-        {
+        Schema::create('interactions', function (Blueprint $table) {
             $table->unsignedInteger('listing_id');
-            $table->unsignedBigInteger("interaction_id");
-            $table->string("interaction_type");
-            $table->index(["interaction_type", "interaction_id"]);
-
+            $table->unsignedBigInteger('interaction_id');
+            $table->string('interaction_type');
+            $table->index(['interaction_type', 'interaction_id']);
         });
     }
 

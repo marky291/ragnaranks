@@ -2,16 +2,13 @@
 
 namespace Tests\Unit;
 
-use App\Interactions\Click;
-use App\Listings\Listing;
 use Carbon\Carbon;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Listings\Listing;
+use App\Interactions\Click;
 
 class ClickTest extends TestCase
 {
-
     /**
      * @test
      */

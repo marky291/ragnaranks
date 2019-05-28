@@ -2,31 +2,27 @@
 
 namespace App;
 
-use App\Interactions\Review;
-use App\Listings\Listing;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Support\Facades\Request;
-use Illuminate\Support\Facades\Validator;
+use App\Listings\Listing;
+use App\Interactions\Review;
 use Illuminate\Validation\Rule;
-use phpDocumentor\Reflection\Types\Iterable_;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
 /**
- * Class User
+ * Class User.
  *
  * @property int id
  * @property Listing|iterable $listings
  * @property Listing|iterable $reviews
  * @property int $membership_id
  * @property Carbon $membership_expiry
- *
- * @package App
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
-
     use Notifiable;
 
     /**

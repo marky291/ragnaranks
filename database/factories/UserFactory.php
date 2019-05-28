@@ -20,11 +20,11 @@ $factory->define(App\User::class, function (Faker $faker) {
         'email_verified_at' => now(),
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         'remember_token' => str_random(10),
-        'avatarUrl' => 'https://forums.xilero.net/uploads/monthly_2019_03/Ragnarok.Chronicle_full.1603769.thumb.jpg.9228c6e958031d09fa6cf9613cacc219.jpg'
+        'avatarUrl' => 'https://forums.xilero.net/uploads/monthly_2019_03/Ragnarok.Chronicle_full.1603769.thumb.jpg.9228c6e958031d09fa6cf9613cacc219.jpg',
     ];
 });
 
-$factory->define(\App\Interactions\Review::class, function(Faker $faker) {
+$factory->define(\App\Interactions\Review::class, function (Faker $faker) {
     return [
         'message' => $faker->text(rand(300, 500)),
         'publisher_id' => factory(\App\User::class)->create()->id,
@@ -50,6 +50,7 @@ $factory->define(App\Mode::class, function (Faker $faker) {
 
 $factory->define(\App\Tag::class, function (Faker $faker) {
     $name = $faker->colorName;
+
     return [
         'tag' => str_slug($name),
         'name' => $name,
