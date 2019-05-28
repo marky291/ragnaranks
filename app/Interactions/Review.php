@@ -2,17 +2,16 @@
 
 namespace App\Interactions;
 
-use App\Listings\Listing;
-use App\ReviewComment;
 use App\User;
 use Carbon\Carbon;
+use App\ReviewComment;
+use App\Listings\Listing;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Database\Eloquent\Collection;
 
 /**
- * Class Review
+ * Class Review.
  *
  * @property int $id
  * @property string $message
@@ -30,7 +29,6 @@ use Illuminate\Support\Facades\Validator;
  * @method static Collection latest()
  * @property Listing listing
  * @method static Collection publishedBy($publisher)
- * @package App
  * @property-read float $average_score
  * @property-read \App\User $publisher
  * @mixin \Eloquent
@@ -52,7 +50,7 @@ class Review extends Interaction
     }
 
     /**
-     * A review has many comments
+     * A review has many comments.
      */
     public function comments()
     {

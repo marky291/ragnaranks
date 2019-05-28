@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Notifications\WelcomeNotification;
 use App\User;
-use App\Http\Controllers\Controller;
+use Notification;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Notifications\WelcomeNotification;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Notification;
 
 class RegisterController extends Controller
 {
@@ -84,6 +84,4 @@ class RegisterController extends Controller
     {
         Notification::send($user, new WelcomeNotification($user));
     }
-
-
 }

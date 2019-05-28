@@ -2,13 +2,9 @@
 
 namespace Tests\Feature;
 
-use App\Interactions\Vote;
-use App\Listings\Listing;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Listings\Listing;
+use App\Interactions\Vote;
 
 class VoteRequestTest extends TestCase
 {
@@ -21,7 +17,7 @@ class VoteRequestTest extends TestCase
 
         $listing->votes()->save(factory(Vote::class)->create(['created_at' => now()->subHours(5), 'ip_address' => '127.0.0.1']));
 
-        $this->post("/listing/listing-name/votes", [], ['REMOTE_ADDR' => '127.0.0.1']);
+        $this->post('/listing/listing-name/votes', [], ['REMOTE_ADDR' => '127.0.0.1']);
 
         $this->assertCount(1, $listing->votes);
     }
@@ -35,7 +31,7 @@ class VoteRequestTest extends TestCase
 
         $listing = factory(Listing::class)->create(['slug' => 'listing-name']);
 
-        $this->post("/listing/listing-name/votes", [], ['REMOTE_ADDR' => '10.1.0.1'])->assertOk();
+        $this->post('/listing/listing-name/votes', [], ['REMOTE_ADDR' => '10.1.0.1'])->assertOk();
 
         $this->assertCount(1, $listing->votes);
 

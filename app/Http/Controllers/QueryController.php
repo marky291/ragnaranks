@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Listings\Listing;
-use App\Listings\ListingFilter;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
+use Illuminate\Contracts\View\Factory;
 
 /**
- * Class QueryController
- *
- * @package App\Http\Controllers
+ * Class QueryController.
  */
 class QueryController extends Controller
 {
@@ -28,23 +24,19 @@ class QueryController extends Controller
     {
         $listings = app('listings');
 
-        if ($serverType)
-        {
+        if ($serverType) {
             $listings = $listings->filterGroup($serverType);
         }
 
-        if ($serverMode)
-        {
+        if ($serverMode) {
             $listings = $listings->filterMode($serverMode);
         }
 
-        if ($withTag)
-        {
+        if ($withTag) {
             $listings = $listings->filterTag($withTag);
         }
 
-        if ($sortByAttribute)
-        {
+        if ($sortByAttribute) {
             $listings = $listings->filterSort($sortByAttribute);
         }
 

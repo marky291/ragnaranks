@@ -2,20 +2,15 @@
 
 namespace Tests\Unit;
 
+use Tests\TestCase;
+use App\Listings\Listing;
+use App\Interactions\Vote;
 use App\Interactions\Click;
 use App\Listings\AddListingToContainer;
 use App\Listings\ListingCacheContainer;
-use App\Listings\Listing;
-use App\Interactions\Vote;
-use Illuminate\Support\Facades\Queue;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 /**
- * Class ListingContainerTest
- *
- * @package Tests\Unit
+ * Class ListingContainerTest.
  */
 class ListingContainerTest extends TestCase
 {
@@ -38,13 +33,13 @@ class ListingContainerTest extends TestCase
     {
         $listing = factory(Listing::class)->create();
 
-        $listing->votes()->saveMany(factory(Vote::class, 5)->create(['created_at' => fake()->dateTimeBetween("-6 days", 'now')]));
+        $listing->votes()->saveMany(factory(Vote::class, 5)->create(['created_at' => fake()->dateTimeBetween('-6 days', 'now')]));
 
-        $listing->clicks()->saveMany(factory(Click::class, 3)->create(['created_at' => fake()->dateTimeBetween("-6 days", 'now')]));
+        $listing->clicks()->saveMany(factory(Click::class, 3)->create(['created_at' => fake()->dateTimeBetween('-6 days', 'now')]));
 
         $listing = app('listings')->first();
 
-        $this->assertEquals(1,  $listing->rank);
+        $this->assertEquals(1, $listing->rank);
 
         $this->assertEquals(5, $listing->votes_count);
 
@@ -58,15 +53,15 @@ class ListingContainerTest extends TestCase
     {
         $listing1 = factory(Listing::class)->create();
 
-        $listing1->votes()->saveMany(factory(Vote::class, 1)->create(['created_at' => fake()->dateTimeBetween("-6 days", 'now')]));
+        $listing1->votes()->saveMany(factory(Vote::class, 1)->create(['created_at' => fake()->dateTimeBetween('-6 days', 'now')]));
 
-        $listing1->clicks()->saveMany(factory(Click::class, 2)->create(['created_at' => fake()->dateTimeBetween("-6 days", 'now')]));
+        $listing1->clicks()->saveMany(factory(Click::class, 2)->create(['created_at' => fake()->dateTimeBetween('-6 days', 'now')]));
 
         $listing2 = factory(Listing::class)->create();
 
-        $listing2->votes()->saveMany(factory(Vote::class, 3)->create(['created_at' => fake()->dateTimeBetween("-6 days", 'now')]));
+        $listing2->votes()->saveMany(factory(Vote::class, 3)->create(['created_at' => fake()->dateTimeBetween('-6 days', 'now')]));
 
-        $listing2->clicks()->saveMany(factory(Click::class, 5)->create(['created_at' => fake()->dateTimeBetween("-6 days", 'now')]));
+        $listing2->clicks()->saveMany(factory(Click::class, 5)->create(['created_at' => fake()->dateTimeBetween('-6 days', 'now')]));
 
         $listings = app('listings');
 
@@ -109,21 +104,21 @@ class ListingContainerTest extends TestCase
         $this->assertCount(1, $this->app->make('listings'));
     }
 
-   /**
-    * @test
-    */
-   public function it_returns_all_listings_created_by_a_user()
-   {
-       $this->signIn();
+    /**
+     * @test
+     */
+    public function it_returns_all_listings_created_by_a_user()
+    {
+        $this->signIn();
 
-       $this->createListing(['user_id' => auth()->user()], 5, 7);
+        $this->createListing(['user_id' => auth()->user()], 5, 7);
 
-       $this->createListing(['user_id' => auth()->user()], 3, 14);
+        $this->createListing(['user_id' => auth()->user()], 3, 14);
 
-       $listings = $this->app->make('listings')->filterOwner(auth()->user());
+        $listings = $this->app->make('listings')->filterOwner(auth()->user());
 
-       $this->assertCount(2, $listings);
-   }
+        $this->assertCount(2, $listings);
+    }
 
     /**
      * @test

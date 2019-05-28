@@ -2,20 +2,16 @@
 
 namespace Tests\Unit;
 
-use App\Interactions\Review;
-use App\Listings\Listing;
-use App\ReviewComment;
 use App\User;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\ReviewComment;
+use App\Listings\Listing;
+use App\Interactions\Review;
+use Illuminate\Database\Eloquent\Collection;
 
 /**
- * Class ReviewTest
- *
- * @package Tests\Unit
+ * Class ReviewTest.
  */
 class ReviewTest extends TestCase
 {
@@ -76,9 +72,9 @@ class ReviewTest extends TestCase
      */
     public function it_has_a_message()
     {
-        $review = factory(Review::class)->create(['message' => "Gr8 Server"]);
+        $review = factory(Review::class)->create(['message' => 'Gr8 Server']);
 
-        $this->assertEquals("Gr8 Server", $review->message);
+        $this->assertEquals('Gr8 Server', $review->message);
     }
 
     /**
@@ -202,7 +198,7 @@ class ReviewTest extends TestCase
 
         factory(Review::class)->create(['created_at' => Carbon::yesterday()]);
 
-$collection = Review::latest()->take(2)->get();
+        $collection = Review::latest()->take(2)->get();
 
         $this->assertCount(2, $collection);
 

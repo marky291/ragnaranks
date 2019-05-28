@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Interactions\Click;
 use App\Listings\Listing;
+use App\Interactions\Click;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 
 class ClickController extends Controller
 {
-
     /**
      * Store a newly created resource in storage.
      *
@@ -22,8 +19,7 @@ class ClickController extends Controller
     {
         $spread = config('interaction.click.spread');
 
-        if (!$listing->clicks()->hasClientInteractedWith($spread))
-        {
+        if (! $listing->clicks()->hasClientInteractedWith($spread)) {
             $listing->clicks()->save(new Click());
         }
 

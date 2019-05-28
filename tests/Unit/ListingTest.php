@@ -2,22 +2,16 @@
 
 namespace Tests\Unit;
 
-use App\Interactions\Click;
-use App\Interactions\Vote;
+use App\Tag;
+use Tests\TestCase;
 use App\Listings\Listing;
+use App\Interactions\Vote;
+use App\Interactions\Click;
 use App\Interactions\Review;
 use App\Listings\ListingScreenshot;
-use App\Tag;
-use Illuminate\Support\Facades\Cache;
-use Mockery\Mock;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 /**
- * Class ListingTest
- *
- * @package Tests\Unit
+ * Class ListingTest.
  */
 class ListingTest extends TestCase
 {
@@ -80,7 +74,7 @@ class ListingTest extends TestCase
      */
     public function it_has_reviews()
     {
-        $listing = $this->createListing([], 0,0);
+        $listing = $this->createListing([], 0, 0);
 
         $listing->reviews()->saveMany(factory(Review::class, 3)->create());
 
@@ -218,9 +212,9 @@ class ListingTest extends TestCase
      */
     public function it_can_create_slugs_if_none_specified()
     {
-        $listing = $this->createListing(['name' => 'PHP Unit', 'slug' => null], 0,0);
+        $listing = $this->createListing(['name' => 'PHP Unit', 'slug' => null], 0, 0);
 
-        $this->assertEquals("php-unit", $listing->slug);
+        $this->assertEquals('php-unit', $listing->slug);
     }
 
     /**
@@ -228,7 +222,7 @@ class ListingTest extends TestCase
      */
     public function it_has_a_rating_based_on_avg_review_scores()
     {
-        $listing = $this->createListing([], 0,0);
+        $listing = $this->createListing([], 0, 0);
 
         $listing->reviews()->save(factory(Review::class)->create(['donation_score' => 10, 'update_score' => 10, 'class_score' => 10, 'item_score' => 10, 'support_score' => 10, 'hosting_score' => 10, 'content_score' => 10, 'event_score' => 10]));
 
@@ -241,7 +235,7 @@ class ListingTest extends TestCase
     public function it_can_get_average_review_donation_scores()
     {
         /** @var Listing $listing */
-        $listing = $this->createListing([], 0,0);
+        $listing = $this->createListing([], 0, 0);
 
         $listing->reviews()->save(factory(Review::class)->create(['donation_score' => 0]));
         $listing->reviews()->save(factory(Review::class)->create(['donation_score' => 10]));
@@ -255,7 +249,7 @@ class ListingTest extends TestCase
     public function it_can_get_average_review_update_scores()
     {
         /** @var Listing $listing */
-        $listing = $this->createListing([], 0,0);
+        $listing = $this->createListing([], 0, 0);
 
         $listing->reviews()->save(factory(Review::class)->create(['update_score' => 2]));
         $listing->reviews()->save(factory(Review::class)->create(['update_score' => 5]));
@@ -269,7 +263,7 @@ class ListingTest extends TestCase
     public function it_can_get_average_review_class_scores()
     {
         /** @var Listing $listing */
-        $listing = $this->createListing([], 0,0);
+        $listing = $this->createListing([], 0, 0);
 
         $listing->reviews()->save(factory(Review::class)->create(['class_score' => 7]));
         $listing->reviews()->save(factory(Review::class)->create(['class_score' => 8]));
@@ -283,7 +277,7 @@ class ListingTest extends TestCase
     public function it_can_get_average_review_item_scores()
     {
         /** @var Listing $listing */
-        $listing = $this->createListing([], 0,0);
+        $listing = $this->createListing([], 0, 0);
 
         $listing->reviews()->save(factory(Review::class)->create(['item_score' => 9]));
         $listing->reviews()->save(factory(Review::class)->create(['item_score' => 3]));
@@ -297,7 +291,7 @@ class ListingTest extends TestCase
     public function it_can_get_average_review_support_scores()
     {
         /** @var Listing $listing */
-        $listing = $this->createListing([], 0,0);
+        $listing = $this->createListing([], 0, 0);
 
         $listing->reviews()->save(factory(Review::class)->create(['support_score' => 8]));
         $listing->reviews()->save(factory(Review::class)->create(['support_score' => 8]));
@@ -311,7 +305,7 @@ class ListingTest extends TestCase
     public function it_can_get_average_review_hosting_scores()
     {
         /** @var Listing $listing */
-        $listing = $this->createListing([], 0,0);
+        $listing = $this->createListing([], 0, 0);
 
         $listing->reviews()->save(factory(Review::class)->create(['hosting_score' => 8]));
         $listing->reviews()->save(factory(Review::class)->create(['hosting_score' => 8]));
@@ -325,7 +319,7 @@ class ListingTest extends TestCase
     public function it_can_get_average_review_content_scores()
     {
         /** @var Listing $listing */
-        $listing = $this->createListing([], 0,0);
+        $listing = $this->createListing([], 0, 0);
 
         $listing->reviews()->save(factory(Review::class)->create(['content_score' => 2]));
         $listing->reviews()->save(factory(Review::class)->create(['content_score' => 1]));
@@ -339,7 +333,7 @@ class ListingTest extends TestCase
     public function it_can_get_average_review_event_scores()
     {
         /** @var Listing $listing */
-        $listing = $this->createListing([], 0,0);
+        $listing = $this->createListing([], 0, 0);
 
         $listing->reviews()->save(factory(Review::class)->create(['event_score' => 9]));
         $listing->reviews()->save(factory(Review::class)->create(['event_score' => 2]));

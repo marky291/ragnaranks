@@ -3,9 +3,7 @@
 namespace App\Listings;
 
 /**
- * Class ListingObserver
- *
- * @package App\Listings
+ * Class ListingObserver.
  */
 class ListingObserver
 {

@@ -2,17 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Listings\Listing;
-use App\Listings\ListingFilter;
-use App\Notifications\WelcomeNotification;
 use App\Tag;
+use App\Listings\Listing;
 use Illuminate\Http\Request;
-use Notification;
 
 /**
- * Class ListingController
- *
- * @package App\Http\Controllers
+ * Class ListingController.
  */
 class ListingController extends Controller
 {

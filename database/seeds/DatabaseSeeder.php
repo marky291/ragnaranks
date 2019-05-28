@@ -1,14 +1,14 @@
 <?php
 
-use App\Interactions\Click;
-use App\Listings\Listing;
-use App\Interactions\Review;
-use App\Listings\ListingScreenshot;
 use App\Tag;
+use App\Listings\Listing;
 use App\Interactions\Vote;
-use Illuminate\Database\Eloquent\Collection;
+use App\Interactions\Click;
+use App\Interactions\Review;
 use Illuminate\Database\Seeder;
+use App\Listings\ListingScreenshot;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Database\Eloquent\Collection;
 use Symfony\Component\Console\Helper\ProgressBar;
 
 class DatabaseSeeder extends Seeder
@@ -65,7 +65,7 @@ class DatabaseSeeder extends Seeder
      */
     public function seedDatabase()
     {
-        factory(Listing::class, $this->seed_counts['listings'])->create()->each(function(Listing $listing) {
+        factory(Listing::class, $this->seed_counts['listings'])->create()->each(function (Listing $listing) {
             $listing->tags()->saveMany(Tag::all()->random(rand(1, 4))->unique('id'));
         })->unique('slug');
 

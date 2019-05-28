@@ -2,17 +2,16 @@
 
 namespace Tests;
 
-use App\Interactions\Click;
-use App\Listings\Listing;
 use App\Tag;
 use App\User;
+use App\Listings\Listing;
 use App\Interactions\Vote;
-use Illuminate\Database\Eloquent\Collection;
+use App\Interactions\Click;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Foundation\Testing\TestResponse;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
-use Illuminate\Foundation\Testing\TestResponse;
-use Illuminate\Http\Response;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -33,9 +32,9 @@ abstract class TestCase extends BaseTestCase
     {
         $listing = factory(Listing::class)->create($attributes);
 
-        $listing->votes()->saveMany(factory(Vote::class, $votes_count)->create(['created_at' => fake()->dateTimeBetween("-6 days", 'now')]));
+        $listing->votes()->saveMany(factory(Vote::class, $votes_count)->create(['created_at' => fake()->dateTimeBetween('-6 days', 'now')]));
 
-        $listing->clicks()->saveMany(factory(Click::class, $clicks_count)->create(['created_at' => fake()->dateTimeBetween("-6 days", 'now')]));
+        $listing->clicks()->saveMany(factory(Click::class, $clicks_count)->create(['created_at' => fake()->dateTimeBetween('-6 days', 'now')]));
 
         $listing->tags()->saveMany(Tag::all()->random($tag_count)->unique('id'));
 

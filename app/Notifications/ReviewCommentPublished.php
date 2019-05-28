@@ -5,8 +5,6 @@ namespace App\Notifications;
 use App\Interactions\Review;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 
 class ReviewCommentPublished extends Notification
 {
@@ -49,7 +47,7 @@ class ReviewCommentPublished extends Notification
         return [
             'title' => 'Comment was made on a review you made!',
             'message' => 'A response has been made to your review by the Server Owner.',
-            'link' => "/listing/{$this->review->listing->slug}"
+            'link' => "/listing/{$this->review->listing->slug}",
         ];
     }
 }

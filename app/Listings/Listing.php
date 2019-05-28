@@ -2,32 +2,30 @@
 
 namespace App\Listings;
 
+use App\Tag;
+use App\Mode;
+use App\User;
+use Carbon\Carbon;
+use App\Interactions\Vote;
 use App\Interactions\Click;
 use App\Interactions\Review;
-use App\Mode;
-use App\Tag;
-use App\User;
-use App\Interactions\Vote;
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
-use Illuminate\Support\Facades\Schema;
-use App\Listings\ListingScreenshot;
 
 /**
- * Class Listings
+ * Class Listings.
  *
  * @property int $id
  * @property string $name
  * @property string $slug
  * @property string $points
  * @property string $website
- * @property double $rating
+ * @property float $rating
  * @property string $description
  * @property string $banner_url
- * @property double $episode
+ * @property float $episode
  * @property array $configs
  * @property Mode $mode
  * @property string $expRateTitle
@@ -41,7 +39,6 @@ use App\Listings\ListingScreenshot;
  * @property int $rank
  * @property int votes_count
  * @property int clicks_count
- * @package App
  * @property int $user_id
  * @property int $mode_id
  * @property-read string $exp_rate_title
@@ -103,18 +100,17 @@ class Listing extends Model
      */
     public function votes()
     {
-        return $this->morphedByMany(Vote::class, 'interaction')->whereDate('created_at', '>=',' DATE_SUB(NOW(), INTERVAL 7 DAY)');
+        return $this->morphedByMany(Vote::class, 'interaction')->whereDate('created_at', '>=', ' DATE_SUB(NOW(), INTERVAL 7 DAY)');
     }
 
     /**
      * A listing can have many clicks.
      *
      * @return MorphToMany|Vote
-     *
      */
     public function clicks()
     {
-        return $this->morphedByMany(Click::class, 'interaction')->whereDate('created_at', '>=',' DATE_SUB(NOW(), INTERVAL 7 DAY)');;
+        return $this->morphedByMany(Click::class, 'interaction')->whereDate('created_at', '>=', ' DATE_SUB(NOW(), INTERVAL 7 DAY)');
     }
 
     /**
@@ -201,13 +197,16 @@ class Listing extends Model
     {
         $server_base = $this->configs['base_exp_rate'];
 
-        if ($server_base <= config('filter.exp.low-rate.max'))
+        if ($server_base <= config('filter.exp.low-rate.max')) {
             return 'Low Rate';
-        if ($server_base <= config('filter.exp.mid-rate.max'))
+        }
+        if ($server_base <= config('filter.exp.mid-rate.max')) {
             return 'Mid Rate';
-        if ($server_base <= config('filter.exp.high-rate.max'))
+        }
+        if ($server_base <= config('filter.exp.high-rate.max')) {
             return 'High Rate';
+        }
 
-        return "Super High Rate";
+        return 'Super High Rate';
     }
 }

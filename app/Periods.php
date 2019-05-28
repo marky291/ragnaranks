@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: markhester
  * Date: 21/12/2018
- * Time: 13:21
+ * Time: 13:21.
  */
 
 namespace App;
@@ -13,12 +13,10 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 
 /**
- * Trait PeriodScope
+ * Trait PeriodScope.
  *
  * @method static Collection onPeriod($date)
  * @method static Collection betweenPeriod($start, $end)
- *
- * @package App
  */
 trait Periods
 {

@@ -6,9 +6,7 @@ use App\ConfigParser;
 use App\Http\Requests\ParseConfigRequest;
 
 /**
- * Class ConfigController
- *
- * @package App\Http\Controllers
+ * Class ConfigController.
  */
 class ConfigController extends Controller
 {

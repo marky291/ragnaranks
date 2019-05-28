@@ -2,8 +2,6 @@
 
 namespace App\Interactions;
 
-use App\Interactions\Interaction;
-
 class InteractionObserver
 {
     /**
@@ -14,13 +12,11 @@ class InteractionObserver
      */
     public function creating(Interaction $interaction)
     {
-        if (auth()->check())
-        {
+        if (auth()->check()) {
             $interaction->setAttribute('publisher_id', auth()->id());
         }
 
-        if (is_null($interaction->getAttribute('ip_address')))
-        {
+        if (is_null($interaction->getAttribute('ip_address'))) {
             $interaction->setAttribute('ip_address', request()->getClientIp());
         }
     }
