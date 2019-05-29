@@ -200,7 +200,7 @@ class Listing extends Model
         
         if ($server_base <= config('filter.exp.official.max')) {
             return 'Official Rate';
-
+        }
         if ($server_base <= config('filter.exp.low-rate.max')) {
             return 'Low Rate';
         }
