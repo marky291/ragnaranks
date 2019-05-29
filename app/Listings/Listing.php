@@ -197,7 +197,7 @@ class Listing extends Model
     public function getExpRateTitleAttribute()
     {
         $server_base = $this->configs['base_exp_rate'];
-        
+
         if ($server_base <= config('filter.exp.official.max')) {
             return 'Official Rate';
         }
