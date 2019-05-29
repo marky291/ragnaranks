@@ -7,7 +7,7 @@
                 <option value="low-rate">Low Rates</option>
                 <option value="mid-rate">Mid Rates</option>
                 <option value="high-rate">High Rates</option>
-                <option value="custom">Instant Rates</option>
+                <option value="custom">Super High Rates</option>
             </select>
 
             <select @change="filterChanged" v-model="mode" class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
