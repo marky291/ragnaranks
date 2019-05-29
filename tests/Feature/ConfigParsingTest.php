@@ -23,18 +23,46 @@ class ConfigParsingTest extends TestCase
         $this->parser = new ConfigParser(new Collection);
     }
 
-    public function test_it_can_get_a_config_value()
+    public function test_it_can_parse_a_value()
     {
         $this->parser->convertToConfiguration($this->dropConfigContents());
 
-        $this->assertEquals(100, $this->parser->configs->get('item_rate_equip'));
+        $this->assertEquals(false, $this->parser->configs->get('drops_by_luk'));
     }
 
-    public function test_it_can_count_40_configs()
+    public function test_it_parses_boolean_values()
+    {
+        $this->parser->convertToConfiguration('drops_by_luk: 3');
+
+        $this->assertIsBool($this->parser->configs->get('drops_by_luk'));
+    }
+
+    public function test_it_can_get_multiplier()
     {
         $this->parser->convertToConfiguration($this->dropConfigContents());
 
-        $this->assertEquals(40, $this->parser->configs->count());
+        $this->assertEquals(1, $this->parser->configs->has('item_drop_common'));
+    }
+
+    public function test_it_does_not_parse_useless_keys()
+    {
+        $this->parser->convertToConfiguration($this->dropConfigContents());
+
+        $this->assertFalse($this->parser->configs->has('item_third_get_time'));
+    }
+
+    public function test_multiplier_official_rate_is_1x()
+    {
+        $this->parser->convertToConfiguration('item_drop_common_min: 1 item_drop_common_max: 10000');
+
+        $this->assertEquals(1, $this->parser->configs->get('item_drop_common'));
+    }
+
+    public function test_multiplier_on_a_custom_rate_is_500()
+    {
+        $this->parser->convertToConfiguration('item_drop_common_min: 500 item_drop_common_max: 10000');
+
+        $this->assertEquals(500, $this->parser->configs->get('item_drop_common'));
     }
 
     private function dropConfigContents(): string

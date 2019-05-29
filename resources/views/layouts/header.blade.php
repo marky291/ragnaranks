@@ -3,10 +3,10 @@
         <div class="tw-w-1/3 collapse navbar-collapse order-3 order-md-2 px-0" id="navbar-left">
             <at-menu mode="horizontal" active-name="{{ request()->route()->uri }}" class="bg-transparent" @on-select="navigate">
                 <at-menu-item name="/">
-                    <span>Home</span>
+                    <span><i class="icon icon-home"></i>Home</span>
                 </at-menu-item>
                 <at-menu-item name="listing/create">
-                    <span>Add Your Server</span>
+                    <span><i class="icon icon-tag"></i>Add Your Server</span>
                 </at-menu-item>
             </at-menu>
 

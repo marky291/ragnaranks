@@ -11,16 +11,6 @@
         data: function () {
             return {
                 screenshot: '',
-                listing: {
-                    name: '',
-                    tags: [],
-                    language: 'english',
-                    description: this.defaultDescription,
-                    background: '',
-                    screenshots: [],
-                    accent: String,
-                    configs: {},
-                },
                 accents: [
                     'nightmare',
                     'poring',
@@ -44,7 +34,7 @@
         },
         methods: {
             removeScreenshot(index) {
-                this.listing.screenshots.splice(index, 1);
+                this.$parent.listing.screenshots.splice(index, 1);
             },
             generatePreset() {
                 let preset = _.sample([
@@ -57,25 +47,18 @@
                     {accent: 'drops', background: '/img/preset/card-mauve.png'},
                     {accent: 'poring', background: '/img/preset/card-pink.png'},
                 ]);
-                this.listing.accent = preset.accent;
-                this.listing.background = preset.background;
-                this.updateListing();
+                this.$parent.listing.accent = preset.accent;
+                this.$parent.listing.background = preset.background;
             },
             addScreenshot() {
                 if (!_.isEmpty(this.screenshot)) {
-                    this.listing.screenshots.push(this.screenshot);
+                    this.$parent.listing.screenshots.push(this.screenshot);
                     this.screenshot = '';
                 }
-            },
-            updateListing() {
-                this.$root.$emit('listing:profile:modified', {
-                    data: this.listing,
-                });
             },
             handleParsedConfig(file, response) {
                 this.listing.configs[file.name.split(".")[0]] = response;
                 this.$Message.success('The configuration inside ' + file.name + " has been added to your listing");
-                this.updateListing();
             }
         },
         validators: {

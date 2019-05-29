@@ -31,7 +31,7 @@
 		<div id="description" class="profile-block markdown">
 			<div class="container px-5 py-4">
 				<div class="row no-gutters">
-					<div class="tw-tracking-normal tw-whitespace-pre-wrap markdown-compiled" v-html="compiledMarkdown"></div>
+					<div class="tw-tracking-normal tw-whitespace-pre-wrap markdown-compiled" v-html="markedDescription"></div>
 				</div>
 			</div>
 		</div>
@@ -64,16 +64,16 @@
 									<p class="tw-font-bold">Player</p>
 								</div>
 								@component('listing.partial.config', ['name' => __('configs.max_base_level.name'), 'tooltip' => __('configs.max_base_level.describe')])
-									@{{ getConfig('player', 'max_base_level') }}
+									@{{ listing.configs.max_base_level }}
 								@endcomponent
 								@component('listing.partial.config', ['name' => __('configs.max_job_level.name'), 'tooltip' => __('configs.max_job_level.describe')])
-									@{{ getConfig('player', 'max_job_level') }}
+									@{{ listing.configs.max_job_level }}
 								@endcomponent
 								@component('listing.partial.config', ['name' => __('configs.max_aspd.name'), 'tooltip' => __('configs.max_aspd.describe')])
-									@{{ getConfig('player', 'max_aspd') }}
+									@{{ listing.configs.max_aspd }}
 								@endcomponent
 								@component('listing.partial.config', ['name' => __('configs.max_stats.name'), 'tooltip' => __('configs.max_stats.describe')])
-									@{{ getConfig('player', 'max_stats') }}
+									@{{ listing.configs.max_stats }}
 								@endcomponent
 							</div>
 							<div class="tw-mb-3">
@@ -81,13 +81,13 @@
 									<p class="tw-font-bold">Exp</p>
 								</div>
 								@component('listing.partial.config', ['name' => __('configs.base_exp_rate.name'), 'tooltip' => __('configs.base_exp_rate.describe')])
-									@{{ getConfig('player', 'base_exp_rate') }}x
+									@{{ listing.configs.base_exp_rate }}x
 								@endcomponent
 								@component('listing.partial.config', ['name' => __('configs.job_exp_rate.name'), 'tooltip' => __('configs.job_exp_rate.describe')])
-									@{{ getConfig('exp', 'job_exp_rate') }}x
+									@{{ listing.configs.job_exp_rate }}x
 								@endcomponent
 								@component('listing.partial.config', ['name' => __('configs.quest_exp_rate.name'), 'tooltip' => __('configs.quest_exp_rate.describe')])
-									@{{ getConfig('exp', 'quest_exp_rate') }}x
+									@{{ listing.configs.quest_exp_rate }}x
 								@endcomponent
 							</div>
 						</div>
@@ -97,28 +97,28 @@
 									<p class="tw-font-bold">Drops</p>
 								</div>
 								@component('listing.partial.config', ['name' => __('configs.item_drop_common.name'), 'tooltip' => __('configs.item_drop_common.describe')])
-									@{{ getConfig('drop', 'item_drops_common') }}x
+									@{{ listing.configs.item_drop_common }}x
 								@endcomponent
-								@component('listing.partial.config', ['name' => __('configs.item_drop_common.name'), 'tooltip' => __('configs.item_drop_common.describe')])
-									@{{ getConfig('drop', 'item_drop_equip') }}x
+								@component('listing.partial.config', ['name' => __('configs.item_drop_equip.name'), 'tooltip' => __('configs.item_drop_equip.describe')])
+									@{{ listing.configs.item_drop_equip }}x
 								@endcomponent
 								@component('listing.partial.config', ['name' => __('configs.item_drop_card.name'), 'tooltip' => __('configs.item_drop_card.describe')])
-									@{{ getConfig('drop', 'item_drop_card') }}x
+									@{{ listing.configs.item_drop_card }}x
 								@endcomponent
 								@component('listing.partial.config', ['name' => __('configs.item_drop_treasure.name'), 'tooltip' => __('configs.item_drop_treasure.describe')])
-									@{{ getConfig('drop', 'item_drop_treasure') }}x
+									@{{ listing.configs.item_drop_treasure }}x
 								@endcomponent
 								@component('listing.partial.config', ['name' => __('configs.item_drop_common_mvp.name'), 'tooltip' => __('configs.item_drop_common_mvp.describe')])
-									@{{ getConfig('drop', 'item_drop_common_mvp') }}x
+									@{{ listing.configs.item_drop_common_mvp }}x
 								@endcomponent
 								@component('listing.partial.config', ['name' => __('configs.item_drop_equip_mvp.name'), 'tooltip' => __('configs.item_drop_equip_mvp.describe')])
-									@{{ getConfig('drop', 'item_drop_equip_mvp') }}x
+									@{{ listing.configs.item_drop_equip_mvp }}x
 								@endcomponent
 								@component('listing.partial.config', ['name' => __('configs.item_drop_card_mvp.name'), 'tooltip' => __('configs.item_drop_card_mvp.describe')])
-									@{{ getConfig('drop', 'item_drop_card_mvp') }}x
+									@{{ listing.configs.item_drop_card_mvp }}x
 								@endcomponent
 								@component('listing.partial.config', ['name' => __('configs.drops_by_luk.name'), 'tooltip' => __('configs.drops_by_luk.describe')])
-									@{{ getConfig('drop', 'drops_by_luk') }}
+									@{{ listing.configs.drops_by_luk }}
 								@endcomponent
 							</div>
 						</div>
@@ -128,16 +128,16 @@
 									<p class="tw-font-bold">Skill</p>
 								</div>
 								@component('listing.partial.config', ['name' => __('configs.cast_rate.name'), 'tooltip' => __('configs.cast_rate.describe')])
-									@{{ getConfig('skill', 'cast_rate') }}
+									@{{ listing.configs.cast_rate }}
 								@endcomponent
 								@component('listing.partial.config', ['name' => __('configs.delay_rate.name'), 'tooltip' => __('configs.delay_rate.describe')])
-									@{{ getConfig('skill', 'delay_rate') }}
+									@{{ listing.configs.delay_rate }}
 								@endcomponent
 								@component('listing.partial.config', ['name' => __('configs.castrate_dex_scale.name'), 'tooltip' => __('configs.castrate_dex_scale.describe')])
-									@{{ getConfig('skill', 'castrate_dex_scale') }}
+									@{{ listing.configs.castrate_dex_scale }}
 								@endcomponent
 								@component('listing.partial.config', ['name' => __('configs.vcast_stat_scale.name'), 'tooltip' => __('configs.vcast_stat_scale.describe')])
-									@{{ getConfig('skill', 'vcast_stat_scale') }}
+									@{{ listing.configs.vcast_stat_scale }}
 								@endcomponent
 							</div>
 							<div class="tw-mb-3">
@@ -145,13 +145,13 @@
 									<p class="tw-font-bold">Battle</p>
 								</div>
 								@component('listing.partial.config', ['name' => __('configs.arrow_decrement.name'), 'tooltip' => __('configs.arrow_decrement.describe')])
-									@{{ getConfig('skill', 'arrow_decrement') }}
+									@{{ listing.configs.arrow_decrement }}
 								@endcomponent
 								@component('listing.partial.config', ['name' => __('configs.undead_detect_type.name'), 'tooltip' => __('configs.undead_detect_type.describe')])
-									@{{ getConfig('skill', 'undead_detect_type') }}
+									@{{ listing.configs.undead_detect_type }}
 								@endcomponent
 								@component('listing.partial.config', ['name' => __('configs.attribute_recover.name'), 'tooltip' => __('configs.attribute_recover.describe')])
-									@{{ getConfig('skill', 'attribute_recover') }}
+									@{{ listing.configs.attribute_recover}}
 								@endcomponent
 							</div>
 						</div>
