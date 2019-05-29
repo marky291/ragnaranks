@@ -213,4 +213,5 @@ class Listing extends Model
         if ($server_base <= config('filter.exp.custom.max')) {
             return 'Super High Rate';
         }
+    }
 }
