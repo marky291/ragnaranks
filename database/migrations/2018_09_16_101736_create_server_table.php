@@ -97,6 +97,11 @@ class CreateServerTable extends Migration
             'name' => 'Instant Level',
             'description' => 'Players can chose a class and max out base and job levels instantly by login or by NPC.',
             'created_at' => now(),
+        ], [
+            'tag' => 'themed server',
+            'name' => 'Themed Server',
+            'description' => 'A server that has a heavy theme and/or lots of roleplay and storytelling.',
+            'created_at' => now(),
         ],
         ]);
 
