@@ -6,9 +6,8 @@
 			<listing-profile :listing="{{ new \App\Listings\Listing() }}" inline-template>
 				<div class="row pb-5 pt-2">
 					<div id="sidebar" class="col-4">
-						<div sticky-container class="tw-h-full">
-							<div v-sticky sticky-offset="offset" sticky-side="top">
-								<listing-configurator inline-template :tags="{{ $tags }}">
+						<div class="tw-h-full">
+							<listing-configurator inline-template :tags="{{ $tags }}">
 									<at-collapse accordion value="config" style="overflow:visible">
 										<at-collapse-item name="details">
 											<div slot="title">Detailing</div>
@@ -182,7 +181,6 @@
 										</at-collapse-item>
 									</at-collapse>
 								</listing-configurator>
-							</div>
 						</div>
 					</div>
 					<div class="col-8">

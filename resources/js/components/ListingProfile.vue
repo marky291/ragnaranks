@@ -2,7 +2,6 @@
     import Scoreboards from '../components/ScoreboardsComponent.vue';
     import {Carousel3d, Slide} from 'vue-carousel-3d';
     import marked from 'marked'
-    import Sticky from 'vue-sticky-directive';
 
     export default {
         directives: {Sticky},
