@@ -59,7 +59,7 @@ class CreateServerTable extends Migration
         DB::table('tags')->insert([[
             'tag' => 'freebies',
             'name' => 'Freebies',
-            'description' => 'Players can obtain starting items once they login.',
+            'description' => 'Players can obtain starting items once they login or from Newbie NPC.',
             'created_at' => now(),
         ],
         [
@@ -70,7 +70,7 @@ class CreateServerTable extends Migration
         ], [
             'tag' => 'g-pack',
             'name' => 'Guild Pack',
-            'description' => 'A guild can obtain a large amount of freebies for their members once they login.',
+            'description' => 'A guild can obtain a large amount of freebies for their members.',
             'created_at' => now(),
         ], [
             'tag' => 'pk',
@@ -85,12 +85,17 @@ class CreateServerTable extends Migration
         ], [
             'tag' => 'frost',
             'name' => 'Frost Server',
-            'description' => 'Players can obtain starting items once they login.',
+            'description' => 'Players are affected by Freeze effect.',
             'created_at' => now(),
         ], [
             'tag' => 'no donations',
             'name' => 'No Donations',
             'description' => 'Players are unable to obtain items through donation methods.',
+            'created_at' => now(),
+        ], [
+            'tag' => 'instant level',
+            'name' => 'Instant Level',
+            'description' => 'Players can chose a class and max out base and job levels instantly by login or by NPC.',
             'created_at' => now(),
         ],
         ]);
