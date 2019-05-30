@@ -52,7 +52,7 @@
 		</div>
 	</section>
 
-	<section id="configuration" data-aos="fade-up" data-aos-once="true" class="content-block">
+	<section id="configuration-details" data-aos="fade-up" data-aos-once="true" class="content-block configuration">
 		<div class="container px-5 py-4">
 {{--			<h3 class="heading mb-4 tw-font-bold text-dark heading-underline">Server Setup</h3>--}}
 			<at-tabs>

@@ -9,7 +9,7 @@
 						<div sticky-container class="tw-h-full">
 							<div v-sticky sticky-offset="offset" sticky-side="top">
 								<listing-configurator inline-template :tags="{{ $tags }}">
-									<at-collapse accordion value="details" style="overflow:visible">
+									<at-collapse accordion value="config" style="overflow:visible">
 										<at-collapse-item name="details">
 											<div slot="title">Detailing</div>
 											<div class="">
@@ -71,24 +71,113 @@
 											</span>
 											</div>
 										</at-collapse-item>
-										<at-collapse-item name="uploader">
-											<div slot="title">Config Uploader</div>
+										<at-collapse-item name="config">
+											<div slot="title">Configuration</div>
 											<div class="">
-												<div class="mb-3">
-													<p class="tw-font-semibold tw-mb-1">Config Uploader</p>
-													<p class="tw-mb-2">This handy uploader will parse multiple server configuration files and automatically generate your listing to save you time and to provide better accuracy.</p>
-												</div>
-												<div class="mb-3">
-													<p class="tw-font-semibold tw-mb-1">Available File Types</p>
-													<div class="tw-mb-3">
-														<at-button>drops.conf</at-button>
-													</div>
-												</div>
-												<vue-dropzone id="configUploader" @vdropzone-success="handleParsedConfig" :options="dropzoneOptions" :use-custom-slot="true">
-													<div class="dropzone-custom-content">
-														<h3 class="dropzone-custom-title">Drag and drop your rAthena or Herc config files here and we will take care, the rest of the work 😇!</h3>
+												<vue-dropzone id="configUploader" @vdropzone-success="handleParsedConfig" :options="dropzoneOptions" :use-custom-slot="true" class="tw-mb-3">
+													<div class="dropzone-custom-content tw-text-left">
+														<p class="tw-text-xl tw-text-grey-darkest tw-mb-3"><i class="icon icon-file-text tw-mr-2"></i>UPLOAD!</p>
+														<p class="dropzone-custom-title">This handy uploader will parse multiple server configuration files and automatically generate your listing to save you time and to provide better accuracy.</p>
+														<p class="tw-font-bold tw-mt-3">Just Drag and Drop the suitable config files.</p>
 													</div>
 												</vue-dropzone>
+												<div class="mb-3 configuration">
+													<div class="list">
+														<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
+															<p class="tw-font-bold">Player Configuration Setup</p>
+														</div>
+														@component('listing.partial.config', ['name' => __('configs.max_base_level.name')])
+															<at-input v-model="$parent.listing.configs.max_base_level" size="small" type="number" placeholder="Please input"></at-input>
+														@endcomponent
+														@component('listing.partial.config', ['name' => __('configs.max_job_level.name')])
+															<at-input v-model="$parent.listing.configs.max_job_level" size="small" type="number" placeholder="Please input"></at-input>
+														@endcomponent
+														@component('listing.partial.config', ['name' => __('configs.max_aspd.name')])
+															<at-input v-model="$parent.listing.configs.max_aspd" size="small" type="number" placeholder="Please input"></at-input>
+														@endcomponent
+														@component('listing.partial.config', ['name' => __('configs.max_stats.name')])
+															<at-input v-model="$parent.listing.configs.max_stats" size="small" type="number" placeholder="Please input"></at-input>
+														@endcomponent
+														<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
+															<p class="tw-font-bold">Experience Points Setup</p>
+														</div>
+														@component('listing.partial.config', ['name' => __('configs.base_exp_rate.name')])
+															<at-input v-model="$parent.listing.configs.base_exp_rate" size="small" type="number" placeholder="Please input"></at-input>
+														@endcomponent
+														@component('listing.partial.config', ['name' => __('configs.job_exp_rate.name')])
+															<at-input v-model="$parent.listing.configs.job_exp_rate" size="small" type="number" placeholder="Please input"></at-input>
+														@endcomponent
+														@component('listing.partial.config', ['name' => __('configs.quest_exp_rate.name')])
+															<at-input v-model="$parent.listing.configs.quest_exp_rate" size="small" type="number" placeholder="Please input"></at-input>
+														@endcomponent
+														<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
+															<p class="tw-font-bold">Drop Rate Setup</p>
+														</div>
+														@component('listing.partial.config', ['name' => __('configs.item_drop_common.name')])
+															<at-input v-model="$parent.listing.configs.item_drop_common" size="small" type="number" placeholder="Please input"></at-input>
+														@endcomponent
+														@component('listing.partial.config', ['name' => __('configs.item_drop_equip.name')])
+															<at-input v-model="$parent.listing.configs.item_drop_equip" size="small" type="number" placeholder="Please input"></at-input>
+														@endcomponent
+														@component('listing.partial.config', ['name' => __('configs.item_drop_card.name')])
+															<at-input v-model="$parent.listing.configs.item_drop_card" size="small" type="number" placeholder="Please input"></at-input>
+														@endcomponent
+														@component('listing.partial.config', ['name' => __('configs.item_drop_treasure.name')])
+															<at-input v-model="$parent.listing.configs.item_drop_treasure" size="small" type="number" placeholder="Please input"></at-input>
+														@endcomponent
+														@component('listing.partial.config', ['name' => __('configs.item_drop_common_mvp.name')])
+															<at-input v-model="$parent.listing.configs.item_drop_common_mvp" size="small" type="number" placeholder="Please input"></at-input>
+														@endcomponent
+														@component('listing.partial.config', ['name' => __('configs.item_drop_equip_mvp.name')])
+															<at-input v-model="$parent.listing.configs.item_drop_equip_mvp" size="small" type="number" placeholder="Please input"></at-input>
+														@endcomponent
+														@component('listing.partial.config', ['name' => __('configs.item_drop_card_mvp.name')])
+															<at-input v-model="$parent.listing.configs.item_drop_card_mvp" size="small" type="number" placeholder="Please input"></at-input>
+														@endcomponent
+														@component('listing.partial.config', ['name' => __('configs.drops_by_luk.name')])
+															<at-switch>
+																<span slot="checkedText">Yes</span>
+																<span slot="unCheckedText">No</span>
+															</at-switch>
+														@endcomponent
+														<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
+															<p class="tw-font-bold">Skill Casting Setup</p>
+														</div>
+														@component('listing.partial.config', ['name' => __('configs.cast_rate.name')])
+															<at-input v-model="$parent.listing.configs.cast_rate" size="small" type="number" placeholder="Please input"></at-input>
+														@endcomponent
+														@component('listing.partial.config', ['name' => __('configs.delay_rate.name')])
+															<at-input v-model="$parent.listing.configs.delay_rate" size="small" type="number" placeholder="Please input"></at-input>
+														@endcomponent
+														@component('listing.partial.config', ['name' => __('configs.castrate_dex_scale.name')])
+															<at-input v-model="$parent.listing.configs.castrate_dex_scale" size="small" type="number" placeholder="Please input"></at-input>
+														@endcomponent
+														@component('listing.partial.config', ['name' => __('configs.vcast_stat_scale.name')])
+															<at-input v-model="$parent.listing.configs.vcast_stat_scale" size="small" type="number" placeholder="Please input"></at-input>
+														@endcomponent
+														<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
+															<p class="tw-font-bold">Battle Setup</p>
+														</div>
+														@component('listing.partial.config', ['name' => __('configs.arrow_decrement.name')])
+															<at-switch>
+																<span slot="checkedText">Yes</span>
+																<span slot="unCheckedText">No</span>
+															</at-switch>
+														@endcomponent
+														@component('listing.partial.config', ['name' => __('configs.undead_detect_type.name')])
+															<at-switch>
+																<span slot="checkedText">Yes</span>
+																<span slot="unCheckedText">No</span>
+															</at-switch>
+														@endcomponent
+														@component('listing.partial.config', ['name' => __('configs.attribute_recover.name')])
+															<at-switch>
+																<span slot="checkedText">Yes</span>
+																<span slot="unCheckedText">No</span>
+															</at-switch>
+														@endcomponent
+													</div>
+												</div>
 											</div>
 										</at-collapse-item>
 									</at-collapse>
