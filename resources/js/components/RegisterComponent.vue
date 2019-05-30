@@ -26,7 +26,7 @@
                   }
                   this.$Notify({
                       title: 'Oops',
-                      message: response.error,
+                      message: response.message,
                       type: error,
                   })
               });

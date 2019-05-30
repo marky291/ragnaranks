@@ -15916,7 +15916,7 @@ __webpack_require__.r(__webpack_exports__);
 
         _this.$Notify({
           title: 'Oops',
-          message: response.error,
+          message: response.message,
           type: error
         });
       });
