@@ -4,7 +4,6 @@
     import marked from 'marked'
 
     export default {
-        directives: {Sticky},
         components: {
             Scoreboards,
             Carousel3d,
