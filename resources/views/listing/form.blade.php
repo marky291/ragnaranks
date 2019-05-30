@@ -135,10 +135,10 @@
 															<at-input v-model="$parent.listing.configs.item_drop_card_mvp" size="small" type="number" placeholder="Please input"></at-input>
 														@endcomponent
 														@component('listing.partial.config', ['name' => __('configs.drops_by_luk.name')])
-															<at-switch>
-																<span slot="checkedText">Yes</span>
-																<span slot="unCheckedText">No</span>
-															</at-switch>
+															<div class="tw-flex">
+																<at-radio v-model="$parent.listing.configs.drops_by_luk" label="No">No</at-radio>
+																<at-radio v-model="$parent.listing.configs.drops_by_luk" label="Yes">Yes</at-radio>
+															</div>
 														@endcomponent
 														<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
 															<p class="tw-font-bold">Skill Casting Setup</p>
@@ -159,22 +159,22 @@
 															<p class="tw-font-bold">Battle Setup</p>
 														</div>
 														@component('listing.partial.config', ['name' => __('configs.arrow_decrement.name')])
-															<at-switch>
-																<span slot="checkedText">Yes</span>
-																<span slot="unCheckedText">No</span>
-															</at-switch>
+															<div class="tw-flex">
+																<at-radio v-model="$parent.listing.configs.arrow_decrement" label="No">No</at-radio>
+																<at-radio v-model="$parent.listing.configs.arrow_decrement" label="Yes">Yes</at-radio>
+															</div>
 														@endcomponent
 														@component('listing.partial.config', ['name' => __('configs.undead_detect_type.name')])
-															<at-switch>
-																<span slot="checkedText">Yes</span>
-																<span slot="unCheckedText">No</span>
-															</at-switch>
+															<div class="tw-flex">
+																<at-radio v-model="$parent.listing.configs.undead_detect_type" label="No">No</at-radio>
+																<at-radio v-model="$parent.listing.configs.undead_detect_type" label="Yes">Yes</at-radio>
+															</div>
 														@endcomponent
 														@component('listing.partial.config', ['name' => __('configs.attribute_recover.name')])
-															<at-switch>
-																<span slot="checkedText">Yes</span>
-																<span slot="unCheckedText">No</span>
-															</at-switch>
+															<div class="tw-flex">
+																<at-radio v-model="$parent.listing.configs.attribute_recover" label="No">No</at-radio>
+																<at-radio v-model="$parent.listing.configs.attribute_recover" label="Yes">Yes</at-radio>
+															</div>
 														@endcomponent
 													</div>
 												</div>
