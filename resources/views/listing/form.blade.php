@@ -8,7 +8,7 @@
 					<div id="sidebar" class="col-4">
 						<div class="tw-h-full">
 							<listing-configurator inline-template :tags="{{ $tags }}">
-									<at-collapse accordion value="config" style="overflow:visible">
+									<at-collapse accordion value="commands" style="overflow:visible">
 										<at-collapse-item name="details">
 											<div slot="title">Detailing</div>
 											<div class="">
@@ -73,13 +73,13 @@
 										<at-collapse-item name="config">
 											<div slot="title">Configuration</div>
 											<div class="">
-												<vue-dropzone id="configUploader" @vdropzone-success="handleParsedConfig" :options="dropzoneOptions" :use-custom-slot="true" class="tw-mb-3">
-													<div class="dropzone-custom-content tw-text-left">
-														<p class="tw-text-xl tw-text-grey-darkest tw-mb-3"><i class="icon icon-file-text tw-mr-2"></i>UPLOAD!</p>
-														<p class="dropzone-custom-title">This handy uploader will parse multiple server configuration files and automatically generate your listing to save you time and to provide better accuracy.</p>
-														<p class="tw-font-bold tw-mt-3">Just Drag and Drop the suitable config files.</p>
-													</div>
-												</vue-dropzone>
+{{--												<vue-dropzone id="configUploader" @vdropzone-success="handleParsedConfig" :options="dropzoneOptions" :use-custom-slot="true" class="tw-mb-3">--}}
+{{--													<div class="dropzone-custom-content tw-text-left">--}}
+{{--														<p class="tw-text-xl tw-text-grey-darkest tw-mb-3"><i class="icon icon-file-text tw-mr-2"></i>UPLOAD!</p>--}}
+{{--														<p class="dropzone-custom-title">This handy uploader will parse multiple server configuration files and automatically generate your listing to save you time and to provide better accuracy.</p>--}}
+{{--														<p class="tw-font-bold tw-mt-3">Just Drag and Drop the suitable config files.</p>--}}
+{{--													</div>--}}
+{{--												</vue-dropzone>--}}
 												<div class="mb-3 configuration">
 													<div class="list">
 														<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
@@ -121,9 +121,6 @@
 														@component('listing.partial.config', ['name' => __('configs.item_drop_card.name')])
 															<at-input v-model="$parent.listing.configs.item_drop_card" size="small" type="number" placeholder="Please input"></at-input>
 														@endcomponent
-														@component('listing.partial.config', ['name' => __('configs.item_drop_treasure.name')])
-															<at-input v-model="$parent.listing.configs.item_drop_treasure" size="small" type="number" placeholder="Please input"></at-input>
-														@endcomponent
 														@component('listing.partial.config', ['name' => __('configs.item_drop_common_mvp.name')])
 															<at-input v-model="$parent.listing.configs.item_drop_common_mvp" size="small" type="number" placeholder="Please input"></at-input>
 														@endcomponent
@@ -132,12 +129,6 @@
 														@endcomponent
 														@component('listing.partial.config', ['name' => __('configs.item_drop_card_mvp.name')])
 															<at-input v-model="$parent.listing.configs.item_drop_card_mvp" size="small" type="number" placeholder="Please input"></at-input>
-														@endcomponent
-														@component('listing.partial.config', ['name' => __('configs.drops_by_luk.name')])
-															<div class="tw-flex">
-																<at-radio v-model="$parent.listing.configs.drops_by_luk" label="No">No</at-radio>
-																<at-radio v-model="$parent.listing.configs.drops_by_luk" label="Yes">Yes</at-radio>
-															</div>
 														@endcomponent
 														<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
 															<p class="tw-font-bold">Skill Casting Setup</p>
@@ -150,9 +141,6 @@
 														@endcomponent
 														@component('listing.partial.config', ['name' => __('configs.castrate_dex_scale.name')])
 															<at-input v-model="$parent.listing.configs.castrate_dex_scale" size="small" type="number" placeholder="Please input"></at-input>
-														@endcomponent
-														@component('listing.partial.config', ['name' => __('configs.vcast_stat_scale.name')])
-															<at-input v-model="$parent.listing.configs.vcast_stat_scale" size="small" type="number" placeholder="Please input"></at-input>
 														@endcomponent
 														<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
 															<p class="tw-font-bold">Battle Setup</p>
@@ -176,6 +164,19 @@
 															</div>
 														@endcomponent
 													</div>
+												</div>
+											</div>
+										</at-collapse-item>
+										<at-collapse-item name="commands">
+											<div slot="title">Commands</div>
+											<div class="mb-3 configuration">
+												<div class="list">
+													<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
+														<p class="tw-font-bold">Player Configuration Setup</p>
+													</div>
+													@component('listing.partial.config', ['name' => __('configs.max_base_level.name')])
+														<at-input v-model="$parent.listing.configs.max_base_level" size="small" type="number" placeholder="Please input"></at-input>
+													@endcomponent
 												</div>
 											</div>
 										</at-collapse-item>

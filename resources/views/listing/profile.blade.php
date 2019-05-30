@@ -105,9 +105,6 @@
 								@component('listing.partial.config', ['name' => __('configs.item_drop_card.name'), 'tooltip' => __('configs.item_drop_card.describe')])
 									@{{ listing.configs.item_drop_card }}x
 								@endcomponent
-								@component('listing.partial.config', ['name' => __('configs.item_drop_treasure.name'), 'tooltip' => __('configs.item_drop_treasure.describe')])
-									@{{ listing.configs.item_drop_treasure }}x
-								@endcomponent
 								@component('listing.partial.config', ['name' => __('configs.item_drop_common_mvp.name'), 'tooltip' => __('configs.item_drop_common_mvp.describe')])
 									@{{ listing.configs.item_drop_common_mvp }}x
 								@endcomponent
@@ -116,9 +113,6 @@
 								@endcomponent
 								@component('listing.partial.config', ['name' => __('configs.item_drop_card_mvp.name'), 'tooltip' => __('configs.item_drop_card_mvp.describe')])
 									@{{ listing.configs.item_drop_card_mvp }}x
-								@endcomponent
-								@component('listing.partial.config', ['name' => __('configs.drops_by_luk.name'), 'tooltip' => __('configs.drops_by_luk.describe')])
-									@{{ listing.configs.drops_by_luk }}
 								@endcomponent
 							</div>
 						</div>
@@ -135,9 +129,6 @@
 								@endcomponent
 								@component('listing.partial.config', ['name' => __('configs.castrate_dex_scale.name'), 'tooltip' => __('configs.castrate_dex_scale.describe')])
 									@{{ listing.configs.castrate_dex_scale }}
-								@endcomponent
-								@component('listing.partial.config', ['name' => __('configs.vcast_stat_scale.name'), 'tooltip' => __('configs.vcast_stat_scale.describe')])
-									@{{ listing.configs.vcast_stat_scale }}
 								@endcomponent
 							</div>
 							<div class="tw-mb-3">
