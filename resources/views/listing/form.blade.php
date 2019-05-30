@@ -37,7 +37,7 @@
 										<at-collapse-item name="graphics">
 											<div slot="title">Graphics</div>
 											<div class="">
-												<p class="tw-font-semibold tw-mb-1">Card Background <small class="tw-text-blue">(Optimal size 608x350px)</small></p>
+												<p class="tw-font-semibold tw-mb-1">Card Background <small class="tw-text-blue">(Optimal size 728x350px)</small></p>
 												<at-input v-model="$parent.listing.background" placeholder="Enter an Image URL"></at-input>
 											</div>
 											<div class="tw-mt-3">
