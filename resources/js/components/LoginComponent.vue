@@ -17,8 +17,8 @@
     },
     methods: {
       attemptLogin: function() {
-          this.form.post('/login').then(({ data }) => { window.location = '/'; }).catch((response) => {
-            // response ?
+          this.form.post('/login').then(({ data }) => { window.location = '/'; }).catch((error) => {
+              this.$Message.error(error.message);
           });
       }
     }

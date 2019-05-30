@@ -20,15 +20,11 @@
           attemptRegister: function() {
               this.form.post('/register').then(response => {
                   window.location = '/'; })
-							.catch((response) => {
-                  if (response.status === 302) {
+							.catch((error) => {
+                  if (error.status === 302) {
                       window.location = '/';
                   }
-                  this.$Notify({
-                      title: 'Oops',
-                      message: response.message,
-                      type: error,
-                  })
+                  this.$Message.error(error.message);
               });
           }
       }
