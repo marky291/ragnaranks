@@ -2,7 +2,6 @@
 
 namespace App;
 
-use function GuzzleHttp\Psr7\str;
 use Illuminate\Support\Collection;
 
 /**
@@ -38,7 +37,7 @@ class ConfigParser
     ];
 
     /**
-     * Result will cast to boolean
+     * Result will cast to boolean.
      *
      * @var array
      */
@@ -60,7 +59,7 @@ class ConfigParser
     {
         preg_match_all('/\w+: \d+/', $contents, $this->matches);
 
-        /**
+        /*
          * first we get all the values into a readable format.
          */
         foreach (array_flatten($this->matches) as $line) {
@@ -68,10 +67,10 @@ class ConfigParser
             $this->configs->put($segment[0], (int) $segment[1]);
         }
 
-        /**
+        /*
          * We compute the multiplier values based of _min & _max
          */
-        $this->configs->each(function($item, $key) {
+        $this->configs->each(function ($item, $key) {
 
             // Logic for multiplier
             if (str_contains($key, '_min')) {
@@ -87,10 +86,10 @@ class ConfigParser
             }
         });
 
-        /**
+        /*
          * Only keep what we actually use :D
          */
-        $this->configs = $this->configs->filter(function($item, $key) {
+        $this->configs = $this->configs->filter(function ($item, $key) {
             return in_array($key, $this->allowedKeys, true);
         });
 
