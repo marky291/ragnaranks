@@ -27,7 +27,7 @@ return [
     ],
     'attribute_recover' => [
         'name' => 'Attribute Recovery',
-        'describe' => 'Does HP recover if hit by an attribute that's the same as your own?',
+        'describe' => 'Does HP recover if hit by an attribute that\'s the same as your own?',
     ],
     'cast_rate' => [
         'name' => 'Cast Rate',
