@@ -30226,47 +30226,47 @@ form .item-group input {
 }
 
 .bg-poring-lightest {
-  background-color: #ffc1cb;
+  background-color: #ffc8d7;
 }
 
 .bg-poring-light {
-  background-color: #ffbcc6;
+  background-color: #ffbecd;
 }
 
 .bg-poring-base {
-  background-color: #ffb8c3;
+  background-color: #ffb4c3;
 }
 
 .bg-poring-dark {
-  background-color: #ffacb7;
+  background-color: #ffaab9;
 }
 
 .bg-poring-darkest {
-  background-color: #ffa4b0;
+  background-color: #ffa0af;
 }
 
 .use-accent-poring .markdown-compiled h1 {
   color: white;
-  background-color: #ffa4b0;
+  background-color: #ffa0af;
 }
 
 .use-accent-poring strong {
-  color: #ffa4b0;
+  color: #ffa0af;
 }
 
 .use-accent-poring .scoreboard-low {
   color: white;
-  background-color: #ffc1cb;
+  background-color: #ffc8d7;
 }
 
 .use-accent-poring .scoreboard-mid {
   color: white;
-  background-color: #ffbcc6;
+  background-color: #ffbecd;
 }
 
 .use-accent-poring .scoreboard-high {
   color: white;
-  background-color: #ffb8c3;
+  background-color: #ffb4c3;
 }
 
 .bg-deviling-lightest {
@@ -30318,28 +30318,28 @@ form .item-group input {
 }
 
 .bg-ghostring-light {
-  background-color: #c3cbe8;
+  background-color: #c2c8ed;
 }
 
 .bg-ghostring-base {
-  background-color: #bec6e5;
+  background-color: #bbc2e8;
 }
 
 .bg-ghostring-dark {
-  background-color: #b8c1e3;
+  background-color: #b0bae4;
 }
 
 .bg-ghostring-darkest {
-  background-color: #b4bde0;
+  background-color: #a7b3e1;
 }
 
 .use-accent-ghostring .markdown-compiled h1 {
   color: white;
-  background-color: #b4bde0;
+  background-color: #a7b3e1;
 }
 
 .use-accent-ghostring strong {
-  color: #b4bde0;
+  color: #a7b3e1;
 }
 
 .use-accent-ghostring .scoreboard-low {
@@ -30349,56 +30349,56 @@ form .item-group input {
 
 .use-accent-ghostring .scoreboard-mid {
   color: white;
-  background-color: #c3cbe8;
+  background-color: #c2c8ed;
 }
 
 .use-accent-ghostring .scoreboard-high {
   color: white;
-  background-color: #bec6e5;
+  background-color: #bbc2e8;
 }
 
 .bg-drops-lightest {
-  background-color: #fdd194;
+  background-color: #fec88d;
 }
 
 .bg-drops-light {
-  background-color: #ffc989;
+  background-color: #ffbd81;
 }
 
 .bg-drops-base {
-  background-color: #ffc28b;
+  background-color: #ffb577;
 }
 
 .bg-drops-dark {
-  background-color: #ffbb7e;
+  background-color: #ffa569;
 }
 
 .bg-drops-darkest {
-  background-color: #ffb47d;
+  background-color: #ff965a;
 }
 
 .use-accent-drops .markdown-compiled h1 {
   color: white;
-  background-color: #ffb47d;
+  background-color: #ff965a;
 }
 
 .use-accent-drops strong {
-  color: #ffb47d;
+  color: #ff965a;
 }
 
 .use-accent-drops .scoreboard-low {
   color: white;
-  background-color: #fdd194;
+  background-color: #fec88d;
 }
 
 .use-accent-drops .scoreboard-mid {
   color: white;
-  background-color: #ffc989;
+  background-color: #ffbd81;
 }
 
 .use-accent-drops .scoreboard-high {
   color: white;
-  background-color: #ffc28b;
+  background-color: #ffb577;
 }
 
 .bg-poporing-lightest {
