@@ -32,7 +32,7 @@ class ListingFilterTest extends TestCase
     {
         factory(Listing::class, 1)->create(['configs->base_exp_rate' => rand(101, 200)]);
 
-        factory(Listing::class, 2)->create(['configs->base_exp_rate' => rand(1, 100)]);
+        factory(Listing::class, 2)->create(['configs->base_exp_rate' => rand(6, 50)]);
 
         $listings = new ListingFilter(app('listings'));
 
