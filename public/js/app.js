@@ -15786,7 +15786,7 @@ __webpack_require__.r(__webpack_exports__);
         name: '',
         tags: [],
         language: 'english',
-        description: "# Welcome to RagnaRanks markdown editor!\n You can write something nice and descriptive with a huge amount of different formats!' [Guide](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)\n You can also use emojis copied from the web and paste them right here! 😍\n \n **Please utilize all the configuration options to allow us to maximize the potential of your listing(s)!**",
+        description: "# Welcome to RagnaRanks markdown editor!\n You can write something nice and descriptive with a huge amount of different formats!' [Guide](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)\n You can also use emojis copied from the web and paste them right here! 😍\n \n**Please utilize all the configuration options to allow us to maximize the potential of your listing(s)!**",
         background: '',
         screenshots: [],
         accent: 'nightmare',
@@ -15905,12 +15905,20 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     attemptRegister: function attemptRegister() {
+      var _this = this;
+
       this.form.post('/register').then(function (response) {
         window.location = '/';
       })["catch"](function (response) {
         if (response.status === 302) {
           window.location = '/';
         }
+
+        _this.$Notify({
+          title: 'Oops',
+          message: response.error,
+          type: error
+        });
       });
     }
   }

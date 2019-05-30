@@ -24,6 +24,11 @@
                   if (response.status === 302) {
                       window.location = '/';
                   }
+                  this.$Notify({
+                      title: 'Oops',
+                      message: response.error,
+                      type: error,
+                  })
               });
           }
       }
