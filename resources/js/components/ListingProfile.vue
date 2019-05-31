@@ -40,6 +40,7 @@
                         undead_detect_type: false,
                         attribute_recover: false,
                     },
+                    commands: [],
                 },
             }
         },
@@ -56,6 +57,9 @@
             serverTags: function () {
                 return _.isEmpty(this.listing.tags) ? 'RelatableRagnarokTags' : this.listing.tags;
             },
+            commandChunks: function() {
+                return _.chunk(this.listing.commands, this.listing.commands.length/2);
+            }
         },
     }
 </script>

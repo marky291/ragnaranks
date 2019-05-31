@@ -8,7 +8,7 @@
 					<div id="sidebar" class="col-4">
 						<div class="tw-h-full">
 							<listing-configurator inline-template :tags="{{ $tags }}">
-									<at-collapse accordion value="commands" style="overflow:visible">
+									<at-collapse accordion value="config" style="overflow:visible">
 										<at-collapse-item name="details">
 											<div slot="title">Detailing</div>
 											<div class="">
@@ -71,7 +71,7 @@
 											</div>
 										</at-collapse-item>
 										<at-collapse-item name="config">
-											<div slot="title">Configuration</div>
+											<div slot="title">Final Step (Configs)</div>
 											<div class="">
 {{--												<vue-dropzone id="configUploader" @vdropzone-success="handleParsedConfig" :options="dropzoneOptions" :use-custom-slot="true" class="tw-mb-3">--}}
 {{--													<div class="dropzone-custom-content tw-text-left">--}}
@@ -164,19 +164,16 @@
 															</div>
 														@endcomponent
 													</div>
-												</div>
-											</div>
-										</at-collapse-item>
-										<at-collapse-item name="commands">
-											<div slot="title">Commands</div>
-											<div class="mb-3 configuration">
-												<div class="list">
-													<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
-														<p class="tw-font-bold">Player Configuration Setup</p>
+													<div class="mb-3 configuration">
+														<div class="list">
+															<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1 tw-mb-2">
+																<p class="tw-font-bold">List Player Commands</p>
+															</div>
+															<multiselect v-model="$parent.listing.commands" :limit="12" :hide-selected="true" :close-on-select="false" :show-labels="false" open-direction="bottom" tag-placeholder="Add this Command" placeholder="Type an @Command" label="name" track-by="name" :options="commandChoices" :multiple="true" :taggable="true" @tag="addTag">
+																{{--														<template slot="tag" slot-scope="option"><span class="option__desc"><span class="option__title">@{{ option.title }}</span></span></template>--}}
+															</multiselect>
+														</div>
 													</div>
-													@component('listing.partial.config', ['name' => __('configs.max_base_level.name')])
-														<at-input v-model="$parent.listing.configs.max_base_level" size="small" type="number" placeholder="Please input"></at-input>
-													@endcomponent
 												</div>
 											</div>
 										</at-collapse-item>
