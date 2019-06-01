@@ -43,7 +43,7 @@ return [
     ],
     'instant_cast' => [
         'name' => 'Instant Cast',
-        'describe' => 'At what point can you instant cast spells'
+        'describe' => 'At what point can you instant cast spells',
     ],
     'delay_rate' => [
         'name' => 'Delay Rate',
