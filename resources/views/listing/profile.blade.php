@@ -149,20 +149,32 @@
 					</div>
 				</at-tab-pane>
 				<at-tab-pane label="Comamnds" name="commands" icon="icon-target">
-					<div class="tw-flex list">
-						<div class="tw-flex-1">
-							<div :class="'bg-'+listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
-								<p class="tw-font-bold">Notable Player Commands</p>
-							</div>
-							<div v-for="(command, i) in _.take(listing.commands, 12)" :key="i" class="config px-2 py-2 d-flex flex-row tw-items-center">
+					<div class="list">
+						<div :class="'bg-'+listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
+							<p class="tw-font-bold">Notable Player Commands</p>
+						</div>
+						<div class="tw-flex-1 tw-flex tw-flex-wrap tw-overflow-scroll" style="max-height:270px;">
+							<div v-for="(command, i) in listing.commands" :key="i" class="config tw-w-1/3 px-2 py-2 d-flex flex-row tw-items-center">
 								<p class="text-dark font-weight-bold flex-fill">@{{ command.name }}</p>
-								<p class="text-muted mb-0">Help buttons</p>
+								<at-popover trigger="hover" class="tw-mr-2" :content="command.description" placement="right">
+									<p><i class="icon icon-info"></i></p>
+								</at-popover>
 							</div>
 						</div>
 					</div>
 				</at-tab-pane>
 				<at-tab-pane label="Features" name="features" icon="icon-award">
-					<p>Content of Tab Pane 2</p>
+					<div class="tw-flex list">
+						<div class="tw-flex-1">
+							<div :class="'bg-'+listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
+								<p class="tw-font-bold">Notable Server Features</p>
+							</div>
+{{--							<div v-for="(command, i) in _.take(listing.commands, 12)" :key="i" class="config px-2 py-2 d-flex flex-row tw-items-center">--}}
+{{--								<p class="text-dark font-weight-bold flex-fill">@{{ feature.name }}</p>--}}
+{{--								<p class="text-muted mb-0">@{{ feature.description }}</p>--}}
+{{--							</div>--}}
+						</div>
+					</div>
 				</at-tab-pane>
 			</at-tabs>
 		</div>

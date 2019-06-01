@@ -8,39 +8,18 @@
 					<div id="sidebar" class="col-4">
 						<div class="tw-h-full">
 							<listing-configurator inline-template :tags="{{ $tags }}">
-									<at-collapse accordion value="config" style="overflow:visible">
+									<at-collapse accordion value="details" style="overflow:visible">
 										<at-collapse-item name="details">
-											<div slot="title">Detailing</div>
-											<div class="">
+											<div slot="title">🔨 Initial Card Setup</div>
+											<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
+												<p class="tw-font-bold">Card Design</p>
+											</div>
+											<div class="tw-p-2">
 												<p class="tw-font-semibold tw-mb-1">Server Name</p>
-												<at-input v-model="$parent.listing.name" placeholder="Please input"></at-input>
+												<at-input v-model="$parent.listing.name" size="small" placeholder="Please input"></at-input>
 											</div>
-											<div class="tw-mt-3">
-												<p class="tw-font-semibold tw-mb-1">Language</p>
-												<at-select v-model="$parent.listing.language">
-													<at-option value="english" label="English Server"><img src="/img/flags/english.png" alt=""></i> English Server</at-option>
-												</at-select>
-											</div>
-											<div class="tw-mt-3">
-												<p class="tw-font-semibold tw-mb-1">Server Tags</p>
-												<at-select v-model="$parent.listing.tags" multiple>
-													<at-option v-for="tag in tags" v-bind:key="tag['id']" :value="tag['name']">@{{ tag['name'] }}</at-option>
-												</at-select>
-											</div>
-											<div class="tw-mt-3">
-												<p class="tw-font-semibold tw-mb-1">Description</p>
-												<p>Markdown Supported (<a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Guide Here</a>)</p>
-												<at-textarea v-model="$parent.listing.description" min-rows="5" max-rows="15" placeholder="Write something catchy"></at-textarea>
-											</div>
-										</at-collapse-item>
-										<at-collapse-item name="graphics">
-											<div slot="title">Graphics</div>
-											<div class="">
-												<p class="tw-font-semibold tw-mb-1">Card Background <small class="tw-text-blue">(Optimal size 728x350px)</small></p>
-												<at-input v-model="$parent.listing.background" placeholder="Enter an Image URL"></at-input>
-											</div>
-											<div class="tw-mt-3">
-												<p class="tw-font-semibold tw-mb-1">Accent Colors</p>
+											<div class="tw-p-2">
+												<p class="tw-font-semibold tw-mb-1">Accent Color</p>
 												<at-select v-model="$parent.listing.accent" class="tw-capitalize">
 													<at-option v-for="(accent,i) in accents" :label="accent" :key="i" :value="accent" class="tw-items-center">@{{ accent }}
 														<div class="tw-flex-1 tw-flex tw-flex-row">
@@ -53,12 +32,34 @@
 													</at-option>
 												</at-select>
 											</div>
-											<div class="tw-mt-3">
+											<div class="tw-p-2">
+												<p class="tw-font-semibold tw-mb-1">Language</p>
+												<at-select v-model="$parent.listing.language">
+													<at-option value="english" label="English Server"><img src="/img/flags/english.png" alt=""></i> English Server</at-option>
+												</at-select>
+											</div>
+											<div class="tw-p-2">
+												<p class="tw-font-semibold tw-flex tw-justify-between tw-mb-1">Background <small class="tw-text-blue">(Optimal size 728x350px)</small></p>
+												<at-input v-model="$parent.listing.background" placeholder="Enter an Image URL"></at-input>
+											</div>
+											<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1 tw-mt-3">
+												<p class="tw-font-bold">Filtering</p>
+											</div>
+											<div class="tw-p-2">
+												<p class="tw-font-semibold tw-mb-1">Search Tags</p>
+												<at-select v-model="$parent.listing.tags" multiple>
+													<at-option v-for="tag in tags" v-bind:key="tag['id']" :value="tag['name']">@{{ tag['name'] }}</at-option>
+												</at-select>
+											</div>
+											<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1 tw-mt-3">
+												<p class="tw-font-bold">Images</p>
+											</div>
+											<div class="tw-p-2">
 												<div class="tw-flex tw-flex-row tw-justify-around">
 													<p class="tw-flex-1 tw-font-semibold tw-mb-1">Screenshots</p>
 													<div class="tw-flex-1 tw-text-right help-block invalid-feedback">@{{ validation.firstError('screenshot') }}</div>
 												</div>
-												<div class="tw-flex tw-flex-row tw-mb-3">
+												<div class="tw-flex tw-flex-row">
 													<at-input @keyup.enter.native="addScreenshot" :status="validation.hasError('screenshot') ? 'error' : ''" icon="link" type="url" v-model="screenshot" class="tw-flex-1 tw-mr-2" placeholder="Enter an Image URL"></at-input>
 													<at-button :disabled="validation.hasError('screenshot')" @click="addScreenshot" type="primary" icon="icon-plus"></at-button>
 												</div>
@@ -69,9 +70,16 @@
 												</span>
 											</span>
 											</div>
+											<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1 tw-mt-3">
+												<p class="tw-font-bold">Content</p>
+											</div>
+											<div class="tw-p-2">
+												<p class="tw-font-semibold tw-mt-2 tw-mb-3 tw-flex tw-justify-between">Description <small><a class="tw-underline" href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">MarkDown Syntax Guide</a></small></p>
+												<at-textarea style="margin-left:-.5rem; margin-right:-.5rem;" v-model="$parent.listing.description" min-rows="15" max-rows="25" placeholder="Write something catchy"></at-textarea>
+											</div>
 										</at-collapse-item>
 										<at-collapse-item name="config">
-											<div slot="title">Final Step (Configs)</div>
+											<div slot="title">🔧 Config File Setup</div>
 											<div class="">
 {{--												<vue-dropzone id="configUploader" @vdropzone-success="handleParsedConfig" :options="dropzoneOptions" :use-custom-slot="true" class="tw-mb-3">--}}
 {{--													<div class="dropzone-custom-content tw-text-left">--}}
@@ -169,7 +177,7 @@
 															<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1 tw-mb-2">
 																<p class="tw-font-bold">List Player Commands</p>
 															</div>
-															<multiselect v-model="$parent.listing.commands" :limit="12" :hide-selected="true" :close-on-select="false" :show-labels="false" open-direction="bottom" tag-placeholder="Add this Command" placeholder="Type an @Command" label="name" track-by="name" :options="commandChoices" :multiple="true" :taggable="true" @tag="addTag">
+															<multiselect v-model="$parent.listing.commands" :hide-selected="true" :close-on-select="false" :show-labels="false" open-direction="bottom" tag-placeholder="Add this Command" placeholder="Type an @Command" label="name" track-by="name" :options="commandChoices" :multiple="true" :taggable="true" @tag="addTag">
 																{{--														<template slot="tag" slot-scope="option"><span class="option__desc"><span class="option__title">@{{ option.title }}</span></span></template>--}}
 															</multiselect>
 														</div>

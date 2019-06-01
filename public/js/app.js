@@ -15682,82 +15682,121 @@ __webpack_require__.r(__webpack_exports__);
     return {
       screenshot: '',
       accents: ['nightmare', 'poring', 'deviling', 'ghostring', 'drops', 'poporing', 'pouring'],
+      featureChoices: [],
       commandChoices: [{
-        name: '@accept'
+        name: '@accept',
+        description: 'Accept a duel request from a player'
       }, {
-        name: '@afk'
+        name: '@afk',
+        description: 'placeholder'
       }, {
-        name: '@allskill'
+        name: '@allskill',
+        description: 'placeholder'
       }, {
-        name: '@alootid'
+        name: '@alootid',
+        description: 'placeholder'
       }, {
-        name: '@autobuy'
+        name: '@autobuy',
+        description: 'placeholder'
       }, {
-        name: '@autoloot'
+        name: '@autoloot',
+        description: 'placeholder'
       }, {
-        name: '@autotrade'
+        name: '@autotrade',
+        description: 'placeholder'
       }, {
-        name: '@blvl'
+        name: '@blvl',
+        description: 'placeholder'
       }, {
-        name: '@changegm'
+        name: '@changegm',
+        description: 'placeholder'
       }, {
-        name: '@commands'
+        name: '@commands',
+        description: 'placeholder'
       }, {
-        name: '@duel'
+        name: '@duel',
+        description: 'placeholder'
       }, {
-        name: '@exp'
+        name: '@exp',
+        description: 'placeholder'
       }, {
-        name: '@feelreset'
+        name: '@feelreset',
+        description: 'placeholder'
       }, {
-        name: '@go'
+        name: '@go',
+        description: 'placeholder'
       }, {
-        name: '@guildstorage'
+        name: '@guildstorage',
+        description: 'placeholder'
       }, {
-        name: '@hominfo'
+        name: '@hominfo',
+        description: 'placeholder'
       }, {
-        name: '@invite'
+        name: '@invite',
+        description: 'placeholder'
       }, {
-        name: '@item'
+        name: '@item',
+        description: 'placeholder'
       }, {
-        name: '@iteminfo'
+        name: '@iteminfo',
+        description: 'placeholder'
       }, {
-        name: '@jailtime'
+        name: '@jailtime',
+        description: 'placeholder'
       }, {
-        name: '@jlvl'
+        name: '@jlvl',
+        description: 'placeholder'
       }, {
-        name: '@jump'
+        name: '@jump',
+        description: 'placeholder'
       }, {
-        name: '@leave'
+        name: '@leave',
+        description: 'placeholder'
       }, {
-        name: '@mobinfo'
+        name: '@mobinfo',
+        description: 'placeholder'
       }, {
-        name: '@rates'
+        name: '@rates',
+        description: 'placeholder'
       }, {
-        name: '@refresh'
+        name: '@refresh',
+        description: 'placeholder'
       }, {
-        name: '@request'
+        name: '@request',
+        description: 'placeholder'
       }, {
-        name: '@showdelay'
+        name: '@showdelay',
+        description: 'placeholder'
       }, {
-        name: '@showexp'
+        name: '@showexp',
+        description: 'placeholder'
       }, {
-        name: '@storage'
+        name: '@storage',
+        description: 'placeholder'
       }, {
-        name: '@time'
+        name: '@time',
+        description: 'placeholder'
       }, {
-        name: '@warp'
+        name: '@warp',
+        description: 'placeholder'
       }, {
-        name: '@whereis'
+        name: '@whereis',
+        description: 'placeholder'
       }, {
-        name: '@who'
+        name: '@who',
+        description: 'placeholder'
       }, {
-        name: '@whobuy'
+        name: '@whobuy',
+        description: 'placeholder'
       }, {
-        name: '@whodrops'
+        name: '@whodrops',
+        description: 'placeholder'
       }, {
-        name: '@whogm'
+        name: '@whogm',
+        description: 'placeholder'
       }, {
-        name: '@whosell'
+        name: '@whosell',
+        description: 'placeholder'
       }],
       dropzoneOptions: {
         url: '/config/parse',
@@ -15775,7 +15814,8 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     addTag: function addTag(newTag) {
       var tag = {
-        name: newTag
+        name: newTag,
+        description: 'Custom command'
       };
       this.$parent.listing.commands.push(tag);
       this.commandChoices.push(tag);
