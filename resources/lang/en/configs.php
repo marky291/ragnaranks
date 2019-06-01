@@ -11,11 +11,11 @@ return [
     ],
     'max_aspd' => [
         'name' => 'Max ASPD',
-        'describe' => 'Maximum attack speed. (Default 190, Highest allowed 199)'
+        'describe' => 'Maximum attack speed. (Default 190, Highest allowed 199)',
     ],
     'max_stats' => [
         'name' => 'Max Stats',
-        'describe' => 'The maximum stat parameter that can be selected.'
+        'describe' => 'The maximum stat parameter that can be selected.',
     ],
     'arrow_decrement' => [
         'name' => 'Unlimited Arrows',
@@ -39,7 +39,7 @@ return [
     ],
     'cast_rate' => [
         'name' => 'Cast Rate',
-        'describe' => 'The rate of time it takes to cast a spell. (100 = 100%)'
+        'describe' => 'The rate of time it takes to cast a spell. (100 = 100%)',
     ],
     'instant_cast' => [
         'name' => 'Instant Cast',
