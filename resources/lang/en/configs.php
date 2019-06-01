@@ -2,11 +2,11 @@
 
 return [
     'max_base_level' => [
-        'name' => 'Max Base',
+        'name' => 'Base Level',
         'describe' => 'The highest base level that can be achieved.',
     ],
     'max_job_level' => [
-        'name' => 'Max Job',
+        'name' => 'Job Level',
         'describe' => 'The highest job level that can be achieved.',
     ],
     'max_aspd' => [
@@ -29,9 +29,21 @@ return [
         'name' => 'Attribute Recovery',
         'describe' => 'Does HP recover if hit by an attribute that\'s the same as your own?',
     ],
+    'pk_mode' => [
+        'name' => 'Player Killing',
+        'describe' => 'Weather player killing is promoted',
+    ],
+    'episode' => [
+        'name' => 'Episode Version',
+        'describe' => 'What version  does the emulator run on',
+    ],
     'cast_rate' => [
         'name' => 'Cast Rate',
         'describe' => 'The rate of time it takes to cast a spell. (100 = 100%)'
+    ],
+    'instant_cast' => [
+        'name' => 'Instant Cast',
+        'describe' => 'At what point can you instant cast spells'
     ],
     'delay_rate' => [
         'name' => 'Delay Rate',
@@ -46,15 +58,15 @@ return [
         'describe' => 'Amount of (DEX*2+INT) before variable cast turn zero.',
     ],
     'base_exp_rate' => [
-        'name' => 'Base EXP',
+        'name' => 'Base Rate',
         'describe' => 'Rate at which base experience is given.',
     ],
     'job_exp_rate' => [
-        'name' => 'Job EXP',
+        'name' => 'Job Rate',
         'describe' => 'Rate at which job experience is given.',
     ],
     'quest_exp_rate' => [
-        'name' => 'Quest EXP',
+        'name' => 'Quest Rate',
         'describe' => 'Rate of base/job experience given by NPCs.',
     ],
 

@@ -61,7 +61,7 @@
 						<div class="list col-4 d-flex flex-column mb-3">
 							<div class="tw-mb-3">
 								<div :class="'bg-'+listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
-									<p class="tw-font-bold">Player</p>
+									<p class="tw-font-bold">Gameplay</p>
 								</div>
 								@component('listing.partial.config', ['name' => __('configs.max_base_level.name'), 'tooltip' => __('configs.max_base_level.describe')])
 									@{{ listing.configs.max_base_level }}
@@ -75,11 +75,6 @@
 								@component('listing.partial.config', ['name' => __('configs.max_stats.name'), 'tooltip' => __('configs.max_stats.describe')])
 									@{{ listing.configs.max_stats }}
 								@endcomponent
-							</div>
-							<div class="tw-mb-3">
-								<div :class="'bg-'+listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
-									<p class="tw-font-bold">Exp</p>
-								</div>
 								@component('listing.partial.config', ['name' => __('configs.base_exp_rate.name'), 'tooltip' => __('configs.base_exp_rate.describe')])
 									@{{ listing.configs.base_exp_rate }}x
 								@endcomponent
@@ -119,22 +114,17 @@
 						<div class="list col-4 d-flex flex-column mb-3">
 							<div class="tw-mb-3">
 								<div :class="'bg-'+listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
-									<p class="tw-font-bold">Skill</p>
+									<p class="tw-font-bold">Other</p>
 								</div>
-								@component('listing.partial.config', ['name' => __('configs.cast_rate.name'), 'tooltip' => __('configs.cast_rate.describe')])
-									@{{ listing.configs.cast_rate }}
+								@component('listing.partial.config', ['name' => __('configs.instant_cast.name'), 'tooltip' => __('configs.instant_cast.describe')])
+									@{{ listing.configs.instant_cast }}
 								@endcomponent
-								@component('listing.partial.config', ['name' => __('configs.delay_rate.name'), 'tooltip' => __('configs.delay_rate.describe')])
-									@{{ listing.configs.delay_rate }}
+								@component('listing.partial.config', ['name' => __('configs.episode.name'), 'tooltip' => __('configs.episode.describe')])
+									@{{ listing.configs.episode }}
 								@endcomponent
-								@component('listing.partial.config', ['name' => __('configs.castrate_dex_scale.name'), 'tooltip' => __('configs.castrate_dex_scale.describe')])
-									@{{ listing.configs.castrate_dex_scale }}
+								@component('listing.partial.config', ['name' => __('configs.pk_mode.name'), 'tooltip' => __('configs.pk_mode.describe')])
+									@{{ listing.configs.pk_mode }}
 								@endcomponent
-							</div>
-							<div class="tw-mb-3">
-								<div :class="'bg-'+listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
-									<p class="tw-font-bold">Battle</p>
-								</div>
 								@component('listing.partial.config', ['name' => __('configs.arrow_decrement.name'), 'tooltip' => __('configs.arrow_decrement.describe')])
 									@{{ listing.configs.arrow_decrement }}
 								@endcomponent
