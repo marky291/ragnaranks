@@ -7,6 +7,7 @@ use Tests\TestCase;
 use App\Listings\Listing;
 use App\Interactions\Review;
 use Illuminate\Support\Facades\Auth;
+use App\Achievements\FounderAchievement;
 
 class UserTest extends TestCase
 {
@@ -53,5 +54,15 @@ class UserTest extends TestCase
         $user = factory(User::class)->create();
 
         $this->assertEquals('member', $user->getRoleNames()->first());
+    }
+
+    public function test_it_can_unlock_founder_status()
+    {
+        /** @var User $user */
+        $user = factory(User::class)->create();
+
+        $user->unlock(new FounderAchievement);
+
+        $this->assertCount(1, $user->achievements);
     }
 }

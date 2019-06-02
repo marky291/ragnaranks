@@ -2,12 +2,11 @@
 
 namespace App;
 
-use App\Jobs\RoleAssignment;
-use App\Notifications\WelcomeNotification;
 use Carbon\Carbon;
 use App\Listings\Listing;
 use App\Interactions\Review;
-use Illuminate\Notifications\Notification;
+use App\Jobs\RoleAssignment;
+use Gstt\Achievements\Achiever;
 use Illuminate\Validation\Rule;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -24,10 +23,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property Listing|iterable $reviews
  * @property int $membership_id
  * @property Carbon $membership_expiry
+ * @property mixed achievements
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable, HasRoles;
+    /*
+     * @link https://github.com/gstt/laravel-achievements#installation
+     */
+    use Notifiable, HasRoles, Achiever;
 
     /**
      * The attributes that are mass assignable.
@@ -56,7 +59,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
         static::created(static function (User $user) {
             RoleAssignment::dispatchNow($user, 'member');
-            Notification::send($user, new WelcomeNotification($user));
         });
     }
 
