@@ -44,7 +44,7 @@ class ListingFilterTest extends TestCase
      */
     public function it_can_filter_by_official_rate()
     {
-         factory(Listing::class, 1)->create(['configs->base_exp_rate' => rand(1, 5)]);
+        factory(Listing::class, 1)->create(['configs->base_exp_rate' => rand(1, 5)]);
 
         $listings = new ListingFilter(app('listings'));
 
