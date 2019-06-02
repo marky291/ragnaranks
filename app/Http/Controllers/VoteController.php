@@ -26,7 +26,7 @@ class VoteController extends Controller
             return;
         }
 
-        AssignRoleToMember::dispatch(auth()->user(), 'player');
+        // AssignRoleToMember::dispatch(auth()->user(), 'player');
 
         redirect()->back()->with(['flash' => "You can only vote every {$spread} hours."]);
     }
