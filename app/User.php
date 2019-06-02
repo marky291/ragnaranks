@@ -3,9 +3,11 @@
 namespace App;
 
 use App\Jobs\RoleAssignment;
+use App\Notifications\WelcomeNotification;
 use Carbon\Carbon;
 use App\Listings\Listing;
 use App\Interactions\Review;
+use Illuminate\Notifications\Notification;
 use Illuminate\Validation\Rule;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -54,6 +56,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
         static::created(static function (User $user) {
             RoleAssignment::dispatchNow($user, 'member');
+            Notification::send($user, new WelcomeNotification($user));
         });
     }
 
