@@ -7,6 +7,7 @@ use App\Notifications\WelcomeNotification;
 use Carbon\Carbon;
 use App\Listings\Listing;
 use App\Interactions\Review;
+use Gstt\Achievements\Achiever;
 use Illuminate\Notifications\Notification;
 use Illuminate\Validation\Rule;
 use Spatie\Permission\Traits\HasRoles;
@@ -24,10 +25,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property Listing|iterable $reviews
  * @property int $membership_id
  * @property Carbon $membership_expiry
+ * @property mixed achievements
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable, HasRoles;
+    /**
+     * @link https://github.com/gstt/laravel-achievements#installation
+     */
+    use Notifiable, HasRoles, Achiever;
 
     /**
      * The attributes that are mass assignable.

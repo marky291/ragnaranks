@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Listings\ListingServiceProvider::class,
         App\Interactions\InteractionServiceProvider::class,
+        Gstt\Achievements\AchievementsServiceProvider::class,
 
     ],
 
