@@ -88,7 +88,7 @@ class CreatePermissionTables extends Migration
         $member = Role::create(['name' => 'admin']);
         $moderator = Role::create(['name' => 'moderator']);
 
-        $member = Role::create(['name' => 'user'])->syncPermissions(
+        $member = Role::create(['name' => 'member'])->syncPermissions(
             Permission::create(['name' => 'create vote']),
             Permission::create(['name' => 'create review']),
             Permission::create(['name' => 'create report'])
