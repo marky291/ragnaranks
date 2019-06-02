@@ -86,8 +86,17 @@ class CreatePermissionTables extends Migration
             ->forget(config('permission.cache.key'));
 
 
-        Role::create(['name' => 'admin']);
-        Role::create(['name' => 'moderator']);
+        $member = Role::create(['name' => 'admin']);
+        $moderator = Role::create(['name' => 'moderator']);
+
+        $member = Role::create(['name' => 'user'])->syncPermissions(
+            Permission::create(['name' => 'create vote']),
+            Permission::create(['name' => 'create review']),
+            Permission::create(['name' => 'create report'])
+        );
+
+        $creator = Role::create(['name' => 'creator']);
+        $player = Role::create(['name' => 'player']);
     }
 
     /**

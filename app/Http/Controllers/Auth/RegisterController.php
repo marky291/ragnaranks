@@ -82,6 +82,8 @@ class RegisterController extends Controller
      */
     protected function registered(Request $request, $user)
     {
+        $user->assignRole('member');
+
         Notification::send($user, new WelcomeNotification($user));
     }
 }

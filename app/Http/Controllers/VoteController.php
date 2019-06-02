@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\AssignRoleToMember;
 use App\Listings\Listing;
 use App\Interactions\Vote;
 use Illuminate\Http\Request;
@@ -24,6 +25,8 @@ class VoteController extends Controller
         if ($request->expectsJson()) {
             return;
         }
+
+        AssignRoleToMember::dispatch(auth()->user(), 'player');
 
         redirect()->back()->with(['flash' => "You can only vote every {$spread} hours."]);
     }
