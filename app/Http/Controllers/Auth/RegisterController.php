@@ -4,11 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Illuminate\Http\Request;
-use App\Jobs\RoleAssignment;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use App\Notifications\WelcomeNotification;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
