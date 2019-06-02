@@ -1,5 +1,6 @@
 <?php
 
+use App\Listings\ListingLanguage;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -105,6 +106,22 @@ class CreateServerTable extends Migration
         ],
         ]);
 
+        Schema::create('listing_languages', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name')->unique();
+            $table->timestamps();
+        });
+
+        (new ListingLanguage(['name' => 'english']))->save();
+        (new ListingLanguage(['name' => 'portuguese']))->save();
+        (new ListingLanguage(['name' => 'tagalog']))->save();
+        (new ListingLanguage(['name' => 'spanish']))->save();
+        (new ListingLanguage(['name' => 'malaysian']))->save();
+        (new ListingLanguage(['name' => 'german']))->save();
+        (new ListingLanguage(['name' => 'russian']))->save();
+        (new ListingLanguage(['name' => 'french']))->save();
+        (new ListingLanguage(['name' => 'mandarin']))->save();
+
         Schema::create('listings', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
@@ -116,11 +133,13 @@ class CreateServerTable extends Migration
             $table->string('website');
             $table->unsignedInteger('mode_id');
             $table->string('accent')->default('nightmare');
+            $table->unsignedInteger('language_id')->default(1);
             $table->double('episode')->nullable();
             $table->timestamps();
             $table->index(['episode']);
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
             $table->foreign('mode_id')->references('id')->on('modes')->onUpdate('cascade');
+            $table->foreign('language_id')->references('id')->on('listing_languages')->onUpdate('cascade');
         });
 
         Schema::create('listing_tag', function (Blueprint $table) {

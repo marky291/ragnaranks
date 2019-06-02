@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Listings\ListingLanguage;
 use App\Tag;
 use App\Listings\Listing;
 use App\Jobs\RoleAssignment;
@@ -37,7 +38,7 @@ class ListingController extends Controller
      */
     public function create()
     {
-        return view('listing.form')->with(['tags' => Tag::all()]);
+        return view('listing.form')->with(['tags' => Tag::all(), 'languages' => ListingLanguage::all()]);
     }
 
     /**

@@ -11,7 +11,9 @@ use App\Interactions\Click;
 use App\Interactions\Review;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 /**
@@ -135,9 +137,19 @@ class Listing extends Model
     }
 
     /**
+     * A listing belongs to a country language.
+     *
+     * @return BelongsTo|ListingLanguage
+     */
+    public function language() : BelongsTo
+    {
+        return $this->belongsTo(ListingLanguage::class);
+    }
+
+    /**
      * A listing belongs to a single owner.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
     public function user()
     {

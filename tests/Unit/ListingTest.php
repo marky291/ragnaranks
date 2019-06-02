@@ -2,7 +2,9 @@
 
 namespace Tests\Unit;
 
+use App\Language;
 use App\Tag;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Interactions\Vote;
@@ -15,6 +17,9 @@ use App\Listings\ListingScreenshot;
  */
 class ListingTest extends TestCase
 {
+    
+    use RefreshDatabase;
+    
     /**
      * @test
      */
@@ -384,5 +389,12 @@ class ListingTest extends TestCase
         $listing = factory(Listing::class)->create();
 
         $this->assertDatabaseHas('listings', ['id' => $listing->id, 'accent' => 'nightmare']);
+    }
+
+    public function test_it_has_a_language()
+    {
+        $listing = factory(Listing::class)->create(['language_id' => 1]);
+
+        $this->assertEquals('english', $listing->language->name);
     }
 }
