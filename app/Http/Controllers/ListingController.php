@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Listings\ListingLanguage;
 use App\Tag;
 use App\Listings\Listing;
 use App\Jobs\RoleAssignment;
 use Illuminate\Http\Request;
+use App\Listings\ListingLanguage;
 
 /**
  * Class ListingController.

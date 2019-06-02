@@ -1,11 +1,11 @@
 <?php
 
 
-use App\Listings\Listing;
-use App\Listings\ListingLanguage;
 use App\Mode;
 use Carbon\Carbon;
+use App\Listings\Listing;
 use Faker\Generator as Faker;
+use App\Listings\ListingLanguage;
 
 $factory->define(\App\Listings\ListingScreenshot::class, function (Faker $faker) {
     return [
