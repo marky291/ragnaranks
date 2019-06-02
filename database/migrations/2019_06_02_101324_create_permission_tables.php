@@ -1,10 +1,10 @@
 <?php
 
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Schema;
+use Spatie\Permission\Models\Permission;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
 
 class CreatePermissionTables extends Migration
 {
@@ -37,7 +37,7 @@ class CreatePermissionTables extends Migration
 
             $table->string('model_type');
             $table->unsignedBigInteger($columnNames['model_morph_key']);
-            $table->index([$columnNames['model_morph_key'], 'model_type', ]);
+            $table->index([$columnNames['model_morph_key'], 'model_type']);
 
             $table->foreign('permission_id')
                 ->references('id')
@@ -53,7 +53,7 @@ class CreatePermissionTables extends Migration
 
             $table->string('model_type');
             $table->unsignedBigInteger($columnNames['model_morph_key']);
-            $table->index([$columnNames['model_morph_key'], 'model_type', ]);
+            $table->index([$columnNames['model_morph_key'], 'model_type']);
 
             $table->foreign('role_id')
                 ->references('id')
@@ -84,7 +84,6 @@ class CreatePermissionTables extends Migration
         app('cache')
             ->store(config('permission.cache.store') != 'default' ? config('permission.cache.store') : null)
             ->forget(config('permission.cache.key'));
-
 
         $member = Role::create(['name' => 'admin']);
         $moderator = Role::create(['name' => 'moderator']);
