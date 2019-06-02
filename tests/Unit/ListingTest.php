@@ -2,24 +2,22 @@
 
 namespace Tests\Unit;
 
-use App\Language;
 use App\Tag;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Interactions\Vote;
 use App\Interactions\Click;
 use App\Interactions\Review;
 use App\Listings\ListingScreenshot;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 /**
  * Class ListingTest.
  */
 class ListingTest extends TestCase
 {
-    
     use RefreshDatabase;
-    
+
     /**
      * @test
      */
