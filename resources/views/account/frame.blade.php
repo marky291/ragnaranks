@@ -10,7 +10,14 @@
                             <img class="tw-rounded-full shadow tw-border tw-border-grey tw-border-2" :src="account.avatarUrl" alt="">
                         </div>
                         <h4 class="tw-text-lg mb-0 tw-font-bold">{{ auth()->user()->username }}</h4>
-                        <p class="tw-text-red tw-font-semibold"><pre>{{ auth()->user()->getRoleNames() }}</pre></p>
+                        @if (auth()->user()->hasRole('admin'))
+                            <p class="tw-text-red tw-font-bold">Admin</p>
+                        @else
+                            <p>{{ ucfirst(auth()->user()->roles->first()->name) }}</p>
+                        @endif
+                        @if(auth()->user()->hasUnlocked(new \App\Achievements\FounderAchievement))
+                            <p class="tw-text-purple tw-font-bold">Founder</p>
+                        @endif
 
                         <div class="navigation mt-4">
                             <ul class="list-unstyled">
