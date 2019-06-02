@@ -3,7 +3,6 @@
 namespace App\Achievements;
 
 use Gstt\Achievements\Achievement;
-use Illuminate\Notifications\Notification;
 
 class FounderAchievement extends Achievement
 {
