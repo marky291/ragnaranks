@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\AssignRoleToMember;
 use App\Tag;
 use App\Listings\Listing;
 use Illuminate\Http\Request;
+use App\Jobs\AssignRoleToMember;
 
 /**
  * Class ListingController.

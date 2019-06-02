@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\AssignRoleToMember;
 use App\Listings\Listing;
 use App\Interactions\Vote;
 use Illuminate\Http\Request;
+use App\Jobs\AssignRoleToMember;
 
 class VoteController extends Controller
 {

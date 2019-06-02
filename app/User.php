@@ -6,12 +6,12 @@ use Carbon\Carbon;
 use App\Listings\Listing;
 use App\Interactions\Review;
 use Illuminate\Validation\Rule;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Spatie\Permission\Traits\HasRoles;
 
 /**
  * Class User.
