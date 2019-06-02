@@ -9,14 +9,13 @@
         | This configuration defines the values required to filter out the types
         | of servers based on their base_exp_rate.
         |
+        | * Anything lower than low-rate is considered 'OFFICIAL'
+        | * Anything higher than high-rate is considered 'SUPER HIGH RATE'
+        |
         */
 
         'exp' => [
-           'classic' => [
-               'min' => 0,
-               'max' => 5,
-           ],
-           'low-rate' => [
+            'low-rate' => [
                'min' => 6,
                'max' => 50,
            ],
@@ -28,10 +27,6 @@
                 'min' => 301,
                 'max' => 5000,
             ],
-             'custom' => [
-               'min' => 5001,
-               'max' => 100000,
-           ],
         ],
 
     ];

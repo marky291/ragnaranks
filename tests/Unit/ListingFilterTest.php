@@ -28,7 +28,7 @@ class ListingFilterTest extends TestCase
     /**
      * @test
      */
-    public function it_can_filter_by_group()
+    public function it_can_filter_by_low_rate()
     {
         factory(Listing::class, 1)->create(['configs->base_exp_rate' => rand(101, 200)]);
 
@@ -37,6 +37,30 @@ class ListingFilterTest extends TestCase
         $listings = new ListingFilter(app('listings'));
 
         $this->assertCount(2, $listings->filterGroup('low-rate')->all());
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_filter_by_official_rate()
+    {
+         factory(Listing::class, 1)->create(['configs->base_exp_rate' => rand(1, 5)]);
+
+        $listings = new ListingFilter(app('listings'));
+
+        $this->assertCount(1, $listings->filterGroup('official')->all());
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_filter_by_super_high_rate()
+    {
+        factory(Listing::class, 1)->create(['configs->base_exp_rate' => rand(5000, 12000)]);
+
+        $listings = new ListingFilter(app('listings'));
+
+        $this->assertCount(1, $listings->filterGroup('super-high-rate')->all());
     }
 
     /**

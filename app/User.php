@@ -56,7 +56,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
         static::created(static function (User $user) {
             RoleAssignment::dispatchNow($user, 'member');
-            Notification::send($user, new WelcomeNotification($user));
         });
     }
 

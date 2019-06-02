@@ -46,7 +46,7 @@ class ListingFilter extends Collection
      */
     public function filterGroup(string $rate = 'all')
     {
-        if (in_array($rate, ['low-rate', 'mid-rate', 'high-rate', 'custom', 'classic'])) {
+        if (in_array($rate, ['official-rate', 'low-rate', 'mid-rate', 'high-rate', 'super-high-rate'])) {
             return $this->filter(function (Listing $listing) use ($rate) {
                 return ucwords(str_replace('-', ' ', $rate)) == $listing->expRateTitle;
             });
