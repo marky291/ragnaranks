@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Jobs\RoleAssignment;
 use Carbon\Carbon;
 use App\Listings\Listing;
 use App\Interactions\Review;
@@ -43,6 +44,18 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Boot logic of the model.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(static function (User $user) {
+            RoleAssignment::dispatchNow($user, 'member');
+        });
+    }
 
     /**
      * @param array $data

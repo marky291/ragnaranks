@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use Notification;
 use Illuminate\Http\Request;
-use App\Jobs\AssignRoleToMember;
+use App\Jobs\RoleAssignment;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -83,7 +83,7 @@ class RegisterController extends Controller
      */
     protected function registered(Request $request, $user)
     {
-        AssignRoleToMember::dispatchNow($user, 'member');
+        RoleAssignment::dispatchNow($user, 'member');
 
         Notification::send($user, new WelcomeNotification($user));
     }

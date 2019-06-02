@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Tag;
 use App\Listings\Listing;
 use Illuminate\Http\Request;
-use App\Jobs\AssignRoleToMember;
+use App\Jobs\RoleAssignment;
 
 /**
  * Class ListingController.
@@ -48,7 +48,7 @@ class ListingController extends Controller
      */
     public function store(Request $request)
     {
-        AssignRoleToMember::dispatch(auth()->user(), 'creator');
+        RoleAssignment::dispatch(auth()->user(), 'creator');
 
         dd('requires implementation');
     }

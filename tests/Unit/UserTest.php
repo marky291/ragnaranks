@@ -47,4 +47,11 @@ class UserTest extends TestCase
 
         $this->assertCount(1, auth()->user()->reviews);
     }
+
+    public function test_it_defaults_to_member_role()
+    {
+        $user = factory(User::class)->create();
+
+        $this->assertEquals('member', $user->getRoleNames()->first());
+    }
 }
