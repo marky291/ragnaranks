@@ -2,12 +2,10 @@
 
 namespace App;
 
-use App\Jobs\RoleAssignment;
-use App\Notifications\WelcomeNotification;
 use Carbon\Carbon;
 use App\Listings\Listing;
 use App\Interactions\Review;
-use Illuminate\Notifications\Notification;
+use App\Jobs\RoleAssignment;
 use Illuminate\Validation\Rule;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
