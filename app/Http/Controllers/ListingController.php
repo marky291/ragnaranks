@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Achievements\FounderAchievement;
 use App\Tag;
 use App\Listings\Listing;
 use App\Jobs\RoleAssignment;
