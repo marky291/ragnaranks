@@ -77,7 +77,7 @@ class RegisterController extends Controller
     /**
      * The user has been registered.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @param mixed $user
      * @return mixed
      */
