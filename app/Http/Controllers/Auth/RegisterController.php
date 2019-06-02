@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Notification;
-use Illuminate\Http\Request;
 use App\Jobs\RoleAssignment;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
