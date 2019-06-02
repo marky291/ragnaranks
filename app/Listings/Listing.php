@@ -196,22 +196,21 @@ class Listing extends Model
      */
     public function getExpRateTitleAttribute()
     {
-        $server_base = $this->configs['base_exp_rate'];
+        $baseEXP = $this->configs['base_exp_rate'];
 
-        if ($server_base <= config('filter.exp.official.max')) {
+        if ($baseEXP < config('filter.exp.low-rate.min')) {
             return 'Official Rate';
         }
-        if ($server_base <= config('filter.exp.low-rate.max')) {
+        if ($baseEXP <= config('filter.exp.low-rate.max')) {
             return 'Low Rate';
         }
-        if ($server_base <= config('filter.exp.mid-rate.max')) {
+        if ($baseEXP <= config('filter.exp.mid-rate.max')) {
             return 'Mid Rate';
         }
-        if ($server_base <= config('filter.exp.high-rate.max')) {
+        if ($baseEXP <= config('filter.exp.high-rate.max')) {
             return 'High Rate';
         }
-        if ($server_base <= config('filter.exp.custom.max')) {
-            return 'Super High Rate';
-        }
+
+        return 'Super High Rate';
     }
 }

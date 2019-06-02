@@ -3,11 +3,11 @@
         <div id="filters" class="d-flex flex-column content p-2 rounded">
             <select @change="filterChanged" v-model="type" class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
                 <option value="all" selected>Any Rates</option>
-                <option value="classic">Official Rates</option>
+                <option value="official-rate">Official Rates</option>
                 <option value="low-rate">Low Rates</option>
                 <option value="mid-rate">Mid Rates</option>
                 <option value="high-rate">High Rates</option>
-                <option value="custom">Super High Rates</option>
+                <option value="super-high-rate">Super High Rates</option>
             </select>
 
             <select @change="filterChanged" v-model="mode" class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
