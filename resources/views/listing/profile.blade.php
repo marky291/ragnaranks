@@ -21,7 +21,7 @@
 					<span class="card-counter font-weight-bold transparency">0</span>
 				</div>
 				<div class="d-flex flex-column justify-content-end" style="height:100%;">
-					<img src="/img/flags/english.png" alt="EN">
+					<img :src="'/img/flags/'+listing.language+'.png'" :alt="flag">
 				</div>
 			</div>
 		</div>

@@ -34,9 +34,11 @@
 											</div>
 											<div class="tw-p-2">
 												<p class="tw-font-semibold tw-mb-1">Language</p>
-												<at-select v-model="$parent.listing.language" class="tw-capitalize">
-													<at-option v-for="(language, i) in languages" :key="i" :value="language.name" :label="language.name"><img :src="'/img/flags/'+language.name+'.png'" alt=""></i> @{{ language.name }}</at-option>
-												</at-select>
+												<div class="tw-flex">
+													<at-select v-model="$parent.listing.language" class="tw-capitalize">
+														<at-option v-for="(language, i) in languages" :key="i" :value="language.name" :label="language.name + ' speaking'"><img :src="'/img/flags/'+language.name+'.png'" alt=""></i> @{{ language.name }}</at-option>
+													</at-select>
+												</div>
 											</div>
 											<div class="tw-p-2">
 												<p class="tw-font-semibold tw-flex tw-justify-between tw-mb-1">Background <small class="tw-text-blue">(Optimal size 728x350px)</small></p>
