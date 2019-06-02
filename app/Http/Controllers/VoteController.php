@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Listings\Listing;
 use App\Interactions\Vote;
 use Illuminate\Http\Request;
-use App\Jobs\RoleAssignment;
 
 class VoteController extends Controller
 {

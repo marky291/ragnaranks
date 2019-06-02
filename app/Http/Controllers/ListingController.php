@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Tag;
 use App\Listings\Listing;
-use Illuminate\Http\Request;
 use App\Jobs\RoleAssignment;
+use Illuminate\Http\Request;
 
 /**
  * Class ListingController.
