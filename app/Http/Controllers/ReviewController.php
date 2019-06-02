@@ -2,18 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\AssignPlayerRole;
-use App\Jobs\AssignRoleToMember;
-use App\Jobs\MemberAssignedRole;
 use App\Listings\Listing;
 use App\Interactions\Review;
 use Illuminate\Http\Request;
+use App\Jobs\AssignRoleToMember;
 use Illuminate\Http\JsonResponse;
 use App\Http\Requests\ReviewRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use App\Notifications\ReviewPublished;
-use Illuminate\Support\Facades\Auth;
-use Spatie\Permission\Models\Role;
 
 class ReviewController extends Controller
 {
