@@ -10,8 +10,6 @@ use Illuminate\Validation\Rule;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Validator;
-use App\Notifications\WelcomeNotification;
-use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
