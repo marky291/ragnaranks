@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d01a4e613840dac31ff1f996aa3ceb81",
+    "content-hash": "083a58b273cffe60d447a2c0d800fb86",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -316,6 +316,68 @@
                 "parser"
             ],
             "time": "2019-03-17T18:48:37+00:00"
+        },
+        {
+            "name": "faustbrian/laravel-reportable",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/faustbrian/Laravel-Reportable.git",
+                "reference": "651595335e53c2b442740b6a143f09a0fbbf3e38"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/faustbrian/Laravel-Reportable/zipball/651595335e53c2b442740b6a143f09a0fbbf3e38",
+                "reference": "651595335e53c2b442740b6a143f09a0fbbf3e38",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "5.6.*|5.7.*|5.8.*",
+                "illuminate/support": "5.6.*|5.7.*|5.8.*",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "graham-campbell/testbench": "^5.0",
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^6.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "BrianFaust\\Reportable\\ReportableServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BrianFaust\\Reportable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brian Faust",
+                    "email": "hello@brianfaust.me",
+                    "homepage": "https://brianfaust.me"
+                }
+            ],
+            "description": "reportable Polymorphic Eloquent Models for Laravel 5",
+            "keywords": [
+                "Brian Faust",
+                "Laravel Reportable",
+                "faustbrian",
+                "framework",
+                "laravel",
+                "laravel-reportable"
+            ],
+            "time": "2019-04-22T07:16:00+00:00"
         },
         {
             "name": "fideloper/proxy",

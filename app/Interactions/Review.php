@@ -3,6 +3,7 @@
 namespace App\Interactions;
 
 use App\User;
+use BrianFaust\Reportable\Traits\HasReports;
 use Carbon\Carbon;
 use App\ReviewComment;
 use App\Listings\Listing;
@@ -36,18 +37,16 @@ use Illuminate\Database\Eloquent\Collection;
 class Review extends Interaction
 {
     /**
+     * @link https://github.com/artisanry/reportable/blob/master/src/Traits/HasReports.php
+     */
+    use HasReports;
+
+    /**
      * The attributes that aren't mass assignable.
      *
      * @var array
      */
     protected $guarded = [];
-
-    public function validator(array $data)
-    {
-        return Validator::make($data, [
-            // validation for data.
-        ]);
-    }
 
     /**
      * A review has many comments.

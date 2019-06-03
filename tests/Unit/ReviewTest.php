@@ -3,7 +3,10 @@
 namespace Tests\Unit;
 
 use App\User;
+use BrianFaust\Reportable\Models\Report;
 use Carbon\Carbon;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\ReviewComment;
 use App\Listings\Listing;
@@ -15,6 +18,9 @@ use Illuminate\Database\Eloquent\Collection;
  */
 class ReviewTest extends TestCase
 {
+
+    use RefreshDatabase, WithFaker;
+
     /**
      * @test
      */
@@ -203,5 +209,19 @@ class ReviewTest extends TestCase
         $this->assertCount(2, $collection);
 
         $this->assertEquals(Carbon::today(), $collection->shift()->created_at);
+    }
+
+    public function test_review_can_be_reported()
+    {
+        $user = factory(User::class)->create();
+
+        $review = factory(Review::class)->create();
+
+        $review->report([
+            'reason' => $this->faker->paragraph,
+            'meta' => ['some more optional data, can be notes or something'],
+        ], $user);
+
+        $this->assertCount(1, $review->reports);
     }
 }
