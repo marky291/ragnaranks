@@ -1,14 +1,15 @@
 <script>
     export default {
-      props: ['account'],
+      props: ['user'],
       data: function() {
           return {
               avatarUrl: '',
+              account: this.user,
           }
       },
         methods: {
           setAvatar: function(url) {
-              this.avatarUrl = url;
+              this.account.avatarUrl = url;
           }
         }
   }

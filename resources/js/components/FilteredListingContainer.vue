@@ -6,7 +6,7 @@
                     <div class="server-card-head overlap d-flex">
                         <div class="left-side d-flex w-75 flex-column align-items-start px-4 py-2 align-self-end">
                             <h1 class="text-white font-weight-bold mb-0" style="font-size: 24px;">{{ listing['name'] }}</h1>
-                            <ul class="tag-list list-unstyled d-flex tw-text-xs tw-text-green-light">
+                            <ul class="tag-list tw-list-reset tw-flex tw-text-xs tw-text-green-light">
                                 <span v-for="tag in listing.tags">
                                     <li class="mr-2">#{{ tag['name']}}</li>
                                 </span>

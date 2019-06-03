@@ -38,7 +38,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password',
+        'username', 'email', 'password', 'avatarUrl',
     ];
 
     /**
@@ -60,19 +60,6 @@ class User extends Authenticatable implements MustVerifyEmail
         static::created(static function (User $user) {
             RoleAssignment::dispatchNow($user, 'member');
         });
-    }
-
-    /**
-     * @param array $data
-     * @return mixed
-     */
-    public function validator(array $data)
-    {
-        return Validator::make($data, [
-            'username' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($data['email'], 'email')],
-            'password' => ['required', 'string', 'min:6', 'confirmed', 'sometimes'],
-        ]);
     }
 
     /**

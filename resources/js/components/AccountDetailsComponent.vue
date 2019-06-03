@@ -20,7 +20,7 @@
         },
         methods: {
             sendProfileAvatar: function() {
-                this.$parent.setAvatar(this.account.avatarUrl);
+                this.$parent.setAvatar(this.form.avatarUrl);
             },
             saveAccount: function() {
                 this.form.post('/account/update').then(response => {
