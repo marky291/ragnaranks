@@ -2,10 +2,10 @@
 
 namespace Tests\Feature;
 
-use App\Notifications\WelcomeNotification;
 use App\User;
-use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
+use App\Notifications\WelcomeNotification;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class RegisterControllerTest extends TestCase

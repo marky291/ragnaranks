@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Foundation\Http\FormRequest;
 
 class ModifyAccountRequest extends FormRequest
 {
@@ -28,7 +28,7 @@ class ModifyAccountRequest extends FormRequest
             'username' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($this->request->get('email'), 'email')],
             'password' => ['required', 'string', 'min:6', 'confirmed', 'sometimes'],
-            'avatarUrl' => ['string', 'active_url', 'min:3', 'max:600']
+            'avatarUrl' => ['string', 'active_url', 'min:3', 'max:600'],
         ];
     }
 }

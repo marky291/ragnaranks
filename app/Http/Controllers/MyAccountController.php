@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ModifyAccountRequest;
-use Illuminate\Http\Request;
 
 class MyAccountController extends Controller
 {
