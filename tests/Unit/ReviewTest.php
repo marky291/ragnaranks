@@ -3,22 +3,20 @@
 namespace Tests\Unit;
 
 use App\User;
-use BrianFaust\Reportable\Models\Report;
 use Carbon\Carbon;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\ReviewComment;
 use App\Listings\Listing;
 use App\Interactions\Review;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 /**
  * Class ReviewTest.
  */
 class ReviewTest extends TestCase
 {
-
     use RefreshDatabase, WithFaker;
 
     /**
