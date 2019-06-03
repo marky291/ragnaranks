@@ -27,7 +27,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="tw-w-3/4 my-4 tw-rounded">
+                    <div class="tw-w-3/4 my-4 tw-rounded" style="min-height:70vh;">
 {{--                        <div class="badges tw-py-4">--}}
 {{--                            <div class="tw-rounded tw-bg-white tw-w-16 tw-h-16"><img src="http://i.imgur.com/2DtiCZx.jpg?1" alt=""></div>--}}
 {{--                        </div>--}}
