@@ -1,12 +1,12 @@
 @extends('layouts.frame')
 
 @section('content')
-    <div class="shadow-inner">
-        <div class="container py-4">
-            <account-component :account="{{ auth()->user()->toJson() }}" inline-template :account="{{ auth()->user()->toJson() }}">
-                <div class="row shadow">
-                    <div class="tw-border-r tw-border-grey-light col-3 tw-bg-grey-lightest py-4 tw-flex tw-flex-col tw-items-center">
-                        <div class="avatar tw-h-32 tw-w-32 mb-4">
+    <div class="tw-bg-grey-lightest">
+        <div class="tw-container">
+            <account-component :user="{{ auth()->user() }}" inline-template :account="{{ auth()->user()->toJson() }}">
+                <div class="row tw-bg-grey-lightest tw-flex" style="min-height: 75vh;">
+                    <div class="tw-w-1/4 tw-py-8 tw-flex tw-flex-col tw-items-center">
+                        <div class="avatar sm:tw-h-48 tw-w-48 mb-4">
                             <img class="tw-rounded-full shadow tw-border tw-border-grey tw-border-2" :src="account.avatarUrl" alt="">
                         </div>
                         <h4 class="tw-text-lg mb-0 tw-font-bold">{{ auth()->user()->username }}</h4>
@@ -21,14 +21,19 @@
 
                         <div class="navigation mt-4">
                             <ul class="list-unstyled">
-                                <li {{ $selected === 'account' ? 'selected' : null }}><a class="tw-mb-2 tw-flex tw-text-grey-darker tw-text-sm hover:tw-text-blue-dark hover:tw-bg-white tw-border hover:tw-no-underline tw-justify-center tw-rounded tw-py-2 tw-px-3" href="/account">My Account</a></li>
-                                <li {{ $selected === 'notifications' ? 'selected' : null }}><a class="tw-mb-2 tw-flex tw-text-grey-darker tw-text-sm tw-mb-1 hover:tw-text-blue-dark hover:tw-bg-white tw-border hover:tw-no-underline tw-justify-center tw-rounded tw-py-2 tw-px-3" href="/account/notifications">Notifications</a></li>
-                                <li {{ $selected === 'servers' ? 'selected' : null }}><a class="tw-mb-2 tw-flex tw-text-grey-darker tw-text-sm tw-mb-1 hover:tw-text-blue hover:tw-bg-white tw-border hover:tw-no-underline tw-justify-center tw-rounded tw-py-2 tw-px-3" href="/account/servers">My Servers</a></li>
+                                <li class="tw-py-2" {{ $selected === 'account' ? 'selected' : null }}><a class="tw-border-l-4 hover:tw-border-purple tw-px-6 hover:tw-no-underline tw-pb-1 tw-text-sm tw-text-grey-darkest tw-font-bold" href="/account">My Account</a></li>
+                                <li class="tw-py-2" {{ $selected === 'notifications' ? 'selected' : null }}><a class="tw-border-l-4 hover:tw-border-purple tw-px-6 hover:tw-no-underline tw-pb-1 tw-text-sm tw-text-grey-darkest" href="/account/notifications">Notifications</a></li>
+                                <li class="tw-py-2" {{ $selected === 'servers' ? 'selected' : null }}><a class="tw-border-l-4 hover:tw-border-purple tw-px-6 hover:tw-no-underline tw-pb-1 tw-text-sm tw-text-grey-darkest" href="/account/servers">My Servers</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-9 tw-bg-white py-4" style="padding-left:2rem;">
-                        {{ $slot }}
+                    <div class="tw-w-3/4 tw-py-8 tw-bg-white tw-shadow">
+{{--                        <div class="badges tw-py-4">--}}
+{{--                            <div class="tw-rounded tw-bg-white tw-w-16 tw-h-16"><img src="http://i.imgur.com/2DtiCZx.jpg?1" alt=""></div>--}}
+{{--                        </div>--}}
+                        <div class=" tw-p-12">
+                            {{ $slot }}
+                        </div>
                     </div>
                 </div>
             </account-component>

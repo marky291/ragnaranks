@@ -1,1 +1,1 @@
-<h3 class="mb-3 tw-text-lg tw-border-b tw-pb-2 tw-font-bold">{{ $title }}</h3>
+<h3 class="mb-3 tw-text-xl tw-border-b tw-pb-2 tw-font-bold">{{ $title }}</h3>

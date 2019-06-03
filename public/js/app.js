@@ -15328,15 +15328,16 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['account'],
+  props: ['user'],
   data: function data() {
     return {
-      avatarUrl: ''
+      avatarUrl: '',
+      account: this.user
     };
   },
   methods: {
     setAvatar: function setAvatar(url) {
-      this.avatarUrl = url;
+      this.account.avatarUrl = url;
     }
   }
 });
@@ -15374,7 +15375,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     sendProfileAvatar: function sendProfileAvatar() {
-      this.$parent.setAvatar(this.account.avatarUrl);
+      this.$parent.setAvatar(this.form.avatarUrl);
     },
     saveAccount: function saveAccount() {
       var _this = this;
@@ -15674,7 +15675,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['tags', 'languages', 'defaultDescription'],
+  props: ['tags', 'defaultDescription'],
   components: {
     Multiselect: vue_multiselect__WEBPACK_IMPORTED_MODULE_0___default.a
   },
@@ -16020,7 +16021,8 @@ __webpack_require__.r(__webpack_exports__);
         username: '',
         email: '',
         password: '',
-        password_confirmation: ''
+        password_confirmation: '',
+        avatarUrl: 'http://www.gravatar.com/avatar/c2d52abc9f91d455e15a48d59fecd746?s=100&d=https%3A%2F%2Fs3.amazonaws.com%2Flaracasts%2Fimages%2Fdefault-square-avatar.jpg'
       })
     };
   },
@@ -57499,7 +57501,7 @@ var render = function() {
                     "ul",
                     {
                       staticClass:
-                        "tag-list list-unstyled d-flex tw-text-xs tw-text-green-light"
+                        "tag-list tw-list-reset tw-flex tw-text-xs tw-text-green-light"
                     },
                     _vm._l(listing.tags, function(tag) {
                       return _c("span", [
@@ -57684,7 +57686,8 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass: "d-flex flex-column content p-2 rounded",
+        staticClass:
+          "d-flex flex-column content p-2 rounded tw-mb-6 lg:tw-mb-0",
         attrs: { id: "filters" }
       },
       [

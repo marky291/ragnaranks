@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ModifyAccountRequest;
 use Illuminate\Http\Request;
 
 class MyAccountController extends Controller
@@ -16,13 +17,11 @@ class MyAccountController extends Controller
         return view('account.notifications', ['notifications' => auth()->user()->notifications]);
     }
 
-    public function updateDetails(Request $request)
+    public function updateDetails(ModifyAccountRequest $request)
     {
         $user = auth()->user();
 
-        $user->validator($request->all())->validate();
-
-        $user->fill($request->toArray())->save();
+        $user->fill($request->validated())->save();
 
         return response()->json(['status' => true], 200);
     }
