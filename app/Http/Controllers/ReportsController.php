@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use BrianFaust\Reportable\Models\Report;
-use Illuminate\Http\Request;
 
 class ReportsController extends Controller
 {

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ReviewReportRequest;
 use App\Interactions\Review;
-use App\Notifications\ReviewWasReported;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use App\Http\Requests\ReviewReportRequest;
 
 class ReviewReportController extends Controller
 {
