@@ -113,14 +113,15 @@ class CreateServerTable extends Migration
         });
 
         (new ListingLanguage(['name' => 'english']))->save();
-        (new ListingLanguage(['name' => 'portuguese']))->save();
-        (new ListingLanguage(['name' => 'tagalog']))->save();
-        (new ListingLanguage(['name' => 'spanish']))->save();
-        (new ListingLanguage(['name' => 'malaysian']))->save();
-        (new ListingLanguage(['name' => 'german']))->save();
-        (new ListingLanguage(['name' => 'russian']))->save();
         (new ListingLanguage(['name' => 'french']))->save();
+        (new ListingLanguage(['name' => 'german']))->save();
+        (new ListingLanguage(['name' => 'irish']))->save();
+        (new ListingLanguage(['name' => 'portuguese']))->save();
+        (new ListingLanguage(['name' => 'malaysian']))->save();
         (new ListingLanguage(['name' => 'mandarin']))->save();
+        (new ListingLanguage(['name' => 'russian']))->save();
+        (new ListingLanguage(['name' => 'spanish']))->save();
+        (new ListingLanguage(['name' => 'tagalog']))->save();
 
         Schema::create('listings', function (Blueprint $table) {
             $table->increments('id');

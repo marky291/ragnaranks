@@ -22,7 +22,7 @@
                                 <span class="card-counter font-weight-bold transparency">{{ listing['clicks_count']}}</span>
                             </div>
                             <div class="d-flex flex-column justify-content-end" style="height:100%;">
-                                <img src="/img/flags/english.png" alt="EN">
+                                <img class="tw-w-6 tw-h-6 tw-shadow tw-mr-2" :src="'/img/flags/'+listing['language']['name']+'.svg'" alt="">
                             </div>
                         </div>
                     </div>

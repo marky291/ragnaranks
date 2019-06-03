@@ -33,10 +33,10 @@
 												</at-select>
 											</div>
 											<div class="tw-p-2">
-												<p class="tw-font-semibold tw-mb-1">Language</p>
+												<p class="tw-font-semibold tw-mb-1">Nationality</p>
 												<div class="tw-flex">
 													<at-select v-model="$parent.listing.language" class="tw-capitalize">
-														<at-option v-for="(language, i) in languages" :key="i" :value="language.name" :label="language.name + ' speaking'"><img :src="'/img/flags/'+language.name+'.png'" alt=""></i> @{{ language.name }}</at-option>
+														<at-option v-for="(language, i) in languages" :key="i" :value="language.name" :label="language.name"><img class="tw-w-4 tw-h-4 tw-mr-2" :src="'/img/flags/'+language.name+'.svg'" alt=""></i> @{{ language.name }}</at-option>
 													</at-select>
 												</div>
 											</div>

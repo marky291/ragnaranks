@@ -57587,7 +57587,14 @@ var render = function() {
                     },
                     [
                       _c("img", {
-                        attrs: { src: "/img/flags/english.png", alt: "EN" }
+                        staticClass: "tw-w-6 tw-h-6 tw-shadow tw-mr-2",
+                        attrs: {
+                          src:
+                            "/img/flags/" +
+                            listing["language"]["name"] +
+                            ".svg",
+                          alt: ""
+                        }
                       })
                     ]
                   )

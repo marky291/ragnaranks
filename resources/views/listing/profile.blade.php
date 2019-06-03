@@ -21,7 +21,7 @@
 					<span class="card-counter font-weight-bold transparency">0</span>
 				</div>
 				<div class="d-flex flex-column justify-content-end" style="height:100%;">
-					<img :src="'/img/flags/'+listing.language+'.png'" :alt="flag">
+					<img class="tw-h-6 tw-w-6 tw-shadow" :src="'/img/flags/'+listing.language+'.svg'" :alt="flag">
 				</div>
 			</div>
 		</div>
