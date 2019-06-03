@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 // authentication routes (login & logout)
 Auth::routes(['verify' => true]);
 
+Route::get('/moderate/reports')->uses('ReportsController@index')->name('moderate');
+
 // listing controllers.
 Route::resource('listing', 'ListingController')->only([
     'index', 'show', 'create',
@@ -27,7 +29,6 @@ Route::resource('review.comment', 'ReviewCommentController', ['middleware'=>['au
 Route::resource('review.report', 'ReviewReportController', ['middleware' => ['auth', 'can:moderate']])->only([
     'store',
 ]);
-
 Route::resource('listing.reviews', 'ReviewController', ['middleware' => ['auth']])->only([
     'store', 'update', 'destroy', 'report',
 ]);
