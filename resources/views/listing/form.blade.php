@@ -7,7 +7,7 @@
 				<div class="row pb-5 pt-2">
 					<div id="sidebar" class="col-4">
 						<div class="tw-h-full">
-							<listing-configurator inline-template :tags="{{ $tags }}">
+							<listing-configurator inline-template :tags="{{ $tags }}" :languages="{{ $languages }}">
 									<at-collapse accordion value="details" style="overflow:visible">
 										<at-collapse-item name="details">
 											<div slot="title">🔨 Initial Card Setup</div>
@@ -33,10 +33,12 @@
 												</at-select>
 											</div>
 											<div class="tw-p-2">
-												<p class="tw-font-semibold tw-mb-1">Language</p>
-												<at-select v-model="$parent.listing.language">
-													<at-option value="english" label="English Server"><img src="/img/flags/english.png" alt=""></i> English Server</at-option>
-												</at-select>
+												<p class="tw-font-semibold tw-mb-1">Nationality</p>
+												<div class="tw-flex">
+													<at-select v-model="$parent.listing.language" class="tw-capitalize">
+														<at-option v-for="(language, i) in languages" :key="i" :value="language.name" :label="language.name"><img class="tw-w-4 tw-h-4 tw-mr-2" :src="'/img/flags/'+language.name+'.svg'" alt=""></i> @{{ language.name }}</at-option>
+													</at-select>
+												</div>
 											</div>
 											<div class="tw-p-2">
 												<p class="tw-font-semibold tw-flex tw-justify-between tw-mb-1">Background <small class="tw-text-blue">(Optimal size 728x350px)</small></p>

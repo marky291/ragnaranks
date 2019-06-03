@@ -6,6 +6,7 @@ use App\Tag;
 use App\Listings\Listing;
 use App\Jobs\RoleAssignment;
 use Illuminate\Http\Request;
+use App\Listings\ListingLanguage;
 
 /**
  * Class ListingController.
@@ -37,7 +38,7 @@ class ListingController extends Controller
      */
     public function create()
     {
-        return view('listing.form')->with(['tags' => Tag::all()]);
+        return view('listing.form')->with(['tags' => Tag::all(), 'languages' => ListingLanguage::all()]);
     }
 
     /**

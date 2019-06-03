@@ -1,13 +1,22 @@
 <?php
 
 
+use App\Mode;
+use Carbon\Carbon;
 use App\Listings\Listing;
 use Faker\Generator as Faker;
+use App\Listings\ListingLanguage;
 
 $factory->define(\App\Listings\ListingScreenshot::class, function (Faker $faker) {
     return [
         'listing_id' => factory(Listing::class)->create()->getKey(),
         'link' => $faker->imageUrl(640, 480, 'cats'),
+    ];
+});
+
+$factory->define(ListingLanguage::class, function (Faker $faker) {
+    return [
+        'name' => $faker->languageCode,
     ];
 });
 
@@ -33,10 +42,11 @@ $factory->define(Listing::class, function (Faker $faker) {
         ],
         'user_id' => factory('App\User')->create()->id,
         'website' => $faker->url,
-        'mode_id' => \App\Mode::inRandomOrder()->first(),
+        'mode_id' => Mode::inRandomOrder()->first(),
         'description' => $server['description'],
+        'language_id' => ListingLanguage::all()->random()->getKey(),
         'episode' => collect([13.10, 13.09, 13.05, 12.11])->random(),
         'banner_url' => $server['banner'],
-        'created_at' => \Carbon\Carbon::now()->subHours(rand(1, 500)),
+        'created_at' => Carbon::now()->subHours(rand(1, 500)),
     ];
 });

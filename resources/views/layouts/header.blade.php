@@ -1,4 +1,4 @@
-<nav id="navbar-top" class="navbar navbar-expand-md navbar-dark text-white absolute-top">
+<nav id="navbar-top" class="navbar tw-shadow-md navbar-expand-md navbar-dark text-white absolute-top">
     <div class="tw-flex tw-container tw-mx-auto">
         <div class="tw-w-1/3 collapse navbar-collapse order-3 order-md-2 px-0" id="navbar-left">
             <at-menu mode="horizontal" active-name="{{ request()->route()->uri }}" class="bg-transparent" @on-select="navigate">

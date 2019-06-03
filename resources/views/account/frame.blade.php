@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="tw-bg-grey-lightest">
-        <div class="tw-container py-4">
+        <div class="tw-container">
             <account-component :user="{{ auth()->user() }}" inline-template :account="{{ auth()->user()->toJson() }}">
-                <div class="row tw-bg-grey-lightest tw-flex">
-                    <div class="tw-w-1/4 py-4 tw-flex tw-flex-col tw-items-center">
+                <div class="row tw-bg-grey-lightest tw-flex" style="min-height: 75vh;">
+                    <div class="tw-w-1/4 tw-py-8 tw-flex tw-flex-col tw-items-center">
                         <div class="avatar sm:tw-h-48 tw-w-48 mb-4">
                             <img class="tw-rounded-full shadow tw-border tw-border-grey tw-border-2" :src="account.avatarUrl" alt="">
                         </div>
@@ -27,11 +27,11 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="tw-w-3/4 my-4 tw-rounded" style="min-height:70vh;">
+                    <div class="tw-w-3/4 tw-py-8 tw-bg-white tw-shadow">
 {{--                        <div class="badges tw-py-4">--}}
 {{--                            <div class="tw-rounded tw-bg-white tw-w-16 tw-h-16"><img src="http://i.imgur.com/2DtiCZx.jpg?1" alt=""></div>--}}
 {{--                        </div>--}}
-                        <div class=" tw-p-6">
+                        <div class=" tw-p-12">
                             {{ $slot }}
                         </div>
                     </div>

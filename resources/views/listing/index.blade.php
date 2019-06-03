@@ -1,7 +1,7 @@
 @extends('layouts.frame')
 
 @section('content')
-    <div class="shadow-inner">
+    <div class="">
         <div class="tw-container pt-4">
             <div class="row">
                 @if (auth()->check() && !auth()->user()->hasVerifiedEmail())
