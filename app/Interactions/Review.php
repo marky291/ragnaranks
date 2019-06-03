@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use App\ReviewComment;
 use App\Listings\Listing;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -47,6 +48,14 @@ class Review extends Interaction
      * @var array
      */
     protected $guarded = [];
+
+    /**
+     * @return MorphToMany
+     */
+    public function listing()
+    {
+        return $this->morphedByMany(Listing::class, 'interaction');
+    }
 
     /**
      * A review has many comments.

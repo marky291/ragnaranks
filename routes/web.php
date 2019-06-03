@@ -24,8 +24,12 @@ Route::resource('listing', 'ListingController')->only([
 Route::resource('review.comment', 'ReviewCommentController', ['middleware'=>['auth']])->only([
     'store',
 ]);
+Route::resource('review.report', 'ReviewReportController', ['middleware' => ['auth', 'can:moderate']])->only([
+    'store',
+]);
+
 Route::resource('listing.reviews', 'ReviewController', ['middleware' => ['auth']])->only([
-    'store', 'update', 'destroy',
+    'store', 'update', 'destroy', 'report',
 ]);
 
 // default index page.

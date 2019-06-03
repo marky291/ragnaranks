@@ -2,6 +2,8 @@
 
 namespace Tests\Feature;
 
+use App\Notifications\ReviewWasReported;
+use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Interactions\Review;
@@ -9,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class ReviewRequestTest extends TestCase
+class ReviewControllerTest extends TestCase
 {
     use WithFaker;
     use RefreshDatabase;
@@ -91,5 +93,22 @@ class ReviewRequestTest extends TestCase
         $this->delete("/listing/{$this->listing->slug}/reviews/{$review->getKey()}");
 
         $this->assertDatabaseMissing('reviews', ['id' => $review->getKey()]);
+    }
+
+    public function test_it_can_be_reported()
+    {
+        $this->signIn();
+
+        $review = factory(Review::class)->create();
+
+        $listing = factory(Listing::class)->create();
+
+        $listing->reviews()->save($review);
+
+        $response = $this->post("/review/{$review->getKey()}/report", ['reason' => 'foo', 'meta' => 'bar']);
+
+        $response->assertStatus(200);
+
+        $this->assertCount(1, $review->reports);
     }
 }

@@ -16113,6 +16113,9 @@ __webpack_require__.r(__webpack_exports__);
       commenting: false,
       comment: new vform__WEBPACK_IMPORTED_MODULE_1__["Form"]({
         message: ''
+      }),
+      report: new vform__WEBPACK_IMPORTED_MODULE_1__["Form"]({
+        reason: ''
       })
     };
   },
@@ -16153,7 +16156,22 @@ __webpack_require__.r(__webpack_exports__);
         _this.$Message.error(error.message);
       });
     },
-    reportReview: function reportReview() {}
+    reportReview: function reportReview() {
+      var _this2 = this;
+
+      this.$Modal.prompt({
+        title: 'Reporting review created by {REVIEW_NAME}',
+        content: 'Type your reason for reporting this review:'
+      }).then(function (data) {
+        _this2.report.reason = data.value;
+
+        _this2.report.post('/review/' + _this2.review.id + '/report').then(function (response) {
+          _this2.$Message.success('Awesome!, We will notify you when we decide action upon the review.');
+        })["catch"](function (error) {
+          _this2.$Message.error(error.message);
+        });
+      });
+    }
   }
 });
 
