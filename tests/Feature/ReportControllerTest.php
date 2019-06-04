@@ -2,13 +2,11 @@
 
 namespace Tests\Feature;
 
+use Tests\TestCase;
 use App\Interactions\Review;
 use App\Notifications\ReportedReviewAllowed;
 use App\Notifications\ReportedReviewRemoved;
 use Illuminate\Support\Facades\Notification;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ReportControllerTest extends TestCase
 {
@@ -41,7 +39,7 @@ class ReportControllerTest extends TestCase
 
         $review = factory(Review::class)->create();
 
-        $review->report(['reason' => 'foo',], auth()->user());
+        $review->report(['reason' => 'foo'], auth()->user());
 
         $response = $this->patch("/moderate/report/{$review->reports->first()->getKey()}");
 
@@ -58,7 +56,7 @@ class ReportControllerTest extends TestCase
 
         $review = factory(Review::class)->create();
 
-        $review->report(['reason' => 'foo',], auth()->user());
+        $review->report(['reason' => 'foo'], auth()->user());
 
         $response = $this->delete("/moderate/report/{$review->reports->first()->getKey()}");
 

@@ -2,12 +2,10 @@
 
 namespace App\Notifications;
 
-use App\Interactions\Review;
 use App\Report;
+use App\Interactions\Review;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 
 class ReportedReviewRemoved extends Notification
 {
