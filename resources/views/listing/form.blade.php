@@ -143,8 +143,8 @@
 														<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
 															<p class="tw-font-bold">Skill Casting Setup</p>
 														</div>
-														@component('listing.partial.config', ['name' => __('configs.instant_case.name')])
-															<at-input v-model="$parent.listing.configs.instant_case" size="small" type="number" placeholder="Please input"></at-input>
+														@component('listing.partial.config', ['name' => __('configs.instant_cast.name')])
+															<at-input v-model="$parent.listing.configs.instant_cast" size="small" type="number" placeholder="Please input"></at-input>
 														@endcomponent
 														@component('listing.partial.config', ['name' => __('configs.castrate_dex_scale.name')])
 															<at-input v-model="$parent.listing.configs.castrate_dex_scale" size="small" type="number" placeholder="Please input"></at-input>

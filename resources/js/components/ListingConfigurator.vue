@@ -1,11 +1,9 @@
 <script>
-    // import vue2Dropzone from 'vue2-dropzone';
-    // import 'vue2-dropzone/dist/vue2Dropzone.min.css';
     import Multiselect from 'vue-multiselect';
     import {Validator} from 'simple-vue-validator';
 
     export default {
-        props: ['tags', 'languages', 'defaultDescription'],
+        props: ['languages', 'defaultDescription'],
         components: { Multiselect },
         data: function () {
             return {
