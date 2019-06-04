@@ -7,7 +7,7 @@
                 <div class="row tw-bg-grey-lightest tw-flex" style="min-height: 75vh;">
                     <div class="tw-w-1/4 tw-py-8 tw-flex tw-flex-col tw-items-center">
                         <div class="avatar sm:tw-h-48 tw-w-48 mb-4">
-                            <img class="tw-rounded-full shadow tw-border tw-border-grey tw-border-2" :src="account.avatarUrl" alt="">
+                            <img class="tw-rounded-full shadow tw-border tw-border-grey tw-border-2" :src="avatar" alt="">
                         </div>
                         <h4 class="tw-text-lg mb-0 tw-font-bold">{{ auth()->user()->username }}</h4>
                         @if (auth()->user()->hasRole('admin'))

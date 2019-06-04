@@ -15331,9 +15331,13 @@ __webpack_require__.r(__webpack_exports__);
   props: ['user'],
   data: function data() {
     return {
-      avatarUrl: '',
       account: this.user
     };
+  },
+  computed: {
+    avatar: function avatar() {
+      return this.account.avatarUrl ? this.account.avatarUrl : 'img/preset/avatar.png';
+    }
   },
   methods: {
     setAvatar: function setAvatar(url) {

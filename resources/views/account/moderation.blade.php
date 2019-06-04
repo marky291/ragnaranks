@@ -6,7 +6,7 @@
 				@if ($report->reportable instanceof \App\Interactions\Review)
 					<div class="tw-mb-5">
 						<p class="tw-font-bold tw-text-lg tw-mb-2">Case #{{ $report->getKey() }}</p>
-						<p class="tw-font-semibold">A review was reported {{ $report->created_at->diffForHumans() }} by <span class="tw-text-blue">{{$report->reporter->username}}</span></p>
+						<p class="tw-font-semibold tw-mb-2">A review was reported {{ $report->created_at->diffForHumans() }} by <span class="tw-text-blue">{{$report->reporter->username}}</span> for the reason: {{ $report->reason  }}</p>
 						<p>{{ $report->reportable->message }}</p>
 						<div class="tw-mt-3">
 							<at-button @click="update('{{route('report.update', $report)}}')" :loading="updating.busy" type="info" size="small">Allow</at-button>

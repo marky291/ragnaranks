@@ -12,12 +12,14 @@ class ReportController extends Controller
 {
     public function index()
     {
-        return view('account.moderation', ['reports' => Report::latest()->with(['reporter', 'reportable'])->get()]);
+        return view('account.moderation', ['reports' => Report::unjudged()->latest()->with(['reporter', 'reportable'])->get()]);
     }
 
     public function update(Request $request, Report $report) : JsonResponse
     {
         $report->reporter->notify(new ReportedReviewAllowed($report));
+
+        $report->conclude(['conclusion' => 'The report content was kept.', 'action_taken' => 'updated'], auth()->user());
 
         return response()->json([], 200);
     }
@@ -25,6 +27,8 @@ class ReportController extends Controller
     public function destroy(Report $report)
     {
         $report->reportable->delete();
+
+        $report->conclude(['conclusion' => 'The reported content was removed.', 'action_taken' => 'deleted'], auth()->user());
 
         $report->reporter->notify(new ReportedReviewRemoved($report));
 
