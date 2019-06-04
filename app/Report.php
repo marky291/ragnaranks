@@ -3,10 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
-use Illuminate\Support\Collection;
 
 /**
  * @property User reporter
@@ -14,14 +12,13 @@ use Illuminate\Support\Collection;
  */
 class Report extends \BrianFaust\Reportable\Models\Report
 {
-
     public function scopeUnjudged(Builder $query) : Builder
     {
         return $query->doesntHave('conclusion');
     }
 
     /**
-     * A report has a reporter
+     * A report has a reporter.
      *
      * @return HasOne
      */
