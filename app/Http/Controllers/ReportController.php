@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Report;
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use App\Notifications\ReportedReviewAllowed;
 use App\Notifications\ReportedReviewRemoved;
-use App\Report;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
