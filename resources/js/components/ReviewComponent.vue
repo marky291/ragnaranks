@@ -16,6 +16,10 @@
 
                 comment: new Form({
                     message: '',
+                }),
+
+                report: new Form({
+                    reason: '',
                 })
             }
         },
@@ -52,9 +56,19 @@
                   this.$Message.error(error.message);
 							})
 						},
-						reportReview() {
-
-						}
+            reportReview: function() {
+                this.$Modal.prompt({
+                    title: 'Reporting review created by {REVIEW_NAME}',
+                    content: 'Type your reason for reporting this review:'
+                }).then((data) => {
+                    this.report.reason = data.value;
+                    this.report.post('/review/'+this.review.id+'/report').then(response => {
+                        this.$Message.success('Awesome!, We will notify you when we decide action upon the review.');
+                    }).catch(error => {
+                        this.$Message.error(error.message);
+                    })
+                });
+            },
         }
     }
 

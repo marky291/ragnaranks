@@ -17,15 +17,20 @@ use Illuminate\Support\Facades\Route;
 // authentication routes (login & logout)
 Auth::routes(['verify' => true]);
 
-// listing controllers.
+Route::resource('moderate/report', 'ReportController', ['middleware' => ['auth', 'can:moderate']])->only([
+    'index', 'destroy', 'update',
+]);
 Route::resource('listing', 'ListingController')->only([
     'index', 'show', 'create',
 ]);
 Route::resource('review.comment', 'ReviewCommentController', ['middleware'=>['auth']])->only([
     'store',
 ]);
+Route::resource('review.report', 'ReviewReportController', ['middleware' => ['auth', 'can:moderate']])->only([
+    'store',
+]);
 Route::resource('listing.reviews', 'ReviewController', ['middleware' => ['auth']])->only([
-    'store', 'update', 'destroy',
+    'store', 'update', 'destroy', 'report',
 ]);
 
 // default index page.

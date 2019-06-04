@@ -7,7 +7,7 @@
                 <div class="row tw-bg-grey-lightest tw-flex" style="min-height: 75vh;">
                     <div class="tw-w-1/4 tw-py-8 tw-flex tw-flex-col tw-items-center">
                         <div class="avatar sm:tw-h-48 tw-w-48 mb-4">
-                            <img class="tw-rounded-full shadow tw-border tw-border-grey tw-border-2" :src="account.avatarUrl" alt="">
+                            <img class="tw-rounded-full shadow tw-border tw-border-grey tw-border-2" :src="avatar" alt="">
                         </div>
                         <h4 class="tw-text-lg mb-0 tw-font-bold">{{ auth()->user()->username }}</h4>
                         @if (auth()->user()->hasRole('admin'))
@@ -23,7 +23,12 @@
                             <ul class="list-unstyled">
                                 <li class="tw-py-2" {{ $selected === 'account' ? 'selected' : null }}><a class="tw-border-l-4 hover:tw-border-purple tw-px-6 hover:tw-no-underline tw-pb-1 tw-text-sm tw-text-grey-darkest tw-font-bold" href="/account">My Account</a></li>
                                 <li class="tw-py-2" {{ $selected === 'notifications' ? 'selected' : null }}><a class="tw-border-l-4 hover:tw-border-purple tw-px-6 hover:tw-no-underline tw-pb-1 tw-text-sm tw-text-grey-darkest" href="/account/notifications">Notifications</a></li>
+                                @role('creator')
                                 <li class="tw-py-2" {{ $selected === 'servers' ? 'selected' : null }}><a class="tw-border-l-4 hover:tw-border-purple tw-px-6 hover:tw-no-underline tw-pb-1 tw-text-sm tw-text-grey-darkest" href="/account/servers">My Servers</a></li>
+                                @endrole
+                                @can('moderate')
+                                <li class="tw-py-2" {{ $selected === 'moderate/report' ? 'selected' : null }}><a class="tw-border-l-4 hover:tw-border-purple tw-px-6 hover:tw-no-underline tw-pb-1 tw-text-sm tw-text-grey-darkest" href="/moderate/report">Moderator Tools</a></li>
+                                @endcan
                             </ul>
                         </div>
                     </div>

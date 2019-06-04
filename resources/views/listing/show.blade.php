@@ -86,13 +86,13 @@
                                     <div class="container px-5 pt-4 pb-3">
                                         <h3 class="heading mb-4 tw-font-bold text-dark heading-underline">Screenshot Previews</h3>
                                         <div class="mb-3">
-                                            <carousel-3d :disable3d="true" :space="360" :height="200" :width="350" :autoplay="true" :autoplay-timeout="5000" :controls-visible="true"  :controls-width="30" :controls-height="60" :clickable="false">
-                                                @foreach($listing->screenshots as $index => $screenshot)
-                                                    <slide :index="{{ $index }}">
-                                                        <img class="h-100" src="{{ $screenshot->link }}" alt="Image {{ $index }}">
-                                                    </slide>
-                                                @endforeach
-                                            </carousel-3d>
+{{--                                            <carousel-3d :disable3d="true" :space="360" :height="200" :width="350" :autoplay="true" :autoplay-timeout="5000" :controls-visible="true"  :controls-width="30" :controls-height="60" :clickable="false">--}}
+{{--                                                @foreach($listing->screenshots as $index => $screenshot)--}}
+{{--                                                    <slide :index="{{ $index }}">--}}
+{{--                                                        <img class="h-100" src="{{ $screenshot->link }}" alt="Image {{ $index }}">--}}
+{{--                                                    </slide>--}}
+{{--                                                @endforeach--}}
+{{--                                            </carousel-3d>--}}
                                         </div>
                                     </div>
                                 </section>
