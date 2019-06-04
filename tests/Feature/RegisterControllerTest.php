@@ -2,10 +2,10 @@
 
 namespace Tests\Feature;
 
-use App\Notifications\WelcomeNotification;
 use App\User;
-use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
+use App\Notifications\WelcomeNotification;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class RegisterControllerTest extends TestCase
@@ -23,7 +23,7 @@ class RegisterControllerTest extends TestCase
 
         $this->withoutExceptionHandling();
 
-        $response = $this->post('/register', ['username' => 'unittester', 'email' => 'foo@bar.com', 'password' => 'password', 'password_confirmation' => 'password']);
+        $response = $this->post('/register', ['username' => 'unittester', 'email' => 'foo@bar.com', 'avatarUrl' => 'http://foo.com', 'password' => 'password', 'password_confirmation' => 'password']);
 
         Notification::assertSentTo(User::where('username', 'unittester')->first(), WelcomeNotification::class);
     }

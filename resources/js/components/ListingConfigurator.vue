@@ -5,7 +5,7 @@
     import {Validator} from 'simple-vue-validator';
 
     export default {
-        props: ['tags', 'defaultDescription'],
+        props: ['tags', 'languages', 'defaultDescription'],
         components: { Multiselect },
         data: function () {
             return {

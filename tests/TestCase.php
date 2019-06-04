@@ -20,10 +20,13 @@ abstract class TestCase extends BaseTestCase
 
     /**
      * Set up a fake user with a listing.
+     * @param string $withRole
      */
-    public function signIn()
+    public function signIn(string $withRole = 'admin'): void
     {
         $user = factory(User::class)->create();
+
+        $user->assignRole($withRole);
 
         $this->be($user);
     }

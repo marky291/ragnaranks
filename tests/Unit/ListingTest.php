@@ -9,12 +9,15 @@ use App\Interactions\Vote;
 use App\Interactions\Click;
 use App\Interactions\Review;
 use App\Listings\ListingScreenshot;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 /**
  * Class ListingTest.
  */
 class ListingTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * @test
      */
@@ -384,5 +387,12 @@ class ListingTest extends TestCase
         $listing = factory(Listing::class)->create();
 
         $this->assertDatabaseHas('listings', ['id' => $listing->id, 'accent' => 'nightmare']);
+    }
+
+    public function test_it_has_a_language()
+    {
+        $listing = factory(Listing::class)->create(['language_id' => 1]);
+
+        $this->assertEquals('english', $listing->language->name);
     }
 }
