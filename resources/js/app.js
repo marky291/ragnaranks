@@ -79,6 +79,7 @@ Vue.component('account-details-component', require('./components/AccountDetailsC
 Vue.component('account-notification-component', require('./components/AccountNotificationComponent').default);
 Vue.component('listing-profile', require('./components/ListingProfile').default);
 Vue.component('listing-configurator', require('./components/ListingConfigurator').default);
+Vue.component('report-tool-component', require('./components/ReportToolComponent').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

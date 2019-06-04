@@ -17,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 // authentication routes (login & logout)
 Auth::routes(['verify' => true]);
 
-Route::get('/moderate/reports')->uses('ReportsController@index')->name('moderate');
-
-// listing controllers.
+Route::resource('moderate/report', 'ReportsController', ['middleware' => ['auth', 'can:moderate']])->only([
+    'index', 'destroy', 'update'
+]);
 Route::resource('listing', 'ListingController')->only([
     'index', 'show', 'create',
 ]);
