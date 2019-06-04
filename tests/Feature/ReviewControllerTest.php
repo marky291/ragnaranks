@@ -2,8 +2,6 @@
 
 namespace Tests\Feature;
 
-use App\Notifications\ReviewWasReported;
-use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Interactions\Review;

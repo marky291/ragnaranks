@@ -3,14 +3,13 @@
 namespace App\Interactions;
 
 use App\User;
-use BrianFaust\Reportable\Traits\HasReports;
 use Carbon\Carbon;
 use App\ReviewComment;
 use App\Listings\Listing;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
-use Illuminate\Support\Facades\Validator;
+use BrianFaust\Reportable\Traits\HasReports;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 /**
  * Class Review.
@@ -37,7 +36,7 @@ use Illuminate\Database\Eloquent\Collection;
  */
 class Review extends Interaction
 {
-    /**
+    /*
      * @link https://github.com/artisanry/reportable/blob/master/src/Traits/HasReports.php
      */
     use HasReports;
