@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes(['verify' => true]);
 
 Route::resource('moderate/report', 'ReportController', ['middleware' => ['auth', 'can:moderate']])->only([
-    'index', 'destroy', 'update'
+    'index', 'destroy', 'update',
 ]);
 Route::resource('listing', 'ListingController')->only([
     'index', 'show', 'create',

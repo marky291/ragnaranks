@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
@@ -13,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 class Report extends \BrianFaust\Reportable\Models\Report
 {
     /**
-     * A report has a reporter
+     * A report has a reporter.
      *
      * @return HasOne
      */
