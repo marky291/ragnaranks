@@ -4,7 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
+/**
+ * @property User reporter
+ * @property MorphOne reportable
+ */
 class Report extends \BrianFaust\Reportable\Models\Report
 {
     /**
@@ -12,7 +17,7 @@ class Report extends \BrianFaust\Reportable\Models\Report
      *
      * @return HasOne
      */
-    public function reporter()
+    public function reporter(): HasOne
     {
         return $this->hasOne(User::class, 'id', 'reporter_id');
     }
