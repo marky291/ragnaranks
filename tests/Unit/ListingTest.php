@@ -3,7 +3,6 @@
 namespace Tests\Unit;
 
 use App\Tag;
-use Illuminate\Support\Facades\Cache;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Interactions\Vote;
@@ -17,7 +16,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
  */
 class ListingTest extends TestCase
 {
-
     use RefreshDatabase;
 
     /**
@@ -396,7 +394,7 @@ class ListingTest extends TestCase
 
     public function test_it_has_a_rank()
     {
-        $listing = $this->createListing([], 0,0);
+        $listing = $this->createListing([], 0, 0);
 
         $this->assertEquals(1, $listing->rank);
     }
