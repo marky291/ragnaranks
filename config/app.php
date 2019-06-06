@@ -174,7 +174,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Listings\ListingServiceProvider::class,
+        App\Listings\RankingServiceProvider::class,
         App\Interactions\InteractionServiceProvider::class,
         Gstt\Achievements\AchievementsServiceProvider::class,
 

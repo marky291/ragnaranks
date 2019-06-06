@@ -46,7 +46,7 @@ $factory->define(Listing::class, function (Faker $faker) {
         'description' => $server['description'],
         'language_id' => ListingLanguage::all()->random()->getKey(),
         'episode' => collect([13.10, 13.09, 13.05, 12.11])->random(),
-        'banner_url' => $server['banner'],
+        'background' => $server['banner'],
         'created_at' => Carbon::now()->subHours(rand(1, 500)),
     ];
 });

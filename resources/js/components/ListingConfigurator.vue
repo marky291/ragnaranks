@@ -7,6 +7,7 @@
         components: { Multiselect },
         data: function () {
             return {
+                tags: [],
                 screenshot: '',
                 accents: [
                     'nightmare',
@@ -68,8 +69,15 @@
                 }
             }
         },
-        mounted() {
-            this.generatePreset();
+        async mounted() {
+            await this.generatePreset();
+            await axios.get('/api/listing/tags').then(response => {
+                this.tags = response.data;
+            });
+            // await fetchData1();
+            // await fetchData2UsingData1();
+            // doSomethingUsingData1And2();
+            // this.dataReady = true;
         },
         methods: {
             addTag (newTag) {
@@ -97,8 +105,8 @@
                     {accent: 'drops', background: '/img/preset/card-mauve.png'},
                     {accent: 'poring', background: '/img/preset/card-pink.png'},
                 ]);
-                this.$parent.listing.accent = preset.accent;
-                this.$parent.listing.background = preset.background;
+                this.$parent.preset.accent = preset.accent;
+                this.$parent.preset.background = preset.background;
             },
             handleParsedConfig(file, response) {
                 this.listing.configs[file.name.split(".")[0]] = response;

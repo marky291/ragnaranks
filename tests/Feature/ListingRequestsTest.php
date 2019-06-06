@@ -35,7 +35,7 @@ class ListingRequestsTest extends TestCase
 
         $this->assertNotNull($response->original->listing->name);
 
-        $response->assertOk()->assertViewIs('listing.show')->assertViewHas('listing');
+        $response->assertOk()->assertViewIs('listing.form')->assertViewHas('listing');
     }
 
     public function test_it_can_get_a_json_response_from_queryAPI()

@@ -6,7 +6,7 @@ use App\Tag;
 use Carbon\Carbon;
 use Tests\TestCase;
 use App\Listings\Listing;
-use App\Listings\ListingFilter;
+use App\Listings\ListingCollection;
 use Illuminate\Database\Eloquent\Collection;
 
 class ListingFilterTest extends TestCase
@@ -20,7 +20,7 @@ class ListingFilterTest extends TestCase
 
         factory(Listing::class, 3)->create(['mode_id' => 1]);
 
-        $listings = new ListingFilter(app('listings'));
+        $listings = Listing::all();
 
         $this->assertCount(3, $listings->filterMode('renewal')->all());
     }
@@ -34,7 +34,7 @@ class ListingFilterTest extends TestCase
 
         factory(Listing::class, 2)->create(['configs->base_exp_rate' => rand(6, 50)]);
 
-        $listings = new ListingFilter(app('listings'));
+        $listings = Listing::all();
 
         $this->assertCount(2, $listings->filterGroup('low-rate')->all());
     }
@@ -46,7 +46,7 @@ class ListingFilterTest extends TestCase
     {
         factory(Listing::class, 1)->create(['configs->base_exp_rate' => rand(1, 5)]);
 
-        $listings = new ListingFilter(app('listings'));
+        $listings = Listing::all();
 
         $this->assertCount(1, $listings->filterGroup('official')->all());
     }
@@ -58,7 +58,7 @@ class ListingFilterTest extends TestCase
     {
         factory(Listing::class, 1)->create(['configs->base_exp_rate' => rand(5000, 12000)]);
 
-        $listings = new ListingFilter(app('listings'));
+        $listings = Listing::all();
 
         $this->assertCount(1, $listings->filterGroup('super-high-rate')->all());
     }
@@ -72,7 +72,7 @@ class ListingFilterTest extends TestCase
 
         factory(Listing::class)->create(['name' => 'first', 'episode'  => 2]);
 
-        $listings = app('listings')->filterSort('episode');
+        $listings = Listing::all()->filterSort('episode');
 
         $this->assertEquals('first', $listings->first()->name);
     }
@@ -86,7 +86,7 @@ class ListingFilterTest extends TestCase
 
         $listing1 = factory(Listing::class)->create(['name' => 'A']);
 
-        $listings = new ListingFilter(app('listings'));
+        $listings = Listing::all();
 
         $collection = $listings->filterSort('name');
 
@@ -96,59 +96,11 @@ class ListingFilterTest extends TestCase
     /**
      * @test
      */
-    public function it_can_order_the_filter_by_rank()
-    {
-        $listing2 = $this->createListing(['name' => 'second'], 3, 3);
-        $listing1 = $this->createListing(['name' => 'first'], 6, 2);
-
-        /** @var Collection $listings */
-        $listings = app('listings');
-
-        // first.
-        $this->assertEquals($listings->shift()->name, $listing1->name);
-
-        // second
-        $this->assertEquals($listings->shift()->name, $listing2->name);
-    }
-
-    /**
-     * @test
-     */
-    public function it_can_order_the_filter_by_vote_count()
-    {
-        $listing2 = $this->createListing(['name' => 'second'], 1, 3);
-
-        $listing1 = $this->createListing(['name' => 'first'], 3, 3);
-
-        /** @var Collection $listings */
-        $listings = app('listings')->filterSort('votes_count');
-
-        $this->assertEquals($listings->shift()->name, $listing1->name);
-    }
-
-    /**
-     * @test
-     */
-    public function it_can_order_the_filter_by_clicks_count()
-    {
-        $listing2 = $this->createListing(['name' => 'second'], 3, 1);
-
-        $listing1 = $this->createListing(['name' => 'first'], 1, 3);
-
-        /** @var Collection $listings */
-        $listings = app('listings')->filterSort('clicks_count');
-
-        $this->assertEquals($listings->shift()->name, $listing1->name);
-    }
-
-    /**
-     * @test
-     */
     public function it_can_filter_all_with_incorrect_keys()
     {
         factory(Listing::class)->create();
 
-        $listings = new ListingFilter(app('listings'));
+        $listings = Listing::all();
 
         $collection = $listings->filterMode('bad')->filterGroup('key')->filterSort('entries')->all();
 
@@ -164,7 +116,7 @@ class ListingFilterTest extends TestCase
 
         $this->createListing(['created_at' => Carbon::today()], 0, 0);
 
-        $listings = app('listings')->filterSort('created_at');
+        $listings = Listing::all()->filterSort('created_at');
 
         $this->assertEquals($listings->shift()->created_at, Carbon::today());
 
@@ -180,6 +132,6 @@ class ListingFilterTest extends TestCase
         $listing1->tags()->save(factory(Tag::class)->make(['tag' => 'foo']));
         $listing2->tags()->save(factory(Tag::class)->make(['tag' => 'bar']));
 
-        $this->assertEquals(1, app('listings')->filterTag('foo')->count());
+        $this->assertEquals(1, Listing::all()->filterTag('foo')->count());
     }
 }

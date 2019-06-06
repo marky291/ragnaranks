@@ -9,10 +9,12 @@ use Carbon\Carbon;
 use App\Interactions\Vote;
 use App\Interactions\Click;
 use App\Interactions\Review;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 /**
@@ -21,11 +23,12 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @property int $id
  * @property string $name
  * @property string $slug
+ * @property int $rank
  * @property string $points
  * @property string $website
  * @property float $rating
  * @property string $description
- * @property string $banner_url
+ * @property string $background
  * @property float $episode
  * @property array $configs
  * @property string $accent
@@ -34,17 +37,13 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * @property User $user
- * @property Collection $tags
- * @property Collection|HasMany $reviews
- * @property \App\Interactions\Vote|HasMany $votes
- * @property Click|HasMany $clicks
- * @property int $rank
- * @property int votes_count
- * @property int clicks_count
  * @property int $user_id
  * @property int $mode_id
+ * @property Collection $tags
+ * @property Collection|HasMany $reviews
+ * @property Vote|HasMany $votes
+ * @property Click|HasMany $clicks
  * @property-read string $exp_rate_title
- * @mixin \loquent
  */
 class Listing extends Model
 {
@@ -55,7 +54,6 @@ class Listing extends Model
      */
     protected $casts = [
         'configs' => 'array',
-        'statistics' => 'array',
     ];
 
     /**
@@ -86,11 +84,32 @@ class Listing extends Model
     }
 
     /**
+     * Get a rank generated from the ranking table.
+     *
+     * @return mixed
+     */
+    public function getRankAttribute()
+    {
+        return app('rankings')->get($this->getKey(), 0);
+    }
+
+    /**
+     * Scope a query to with all of its relations eager loaded.
+     *
+     * @param Builder $builder
+     * @return Builder
+     */
+    public function scopeRelations(Builder $builder): Builder
+    {
+        return $builder->with(['mode', 'tags', 'screenshots', 'language']);
+    }
+
+    /**
      * A listing has one available mode.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return HasOne
      */
-    public function mode()
+    public function mode(): HasOne
     {
         return $this->hasOne(Mode::class, 'id', 'mode_id');
     }
@@ -98,21 +117,21 @@ class Listing extends Model
     /**
      * A listing can have many clicks.
      *
-     * @return MorphToMany|Vote
+     * @return HasMany
      */
     public function votes()
     {
-        return $this->morphedByMany(Vote::class, 'interaction')->whereDate('created_at', '>=', ' DATE_SUB(NOW(), INTERVAL 7 DAY)');
+        return $this->hasMany(Vote::class)->whereDate('created_at', '>=', ' DATE_SUB(NOW(), INTERVAL 7 DAY)');
     }
 
     /**
      * A listing can have many clicks.
      *
-     * @return MorphToMany|Vote
+     * @return HasMany|\Illuminate\Database\Query\Builder
      */
     public function clicks()
     {
-        return $this->morphedByMany(Click::class, 'interaction')->whereDate('created_at', '>=', ' DATE_SUB(NOW(), INTERVAL 7 DAY)');
+        return $this->hasMany(Click::class)->whereDate('created_at', '>=', ' DATE_SUB(NOW(), INTERVAL 7 DAY)');
     }
 
     /**
@@ -174,7 +193,7 @@ class Listing extends Model
      */
     public function newCollection(array $models = [])
     {
-        return new ListingFilter($models);
+        return new ListingCollection($models);
     }
 
     /**
@@ -197,7 +216,7 @@ class Listing extends Model
      */
     public function getPointsAttribute()
     {
-        return round($this->votes->count() + ($this->clicks->count() / 7), 0);
+        return round($this->votes()->count() * 6 + $this->clicks()->count(), 0);
     }
 
     /**

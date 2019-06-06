@@ -2,8 +2,10 @@
     import Scoreboards from '../components/ScoreboardsComponent.vue';
     import {Carousel3d, Slide} from 'vue-carousel-3d';
     import marked from 'marked'
+    import axios from 'axios';
 
     export default {
+        props: ['slug'],
         components: {
             Scoreboards,
             Carousel3d,
@@ -11,6 +13,10 @@
         },
         data: function () {
             return {
+                preset: {
+                    accent: '',
+                    background: '',
+                },
                 listing: {
                     name: '',
                     tags: [],
@@ -45,7 +51,21 @@
                 },
             }
         },
+        created: function() {
+            console.log(this.slug);
+        },
+        async mounted() {
+            axios.get('/api/listing/'+(this.slug)).then(response => {
+                this.listing = response.data;
+            });
+        },
         computed: {
+            background: function() {
+                return _.isEmpty(this.listing.background) ? this.preset.background : this.listing.background;
+            },
+            accent: function() {
+                return _.isEmpty(this.listing.accent) ? this.preset.accent : this.listing.accent;
+            },
             markedDescription: function() {
                 return marked(this.listing.description, {sanitize: true});
             },

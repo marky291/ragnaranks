@@ -3,7 +3,7 @@
 <div class="server microcard bg-white shadow-sm">
 
     <div class="image">
-        <img src="{{ $listing->banner_url }}" alt="{{ $listing->name }}">
+        <img src="{{ $listing->background }}" alt="{{ $listing->name }}">
     </div>
 
     <div class="information d-flex flex-row p-3">

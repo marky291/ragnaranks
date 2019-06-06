@@ -46,40 +46,6 @@ class VoteTest extends TestCase
     /**
      * @test
      */
-    public function it_has_a_publisher_only_if_auth_logged_in()
-    {
-        $this->signIn();
-
-        $listing = factory(Listing::class)->create();
-
-        $listing->votes()->save(new Vote);
-
-        $this->assertEquals(auth()->id(), $listing->votes()->first()->publisher->id);
-    }
-
-    /**
-     * @test
-     */
-    public function it_can_publish_a_vote_without_requiring_authentication()
-    {
-        $listing = factory(Listing::class)->create();
-
-        $listing->votes()->save(new Vote);
-
-        $this->assertEquals(null, $listing->votes()->first()->publisher);
-    }
-
-    /**
-     * @test
-     */
-    public function it_stores_the_ip_address_using_observer_when_saved()
-    {
-        $this->assertEquals(request()->getClientIp(), Vote::create()->ip_address);
-    }
-
-    /**
-     * @test
-     */
     public function it_has_a_configuration_for_spread()
     {
         $this->assertEquals(6, config('interaction.vote.spread'));

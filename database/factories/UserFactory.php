@@ -1,5 +1,8 @@
 <?php
 
+use App\Interactions\Click;
+use App\Interactions\Vote;
+use App\Listings\Listing;
 use Faker\Generator as Faker;
 
 /*
@@ -58,15 +61,17 @@ $factory->define(\App\Tag::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(\App\Interactions\Click::class, function (Faker $faker) {
+$factory->define(Click::class, function (Faker $faker) {
     return [
+        'listing_id' => factory(Listing::class)->create()->id,
         'ip_address' => $faker->ipv4,
         'created_at' => $faker->dateTimeThisMonth,
     ];
 });
 
-$factory->define(\App\Interactions\Vote::class, function (Faker $faker) {
+$factory->define(Vote::class, function (Faker $faker) {
     return [
+        'listing_id' => factory(Listing::class)->create()->id,
         'ip_address' => $faker->ipv4,
         'created_at' => $faker->dateTimeThisMonth,
     ];

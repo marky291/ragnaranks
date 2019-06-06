@@ -17,19 +17,35 @@ use Illuminate\Database\Eloquent\Collection;
  *
  * Allows filtering Based on the url query input.
  */
-class ListingFilter extends Collection
+class ListingCollection extends Collection
 {
+    /**
+     * Add ranking to the collection
+     *
+     * @return ListingCollection
+     */
+    public function withRanking(): ListingCollection
+    {
+        $this->each(static function ($listing) {
+            $listing->points = $listing->votes()->count() * 6 + $listing->clicks()->count();
+        });
+
+        return $this->sortByDesc('points')->values()->each(static function ($listing, $position) {
+            $listing->rank = $position + 1;
+        });
+    }
+
     /**
      * Filter out a listing based on its modes.
      *
      * @param string $mode
      *
-     * @return ListingFilter
+     * @return ListingCollection
      */
-    public function filterMode(string $mode = 'all')
+    public function filterMode(string $mode = 'all'): ListingCollection
     {
         if (in_array($mode, ['renewal', 'pre-renewal', 'classic', 'custom'])) {
-            return $this->filter(function (Listing $listing) use ($mode) {
+            return $this->filter(static function (Listing $listing) use ($mode) {
                 return $listing->mode->name == $mode;
             });
         }
@@ -42,12 +58,12 @@ class ListingFilter extends Collection
      *
      * @param string $rate
      *
-     * @return ListingFilter
+     * @return ListingCollection
      */
     public function filterGroup(string $rate = 'all')
     {
         if (in_array($rate, ['official-rate', 'low-rate', 'mid-rate', 'high-rate', 'super-high-rate'])) {
-            return $this->filter(function (Listing $listing) use ($rate) {
+            return $this->filter(static function (Listing $listing) use ($rate) {
                 return ucwords(str_replace('-', ' ', $rate)) == $listing->expRateTitle;
             });
         }
@@ -60,7 +76,7 @@ class ListingFilter extends Collection
      *
      * @param User $user
      *
-     * @return ListingFilter
+     * @return ListingCollection
      */
     public function filterOwner(User $user)
     {
@@ -73,7 +89,7 @@ class ListingFilter extends Collection
      * Filter out listings that have a specific tag.
      *
      * @param string $tag
-     * @return ListingFilter
+     * @return ListingCollection
      */
     public function filterTag(string $tag)
     {
@@ -90,15 +106,16 @@ class ListingFilter extends Collection
      * Sort the filter based on a key entry.
      *
      * @param string $key
-     * @return $this|ListingFilter
+     * @return $this|ListingCollection
      */
     public function filterSort(string $key = 'all')
     {
-        if (in_array($key, ['episode', 'created_at', 'votes_count', 'clicks_count'])) {
+        if (in_array($key, ['episode', 'created_at'])) {
             return $this->sortByDesc($key);
         }
 
         if (in_array($key, ['name', 'rank'])) {
+            dd('hee');
             return $this->sortBy($key);
         }
 

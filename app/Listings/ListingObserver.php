@@ -15,7 +15,7 @@ class ListingObserver
      */
     public function created(Listing $listing)
     {
-        AddListingToContainer::dispatchNow($listing);
+        //
     }
 
     /**
@@ -24,7 +24,7 @@ class ListingObserver
      * @param Listing $listing
      * @return void
      */
-    public function creating(Listing $listing)
+    public function creating(Listing $listing): void
     {
         $listing->slug ?: $listing->generateDefaultSlug();
     }

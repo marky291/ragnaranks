@@ -7,7 +7,7 @@
 			<div class="left-side d-flex w-75 flex-column align-items-start px-4 py-2 align-self-end">
 				<h1 class="text-white font-weight-bold mb-0" style="font-size: 24px;">@{{ serverName }}</h1>
 				<ul class="tag-list list-unstyled d-flex tw-text-xs tw-text-green-light">
-					<li class="mr-2" v-for="tag in listing.tags">#@{{ tag }}</li>
+					<li class="mr-2" v-for="tag in listing.tags">#@{{ tag.name }}</li>
 					<li class="mr-2" v-if="!listing.tags.length">#TagYourServerFunctionality</li>
 				</ul>
 			</div>
