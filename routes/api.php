@@ -12,9 +12,8 @@
 |
 */
 
-
 Route::get('/listings', function () {
-    return cache()->remember('listing', 10, function() {
+    return cache()->remember('listing', 10, function () {
         return App\Listings\Listing::relations()->whereIn('id', app('rankings')->take(7)->keys())->paginate(7)->sortBy('rank')->toJson();
     });
 });
@@ -24,7 +23,7 @@ Route::get('/listing/tags', function () {
 });
 
 Route::get('/listing/{listing}', function (Listing $listing) {
-    return cache()->remember("listing:{$listing->name}", 1, function() use ($listing) {
+    return cache()->remember("listing:{$listing->name}", 1, function () use ($listing) {
         return App\Http\Resources\ListingResource::make($listing);
     });
 });

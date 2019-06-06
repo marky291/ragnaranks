@@ -20,11 +20,11 @@ use Illuminate\Database\Eloquent\Collection;
 class ListingCollection extends Collection
 {
     /**
-     * Add ranking to the collection
+     * Add ranking to the collection.
      *
      * @return ListingCollection
      */
-    public function withRanking(): ListingCollection
+    public function withRanking(): self
     {
         $this->each(static function ($listing) {
             $listing->points = $listing->votes()->count() * 6 + $listing->clicks()->count();
@@ -42,7 +42,7 @@ class ListingCollection extends Collection
      *
      * @return ListingCollection
      */
-    public function filterMode(string $mode = 'all'): ListingCollection
+    public function filterMode(string $mode = 'all'): self
     {
         if (in_array($mode, ['renewal', 'pre-renewal', 'classic', 'custom'])) {
             return $this->filter(static function (Listing $listing) use ($mode) {
@@ -116,6 +116,7 @@ class ListingCollection extends Collection
 
         if (in_array($key, ['name', 'rank'])) {
             dd('hee');
+
             return $this->sortBy($key);
         }
 
