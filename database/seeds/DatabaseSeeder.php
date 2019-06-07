@@ -1,6 +1,5 @@
 <?php
 
-use App\Jobs\BuildListingRankingTable;
 use App\Tag;
 use App\Listings\Listing;
 use App\Interactions\Vote;
@@ -8,6 +7,7 @@ use App\Interactions\Click;
 use App\Interactions\Review;
 use Illuminate\Database\Seeder;
 use App\Listings\ListingScreenshot;
+use App\Jobs\BuildListingRankingTable;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Database\Eloquent\Collection;
 use Symfony\Component\Console\Helper\ProgressBar;
@@ -109,7 +109,6 @@ class DatabaseSeeder extends Seeder
 
         $this->command->info("\nBuilding cache table...\n");
         BuildListingRankingTable::dispatchNow();
-        $this->command->info("Completed");
-
+        $this->command->info('Completed');
     }
 }

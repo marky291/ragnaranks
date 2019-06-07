@@ -4,7 +4,6 @@ namespace App\Jobs;
 
 use App\Listings\Listing;
 use Illuminate\Bus\Queueable;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -31,10 +30,8 @@ class BuildListingRankingTable implements ShouldQueue
     {
         $counter = 0;
 
-        Listing::withCount(['clicks', 'votes'])->chunkById(100, function ($listings) use (&$counter)
-        {
-            foreach ($listings as $listing)
-            {
+        Listing::withCount(['clicks', 'votes'])->chunkById(100, function ($listings) use (&$counter) {
+            foreach ($listings as $listing) {
                 $listing->ranking()->firstOrCreate(
                     ['listing_id' => $listing->id], ['rank' => ++$counter, 'points' => $listing->points, 'votes' => $listing->votes_count, 'clicks' => $listing->clicks_count]
                 )->save();

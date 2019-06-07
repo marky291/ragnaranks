@@ -2,10 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Jobs\BuildListingRankingTable;
-use App\Listings\ListingRanking;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
+use App\Jobs\BuildListingRankingTable;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ListingRankingTest extends TestCase

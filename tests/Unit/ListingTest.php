@@ -2,8 +2,6 @@
 
 namespace Tests\Unit;
 
-use App\Jobs\BuildListingRankingTable;
-use App\Listings\ListingRanking;
 use App\Tag;
 use Tests\TestCase;
 use App\Listings\Listing;

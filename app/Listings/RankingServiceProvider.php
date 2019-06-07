@@ -2,11 +2,8 @@
 
 namespace App\Listings;
 
-use App\Http\Resources\ListingResource;
-use App\Jobs\BuildListingRankingTable;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Cache;
+use App\Jobs\BuildListingRankingTable;
 use Illuminate\Support\ServiceProvider;
 
 /**

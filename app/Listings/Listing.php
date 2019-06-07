@@ -104,7 +104,7 @@ class Listing extends Model
     }
 
     /**
-     * Get the ranking table shit
+     * Get the ranking table shit.
      *
      * @return HasOne
      */
