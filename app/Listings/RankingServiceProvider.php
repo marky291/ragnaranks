@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Class ListingServiceProvider.
+ * Class RankingServiceProvider.
  */
 class RankingServiceProvider extends ServiceProvider
 {
