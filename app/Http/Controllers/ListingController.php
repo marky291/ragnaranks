@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\ListingResource;
 use App\Listings\Listing;
+use Illuminate\View\View;
 use App\Jobs\RoleAssignment;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\View\View;
+use App\Http\Resources\ListingResource;
 
 /**
  * Class ListingController.

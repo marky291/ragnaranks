@@ -13,8 +13,8 @@
 */
 
 use App\Listings\Listing;
-use App\Http\Resources\ListingResource;
 use Illuminate\Support\Facades\Route;
+use App\Http\Resources\ListingResource;
 
 Route::get('/listings', function () {
     return cache()->remember('listing', 30, function () {
