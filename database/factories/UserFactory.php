@@ -1,8 +1,8 @@
 <?php
 
-use App\Interactions\Click;
-use App\Interactions\Vote;
 use App\Listings\Listing;
+use App\Interactions\Vote;
+use App\Interactions\Click;
 use Faker\Generator as Faker;
 
 /*

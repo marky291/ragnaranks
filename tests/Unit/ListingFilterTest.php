@@ -6,8 +6,6 @@ use App\Tag;
 use Carbon\Carbon;
 use Tests\TestCase;
 use App\Listings\Listing;
-use App\Listings\ListingCollection;
-use Illuminate\Database\Eloquent\Collection;
 
 class ListingFilterTest extends TestCase
 {

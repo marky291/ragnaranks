@@ -1,6 +1,5 @@
 <?php
 
-use App\Jobs\RankListings;
 use App\Tag;
 use App\Listings\Listing;
 use App\Interactions\Vote;
