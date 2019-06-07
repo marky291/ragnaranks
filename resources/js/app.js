@@ -45,9 +45,14 @@ Vue.component('verify-account-component', require('./components/VerifyAccountCom
 Vue.component('account-component', require('./components/AccountComponent').default);
 Vue.component('account-details-component', require('./components/AccountDetailsComponent').default);
 Vue.component('account-notification-component', require('./components/AccountNotificationComponent').default);
-Vue.component('listing-profile', require('./components/ListingProfile').default);
-Vue.component('listing-configurator', require('./components/ListingConfigurator').default);
 Vue.component('report-tool-component', require('./components/ReportToolComponent').default);
+
+
+
+Vue.component('profile-page', require('./components/profile/ProfilePage.vue').default);
+Vue.component('profile', require('./components/profile/Profile').default);
+Vue.component('configs', require('./components/profile/ProfileConfigs').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

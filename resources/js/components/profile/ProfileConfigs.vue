@@ -3,7 +3,7 @@
     import {Validator} from 'simple-vue-validator';
 
     export default {
-        props: ['languages', 'defaultDescription'],
+        props: ['defaultDescription'],
         components: { Multiselect },
         data: function () {
             return {
@@ -61,12 +61,6 @@
                     { name: '@whogm', description: 'placeholder' },
                     { name: '@whosell', description: 'placeholder' },
                 ],
-                dropzoneOptions: {
-                    url: '/config/parse',
-                    thumbnailWidth: 150,
-                    maxFilesize: 0.5,
-                    headers: {"X-CSRF-TOKEN": document.head.querySelector("[name=csrf-token]").content}
-                }
             }
         },
         async mounted() {
@@ -95,7 +89,7 @@
                 this.$parent.listing.screenshots.splice(index, 1);
             },
             generatePreset() {
-                let preset = _.sample([
+                this.$parent.preset = _.sample([
                     {accent: 'nightmare', background: '/img/preset/card-red.png'},
                     {accent: 'deviling', background: '/img/preset/card-purple.png'},
                     {accent: 'poporing', background: '/img/preset/card-green.png'},
@@ -105,13 +99,7 @@
                     {accent: 'drops', background: '/img/preset/card-mauve.png'},
                     {accent: 'poring', background: '/img/preset/card-pink.png'},
                 ]);
-                this.$parent.preset.accent = preset.accent;
-                this.$parent.preset.background = preset.background;
             },
-            handleParsedConfig(file, response) {
-                this.listing.configs[file.name.split(".")[0]] = response;
-                this.$Message.success('The configuration inside ' + file.name + " has been added to your listing");
-            }
         },
         validators: {
             screenshot: function (value) {

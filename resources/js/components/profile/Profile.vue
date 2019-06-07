@@ -1,8 +1,7 @@
 <script>
-    import Scoreboards from '../components/ScoreboardsComponent.vue';
+    import Scoreboards from '../ScoreboardsComponent.vue';
     import {Carousel3d, Slide} from 'vue-carousel-3d';
     import marked from 'marked'
-    import axios from 'axios';
 
     export default {
         props: ['slug'],
@@ -13,6 +12,7 @@
         },
         data: function () {
             return {
+                profileLoaded: false,
                 preset: {
                     accent: '',
                     background: '',
@@ -52,12 +52,10 @@
             }
         },
         created: function() {
-            console.log(this.slug);
+            console.log('profile');
         },
-        async mounted() {
-            axios.get('/api/listing/'+(this.slug)).then(response => {
-                this.listing = response.data;
-            });
+        mounted() {
+
         },
         computed: {
             background: function() {
