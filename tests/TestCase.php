@@ -35,9 +35,9 @@ abstract class TestCase extends BaseTestCase
     {
         $listing = factory(Listing::class)->create($attributes);
 
-        $listing->votes()->saveMany(factory(Vote::class, $votes_count)->create(['created_at' => fake()->dateTimeBetween('-6 days', 'now')]));
+        $listing->votes()->saveMany(factory(Vote::class, $votes_count)->make(['created_at' => fake()->dateTimeBetween('-6 days', 'now')]));
 
-        $listing->clicks()->saveMany(factory(Click::class, $clicks_count)->create(['created_at' => fake()->dateTimeBetween('-6 days', 'now')]));
+        $listing->clicks()->saveMany(factory(Click::class, $clicks_count)->make(['created_at' => fake()->dateTimeBetween('-6 days', 'now')]));
 
         $listing->tags()->saveMany(Tag::all()->random($tag_count)->unique('id'));
 

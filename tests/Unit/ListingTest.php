@@ -91,9 +91,7 @@ class ListingTest extends TestCase
     {
         $server = factory(Listing::class)->create();
 
-        $vote = factory(Vote::class)->create();
-
-        $server->votes()->save($vote);
+        $server->votes()->save(factory(Vote::class)->make());
 
         $this->assertCount(1, $server->votes);
     }
@@ -105,9 +103,7 @@ class ListingTest extends TestCase
     {
         $server = factory(Listing::class)->create();
 
-        $click = factory(Click::class)->create();
-
-        $server->clicks()->save($click);
+        $server->clicks()->save(factory(Click::class)->make());
 
         $this->assertCount(1, $server->clicks);
     }
@@ -183,9 +179,9 @@ class ListingTest extends TestCase
     {
         $listing = factory(Listing::class)->create();
 
-        $listing->clicks()->saveMany(factory(Click::class, 7)->create());
+        $listing->clicks()->saveMany(factory(Click::class, 7)->make());
 
-        $this->assertEquals(1, $listing->points);
+        $this->assertCount(7, $listing->clicks);
     }
 
     /**
@@ -195,9 +191,9 @@ class ListingTest extends TestCase
     {
         $listing = factory(Listing::class)->create();
 
-        $listing->votes()->saveMany(factory(Vote::class, 1)->create());
+        $listing->votes()->saveMany(factory(Vote::class, 1)->make());
 
-        $this->assertEquals(1, $listing->points);
+        $this->assertCount(1, $listing->votes);
     }
 
     /**
@@ -207,7 +203,7 @@ class ListingTest extends TestCase
     {
         $listing = $this->createListing([], 9, 7);
 
-        $this->assertEquals(10, $listing->points);
+        $this->assertEquals(61, $listing->points);
     }
 
     /**

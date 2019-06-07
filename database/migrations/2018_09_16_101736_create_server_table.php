@@ -129,7 +129,7 @@ class CreateServerTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->json('configs');
-            $table->string('banner_url');
+            $table->string('background');
             $table->longText('description');
             $table->string('website');
             $table->unsignedInteger('mode_id');
@@ -149,6 +149,16 @@ class CreateServerTable extends Migration
             $table->primary(['listing_id', 'tag_id']);
             $table->foreign('listing_id')->references('id')->on('listings')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade')->onUpdate('cascade');
+        });
+
+        Schema::create('listing_rankings', function (Blueprint $table) {
+            $table->unsignedInteger('listing_id');
+            $table->integer('rank')->index();
+            $table->integer('points');
+            $table->integer('votes');
+            $table->integer('clicks');
+            $table->timestamp('updated_at');
+            $table->foreign('listing_id')->references('id')->on('listings')->onDelete('cascade')->onUpdate('cascade');
         });
 
         Schema::create('listing_screenshots', function (Blueprint $table) {
@@ -184,21 +194,25 @@ class CreateServerTable extends Migration
 
         Schema::create('votes', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('publisher_id')->nullable();
-            $table->ipAddress('ip_address');
+            $table->unsignedInteger('listing_id');
+            $table->ipAddress('ip_address')->index();
             $table->timestamp('created_at');
+            $table->foreign('listing_id')->references('id')->on('listings');
+            $table->index(['listing_id', 'created_at']);
         });
 
         Schema::create('clicks', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('publisher_id')->nullable();
+            $table->unsignedInteger('listing_id')->index();
             $table->ipAddress('ip_address');
-            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('created_at');
+            $table->foreign('listing_id')->references('id')->on('listings');
+            $table->index(['listing_id', 'created_at']);
         });
 
         Schema::create('interactions', function (Blueprint $table) {
-            $table->unsignedInteger('listing_id');
             $table->unsignedBigInteger('interaction_id');
+            $table->unsignedInteger('listing_id');
             $table->string('interaction_type');
             $table->index(['interaction_type', 'interaction_id']);
         });

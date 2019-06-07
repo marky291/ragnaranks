@@ -1,27 +1,11 @@
 
     <div>
-        <div class="content">
+        <div class="content tw-mb-5">
             <h3 class="text-orange font-weight-bold">Site Messages</h3>
             <p class="subheading">We are always interested in listening to feedback and improving our
                 service, let your voice be heard in our subreddit <a href="https://www.reddit.com/r/RagnaRanks">r/Ragnaranks</a> or <a href="http://discord.gg/WGSAce2">Discord</a>!
             </p>
         </div>
-
-        {{--<div class="heading">--}}
-        {{--<h3>Weekly Mentions</h3>--}}
-        {{--</div>--}}
-        {{--<div id="awards" class="content py-0">--}}
-        {{--@include('partials.sidebar.statistic', [--}}
-        {{--                            {{-listinger' => App\Listings::HighestVoteTrend()->first(),--}}{{----}}
-        {{--'message' => "Top Trending Votes",--}}
-        {{--'column' => 'votes_trend',--}}
-        {{--])--}}
-        {{--@include('partials.sidebar.statistic', [--}}
-        {{--                            {{-listinger' => App\Listings::HighestClickTrend()->first(),--}}{{----}}
-        {{--'message' => "Top Trending Visits",--}}
-        {{--'column' => 'clicks_trend',--}}
-        {{--])--}}
-        {{--</div>--}}
 
         {{ $slot }}
 
@@ -31,7 +15,7 @@
             </div>
 
             <div id="additions" class="content py-0 rounded">
-                @foreach (app('listings')->filterSort('created_at')->take(8) as $listing)
+                @foreach (\App\Listings\ListingRepository::LatestEntriesCache(7) as $listing)
                     <div class="microcard" style="{{ $loop->last ? null : 'border-bottom: 1px dashed #e3e3e3;' }}">
                         <div class="information d-flex flex-row py-3">
                             <div class="icon text-green align-self-center mr-3">

@@ -1,9 +1,10 @@
 <script>
-    import Scoreboards from '../components/ScoreboardsComponent.vue';
+    import Scoreboards from '../ScoreboardsComponent.vue';
     import {Carousel3d, Slide} from 'vue-carousel-3d';
     import marked from 'marked'
 
     export default {
+        props: ['slug'],
         components: {
             Scoreboards,
             Carousel3d,
@@ -11,6 +12,11 @@
         },
         data: function () {
             return {
+                profileLoaded: false,
+                preset: {
+                    accent: '',
+                    background: '',
+                },
                 listing: {
                     name: '',
                     tags: [],
@@ -45,7 +51,19 @@
                 },
             }
         },
+        created: function() {
+            console.log('profile');
+        },
+        mounted() {
+
+        },
         computed: {
+            background: function() {
+                return _.isEmpty(this.listing.background) ? this.preset.background : this.listing.background;
+            },
+            accent: function() {
+                return _.isEmpty(this.listing.accent) ? this.preset.accent : this.listing.accent;
+            },
             markedDescription: function() {
                 return marked(this.listing.description, {sanitize: true});
             },

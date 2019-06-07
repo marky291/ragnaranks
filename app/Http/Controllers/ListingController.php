@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Tag;
 use App\Listings\Listing;
+use Illuminate\View\View;
 use App\Jobs\RoleAssignment;
 use Illuminate\Http\Request;
-use App\Listings\ListingLanguage;
+use Illuminate\Http\Response;
+use App\Http\Resources\ListingResource;
 
 /**
  * Class ListingController.
@@ -21,31 +22,31 @@ class ListingController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function index()
+    public function index(Listing $listing)
     {
-        return view('listing.index')->with([
-            'listings' => app('listings')->take(7),
-            'tags' => Tag::all(),
-        ]);
+        return view('listing.index');
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Listing $listing
+     * @return Response
      */
-    public function create()
+    public function create(Listing $listing): Response
     {
-        return view('listing.form')->with(['tags' => Tag::all(), 'languages' => ListingLanguage::all()]);
+        return view('listing.form')->with([
+            'listing' => $listing,
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -57,19 +58,23 @@ class ListingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Listing $listing
-     * @return \Illuminate\Http\Response
+     * Only the string is passed as we use VUE JSON.
+     *
+     * @param string $listing
+     * @return Response
      */
-    public function show(Listing $listing)
+    public function show(string $listing)
     {
-        return view('listing.show')->with('listing', $listing->load(['reviews', 'reviews.comments']));
+        return view('listing.form')->with([
+            'slug' => $listing,
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit($id)
     {
@@ -79,9 +84,9 @@ class ListingController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, $id)
     {
@@ -92,10 +97,43 @@ class ListingController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Form Controller search as part of our "Im Looking for" selects.
+     *
+     * @param string $serverType
+     * @param string $serverMode
+     * @param string $withTag
+     * @param string $sortByAttribute
+     * @param int $paginate
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function filters($serverType = 'all', $serverMode = 'all', $withTag = 'all', $sortByAttribute = 'any', $paginate = 25)
+    {
+        $listings = app('listings');
+
+        if ($serverType) {
+            $listings = $listings->filterGroup($serverType);
+        }
+
+        if ($serverMode) {
+            $listings = $listings->filterMode($serverMode);
+        }
+
+        if ($withTag) {
+            $listings = $listings->filterTag($withTag);
+        }
+
+        if ($sortByAttribute) {
+            $listings = $listings->filterSort($sortByAttribute);
+        }
+
+        return ListingResource::collection($listings->take($paginate));
     }
 }
