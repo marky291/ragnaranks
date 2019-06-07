@@ -18,7 +18,7 @@ use App\Http\Resources\ListingResource;
 
 Route::get('/listings', function () {
     return cache()->remember('listing', 30, function () {
-        return ListingResource::collection(Listing::with(['ranking','language'])->paginate(7));
+        return ListingResource::collection(Listing::with(['ranking', 'language'])->paginate(7));
     });
 });
 
