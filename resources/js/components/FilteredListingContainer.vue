@@ -6,12 +6,13 @@
         data: function () {
             return {
                 listings: {},
+                pagination: {},
             }
         },
 
         created: function(){
             axios.get('/api/listings').then(response => {
-                this.listings = response.data;
+                this.listings = response.data.data;
             });
         },
         methods: {

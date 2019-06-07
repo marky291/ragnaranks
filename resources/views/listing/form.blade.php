@@ -202,11 +202,11 @@
 												<div class="right-side flex-fill d-flex justify-content-end pr-3" style="padding-bottom:12px;">
 													<div class="d-flex flex-column justify-content-end mr-3" style="height:100%;">
 														<h3 class="card-counter-title mb-0 font-weight-bold transparency text-white">Votes</h3>
-														<span class="card-counter font-weight-bold transparency">@{{ $parent.listing.votes }}</span>
+														<span class="card-counter font-weight-bold transparency">@{{ $parent.listing.ranking.votes }}</span>
 													</div>
 													<div class="d-flex flex-column justify-content-end mr-2" style="height:100%;">
 														<h3 class="card-counter-title mb-0 font-weight-bold transparency text-white">Clicks</h3>
-														<span class="card-counter font-weight-bold transparency">@{{ $parent.listing.clicks }}</span>
+														<span class="card-counter font-weight-bold transparency">@{{ $parent.listing.ranking.clicks }}</span>
 													</div>
 													<div class="d-flex flex-column justify-content-end" style="height:100%;">
 														<img class="tw-h-6 tw-w-6 tw-shadow" :src="'/img/flags/'+$parent.listing.language+'.svg'" :alt="flag">

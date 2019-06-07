@@ -17,10 +17,8 @@ class ListingResource extends JsonResource
         return [
             'name' => $this->name,
             'slug' => $this->slug,
-            'votes' => $this->votes()->count(),
-            'clicks' => $this->clicks()->count(),
-            'rank' => $this->rank,
             'website' => $this->website,
+            'ranking' => RankingResource::make($this->whenLoaded('ranking')),
             'background' => $this->background,
             'description' => $this->description,
             'tags' => TagResource::collection($this->whenLoaded('tags')),

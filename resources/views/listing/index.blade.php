@@ -77,11 +77,11 @@
                                         <div class="right-side flex-fill d-flex justify-content-end pr-3" style="padding-bottom:12px;">
                                             <div class="d-flex flex-column justify-content-end mr-3" style="height:100%;">
                                                 <h3 class="card-counter-title mb-0 font-weight-bold transparency">Votes</h3>
-                                                <span class="card-counter font-weight-bold transparency">@{{ listing['votes']}}</span>
+                                                <span class="card-counter font-weight-bold transparency">@{{ listing['ranking']['votes']}}</span>
                                             </div>
                                             <div class="d-flex flex-column justify-content-end mr-2" style="height:100%;">
                                                 <h3 class="card-counter-title mb-0 font-weight-bold transparency">Clicks</h3>
-                                                <span class="card-counter font-weight-bold transparency">@{{ listing['clicks']}}</span>
+                                                <span class="card-counter font-weight-bold transparency">@{{ listing['ranking']['clicks']}}</span>
                                             </div>
                                             <div class="d-flex flex-column justify-content-end" style="height:100%;">
                                                 <img class="tw-w-6 tw-h-6 tw-shadow tw-mr-2" :src="'/img/flags/'+listing.language+'.svg'" alt="">
@@ -90,7 +90,7 @@
                                     </div>
                                     <div class="server-card-body align-items-center px-4 py-3 d-flex">
                                         <div class="rating rounded-circle mr-3 d-flex font-weight-bold justify-content-center align-items-center" style="min-height:50px; min-width:50px;">
-                                            @{{ listing['rank'] }}
+                                            @{{ listing['ranking']['rank'] }}
                                         </div>
                                         <div class="flex-fill pr-3">
 {{--                                            <p class="font-weight-bold mb-0">@{{ listing['type'] }} (@{{ listing['configs']['base_exp_rate'] }}x/@{{ listing['configs']['job_exp_rate']}}x)</p>--}}
