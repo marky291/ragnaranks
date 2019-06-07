@@ -23,7 +23,6 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @property int $id
  * @property string $name
  * @property string $slug
- * @property int $rank
  * @property string $points
  * @property string $website
  * @property float $rating
@@ -84,16 +83,6 @@ class Listing extends Model
     }
 
     /**
-     * Get a rank generated from the ranking table.
-     *
-     * @return mixed
-     */
-    public function getRankAttribute()
-    {
-        return app('rankings')->get($this->getKey(), 0);
-    }
-
-    /**
      * Scope a query to with all of its relations eager loaded.
      *
      * @param Builder $builder
@@ -112,6 +101,16 @@ class Listing extends Model
     public function mode(): HasOne
     {
         return $this->hasOne(Mode::class, 'id', 'mode_id');
+    }
+
+    /**
+     * Get the ranking table shit
+     *
+     * @return HasOne
+     */
+    public function ranking(): HasOne
+    {
+        return $this->hasOne(ListingRanking::class);
     }
 
     /**

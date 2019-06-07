@@ -84,13 +84,6 @@
 										<at-collapse-item name="config">
 											<div slot="title">🔧 Config File Setup</div>
 											<div class="">
-																								<vue-dropzone id="configUploader" @vdropzone-success="handleParsedConfig" :options="dropzoneOptions" :use-custom-slot="true" class="tw-mb-3">
-																									<div class="dropzone-custom-content tw-text-left">
-																										<p class="tw-text-xl tw-text-grey-darkest tw-mb-3"><i class="icon icon-file-text tw-mr-2"></i>UPLOAD!</p>
-																										<p class="dropzone-custom-title">This handy uploader will parse multiple server configuration files and automatically generate your listing to save you time and to provide better accuracy.</p>
-																										<p class="tw-font-bold tw-mt-3">Just Drag and Drop the suitable config files.</p>
-																									</div>
-																								</vue-dropzone>
 												<div class="mb-3 configuration">
 													<div class="list">
 														<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
@@ -216,7 +209,7 @@
 														<span class="card-counter font-weight-bold transparency">@{{ $parent.listing.clicks }}</span>
 													</div>
 													<div class="d-flex flex-column justify-content-end" style="height:100%;">
-														<img class="tw-h-6 tw-w-6 tw-shadow" :src="'/img/flags/'+listing.language+'.svg'" :alt="flag">
+														<img class="tw-h-6 tw-w-6 tw-shadow" :src="'/img/flags/'+$parent.listing.language+'.svg'" :alt="flag">
 													</div>
 												</div>
 											</div>

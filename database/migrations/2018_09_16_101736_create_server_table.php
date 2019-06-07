@@ -151,6 +151,16 @@ class CreateServerTable extends Migration
             $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade')->onUpdate('cascade');
         });
 
+        Schema::create('listing_rankings', function(Blueprint $table) {
+            $table->unsignedInteger('listing_id');
+            $table->integer('rank')->index();
+            $table->integer('points');
+            $table->integer('votes');
+            $table->integer('clicks');
+            $table->timestamp('updated_at');
+            $table->foreign('listing_id')->references('id')->on('listings')->onDelete('cascade')->onUpdate('cascade');
+        });
+
         Schema::create('listing_screenshots', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('listing_id');

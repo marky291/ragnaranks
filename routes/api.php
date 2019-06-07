@@ -14,6 +14,7 @@
 
 use App\Listings\Listing;
 use App\Http\Resources\ListingResource;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/listings', function () {
     return cache()->remember('listing', 30, function () {
@@ -26,7 +27,9 @@ Route::get('/listing/tags', function () {
 });
 
 Route::get('/listing/{listing}', function (Listing $listing) {
-    return cache()->remember("listing:{$listing->name}", 30, function () use ($listing) {
-        return App\Http\Resources\ListingResource::make($listing->load('tags'));
+    return cache()->remember("listing2:{$listing->name}", 0, function () use ($listing) {
+        return App\Http\Resources\ListingResource::make($listing->load('tags', 'language'));
     });
 });
+
+Route::get('/servers/{exp_group}/{mode}/{tag}/{sort}/{limit}')->uses('ListingController@filters')->name('listing.filters');

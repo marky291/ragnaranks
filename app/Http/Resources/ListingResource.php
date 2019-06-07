@@ -24,7 +24,7 @@ class ListingResource extends JsonResource
             'background' => $this->background,
             'description' => $this->description,
             'tags' => TagResource::collection($this->whenLoaded('tags')),
-            'language' => $this->whenLoaded('language'),
+            'language' => $this->language->name,
         ];
     }
 }

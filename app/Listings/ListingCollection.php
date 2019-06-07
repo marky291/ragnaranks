@@ -20,22 +20,6 @@ use Illuminate\Database\Eloquent\Collection;
 class ListingCollection extends Collection
 {
     /**
-     * Add ranking to the collection.
-     *
-     * @return ListingCollection
-     */
-    public function withRanking(): self
-    {
-        $this->each(static function ($listing) {
-            $listing->points = $listing->votes()->count() * 6 + $listing->clicks()->count();
-        });
-
-        return $this->sortByDesc('points')->values()->each(static function ($listing, $position) {
-            $listing->rank = $position + 1;
-        });
-    }
-
-    /**
      * Filter out a listing based on its modes.
      *
      * @param string $mode

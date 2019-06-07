@@ -2,6 +2,8 @@
 
 namespace Tests\Unit;
 
+use App\Jobs\BuildListingRankingTable;
+use App\Listings\ListingRanking;
 use App\Tag;
 use Tests\TestCase;
 use App\Listings\Listing;
@@ -390,12 +392,5 @@ class ListingTest extends TestCase
         $listing = factory(Listing::class)->create(['language_id' => 1]);
 
         $this->assertEquals('english', $listing->language->name);
-    }
-
-    public function test_it_has_a_rank()
-    {
-        $listing = $this->createListing([], 0, 0);
-
-        $this->assertEquals(1, $listing->rank);
     }
 }

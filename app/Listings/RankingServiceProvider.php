@@ -2,6 +2,8 @@
 
 namespace App\Listings;
 
+use App\Http\Resources\ListingResource;
+use App\Jobs\BuildListingRankingTable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Cache;
@@ -32,17 +34,7 @@ class RankingServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('rankings', static function () {
-            return Cache::remember('rankingTable', 30, static function () {
-                $table = new Collection();
-
-                $listings = Listing::withCount(['votes', 'clicks'])->get()->withRanking();
-
-                foreach ($listings as $position => $listing) {
-                    $table->put($listing->getKey(), ++$position);
-                }
-
-                return $table;
-            });
+//            dd(BuildListingRankingTable::dispatchNow());
         });
     }
 }
