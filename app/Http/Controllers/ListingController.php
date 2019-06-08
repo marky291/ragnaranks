@@ -7,7 +7,6 @@ use Illuminate\View\View;
 use App\Jobs\RoleAssignment;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Http\Resources\ListingResource;
 
 /**
  * Class ListingController.

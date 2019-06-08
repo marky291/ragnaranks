@@ -2,8 +2,6 @@
 
 namespace App\Listings;
 
-use Illuminate\Support\Facades\DB;
-
 /**
  * Class ListingObserver.
  */

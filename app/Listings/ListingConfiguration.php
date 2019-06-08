@@ -5,9 +5,7 @@ namespace App\Listings;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class ListingConfiguration
- *
- * @package App
+ * Class ListingConfiguration.
  */
 class ListingConfiguration extends Model
 {
@@ -24,9 +22,9 @@ class ListingConfiguration extends Model
      * @var array
      */
     protected $fillable = [
-        'max_base_level','max_job_level','max_stats','max_aspd','base_exp_rate',
-        'job_exp_rate','instant_cast_stat','drop_base_rate', 'drop_card_rate',
-        'drop_base_mvp_rate','drop_card_mvp_rate', 'drop_base_special_rate',
-        'drop_card_special_rate'
+        'max_base_level', 'max_job_level', 'max_stats', 'max_aspd', 'base_exp_rate',
+        'job_exp_rate', 'instant_cast_stat', 'drop_base_rate', 'drop_card_rate',
+        'drop_base_mvp_rate', 'drop_card_mvp_rate', 'drop_base_special_rate',
+        'drop_card_special_rate',
     ];
 }

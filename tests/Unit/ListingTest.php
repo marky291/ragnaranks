@@ -2,7 +2,6 @@
 
 namespace Tests\Unit;
 
-use App\Listings\ListingConfiguration;
 use App\Tag;
 use Tests\TestCase;
 use App\Listings\Listing;
@@ -10,6 +9,7 @@ use App\Interactions\Vote;
 use App\Interactions\Click;
 use App\Interactions\Review;
 use App\Listings\ListingScreenshot;
+use App\Listings\ListingConfiguration;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 /**

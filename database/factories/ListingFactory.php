@@ -22,6 +22,7 @@ $factory->define(ListingLanguage::class, function (Faker $faker) {
 
 $factory->define(Listing::class, static function (Faker $faker) {
     $server = array_random(config('fake.listings'));
+
     return [
         'name' => $server['name'],
         'user_id' => factory('App\User')->create()->id,
