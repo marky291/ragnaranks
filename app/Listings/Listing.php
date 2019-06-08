@@ -186,24 +186,15 @@ class Listing extends Model
     /**
      * Create a new Eloquent Collection instance.
      *
+     * @deprecated
+     *
      * @param  array  $models
      *
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return Collection
      */
     public function newCollection(array $models = [])
     {
         return new ListingCollection($models);
-    }
-
-    /**
-     * Get the rating of this listing, based on average review scores.
-     *
-     * @return mixed
-     */
-    public function getRatingAttribute()
-    {
-        return 5; // @TODO, use sql to get real rating attribute.
-        //return $this->reviews()->selectRaw("round((sum(content_score+hosting_score+support_score+event_score+item_score+class_score+update_score+donation_score) / (count(donation_score) * 8) / 2), 1) as rating")->first()->rating;
     }
 
     /**
@@ -216,30 +207,5 @@ class Listing extends Model
     public function getPointsAttribute()
     {
         return round($this->votes()->count() * 6 + $this->clicks()->count(), 0);
-    }
-
-    /**
-     * Get the EXP group that the listing belongs to.
-     *
-     * @return string
-     */
-    public function getExpRateTitleAttribute()
-    {
-        $baseEXP = $this->configs['base_exp_rate'];
-
-        if ($baseEXP < config('filter.exp.low-rate.min')) {
-            return 'Official Rate';
-        }
-        if ($baseEXP <= config('filter.exp.low-rate.max')) {
-            return 'Low Rate';
-        }
-        if ($baseEXP <= config('filter.exp.mid-rate.max')) {
-            return 'Mid Rate';
-        }
-        if ($baseEXP <= config('filter.exp.high-rate.max')) {
-            return 'High Rate';
-        }
-
-        return 'Super High Rate';
     }
 }

@@ -39,12 +39,12 @@ $factory->define(Listing::class, static function (Faker $faker) {
 $factory->define(\App\Listings\ListingConfiguration::class, static function (Faker $faker) {
     return [
         'listing_id' => factory(Listing::class)->create()->id,
-        'max_base_level' => $faker->numberBetween(config('filter.exp.low-rate.min'), config('filter.exp.high-rate.max')),
+        'max_base_level' => $faker->numberBetween(99, 255),
         'max_job_level' => $faker->numberBetween(99, 255),
         'max_stats' => $faker->numberBetween(150, 255),
         'max_aspd' => $faker->numberBetween(150, 195),
-        'base_exp_rate' => $faker->numberBetween(1, 5000),
-        'job_exp_rate' => $faker->numberBetween(1, 5000),
+        'base_exp_rate' =>$faker->numberBetween(config('filter.exp.low-rate.min'), config('filter.exp.high-rate.max')),
+        'job_exp_rate' => $faker->numberBetween(config('filter.exp.low-rate.min'), config('filter.exp.high-rate.max')),
         'instant_cast_stat' => $faker->numberBetween(100, 150),
         'drop_base_rate' => $faker->numberBetween(5, 10000),
         'drop_card_rate' => $faker->numberBetween(1, 10000),

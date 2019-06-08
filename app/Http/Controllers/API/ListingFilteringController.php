@@ -24,7 +24,7 @@ class ListingFilteringController extends Controller
      */
     public function filters($rates = 'all', $serverMode = 'all', $withTag = 'all', $sortByAttribute = 'any', $paginate = 25)
     {
-        $listings = Listing::all();
+        $builder = Listing::query();
 
         if ($rates) {
             return Listing::all();

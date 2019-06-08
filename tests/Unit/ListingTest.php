@@ -41,16 +41,6 @@ class ListingTest extends TestCase
     /**
      * @test
      */
-    public function it_has_a_config()
-    {
-        $server = factory(Listing::class)->create();
-
-        $this->assertNotNull($server->configs);
-    }
-
-    /**
-     * @test
-     */
     public function it_has_an_owner()
     {
         $this->signIn();

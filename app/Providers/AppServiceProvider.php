@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Listings\ListingConfiguration;
+use App\Observers\ConfigurationObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Http\Resources\Json\Resource;
 
@@ -14,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        ListingConfiguration::observe(ConfigurationObserver::class);
     }
 
     /**
@@ -25,5 +27,6 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         Resource::withoutWrapping();
+
     }
 }

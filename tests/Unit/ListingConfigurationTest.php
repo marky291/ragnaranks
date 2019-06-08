@@ -25,7 +25,7 @@ class ListingConfigurationTest extends TestCase
     {
         parent::setUp();
 
-        $this->configuration = factory(ListingConfiguration::class)->create();
+        $this->configuration = factory(ListingConfiguration::class)->create(['base_exp_rate' => 1000]);
     }
 
     /**
@@ -97,6 +97,11 @@ class ListingConfigurationTest extends TestCase
     public function test_it_has_a_drop_card_special_rate()
     {
         $this->assertNotNull($this->configuration->drop_card_special_rate);
+    }
+
+    public function test_it_has_a_rate_title()
+    {
+        $this->assertEquals('High Rate', $this->configuration->rate);
     }
 
     public function test_is_has_a_listing_relationship()
