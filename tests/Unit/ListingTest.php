@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Listings\ListingConfiguration;
 use App\Tag;
 use Tests\TestCase;
 use App\Listings\Listing;
@@ -390,5 +391,14 @@ class ListingTest extends TestCase
         $listing = factory(Listing::class)->create(['language_id' => 1]);
 
         $this->assertEquals('english', $listing->language->name);
+    }
+
+    public function test_has_a_config_relationship()
+    {
+        $listing = factory(Listing::class)->create();
+
+        $listing->configuration()->save(factory(ListingConfiguration::class)->make());
+
+        $this->assertInstanceOf(ListingConfiguration::class, $listing->configuration);
     }
 }

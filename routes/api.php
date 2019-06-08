@@ -32,4 +32,4 @@ Route::get('/listing/{listing}', function (Listing $listing) {
     });
 });
 
-Route::get('/servers/{exp_group}/{mode}/{tag}/{sort}/{limit}')->uses('ListingController@filters')->name('listing.filters');
+Route::get('/servers/{exp_group}/{mode}/{tag}/{sort}/{limit}')->uses('ListingFilteringController@filters');

@@ -1,5 +1,6 @@
 <?php
 
+use App\Listings\ListingConfiguration;
 use App\Tag;
 use App\Listings\Listing;
 use App\Interactions\Vote;
@@ -52,7 +53,7 @@ class DatabaseSeeder extends Seeder
      */
     public function setup()
     {
-        $this->seed_counts = ['listings' => 200, 'votes' => 5000, 'clicks' => 5000, 'reviews' => rand(10, 20), 'screenshots' => rand(15, 40)];
+        $this->seed_counts = ['listings' => 15, 'votes' => 800, 'clicks' => 800, 'reviews' => rand(10, 20), 'screenshots' => rand(15, 40)];
 
         $this->progress_bar = new ProgressBar($this->command->getOutput(), $this->seed_counts['listings'] + $this->seed_counts['votes'] + $this->seed_counts['clicks'] + $this->seed_counts['reviews']);
 
@@ -68,6 +69,7 @@ class DatabaseSeeder extends Seeder
     {
         factory(Listing::class, $this->seed_counts['listings'])->create()->each(function (Listing $listing) {
             $listing->tags()->saveMany(Tag::all()->random(rand(1, 4))->unique('id'));
+            $listing->configuration()->save(factory(ListingConfiguration::class)->make());
             $this->progress_bar->advance();
         })->unique('slug');
 

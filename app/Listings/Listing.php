@@ -29,7 +29,6 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @property string $description
  * @property string $background
  * @property float $episode
- * @property array $configs
  * @property string $accent
  * @property Mode $mode
  * @property string $expRateTitle
@@ -46,15 +45,6 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  */
 class Listing extends Model
 {
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'configs' => 'array',
-    ];
-
     /**
      * The attributes that aren't mass assignable.
      *
@@ -111,6 +101,16 @@ class Listing extends Model
     public function ranking(): HasOne
     {
         return $this->hasOne(ListingRanking::class);
+    }
+
+    /**
+     * A ranking has one ton of configuration.
+     *
+     * @return HasOne
+     */
+    public function configuration(): HasOne
+    {
+        return $this->hasOne(ListingConfiguration::class);
     }
 
     /**

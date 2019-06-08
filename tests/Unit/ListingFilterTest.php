@@ -12,15 +12,13 @@ class ListingFilterTest extends TestCase
     /**
      * @test
      */
-    public function it_can_filter_mode()
+    public function it_can_filter_official_rate()
     {
         factory(Listing::class, 2)->create(['mode_id' => 2]);
 
-        factory(Listing::class, 3)->create(['mode_id' => 1]);
+        $response = $this->getJson('api/servers/official-rate/pre-renewal/all/rank/7');
 
-        $listings = Listing::all();
-
-        $this->assertCount(3, $listings->filterMode('renewal')->all());
+        $response->assertJson([['id' => 2]]);
     }
 
     /**

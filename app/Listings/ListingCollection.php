@@ -99,8 +99,6 @@ class ListingCollection extends Collection
         }
 
         if (in_array($key, ['name', 'rank'])) {
-            dd('hee');
-
             return $this->sortBy($key);
         }
 

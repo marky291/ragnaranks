@@ -16,7 +16,7 @@
 
         methods: {
             getUrl: function() {
-                return "servers/" + this.type + "/" + this.mode + "/"  + this.tag + "/" + this.sort + "/" + this.paginate;
+                return "api/servers/" + this.type + "/" + this.mode + "/"  + this.tag + "/" + this.sort + "/" + this.paginate;
             },
             filterChanged: function() {
                 this.emitFilterEvent();

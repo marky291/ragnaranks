@@ -103,37 +103,4 @@ class ListingController extends Controller
     {
         //
     }
-
-    /**
-     * Form Controller search as part of our "Im Looking for" selects.
-     *
-     * @param string $serverType
-     * @param string $serverMode
-     * @param string $withTag
-     * @param string $sortByAttribute
-     * @param int $paginate
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
-     */
-    public function filters($serverType = 'all', $serverMode = 'all', $withTag = 'all', $sortByAttribute = 'any', $paginate = 25)
-    {
-        $listings = app('listings');
-
-        if ($serverType) {
-            $listings = $listings->filterGroup($serverType);
-        }
-
-        if ($serverMode) {
-            $listings = $listings->filterMode($serverMode);
-        }
-
-        if ($withTag) {
-            $listings = $listings->filterTag($withTag);
-        }
-
-        if ($sortByAttribute) {
-            $listings = $listings->filterSort($sortByAttribute);
-        }
-
-        return ListingResource::collection($listings->take($paginate));
-    }
 }

@@ -16249,7 +16249,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getUrl: function getUrl() {
-      return "servers/" + this.type + "/" + this.mode + "/" + this.tag + "/" + this.sort + "/" + this.paginate;
+      return "api/servers/" + this.type + "/" + this.mode + "/" + this.tag + "/" + this.sort + "/" + this.paginate;
     },
     filterChanged: function filterChanged() {
       this.emitFilterEvent();

@@ -128,7 +128,6 @@ class CreateServerTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('name');
             $table->string('slug');
-            $table->json('configs');
             $table->string('background');
             $table->longText('description');
             $table->string('website');
@@ -153,12 +152,31 @@ class CreateServerTable extends Migration
 
         Schema::create('listing_rankings', function (Blueprint $table) {
             $table->unsignedInteger('listing_id');
-            $table->integer('rank')->index();
-            $table->integer('points');
-            $table->integer('votes');
-            $table->integer('clicks');
+            $table->increments('rank');
+            $table->integer('points')->default(0);
+            $table->integer('votes')->default(0);
+            $table->integer('clicks')->default(0);
             $table->timestamp('updated_at');
             $table->foreign('listing_id')->references('id')->on('listings')->onDelete('cascade')->onUpdate('cascade');
+        });
+
+        Schema::create('listing_configurations', function(Blueprint $table) {
+            $table->increments('listing_id');
+            $table->integer('max_base_level')->default(0);
+            $table->integer('max_job_level')->default(0);
+            $table->integer('max_stats')->default(0);
+            $table->integer('max_aspd')->default(0);
+            $table->integer('base_exp_rate')->default(0)->index(); // for exp title searching
+            $table->integer('job_exp_rate')->default(0);
+            $table->integer('instant_cast_stat')->default(0);
+            $table->integer('drop_base_rate')->default(0);
+            $table->integer('drop_card_rate')->default(0);
+            $table->integer('drop_base_mvp_rate')->default(0);
+            $table->integer('drop_card_mvp_rate')->default(0);
+            $table->integer('drop_base_special_rate')->default(0);
+            $table->integer('drop_card_special_rate')->default(0);
+            $table->timestamp('updated_at');
+
         });
 
         Schema::create('listing_screenshots', function (Blueprint $table) {

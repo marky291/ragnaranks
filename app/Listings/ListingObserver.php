@@ -2,6 +2,8 @@
 
 namespace App\Listings;
 
+use Illuminate\Support\Facades\DB;
+
 /**
  * Class ListingObserver.
  */
@@ -15,7 +17,7 @@ class ListingObserver
      */
     public function created(Listing $listing)
     {
-        //
+//        $listing->ranking()->save(new ListingRanking);
     }
 
     /**
