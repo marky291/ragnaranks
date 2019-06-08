@@ -2,15 +2,13 @@
 
 namespace Tests\Unit;
 
+use Tests\TestCase;
 use App\Listings\Listing;
 use App\Listings\ListingConfiguration;
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ListingConfigurationTest extends TestCase
 {
-
     use RefreshDatabase;
 
     /**
@@ -19,10 +17,10 @@ class ListingConfigurationTest extends TestCase
     private $configuration;
 
     /**
- * Setup the test environment.
- *
- * @return void
- */
+     * Setup the test environment.
+     *
+     * @return void
+     */
     protected function setUp()
     {
         parent::setUp();
@@ -32,11 +30,10 @@ class ListingConfigurationTest extends TestCase
 
     /**
      * 'max_base_level','max_job_level','max_stats','max_aspd','base_exp_rate',
-    'job_exp_rate','instant_cast_stat','drop_base_rate', 'drop_card_rate',
-    'drop_base_mvp_rate','drop_card_mvp_rate', 'drop_base_special_rate',
-    'drop_card_special_rate'
+     * 'job_exp_rate','instant_cast_stat','drop_base_rate', 'drop_card_rate',
+     * 'drop_base_mvp_rate','drop_card_mvp_rate', 'drop_base_special_rate',
+     * 'drop_card_special_rate'.
      */
-
     public function test_it_has_a_max_base_level()
     {
         $this->assertNotNull($this->configuration->max_base_level);
