@@ -25,7 +25,7 @@ class ListingConfigurationTest extends TestCase
     {
         parent::setUp();
 
-        $this->configuration = factory(ListingConfiguration::class)->create(['base_exp_rate' => 1000]);
+        $this->configuration = factory(ListingConfiguration::class)->create(['base_exp_rate' => 8]);
     }
 
     /**
@@ -101,7 +101,7 @@ class ListingConfigurationTest extends TestCase
 
     public function test_it_has_a_rate_title()
     {
-        $this->assertEquals('High Rate', $this->configuration->rate);
+        $this->assertEquals('Low Rate', $this->configuration->rate);
     }
 
     public function test_is_has_a_listing_relationship()
