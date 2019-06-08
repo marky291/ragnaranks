@@ -37,6 +37,7 @@ $factory->define(Listing::class, static function (Faker $faker) {
 
 $factory->define(\App\Listings\ListingConfiguration::class, static function (Faker $faker) {
     return [
+        'listing_id' => factory(Listing::class)->create()->id,
         'max_base_level' => $faker->numberBetween(config('filter.exp.low-rate.min'), config('filter.exp.high-rate.max')),
         'max_job_level' => $faker->numberBetween(99, 255),
         'max_stats' => $faker->numberBetween(150, 255),
