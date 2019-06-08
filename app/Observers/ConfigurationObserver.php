@@ -15,7 +15,7 @@ class ConfigurationObserver
      */
     public function creating(ListingConfiguration $configuration)
     {
-        $configuration->setAttribute('rate', $this->getRateTitleFrom($configuration->base_exp_rate));
+        $configuration->setAttribute('exp_title', $this->getRateTitleFrom($configuration->base_exp_rate));
     }
 
     /**
@@ -26,7 +26,7 @@ class ConfigurationObserver
      */
     public function updating(ListingConfiguration $configuration)
     {
-        $configuration->setAttribute('rate', $this->getRateTitleFrom($configuration->base_exp_rate));
+        $configuration->setAttribute('exp_title', $this->getRateTitleFrom($configuration->base_exp_rate));
     }
 
     /**
@@ -39,18 +39,18 @@ class ConfigurationObserver
     private function getRateTitleFrom(int $base_exp): string
     {
         if ($base_exp < config('filter.exp.low-rate.min')) {
-            return 'Official Rate';
+            return 'official-rate';
         }
         if ($base_exp <= config('filter.exp.low-rate.max')) {
-            return 'Low Rate';
+            return 'low-rate';
         }
         if ($base_exp <= config('filter.exp.mid-rate.max')) {
-            return 'Mid Rate';
+            return 'mid-rate';
         }
         if ($base_exp <= config('filter.exp.high-rate.max')) {
-            return 'High Rate';
+            return 'high-rate';
         }
 
-        return 'Super High Rate';
+        return 'super-high-rate';
     }
 }

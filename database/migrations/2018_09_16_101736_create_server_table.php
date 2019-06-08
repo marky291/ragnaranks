@@ -162,7 +162,7 @@ class CreateServerTable extends Migration
 
         Schema::create('listing_configurations', function (Blueprint $table) {
             $table->increments('listing_id');
-            $table->string('rate')->index();
+            $table->string('exp_title')->index();
             $table->integer('max_base_level')->default(0);
             $table->integer('max_job_level')->default(0);
             $table->integer('max_stats')->default(0);

@@ -101,7 +101,7 @@ class ListingConfigurationTest extends TestCase
 
     public function test_it_has_a_rate_title()
     {
-        $this->assertEquals('Low Rate', $this->configuration->rate);
+        $this->assertEquals('Low Rate', $this->configuration->exp_title);
     }
 
     public function test_is_has_a_listing_relationship()
