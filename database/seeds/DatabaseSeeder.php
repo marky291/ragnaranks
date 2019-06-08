@@ -1,6 +1,5 @@
 <?php
 
-use App\Listings\ListingConfiguration;
 use App\Tag;
 use App\Listings\Listing;
 use App\Interactions\Vote;
@@ -9,6 +8,7 @@ use App\Interactions\Review;
 use Illuminate\Database\Seeder;
 use App\Listings\ListingScreenshot;
 use App\Jobs\BuildListingRankingTable;
+use App\Listings\ListingConfiguration;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Database\Eloquent\Collection;
 use Symfony\Component\Console\Helper\ProgressBar;
