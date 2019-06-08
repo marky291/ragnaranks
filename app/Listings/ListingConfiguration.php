@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * Class ListingConfiguration
+ * Class ListingConfiguration.
  *
  * @property int max_base_level
  * @property int max_job_level
@@ -21,8 +21,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int drop_card_mvp_rate
  * @property int drop_base_special_rate
  * @property int drop_card_special_rate
- *
- * @package App
  */
 class ListingConfiguration extends Model
 {
@@ -39,10 +37,10 @@ class ListingConfiguration extends Model
      * @var array
      */
     protected $fillable = [
-        'max_base_level','max_job_level','max_stats','max_aspd','base_exp_rate',
-        'job_exp_rate','instant_cast_stat','drop_base_rate', 'drop_card_rate',
-        'drop_base_mvp_rate','drop_card_mvp_rate', 'drop_base_special_rate',
-        'drop_card_special_rate'
+        'max_base_level', 'max_job_level', 'max_stats', 'max_aspd', 'base_exp_rate',
+        'job_exp_rate', 'instant_cast_stat', 'drop_base_rate', 'drop_card_rate',
+        'drop_base_mvp_rate', 'drop_card_mvp_rate', 'drop_base_special_rate',
+        'drop_card_special_rate',
     ];
 
     /**
