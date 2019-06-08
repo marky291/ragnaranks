@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Listings\Listing;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ListingResource;
-use App\Listings\Listing;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 /**
- * Class ListingFilteringController
- *
- * @package App\Http\Controllers
+ * Class ListingFilteringController.
  */
 class ListingFilteringController extends Controller
 {

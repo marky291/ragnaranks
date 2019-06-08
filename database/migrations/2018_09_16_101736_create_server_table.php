@@ -160,7 +160,7 @@ class CreateServerTable extends Migration
             $table->foreign('listing_id')->references('id')->on('listings')->onDelete('cascade')->onUpdate('cascade');
         });
 
-        Schema::create('listing_configurations', function(Blueprint $table) {
+        Schema::create('listing_configurations', function (Blueprint $table) {
             $table->increments('listing_id');
             $table->integer('max_base_level')->default(0);
             $table->integer('max_job_level')->default(0);
@@ -176,7 +176,6 @@ class CreateServerTable extends Migration
             $table->integer('drop_base_special_rate')->default(0);
             $table->integer('drop_card_special_rate')->default(0);
             $table->timestamp('updated_at');
-
         });
 
         Schema::create('listing_screenshots', function (Blueprint $table) {
