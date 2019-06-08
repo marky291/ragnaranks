@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use App\Listings\ListingConfiguration;
-use App\Observers\ConfigurationObserver;
 use Illuminate\Support\ServiceProvider;
+use App\Observers\ConfigurationObserver;
 use Illuminate\Http\Resources\Json\Resource;
 
 class AppServiceProvider extends ServiceProvider
@@ -27,6 +27,5 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         Resource::withoutWrapping();
-
     }
 }
