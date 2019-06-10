@@ -19,13 +19,13 @@
             ],
             'super-high-rate' => [
                 'name' => 'Super High Rates',
-            ]
+            ],
         ],
 
         'mode' => [
             'all' => [
                 'name' => 'Any Mode',
-                'describe' => 'Do not filter with any specific mode.'
+                'describe' => 'Do not filter with any specific mode.',
             ],
             'renewal' => [
                 'name' => 'Renewal',
@@ -44,9 +44,5 @@
                 'describe' => 'This listing uses a classic format',
             ],
         ],
-
-
-
-
 
     ];

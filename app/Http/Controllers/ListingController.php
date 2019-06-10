@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\ListingResource;
 use App\Listings\Listing;
 use Illuminate\View\View;
 use App\Jobs\RoleAssignment;

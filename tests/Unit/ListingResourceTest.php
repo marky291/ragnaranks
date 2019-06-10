@@ -2,12 +2,10 @@
 
 namespace Tests\Unit;
 
-use App\Http\Resources\ListingResource;
-use App\Jobs\BuildListingRankingTable;
-use App\Listings\Listing;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Listings\Listing;
+use App\Jobs\BuildListingRankingTable;
+use App\Http\Resources\ListingResource;
 
 class ListingResourceTest extends TestCase
 {

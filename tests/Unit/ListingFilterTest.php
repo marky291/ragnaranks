@@ -2,14 +2,12 @@
 
 namespace Tests\Unit;
 
-use App\Http\Resources\ListingResource;
-use App\Listings\ListingConfiguration;
 use App\Mode;
-use App\Tag;
-use Carbon\Carbon;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use App\Listings\Listing;
+use App\Listings\ListingConfiguration;
+use App\Http\Resources\ListingResource;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ListingFilterTest extends TestCase
 {

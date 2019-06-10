@@ -19,7 +19,6 @@ use Illuminate\Database\Eloquent\Collection;
  */
 class ListingCollection extends Collection
 {
-
     /**
      * Filter out a listing based on its modes.
      *

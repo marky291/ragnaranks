@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Tag;
 use App\Listings\Listing;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ListingResource;
-use App\Tag;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 /**
@@ -31,28 +31,27 @@ class ListingFilteringController extends Controller
          */
         $builder = Listing::query();
 
-        /**
+        /*
          * Filter the query to exp-title after we validate its a valid input
          */
         if (($expTitle !== 'all') && array_key_exists($expTitle, trans('homepage.rate'))) {
             $builder->with('configuration')
-                ->whereHas('configuration', function($query) use ($expTitle) {
+                ->whereHas('configuration', function ($query) use ($expTitle) {
                     $query->where('exp_title', $expTitle);
                 });
         }
 
-        /**
+        /*
          * Filter the query to mode types after we validate its a valid input
          */
         if (($modeType !== 'all') && array_key_exists($modeType, trans('homepage.mode'))) {
             $builder->where('mode', $modeType);
         }
 
-        /**
+        /*
          * Return a json response resource.
          */
         return ListingResource::collection($builder->with('ranking', 'language')->paginate($paginate));
-
 
         // get all with the server mode.
 
