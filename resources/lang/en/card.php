@@ -104,5 +104,5 @@ return [
             'name' => 'Influenced Drops',
             'describe' => 'Does LUK stat affect the drops by absolute basis?',
         ],
-    ]
+    ],
 ];

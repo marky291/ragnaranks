@@ -3,7 +3,6 @@
 namespace App\Listings;
 
 use App\Tag;
-use App\Mode;
 use App\User;
 use Carbon\Carbon;
 use App\Interactions\Vote;
@@ -15,7 +14,6 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 /**
  * Class Listings.
