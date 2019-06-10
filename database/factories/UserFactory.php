@@ -30,7 +30,6 @@ $factory->define(App\User::class, function (Faker $faker) {
 $factory->define(\App\Interactions\Review::class, function (Faker $faker) {
     return [
         'message' => $faker->text(rand(300, 500)),
-        'publisher_id' => factory(\App\User::class)->create()->id,
         'ip_address' => $faker->ipv4,
         'donation_score' => $faker->numberBetween(0, 5),
         'update_score' => $faker->numberBetween(0, 5),
@@ -63,7 +62,6 @@ $factory->define(\App\Tag::class, function (Faker $faker) {
 
 $factory->define(Click::class, function (Faker $faker) {
     return [
-        'listing_id' => factory(Listing::class)->create()->id,
         'ip_address' => $faker->ipv4,
         'created_at' => $faker->dateTimeThisMonth,
     ];
@@ -71,7 +69,6 @@ $factory->define(Click::class, function (Faker $faker) {
 
 $factory->define(Vote::class, function (Faker $faker) {
     return [
-        'listing_id' => factory(Listing::class)->create()->id,
         'ip_address' => $faker->ipv4,
         'created_at' => $faker->dateTimeThisMonth,
     ];

@@ -2,132 +2,144 @@
 
 namespace Tests\Unit;
 
+use App\Http\Resources\ListingResource;
+use App\Listings\ListingConfiguration;
+use App\Mode;
 use App\Tag;
 use Carbon\Carbon;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use App\Listings\Listing;
 
 class ListingFilterTest extends TestCase
 {
-    /**
-     * @test
-     */
-    public function it_can_filter_official_rate()
+    use RefreshDatabase;
+
+    public function test_it_returns_empty_result_on_rate()
     {
-        factory(Listing::class, 2)->create(['mode_id' => 2]);
+        $listing = factory(Listing::class)->create();
 
-        $response = $this->getJson('api/servers/official-rate/pre-renewal/all/rank/7');
+        $listing->configuration()->save(
+            factory(ListingConfiguration::class)->create(['base_exp_rate' => 3])
+        );
 
-        $response->assertJson([['id' => 2]]);
+        $response = $this->getJson('api/servers/official-rate/all/all/all/7');
+
+        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
     }
 
-    /**
-     * @test
-     */
-    public function it_can_filter_by_low_rate()
+    public function test_it_can_filter_official_rate()
     {
-        factory(Listing::class, 1)->create(['configs->base_exp_rate' => rand(101, 200)]);
+        $listing = factory(Listing::class)->create();
 
-        factory(Listing::class, 2)->create(['configs->base_exp_rate' => rand(6, 50)]);
+        $listing->configuration()->save(
+            factory(ListingConfiguration::class)->create(['base_exp_rate' => 2])
+        );
 
-        $listings = Listing::all();
+        $response = $this->getJson('api/servers/official-rate/all/all/all/7');
 
-        $this->assertCount(2, $listings->filterGroup('low-rate')->all());
+        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
     }
 
-    /**
-     * @test
-     */
-    public function it_can_filter_by_official_rate()
+    public function test_it_can_filter_low_rate()
     {
-        factory(Listing::class, 1)->create(['configs->base_exp_rate' => rand(1, 5)]);
+        $listing = factory(Listing::class)->create();
 
-        $listings = Listing::all();
+        $listing->configuration()->save(
+            factory(ListingConfiguration::class)->create(['base_exp_rate' => 10])
+        );
 
-        $this->assertCount(1, $listings->filterGroup('official')->all());
+        $response = $this->getJson('api/servers/low-rate/all/all/all/7');
+
+        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
     }
 
-    /**
-     * @test
-     */
-    public function it_can_filter_by_super_high_rate()
+    public function test_it_can_filter_mid_rate()
     {
-        factory(Listing::class, 1)->create(['configs->base_exp_rate' => rand(5000, 12000)]);
+        $listing = factory(Listing::class)->create();
 
-        $listings = Listing::all();
+        $listing->configuration()->save(
+            factory(ListingConfiguration::class)->create(['base_exp_rate' => 60])
+        );
 
-        $this->assertCount(1, $listings->filterGroup('super-high-rate')->all());
+        $response = $this->getJson('api/servers/mid-rate/all/all/all/7');
+
+        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
     }
 
-    /**
-     * @test
-     */
-    public function it_can_order_the_filter_by_attribute()
+    public function test_it_can_filter_high_rate()
     {
-        factory(Listing::class)->create(['name' => 'second', 'episode'  => 1]);
+        $listing = factory(Listing::class)->create();
 
-        factory(Listing::class)->create(['name' => 'first', 'episode'  => 2]);
+        $listing->configuration()->save(
+            factory(ListingConfiguration::class)->create(['base_exp_rate' => 500])
+        );
 
-        $listings = Listing::all()->filterSort('episode');
+        $response = $this->getJson('api/servers/high-rate/all/all/all/7');
 
-        $this->assertEquals('first', $listings->first()->name);
+        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
     }
 
-    /**
-     * @test
-     */
-    public function is_can_order_the_filter_by_name()
+    public function test_it_can_filter_super_high_rate()
     {
-        $listing2 = factory(Listing::class)->create(['name' => 'B']);
+        $listing = factory(Listing::class)->create();
 
-        $listing1 = factory(Listing::class)->create(['name' => 'A']);
+        $listing->configuration()->save(
+            factory(ListingConfiguration::class)->create(['base_exp_rate' => 10000])
+        );
 
-        $listings = Listing::all();
+        $response = $this->getJson('api/servers/super-high-rate/all/all/all/7');
 
-        $collection = $listings->filterSort('name');
-
-        $this->assertEquals($listing1->name, $collection->first()->name);
+        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
     }
 
-    /**
-     * @test
-     */
-    public function it_can_filter_all_with_incorrect_keys()
-    {
-        factory(Listing::class)->create();
-
-        $listings = Listing::all();
-
-        $collection = $listings->filterMode('bad')->filterGroup('key')->filterSort('entries')->all();
-
-        $this->assertCount(1, $collection);
-    }
-
-    /**
-     * @test
-     */
-    public function it_can_filter_descending_order_created_at()
-    {
-        $this->createListing(['created_at' => Carbon::yesterday()], 0, 0);
-
-        $this->createListing(['created_at' => Carbon::today()], 0, 0);
-
-        $listings = Listing::all()->filterSort('created_at');
-
-        $this->assertEquals($listings->shift()->created_at, Carbon::today());
-
-        $this->assertEquals($listings->shift()->created_at, Carbon::yesterday());
-    }
-
-    public function test_it_can_filter_by_tag()
+    public function test_it_can_filter_all_mode()
     {
         /** @var Listing $listing */
-        $listing1 = $this->createListing([], 0, 0, 0);
-        $listing2 = $this->createListing([], 0, 0, 0);
+        $listing = factory(Listing::class)->create();
 
-        $listing1->tags()->save(factory(Tag::class)->make(['tag' => 'foo']));
-        $listing2->tags()->save(factory(Tag::class)->make(['tag' => 'bar']));
+        $response = $this->getJson('api/servers/all/all/all/all/7');
 
-        $this->assertEquals(1, Listing::all()->filterTag('foo')->count());
+        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
+    }
+
+    public function test_it_can_filter_renewal_mode()
+    {
+        /** @var Listing $listing */
+        $listing = factory(Listing::class)->create(['mode' => 'renewal']);
+
+        $response = $this->getJson('api/servers/all/renewal/all/all/7');
+
+        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
+    }
+
+    public function test_it_can_filter_prerenewal_mode()
+    {
+        /** @var Listing $listing */
+        $listing = factory(Listing::class)->create(['mode' => 'pre-renewal']);
+
+        $response = $this->getJson('api/servers/all/pre-renewal/all/all/7');
+
+        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
+    }
+
+    public function test_it_can_filter_custom_mode()
+    {
+        /** @var Listing $listing */
+        $listing = factory(Listing::class)->create(['mode' => 'custom']);
+
+        $response = $this->getJson('api/servers/all/custom/all/all/7');
+
+        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
+    }
+
+    public function test_it_can_filter_classic_mode()
+    {
+        /** @var Listing $listing */
+        $listing = factory(Listing::class)->create(['mode' => 'classic']);
+
+        $response = $this->getJson('api/servers/all/classic/all/all/7');
+
+        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
     }
 }

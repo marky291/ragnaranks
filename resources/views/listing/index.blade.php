@@ -19,21 +19,16 @@
                         <filtered-search inline-template>
                             <transition name="fade" mode="out-in">
                                 <div id="filters" class="d-flex flex-column content p-2 rounded tw-mb-6 lg:tw-mb-0">
-                                    <select @change="filterChanged" v-model="type" class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
-                                        <option value="all" selected>Any Rates</option>
-                                        <option value="official-rate">Official Rates</option>
-                                        <option value="low-rate">Low Rates</option>
-                                        <option value="mid-rate">Mid Rates</option>
-                                        <option value="high-rate">High Rates</option>
-                                        <option value="super-high-rate">Super High Rates</option>
+                                    <select @change="filterChanged" v-model="rates" class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
+                                        @foreach(trans('homepage.rate') as $key => $rate)
+                                            <option value="{{ $key }}">{{ $rate['name'] }}</option>
+                                        @endforeach
                                     </select>
 
                                     <select @change="filterChanged" v-model="mode" class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
-                                        <option value="any" selected>Any Mode</option>
-                                        <option value="renewal">Renewal</option>
-                                        <option value="pre-renewal">Pre-Renewal</option>
-                                        <option value="classic">Official</option>
-                                        <option value="custom">Custom</option>
+                                        @foreach(trans('homepage.mode') as $key => $mode)
+                                            <option value="{{ $key }}">{{ $mode['name'] }}</option>
+                                        @endforeach
                                     </select>
 
                                     <select @change="filterChanged" v-model="tag" class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
@@ -84,7 +79,7 @@
                                                 <span class="card-counter font-weight-bold transparency">@{{ listing['ranking']['clicks']}}</span>
                                             </div>
                                             <div class="d-flex flex-column justify-content-end" style="height:100%;">
-                                                <img class="tw-w-6 tw-h-6 tw-shadow tw-mr-2" :src="'/img/flags/'+listing.language+'.svg'" alt="">
+                                                <img class="tw-w-6 tw-h-6 tw-shadow tw-mr-2" :src="'/img/flags/'+listing.language.name+'.svg'" alt="">
                                             </div>
                                         </div>
                                     </div>

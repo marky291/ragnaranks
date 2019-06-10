@@ -18,11 +18,13 @@ class ListingResource extends JsonResource
             'name' => $this->name,
             'slug' => $this->slug,
             'website' => $this->website,
+            'mode' => $this->mode,
             'ranking' => RankingResource::make($this->whenLoaded('ranking')),
             'background' => $this->background,
             'description' => $this->description,
             'tags' => TagResource::collection($this->whenLoaded('tags')),
-            'language' => $this->language->name,
+            'config' => ConfigurationResource::make($this->whenLoaded('configuration')),
+            'language' => LanguageResource::make($this->whenLoaded('language')),
         ];
     }
 }

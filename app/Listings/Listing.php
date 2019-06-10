@@ -30,13 +30,12 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @property string $background
  * @property float $episode
  * @property string $accent
- * @property Mode $mode
+ * @property string $mode
  * @property string $expRateTitle
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * @property User $user
  * @property int $user_id
- * @property int $mode_id
  * @property Collection $tags
  * @property Collection|HasMany $reviews
  * @property Vote|HasMany $votes
@@ -80,17 +79,7 @@ class Listing extends Model
      */
     public function scopeRelations(Builder $builder): Builder
     {
-        return $builder->with(['mode', 'tags', 'screenshots', 'language']);
-    }
-
-    /**
-     * A listing has one available mode.
-     *
-     * @return HasOne
-     */
-    public function mode(): HasOne
-    {
-        return $this->hasOne(Mode::class, 'id', 'mode_id');
+        return $builder->with(['tags', 'screenshots', 'language']);
     }
 
     /**
@@ -136,11 +125,11 @@ class Listing extends Model
     /**
      * A listing has many reviews.
      *
-     * @return MorphToMany|Review
+     * @return HasMany
      */
     public function reviews()
     {
-        return $this->morphedByMany(Review::class, 'interaction');
+        return $this->hasMany(Review::class);
     }
 
     /**

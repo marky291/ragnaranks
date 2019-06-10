@@ -12,17 +12,16 @@
         },
         data: function () {
             return {
-                profileLoaded: false,
                 preset: {
                     accent: '',
                     background: '',
                 },
                 listing: {
                     name: '',
+                    background: '',
+                    description: "# Welcome to RagnaRanks markdown editor!\n You can write something nice and descriptive with a huge amount of different formats!' [Guide](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)\n You can also use emojis copied from the web and paste them right here! 😍\n \n**Please utilize all the configuration options to allow us to maximize the potential of your listing(s)!**",
                     tags: [],
                     language: 'english',
-                    description: "# Welcome to RagnaRanks markdown editor!\n You can write something nice and descriptive with a huge amount of different formats!' [Guide](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)\n You can also use emojis copied from the web and paste them right here! 😍\n \n**Please utilize all the configuration options to allow us to maximize the potential of your listing(s)!**",
-                    background: '',
                     screenshots: [],
                     accent: 'nightmare',
                     configs: {
@@ -51,13 +50,15 @@
                 },
             }
         },
-        created: function() {
-            console.log('profile');
-        },
-        mounted() {
-
-        },
         computed: {
+            serverName: function () {
+                return _.isEmpty(this.$parent.listing.name) ? 'Default RO' : this.listing.name;
+            },
+
+
+
+
+
             background: function() {
                 return _.isEmpty(this.listing.background) ? this.preset.background : this.listing.background;
             },
@@ -69,9 +70,6 @@
             },
             screenshots: function() {
                 return _.isEmpty(this.listing.screenshots) ? ['/img/preset/slider_one.png', '/img/preset/slider_two.png', '/img/preset/slider_three.png'] : this.listing.screenshots;
-            },
-            serverName: function () {
-                return _.isEmpty(this.listing.name) ? 'Default RO' : this.listing.name;
             },
             serverTags: function () {
                 return _.isEmpty(this.listing.tags) ? 'RelatableRagnarokTags' : this.listing.tags;

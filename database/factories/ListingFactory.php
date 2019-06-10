@@ -9,7 +9,6 @@ use App\Listings\ListingLanguage;
 
 $factory->define(\App\Listings\ListingScreenshot::class, static function (Faker $faker) {
     return [
-        'listing_id' => factory(Listing::class)->create()->getKey(),
         'link' => $faker->imageUrl(640, 480, 'cats'),
     ];
 });
@@ -27,7 +26,7 @@ $factory->define(Listing::class, static function (Faker $faker) {
         'name' => $server['name'],
         'user_id' => factory('App\User')->create()->id,
         'website' => $faker->url,
-        'mode_id' => Mode::inRandomOrder()->first(),
+        'mode' => $faker->randomElement(array_keys(trans('homepage.mode'))),
         'description' => $server['description'],
         'language_id' => ListingLanguage::all()->random()->getKey(),
         'episode' => collect([13.10, 13.09, 13.05, 12.11])->random(),
@@ -38,7 +37,6 @@ $factory->define(Listing::class, static function (Faker $faker) {
 
 $factory->define(\App\Listings\ListingConfiguration::class, static function (Faker $faker) {
     return [
-        'listing_id' => factory(Listing::class)->create()->id,
         'max_base_level' => $faker->numberBetween(99, 255),
         'max_job_level' => $faker->numberBetween(99, 255),
         'max_stats' => $faker->numberBetween(150, 255),

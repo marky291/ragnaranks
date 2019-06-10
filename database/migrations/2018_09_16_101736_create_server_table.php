@@ -14,39 +14,6 @@ class CreateServerTable extends Migration
      */
     public function up()
     {
-        Schema::create('modes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('tag');
-            $table->string('name');
-            $table->string('description');
-            $table->timestamp('created_at');
-            $table->index(['tag', 'name']);
-            $table->unique(['tag', 'name']);
-        });
-
-        DB::table('modes')->insert([[
-            'tag' => 're',
-            'name' => 'renewal',
-            'description' => 'This listing is based on renewal format',
-            'created_at' => now(),
-        ], [
-            'tag' => 'pre-re',
-            'name' => 'pre-renewal',
-            'description' => 'This listing is based on pre-renewal format',
-            'created_at' => now(),
-        ], [
-            'tag' => 'custom',
-            'name' => 'custom',
-            'description' => 'This listing uses a custom format.',
-            'created_at' => now(),
-        ], [
-            'tag' => 'classic',
-            'name' => 'classic',
-            'description' => 'This listing uses a classic format.',
-            'created_at' => now(),
-        ],
-        ]);
-
         Schema::create('tags', function (Blueprint $table) {
             $table->increments('id');
             $table->string('tag');
@@ -131,14 +98,13 @@ class CreateServerTable extends Migration
             $table->string('background');
             $table->longText('description');
             $table->string('website');
-            $table->unsignedInteger('mode_id');
+            $table->string('mode');
             $table->string('accent')->default('nightmare');
             $table->unsignedInteger('language_id')->default(1);
             $table->double('episode')->nullable();
             $table->timestamps();
             $table->index(['episode']);
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
-            $table->foreign('mode_id')->references('id')->on('modes')->onUpdate('cascade');
             $table->foreign('language_id')->references('id')->on('listing_languages')->onUpdate('cascade');
         });
 
@@ -189,7 +155,7 @@ class CreateServerTable extends Migration
 
         Schema::create('reviews', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('publisher_id');
+            $table->unsignedInteger('listing_id')->index();
             $table->ipAddress('ip_address');
             $table->text('message');
             $table->smallInteger('donation_score');

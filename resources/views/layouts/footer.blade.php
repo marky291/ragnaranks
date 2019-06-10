@@ -34,9 +34,8 @@
                 <div class="flex-fill">
                     <h2>Play</h2>
                     <ul class="list-unstyled list">
-                        <?php /** @var \App\Mode $mode */ ?>
-                        @foreach(\App\Mode::all() as $mode)
-                            <li class="text-transparent">{{ ucfirst($mode->name) }}</li>
+                        @foreach(trans('homepage.mode') as $key => $mode)
+                            <li class="text-transparent">{{ ucfirst($mode['name']) }}</li>
                         @endforeach
                     </ul>
                 </div>

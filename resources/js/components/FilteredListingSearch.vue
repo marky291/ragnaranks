@@ -6,8 +6,8 @@
         data: function () {
             return {
                 tags: [],
-                type: 'all',
-                mode: 'any',
+                rates: 'all',
+                mode: 'all',
                 sort: 'rank',
                 tag: 'all',
                 paginate: '7',
@@ -16,7 +16,7 @@
 
         methods: {
             getUrl: function() {
-                return "api/servers/" + this.type + "/" + this.mode + "/"  + this.tag + "/" + this.sort + "/" + this.paginate;
+                return "api/servers/" + this.rates + "/" + this.mode + "/"  + this.tag + "/" + this.sort + "/" + this.paginate;
             },
             filterChanged: function() {
                 this.emitFilterEvent();

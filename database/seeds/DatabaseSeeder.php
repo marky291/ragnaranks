@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
      */
     public function setup()
     {
-        $this->seed_counts = ['listings' => 15, 'votes' => 800, 'clicks' => 800, 'reviews' => rand(10, 20), 'screenshots' => rand(15, 40)];
+        $this->seed_counts = ['listings' => 10, 'votes' => 120, 'clicks' => 120, 'reviews' => rand(10, 20), 'screenshots' => rand(15, 40)];
 
         $this->progress_bar = new ProgressBar($this->command->getOutput(), $this->seed_counts['listings'] + $this->seed_counts['votes'] + $this->seed_counts['clicks'] + $this->seed_counts['reviews']);
 
@@ -101,7 +101,7 @@ class DatabaseSeeder extends Seeder
         }
 
         for ($i = 0; $i < $this->seed_counts['screenshots']; $i++) {
-            $this->listings->random(1)->first()->screenshots()->save(factory(ListingScreenshot::class)->create());
+            $this->listings->random(1)->first()->screenshots()->save(factory(ListingScreenshot::class)->make());
             $this->progress_bar->advance();
         }
 
