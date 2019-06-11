@@ -58,7 +58,6 @@
                 <div class="lg:tw-w-2/3 tw-px-4">
                     <filtered-listings inline-template>
                         <transition-group name="staggered-fade"
-                                          tag="ul"
                                           v-bind:css="false"
                                           v-on:before-enter="beforeEnter"
                                           v-on:enter="enter"

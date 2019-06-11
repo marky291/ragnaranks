@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Tag;
 use App\Listings\Listing;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ListingResource;
+use App\Tag;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 /**
@@ -25,42 +25,50 @@ class ListingFilteringController extends Controller
      */
     public function filters($expTitle = 'all', $modeType = 'all', $tagName = 'all', $orderBy = 'all', $paginate = 7)
     {
-
         /**
-         * The query builder.
+         * All listings need a ranking, that can be sortable.
          */
-        $builder = Listing::query();
-
-        /*
+        $builder = Listing::query()->join('listing_rankings', 'listings.id', '=', 'listing_rankings.listing_id');
+        /**
          * Filter the query to exp-title after we validate its a valid input
          */
         if (($expTitle !== 'all') && array_key_exists($expTitle, trans('homepage.rate'))) {
             $builder->with('configuration')
-                ->whereHas('configuration', function ($query) use ($expTitle) {
+                ->whereHas('configuration', static function($query) use ($expTitle) {
                     $query->where('exp_title', $expTitle);
                 });
         }
-
-        /*
+        /**
          * Filter the query to mode types after we validate its a valid input
          */
         if (($modeType !== 'all') && array_key_exists($modeType, trans('homepage.mode'))) {
             $builder->where('mode', $modeType);
         }
-
-        /*
+        /**
+         * Filter the query to where a tag matches this value.
+         */
+        if (($tagName !== 'all') && array_key_exists($tagName, trans('homepage.tag'))) {
+            $builder->with('tags')->whereHas('tags', static function ($query) use ($tagName) {
+                $query->where('name', $tagName);
+            });
+        }
+        /**
+         * Ordering of the listings.
+         */
+        switch($orderBy) {
+            case 'name':
+                $builder->orderBy('name');
+                break;
+            case 'rank':
+                $builder->orderBy('rank');
+                break;
+            case 'created':
+                $builder->orderBy('created_at');
+                break;
+        }
+        /**
          * Return a json response resource.
          */
-        return ListingResource::collection($builder->with('ranking', 'language')->paginate($paginate));
-
-        // get all with the server mode.
-
-        // get all with the tag
-
-        // order the collection by condition attribute.
-
-        // turn collection into listing resource.
-
-//        return ListingResource::collection($listings->take($paginate));
+        return ListingResource::collection($builder->with(['tags', 'ranking', 'language'])->paginate($paginate));
     }
 }
