@@ -41,18 +41,6 @@ class ListingConfiguration extends Model
     protected $guarded = [];
 
     /**
-     * The model's default attributes.
-     *
-     * @var array
-     */
-    protected $attributes = [
-        'max_base_level' => 0, 'max_job_level' => 0, 'max_stats' => 0, 'max_aspd' => 0, 'base_exp_rate' => 0,
-        'job_exp_rate' => 0, 'instant_cast_stat' => 0, 'drop_base_rate' => 0, 'drop_card_rate' => 0,
-        'drop_base_mvp_rate' => 0, 'drop_card_mvp_rate' => 0, 'drop_base_special_rate' => 0,
-        'drop_card_special_rate' => 0,
-    ];
-
-    /**
      * A configuration belongs to a single listing.
      *
      * @return BelongsTo|Listing

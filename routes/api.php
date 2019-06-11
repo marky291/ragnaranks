@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/listing/{listing}', function (Listing $listing) {
     return cache()->remember("listing2:{$listing->name}", 0, function () use ($listing) {
-        return App\Http\Resources\ListingResource::make($listing->load('ranking', 'tags', 'language'));
+        return App\Http\Resources\ListingResource::make($listing->load('ranking', 'tags', 'configuration', 'language'));
     });
 });
 
