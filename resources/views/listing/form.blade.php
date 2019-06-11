@@ -209,7 +209,7 @@
 														<span class="card-counter font-weight-bold transparency">@{{ $parent.listing.ranking.clicks }}</span>
 													</div>
 													<div class="d-flex flex-column justify-content-end" style="height:100%;">
-														<img class="tw-h-6 tw-w-6 tw-shadow" :src="'/img/flags/'+$parent.listing.language+'.svg'" alt="flag">
+														<img class="tw-h-6 tw-w-6 tw-shadow" :src="'/img/flags/'+$parent.listing.language.name+'.svg'" alt="flag">
 													</div>
 												</div>
 											</div>

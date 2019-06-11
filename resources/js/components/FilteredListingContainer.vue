@@ -3,7 +3,9 @@
     import Velocity from 'velocity-animate';
 
     export default {
-
+        components: {
+            //
+        },
         data: function () {
             return {
                 listings: [],
@@ -12,7 +14,7 @@
         },
 
         created: function(){
-            axios.get('api/servers/all/all/all/rank/7').then(response => {
+            axios.get('api/servers/all/all/all/rank/7?page=1').then(response => {
                 this.listings = response.data.data;
             });
 
@@ -25,6 +27,21 @@
         methods: {
             visit: function(slug) {
                 window.location.href = '/listing/' + slug;
+            },
+            infiniteHandler($state) {
+                axios.get('test', {
+                    params: {
+                        page: this.page,
+                    },
+                }).then(({ data }) => {
+                    if (data.hits.length) {
+                        this.page += 1;
+                        this.list.push(...data.hits);
+                        $state.loaded();
+                    } else {
+                        $state.complete();
+                    }
+                });
             },
             beforeEnter: function (el) {
                 el.style.opacity = 0

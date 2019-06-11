@@ -16190,9 +16190,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var velocity_animate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! velocity-animate */ "./node_modules/velocity-animate/velocity.js");
 /* harmony import */ var velocity_animate__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(velocity_animate__WEBPACK_IMPORTED_MODULE_1__);
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {//
+  },
   data: function data() {
     return {
       listings: [],
@@ -16202,7 +16212,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('api/servers/all/all/all/rank/7').then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('api/servers/all/all/all/rank/7?page=1').then(function (response) {
       _this.listings = response.data.data;
     });
     this.$root.$on('filter:changed', function (param) {
@@ -16215,12 +16225,35 @@ __webpack_require__.r(__webpack_exports__);
     visit: function visit(slug) {
       window.location.href = '/listing/' + slug;
     },
+    infiniteHandler: function infiniteHandler($state) {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('test', {
+        params: {
+          page: this.page
+        }
+      }).then(function (_ref) {
+        var data = _ref.data;
+
+        if (data.hits.length) {
+          var _this2$list;
+
+          _this2.page += 1;
+
+          (_this2$list = _this2.list).push.apply(_this2$list, _toConsumableArray(data.hits));
+
+          $state.loaded();
+        } else {
+          $state.complete();
+        }
+      });
+    },
     beforeEnter: function beforeEnter(el) {
       el.style.opacity = 0;
       el.style.height = 0;
     },
     enter: function enter(el, done) {
-      var delay = el.dataset.index * 0.5;
+      var delay = el.dataset.index * 0.4;
       setTimeout(function () {
         velocity_animate__WEBPACK_IMPORTED_MODULE_1___default()(el, {
           opacity: 1,
@@ -16231,7 +16264,7 @@ __webpack_require__.r(__webpack_exports__);
       }, delay);
     },
     leave: function leave(el, done) {
-      var delay = el.dataset.index * 0.5;
+      var delay = el.dataset.index * 0.4;
       setTimeout(function () {
         velocity_animate__WEBPACK_IMPORTED_MODULE_1___default()(el, {
           opacity: 0,
