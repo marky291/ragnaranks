@@ -31,7 +31,7 @@
                 el.style.height = 0
             },
             enter: function (el, done) {
-                var delay = el.dataset.index * 0.2
+                var delay = el.dataset.index * 0.4
                 setTimeout(function () {
                     Velocity(
                         el,
@@ -41,7 +41,7 @@
                 }, delay)
             },
             leave: function (el, done) {
-                var delay = el.dataset.index * 0.2
+                var delay = el.dataset.index * 0.4
                 setTimeout(function () {
                     Velocity(
                         el,
