@@ -21,9 +21,9 @@ class ListingController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return View
      */
-    public function index(Listing $listing)
+    public function index(): View
     {
         return view('listing.index');
     }
@@ -32,9 +32,9 @@ class ListingController extends Controller
      * Show the form for creating a new resource.
      *
      * @param Listing $listing
-     * @return Response
+     * @return View
      */
-    public function create(Listing $listing): Response
+    public function create(Listing $listing) : View
     {
         return view('listing.form')->with([
             'listing' => $listing,

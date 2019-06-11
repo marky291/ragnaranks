@@ -4,11 +4,11 @@ return [
 
     'config' => [
         'max_base_level' => [
-            'name' => 'Base Level',
+            'name' => 'Max Base Level',
             'describe' => 'The highest base level that can be achieved.',
         ],
         'max_job_level' => [
-            'name' => 'Job Level',
+            'name' => 'Max Job Level',
             'describe' => 'The highest job level that can be achieved.',
         ],
         'max_aspd' => [
@@ -60,15 +60,15 @@ return [
             'describe' => 'Amount of (DEX*2+INT) before variable cast turn zero.',
         ],
         'base_exp_rate' => [
-            'name' => 'Base Rate',
+            'name' => 'Base EXP Rate',
             'describe' => 'Rate at which base experience is given.',
         ],
         'job_exp_rate' => [
-            'name' => 'Job Rate',
+            'name' => 'Job EXP Rate',
             'describe' => 'Rate at which job experience is given.',
         ],
         'quest_exp_rate' => [
-            'name' => 'Quest Rate',
+            'name' => 'Quest EXP Rate',
             'describe' => 'Rate of base/job experience given by NPCs.',
         ],
 

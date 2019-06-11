@@ -7,12 +7,12 @@
 				<div class="row pb-5 pt-2">
 					<div id="sidebar" class="col-4">
 						@component('layouts.sidebar')
-							<div class="tw-h-full">
-								<configs inline-template>
+							<div class="tw-h-full mt-4">
+								<configs inline-template v-if="listing.isEditor">
 									<at-collapse accordion value="details" style="overflow:visible">
 										<at-collapse-item name="details">
 											<div slot="title">🔨 Initial Card Setup</div>
-											<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
+											<div :class="'bg-'+$parent.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
 												<p class="tw-font-bold">Card Design</p>
 											</div>
 											<div class="tw-p-2">
@@ -36,25 +36,27 @@
 											<div class="tw-p-2">
 												<p class="tw-font-semibold tw-mb-1">Nationality</p>
 												<div class="tw-flex">
-{{--													<at-select v-model="$parent.listing.language.name" class="tw-capitalize">--}}
-{{--														<at-option v-for="(language, i) in languages" :key="i" :value="language.name" :label="language.name"><img class="tw-w-4 tw-h-4 tw-mr-2" :src="'/img/flags/'+language.name+'.svg'" alt=""></i> @{{ language.name }}</at-option>--}}
-{{--													</at-select>--}}
+													<at-select v-model="$parent.listing.language.name" class="tw-capitalize">
+														<at-option v-for="(language, i) in languages" :key="i" :value="language.name" :label="language.name"><img class="tw-w-4 tw-h-4 tw-mr-2" :src="'/img/flags/'+language.name+'.svg'" alt=""></i> @{{ language.name }}</at-option>
+													</at-select>
 												</div>
 											</div>
 											<div class="tw-p-2">
 												<p class="tw-font-semibold tw-flex tw-justify-between tw-mb-1">Background <small class="tw-text-blue">(Optimal size 728x350px)</small></p>
 												<at-input v-model="$parent.listing.background" placeholder="Enter an Image URL"></at-input>
 											</div>
-											<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1 tw-mt-3">
+											<div :class="'bg-'+$parent.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1 tw-mt-3">
 												<p class="tw-font-bold">Filtering</p>
 											</div>
 											<div class="tw-p-2">
 												<p class="tw-font-semibold tw-mb-1">Search Tags</p>
 												<at-select v-model="$parent.listing.tags" multiple>
-													<at-option v-for="tag in tags" v-bind:key="tag['id']" :value="tag['name']">@{{ tag['name'] }}</at-option>
+													@foreach (trans('homepage.tag') as $key => $tag)
+														<at-option key="{{ $key }}" value="{{ $key }}">{{ $tag['name'] }}</at-option>
+													@endforeach
 												</at-select>
 											</div>
-											<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1 tw-mt-3">
+											<div :class="'bg-'+$parent.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1 tw-mt-3">
 												<p class="tw-font-bold">Images</p>
 											</div>
 											<div class="tw-p-2">
@@ -73,7 +75,7 @@
 												</span>
 											</span>
 											</div>
-											<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1 tw-mt-3">
+											<div :class="'bg-'+$parent.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1 tw-mt-3">
 												<p class="tw-font-bold">Content</p>
 											</div>
 											<div class="tw-p-2">
@@ -86,82 +88,82 @@
 											<div class="">
 												<div class="mb-3 configuration">
 													<div class="list">
-														<div :class="'bg-'+$parent.listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
+														<div :class="'bg-'+$parent.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
 															<p class="tw-font-bold">Player Configuration Setup</p>
 														</div>
-														@component('listing.partial.config', ['name' => __('configs.max_base_level.name')])
-															<at-input v-model="$parent.listing.configs.max_base_level" size="small" type="number" placeholder="Please input"></at-input>
+														@component('listing.partial.config', ['name' => __('profile.config.max_base_level.name')])
+															<at-input v-model="$parent.listing.config.max_base_level" size="small" type="number" placeholder="Please input"></at-input>
 														@endcomponent
 														@component('listing.partial.config', ['name' => __('configs.max_job_level.name')])
-															<at-input v-model="$parent.listing.configs.max_job_level" size="small" type="number" placeholder="Please input"></at-input>
+															<at-input v-model="$parent.listing.config.max_job_level" size="small" type="number" placeholder="Please input"></at-input>
 														@endcomponent
 														@component('listing.partial.config', ['name' => __('configs.max_aspd.name')])
-															<at-input v-model="$parent.listing.configs.max_aspd" size="small" type="number" placeholder="Please input"></at-input>
+															<at-input v-model="$parent.listing.config.max_aspd" size="small" type="number" placeholder="Please input"></at-input>
 														@endcomponent
 														@component('listing.partial.config', ['name' => __('configs.max_stats.name')])
-															<at-input v-model="$parent.listing.configs.max_stats" size="small" type="number" placeholder="Please input"></at-input>
+															<at-input v-model="$parent.listing.config.max_stats" size="small" type="number" placeholder="Please input"></at-input>
 														@endcomponent
 														<div :class="'bg-'+$parent.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
 															<p class="tw-font-bold">Experience Points Setup</p>
 														</div>
 														@component('listing.partial.config', ['name' => __('configs.base_exp_rate.name')])
-															<at-input v-model="$parent.listing.configs.base_exp_rate" size="small" type="number" placeholder="Please input"></at-input>
+															<at-input v-model="$parent.listing.config.base_exp_rate" size="small" type="number" placeholder="Please input"></at-input>
 														@endcomponent
 														@component('listing.partial.config', ['name' => __('configs.job_exp_rate.name')])
-															<at-input v-model="$parent.listing.configs.job_exp_rate" size="small" type="number" placeholder="Please input"></at-input>
+															<at-input v-model="$parent.listing.config.job_exp_rate" size="small" type="number" placeholder="Please input"></at-input>
 														@endcomponent
 														@component('listing.partial.config', ['name' => __('configs.quest_exp_rate.name')])
-															<at-input v-model="$parent.listing.configs.quest_exp_rate" size="small" type="number" placeholder="Please input"></at-input>
+															<at-input v-model="$parent.listing.config.quest_exp_rate" size="small" type="number" placeholder="Please input"></at-input>
 														@endcomponent
 														<div :class="'bg-'+$parent.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
 															<p class="tw-font-bold">Drop Rate Setup</p>
 														</div>
 														@component('listing.partial.config', ['name' => __('configs.item_drop_common.name')])
-															<at-input v-model="$parent.listing.configs.item_drop_common" size="small" type="number" placeholder="Please input"></at-input>
+															<at-input v-model="$parent.listing.config.item_drop_common" size="small" type="number" placeholder="Please input"></at-input>
 														@endcomponent
 														@component('listing.partial.config', ['name' => __('configs.item_drop_equip.name')])
-															<at-input v-model="$parent.listing.configs.item_drop_equip" size="small" type="number" placeholder="Please input"></at-input>
+															<at-input v-model="$parent.listing.config.item_drop_equip" size="small" type="number" placeholder="Please input"></at-input>
 														@endcomponent
 														@component('listing.partial.config', ['name' => __('configs.item_drop_card.name')])
-															<at-input v-model="$parent.listing.configs.item_drop_card" size="small" type="number" placeholder="Please input"></at-input>
+															<at-input v-model="$parent.listing.config.item_drop_card" size="small" type="number" placeholder="Please input"></at-input>
 														@endcomponent
 														@component('listing.partial.config', ['name' => __('configs.item_drop_common_mvp.name')])
-															<at-input v-model="$parent.listing.configs.item_drop_common_mvp" size="small" type="number" placeholder="Please input"></at-input>
+															<at-input v-model="$parent.listing.config.item_drop_common_mvp" size="small" type="number" placeholder="Please input"></at-input>
 														@endcomponent
 														@component('listing.partial.config', ['name' => __('configs.item_drop_equip_mvp.name')])
-															<at-input v-model="$parent.listing.configs.item_drop_equip_mvp" size="small" type="number" placeholder="Please input"></at-input>
+															<at-input v-model="$parent.listing.config.item_drop_equip_mvp" size="small" type="number" placeholder="Please input"></at-input>
 														@endcomponent
 														@component('listing.partial.config', ['name' => __('configs.item_drop_card_mvp.name')])
-															<at-input v-model="$parent.listing.configs.item_drop_card_mvp" size="small" type="number" placeholder="Please input"></at-input>
+															<at-input v-model="$parent.listing.config.item_drop_card_mvp" size="small" type="number" placeholder="Please input"></at-input>
 														@endcomponent
 														<div :class="'bg-'+$parent.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
 															<p class="tw-font-bold">Skill Casting Setup</p>
 														</div>
 														@component('listing.partial.config', ['name' => __('configs.instant_cast.name')])
-															<at-input v-model="$parent.listing.configs.instant_cast" size="small" type="number" placeholder="Please input"></at-input>
+															<at-input v-model="$parent.listing.config.instant_cast" size="small" type="number" placeholder="Please input"></at-input>
 														@endcomponent
 														@component('listing.partial.config', ['name' => __('configs.castrate_dex_scale.name')])
-															<at-input v-model="$parent.listing.configs.castrate_dex_scale" size="small" type="number" placeholder="Please input"></at-input>
+															<at-input v-model="$parent.listing.config.castrate_dex_scale" size="small" type="number" placeholder="Please input"></at-input>
 														@endcomponent
 														<div :class="'bg-'+$parent.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
 															<p class="tw-font-bold">Battle Setup</p>
 														</div>
 														@component('listing.partial.config', ['name' => __('configs.arrow_decrement.name')])
 															<div class="tw-flex">
-																<at-radio v-model="$parent.listing.configs.arrow_decrement" label="No">No</at-radio>
-																<at-radio v-model="$parent.listing.configs.arrow_decrement" label="Yes">Yes</at-radio>
+																<at-radio v-model="$parent.listing.config.arrow_decrement" label="No">No</at-radio>
+																<at-radio v-model="$parent.listing.config.arrow_decrement" label="Yes">Yes</at-radio>
 															</div>
 														@endcomponent
 														@component('listing.partial.config', ['name' => __('configs.undead_detect_type.name')])
 															<div class="tw-flex">
-																<at-radio v-model="$parent.listing.configs.undead_detect_type" label="No">No</at-radio>
-																<at-radio v-model="$parent.listing.configs.undead_detect_type" label="Yes">Yes</at-radio>
+																<at-radio v-model="$parent.listing.config.undead_detect_type" label="No">No</at-radio>
+																<at-radio v-model="$parent.listing.config.undead_detect_type" label="Yes">Yes</at-radio>
 															</div>
 														@endcomponent
 														@component('listing.partial.config', ['name' => __('configs.attribute_recover.name')])
 															<div class="tw-flex">
-																<at-radio v-model="$parent.listing.configs.attribute_recover" label="No">No</at-radio>
-																<at-radio v-model="$parent.listing.configs.attribute_recover" label="Yes">Yes</at-radio>
+																<at-radio v-model="$parent.listing.config.attribute_recover" label="No">No</at-radio>
+																<at-radio v-model="$parent.listing.config.attribute_recover" label="Yes">Yes</at-radio>
 															</div>
 														@endcomponent
 													</div>
@@ -187,7 +189,7 @@
 						<profile inline-template>
 							<transition name="fade">
 								<div class="" v-if="$parent.profileLoaded">
-									<div :class="'use-accent-'+accent" class="mb-3 server-card item flex-fill shadow border rounded">
+									<div :class="'use-accent-'+$parent.accent" class="mb-3 server-card item flex-fill shadow border rounded">
 										<div id="profile-card" class="profile-block">
 											<div class="server-card-head image rounded-top" style="height:350px;" v-bind:style="{ backgroundImage: 'url(' + $parent.listing.background + ')' }"></div>
 											<div class="server-card-head overlap d-flex" style="margin-top:-169px;">
@@ -219,7 +221,7 @@
 											<div id="description" class="profile-block markdown">
 												<div class="py-4">
 													<div class="row no-gutters">
-														<div class="tw-tracking-normal tw-whitespace-pre-wrap markdown-compiled" v-html="markedDescription"></div>
+														<div class="tw-tracking-normal tw-whitespace-pre-wrap markdown-compiled" v-html="$parent.description"></div>
 													</div>
 												</div>
 											</div>
@@ -229,8 +231,8 @@
 											<div class="container px-5 pt-4 pb-3">
 												<h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tight">Specifications</h3>
 												<div class="tw-my-0 w-flex">
-													<carousel-3d :count="listing.screenshots.length" :height="220" :width="380" :controls-visible="true" :autoplay="true" :autoplay-timeout="2500">
-														<slide v-for="(screenshot, i) in screenshots" :index="i" :key="i">
+													<carousel-3d :count="$parent.screenshots.length" :height="220" :width="380" :controls-visible="true" :autoplay="true" :autoplay-timeout="2500">
+														<slide v-for="(screenshot, i) in $parent.screenshots" :index="i" :key="i">
 															<template slot-scope="{ index, isCurrent, leftIndex, rightIndex }">
 																<img :data-index="index" :class="{ current: isCurrent, onLeft: (leftIndex >= 0), onRight: (rightIndex >= 0) }" :src="screenshot">
 															</template>
@@ -248,79 +250,79 @@
 														<div class="row">
 															<div class="list col-4 d-flex flex-column mb-3">
 																<div class="tw-mb-3">
-																	<div :class="'bg-'+accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
+																	<div :class="'bg-'+$parent.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
 																		<p class="tw-font-bold">Gameplay</p>
 																	</div>
 																	@component('listing.partial.config', ['name' => __('profile.config.max_base_level.name'), 'tooltip' => __('profile.config.max_base_level.describe')])
-																		@{{ listing.configs.max_base_level }}
+																		@{{ $parent.listing.config.max_base_level }}
 																	@endcomponent
 																	@component('listing.partial.config', ['name' => __('profile.config.max_job_level.name'), 'tooltip' => __('profile.config.max_job_level.describe')])
-																		@{{ listing.configs.max_job_level }}
+																		@{{ $parent.listing.config.max_job_level }}
 																	@endcomponent
 																	@component('listing.partial.config', ['name' => __('profile.config.max_aspd.name'), 'tooltip' => __('profile.config.max_aspd.describe')])
-																		@{{ listing.configs.max_aspd }}
+																		@{{ $parent.listing.config.max_aspd }}
 																	@endcomponent
 																	@component('listing.partial.config', ['name' => __('profile.config.max_stats.name'), 'tooltip' => __('profile.config.max_stats.describe')])
-																		@{{ listing.configs.max_stats }}
+																		@{{ $parent.listing.config.max_stats }}
 																	@endcomponent
 																	@component('listing.partial.config', ['name' => __('profile.config.base_exp_rate.name'), 'tooltip' => __('profile.config.base_exp_rate.describe')])
-																		@{{ listing.configs.base_exp_rate }}x
+																		@{{ $parent.listing.config.base_exp_rate }}x
 																	@endcomponent
 																	@component('listing.partial.config', ['name' => __('profile.config.job_exp_rate.name'), 'tooltip' => __('profile.config.job_exp_rate.describe')])
-																		@{{ listing.configs.job_exp_rate }}x
+																		@{{ $parent.listing.config.job_exp_rate }}x
 																	@endcomponent
 																	@component('listing.partial.config', ['name' => __('profile.config.quest_exp_rate.name'), 'tooltip' => __('profile.config.quest_exp_rate.describe')])
-																		@{{ listing.configs.quest_exp_rate }}x
+																		@{{ $parent.listing.config.quest_exp_rate }}x
 																	@endcomponent
 																</div>
 															</div>
 															<div class="list col-4 d-flex flex-column mb-3">
 																<div class="tw-mb-3">
-																	<div :class="'bg-'+accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
+																	<div :class="'bg-'+$parent.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
 																		<p class="tw-font-bold">Drops</p>
 																	</div>
 																	@component('listing.partial.config', ['name' => __('profile.config.item_drop_common.name'), 'tooltip' => __('profile.config.item_drop_common.describe')])
-																		@{{ listing.configs.item_drop_common }}x
+																		@{{ $parent.listing.config.item_drop_common }}x
 																	@endcomponent
 																	@component('listing.partial.config', ['name' => __('profile.config.item_drop_equip.name'), 'tooltip' => __('profile.config.item_drop_equip.describe')])
-																		@{{ listing.configs.item_drop_equip }}x
+																		@{{ $parent.listing.config.item_drop_equip }}x
 																	@endcomponent
 																	@component('listing.partial.config', ['name' => __('profile.config.item_drop_card.name'), 'tooltip' => __('profile.config.item_drop_card.describe')])
-																		@{{ listing.configs.item_drop_card }}x
+																		@{{ $parent.listing.config.item_drop_card }}x
 																	@endcomponent
 																	@component('listing.partial.config', ['name' => __('profile.config.item_drop_common_mvp.name'), 'tooltip' => __('profile.config.item_drop_common_mvp.describe')])
-																		@{{ listing.configs.item_drop_common_mvp }}x
+																		@{{ $parent.listing.config.item_drop_common_mvp }}x
 																	@endcomponent
 																	@component('listing.partial.config', ['name' => __('profile.config.item_drop_equip_mvp.name'), 'tooltip' => __('profile.config.item_drop_equip_mvp.describe')])
-																		@{{ listing.configs.item_drop_equip_mvp }}x
+																		@{{ $parent.listing.config.item_drop_equip_mvp }}x
 																	@endcomponent
 																	@component('listing.partial.config', ['name' => __('profile.config.item_drop_card_mvp.name'), 'tooltip' => __('profile.config.item_drop_card_mvp.describe')])
-																		@{{ listing.configs.item_drop_card_mvp }}x
+																		@{{ $parent.listing.config.item_drop_card_mvp }}x
 																	@endcomponent
 																</div>
 															</div>
 															<div class="list col-4 d-flex flex-column mb-3">
 																<div class="tw-mb-3">
-																	<div :class="'bg-'+accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
+																	<div :class="'bg-'+$parent.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
 																		<p class="tw-font-bold">Other</p>
 																	</div>
 																	@component('listing.partial.config', ['name' => __('profile.config.instant_cast.name'), 'tooltip' => __('profile.config.instant_cast.describe')])
-																		@{{ listing.configs.instant_cast }}
+																		@{{ $parent.listing.config.instant_cast }}
 																	@endcomponent
 																	@component('listing.partial.config', ['name' => __('profile.config.episode.name'), 'tooltip' => __('profile.config.episode.describe')])
-																		@{{ listing.configs.episode }}
+																		@{{ $parent.listing.config.episode }}
 																	@endcomponent
 																	@component('listing.partial.config', ['name' => __('profile.config.pk_mode.name'), 'tooltip' => __('profile.config.pk_mode.describe')])
-																		@{{ listing.configs.pk_mode }}
+																		@{{ $parent.listing.config.pk_mode }}
 																	@endcomponent
 																	@component('listing.partial.config', ['name' => __('profile.config.arrow_decrement.name'), 'tooltip' => __('profile.config.arrow_decrement.describe')])
-																		@{{ listing.configs.arrow_decrement }}
+																		@{{ $parent.listing.config.arrow_decrement }}
 																	@endcomponent
 																	@component('listing.partial.config', ['name' => __('profile.config.undead_detect_type.name'), 'tooltip' => __('profile.config.undead_detect_type.describe')])
-																		@{{ listing.configs.undead_detect_type }}
+																		@{{ $parent.listing.config.undead_detect_type }}
 																	@endcomponent
 																	@component('listing.partial.config', ['name' => __('profile.config.attribute_recover.name'), 'tooltip' => __('profile.config.attribute_recover.describe')])
-																		@{{ listing.configs.attribute_recover}}
+																		@{{ $parent.listing.config.attribute_recover}}
 																	@endcomponent
 																</div>
 															</div>
@@ -328,7 +330,7 @@
 													</at-tab-pane>
 													<at-tab-pane label="Comamnds" name="commands" icon="icon-target">
 														<div class="list">
-															<div :class="'bg-'+accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
+															<div :class="'bg-'+$parent.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
 																<p class="tw-font-bold">Notable Player Commands</p>
 															</div>
 															<div class="tw-flex-1 tw-flex tw-flex-wrap tw-overflow-scroll" style="max-height:270px;">
@@ -344,7 +346,7 @@
 													<at-tab-pane label="Features" name="features" icon="icon-award">
 														<div class="tw-flex list">
 															<div class="tw-flex-1">
-																<div :class="'bg-'+accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
+																<div :class="'bg-'+$parent.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
 																	<p class="tw-font-bold">Notable Server Features</p>
 																</div>
 																<div v-for="(command, i) in _.take(listing.commands, 12)" :key="i" class="config px-2 py-2 d-flex flex-row tw-items-center">
