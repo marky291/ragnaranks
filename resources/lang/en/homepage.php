@@ -48,7 +48,7 @@
         'tag' => [
             'all' => [
                 'name' => 'With any Tags',
-                'describe' => 'Do not filter by a specific tag.'
+                'describe' => 'Do not filter by a specific tag.',
             ],
             'freebies' => [
                 'name' => 'Freebies',
@@ -85,7 +85,7 @@
             'themed-server' => [
                 'name' => 'Themed Server',
                 'describe' => 'A server that has a heavy theme and/or lots of roleplay and storytelling.',
-            ]
+            ],
         ],
 
         'order' => [
@@ -97,6 +97,6 @@
             ],
             'created' => [
                 'name' => 'Sorted by Date Added',
-            ]
-        ]
+            ],
+        ],
     ];
