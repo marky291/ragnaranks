@@ -54,11 +54,6 @@
             serverName: function () {
                 return _.isEmpty(this.$parent.listing.name) ? 'Default RO' : this.listing.name;
             },
-
-
-
-
-
             background: function() {
                 return _.isEmpty(this.listing.background) ? this.preset.background : this.listing.background;
             },

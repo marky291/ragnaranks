@@ -65,13 +65,6 @@
         },
         async mounted() {
             await this.generatePreset();
-            await axios.get('/api/listing/tags').then(response => {
-                this.tags = response.data;
-            });
-            // await fetchData1();
-            // await fetchData2UsingData1();
-            // doSomethingUsingData1And2();
-            // this.dataReady = true;
         },
         methods: {
             addTag (newTag) {

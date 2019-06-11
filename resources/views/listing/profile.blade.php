@@ -63,10 +63,10 @@
 								<div :class="'bg-'+listing.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
 									<p class="tw-font-bold">Gameplay</p>
 								</div>
-								@component('listing.partial.config', ['name' => __('configs.max_base_level.name'), 'tooltip' => __('configs.max_base_level.describe')])
+								@component('listing.partial.config', ['name' => __('profile.config.max_base_level.name'), 'tooltip' => __('profile.config.max_base_level.describe')])
 									@{{ listing.configs.max_base_level }}
 								@endcomponent
-								@component('listing.partial.config', ['name' => __('configs.max_job_level.name'), 'tooltip' => __('configs.max_job_level.describe')])
+								@component('listing.partial.config', ['name' => __('profile.config.max_job_level.name'), 'tooltip' => __('configs.max_job_level.describe')])
 									@{{ listing.configs.max_job_level }}
 								@endcomponent
 								@component('listing.partial.config', ['name' => __('configs.max_aspd.name'), 'tooltip' => __('configs.max_aspd.describe')])
