@@ -2,7 +2,6 @@
 
 namespace App\Http\Resources;
 
-use App\Listings\ListingConfiguration;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Auth;
 
