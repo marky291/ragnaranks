@@ -1,6 +1,7 @@
 <?php
 
 use App\Listings\ListingLanguage;
+use App\Tag;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -16,62 +17,16 @@ class CreateServerTable extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('tag');
-            $table->string('name');
-            $table->string('description');
+            $table->string('name')->unique();
             $table->timestamp('created_at');
-            $table->index(['tag', 'name']);
-            $table->unique(['tag', 'name']);
         });
 
-        DB::table('tags')->insert([[
-            'tag' => 'freebies',
-            'name' => 'Freebies',
-            'description' => 'Players can obtain starting items once they login or from Newbie NPC.',
-            'created_at' => now(),
-        ],
-        [
-            'tag' => 'gepard',
-            'name' => 'Gepard Protection',
-            'description' => 'This listing supports anti-bot and anti-hack software.',
-            'created_at' => now(),
-        ], [
-            'tag' => 'g-pack',
-            'name' => 'Guild Pack',
-            'description' => 'A guild can obtain a large amount of freebies for their members.',
-            'created_at' => now(),
-        ], [
-            'tag' => 'pk',
-            'name' => 'PK Mode',
-            'description' => 'Players are able to engage in player vs player in all areas except towns.',
-            'created_at' => now(),
-        ], [
-            'tag' => 'mobile',
-            'name' => 'Mobile Support',
-            'description' => 'This server can be installed, played and enjoyed on Android Devices.',
-            'created_at' => now(),
-        ], [
-            'tag' => 'frost',
-            'name' => 'Frost Server',
-            'description' => 'Players are affected by Freeze effect.',
-            'created_at' => now(),
-        ], [
-            'tag' => 'no donations',
-            'name' => 'No Donations',
-            'description' => 'Players are unable to obtain items through donation methods.',
-            'created_at' => now(),
-        ], [
-            'tag' => 'instant level',
-            'name' => 'Instant Level',
-            'description' => 'Players can chose a class and max out base and job levels instantly by login or by NPC.',
-            'created_at' => now(),
-        ], [
-            'tag' => 'themed server',
-            'name' => 'Themed Server',
-            'description' => 'A server that has a heavy theme and/or lots of roleplay and storytelling.',
-            'created_at' => now(),
-        ],
-        ]);
+        /**
+         * Use the trans array for generating available tags
+         */
+        foreach (array_keys(trans('homepage.tag')) as $tag) {
+            (new Tag(['name' => $tag]))->save();
+        }
 
         Schema::create('listing_languages', function (Blueprint $table) {
             $table->increments('id');
