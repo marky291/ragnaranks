@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Tag;
 use App\Listings\Listing;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ListingResource;
-use App\Tag;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 /**
@@ -29,22 +29,22 @@ class ListingFilteringController extends Controller
          * All listings need a ranking, that can be sortable.
          */
         $builder = Listing::query()->join('listing_rankings', 'listings.id', '=', 'listing_rankings.listing_id');
-        /**
+        /*
          * Filter the query to exp-title after we validate its a valid input
          */
         if (($expTitle !== 'all') && array_key_exists($expTitle, trans('homepage.rate'))) {
             $builder->with('configuration')
-                ->whereHas('configuration', static function($query) use ($expTitle) {
+                ->whereHas('configuration', static function ($query) use ($expTitle) {
                     $query->where('exp_title', $expTitle);
                 });
         }
-        /**
+        /*
          * Filter the query to mode types after we validate its a valid input
          */
         if (($modeType !== 'all') && array_key_exists($modeType, trans('homepage.mode'))) {
             $builder->where('mode', $modeType);
         }
-        /**
+        /*
          * Filter the query to where a tag matches this value.
          */
         if (($tagName !== 'all') && array_key_exists($tagName, trans('homepage.tag'))) {
@@ -52,10 +52,10 @@ class ListingFilteringController extends Controller
                 $query->where('name', $tagName);
             });
         }
-        /**
+        /*
          * Ordering of the listings.
          */
-        switch($orderBy) {
+        switch ($orderBy) {
             case 'name':
                 $builder->orderBy('name');
                 break;
@@ -66,7 +66,7 @@ class ListingFilteringController extends Controller
                 $builder->orderBy('created_at');
                 break;
         }
-        /**
+        /*
          * Return a json response resource.
          */
         return ListingResource::collection($builder->with(['tags', 'ranking', 'language'])->paginate($paginate));
