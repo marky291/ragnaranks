@@ -14,8 +14,6 @@
 
 use App\Listings\Listing;
 use Illuminate\Support\Facades\Route;
-use App\Http\Resources\ListingResource;
-
 
 Route::get('/listing/{listing}', function (Listing $listing) {
     return cache()->remember("listing2:{$listing->name}", 0, function () use ($listing) {

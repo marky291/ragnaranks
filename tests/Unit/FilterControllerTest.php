@@ -2,12 +2,12 @@
 
 namespace Tests\Unit;
 
-use App\Interactions\Click;
-use App\Jobs\BuildListingRankingTable;
-use App\Mode;
 use App\Tag;
+use App\Mode;
 use Tests\TestCase;
 use App\Listings\Listing;
+use App\Interactions\Click;
+use App\Jobs\BuildListingRankingTable;
 use App\Listings\ListingConfiguration;
 use App\Http\Resources\ListingResource;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -262,8 +262,7 @@ class FilterControllerTest extends TestCase
         $response = $this->getJson('api/servers/all/all/all/rank/7');
 
         /** @var Listing $listing */
-        foreach ($response->original as $position => $listing)
-        {
+        foreach ($response->original as $position => $listing) {
             if ($position == 0) {
                 $this->assertEquals('zan', $listing->name);
             }
@@ -293,8 +292,7 @@ class FilterControllerTest extends TestCase
         $response = $this->getJson('api/servers/all/all/all/name/7');
 
         /** @var Listing $listing */
-        foreach ($response->original as $index => $listing)
-        {
+        foreach ($response->original as $index => $listing) {
             if ($index === 0) {
                 $this->assertEquals('alpha', $listing->name);
             }
@@ -318,7 +316,7 @@ class FilterControllerTest extends TestCase
         $listing1 = factory(Listing::class)->create(['name'=>'alpha', 'created_at' => now()->subHours(12)]);
         $listing2 = factory(Listing::class)->create(['name'=>'bravo', 'created_at' => now()]);
         $listing3 = factory(Listing::class)->create(['name'=>'charlie', 'created_at' => now()->subMinute(39)]);
-        $listing4 = factory(Listing::class)->create(['name'=>'delta','created_at' => now()->subDays(33)]);
+        $listing4 = factory(Listing::class)->create(['name'=>'delta', 'created_at' => now()->subDays(33)]);
         $listing5 = factory(Listing::class)->create(['name'=>'echo', 'created_at' => now()->subMinute()]);
 
         BuildListingRankingTable::dispatchNow();
@@ -326,8 +324,7 @@ class FilterControllerTest extends TestCase
         $response = $this->getJson('api/servers/all/all/all/name/7');
 
         /** @var Listing $listing */
-        foreach ($response->original as $index => $listing)
-        {
+        foreach ($response->original as $index => $listing) {
             if ($index === 0) {
                 $this->assertEquals('bravo', $listing2->name);
             }

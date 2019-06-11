@@ -1,7 +1,7 @@
 <?php
 
-use App\Listings\ListingLanguage;
 use App\Tag;
+use App\Listings\ListingLanguage;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -21,7 +21,7 @@ class CreateServerTable extends Migration
             $table->timestamp('created_at');
         });
 
-        /**
+        /*
          * Use the trans array for generating available tags
          */
         foreach (array_keys(trans('homepage.tag')) as $tag) {
