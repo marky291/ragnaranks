@@ -16,15 +16,6 @@ use App\Listings\Listing;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\ListingResource;
 
-Route::get('/listings', function () {
-    return cache()->remember('listing', 30, function () {
-        return ListingResource::collection(Listing::with(['ranking', 'language'])->paginate(7));
-    });
-});
-
-Route::get('/listing/tags', function () {
-    return App\Http\Resources\TagResource::collection(\App\Tag::all());
-});
 
 Route::get('/listing/{listing}', function (Listing $listing) {
     return cache()->remember("listing2:{$listing->name}", 0, function () use ($listing) {

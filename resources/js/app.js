@@ -47,8 +47,6 @@ Vue.component('account-details-component', require('./components/AccountDetailsC
 Vue.component('account-notification-component', require('./components/AccountNotificationComponent').default);
 Vue.component('report-tool-component', require('./components/ReportToolComponent').default);
 
-
-
 Vue.component('profile-page', require('./components/profile/ProfilePage.vue').default);
 Vue.component('profile', require('./components/profile/Profile').default);
 Vue.component('configs', require('./components/profile/ProfileConfigs').default);

@@ -7,6 +7,13 @@ use Illuminate\Http\Resources\Json\JsonResource;
 class ListingResource extends JsonResource
 {
     /**
+     * Indicates if the resource's collection keys should be preserved.
+     *
+     * @var bool
+     */
+    public $preserveKeys = false;
+
+    /**
      * Transform the resource into an array.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -15,6 +22,7 @@ class ListingResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id' => $this->id,
             'name' => $this->name,
             'slug' => $this->slug,
             'website' => $this->website,

@@ -50,12 +50,8 @@ $factory->define(App\Mode::class, function (Faker $faker) {
 });
 
 $factory->define(\App\Tag::class, function (Faker $faker) {
-    $name = $faker->colorName;
-
     return [
-        'tag' => str_slug($name),
-        'name' => $name,
-        'description' => $faker->sentence(7),
+        'name' => str_slug($faker->colorName),
     ];
 });
 

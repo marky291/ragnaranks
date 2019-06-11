@@ -32,8 +32,9 @@
                                     </select>
 
                                     <select @change="filterChanged" v-model="tag" class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
-                                        <option value="all" selected>With Any Tags</option>
-                                        <option v-for="tag in tags" :value="tag['tag']">@{{ tag['name'] }}</option>
+                                        @foreach(trans('homepage.tag') as $key => $tag)
+                                            <option value="{{ $key }}">{{ $tag['name'] }}</option>
+                                        @endforeach
                                     </select>
 
                                     <select @change="filterChanged" v-model="sort" class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
@@ -56,8 +57,13 @@
                 </div>
                 <div class="lg:tw-w-2/3 tw-px-4">
                     <filtered-listings inline-template>
-                        <transition-group name="fade" mode="out-in">
-                            <div v-for="(listing,i) in listings" :key="i">
+                        <transition-group name="staggered-fade"
+                                          tag="ul"
+                                          v-bind:css="false"
+                                          v-on:before-enter="beforeEnter"
+                                          v-on:enter="enter"
+                                          v-on:leave="leave">
+                            <div v-for="(listing, index) in listings" :key="listing['id']" :data-index="listing['id']">
                                 <div class="mb-3 server-card item flex-fill shadow border rounded">
                                     <div class="server-card-head image rounded-top" v-bind:style="{ 'background-image': 'url(' + listing['background'] + ')' }"></div>
                                     <div class="server-card-head overlap d-flex">

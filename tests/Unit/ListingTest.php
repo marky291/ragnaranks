@@ -33,9 +33,9 @@ class ListingTest extends TestCase
     public function it_has_a_mode()
     {
         /** @var Listing $server */
-        $server = factory(Listing::class)->create();
+        $server = factory(Listing::class)->create(['mode' => 'foo']);
 
-        $this->assertNotNull($server->mode->name);
+        $this->assertEquals('foo', $server->mode);
     }
 
     /**

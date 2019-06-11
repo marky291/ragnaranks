@@ -24,6 +24,13 @@ class Tag extends Model
     const UPDATED_AT = null;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['name'];
+
+    /**
      * The servers that belongs to this tag.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
