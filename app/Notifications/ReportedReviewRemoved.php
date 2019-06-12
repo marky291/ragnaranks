@@ -3,7 +3,6 @@
 namespace App\Notifications;
 
 use App\Report;
-use App\Interactions\Review;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 

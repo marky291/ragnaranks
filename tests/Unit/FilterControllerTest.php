@@ -3,7 +3,6 @@
 namespace Tests\Unit;
 
 use App\Tag;
-use App\Mode;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Interactions\Click;

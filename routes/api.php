@@ -1,6 +1,5 @@
 <?php
 
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -12,10 +11,10 @@
 |
 */
 
-use App\Http\Resources\ListingResource;
 use App\Listings\Listing;
-use App\Listings\ListingConfiguration;
 use Illuminate\Support\Facades\Route;
+use App\Listings\ListingConfiguration;
+use App\Http\Resources\ListingResource;
 
 Route::get('/listing/defaults', function () {
     return ListingResource::make((new Listing())->setRelation('configuration', new ListingConfiguration)->setRelation('ranking', new \App\Listings\ListingRanking));

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Listings\Listing;
-use App\Interactions\Vote;
 use Illuminate\Http\Request;
 
 class VoteController extends Controller
