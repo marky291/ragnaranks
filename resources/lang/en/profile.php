@@ -2,6 +2,13 @@
 
 return [
 
+    'defaultName' => 'Default RO',
+    'defaultMarkup' => '# Welcome to RagnaRanks markdown editor!
+ You can write something nice and descriptive with a huge amount of different formats!\' [Guide](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+ You can also use emojis copied from the web and paste them right here! 😍
+ 
+**Please utilize all the configuration options to allow us to maximize the potential of your listing(s)!**',
+
     'config' => [
         'max_base_level' => [
             'name' => 'Max Base Level',
@@ -71,7 +78,6 @@ return [
             'name' => 'Quest EXP Rate',
             'describe' => 'Rate of base/job experience given by NPCs.',
         ],
-
         'item_drop_common' => [
             'name' => 'Common Drops',
             'describe' => 'The rate at which common ETC items are dropped. (Cards excluded)',

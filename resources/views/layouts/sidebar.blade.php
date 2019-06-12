@@ -35,7 +35,7 @@
             </div>
         </div>
 
-        <div class="social content shadow-inner bg-transparent p-3 tw-text-grey tw-text-4xl tw-text-center tw-hidden lg:tw-flex">
+        <div class="social content bg-transparent p-3 tw-text-grey tw-text-4xl tw-text-center tw-hidden lg:tw-flex">
             <div class="tw-flex-1">
                 <a href="https://www.facebook.com/ragnaranks/"><i class="tw-text-grey hover:tw-text-blue fab fa-facebook"></i></a>
             </div>

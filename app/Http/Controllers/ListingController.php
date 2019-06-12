@@ -36,7 +36,7 @@ class ListingController extends Controller
      */
     public function create(Listing $listing) : View
     {
-        return view('listing.form')->with([
+        return view('listing.profile')->with([
             'listing' => $listing,
         ]);
     }
@@ -64,7 +64,7 @@ class ListingController extends Controller
      */
     public function show(string $listing)
     {
-        return view('listing.form')->with([
+        return view('listing.profile')->with([
             'slug' => $listing,
         ]);
     }

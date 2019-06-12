@@ -1,10 +1,12 @@
 
-<div class="config px-2 py-2 d-flex flex-row tw-items-center">
-    @if(isset($tooltip))
-        <at-popover trigger="hover" class="tw-mr-2" content="{{ $tooltip }}" placement="right">
-            <p><i class="icon icon-info"></i></p>
-        </at-popover>
-    @endif
-    <p class="text-dark font-weight-bold flex-fill">{{ $name }}</p>
-    <p class="text-muted mb-0">{{ $slot }}</p>
+<div class="config px-2 tw-py-2 tw-flex tw-justify-between flex-row tw-items-center">
+    <div class="tw-flex tw-items-center">
+        @if(isset($tooltip))
+            <at-popover trigger="hover" class="tw-mr-2" content="{{ $tooltip }}" placement="right">
+                <p><i class="icon icon-info"></i></p>
+            </at-popover>
+        @endif
+        <p class="tw-text-grey-darker tw-font-semibold tw-text-xs tw-w-100">{{ $name }}</p>
+    </div>
+    <p class="tw-text-grey-darkest tw-font-bold  mb-0">{{ $slot }}</p>
 </div>

@@ -24,17 +24,18 @@ class ListingResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
+            'name' => $this->name ?? trans('profile.defaultName'),
             'slug' => $this->slug,
             'website' => $this->website,
             'accent' => $this->accent,
             'mode' => $this->mode,
+            'screenshots' => $this->resource->relationLoaded('screenshots') ? $this->screenshots()->pluck('link')->toArray() : [],
             'ranking' => RankingResource::make($this->whenLoaded('ranking')),
             'background' => $this->background,
-            'description' => $this->description,
+            'description' => $this->description ?? trans('profile.defaultMarkup'),
             'tags' => $this->tags()->pluck('name')->toArray(),
             'config' => ConfigurationResource::make($this->whenLoaded('configuration')),
-            'language' => LanguageResource::make($this->whenLoaded('language')),
+            'language' => $this->resource->relationLoaded('language') ? $this->language->name : 'english',
             'isEditor' => \auth()->id(),
         ];
     }

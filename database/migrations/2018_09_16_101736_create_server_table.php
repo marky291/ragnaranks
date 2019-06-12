@@ -90,13 +90,19 @@ class CreateServerTable extends Migration
             $table->integer('max_aspd')->default(0);
             $table->integer('base_exp_rate')->default(0)->index(); // for exp title searching
             $table->integer('job_exp_rate')->default(0);
-            $table->integer('instant_cast_stat')->default(0);
-            $table->integer('drop_base_rate')->default(0);
-            $table->integer('drop_card_rate')->default(0);
-            $table->integer('drop_base_mvp_rate')->default(0);
-            $table->integer('drop_card_mvp_rate')->default(0);
-            $table->integer('drop_base_special_rate')->default(0);
-            $table->integer('drop_card_special_rate')->default(0);
+            $table->integer('quest_exp_rate')->default(0);
+            $table->boolean('instant_cast_stat')->default(0);
+            $table->boolean('pk_mode')->default(0);
+            $table->boolean('castrate_dex_scale')->default(0);
+            $table->boolean('arrow_decrement')->default(0);
+            $table->boolean('undead_detect_type')->default(0);
+            $table->boolean('attribute_recover')->default(0);
+            $table->integer('item_drop_common')->default(0);
+            $table->integer('item_drop_equip')->default(0);
+            $table->integer('item_drop_card')->default(0);
+            $table->integer('item_drop_common_mvp')->default(0);
+            $table->integer('item_drop_equip_mvp')->default(0);
+            $table->integer('item_drop_card_mvp')->default(0);
             $table->timestamp('updated_at');
         });
 

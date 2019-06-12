@@ -5,7 +5,7 @@
         props: ['slug'],
         data: function () {
             return {
-                listing: { },
+                listing: {},
                 preset: {},
                 profileLoaded: false,
             }
@@ -41,7 +41,7 @@
                 return marked(this.listing.description, {sanitize: true});
             },
             screenshots: function() {
-                return this.listing.screenshots ? this.listing.screenshots : ['/img/preset/slider_one.png', '/img/preset/slider_two.png', '/img/preset/slider_three.png'];
+                return this.listing.screenshots.length ? this.listing.screenshots : ['/img/preset/slider_one.png', '/img/preset/slider_two.png', '/img/preset/slider_three.png'];
             },
         }
     }

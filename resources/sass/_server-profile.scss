@@ -1,4 +1,10 @@
 
+  .ranking-badge {
+    width: 80px;
+    height: 47px;
+    background: url('/img/ranking-badge.png');
+  }
+
   #curtain {
 
     h2 {
@@ -197,18 +203,18 @@
 
   #description {
     .markdown-compiled {
+      width:100%;
       h1 {
         border-bottom: 1px solid #ddd;
-        letter-spacing: -0.05em;
         font-weight: 700;
         font-size: 16px;
         padding: .4rem 1rem;
         border-radius: .25rem;
-        margin-right: -20px;
-        margin-left: -20px;
       }
       p {
         font-size: 13px;
+        padding-left:.4rem;
+        padding-right:.4rem;
       }
     }
   }
