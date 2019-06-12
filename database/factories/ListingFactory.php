@@ -1,7 +1,5 @@
 <?php
 
-
-use App\Mode;
 use Carbon\Carbon;
 use App\Listings\Listing;
 use Faker\Generator as Faker;
