@@ -198,19 +198,19 @@
 											<div class="server-card-head overlap d-flex" style="margin-top:-169px;">
 												<i class="fas fa-arrow-left tw-text-white tw-text-2xl tw-absolute tw-align-top"></i>
 												<div class="left-side d-flex w-75 flex-column align-items-start px-4 py-2 align-self-end">
-													<h1 class="text-white font-weight-bold mb-0" style="font-size: 24px;">@{{ $parent.listing.name }}</h1>
-													<ul class="tag-list list-unstyled d-flex tw-text-xs tw-text-green-light">
+													<h1 class="text-white font-weight-bold mb-0" style="font-size: 26px; color:rgb(243, 243, 243);">@{{ $parent.listing.name }}</h1>
+													<ul class="tag-list list-unstyled d-flex tw-text-xs tw-text-green-light" style="font-size:13px;">
 														<li class="mr-2" v-for="tag in $parent.listing.tags">#@{{ tag }}</li>
 														<li class="mr-2" v-if="!$parent.listing.tags.length">#TagYourServerFunctionality</li>
 													</ul>
 												</div>
 												<div class="right-side flex-fill d-flex justify-content-end pr-3" style="padding-bottom:12px;">
 													<div class="d-flex flex-column justify-content-end mr-3" style="height:100%;">
-														<h3 class="card-counter-title mb-0 font-weight-bold transparency text-white">Votes</h3>
+														<h3 class="card-counter-title mb-0 font-weight-bold transparency">Votes</h3>
 														<span class="card-counter font-weight-bold transparency">@{{ $parent.listing.ranking.votes }}</span>
 													</div>
 													<div class="d-flex flex-column justify-content-end mr-2" style="height:100%;">
-														<h3 class="card-counter-title mb-0 font-weight-bold transparency text-white">Clicks</h3>
+														<h3 class="card-counter-title mb-0 font-weight-bold transparency">Clicks</h3>
 														<span class="card-counter font-weight-bold transparency">@{{ $parent.listing.ranking.clicks }}</span>
 													</div>
 													<div class="d-flex flex-column justify-content-end" style="height:100%;">

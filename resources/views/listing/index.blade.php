@@ -67,11 +67,9 @@
                                     <div class="server-card-head image rounded-top" v-bind:style="{ 'background-image': 'url(' + listing['background'] + ')' }"></div>
                                     <div class="server-card-head overlap d-flex">
                                         <div class="left-side d-flex w-75 flex-column align-items-start px-4 py-2 align-self-end">
-                                            <h1 class="text-white font-weight-bold mb-0" style="font-size: 24px;">@{{ listing['name'] }}</h1>
-                                            <ul class="tag-list tw-list-reset tw-flex tw-text-xs tw-text-green-light">
-                                            <span v-for="tag in listing.tags">
-                                                <li class="mr-2">#@{{ tag }}</li>
-                                            </span>
+                                            <h1 class="font-weight-bold mb-0" style="font-size: 26px; color:rgb(243, 243, 243);">@{{ listing['name'] }}</h1>
+                                            <ul class="tag-list tw-list-reset tw-flex tw-text-xs tw-text-green-light" style="font-size:13px; margin-bottom: .5rem">
+                                                <li v-for="tag in listing.tags" class="mr-2">#@{{ tag }}</li>
                                             </ul>
                                         </div>
                                         <div class="right-side flex-fill d-flex justify-content-end pr-3" style="padding-bottom:12px;">
@@ -88,9 +86,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="server-card-body align-items-center tw-shadow-inner px-4 py-3 d-flex">
+                                    <div class="server-card-body align-items-center tw-shadow-inner px-4 py-3 d-flex tw-bg-fixed" v-bind:style="{ 'background-image': 'url(' + listing['background'] + ')' }">
                                         <div class="ranking-badge tw-mr-2 d-flex font-weight-bold justify-content-center align-items-center">
-                                            <span style="margin-bottom: 8px; font-size:14px;">@{{ listing['ranking']['rank'] }}</span>
+                                            <span style="margin-bottom: 7px; font-size:14px;">@{{ listing['ranking']['rank'] }}</span>
                                         </div>
                                         <div class="flex-fill pr-3">
                                             <p class="tw-text-grey-darker tw-tracking-tight tw-font-semibold mb-0" style="font-size:14px">High Rate Server</p>
