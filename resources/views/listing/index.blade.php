@@ -88,7 +88,7 @@
                                     </div>
                                     <div class="server-card-body align-items-center tw-shadow-inner px-4 py-3 d-flex">
                                         <div class="ranking-badge tw-mr-2 d-flex font-weight-bold justify-content-center align-items-center">
-                                            <span style="margin-bottom: 7px; font-size:14px;">@{{ listing['ranking']['rank'] }}</span>
+                                            <span style="margin-bottom: 11px; color:#6b1da6; font-size:14px;">@{{ listing['ranking']['rank'] }}</span>
                                         </div>
                                         <div class="flex-fill pr-3">
                                             <p class="tw-text-grey-darker tw-tracking-tight tw-font-semibold mb-0" style="font-size:14px">High Rate Server</p>
