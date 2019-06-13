@@ -87,11 +87,12 @@
                                         </div>
                                     </div>
                                     <div class="server-card-body align-items-center tw-shadow-inner px-4 py-3 d-flex">
-                                        <div class="ranking-badge tw-mr-2 d-flex font-weight-bold justify-content-center align-items-center">
-                                            <span style="margin-bottom: 11px; color:#6b1da6; font-size:14px;">@{{ listing['ranking']['rank'] }}</span>
-                                        </div>
-                                        <div class="flex-fill pr-3">
-                                            <p class="tw-text-grey-darker tw-tracking-tight tw-font-semibold mb-0" style="font-size:14px">High Rate Server</p>
+{{--                                        <div class="ranking-badge tw-mr-2 d-flex font-weight-bold justify-content-center align-items-center">--}}
+{{--                                            <span style="margin-bottom: 11px; color:#6b1da6; font-size:14px;">@{{ listing['ranking']['rank'] }}</span>--}}
+{{--                                        </div>--}}
+                                        <span class="tw-mr-4 tw-text-grey-darker" style="font-size:30px">@{{ listing['ranking']['rank'] }}</span>
+                                        <div class="tw-border-l-2 tw-pl-4 tw-border-grey-light flex-fill pr-3">
+                                            <p class="tw-text-grey-darkest tw-tracking-tight tw-font-semibold mb-0" style="font-size:14px">High Rate Server <small class="tw-text-grey-darker">(@{{ listing.config.base_exp_rate }}x/@{{ listing.config.job_exp_rate }}x)</small></p>
                                             <p class="tw-text-green-dark">with mostly positive reviews</p>
                                         </div>
 
