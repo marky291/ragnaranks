@@ -86,7 +86,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="server-card-body align-items-center tw-shadow-inner px-4 py-3 d-flex tw-bg-fixed" v-bind:style="{ 'background-image': 'url(' + listing['background'] + ')' }">
+                                    <div class="server-card-body align-items-center tw-shadow-inner px-4 py-3 d-flex">
                                         <div class="ranking-badge tw-mr-2 d-flex font-weight-bold justify-content-center align-items-center">
                                             <span style="margin-bottom: 7px; font-size:14px;">@{{ listing['ranking']['rank'] }}</span>
                                         </div>
