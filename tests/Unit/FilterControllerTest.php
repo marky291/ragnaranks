@@ -20,7 +20,7 @@ class FilterControllerTest extends TestCase
         $listing = factory(Listing::class)->create();
 
         $listing->configuration()->save(
-            factory(ListingConfiguration::class)->create(['base_exp_rate' => 3])
+            factory(ListingConfiguration::class)->make(['base_exp_rate' => 3])
         );
 
         $response = $this->getJson('api/servers/official-rate/all/all/all/7');
@@ -33,12 +33,14 @@ class FilterControllerTest extends TestCase
         $listing = factory(Listing::class)->create();
 
         $listing->configuration()->save(
-            factory(ListingConfiguration::class)->create(['base_exp_rate' => 2])
+            factory(ListingConfiguration::class)->make(['base_exp_rate' => 2])
         );
 
-        $response = $this->getJson('api/servers/official-rate/all/all/rank/7');
+        BuildListingRankingTable::dispatchNow();
 
-        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
+        $response = $this->getJson('/api/servers/official-rate/all/all/rank/7');
+
+        $response->assertJson(['data' => [['name' => $listing->name]]]);
     }
 
     public function test_it_can_filter_low_rate()
@@ -46,12 +48,14 @@ class FilterControllerTest extends TestCase
         $listing = factory(Listing::class)->create();
 
         $listing->configuration()->save(
-            factory(ListingConfiguration::class)->create(['base_exp_rate' => 10])
+            factory(ListingConfiguration::class)->make(['base_exp_rate' => 10])
         );
+
+        BuildListingRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/low-rate/all/all/all/7');
 
-        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
+        $response->assertJson(['data' => [['name' => $listing->name]]]);
     }
 
     public function test_it_can_filter_mid_rate()
@@ -59,12 +63,14 @@ class FilterControllerTest extends TestCase
         $listing = factory(Listing::class)->create();
 
         $listing->configuration()->save(
-            factory(ListingConfiguration::class)->create(['base_exp_rate' => 60])
+            factory(ListingConfiguration::class)->make(['base_exp_rate' => 60])
         );
+
+        BuildListingRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/mid-rate/all/all/all/7');
 
-        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
+        $response->assertJson(['data' => [['name' => $listing->name]]]);
     }
 
     public function test_it_can_filter_high_rate()
@@ -72,12 +78,14 @@ class FilterControllerTest extends TestCase
         $listing = factory(Listing::class)->create();
 
         $listing->configuration()->save(
-            factory(ListingConfiguration::class)->create(['base_exp_rate' => 500])
+            factory(ListingConfiguration::class)->make(['base_exp_rate' => 500])
         );
+
+        BuildListingRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/high-rate/all/all/all/7');
 
-        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
+        $response->assertJson(['data' => [['name' => $listing->name]]]);
     }
 
     public function test_it_can_filter_super_high_rate()
@@ -85,12 +93,14 @@ class FilterControllerTest extends TestCase
         $listing = factory(Listing::class)->create();
 
         $listing->configuration()->save(
-            factory(ListingConfiguration::class)->create(['base_exp_rate' => 10000])
+            factory(ListingConfiguration::class)->make(['base_exp_rate' => 10000])
         );
+
+        BuildListingRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/super-high-rate/all/all/all/7');
 
-        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
+        $response->assertJson(['data' => [['name' => $listing->name]]]);
     }
 
     public function test_it_can_filter_all_mode()
@@ -98,9 +108,11 @@ class FilterControllerTest extends TestCase
         /** @var Listing $listing */
         $listing = factory(Listing::class)->create();
 
+        BuildListingRankingTable::dispatchNow();
+
         $response = $this->getJson('api/servers/all/all/all/all/7');
 
-        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
+        $response->assertJson(['data' => [['name' => $listing->name]]]);
     }
 
     public function test_it_can_filter_renewal_mode()
@@ -110,9 +122,11 @@ class FilterControllerTest extends TestCase
 
         $listing2 = factory(Listing::class)->create(['mode' => 'classic']);
 
+        BuildListingRankingTable::dispatchNow();
+
         $response = $this->getJson('api/servers/all/renewal/all/all/7');
 
-        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
+        $response->assertJson(['data' => [['name' => $listing->name]]]);
     }
 
     public function test_it_can_filter_prerenewal_mode()
@@ -122,9 +136,11 @@ class FilterControllerTest extends TestCase
 
         $listing2 = factory(Listing::class)->create(['mode' => 'customo']);
 
+        BuildListingRankingTable::dispatchNow();
+
         $response = $this->getJson('api/servers/all/pre-renewal/all/all/7');
 
-        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
+        $response->assertJson(['data' => [['name' => $listing->name]]]);
     }
 
     public function test_it_can_filter_custom_mode()
@@ -134,9 +150,11 @@ class FilterControllerTest extends TestCase
 
         $listing2 = factory(Listing::class)->create(['mode' => 'pre-renewal']);
 
+        BuildListingRankingTable::dispatchNow();
+
         $response = $this->getJson('api/servers/all/custom/all/all/7');
 
-        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
+        $response->assertJson(['data' => [['name' => $listing->name]]]);
     }
 
     public function test_it_can_filter_classic_mode()
@@ -146,9 +164,11 @@ class FilterControllerTest extends TestCase
 
         $listing2 = factory(Listing::class)->create(['mode' => 'renewal']);
 
+        BuildListingRankingTable::dispatchNow();
+
         $response = $this->getJson('api/servers/all/classic/all/all/7');
 
-        $response->assertJson(['data' => [ListingResource::make($listing1)->jsonSerialize()]]);
+        $response->assertJson(['data' => [['name' => $listing1->name]]]);
     }
 
     public function test_it_can_filter_freebies_tag()
@@ -157,9 +177,11 @@ class FilterControllerTest extends TestCase
 
         $tags = $listing->tags()->save(Tag::where('name', 'freebies')->first());
 
+        BuildListingRankingTable::dispatchNow();
+
         $response = $this->getJson('api/servers/all/all/freebies/all/7');
 
-        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
+        $response->assertJson(['data' => [['name' => $listing->name]]]);
     }
 
     public function test_it_can_filter_gepard_tag()
@@ -168,9 +190,11 @@ class FilterControllerTest extends TestCase
 
         $tags = $listing->tags()->save(Tag::where('name', 'gepard')->first());
 
+        BuildListingRankingTable::dispatchNow();
+
         $response = $this->getJson('api/servers/all/all/gepard/all/7');
 
-        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
+        $response->assertJson(['data' => [['name' => $listing->name]]]);
     }
 
     public function test_it_can_filter_guild_pack_tag()
@@ -179,9 +203,11 @@ class FilterControllerTest extends TestCase
 
         $tags = $listing->tags()->save(Tag::where('name', 'guild-pack')->first());
 
+        BuildListingRankingTable::dispatchNow();
+
         $response = $this->getJson('api/servers/all/all/guild-pack/all/7');
 
-        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
+        $response->assertJson(['data' => [['name' => $listing->name]]]);
     }
 
     public function test_it_can_filter_mobile_tag()
@@ -190,9 +216,11 @@ class FilterControllerTest extends TestCase
 
         $tags = $listing->tags()->save(Tag::where('name', 'mobile')->first());
 
+        BuildListingRankingTable::dispatchNow();
+
         $response = $this->getJson('api/servers/all/all/mobile/all/7');
 
-        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
+        $response->assertJson(['data' => [['name' => $listing->name]]]);
     }
 
     public function test_it_can_filter_frost_tag()
@@ -201,9 +229,11 @@ class FilterControllerTest extends TestCase
 
         $tags = $listing->tags()->save(Tag::where('name', 'frost')->first());
 
+        BuildListingRankingTable::dispatchNow();
+
         $response = $this->getJson('api/servers/all/all/frost/all/7');
 
-        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
+        $response->assertJson(['data' => [['name' => $listing->name]]]);
     }
 
     public function test_it_can_filter_no_donations_tag()
@@ -212,9 +242,11 @@ class FilterControllerTest extends TestCase
 
         $tags = $listing->tags()->save(Tag::where('name', 'no-donations')->first());
 
+        BuildListingRankingTable::dispatchNow();
+
         $response = $this->getJson('api/servers/all/all/no-donations/all/7');
 
-        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
+        $response->assertJson(['data' => [['name' => $listing->name]]]);
     }
 
     public function test_it_can_filter_instant_level_tag()
@@ -223,9 +255,11 @@ class FilterControllerTest extends TestCase
 
         $tags = $listing->tags()->save(Tag::where('name', 'instant-level')->first());
 
+        BuildListingRankingTable::dispatchNow();
+
         $response = $this->getJson('api/servers/all/all/instant-level/all/7');
 
-        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
+        $response->assertJson(['data' => [['name' => $listing->name]]]);
     }
 
     public function test_it_can_filter_themed_server_tag()
@@ -234,9 +268,11 @@ class FilterControllerTest extends TestCase
 
         $tags = $listing->tags()->save(Tag::where('name', 'themed-server')->first());
 
+        BuildListingRankingTable::dispatchNow();
+
         $response = $this->getJson('api/servers/all/all/themed-server/all/7');
 
-        $response->assertJson(['data' => [ListingResource::make($listing)->jsonSerialize()]]);
+        $response->assertJson(['data' => [['name' => $listing->name]]]);
     }
 
     public function test_it_can_sort_by_rank()

@@ -25,15 +25,13 @@ class ReviewTest extends TestCase
     public function it_belongs_to_a_listing()
     {
         /** @var Review $review */
-        $review = factory(Review::class)->create();
-
         $listing = factory(Listing::class)->create();
 
-        $listing->reviews()->save($review);
+        $review = factory(Review::class)->create(['listing_id' => $listing->id]);
 
         $this->assertInstanceOf(Listing::class, $review->listing);
 
-        $this->assertNotNull($review->publisher->getKey());
+        $this->assertNotNull($review->user->getKey());
     }
 
     public function test_it_has_a_comment()
@@ -54,9 +52,9 @@ class ReviewTest extends TestCase
     {
         $review = factory(Review::class)->create();
 
-        $this->assertInstanceOf(User::class, $review->publisher);
+        $this->assertInstanceOf(User::class, $review->user);
 
-        $this->assertNotNull($review->publisher->getKey());
+        $this->assertNotNull($review->user->getKey());
     }
 
     /**
@@ -66,7 +64,7 @@ class ReviewTest extends TestCase
     {
         $publisher = factory(User::class)->create();
 
-        factory(Review::class)->create(['publisher_id' => $publisher->id]);
+        factory(Review::class)->create(['user_id' => $publisher->id]);
 
         $this->assertCount(1, Review::publishedBy($publisher)->get());
     }

@@ -9,6 +9,8 @@ use App\Listings\Listing;
 use Illuminate\Database\Eloquent\Builder;
 use BrianFaust\Reportable\Traits\HasReports;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 /**
@@ -31,7 +33,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  * @property Listing listing
  * @method static Collection publishedBy($publisher)
  * @property-read float $average_score
- * @property-read \App\User $publisher
+ * @property-read User $user
  * @mixin \Eloquent
  */
 class Review extends Interaction
@@ -49,17 +51,17 @@ class Review extends Interaction
     protected $guarded = [];
 
     /**
-     * @return MorphToMany
+     * @return BelongsTo
      */
-    public function listing()
+    public function listing(): BelongsTo
     {
-        return $this->morphedByMany(Listing::class, 'interaction');
+        return $this->belongsTo(Listing::class);
     }
 
     /**
      * A review has many comments.
      */
-    public function comments()
+    public function comments(): HasMany
     {
         return $this->hasMany(ReviewComment::class);
     }
@@ -79,12 +81,12 @@ class Review extends Interaction
      * Scope the query based on publisher.
      *
      * @param Builder $query
-     * @param User $publisher
+     * @param User $user
      * @return Builder
      */
-    public function scopePublishedBy(Builder $query, User $publisher)
+    public function scopePublishedBy(Builder $query, User $user): Builder
     {
-        return $query->where('publisher_id', $publisher->id);
+        return $query->where('user_id', $user->id);
     }
 
     /**

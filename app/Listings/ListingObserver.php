@@ -15,7 +15,7 @@ class ListingObserver
      */
     public function created(Listing $listing)
     {
-//        $listing->ranking()->save(new ListingRanking);
+//        $listing->ranking()->save(new ListingRanking());
     }
 
     /**

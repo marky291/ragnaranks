@@ -24,13 +24,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property string $slug
  * @property string $points
  * @property string $website
- * @property float $rating
  * @property string $description
  * @property string $background
  * @property float $episode
  * @property string $accent
  * @property string $mode
- * @property string $expRateTitle
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * @property User $user
@@ -39,7 +37,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property Collection|HasMany $reviews
  * @property Vote|HasMany $votes
  * @property Click|HasMany $clicks
- * @property-read string $exp_rate_title
+ * @property ListingConfiguration $configuration
  */
 class Listing extends Model
 {

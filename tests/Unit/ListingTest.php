@@ -104,15 +104,12 @@ class ListingTest extends TestCase
      */
     public function it_can_have_a_low_rate_exp_title()
     {
+        /** @var Listing $listing */
         $listing = factory(Listing::class)->create();
 
-        $array = $listing->configs;
+        $listing->configuration()->save(factory(ListingConfiguration::class)->make(['base_exp_rate' => config('filter.exp.low-rate.max') * 0.9]));
 
-        $array['base_exp_rate'] = config('filter.exp.low-rate.max') * 0.9;
-
-        $listing->configs = $array;
-
-        $this->assertEquals('Low Rate', $listing->expRateTitle);
+        $this->assertEquals('low-rate', $listing->configuration->exp_title);
     }
 
     /**
@@ -122,13 +119,9 @@ class ListingTest extends TestCase
     {
         $listing = factory(Listing::class)->create();
 
-        $array = $listing->configs;
+        $listing->configuration()->save(factory(ListingConfiguration::class)->make(['base_exp_rate' => config('filter.exp.mid-rate.max') * 0.9]));
 
-        $array['base_exp_rate'] = config('filter.exp.mid-rate.max') * 0.9;
-
-        $listing->configs = $array;
-
-        $this->assertEquals('Mid Rate', $listing->expRateTitle);
+        $this->assertEquals('mid-rate', $listing->configuration->exp_title);
     }
 
     /**
@@ -138,13 +131,9 @@ class ListingTest extends TestCase
     {
         $listing = factory(Listing::class)->create();
 
-        $array = $listing->configs;
+        $listing->configuration()->save(factory(ListingConfiguration::class)->make(['base_exp_rate' => config('filter.exp.high-rate.max') * 0.9]));
 
-        $array['base_exp_rate'] = config('filter.exp.high-rate.max') * 0.9;
-
-        $listing->configs = $array;
-
-        $this->assertEquals('High Rate', $listing->expRateTitle);
+        $this->assertEquals('high-rate', $listing->configuration->exp_title);
     }
 
     /**
@@ -154,13 +143,9 @@ class ListingTest extends TestCase
     {
         $listing = factory(Listing::class)->create();
 
-        $array = $listing->configs;
+        $listing->configuration()->save(factory(ListingConfiguration::class)->make(['base_exp_rate' => config('filter.exp.high-rate.max') + 1]));
 
-        $array['base_exp_rate'] = config('filter.exp.high-rate.max') + 1;
-
-        $listing->configs = $array;
-
-        $this->assertEquals('Super High Rate', $listing->expRateTitle);
+        $this->assertEquals('super-high-rate', $listing->configuration->exp_title);
     }
 
     /**
@@ -205,18 +190,6 @@ class ListingTest extends TestCase
         $listing = $this->createListing(['name' => 'PHP Unit', 'slug' => null], 0, 0);
 
         $this->assertEquals('php-unit', $listing->slug);
-    }
-
-    /**
-     * @test
-     */
-    public function it_has_a_rating_based_on_avg_review_scores()
-    {
-        $listing = $this->createListing([], 0, 0);
-
-        $listing->reviews()->save(factory(Review::class)->create(['donation_score' => 10, 'update_score' => 10, 'class_score' => 10, 'item_score' => 10, 'support_score' => 10, 'hosting_score' => 10, 'content_score' => 10, 'event_score' => 10]));
-
-        $this->assertEquals(5, $listing->rating);
     }
 
     /**
@@ -362,7 +335,7 @@ class ListingTest extends TestCase
     {
         $listing = factory(Listing::class)->create();
 
-        $listing->screenshots()->save(factory(ListingScreenshot::class)->create());
+        $listing->screenshots()->save(factory(ListingScreenshot::class)->make());
 
         $this->assertCount(1, $listing->screenshots);
 

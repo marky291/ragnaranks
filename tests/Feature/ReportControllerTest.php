@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use App\Interactions\Review;
 use App\Notifications\ReportedReviewAllowed;
@@ -10,6 +11,8 @@ use Illuminate\Support\Facades\Notification;
 
 class ReportControllerTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * A basic feature test example.
      *

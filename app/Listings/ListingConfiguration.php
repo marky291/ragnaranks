@@ -15,17 +15,29 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int base_exp_rate
  * @property int job_exp_rate
  * @property int instant_cast_stat
- * @property int drop_base_rate
- * @property int drop_card_rate
- * @property int drop_base_mvp_rate
- * @property int drop_card_mvp_rate
- * @property int drop_base_special_rate
- * @property int drop_card_special_rate
  * @property string exp_title
  * @property Listing listing
+ * @property boolean pk_mode
+ * @property int castrate_dex_scale
+ * @property boolean arrow_decrement
+ * @property boolean undead_detect_type
+ * @property boolean attribute_recover
+ * @property int item_drop_common
+ * @property int item_drop_equip
+ * @property int item_drop_card
+ * @property int item_drop_common_mvp
+ * @property int item_drop_equip_mvp
+ * @property int item_drop_card_mvp
  */
 class ListingConfiguration extends Model
 {
+    /**
+     * The primary key for the model.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'listing_id';
+
     /**
      * We dont use a creation table only updated.
      *

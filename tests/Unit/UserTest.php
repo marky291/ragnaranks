@@ -44,7 +44,9 @@ class UserTest extends TestCase
     {
         $this->signIn();
 
-        factory(Review::class)->create(['publisher_id' => auth()->user()->getAuthIdentifier()]);
+        $listing = factory(Listing::class)->create();
+
+        $listing->reviews()->save(factory(Review::class)->make(['user_id' => auth()->user()->getAuthIdentifier()]));
 
         $this->assertCount(1, auth()->user()->reviews);
     }

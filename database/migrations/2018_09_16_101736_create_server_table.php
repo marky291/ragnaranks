@@ -82,7 +82,7 @@ class CreateServerTable extends Migration
         });
 
         Schema::create('listing_configurations', function (Blueprint $table) {
-            $table->increments('listing_id');
+            $table->unsignedInteger('listing_id')->unique();
             $table->string('exp_title')->index();
             $table->integer('max_base_level')->default(0);
             $table->integer('max_job_level')->default(0);
@@ -116,6 +116,7 @@ class CreateServerTable extends Migration
 
         Schema::create('reviews', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('user_id')->index();
             $table->unsignedInteger('listing_id')->index();
             $table->ipAddress('ip_address');
             $table->text('message');
@@ -128,6 +129,9 @@ class CreateServerTable extends Migration
             $table->smallInteger('content_score');
             $table->smallInteger('event_score');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('listing_id')->references('id')->on('listings');
         });
 
         Schema::create('review_comments', function (Blueprint $table) {

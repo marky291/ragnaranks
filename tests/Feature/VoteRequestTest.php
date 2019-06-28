@@ -15,7 +15,7 @@ class VoteRequestTest extends TestCase
     {
         $listing = factory(Listing::class)->create(['slug' => 'listing-name']);
 
-        $listing->votes()->save(factory(Vote::class)->create(['created_at' => now()->subHours(5), 'ip_address' => '127.0.0.1']));
+        $listing->votes()->save(factory(Vote::class)->make(['created_at' => now()->subHours(5), 'ip_address' => '127.0.0.1']));
 
         $this->post('/listing/listing-name/votes', [], ['REMOTE_ADDR' => '127.0.0.1']);
 

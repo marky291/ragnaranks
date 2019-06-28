@@ -13,10 +13,10 @@ class InteractionObserver
     public function creating(Interaction $interaction)
     {
         if (auth()->check()) {
-            $interaction->setAttribute('publisher_id', auth()->id());
+            $interaction->setAttribute('user_id', auth()->id());
         }
 
-        if (is_null($interaction->getAttribute('ip_address'))) {
+        if ($interaction->getAttribute('ip_address') === null) {
             $interaction->setAttribute('ip_address', request()->getClientIp());
         }
     }

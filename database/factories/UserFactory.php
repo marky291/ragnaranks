@@ -2,6 +2,8 @@
 
 use App\Interactions\Vote;
 use App\Interactions\Click;
+use App\Listings\Listing;
+use App\User;
 use Faker\Generator as Faker;
 
 /*
@@ -29,6 +31,8 @@ $factory->define(App\User::class, function (Faker $faker) {
 $factory->define(\App\Interactions\Review::class, function (Faker $faker) {
     return [
         'message' => $faker->text(rand(300, 500)),
+        'user_id' => factory(User::class)->create()->getKey(),
+        'listing_id' => factory(Listing::class)->create()->getKey(),
         'ip_address' => $faker->ipv4,
         'donation_score' => $faker->numberBetween(0, 5),
         'update_score' => $faker->numberBetween(0, 5),

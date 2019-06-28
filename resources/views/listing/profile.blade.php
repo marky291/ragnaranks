@@ -7,6 +7,27 @@
 				<div class="row pb-5 pt-2">
 					<div id="sidebar" class="col-4">
 						@component('layouts.sidebar')
+							<div class="tw-h-full tw-mt-4">
+								<div class="heading">
+									<h3>User Actions</h3>
+								</div>
+								<div id="user-actions" class="content py-0 rounded py-3 d-flex flex-column">
+									<at-button class="mb-2" type="primary" hollow>Back to Searching</at-button>
+									<at-button class="mb-2" hollow>Visit Website</at-button>
+									<span v-if="!theCurrentViewIs('voting')">
+                                   		<at-button @click="setView('voting')" class="w-100 mb-2" hollow>Vote for server</at-button>
+                                	</span>
+									<span v-else>
+                                    	<at-button @click="setView('listing')" type="error" class="w-100 mb-2" hollow>Back to Listing</at-button>
+                                	</span>
+									<span v-if="!theCurrentViewIs('reviewing')">
+                                    	<at-button @click="setView('reviewing')" type="success" class="w-100" hollow>Create a review</at-button>
+                                	</span>
+									<span v-else>
+                                    	<at-button @click="setView('listing')" type="error" class="w-100" hollow>Back to Listing</at-button>
+                                	</span>
+								</div>
+							</div>
 							<div class="tw-h-full mt-4">
 								<configs inline-template v-if="listing.isEditor">
 									<at-collapse accordion value="details" class="" style="overflow:visible">
@@ -170,16 +191,6 @@
 															</div>
 														@endcomponent
 													</div>
-{{--													<div class="mb-3 configuration">--}}
-{{--														<div class="list">--}}
-{{--															<div :class="'bg-'+$parent.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1 tw-mb-2">--}}
-{{--																<p class="tw-font-bold">List Player Commands</p>--}}
-{{--															</div>--}}
-{{--															<multiselect v-model="$parent.listing.commands" :hide-selected="true" :close-on-select="false" :show-labels="false" open-direction="bottom" tag-placeholder="Add this Command" placeholder="Type an @Command" label="name" track-by="name" :options="commandChoices" :multiple="true" :taggable="true" @tag="addTag">--}}
-{{--																<template slot="tag" slot-scope="option"><span class="option__desc"><span class="option__title">@{{ option.title }}</span></span></template>--}}
-{{--															</multiselect>--}}
-{{--														</div>--}}
-{{--													</div>--}}
 												</div>
 											</div>
 										</at-collapse-item>
@@ -355,7 +366,6 @@
 											<section id="reviews">
 												<div class="container px-5 py-4">
 													<h3 class="heading mb-4 tw-font-bold text-dark heading-underline">Player Reviews</h3>
-
 													<reviews :data="{{ $listing->reviews->load('publisher') }}" inline-template>
 														<div class="">
 															<div v-for="(review, index) in collection">
@@ -422,87 +432,87 @@
 
 															<div id="comment-reply" class="tw-mt-4 create-reply tw-flex tw-items-center rounded tw-cursor-pointer">
 																<div class="tw-p-4 tw-flex tw-w-full tw-items-center">
-							<span id="reply-action" class="tw-w-full">
-								<div class="row">
-									<div class="py-3">
-										<h3 class="heading tw-mb-1 tw-font-bold text-dark mb-4 heading-underline">You are creating a <span class="tw-text-blue">Review</span></h3>
-										<p class="tw-text-grey-dark mb-4">Focus on being factual and objective. Don't use aggressive language and don't post personal details...</p>
-										<at-textarea ref="textarea" v-model="review.message" min-rows="8" autosize placeholder="Your experience, Your review"></at-textarea>
-										<has-error :form="review" field="message"></has-error>
-									</div>
-									<div class="row tw-mb-5">
-										<div class="col-6">
-											<div class="tw-p-2 tw-rounded tw-mb-4">
-												<p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Donations</p>
-												<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the experience against non-donators on the server?</p>
-												<at-rate :show-text="true" :count="5" v-model="review.donation_score" class="tw-flex">
-													<p class="tw-font-bold">@{{ ratingScore(review.donation_score) }}</p>
-												</at-rate>
-											</div>
+																	<span id="reply-action" class="tw-w-full">
+																		<div class="row">
+																			<div class="py-3">
+																				<h3 class="heading tw-mb-1 tw-font-bold text-dark mb-4 heading-underline">You are creating a <span class="tw-text-blue">Review</span></h3>
+																				<p class="tw-text-grey-dark mb-4">Focus on being factual and objective. Don't use aggressive language and don't post personal details...</p>
+																				<at-textarea ref="textarea" v-model="review.message" min-rows="8" autosize placeholder="Your experience, Your review"></at-textarea>
+																				<has-error :form="review" field="message"></has-error>
+																			</div>
+																			<div class="row tw-mb-5">
+																				<div class="col-6">
+																					<div class="tw-p-2 tw-rounded tw-mb-4">
+																						<p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Donations</p>
+																						<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the experience against non-donators on the server?</p>
+																						<at-rate :show-text="true" :count="5" v-model="review.donation_score" class="tw-flex">
+																							<p class="tw-font-bold">@{{ ratingScore(review.donation_score) }}</p>
+																						</at-rate>
+																					</div>
 
-											<div class="tw-p-2 tw-rounded tw-mb-4">
-												<p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Updates</p>
-												<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the updates and their effects on the server?</p>
-												<at-rate :show-text="true" :count="5" v-model="review.update_score" class="tw-flex">
-													<p class="tw-font-bold">@{{ ratingScore(review.update_score) }}</p>
-												</at-rate>
-											</div>
+																					<div class="tw-p-2 tw-rounded tw-mb-4">
+																						<p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Updates</p>
+																						<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the updates and their effects on the server?</p>
+																						<at-rate :show-text="true" :count="5" v-model="review.update_score" class="tw-flex">
+																							<p class="tw-font-bold">@{{ ratingScore(review.update_score) }}</p>
+																						</at-rate>
+																					</div>
 
-											<div class="tw-p-2 tw-rounded tw-mb-4">
-												<p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Class Experience</p>
-												<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the class diversity and balance on the server?</p>
-												<at-rate :show-text="true" :count="5" v-model="review.class_score" class="tw-flex">
-													<p class="tw-font-bold">@{{ ratingScore(review.class_score) }}</p>
-												</at-rate>
-											</div>
+																					<div class="tw-p-2 tw-rounded tw-mb-4">
+																						<p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Class Experience</p>
+																						<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the class diversity and balance on the server?</p>
+																						<at-rate :show-text="true" :count="5" v-model="review.class_score" class="tw-flex">
+																							<p class="tw-font-bold">@{{ ratingScore(review.class_score) }}</p>
+																						</at-rate>
+																					</div>
 
-											<div class="tw-p-2 tw-rounded tw-mb-4">
-												<p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Custom Items</p>
-												<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the item balance and customization on the server?</p>
-												<at-rate :show-text="true" :count="5" v-model="review.item_score" class="tw-flex">
-													<p class="tw-font-bold">@{{ ratingScore(review.item_score) }}</p>
-												</at-rate>
-											</div>
-										</div>
-										<div class="col-6">
+																					<div class="tw-p-2 tw-rounded tw-mb-4">
+																						<p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Custom Items</p>
+																						<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the item balance and customization on the server?</p>
+																						<at-rate :show-text="true" :count="5" v-model="review.item_score" class="tw-flex">
+																							<p class="tw-font-bold">@{{ ratingScore(review.item_score) }}</p>
+																						</at-rate>
+																					</div>
+																				</div>
+																				<div class="col-6">
 
-											<div class="tw-p-2 tw-rounded tw-mb-4">
-												<p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Staff Support</p>
-												<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the experience of reaching the Staff and their support of the server?</p>
-												<at-rate :show-text="true" :count="5" v-model="review.support_score" class="tw-flex">
-													<p class="tw-font-bold">@{{ ratingScore(review.support_score) }}</p>
-												</at-rate>
-											</div>
+																					<div class="tw-p-2 tw-rounded tw-mb-4">
+																						<p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Staff Support</p>
+																						<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the experience of reaching the Staff and their support of the server?</p>
+																						<at-rate :show-text="true" :count="5" v-model="review.support_score" class="tw-flex">
+																							<p class="tw-font-bold">@{{ ratingScore(review.support_score) }}</p>
+																						</at-rate>
+																					</div>
 
-											<div class="tw-p-2 tw-rounded tw-mb-4">
-												<h4 class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Server Latency</h4>
-												<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the latency on the server?</p>
-												<at-rate :show-text="true" :count="5" v-model="review.hosting_score" class="tw-flex">
-													<p class="tw-font-bold">@{{ ratingScore(review.hosting_score) }}</p>
-												</at-rate>
-											</div>
+																					<div class="tw-p-2 tw-rounded tw-mb-4">
+																						<h4 class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Server Latency</h4>
+																						<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the latency on the server?</p>
+																						<at-rate :show-text="true" :count="5" v-model="review.hosting_score" class="tw-flex">
+																							<p class="tw-font-bold">@{{ ratingScore(review.hosting_score) }}</p>
+																						</at-rate>
+																					</div>
 
-											<div class="tw-p-2 tw-rounded tw-mb-4">
-												<h4 class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Custom Content</h4>
-												<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the overall customization of the server?</p>
-												<at-rate :show-text="true" :count="5" v-model="review.content_score" class="tw-flex">
-													<p class="tw-font-bold">@{{ ratingScore(review.content_score) }}</p>
-												</at-rate>
-											</div>
+																					<div class="tw-p-2 tw-rounded tw-mb-4">
+																						<h4 class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Custom Content</h4>
+																						<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the overall customization of the server?</p>
+																						<at-rate :show-text="true" :count="5" v-model="review.content_score" class="tw-flex">
+																							<p class="tw-font-bold">@{{ ratingScore(review.content_score) }}</p>
+																						</at-rate>
+																					</div>
 
-											<div class="tw-p-2 tw-rounded tw-mb-4">
-												<h4 class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Events</h4>
-												<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the eventfullness of automated and/or GM hosted events on the server?</p>
-												<at-rate :show-text="true" :count="5" v-model="review.event_score" class="tw-flex">
-													<p class="tw-font-bold">@{{ ratingScore(review.event_score) }}</p>
-												</at-rate>
-											</div>
-										</div>
-									</div>
-								</div>
-								<at-button @click="postReview('{{ route('listing.reviews.store', $listing) }}')" type="primary" class="flex-fill">Post my Review!</at-button>
-								<at-button @click="$parent.setView('listing')" type="info" hollow>Maybe I will create one later!</at-button>
-							</span>
+																					<div class="tw-p-2 tw-rounded tw-mb-4">
+																						<h4 class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Events</h4>
+																						<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the eventfulness of automated and/or GM hosted events on the server?</p>
+																						<at-rate :show-text="true" :count="5" v-model="review.event_score" class="tw-flex">
+																							<p class="tw-font-bold">@{{ ratingScore(review.event_score) }}</p>
+																						</at-rate>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<at-button @click="postReview('{{ route('listing.reviews.store', $listing) }}')" type="primary" class="flex-fill">Post my Review!</at-button>
+																		<at-button @click="$parent.setView('listing')" type="info" hollow>Maybe I will create one later!</at-button>
+																	</span>
 																</div>
 															</div>
 														</div>
@@ -510,12 +520,12 @@
 												</div>
 											</section>
 											<span>
-										@component('listing.partial.wrapper', ['view' => 'voting','heading' => "You are voting for $listing->name"])
+												@component('listing.partial.wrapper', ['view' => 'voting','heading' => "You are voting for $listing->name"])
 													<p class="tw-font-bold mb-3 tw-text-green">You have (1) vote remaining!</p>
 													<p class="mb-3">Your vote will have a cooling period of <b>{{ config('interaction.vote.spread') }} hours</b>, this cannot be returned and will remain on {{ $listing->name }} for 7 days starting from the time and date of your cast</p>
 													<at-button type="primary" icon="icon-log-out" class="mt-2">Vote for {{ $listing->name }}</at-button>
 												@endcomponent
-									</span>
+											</span>
 										@endif
 									</div>
 								</div>

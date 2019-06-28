@@ -25,7 +25,11 @@ class ListingConfigurationTest extends TestCase
     {
         parent::setUp();
 
-        $this->configuration = factory(ListingConfiguration::class)->create(['base_exp_rate' => 8]);
+        $listing = factory(Listing::class)->create(['name' => 'foo']);
+
+        $listing->configuration()->save(factory(ListingConfiguration::class)->make(['base_exp_rate' => 8]));
+
+        $this->configuration = $listing->configuration;
     }
 
     /**
@@ -69,39 +73,64 @@ class ListingConfigurationTest extends TestCase
         $this->assertNotNull($this->configuration->instant_cast_stat);
     }
 
-    public function test_it_has_a_drop_base_rate()
+    public function test_it_has_a_pk_mode()
     {
-        $this->assertNotNull($this->configuration->drop_base_rate);
+        $this->assertNotNull($this->configuration->pk_mode);
     }
 
-    public function test_it_has_a_drop_card_rate()
+    public function test_it_has_a_castrate_dex_Scale()
     {
-        $this->assertNotNull($this->configuration->drop_card_rate);
+        $this->assertNotNull($this->configuration->castrate_dex_scale);
     }
 
     public function test_it_has_a_drop_base_mvp_rate()
     {
-        $this->assertNotNull($this->configuration->drop_base_mvp_rate);
+        $this->assertNotNull($this->configuration->arrow_decrement);
     }
 
     public function test_it_has_a_drop_card_mvp_rate()
     {
-        $this->assertNotNull($this->configuration->drop_card_mvp_rate);
+        $this->assertNotNull($this->configuration->undead_detect_type);
     }
 
     public function test_it_has_a_drop_base_special_rate()
     {
-        $this->assertNotNull($this->configuration->drop_base_special_rate);
+        $this->assertNotNull($this->configuration->attribute_recover);
     }
 
-    public function test_it_has_a_drop_card_special_rate()
+    public function test_it_has_a_drop_common_rate()
     {
-        $this->assertNotNull($this->configuration->drop_card_special_rate);
+        $this->assertNotNull($this->configuration->item_drop_common);
+    }
+
+    public function test_it_has_a_drop_equip_rate()
+    {
+        $this->assertNotNull($this->configuration->item_drop_equip);
+    }
+
+    public function test_it_has_a_drop_card_rate()
+    {
+        $this->assertNotNull($this->configuration->item_drop_card);
+    }
+
+    public function test_it_has_a_drop_common_mvp()
+    {
+        $this->assertNotNull($this->configuration->item_drop_common_mvp);
+    }
+
+    public function test_it_has_a_drop_equip_mvp()
+    {
+        $this->assertNotNull($this->configuration->item_drop_equip_mvp);
+    }
+
+    public function test_it_has_a_drop_card_mvp()
+    {
+        $this->assertNotNull($this->configuration->item_drop_card_mvp);
     }
 
     public function test_it_has_a_rate_title()
     {
-        $this->assertEquals('Low Rate', $this->configuration->exp_title);
+        $this->assertEquals('low-rate', $this->configuration->exp_title);
     }
 
     public function test_is_has_a_listing_relationship()

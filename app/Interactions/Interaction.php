@@ -27,34 +27,11 @@ use Illuminate\Database\Eloquent\Collection;
 abstract class Interaction extends Model
 {
     /**
-     * An interaction has many listing attached.
-     *
-     * This is because we use polymorphic many to many.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
-     */
-    public function listings()
-    {
-        return $this->morphToMany(Listing::class, 'interaction');
-    }
-
-    /**
-     * But we really only need the first listing, since we wont be
-     * attaching more than one listing for each model.
-     *
-     * @return Listing
-     */
-    protected function getListingAttribute()
-    {
-        return $this->listings()->first();
-    }
-
-    /**
      * A review has a single publisher user.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function publisher()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

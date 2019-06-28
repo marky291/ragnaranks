@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Interactions\Vote;
 use Carbon\Carbon;
 use Tests\TestCase;
 use App\Listings\Listing;
@@ -16,21 +17,23 @@ class ClickTest extends TestCase
     {
         $listing = factory(Listing::class)->create();
 
-        $listing->clicks()->save(factory(Click::class)->make(['created_at' => Carbon::today()]));
+        $listing->clicks()->save(factory(Vote::class)->make(['created_at' => Carbon::today()]));
 
-        $listing->clicks()->save(factory(Click::class)->make(['created_at' => Carbon::yesterday()]));
+        $listing->clicks()->save(factory(Vote::class)->make(['created_at' => Carbon::yesterday()]));
 
-        $this->assertSame(1, Click::onPeriod(Carbon::today())->count());
+        $this->assertSame(1, Vote::onPeriod(Carbon::today())->count());
     }
 
     /**
      * @test
      */
-    public function it_can_scope_votes_between_period()
+    public function it_can_scope_clicks_between_period()
     {
-        factory(Click::class)->create(['created_at' => Carbon::today()]);
+        $listing = factory(Listing::class)->create();
 
-        factory(Click::class)->create(['created_at' => Carbon::yesterday()]);
+        $listing->clicks()->save(factory(Click::class)->make(['created_at' => Carbon::today()]));
+
+        $listing->clicks()->save(factory(Click::class)->make(['created_at' => Carbon::yesterday()]));
 
         $this->assertSame(2, Click::betweenPeriod(Carbon::today(), Carbon::yesterday())->count());
     }
@@ -40,9 +43,11 @@ class ClickTest extends TestCase
      */
     public function it_has_an_ip_address()
     {
-        $vote = factory(Click::class)->create(['ip_address' => '127.0.0.5']);
+        $listing = factory(Listing::class)->create();
 
-        $this->assertEquals('127.0.0.5', $vote->ip_address);
+        $listing->clicks()->save(factory(Click::class)->make(['ip_address' => '127.0.0.5']));
+
+        $this->assertEquals('127.0.0.5', $listing->clicks()->first()->ip_address);
     }
 
     /**
