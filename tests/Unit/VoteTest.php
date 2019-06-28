@@ -2,9 +2,9 @@
 
 namespace Tests\Unit;
 
-use App\Listings\Listing;
 use Carbon\Carbon;
 use Tests\TestCase;
+use App\Listings\Listing;
 use App\Interactions\Vote;
 
 class VoteTest extends TestCase

@@ -17,11 +17,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int instant_cast_stat
  * @property string exp_title
  * @property Listing listing
- * @property boolean pk_mode
+ * @property bool pk_mode
  * @property int castrate_dex_scale
- * @property boolean arrow_decrement
- * @property boolean undead_detect_type
- * @property boolean attribute_recover
+ * @property bool arrow_decrement
+ * @property bool undead_detect_type
+ * @property bool attribute_recover
  * @property int item_drop_common
  * @property int item_drop_equip
  * @property int item_drop_card

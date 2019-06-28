@@ -9,7 +9,6 @@
 namespace App\Interactions;
 
 use App\User;
-use App\Listings\Listing;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;

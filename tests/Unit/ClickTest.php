@@ -2,10 +2,10 @@
 
 namespace Tests\Unit;
 
-use App\Interactions\Vote;
 use Carbon\Carbon;
 use Tests\TestCase;
 use App\Listings\Listing;
+use App\Interactions\Vote;
 use App\Interactions\Click;
 
 class ClickTest extends TestCase

@@ -9,9 +9,8 @@ use App\Listings\Listing;
 use Illuminate\Database\Eloquent\Builder;
 use BrianFaust\Reportable\Traits\HasReports;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class Review.

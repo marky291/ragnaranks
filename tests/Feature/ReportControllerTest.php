@@ -2,12 +2,12 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use App\Interactions\Review;
 use App\Notifications\ReportedReviewAllowed;
 use App\Notifications\ReportedReviewRemoved;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ReportControllerTest extends TestCase
 {

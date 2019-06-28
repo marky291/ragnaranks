@@ -8,7 +8,6 @@ use App\Listings\Listing;
 use App\Interactions\Click;
 use App\Jobs\BuildListingRankingTable;
 use App\Listings\ListingConfiguration;
-use App\Http\Resources\ListingResource;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class FilterControllerTest extends TestCase
