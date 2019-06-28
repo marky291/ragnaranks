@@ -18,7 +18,7 @@ class CreateReportsTable extends Migration
             $table->morphs('reportable');
             $table->morphs('reporter');
             $table->text('reason');
-            $table->json('meta')->nullable();
+            $table->text('meta')->nullable();
             $table->timestamps();
         });
 
@@ -28,7 +28,7 @@ class CreateReportsTable extends Migration
             $table->morphs('judge');
             $table->text('conclusion');
             $table->text('action_taken');
-            $table->json('meta')->nullable();
+            $table->text('meta')->nullable();
             $table->timestamps();
         });
     }
