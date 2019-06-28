@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Listings\ListingConfiguration;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use App\Observers\ConfigurationObserver;
 use Illuminate\Http\Resources\Json\Resource;
@@ -16,6 +17,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Schema::defaultStringLength(191);
+
         ListingConfiguration::observe(ConfigurationObserver::class);
     }
 
