@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Listings\ListingConfiguration;
 use App\Tag;
 use App\Listings\Listing;
 use App\Http\Controllers\Controller;
