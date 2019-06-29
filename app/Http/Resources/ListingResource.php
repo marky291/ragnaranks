@@ -32,7 +32,7 @@ class ListingResource extends JsonResource
             'ranking' => RankingResource::make($this->whenLoaded('ranking')),
             'background' => $this->background,
             'description' => $this->description ?? trans('profile.defaultMarkup'),
-            'tags' => TagResource::collection($this->whenLoaded('tags')),
+            'tags' => $this->relationLoaded('tags') ? $this->resource->tags()->pluck('name') : [],
             'config' => ConfigurationResource::make($this->whenLoaded('configuration')),
             'language' => $this->resource->relationLoaded('language') ? $this->language->name : 'english',
             'isEditor' => auth()->id(),

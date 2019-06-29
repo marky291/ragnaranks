@@ -69,7 +69,7 @@
                                         <div class="left-side d-flex w-75 flex-column align-items-start px-4 py-2 align-self-end">
                                             <h1 class="font-weight-bold mb-0" style="font-size: 26px; color:rgb(243, 243, 243);">@{{ listing['name'] }}</h1>
                                             <ul class="tag-list tw-list-reset tw-flex tw-text-xs tw-text-green-light" style="font-size:13px; margin-bottom: .5rem">
-                                                <li v-for="tag in listing.tags" class="mr-2">#@{{ tag.name }}</li>
+                                                <li v-for="tag in listing.tags" class="mr-2">#@{{ tag }}</li>
                                             </ul>
                                         </div>
                                         <div class="right-side flex-fill d-flex justify-content-end pr-3" style="padding-bottom:12px;">
