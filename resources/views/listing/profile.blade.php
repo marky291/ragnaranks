@@ -14,13 +14,13 @@
 								<div id="user-actions" class="content py-0 rounded py-3 d-flex flex-column">
 									<at-button class="mb-2" type="primary" hollow>Back to Searching</at-button>
 									<at-button class="mb-2" hollow>Visit Website</at-button>
-									<span v-if="!theCurrentViewIs('voting')">
+									<span v-if="!isCurrentPage('voting')">
                                    		<at-button @click="setView('voting')" class="w-100 mb-2" hollow>Vote for server</at-button>
                                 	</span>
 									<span v-else>
                                     	<at-button @click="setView('listing')" type="error" class="w-100 mb-2" hollow>Back to Listing</at-button>
                                 	</span>
-									<span v-if="!theCurrentViewIs('reviewing')">
+									<span v-if="!isCurrentPage('reviewing')">
                                     	<at-button @click="setView('reviewing')" type="success" class="w-100" hollow>Create a review</at-button>
                                 	</span>
 									<span v-else>
@@ -211,7 +211,7 @@
 												<div class="left-side d-flex w-75 flex-column align-items-start px-4 py-2 align-self-end">
 													<h1 class="text-white font-weight-bold mb-0" style="font-size: 26px; color:rgb(243, 243, 243);">@{{ $parent.listing.name }}</h1>
 													<ul class="tag-list list-unstyled d-flex tw-text-xs tw-text-green-light" style="font-size:13px;">
-														<li class="mr-2" v-for="tag in $parent.listing.tags">#@{{ tag }}</li>
+														<li class="mr-2" v-for="tag in $parent.listing.tags">#@{{ tag.name }}</li>
 														<li class="mr-2" v-if="!$parent.listing.tags.length">#TagYourServerFunctionality</li>
 													</ul>
 												</div>

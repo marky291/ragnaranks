@@ -8,6 +8,7 @@
                 listing: {},
                 preset: {},
                 profileLoaded: false,
+                currentPage: 'overview',
             }
         },
         mounted() {
@@ -42,6 +43,11 @@
             },
             screenshots: function() {
                 return this.listing.screenshots.length ? this.listing.screenshots : ['/img/preset/slider_one.png', '/img/preset/slider_two.png', '/img/preset/slider_three.png'];
+            },
+        },
+        methods: {
+            isCurrentPage(page) {
+                return this.currentPage = page;
             },
         }
     }
