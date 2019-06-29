@@ -1,47 +1,34 @@
-<script>
+<template>
+		<section v-if="hasReviews && $parent.$parent.isCurrentPage('profile')" id="reviews" class="tw-px-10">
+			<h3 class="heading tw-py-4 mb-4 tw-font-bold text-dark heading-underline">Player Reviews</h3>
+			<div v-for="(review, index) in collection">
+				<review :review="review"></review>
+			</div>
+		</section>
+</template>
 
-    import _ from 'lodash';
+<script>
     import Review from './ReviewComponent.vue';
-    import { Form, HasError, AlertError } from 'vform';
 
     export default {
-
         props: ['data', 'policy'],
-
         components: {
-            Review,
-            'has-error': HasError,
-            'alert-error': AlertError,
+            Review
         },
-
         data: function() {
             return {
                 activated: false,
                 collection: this.data,
                 reviewable: true,
-                isCreatingReview: false,
-
-                review: new Form({
-                    message: "",
-                    donation_score: 3,
-                    update_score: 3,
-                    class_score: 3,
-                    item_score: 3,
-                    support_score: 3,
-                    hosting_score: 3,
-                    content_score: 3,
-                    event_score: 3,
-                })
+                isCreatingReview: false
             }
         },
-
         created: function() {
             this.$root.$on('toggle:review', (param) => {
                 this.changeReviewState();
             });
             this.emitReviewScores();
         },
-
         methods: {
             emitReviewScores() {
                 this.$root.$emit('update:scoreboard', {
@@ -79,18 +66,6 @@
                 //this.collection.push(review);
                 this.emitReviewScores();
             },
-            ratingScore(score) {
-                if (score === 5)
-                    return 'Excellent';
-                if (score === 4)
-                    return 'Good';
-                if (score === 3)
-                    return 'Ok';
-                if (score === 2)
-                    return 'Bad';
-                if (score === 1)
-                    return 'Terrible'
-            },
             changeReviewState() {
                 this.$root.$emit('creating:review', this.isCreatingReview = !this.isCreatingReview);
                 if (this.isCreatingReview) {
@@ -102,7 +77,10 @@
             },
             ReviewsExist() {
                 return count(this.collection);
-            }
+            },
+					hasReviews() {
+            	return false;
+					}
         }
     }
 

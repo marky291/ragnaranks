@@ -8,7 +8,7 @@
                 listing: {},
                 preset: {},
                 profileLoaded: false,
-                currentPage: 'overview',
+                currentPage: 'profile',
             }
         },
         mounted() {
@@ -47,8 +47,11 @@
         },
         methods: {
             isCurrentPage(page) {
-                return this.currentPage = page;
+                return this.currentPage === page;
             },
+            setCurrentPage(page) {
+                this.currentPage = page;
+            }
         }
     }
 </script>

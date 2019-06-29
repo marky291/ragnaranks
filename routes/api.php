@@ -12,16 +12,17 @@
 */
 
 use App\Listings\Listing;
+use App\Listings\ListingRanking;
 use Illuminate\Support\Facades\Route;
 use App\Listings\ListingConfiguration;
 use App\Http\Resources\ListingResource;
 
-Route::get('/listing/defaults', function () {
-    return ListingResource::make((new Listing())->setRelation('configuration', new ListingConfiguration)->setRelation('ranking', new \App\Listings\ListingRanking));
+Route::get('/listing/defaults', static function () {
+    return ListingResource::make((new Listing())->setRelation('configuration', new ListingConfiguration)->setRelation('ranking', new ListingRanking));
 });
 
-Route::get('/listing/{listing}', function (Listing $listing) {
-    return cache()->remember("listing:{$listing->name}", 1, function () use ($listing) {
+Route::get('/listing/{listing}', static function (Listing $listing) {
+    return cache()->remember("listing:{$listing->name}", 1, static function () use ($listing) {
         return App\Http\Resources\ListingResource::make($listing->load('ranking', 'screenshots', 'tags', 'configuration', 'language'));
     });
 });
