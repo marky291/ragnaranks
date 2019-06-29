@@ -212,7 +212,7 @@
 													<h1 class="text-white font-weight-bold mb-0" style="font-size: 26px; color:rgb(243, 243, 243);">@{{ $parent.listing.name }}</h1>
 													<ul class="tag-list list-unstyled d-flex tw-text-xs tw-text-green-light" style="font-size:13px;">
 														<li class="mr-2" v-for="tag in $parent.listing.tags">#@{{ tag.name }}</li>
-														<li class="mr-2" v-if="!$parent.listing.tags.length">#TagYourServerFunctionality</li>
+														<li class="mr-2" v-if="!$parent.listing.tags">#TagYourServerFunctionality</li>
 													</ul>
 												</div>
 												<div class="right-side flex-fill d-flex justify-content-end pr-3" style="padding-bottom:12px;">
