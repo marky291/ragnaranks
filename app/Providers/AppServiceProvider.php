@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use App\Interactions\Review;
-use App\Listings\ListingConfiguration;
 use App\Observers\ReviewObserver;
+use App\Listings\ListingConfiguration;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use App\Observers\ConfigurationObserver;
