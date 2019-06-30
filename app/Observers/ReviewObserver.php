@@ -5,9 +5,7 @@ namespace App\Observers;
 use App\Interactions\Review;
 
 /**
- * Class ReviewObserver
- *
- * @package App\Observers
+ * Class ReviewObserver.
  */
 class ReviewObserver
 {

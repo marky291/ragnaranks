@@ -11,10 +11,10 @@
 |
 */
 
-use App\Http\Resources\ReviewResource;
 use App\Listings\Listing;
 use App\Listings\ListingRanking;
 use Illuminate\Support\Facades\Route;
+use App\Http\Resources\ReviewResource;
 use App\Listings\ListingConfiguration;
 use App\Http\Resources\ListingResource;
 
@@ -23,7 +23,7 @@ Route::get('/listing/defaults', static function () {
 });
 
 Route::get('/listing/{listing}/reviews', static function (Listing $listing) {
-    return cache()->remember("listing:{$listing->name}:reviews", 120, static function() use ($listing) {
+    return cache()->remember("listing:{$listing->name}:reviews", 120, static function () use ($listing) {
         return ReviewResource::collection($listing->reviews()->with('user')->get());
     });
 });
