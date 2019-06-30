@@ -120,6 +120,7 @@ class CreateServerTable extends Migration
             $table->unsignedInteger('listing_id')->index();
             $table->ipAddress('ip_address');
             $table->text('message');
+            $table->smallInteger('average_score');
             $table->smallInteger('donation_score');
             $table->smallInteger('update_score');
             $table->smallInteger('class_score');

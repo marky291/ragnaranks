@@ -48,7 +48,6 @@ Vue.component('account-notification-component', require('./components/AccountNot
 Vue.component('report-tool-component', require('./components/ReportToolComponent').default);
 
 Vue.component('profile-page', require('./components/profile/ProfilePage.vue').default);
-Vue.component('review-creator', require('./components/profile/ProfileReviewCreator.vue').default);
 Vue.component('profile', require('./components/profile/Profile').default);
 Vue.component('configs', require('./components/profile/ProfileConfigs').default);
 

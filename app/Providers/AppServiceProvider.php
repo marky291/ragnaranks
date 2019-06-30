@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Interactions\Review;
 use App\Listings\ListingConfiguration;
+use App\Observers\ReviewObserver;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use App\Observers\ConfigurationObserver;
@@ -18,6 +20,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
+        Review::observe(ReviewObserver::class);
 
         ListingConfiguration::observe(ConfigurationObserver::class);
     }

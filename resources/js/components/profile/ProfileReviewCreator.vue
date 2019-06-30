@@ -78,8 +78,8 @@
 											</div>
 										</div>
 									</div>
-								<at-button @click="postReview(window.location.pathname + '/reviews')" type="primary" class="flex-fill">Post my Review!</at-button>
-								<at-button @click="$parent.$parent.setCurrentPage('profile')" type="info" hollow>Maybe I will create one later!</at-button>
+								<at-button @click="postReview" type="primary" class="flex-fill">Post my Review!</at-button>
+<!--								<at-button @click="$parent.$parent.setCurrentPage('profile')" type="info" hollow>Maybe I will create one later!</at-button>-->
 							</span>
             </div>
         </div>
@@ -121,6 +121,16 @@
 						return 'Bad';
 					if (score === 1)
 						return 'Terrible'
+				},
+				postReview() {
+					this.review.post(window.location.href + '/reviews').then(response => {
+						this.$Message.success('Your Review has been posted, thank you!');
+						this.$emit('review:created', this.review.data);
+					}).catch(error => {
+						if (error.response.status !== 422) {
+							this.$Message.error(error.message);
+						}
+					});
 				},
 			}
     }

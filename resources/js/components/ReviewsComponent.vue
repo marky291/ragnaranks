@@ -1,5 +1,5 @@
 <template>
-		<section v-if="hasReviews && $parent.$parent.isCurrentPage('profile')" id="reviews" class="tw-px-10">
+		<section v-if="false" id="reviews" class="tw-px-10">
 			<h3 class="heading tw-py-4 mb-4 tw-font-bold text-dark heading-underline">Player Reviews</h3>
 			<div v-for="(review, index) in collection">
 				<review :review="review"></review>
@@ -54,18 +54,6 @@
                 this.collection.splice(index, 1);
                 this.emitReviewScores();
             },
-            postReview(url) {
-                this.reviewable = false;
-                this.review.post(url).then(response => {
-										this.$Message.success('Review has been posted, thank you!');
-										this.collection.push(response.data.review);
-                    this.$parent.setView('listing');
-								}).catch(error => {
-                    this.$Message.error(error.message);
-								});
-                //this.collection.push(review);
-                this.emitReviewScores();
-            },
             changeReviewState() {
                 this.$root.$emit('creating:review', this.isCreatingReview = !this.isCreatingReview);
                 if (this.isCreatingReview) {
@@ -78,9 +66,9 @@
             ReviewsExist() {
                 return count(this.collection);
             },
-					hasReviews() {
-            	return false;
-					}
+						hasReviews() {
+								return false;
+						}
         }
     }
 

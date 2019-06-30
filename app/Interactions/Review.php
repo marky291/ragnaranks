@@ -31,7 +31,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static Collection latest()
  * @property Listing listing
  * @method static Collection publishedBy($publisher)
- * @property-read float $average_score
+ * @property int $average_score
  * @property-read User $user
  * @mixin \Eloquent
  */
@@ -86,26 +86,5 @@ class Review extends Interaction
     public function scopePublishedBy(Builder $query, User $user): Builder
     {
         return $query->where('user_id', $user->id);
-    }
-
-    /**
-     * Get the average score of the review.
-     *
-     * @return float
-     */
-    public function getAverageScoreAttribute()
-    {
-        $scores = [
-            $this->content_score,
-            $this->hosting_score,
-            $this->support_score,
-            $this->event_score,
-            $this->item_score,
-            $this->class_score,
-            $this->update_score,
-            $this->donation_score,
-        ];
-
-        return round(array_sum($scores) / count($scores), 1);
     }
 }

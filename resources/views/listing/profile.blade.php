@@ -364,7 +364,7 @@
 												</div>
 											</section>
 
-											<reviews></reviews>
+											<reviews v-on:created-review="test"></reviews>
 										</span>
 
 										<review-creator v-if="$parent.isCurrentPage('reviewing')"></review-creator>

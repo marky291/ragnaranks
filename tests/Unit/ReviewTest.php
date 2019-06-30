@@ -220,4 +220,20 @@ class ReviewTest extends TestCase
 
         $this->assertCount(1, $review->reports);
     }
+
+    public function test_review_generates_average_when_being_created()
+    {
+        $review = factory(Review::class)->create([
+            'donation_score' => 3,
+            'update_score' => 5,
+            'class_score' => 1,
+            'item_score' => 5,
+            'support_score' => 1,
+            'hosting_score' => 1,
+            'content_score' => 5,
+            'event_score' => 4,
+        ]);
+
+        $this->assertEquals(3.1, $review->average_score);
+    }
 }
