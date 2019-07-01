@@ -17,6 +17,7 @@ class ReviewResource extends JsonResource
         return [
             'ip_address' => $this->ip_address,
             'message' => $this->message,
+            'average_score' => $this->average_score,
             'donation_score' => $this->donation_score,
             'update_score' => $this->update_score,
             'class_score' => $this->class_score,
