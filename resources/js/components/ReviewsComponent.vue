@@ -9,6 +9,7 @@
 
 <script>
     import Review from './ReviewComponent.vue';
+    import meanBy from 'lodash/meanBy';
 
     export default {
         props: ['data', 'policy'],
@@ -43,7 +44,7 @@
                 });
             },
             getAverageOfCollection(element) {
-                return _.meanBy(this.collection, function(item) {
+                return meanBy(this.collection, function(item) {
                     return item[element];
                 });
             },

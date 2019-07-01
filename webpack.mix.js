@@ -1,5 +1,23 @@
+const webpack = require('webpack');
 const mix = require('laravel-mix');
+
 require('laravel-mix-tailwind');
+
+// require('laravel-mix-bundle-analyzer');
+// mix.bundleAnalyzer();
+
+/*
+ |--------------------------------------------------------------------------
+ | Custom Mix setup
+ |--------------------------------------------------------------------------
+ |
+ */
+
+mix.webpackConfig({
+    plugins: [
+        new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+    ]
+});
 
 /*
  |--------------------------------------------------------------------------

@@ -1,5 +1,6 @@
 <script>
-    import marked from 'marked'
+    import marked from 'marked';
+    import sample from 'lodash/sample';
 
     export default {
         props: ['slug'],
@@ -12,7 +13,7 @@
             }
         },
         mounted() {
-            this.preset = _.sample([
+            this.preset = sample([
                 {accent: 'nightmare', background: '/img/preset/card-red.png'},
                 {accent: 'deviling', background: '/img/preset/card-purple.png'},
                 {accent: 'poporing', background: '/img/preset/card-green.png'},
