@@ -19,7 +19,7 @@ use App\Listings\ListingConfiguration;
 use App\Http\Resources\ListingResource;
 
 Route::get('/listing/defaults', static function () {
-    return cache()->rememberForever('listing:defaults', static function() {
+    return cache()->rememberForever('listing:defaults', static function () {
         return ListingResource::make((new Listing())->setRelation('configuration', new ListingConfiguration)->setRelation('ranking', new ListingRanking));
     });
 });
