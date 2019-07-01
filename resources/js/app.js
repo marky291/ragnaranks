@@ -51,19 +51,21 @@ Vue.component('filtered-search', () => import('./components/FilteredListingSearc
 
 // Vue.component('filtered-listings', require('./components/FilteredListingContainer.vue').default);
 //Vue.component('listing-profile-old', require('./Pages/ListingProfileComponent.vue').default);
-Vue.component('login-component', () => import('./components/LoginComponent').default);
-Vue.component('register-component', () => import('./components/RegisterComponent').default);
-Vue.component('forgot-password-component', () => import('./components/ForgotPasswordComponent').default);
-Vue.component('reset-password-component', () => import('./components/ResetPasswordComponent').default);
-Vue.component('verify-account-component', () => import('./components/VerifyAccountComponent').default);
-Vue.component('account-component', () => import('./components/AccountComponent').default);
-Vue.component('account-details-component', () => import('./components/AccountDetailsComponent').default);
-Vue.component('account-notification-component', () => import('./components/AccountNotificationComponent').default);
-Vue.component('report-tool-component', () => import('./components/ReportToolComponent').default);
+Vue.component('login-component', require('./components/LoginComponent').default);
+Vue.component('register-component', require('./components/RegisterComponent').default);
+Vue.component('forgot-password-component', require('./components/ForgotPasswordComponent').default);
+Vue.component('reset-password-component', require('./components/ResetPasswordComponent').default);
+Vue.component('verify-account-component', require('./components/VerifyAccountComponent').default);
+Vue.component('account-component', require('./components/AccountComponent').default);
+Vue.component('account-details-component', require('./components/AccountDetailsComponent').default);
+Vue.component('account-notification-component', require('./components/AccountNotificationComponent').default);
+Vue.component('report-tool-component', require('./components/ReportToolComponent').default);
 
 Vue.component('profile-page', require('./components/profile/ProfilePage.vue').default);
 Vue.component('profile', require('./components/profile/Profile').default);
 Vue.component('configs', require('./components/profile/ProfileConfigs').default);
+
+Vue.config.performance = true;
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
