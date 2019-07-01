@@ -16,20 +16,16 @@
 <script>
 
     export default {
-
         props: ['title', 'description', 'score'],
-
         methods: {
-            /**
-             * @return {string}
-             */
             ScoreScale: function(score) {
-                if (score >= 5)
+                if (score >= 5) {
                     return "scoreboard-high";
-                if (score >= 3)
+                }
+                if (score >= 3) {
                     return "scoreboard-mid";
-                if (score >= 0)
-                    return "scoreboard-low";
+                }
+                return "scoreboard-low";
             },
         }
     }
