@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="w-100 h-100 align-items-end d-flex">
-            <p class="tw-text-2xl text-right tw-font-bold">{{ score }} / 5</p>
+            <p class="tw-text-2xl text-right tw-font-bold">{{ score ? score : 0 }} / 5</p>
         </div>
     </div>
 </template>

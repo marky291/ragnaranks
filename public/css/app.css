@@ -30569,7 +30569,27 @@ form .item-group input {
   box-shadow: 0px 1px 2px #ddd;
 }
 
+.configuration .list .name {
+  font-size: .75rem;
+  color: #606f7b;
+  font-weight: 600;
+}
+
+.configuration .list .value {
+  font-weight: 700;
+  color: #3d4852;
+  font-size: 12px;
+}
+
 .configuration .list .config {
+  padding: .6rem .6rem;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+
+.configuration .list .config:nth-child(1n) {
   background: #fafafa;
 }
 

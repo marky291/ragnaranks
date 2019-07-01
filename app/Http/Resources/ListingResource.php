@@ -35,6 +35,7 @@ class ListingResource extends JsonResource
             'tags' => $this->relationLoaded('tags') ? $this->resource->tags()->pluck('name') : [],
             'config' => ConfigurationResource::make($this->whenLoaded('configuration')),
             'language' => $this->resource->relationLoaded('language') ? $this->language->name : 'english',
+            'reviews' => ReviewResource::collection($this->whenLoaded('reviews')),
             'isEditor' => auth()->id(),
         ];
     }

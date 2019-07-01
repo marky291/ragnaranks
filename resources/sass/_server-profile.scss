@@ -65,7 +65,22 @@
 
   .configuration {
     .list {
+      .name {
+        font-size: .75rem;
+        color: #606f7b;
+        font-weight: 600;
+      }
+      .value {
+        font-weight: 700;
+        color: #3d4852;
+        font-size: 12px;
+      }
       .config {
+        padding: .6rem .6rem;
+        display: flex;
+        justify-content: space-between;
+      }
+      .config:nth-child(1n) {
         background: rgb(250, 250, 250);
       }
       .config:nth-child(2n) {

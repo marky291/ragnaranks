@@ -19,18 +19,20 @@ use App\Listings\ListingConfiguration;
 use App\Http\Resources\ListingResource;
 
 Route::get('/listing/defaults', static function () {
-    return ListingResource::make((new Listing())->setRelation('configuration', new ListingConfiguration)->setRelation('ranking', new ListingRanking));
-});
-
-Route::get('/listing/{listing}/reviews', static function (Listing $listing) {
-    return cache()->remember("listing:{$listing->name}:reviews", 120, static function () use ($listing) {
-        return ReviewResource::collection($listing->reviews()->with('user')->get());
+    return cache()->rememberForever('listing:defaults', static function() {
+        return ListingResource::make((new Listing())->setRelation('configuration', new ListingConfiguration)->setRelation('ranking', new ListingRanking));
     });
 });
 
 Route::get('/listing/{listing}', static function (Listing $listing) {
     return cache()->remember("listing:{$listing->name}", 120, static function () use ($listing) {
         return App\Http\Resources\ListingResource::make($listing->load('ranking', 'screenshots', 'tags', 'configuration', 'language'));
+    });
+});
+
+Route::get('/listing/{listing}/reviews', static function (Listing $listing) {
+    return cache()->remember("listing:{$listing->name}:reviews", 120, static function () use ($listing) {
+        return ReviewResource::collection($listing->reviews()->with('user')->get());
     });
 });
 

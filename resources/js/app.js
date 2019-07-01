@@ -10,10 +10,21 @@ window.Vue = require('vue');
 
 import AtComponents from 'at-ui'
 import SimpleVueValidation from 'simple-vue-validator';
+import VueInternationalization from 'vue-i18n';
+import Locale from './messages';
 
 // use the components
 Vue.use(AtComponents);
 Vue.use(SimpleVueValidation);
+Vue.use(VueInternationalization);
+
+//const lang = document.documentElement.lang.substr(0, 2);
+
+const i18n = new VueInternationalization({
+    locale: 'en',
+    messages: Locale
+});
+
 
 // =-=-=-=-=-=-=-=-=-=-=-=
 
@@ -60,6 +71,7 @@ Vue.component('configs', require('./components/profile/ProfileConfigs').default)
 
 const app = new Vue({
     el: '#app',
+    i18n,
     methods: {
         navigate: function(name) {
             if (name === 'logout') {
