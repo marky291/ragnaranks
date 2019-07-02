@@ -2,8 +2,8 @@
 
 namespace App;
 
-use App\Listings\Listing;
 use Carbon\Carbon;
+use App\Listings\Listing;
 use Illuminate\Database\Eloquent\Model;
 
 /**
