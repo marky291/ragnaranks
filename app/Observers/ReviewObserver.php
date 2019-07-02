@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Interactions\Review;
+use App\Jobs\UpdateListingReviewScoreAverage;
 
 /**
  * Class ReviewObserver.
@@ -29,5 +30,16 @@ class ReviewObserver
         ];
 
         $review->average_score = round(array_sum($scores) / count($scores), 1);
+    }
+
+    /**
+     * Handle the app listings listing "creating" event.
+     *
+     * @param Review $review
+     * @return void
+     */
+    public function created(Review $review): void
+    {
+        dispatch(new UpdateListingReviewScoreAverage($review->listing));
     }
 }

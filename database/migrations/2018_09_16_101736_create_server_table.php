@@ -56,6 +56,7 @@ class CreateServerTable extends Migration
             $table->string('mode');
             $table->string('accent')->default('nightmare');
             $table->unsignedInteger('language_id')->default(1);
+            $table->smallInteger('review_score')->default(0);
             $table->double('episode')->nullable();
             $table->timestamps();
             $table->index(['episode']);

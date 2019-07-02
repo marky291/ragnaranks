@@ -24,6 +24,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property string $slug
  * @property string $points
  * @property string $website
+ * @property int $average_score
  * @property string $description
  * @property string $background
  * @property float $episode

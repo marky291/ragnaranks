@@ -75,6 +75,31 @@ class ListingTest extends TestCase
         $this->assertCount(3, $listing->reviews);
     }
 
+    public function test_it_has_review_score()
+    {
+        $listing = $this->createListing([], 0, 0);
+
+        $listing->reviews()->save(factory(Review::class)->make([
+            'donation_score' => 3,
+            'update_score' => 5,
+            'class_score' => 1,
+            'item_score' => 5,
+            'support_score' => 1,
+            'hosting_score' => 1,
+            'content_score' => 5,
+            'event_score' => 4,
+        ]));
+
+
+        $this->assertEquals(3.1, $listing->fresh()->review_score);
+    }
+
+    public function test_it_has_a_default_review_score()
+    {
+        $listing = $this->createListing([], 0, 0);
+
+        $this->assertEquals(0, $listing->review_score);
+    }
     /**
      * @test
      */
