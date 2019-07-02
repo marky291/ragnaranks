@@ -232,11 +232,20 @@ export default {
             "attributes": []
         },
         "homepage": {
-            "review": {
-                "positive": "with mostly positive reviews",
-                "mediocre": "with mixed reviews",
-                "negative": "with mainly negative reviews",
-                "fresh": "with no player reviews"
+            "card": {
+                "review": {
+                    "positive": "with mostly positive reviews",
+                    "mediocre": "with mixed reviews",
+                    "negative": "with mainly negative reviews",
+                    "fresh": "with no player reviews"
+                },
+                "rate": {
+                    "official-rate": "Official Rate Server",
+                    "low-rate": "Low Rate Server",
+                    "mid-rate": "Mid Rate Server",
+                    "high-rate": "High Rate Server",
+                    "super-high-rate": "Super High Rate Server"
+                }
             },
             "rate": {
                 "all": {

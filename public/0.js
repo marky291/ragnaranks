@@ -91,10 +91,10 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   },
   methods: {
     reviewScoreMessage: function reviewScoreMessage(score) {
-      if (score > 2) return 'homepage.review.positive';
-      if (score === 2) return 'homepage.review.mediocre';
-      if (score > 0) return 'homepage.review.negative';
-      return 'homepage.review.fresh';
+      if (score > 2) return 'homepage.card.review.positive';
+      if (score === 2) return 'homepage.card.review.mediocre';
+      if (score > 0) return 'homepage.card.review.negative';
+      return 'homepage.card.review.fresh';
     },
     visit: function visit(slug) {
       window.location.href = '/listing/' + slug;
@@ -352,7 +352,13 @@ var render = function() {
                           staticStyle: { "font-size": "14px" }
                         },
                         [
-                          _vm._v("High Rate Server "),
+                          _vm._v(
+                            _vm._s(
+                              _vm.$t(
+                                "homepage.card.rate." + listing.config.title
+                              )
+                            ) + " "
+                          ),
                           _c("small", { staticClass: "tw-text-grey-darker" }, [
                             _vm._v(
                               "(" +
