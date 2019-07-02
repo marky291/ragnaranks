@@ -1,11 +1,10 @@
 <script>
     export default {
         created: function () {
-            this.emitFilterEvent();
+            this.filterChanged();
         },
         data: function () {
             return {
-                tags: [],
                 rates: 'all',
                 mode: 'all',
                 sort: 'rank',
@@ -15,19 +14,9 @@
         },
 
         methods: {
-            getUrl: function() {
-                return "api/servers/" + this.rates + "/" + this.mode + "/"  + this.tag + "/" + this.sort + "/" + this.paginate;
-            },
             filterChanged: function() {
-                this.emitFilterEvent();
-            },
-            emitFilterEvent: function() {
-                this.$root.$emit('filter:changed', this.getUrl());
+                this.$root.$emit('filter:changed', "api/servers/" + this.rates + "/" + this.mode + "/"  + this.tag + "/" + this.sort + "/" + this.paginate);
             }
         }
     }
 </script>
-
-<style>
-    /*//*/
-</style>

@@ -9,6 +9,7 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 import AtComponents from 'at-ui'
+
 Vue.use(AtComponents);
 
 import SimpleVueValidation from 'simple-vue-validator';
