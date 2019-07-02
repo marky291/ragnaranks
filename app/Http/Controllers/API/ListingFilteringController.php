@@ -25,7 +25,7 @@ class ListingFilteringController extends Controller
      */
     public function filters($expTitle = 'all', $modeType = 'all', $tagName = 'all', $orderBy = 'all', $paginate = 7)
     {
-        return Cache::remember("filter:{$expTitle}:{$modeType}:{$tagName}:{$orderBy}:{$paginate}", 1, function () use ($expTitle,$modeType,$tagName,$orderBy,$paginate) {
+        return Cache::remember("filter:{$expTitle}:{$modeType}:{$tagName}:{$orderBy}:{$paginate}", 120, function () use ($expTitle,$modeType,$tagName,$orderBy,$paginate) {
             /**
              * All listings need a ranking, that can be sortable.
              */
