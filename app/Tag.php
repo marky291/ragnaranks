@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Listings\Listing;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,6 +38,6 @@ class Tag extends Model
      */
     public function servers()
     {
-        return $this->belongsToMany('App\Listing', 'servers_tags');
+        return $this->belongsToMany(Listing::class, 'listing_tags');
     }
 }

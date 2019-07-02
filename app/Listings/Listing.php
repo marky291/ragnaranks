@@ -11,10 +11,12 @@ use App\Interactions\Review;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 /**
  * Class Listings.
@@ -77,7 +79,7 @@ class Listing extends Model
      */
     public function scopeRelations(Builder $builder): Builder
     {
-        return $builder->with(['tags', 'screenshots', 'language']);
+        return $builder->with(['configuration', 'tags', 'ranking', 'language']);
     }
 
     /**
