@@ -90,7 +90,6 @@ class ListingTest extends TestCase
             'event_score' => 4,
         ]));
 
-
         $this->assertEquals(3.1, $listing->fresh()->review_score);
     }
 
@@ -100,6 +99,7 @@ class ListingTest extends TestCase
 
         $this->assertEquals(0, $listing->review_score);
     }
+
     /**
      * @test
      */
