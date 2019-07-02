@@ -50193,6 +50193,12 @@ __webpack_require__.r(__webpack_exports__);
       "attributes": []
     },
     "homepage": {
+      "review": {
+        "positive": "with mostly positive reviews",
+        "mediocre": "with mixed reviews",
+        "negative": "with mainly negative reviews",
+        "fresh": "with no player reviews"
+      },
       "rate": {
         "all": {
           "name": "Any Rates"

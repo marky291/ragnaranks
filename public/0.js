@@ -71,8 +71,6 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {//
-  },
   data: function data() {
     return {
       listings: [],
@@ -92,6 +90,12 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     });
   },
   methods: {
+    reviewScoreMessage: function reviewScoreMessage(score) {
+      if (score > 2) return 'homepage.review.positive';
+      if (score === 2) return 'homepage.review.mediocre';
+      if (score > 0) return 'homepage.review.negative';
+      return 'homepage.review.fresh';
+    },
     visit: function visit(slug) {
       window.location.href = '/listing/' + slug;
     },
@@ -361,9 +365,19 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      _c("p", { staticClass: "tw-text-green-dark" }, [
-                        _vm._v("with mostly positive reviews")
-                      ])
+                      _c(
+                        "p",
+                        { class: "review-score-" + listing.review_score },
+                        [
+                          _vm._v(
+                            _vm._s(
+                              _vm.$t(
+                                _vm.reviewScoreMessage(listing.review_score)
+                              )
+                            )
+                          )
+                        ]
+                      )
                     ]
                   ),
                   _vm._v(" "),

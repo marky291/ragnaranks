@@ -32,7 +32,7 @@
                     <span class="tw-mr-4 tw-text-grey-darker" style="font-size:30px">{{ listing['ranking']['rank'] }}</span>
                     <div class="tw-border-l-2 tw-pl-4 tw-border-grey-light flex-fill pr-3">
                         <p class="tw-text-grey-darkest tw-tracking-tight tw-font-semibold mb-0" style="font-size:14px">High Rate Server <small class="tw-text-grey-darker">({{ listing.config.base_exp_rate }}x/{{ listing.config.job_exp_rate }}x)</small></p>
-                        <p class="tw-text-green-dark">with mostly positive reviews</p>
+                        <p :class="'review-score-'+listing.review_score">{{ $t(reviewScoreMessage(listing.review_score)) }}</p>
                     </div>
 
                     <div class="tw-w-1/4 tw-flex tw-justify-end tw-flex-1">
@@ -50,16 +50,12 @@
     import Velocity from 'velocity-animate';
 
     export default {
-        components: {
-            //
-        },
         data: function () {
             return {
                 listings: [],
                 pagination: {},
             }
         },
-
         created: function(){
             axios.get('api/servers/all/all/all/rank/7?page=1').then(response => {
                 this.listings = response.data.data;
@@ -72,6 +68,12 @@
             })
         },
         methods: {
+            reviewScoreMessage: function(score) {
+                if (score > 2) return 'homepage.review.positive';
+                if (score === 2) return 'homepage.review.mediocre';
+                if (score > 0) return 'homepage.review.negative';
+                return 'homepage.review.fresh';
+            },
             visit: function(slug) {
                 window.location.href = '/listing/' + slug;
             },

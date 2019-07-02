@@ -28,6 +28,7 @@ class ListingResource extends JsonResource
             'website' => $this->website,
             'accent' => $this->accent,
             'mode' => $this->mode,
+            'review_score' => $this->review_score,
             'screenshots' => $this->resource->relationLoaded('screenshots') ? $this->screenshots()->pluck('link')->toArray() : [],
             'ranking' => RankingResource::make($this->whenLoaded('ranking')),
             'background' => $this->background,

@@ -44,3 +44,26 @@ $color-blue: #10a9f5;
 .transparency {
   color: rgba(247, 247, 247, 0.7);
 }
+
+$review-positive: #38c172;
+$review-mediocre: #f6993f;
+$review-negative: #e3342f;
+
+.review-score-0 {
+  color: darkgrey;
+}
+.review-score-1 {
+  color: $review-negative;
+}
+.review-score-2 {
+  color: $review-mediocre;
+}
+.review-score-3 {
+  color: $review-positive;
+}
+.review-score-4 {
+  color: $review-positive;
+}
+.review-score-5 {
+  color: $review-positive;
+}
