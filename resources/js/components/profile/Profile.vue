@@ -149,7 +149,7 @@
 
 											<ratings :reviews="reviews"></ratings>
 
-											<reviews :collection="reviews"></reviews>
+											<reviews :reviews="reviews"></reviews>
 
 										</span>
 

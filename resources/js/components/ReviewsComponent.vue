@@ -1,5 +1,5 @@
 <template>
-		<section v-if="false" id="reviews" class="tw-px-10">
+		<section id="reviews" class="tw-px-10">
 			<h3 class="heading tw-py-4 mb-4 tw-font-bold text-dark heading-underline">Player Reviews</h3>
 			<div v-for="(review, index) in reviews">
 				<review :review="review"></review>

@@ -27,6 +27,7 @@ class ReviewResource extends JsonResource
             'content_score' => $this->content_score,
             'event_score' => $this->event_score,
             'created_at' => $this->created_at,
+            'comments' => CommentResource::make($this->whenLoaded('comments')),
             'user' => UserResource::make($this->whenLoaded('user')),
         ];
     }
