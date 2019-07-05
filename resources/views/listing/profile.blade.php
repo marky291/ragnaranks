@@ -200,7 +200,7 @@
 						@endcomponent
 					</div>
 					<div class="col-8">
-						<profile :slug="slug"></profile>
+						<profile :slug="slug" :reviews="listing.reviews"></profile>
 					</div>
 				</div>
 			</profile-page>

@@ -25,8 +25,8 @@ Route::get('/listing/defaults', static function () {
 });
 
 Route::get('/listing/{listing}', static function (Listing $listing) {
-    return cache()->remember("listing:{$listing->name}", 120, static function () use ($listing) {
-        return App\Http\Resources\ListingResource::make($listing->load('ranking', 'screenshots', 'tags', 'configuration', 'language'));
+    return cache()->remember("2listing:{$listing->name}", 120, static function () use ($listing) {
+        return App\Http\Resources\ListingResource::make($listing->load('ranking', 'screenshots', 'tags', 'configuration', 'language', 'reviews'));
     });
 });
 
