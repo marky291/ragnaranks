@@ -29,7 +29,6 @@
 <script>
     import meanBy from 'lodash/meanBy';
     import Scoreboard from '../ScoreboardComponent';
-
     export default {
         props: ['reviews'],
         components: { Scoreboard },
