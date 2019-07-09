@@ -25,7 +25,7 @@ $factory->define(Listing::class, static function (Faker $faker) {
         'user_id' => factory('App\User')->create()->id,
         'website' => $faker->url,
         'mode' => $faker->randomElement(array_keys(trans('homepage.mode'))),
-        'description' => $server['description'],
+        'description' => trans('profile.defaultMarkup'),
         'language_id' => ListingLanguage::all()->random()->getKey(),
         'episode' => collect([13.10, 13.09, 13.05, 12.11])->random(),
         'background' => $server['banner'],

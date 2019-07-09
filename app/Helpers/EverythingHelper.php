@@ -26,3 +26,11 @@ function trend_calculate()
 {
     return round(((2 - 1) / 1) * 100, 2);
 }
+
+/**
+ * @return \Illuminate\Contracts\Auth\Authenticatable|\App\User
+ */
+function user()
+{
+    return auth()->user();
+}

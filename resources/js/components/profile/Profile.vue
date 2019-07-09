@@ -2,7 +2,6 @@
     <transition name="fade">
         <div class="" v-if="$parent.profileLoaded">
             <div :class="'use-accent-'+$parent.accent" class="mb-3 server-card item flex-fill border rounded">
-
                 <div id="profile-card" class="profile-block">
                     <div class="server-card-head image rounded-top" style="height:350px;" v-bind:style="{ backgroundImage: 'url(' + $parent.background + ')' }"></div>
                     <div class="server-card-head overlap d-flex" style="margin-top:-169px;">
@@ -147,9 +146,9 @@
 												</div>
 											</section>
 
-											<ratings :reviews="reviews"></ratings>
-
 											<reviews :reviews="reviews"></reviews>
+
+											<ratings :reviews="reviews"></ratings>
 
 										</span>
 

@@ -28,9 +28,23 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int item_drop_common_mvp
  * @property int item_drop_equip_mvp
  * @property int item_drop_card_mvp
+ * @method static make(array $validated)
  */
 class ListingConfiguration extends Model
 {
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'max_base_level', 'max_job_level', 'max_stats', 'max_aspd',
+        'base_exp_rate', 'job_exp_rate', 'quest_exp_rate', 'instant_cast_stat',
+        'pk_mode', 'castrate_dex_scale', 'arrow_decrement', 'undead_detect_type',
+        'attribute_recover', 'item_drop_common', 'item_drop_equip', 'item_drop_card',
+        'item_drop_common_mvp', 'item_drop_equip_mvp', 'item_drop_card_mvp'
+    ];
+
     /**
      * The primary key for the model.
      *

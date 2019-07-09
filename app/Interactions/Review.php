@@ -31,6 +31,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static Collection latest()
  * @property Listing listing
  * @method static Collection publishedBy($publisher)
+ * @method static first()
  * @property int $average_score
  * @property-read User $user
  * @mixin \Eloquent

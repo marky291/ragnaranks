@@ -39,15 +39,19 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property Vote|HasMany $votes
  * @property Click|HasMany $clicks
  * @property ListingConfiguration $configuration
+ * @method static create(array $validated)
+ * @method static make(array $validated)
  */
 class Listing extends Model
 {
     /**
-     * The attributes that aren't mass assignable.
+     * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $guarded = [];
+    protected $fillable = [
+        'name', 'background', 'mode', 'description', 'accent', 'website', 'episode'
+    ];
 
     /**
      * Get the route key for the model.

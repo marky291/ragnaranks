@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreListingRequest;
 use App\Listings\Listing;
+use App\Listings\ListingConfiguration;
+use App\Listings\ListingLanguage;
+use App\Tag;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use App\Jobs\RoleAssignment;
 use Illuminate\Http\Request;
@@ -44,14 +49,28 @@ class ListingController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     * @return Response
+     * @param StoreListingRequest $request
+     * @return void
      */
-    public function store(Request $request)
+    public function store(StoreListingRequest $request)
     {
         RoleAssignment::dispatch(auth()->user(), 'creator');
 
-        dd('requires implementation');
+        DB::transaction(static function() use ($request)
+        {
+           /** @var Listing $listing */
+           $listing = user()->listings()->save(Listing::make($request->validated()));
+
+           /** @var ListingConfiguration $configs */
+           $configs = $listing->configuration()->save(ListingConfiguration::make($request->validated()));
+
+           foreach ($request->get('tags') as $tagName)
+           {
+               $listing->tags()->attach(Tag::where('name', $tagName)->first());
+           }
+        }, 5);
+
+        return response()->json(['success' => true]);
     }
 
     /**

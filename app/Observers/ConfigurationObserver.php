@@ -36,7 +36,7 @@ class ConfigurationObserver
      * @param int $base_exp
      * @return string
      */
-    private function getRateTitleFrom(int $base_exp): string
+    private function getRateTitleFrom($base_exp): string
     {
         if ($base_exp < config('filter.exp.low-rate.min')) {
             return 'official-rate';
@@ -50,7 +50,10 @@ class ConfigurationObserver
         if ($base_exp <= config('filter.exp.high-rate.max')) {
             return 'high-rate';
         }
+        if ($base_exp > config('filter.exp.high-rate.max')) {
+            return 'super-high-rate';
+        }
 
-        return 'super-high-rate';
+        return 'unknown-rate';
     }
 }

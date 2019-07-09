@@ -21,7 +21,7 @@ Route::resource('moderate/report', 'ReportController', ['middleware' => ['auth',
     'index', 'destroy', 'update',
 ]);
 Route::resource('listing', 'ListingController')->only([
-    'index', 'show', 'create',
+    'index', 'show', 'create', 'store',
 ]);
 Route::resource('review.comment', 'ReviewCommentController', ['middleware'=>['auth']])->only([
     'store',

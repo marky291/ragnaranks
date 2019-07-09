@@ -20,4 +20,54 @@ return [
             'max' => 5000,
         ],
     ],
+
+    'tags' => [
+        'freebies',
+        'gepard',
+        'guild-pack',
+        'pk-mode',
+        'mobile',
+        'frost',
+        'no-donations',
+        'instant-level',
+        'themed-server',
+    ],
+
+    'languages' => [
+        'english',
+        'french',
+        'german',
+        'irish',
+        'portuguese',
+        'malaysian',
+        'mandarin',
+        'russian',
+        'spanish',
+        'tagalog'
+    ],
+
+    'modes' => [
+        'renewal',
+        'pre-renewal',
+        'custom',
+        'classic',
+    ],
+
+    'rates' => [
+        'official-rate',
+        'low-rate',
+        'mid-rate',
+        'high-rate',
+        'super-high-rate',
+    ],
+
+    'accents' => [
+        'nightmare',
+        'poring',
+        'drops',
+        'deviling',
+        'ghostring',
+        'poporing',
+        'pouring'
+    ]
 ];

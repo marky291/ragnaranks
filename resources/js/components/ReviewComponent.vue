@@ -1,30 +1,29 @@
 <template>
-    <div class="review tw-mb-4 tw-p-3">
+    <div class="review tw-mb-4">
         <div class="row no-gutters">
-            <div class="col bg-white pb-3 content">
-                <div class="tw-flex mb-3 tw-items-center">
-                    <div class="tw-rounded-full tw-h-16 tw-w-16 tw-flex tw-avatar-circle tw-items-center tw-justify-center tw-mr-3 tw-bg-grey">
-                        <img class="border hover:tw-border-solid hover:tw-border-grey hover:tw-shadow tw-rounded-full tw-avatar-circle tw-h-16 tw-w-16" :src="review.user.avatar" alt="">
+            <div class="col content tw-rounded" :class="'bg-'+$parent.$parent.$parent.accent+'-light'">
+                <div class="tw-flex tw-items-center tw-p-3">
+                    <div class="tw-rounded-full tw-h-10 tw-w-10 tw-flex tw-avatar-circle tw-items-center tw-justify-center tw-mr-3 tw-bg-white">
+                        <img class="border hover:tw-border-solid hover:tw-border-grey hover:tw-shadow tw-rounded-full tw-avatar-circle tw-h-10 tw-w-10" :src="review.user.avatar" alt="">
                     </div>
                     <div class="tw-flex tw-flex-row tw-flex-1 tw-text-left">
                         <div class="info d-flex tw-flex-col tw-flex mb-1">
-                            <p class="tw-flex-1 tw-text-lg tw-text-grey-darkest tw-font-semibold tw-mb-0">{{ review.user.username }}</p>
-                            <p>Member since {{ memberSinceDate() }}</p>
+                            <p class="tw-flex-1 tw-text-white tw-font-semibold tw-mb-0" style="font-size:.9rem">{{ review.user.username }}</p>
+                            <p class="tw-text-white"><small>Posted {{ formattedDate() }}</small></p>
                         </div>
-                        <div class="tw-flex tw-flex-col tw-text-right tw-flex-1">
-                            Rating: {{ this.ratingScore(review.average_score) }} ({{ review.average_score }} / 5)
-                            <p class="tw-flex-1">Posted {{ formattedDate() }}</p>
+                        <div class="tw-flex tw-flex-col tw-self-center tw-text-right tw-flex-1">
+                            <p class="tw-text-white" style="font-size:1.05rem">Rating: <span class="tw-uppercase">{{ this.ratingScore(review.average_score) }}</span></p>
                         </div>
                     </div>
                 </div>
-                <div class="description">
+                <div class="description tw-p-3 tw-bg-white">
                     <p class="tw-text-grey-dark">{{ review.message }}</p>
                 </div>
                 <div class="tw-border-red tw-p-2 tw-mt-2 tw-bg-red-lightest tw-rounded" v-for="(comment, index) in review.comments">
                     <p class="tw-font-semibold">Reply from owner</p>
                     <p class="tw-text-red">{{ comment.message }}</p>
                 </div>
-                <div v-show="viewingDetails" class="tw-flex tw-border-t tw-border-grey-light py-3 mt-3">
+                <div v-show="viewingDetails" class="tw-flex py-3 mt-3">
                     <ul class="tw-flex-1 mb-0">
                         <li class="tw-text-xs"><b>Donation Score</b>: {{ review.donation_score }}</li>
                         <li class="tw-text-xs"><b>Update Score</b>: {{ review.update_score }}</li>

@@ -90,7 +90,7 @@ class ListingTest extends TestCase
             'event_score' => 4,
         ]));
 
-        $this->assertEquals(3.1, $listing->fresh()->review_score);
+        $this->assertEquals(3.1, Review::first()->average_score);
     }
 
     public function test_it_has_a_default_review_score()
