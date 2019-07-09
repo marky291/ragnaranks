@@ -43,7 +43,7 @@ return [
         'mandarin',
         'russian',
         'spanish',
-        'tagalog'
+        'tagalog',
     ],
 
     'modes' => [
@@ -68,6 +68,6 @@ return [
         'deviling',
         'ghostring',
         'poporing',
-        'pouring'
-    ]
+        'pouring',
+    ],
 ];

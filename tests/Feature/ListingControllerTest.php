@@ -2,12 +2,10 @@
 
 namespace Tests\Feature;
 
+use Tests\TestCase;
 use App\Listings\Listing;
 use App\Listings\ListingConfiguration;
-use App\Tag;
 use Illuminate\Auth\AuthenticationException;
-use Illuminate\Validation\ValidationException;
-use Tests\TestCase;
 
 class ListingControllerTest extends TestCase
 {
