@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreListingRequest;
-use App\Listings\Listing;
-use App\Listings\ListingConfiguration;
-use App\Listings\ListingLanguage;
 use App\Tag;
-use Illuminate\Support\Facades\DB;
+use App\Listings\Listing;
 use Illuminate\View\View;
 use App\Jobs\RoleAssignment;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
+use App\Listings\ListingConfiguration;
+use App\Http\Requests\StoreListingRequest;
 
 /**
  * Class ListingController.
@@ -56,18 +55,16 @@ class ListingController extends Controller
     {
         RoleAssignment::dispatch(auth()->user(), 'creator');
 
-        DB::transaction(static function() use ($request)
-        {
-           /** @var Listing $listing */
-           $listing = user()->listings()->save(Listing::make($request->validated()));
+        DB::transaction(static function () use ($request) {
+            /** @var Listing $listing */
+            $listing = user()->listings()->save(Listing::make($request->validated()));
 
-           /** @var ListingConfiguration $configs */
-           $configs = $listing->configuration()->save(ListingConfiguration::make($request->validated()));
+            /** @var ListingConfiguration $configs */
+            $configs = $listing->configuration()->save(ListingConfiguration::make($request->validated()));
 
-           foreach ($request->get('tags') as $tagName)
-           {
-               $listing->tags()->attach(Tag::where('name', $tagName)->first());
-           }
+            foreach ($request->get('tags') as $tagName) {
+                $listing->tags()->attach(Tag::where('name', $tagName)->first());
+            }
         }, 5);
 
         return response()->json(['success' => true]);

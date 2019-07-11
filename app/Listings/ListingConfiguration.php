@@ -42,7 +42,7 @@ class ListingConfiguration extends Model
         'base_exp_rate', 'job_exp_rate', 'quest_exp_rate', 'instant_cast_stat',
         'pk_mode', 'castrate_dex_scale', 'arrow_decrement', 'undead_detect_type',
         'attribute_recover', 'item_drop_common', 'item_drop_equip', 'item_drop_card',
-        'item_drop_common_mvp', 'item_drop_equip_mvp', 'item_drop_card_mvp'
+        'item_drop_common_mvp', 'item_drop_equip_mvp', 'item_drop_card_mvp',
     ];
 
     /**
