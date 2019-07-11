@@ -24,7 +24,7 @@ return [
         'mandarin',
         'russian',
         'spanish',
-        'tagalog'
+        'tagalog',
     ],
 
     'modes' => [
@@ -49,13 +49,13 @@ return [
         'deviling',
         'ghostring',
         'poporing',
-        'pouring'
+        'pouring',
     ],
 
     'exp' => [
-        'low-rate' => [ 'min' => 6, 'max' => 50 ],
-        'mid-rate' => [ 'min' => 51, 'max' => 300 ],
-        'high-rate' => [ 'min' => 301, 'max' => 5000 ],
+        'low-rate' => ['min' => 6, 'max' => 50],
+        'mid-rate' => ['min' => 51, 'max' => 300],
+        'high-rate' => ['min' => 301, 'max' => 5000],
     ],
 
     'presets' => [
@@ -67,5 +67,5 @@ return [
         ['accent' => 'nightmare', 'card' => 'http://ragnaranks.com/img/preset/card-black.png'],
         ['accent' => 'drops', 'card' => 'http://ragnaranks.com/img/preset/card-mauve.png'],
         ['accent' => 'poring', 'card' => 'http://ragnaranks.com/img/preset/card-pink.png'],
-    ]
+    ],
 ];
