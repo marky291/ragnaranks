@@ -1,25 +1,6 @@
 <?php
 
 return [
-    /*
-    | * Anything lower than low-rate is considered 'OFFICIAL'
-    | * Anything higher than high-rate is considered 'SUPER HIGH RATE'
-    */
-
-    'exp' => [
-        'low-rate' => [
-           'min' => 6,
-           'max' => 50,
-       ],
-        'mid-rate' => [
-            'min' => 51,
-            'max' => 300,
-        ],
-        'high-rate' => [
-            'min' => 301,
-            'max' => 5000,
-        ],
-    ],
 
     'tags' => [
         'freebies',
@@ -69,5 +50,22 @@ return [
         'ghostring',
         'poporing',
         'pouring'
+    ],
+
+    'exp' => [
+        'low-rate' => [ 'min' => 6, 'max' => 50 ],
+        'mid-rate' => [ 'min' => 51, 'max' => 300 ],
+        'high-rate' => [ 'min' => 301, 'max' => 5000 ],
+    ],
+
+    'presets' => [
+        ['accent' => 'nightmare', 'card' => '/img/preset/card-red.png'],
+        ['accent' => 'deviling', 'card' => '/img/preset/card-purple.png'],
+        ['accent' => 'poporing', 'card' => '/img/preset/card-green.png'],
+        ['accent' => 'pouring', 'card' => '/img/preset/card-blue.png'],
+        ['accent' => 'ghostring', 'card' => '/img/preset/card-aqua.png'],
+        ['accent' => 'nightmare', 'card' => '/img/preset/card-black.png'],
+        ['accent' => 'drops', 'card' => '/img/preset/card-mauve.png'],
+        ['accent' => 'poring', 'card' => '/img/preset/card-pink.png'],
     ]
 ];

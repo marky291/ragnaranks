@@ -7,34 +7,31 @@
         data: function () {
             return {
                 listing: {},
-                preset: {},
+                configurations: {},
                 profileLoaded: false,
+                configLoaded: false,
                 currentPage: 'profile',
             }
         },
-        mounted() {
-            this.preset = sample([
-                {accent: 'nightmare', background: '/img/preset/card-red.png'},
-                {accent: 'deviling', background: '/img/preset/card-purple.png'},
-                {accent: 'poporing', background: '/img/preset/card-green.png'},
-                {accent: 'pouring', background: '/img/preset/card-blue.png'},
-                {accent: 'ghostring', background: '/img/preset/card-aqua.png'},
-                {accent: 'nightmare', background: '/img/preset/card-black.png'},
-                {accent: 'drops', background: '/img/preset/card-mauve.png'},
-                {accent: 'poring', background: '/img/preset/card-pink.png'},
-            ]);
-
-            axios.get('/api/listing/'+(this.slug)).then(response => {
+        async mounted() {
+            await axios.get('/api/listing/'+(this.slug)).then((response) => {
                 this.listing = response.data;
                 this.profileLoaded = true;
             });
+
+            if (this.slug === 'defaults') {
+                await axios.get('/api/listing/configurations').then((response) => {
+                    this.configurations = response.data;
+                    this.configLoaded = true;
+                });
+            }
         },
         computed: {
             accent() {
                 return this.listing.accent ? this.listing.accent : this.preset.accent;
             },
             background() {
-                return this.listing.background ? this.listing.background : this.preset.background;
+                return this.listing.background ? this.listing.background : this.preset.card;
             },
             name: function () {
                 return this.listing.name ? this.listing.name : 'Default RO';

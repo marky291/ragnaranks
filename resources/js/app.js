@@ -66,8 +66,6 @@ Vue.component('profile-page', require('./components/profile/ProfilePage.vue').de
 Vue.component('profile', require('./components/profile/Profile').default);
 Vue.component('configs', require('./components/profile/ProfileConfigs').default);
 
-Vue.config.performance = true;
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

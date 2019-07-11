@@ -11,16 +11,27 @@
 |
 */
 
+use App\Http\Resources\NewListingResource;
 use App\Listings\Listing;
 use App\Listings\ListingRanking;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\ReviewResource;
 use App\Listings\ListingConfiguration;
-use App\Http\Resources\ListingResource;
 
 Route::get('/listing/defaults', static function () {
     return cache()->rememberForever('listing:defaults', static function () {
-        return ListingResource::make((new Listing())->setRelation('configuration', new ListingConfiguration)->setRelation('ranking', new ListingRanking));
+        return NewListingResource::make((new Listing())->setRelation('configuration', new ListingConfiguration)->setRelation('ranking', new ListingRanking));
+    });
+});
+
+Route::get('/listing/configurations', static function() {
+    return cache()->remember('listing:configurations', 120, static function() {
+        return json_encode(array_merge(
+            ['tags' => config('filter.tags')],
+            ['languages' => config('filter.languages')],
+            ['presets' => config('filter.presets')],
+            ['accents' => config('filter.accents')]
+        ));
     });
 });
 

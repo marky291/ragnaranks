@@ -46,6 +46,33 @@ class ListingConfiguration extends Model
     ];
 
     /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'max_base_level' => 0,
+        'max_job_level' => 0,
+        'max_stats' => 0,
+        'max_aspd' => 0,
+        'base_exp_rate' => 0,
+        'job_exp_rate' => 0,
+        'quest_exp_rate' => 0,
+        'item_drop_common' => 0,
+        'item_drop_equip' => 0,
+        'item_drop_card' => 0,
+        'item_drop_common_mvp' => 0,
+        'item_drop_equip_mvp' => 0,
+        'item_drop_card_mvp' => 0,
+        'pk_mode' => false,
+        'castrate_dex_scale' => false,
+        'arrow_decrement' => false,
+        'undead_detect_type' => false,
+        'attribute_recover' => false,
+        'instant_cast_stat' => false,
+    ];
+
+    /**
      * The primary key for the model.
      *
      * @var string

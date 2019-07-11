@@ -23,7 +23,7 @@ class ListingResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name ?? trans('profile.defaultName'),
+            'name' => $this->name,
             'slug' => $this->slug,
             'website' => $this->website,
             'accent' => $this->accent,
@@ -32,7 +32,7 @@ class ListingResource extends JsonResource
             'screenshots' => $this->resource->relationLoaded('screenshots') ? $this->screenshots()->pluck('link')->toArray() : [],
             'ranking' => RankingResource::make($this->whenLoaded('ranking')),
             'background' => $this->background,
-            'description' => $this->description ?? trans('profile.defaultMarkup'),
+            'description' => $this->description,
             'tags' => $this->resource->relationLoaded('tags') ? $this->resource->tags->pluck('name')->toArray() : [],
             'config' => ConfigurationResource::make($this->whenLoaded('configuration')),
             'language' => $this->resource->relationLoaded('language') ? $this->language->name : 'english',
