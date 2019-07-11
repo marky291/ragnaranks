@@ -35,8 +35,8 @@ Route::get('/listing/configurations', static function () {
     });
 });
 
-Route::get('/listing/{name}/available', static function(string $name) {
-    return json_encode(!Listing::whereName($name)->count());
+Route::get('/listing/{name}/available', static function (string $name) {
+    return json_encode(! Listing::whereName($name)->count());
 });
 
 Route::get('/listing/{listing}', static function (Listing $listing) {
