@@ -1,9 +1,9 @@
 <template>
     <transition name="fade">
         <div class="" v-if="$parent.profileLoaded">
-            <div :class="'use-accent-'+$parent.accent" class="mb-3 server-card item flex-fill border rounded">
+            <div :class="'use-accent-'+$parent.listing.accent" class="mb-3 server-card item flex-fill border rounded">
                 <div id="profile-card" class="profile-block">
-                    <div class="server-card-head image rounded-top" style="height:350px;" v-bind:style="{ backgroundImage: 'url(' + $parent.background + ')' }"></div>
+                    <div class="server-card-head image rounded-top" style="height:350px;" v-bind:style="{ backgroundImage: 'url(' + $parent.listing.background + ')' }"></div>
                     <div class="server-card-head overlap d-flex" style="margin-top:-169px;">
                         <i class="fas fa-arrow-left tw-text-white tw-text-2xl tw-absolute tw-align-top"></i>
                         <div class="left-side d-flex w-75 flex-column align-items-start px-4 py-2 align-self-end">
@@ -185,16 +185,6 @@
             ReviewCreator,
             Carousel3d,
             Ratings,
-        },
-        data: function () {
-            return {
-                // reviews: this.reviews,
-            }
-        },
-        methods: {
-            test() {
-                console.log(slug);
-            }
         }
     }
 </script>
