@@ -35,6 +35,10 @@ Route::get('/listing/configurations', static function () {
     });
 });
 
+Route::get('/listing/{name}/available', static function(string $name) {
+    return json_encode(!Listing::whereName($name)->count());
+});
+
 Route::get('/listing/{listing}', static function (Listing $listing) {
     return cache()->remember("listing:{$listing->name}", 120, static function () use ($listing) {
         return App\Http\Resources\ListingResource::make($listing->load('ranking', 'screenshots', 'tags', 'configuration', 'language', 'reviews', 'reviews.user', 'reviews.comments'));

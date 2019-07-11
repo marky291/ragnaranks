@@ -86,6 +86,10 @@
       .config:nth-child(2n) {
         background: white;
       }
+      .column {
+        display: flex;
+        flex-direction: column;
+      }
     }
     .at-tabs-nav {
       display: flex;

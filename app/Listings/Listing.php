@@ -41,6 +41,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property ListingConfiguration $configuration
  * @method static create(array $validated)
  * @method static make(array $validated)
+ * @method static whereName(string $name)
  */
 class Listing extends Model
 {

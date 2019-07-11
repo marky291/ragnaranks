@@ -86,8 +86,20 @@ h1,h2,h3,h4,h5 {
   display: block;
   color: #e3342f;
   font-size: .75rem;
+  margin-top: 0;
 }
 
+.invalid-textarea {
+  textarea {
+    border-color: #ff4949;
+  }
+  textarea:hover {
+    border-color: #ff4949;
+  }
+  textarea:focus {
+    border-color: #ff4949;
+  }
+}
 .at-collapse__content {
   overflow: initial;
 }
