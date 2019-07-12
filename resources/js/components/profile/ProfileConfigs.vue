@@ -10,6 +10,7 @@
                     <div class="tw-flex tw-flex-row tw-items-baseline">
                         <p class="tw-text-left tw-font-semibold tw-mb-1" :style="validation.hasError('current.name') ? 'color:#b3312d' : null">Server Name</p>
                         <div v-if="validation.hasError('current.name')" class="tw-flex-1 tw-text-right help-block invalid-feedback">{{ validation.firstError('current.name') }}</div>
+                        <div v-if="current.name && validation.isPassed('current.name')" class="tw-flex-1 tw-text-right help-block tw-text-green-dark" style="font-size:12px;">Available!</div>
                     </div>
                     <div class="tw-flex tw-flex-row">
                         <at-input class="tw-flex-1" v-model="current.name" size="small" placeholder="Please input" :status="validation.hasError('current.name') ? 'error' : ''"></at-input>
