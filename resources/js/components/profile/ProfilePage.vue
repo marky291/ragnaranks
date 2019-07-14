@@ -6,7 +6,9 @@
         props: ['slug'],
         data: function () {
             return {
-                listing: {},
+                listing: {
+                    isEditor: Boolean
+                },
                 configurations: {},
                 profileLoaded: false,
                 configLoaded: false,
@@ -19,7 +21,7 @@
                 this.profileLoaded = true;
             });
 
-            if (this.slug === 'defaults') {
+            if (this.slug === 'defaults' || this.listing.isEditor === true) {
                 await axios.get('/api/listing/configurations').then((response) => {
                     this.configurations = response.data;
                     this.configLoaded = true;
