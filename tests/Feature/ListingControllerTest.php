@@ -2,13 +2,12 @@
 
 namespace Tests\Feature;
 
-use App\Tag;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Listings\ListingConfiguration;
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ListingControllerTest extends TestCase
 {
@@ -57,7 +56,6 @@ class ListingControllerTest extends TestCase
             ['tags' => $tags],
             ['config' => $configs->toArray()]
         ));
-
 
         $this->assertDatabaseHas('listings', ['name' => 'foo']);
 
