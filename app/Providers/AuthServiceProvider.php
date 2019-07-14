@@ -15,7 +15,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        Listing::class => ListingPolicy::class
+        Listing::class => ListingPolicy::class,
     ];
 
     /**
@@ -30,7 +30,7 @@ class AuthServiceProvider extends ServiceProvider
         // Implicitly grant "Super Admin" role all permissions
         // This works in the app by using gate-related functions like auth()->user->can() and @can()
         Gate::before(function ($user, $ability) {
-            if($user->hasRole('admin')) {
+            if ($user->hasRole('admin')) {
                 return true;
             }
         });

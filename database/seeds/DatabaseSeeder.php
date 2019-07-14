@@ -1,11 +1,11 @@
 <?php
 
 use App\Tag;
+use App\User;
 use App\Listings\Listing;
 use App\Interactions\Vote;
 use App\Interactions\Click;
 use App\Interactions\Review;
-use App\User;
 use Illuminate\Database\Seeder;
 use App\Listings\ListingScreenshot;
 use App\Jobs\BuildListingRankingTable;

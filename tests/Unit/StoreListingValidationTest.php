@@ -2,8 +2,6 @@
 
 namespace Tests\Unit;
 
-use App\Http\Requests\StoreListingRequest;
-use Illuminate\Validation\Validator;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Listings\ListingConfiguration;
