@@ -1,7 +1,5 @@
 <?php
 
-use App\User;
-use App\Listings\Listing;
 use App\Interactions\Vote;
 use App\Interactions\Click;
 use Faker\Generator as Faker;

@@ -3,7 +3,6 @@
 namespace App\Listings;
 
 use App\User;
-use App\Listings\Listing;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ListingPolicy
