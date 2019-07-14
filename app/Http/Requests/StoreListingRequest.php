@@ -47,11 +47,11 @@ class StoreListingRequest extends FormRequest
             'config.item_drop_common_mvp' => 'required|int|between:1,2147483648',
             'config.item_drop_equip_mvp' => 'required|int|between:1,2147483648',
             'config.item_drop_card_mvp' => 'required|int|between:1,2147483648',
-            'config.instant_cast_stat' => ['required', Rule::in(['0,1'])],
-            'config.pk_mode' => ['required', Rule::in(['0,1'])],
-            'config.arrow_decrement' => ['required', Rule::in(['0,1'])],
-            'config.undead_detect_type' => ['required', Rule::in(['0,1'])],
-            'config.attribute_recover' => ['required', Rule::in(['0,1'])],
+            'config.instant_cast_stat' => 'required|digits_between:0,1',
+            'config.pk_mode' => 'required|digits_between:0,1',
+            'config.arrow_decrement' => 'required|digits_between:0,1',
+            'config.undead_detect_type' => 'required|digits_between:0,1',
+            'config.attribute_recover' => 'required|digits_between:0,1',
         ];
     }
 }
