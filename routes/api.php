@@ -30,7 +30,8 @@ Route::get('/listing/configurations', static function () {
             ['tags' => config('filter.tags')],
             ['languages' => config('filter.languages')],
             ['presets' => config('filter.presets')],
-            ['accents' => config('filter.accents')]
+            ['accents' => config('filter.accents')],
+            ['modes' => config('filter.modes')]
         ));
     });
 });

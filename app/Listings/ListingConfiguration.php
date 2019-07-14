@@ -64,12 +64,12 @@ class ListingConfiguration extends Model
         'item_drop_common_mvp' => 0,
         'item_drop_equip_mvp' => 0,
         'item_drop_card_mvp' => 0,
-        'pk_mode' => 'no',
-        'castrate_dex_scale' => 'no',
-        'arrow_decrement' => 'no',
-        'undead_detect_type' => 'no',
-        'attribute_recover' => 'no',
-        'instant_cast_stat' => 'no',
+        'pk_mode' => 0,
+        'castrate_dex_scale' => 0,
+        'arrow_decrement' => 0,
+        'undead_detect_type' => 0,
+        'attribute_recover' => 0,
+        'instant_cast_stat' => 0,
     ];
 
     /**

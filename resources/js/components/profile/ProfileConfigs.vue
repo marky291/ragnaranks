@@ -34,16 +34,20 @@
                             </div>
                         </at-option>
                     </at-select>
-<!--                    <has-error :form="listing" field="accent"></has-error>-->
                 </div>
                 <div class="tw-p-2">
-                    <p class="tw-font-semibold tw-mb-1">Nationality</p>
+                    <p class="tw-font-semibold tw-mb-1">Main Language</p>
                     <div class="tw-flex">
                         <at-select v-model="current.language" class="tw-capitalize">
                             <at-option v-for="(language, i) in configurations.languages" :key="i" :value="language" :label="language"><img class="tw-w-4 tw-h-4 tw-mr-2" :src="'/img/flags/'+language+'.svg'" alt="">{{ language }}</at-option>
                         </at-select>
                     </div>
-<!--                    <has-error :form="listing" field="language"></has-error>-->
+                </div>
+                <div class="tw-p-2">
+                    <p class="tw-font-semibold tw-mb-1">Server Mode</p>
+                    <at-select v-model="current.mode">
+                        <at-option v-for="(mode, i) in configurations.modes" :key="i" :value="mode">{{ $t('homepage.mode.'+mode+'.name') }}</at-option>
+                    </at-select>
                 </div>
                 <div class="tw-p-2">
                     <div class="tw-flex tw-flex-row tw-items-baseline">
@@ -59,17 +63,15 @@
                     </div>
                     <at-input v-model="current.background" placeholder="Enter an Image URL" :status="validation.hasError('current.background') ? 'error' : ''"></at-input>
 <!--                    <small class="tw-text-blue">(Optimal size 728x350px)</small>-->
-<!--                    <has-error :form="listing" field="background"></has-error>-->
                 </div>
                 <div :class="'bg-'+current.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1 tw-mt-3">
                     <p class="tw-font-bold">Filtering</p>
                 </div>
                 <div class="tw-p-2">
-                    <p class="tw-font-semibold tw-mb-1">Search Tags</p>
+                    <p class="tw-font-semibold tw-mb-1">Relatable Tags</p>
                     <at-select v-model="current.tags" multiple>
                         <at-option v-for="(tag, index) in configurations.tags" :key="index" :value="tag">#{{ $t('homepage.tag.'+tag+'.name') }}</at-option>
                     </at-select>
-<!--                    <has-error :form="listing" field="tags"></has-error>-->
                 </div>
                 <div :class="'bg-'+current.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1 tw-mt-3">
                     <p class="tw-font-bold">Images</p>
@@ -89,7 +91,6 @@
 													<at-input size="small" :placeholder="screenshot" class="tw-flex-1" disabled></at-input>
 												</span>
                   </span>
-<!--                    <has-error :form="listing" field="screenshots"></has-error>-->
                 </div>
                 <div :class="'bg-'+current.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1 tw-mt-3">
                     <p class="tw-font-bold">Content</p>
@@ -221,8 +222,8 @@
                                     <div v-if="validation.hasError('current.config.instant_cast_stat')" class="tw-flex-1 help-block invalid-feedback">{{ validation.firstError('current.config.instant_cast_stat') }}</div>
                                 </div>
                                 <at-radio-group v-model="current.config.instant_cast_stat">
-                                    <at-radio label="no">No</at-radio>
-                                    <at-radio label="yes">Yes</at-radio>
+                                    <at-radio :label="0">No</at-radio>
+                                    <at-radio :label="1">Yes</at-radio>
                                 </at-radio-group>
                             </div>
                             <div class="config">
@@ -231,8 +232,8 @@
                                     <div v-if="validation.hasError('current.config.pk_mode')" class="tw-flex-1 help-block invalid-feedback">{{ validation.firstError('current.config.pk_mode') }}</div>
                                 </div>
                                 <at-radio-group v-model="current.config.pk_mode">
-                                    <at-radio label="no">No</at-radio>
-                                    <at-radio label="yes">Yes</at-radio>
+                                    <at-radio :label="0">No</at-radio>
+                                    <at-radio :label="1">Yes</at-radio>
                                 </at-radio-group>
                             </div>
                             <div class="config">
@@ -241,8 +242,8 @@
                                     <div v-if="validation.hasError('current.config.arrow_decrement')" class="tw-flex-1 help-block invalid-feedback">{{ validation.firstError('current.config.arrow_decrement') }}</div>
                                 </div>
                                 <at-radio-group v-model="current.config.arrow_decrement">
-                                    <at-radio label="no">No</at-radio>
-                                    <at-radio label="yes">Yes</at-radio>
+                                    <at-radio :label="0">No</at-radio>
+                                    <at-radio :label="1">Yes</at-radio>
                                 </at-radio-group>
                             </div>
                             <div class="config">
@@ -251,8 +252,8 @@
                                     <div v-if="validation.hasError('current.config.undead_detect_type')" class="tw-flex-1 help-block invalid-feedback">{{ validation.firstError('current.config.undead_detect_type') }}</div>
                                 </div>
                                 <at-radio-group v-model="current.config.undead_detect_type">
-                                    <at-radio label="no">No</at-radio>
-                                    <at-radio label="yes">Yes</at-radio>
+                                    <at-radio :label="0">No</at-radio>
+                                    <at-radio :label="1">Yes</at-radio>
                                 </at-radio-group>
                             </div>
                             <div class="config">
@@ -261,8 +262,8 @@
                                     <div v-if="validation.hasError('current.config.attribute_recover')" class="tw-flex-1 help-block invalid-feedback">{{ validation.firstError('current.config.attribute_recover') }}</div>
                                 </div>
                                 <at-radio-group v-model="current.config.attribute_recover">
-                                    <at-radio label="no">No</at-radio>
-                                    <at-radio label="yes">Yes</at-radio>
+                                    <at-radio :label="0">No</at-radio>
+                                    <at-radio :label="1">Yes</at-radio>
                                 </at-radio-group>
                             </div>
                         </div>
@@ -275,16 +276,11 @@
 </template>
 
 <script>
-    // import sample from 'lodash/sample';
+    import Form from 'vform';
     import {Validator} from 'simple-vue-validator';
-    // import { Form, HasError, AlertError } from 'vform'
 
     export default {
         props: ['current', 'defaultDescription', 'configurations'],
-        // components: {
-        //     'has-error': HasError,
-        //     'alert-error': AlertError,
-        // },
         data: function () {
             return {
                 screenshot: '',
@@ -292,17 +288,18 @@
         },
         methods: {
             updateOrSave() {
-                // if (this.listing.slug === null) {
-                //     this.listing.post('/listing').then((response) => {
-                //         console.log(response);
-                //     }).catch((error) => {
-                //         this.$Notify({
-                //             title: 'Opps!',
-                //             message: error.message,
-                //             type: 'error'
-                //         })
-                //     })
-                // }
+                let form = new Form(this.current);
+                if (this.current.slug === null) {
+                    form.post('/listing', this.current.data).then((response) => {
+                        // console.log(response);
+                    }).catch((error) => {
+                        this.$Notify({
+                            title: 'Opps!',
+                            message: error.message,
+                            type: 'error'
+                        })
+                    })
+                }
             },
             addTag (newTag) {
                 let tag = { name: newTag };
@@ -322,7 +319,7 @@
                 return Validator.value(value).digit().greaterThan(1).lessThan(2147483648).required();
             },
             validateBooleanField(value) {
-                return Validator.value(value).boolean();
+                return Validator.value(value).required();
             }
         },
         validators: {
@@ -414,5 +411,3 @@
         }
     }
 </script>
-
-<!--<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>-->

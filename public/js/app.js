@@ -16301,8 +16301,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var simple_vue_validator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! simple-vue-validator */ "./node_modules/simple-vue-validator/src/index.js");
-/* harmony import */ var simple_vue_validator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(simple_vue_validator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
+/* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var simple_vue_validator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! simple-vue-validator */ "./node_modules/simple-vue-validator/src/index.js");
+/* harmony import */ var simple_vue_validator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(simple_vue_validator__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -16579,32 +16581,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-// import sample from 'lodash/sample';
- // import { Form, HasError, AlertError } from 'vform'
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['current', 'defaultDescription', 'configurations'],
-  // components: {
-  //     'has-error': HasError,
-  //     'alert-error': AlertError,
-  // },
   data: function data() {
     return {
       screenshot: ''
     };
   },
   methods: {
-    updateOrSave: function updateOrSave() {// if (this.listing.slug === null) {
-      //     this.listing.post('/listing').then((response) => {
-      //         console.log(response);
-      //     }).catch((error) => {
-      //         this.$Notify({
-      //             title: 'Opps!',
-      //             message: error.message,
-      //             type: 'error'
-      //         })
-      //     })
-      // }
+    updateOrSave: function updateOrSave() {
+      var _this = this;
+
+      var form = new vform__WEBPACK_IMPORTED_MODULE_0___default.a(this.current);
+
+      if (this.current.slug === null) {
+        form.post('/listing', this.current.data).then(function (response) {// console.log(response);
+        })["catch"](function (error) {
+          _this.$Notify({
+            title: 'Opps!',
+            message: error.message,
+            type: 'error'
+          });
+        });
+      }
     },
     addTag: function addTag(newTag) {
       var tag = {
@@ -16623,18 +16625,18 @@ __webpack_require__.r(__webpack_exports__);
       this.current.screenshots.splice(index, 1);
     },
     validateNumericField: function validateNumericField(value) {
-      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_0__["Validator"].value(value).digit().greaterThan(1).lessThan(2147483648).required();
+      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_1__["Validator"].value(value).digit().greaterThan(1).lessThan(2147483648).required();
     },
     validateBooleanField: function validateBooleanField(value) {
-      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_0__["Validator"].value(value)["boolean"]();
+      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_1__["Validator"].value(value).required();
     }
   },
   validators: {
     'current.name': {
       debounce: 200,
       validator: function validator(name) {
-        return simple_vue_validator__WEBPACK_IMPORTED_MODULE_0__["Validator"].value(name).required().minLength(3).maxLength(255).custom(function () {
-          if (!simple_vue_validator__WEBPACK_IMPORTED_MODULE_0__["Validator"].isEmpty(name)) {
+        return simple_vue_validator__WEBPACK_IMPORTED_MODULE_1__["Validator"].value(name).required().minLength(3).maxLength(255).custom(function () {
+          if (!simple_vue_validator__WEBPACK_IMPORTED_MODULE_1__["Validator"].isEmpty(name)) {
             return axios.get('/api/listing/' + name + '/available').then(function (response) {
               console.log(response.data);
 
@@ -16647,13 +16649,13 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     'current.background': function currentBackground(value) {
-      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_0__["Validator"].value(value).required().url();
+      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_1__["Validator"].value(value).required().url();
     },
     'current.website': function currentWebsite(value) {
-      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_0__["Validator"].value(value).required().url();
+      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_1__["Validator"].value(value).required().url();
     },
     'current.description': function currentDescription(value) {
-      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_0__["Validator"].value(value).required().minLength(100).maxLength(999);
+      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_1__["Validator"].value(value).required().minLength(100).maxLength(999);
     },
     'current.config.max_base_level': function currentConfigMax_base_level(value) {
       return this.validateNumericField(value);
@@ -16713,7 +16715,7 @@ __webpack_require__.r(__webpack_exports__);
       return this.validateBooleanField(value);
     },
     screenshot: function screenshot(value) {
-      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_0__["Validator"].value(value).url();
+      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_1__["Validator"].value(value).url();
     }
   }
 });
@@ -22723,7 +22725,7 @@ var baseIteratee = __webpack_require__(/*! ./_baseIteratee */ "./node_modules/lo
  * @memberOf _
  * @since 4.7.0
  * @category Math
- * @param {string} array The array to iterate over.
+ * @param {Array} array The array to iterate over.
  * @param {Function} [iteratee=_.identity] The iteratee invoked per element.
  * @returns {number} Returns the mean.
  * @example
@@ -23096,7 +23098,7 @@ var block = {
     + ')',
   def: /^ {0,3}\[(label)\]: *\n? *<?([^\s>]+)>?(?:(?: +\n? *| *\n *)(title))? *(?:\n+|$)/,
   table: noop,
-  lheading: /^([^\n]+)\n *(=|-){2,} *(?:\n+|$)/,
+  lheading: /^([^\n]+)\n {0,3}(=|-){2,} *(?:\n+|$)/,
   paragraph: /^([^\n]+(?:\n(?!hr|heading|lheading| {0,3}>|<\/?(?:tag)(?: +|\n|\/?>)|<(?:script|pre|style|!--))[^\n]+)*)/,
   text: /^[^\n]+/
 };
@@ -23279,14 +23281,21 @@ Lexer.prototype.token = function(src, top) {
 
     // code
     if (cap = this.rules.code.exec(src)) {
+      var lastToken = this.tokens[this.tokens.length - 1];
       src = src.substring(cap[0].length);
-      cap = cap[0].replace(/^ {4}/gm, '');
-      this.tokens.push({
-        type: 'code',
-        text: !this.options.pedantic
-          ? rtrim(cap, '\n')
-          : cap
-      });
+      // An indented code block cannot interrupt a paragraph.
+      if (lastToken && lastToken.type === 'paragraph') {
+        lastToken.text += '\n' + cap[0].trimRight();
+      } else {
+        cap = cap[0].replace(/^ {4}/gm, '');
+        this.tokens.push({
+          type: 'code',
+          codeBlockStyle: 'indented',
+          text: !this.options.pedantic
+            ? rtrim(cap, '\n')
+            : cap
+        });
+      }
       continue;
     }
 
@@ -23606,7 +23615,7 @@ var inline = {
   reflink: /^!?\[(label)\]\[(?!\s*\])((?:\\[\[\]]?|[^\[\]\\])+)\]/,
   nolink: /^!?\[(?!\s*\])((?:\[[^\[\]]*\]|\\[\[\]]|[^\[\]])*)\](?:\[\])?/,
   strong: /^__([^\s_])__(?!_)|^\*\*([^\s*])\*\*(?!\*)|^__([^\s][\s\S]*?[^\s])__(?!_)|^\*\*([^\s][\s\S]*?[^\s])\*\*(?!\*)/,
-  em: /^_([^\s_])_(?!_)|^\*([^\s*"<\[])\*(?!\*)|^_([^\s][\s\S]*?[^\s_])_(?!_|[^\spunctuation])|^_([^\s_][\s\S]*?[^\s])_(?!_|[^\spunctuation])|^\*([^\s"<\[][\s\S]*?[^\s*])\*(?!\*)|^\*([^\s*"<\[][\s\S]*?[^\s])\*(?!\*)/,
+  em: /^_([^\s_])_(?!_)|^\*([^\s*<\[])\*(?!\*)|^_([^\s<][\s\S]*?[^\s_])_(?!_|[^\spunctuation])|^_([^\s_<][\s\S]*?[^\s])_(?!_|[^\spunctuation])|^\*([^\s<"][\s\S]*?[^\s\*])\*(?!\*|[^\spunctuation])|^\*([^\s*"<\[][\s\S]*?[^\s])\*(?!\*)/,
   code: /^(`+)([^`]|[^`][\s\S]*?[^`])\1(?!`)/,
   br: /^( {2,}|\\)\n(?!\s*$)/,
   del: noop,
@@ -23691,7 +23700,10 @@ inline.gfm.url = edit(inline.gfm.url, 'i')
 
 inline.breaks = merge({}, inline.gfm, {
   br: edit(inline.br).replace('{2,}', '*').getRegex(),
-  text: edit(inline.gfm.text).replace(/\{2,\}/g, '*').getRegex()
+  text: edit(inline.gfm.text)
+    .replace('\\b_', '\\b_| {2,}\\n')
+    .replace(/\{2,\}/g, '*')
+    .getRegex()
 });
 
 /**
@@ -24152,7 +24164,7 @@ TextRenderer.prototype.strong =
 TextRenderer.prototype.em =
 TextRenderer.prototype.codespan =
 TextRenderer.prototype.del =
-TextRenderer.prototype.text = function (text) {
+TextRenderer.prototype.text = function(text) {
   return text;
 };
 
@@ -24197,7 +24209,7 @@ Parser.prototype.parse = function(src) {
   // use an InlineLexer with a TextRenderer to extract pure text
   this.inlineText = new InlineLexer(
     src.links,
-    merge({}, this.options, {renderer: new TextRenderer()})
+    merge({}, this.options, { renderer: new TextRenderer() })
   );
   this.tokens = src.reverse();
 
@@ -24214,7 +24226,8 @@ Parser.prototype.parse = function(src) {
  */
 
 Parser.prototype.next = function() {
-  return this.token = this.tokens.pop();
+  this.token = this.tokens.pop();
+  return this.token;
 };
 
 /**
@@ -24358,7 +24371,7 @@ Parser.prototype.tok = function() {
  * Slugger generates header id
  */
 
-function Slugger () {
+function Slugger() {
   this.seen = {};
 }
 
@@ -24366,7 +24379,7 @@ function Slugger () {
  * Convert string to unique id
  */
 
-Slugger.prototype.slug = function (value) {
+Slugger.prototype.slug = function(value) {
   var slug = value
     .toLowerCase()
     .trim()
@@ -24392,11 +24405,11 @@ Slugger.prototype.slug = function (value) {
 function escape(html, encode) {
   if (encode) {
     if (escape.escapeTest.test(html)) {
-      return html.replace(escape.escapeReplace, function (ch) { return escape.replacements[ch]; });
+      return html.replace(escape.escapeReplace, function(ch) { return escape.replacements[ch]; });
     }
   } else {
     if (escape.escapeTestNoEncode.test(html)) {
-      return html.replace(escape.escapeReplaceNoEncode, function (ch) { return escape.replacements[ch]; });
+      return html.replace(escape.escapeReplaceNoEncode, function(ch) { return escape.replacements[ch]; });
     }
   }
 
@@ -24517,7 +24530,7 @@ function merge(obj) {
 function splitCells(tableRow, count) {
   // ensure that every cell-delimiting pipe has a space
   // before it to distinguish it from an escaped pipe
-  var row = tableRow.replace(/\|/g, function (match, offset, str) {
+  var row = tableRow.replace(/\|/g, function(match, offset, str) {
         var escaped = false,
             curr = offset;
         while (--curr >= 0 && str[curr] === '\\') escaped = !escaped;
@@ -24699,7 +24712,7 @@ marked.setOptions = function(opt) {
   return marked;
 };
 
-marked.getDefaults = function () {
+marked.getDefaults = function() {
   return {
     baseUrl: null,
     breaks: false,
@@ -33202,7 +33215,7 @@ AlertSuccess_component.options.__file = "AlertSuccess.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /*!
- * vue-i18n v8.11.2 
+ * vue-i18n v8.12.0 
  * (c) 2019 kazuya kawaguchi
  * Released under the MIT License.
  */
@@ -33462,6 +33475,12 @@ var mixin = {
               warn("Cannot parse locale messages via custom blocks.", e);
             }
           }
+        }
+
+        var ref = options.i18n;
+        var sharedMessages = ref.sharedMessages;
+        if (sharedMessages && isPlainObject(sharedMessages)) {
+          options.i18n.messages = merge(options.i18n.messages, sharedMessages);
         }
 
         this._i18n = new VueI18n(options.i18n);
@@ -35079,7 +35098,7 @@ Object.defineProperty(VueI18n, 'availabilities', {
 });
 
 VueI18n.install = install;
-VueI18n.version = '8.11.2';
+VueI18n.version = '8.12.0';
 
 /* harmony default export */ __webpack_exports__["default"] = (VueI18n);
 
@@ -35950,7 +35969,7 @@ var render = function() {
                                         _vm._v(
                                           _vm._s(
                                             _vm.$parent.listing.config
-                                              .instant_cast_stat === "Yes"
+                                              .instant_cast_stat === 1
                                               ? "Yes"
                                               : "No"
                                           )
@@ -35973,7 +35992,7 @@ var render = function() {
                                         _vm._v(
                                           _vm._s(
                                             _vm.$parent.listing.config
-                                              .pk_mode === "Yes"
+                                              .pk_mode === 1
                                               ? "Yes"
                                               : "No"
                                           )
@@ -35996,7 +36015,7 @@ var render = function() {
                                         _vm._v(
                                           _vm._s(
                                             _vm.$parent.listing.config
-                                              .arrow_decrement === "Yes"
+                                              .arrow_decrement === 1
                                               ? "Yes"
                                               : "No"
                                           )
@@ -36019,7 +36038,7 @@ var render = function() {
                                         _vm._v(
                                           _vm._s(
                                             _vm.$parent.listing.config
-                                              .undead_detect_type === "Yes"
+                                              .undead_detect_type === 1
                                               ? "Yes"
                                               : "No"
                                           )
@@ -36042,7 +36061,7 @@ var render = function() {
                                         _vm._v(
                                           _vm._s(
                                             _vm.$parent.listing.config
-                                              .attribute_recover === "Yes"
+                                              .attribute_recover === 1
                                               ? "Yes"
                                               : "No"
                                           )
@@ -36532,7 +36551,7 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "tw-p-2" }, [
               _c("p", { staticClass: "tw-font-semibold tw-mb-1" }, [
-                _vm._v("Nationality")
+                _vm._v("Main Language")
               ]),
               _vm._v(" "),
               _c(
@@ -36573,6 +36592,36 @@ var render = function() {
                 1
               )
             ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "tw-p-2" },
+              [
+                _c("p", { staticClass: "tw-font-semibold tw-mb-1" }, [
+                  _vm._v("Server Mode")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "at-select",
+                  {
+                    model: {
+                      value: _vm.current.mode,
+                      callback: function($$v) {
+                        _vm.$set(_vm.current, "mode", $$v)
+                      },
+                      expression: "current.mode"
+                    }
+                  },
+                  _vm._l(_vm.configurations.modes, function(mode, i) {
+                    return _c("at-option", { key: i, attrs: { value: mode } }, [
+                      _vm._v(_vm._s(_vm.$t("homepage.mode." + mode + ".name")))
+                    ])
+                  }),
+                  1
+                )
+              ],
+              1
+            ),
             _vm._v(" "),
             _c(
               "div",
@@ -36698,7 +36747,7 @@ var render = function() {
               { staticClass: "tw-p-2" },
               [
                 _c("p", { staticClass: "tw-font-semibold tw-mb-1" }, [
-                  _vm._v("Search Tags")
+                  _vm._v("Relatable Tags")
                 ]),
                 _vm._v(" "),
                 _c(
@@ -38003,11 +38052,11 @@ var render = function() {
                             }
                           },
                           [
-                            _c("at-radio", { attrs: { label: "no" } }, [
+                            _c("at-radio", { attrs: { label: 0 } }, [
                               _vm._v("No")
                             ]),
                             _vm._v(" "),
-                            _c("at-radio", { attrs: { label: "yes" } }, [
+                            _c("at-radio", { attrs: { label: 1 } }, [
                               _vm._v("Yes")
                             ])
                           ],
@@ -38069,11 +38118,11 @@ var render = function() {
                             }
                           },
                           [
-                            _c("at-radio", { attrs: { label: "no" } }, [
+                            _c("at-radio", { attrs: { label: 0 } }, [
                               _vm._v("No")
                             ]),
                             _vm._v(" "),
-                            _c("at-radio", { attrs: { label: "yes" } }, [
+                            _c("at-radio", { attrs: { label: 1 } }, [
                               _vm._v("Yes")
                             ])
                           ],
@@ -38145,11 +38194,11 @@ var render = function() {
                             }
                           },
                           [
-                            _c("at-radio", { attrs: { label: "no" } }, [
+                            _c("at-radio", { attrs: { label: 0 } }, [
                               _vm._v("No")
                             ]),
                             _vm._v(" "),
-                            _c("at-radio", { attrs: { label: "yes" } }, [
+                            _c("at-radio", { attrs: { label: 1 } }, [
                               _vm._v("Yes")
                             ])
                           ],
@@ -38223,11 +38272,11 @@ var render = function() {
                             }
                           },
                           [
-                            _c("at-radio", { attrs: { label: "no" } }, [
+                            _c("at-radio", { attrs: { label: 0 } }, [
                               _vm._v("No")
                             ]),
                             _vm._v(" "),
-                            _c("at-radio", { attrs: { label: "yes" } }, [
+                            _c("at-radio", { attrs: { label: 1 } }, [
                               _vm._v("Yes")
                             ])
                           ],
@@ -38301,11 +38350,11 @@ var render = function() {
                             }
                           },
                           [
-                            _c("at-radio", { attrs: { label: "no" } }, [
+                            _c("at-radio", { attrs: { label: 0 } }, [
                               _vm._v("No")
                             ]),
                             _vm._v(" "),
-                            _c("at-radio", { attrs: { label: "yes" } }, [
+                            _c("at-radio", { attrs: { label: 1 } }, [
                               _vm._v("Yes")
                             ])
                           ],

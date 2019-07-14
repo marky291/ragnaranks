@@ -31,7 +31,6 @@ return [
         'renewal',
         'pre-renewal',
         'custom',
-        'classic',
     ],
 
     'rates' => [

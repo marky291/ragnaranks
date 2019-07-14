@@ -88,23 +88,23 @@
 															</div>
 															<div class="config">
 																<div class="name">{{ $t('profile.config.instant_cast.name') }}</div>
-																<div class="value">{{ $parent.listing.config.instant_cast_stat === 'Yes'? 'Yes' : 'No' }}</div>
+																<div class="value">{{ $parent.listing.config.instant_cast_stat === 1 ? 'Yes' : 'No' }}</div>
 															</div>
 															<div class="config">
 																<div class="name">{{ $t('profile.config.pk_mode.name') }}</div>
-																<div class="value">{{ $parent.listing.config.pk_mode === 'Yes'? 'Yes' : 'No'  }}</div>
+																<div class="value">{{ $parent.listing.config.pk_mode === 1 ? 'Yes' : 'No'  }}</div>
 															</div>
 															<div class="config">
 																<div class="name">{{ $t('profile.config.arrow_decrement.name') }}</div>
-																<div class="value">{{ $parent.listing.config.arrow_decrement === 'Yes'? 'Yes' : 'No'  }}</div>
+																<div class="value">{{ $parent.listing.config.arrow_decrement === 1 ? 'Yes' : 'No'  }}</div>
 															</div>
 															<div class="config">
 																<div class="name">{{ $t('profile.config.undead_detect_type.name') }}</div>
-																<div class="value">{{ $parent.listing.config.undead_detect_type === 'Yes'? 'Yes' : 'No'  }}</div>
+																<div class="value">{{ $parent.listing.config.undead_detect_type === 1 ? 'Yes' : 'No'  }}</div>
 															</div>
 															<div class="config">
 																<div class="name">{{ $t('profile.config.attribute_recover.name') }}</div>
-																<div class="value">{{ $parent.listing.config.attribute_recover === 'Yes'? 'Yes' : 'No'  }}</div>
+																<div class="value">{{ $parent.listing.config.attribute_recover === 1 ? 'Yes' : 'No'  }}</div>
 															</div>
 														</div>
 													</div>
@@ -185,6 +185,6 @@
             ReviewCreator,
             Carousel3d,
             Ratings,
-        }
+        },
     }
 </script>
