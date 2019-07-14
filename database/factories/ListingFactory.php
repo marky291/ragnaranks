@@ -1,11 +1,11 @@
 <?php
 
-use App\Listings\ListingConfiguration;
 use App\User;
 use Carbon\Carbon;
 use App\Listings\Listing;
 use Faker\Generator as Faker;
 use App\Listings\ListingLanguage;
+use App\Listings\ListingConfiguration;
 
 $factory->define(\App\Listings\ListingScreenshot::class, static function (Faker $faker) {
     return [
@@ -44,12 +44,12 @@ $factory->define(ListingConfiguration::class, static function (Faker $faker) {
         'base_exp_rate' =>$faker->numberBetween(config('filter.exp.low-rate.min'), config('filter.exp.high-rate.max') + 1200),
         'job_exp_rate' => $faker->numberBetween(config('filter.exp.low-rate.min'), config('filter.exp.high-rate.max') + 1200),
         'quest_exp_rate' => $faker->numberBetween(config('filter.exp.low-rate.min'), config('filter.exp.high-rate.max') + 1200),
-        'instant_cast_stat' => $faker->numberBetween(0,1),
-        'pk_mode' => $faker->numberBetween(0,1),
+        'instant_cast_stat' => $faker->numberBetween(0, 1),
+        'pk_mode' => $faker->numberBetween(0, 1),
         'castrate_dex_scale' => 0,
-        'arrow_decrement' => $faker->numberBetween(0,1),
-        'undead_detect_type' => $faker->numberBetween(0,1),
-        'attribute_recover' => $faker->numberBetween(0,1),
+        'arrow_decrement' => $faker->numberBetween(0, 1),
+        'undead_detect_type' => $faker->numberBetween(0, 1),
+        'attribute_recover' => $faker->numberBetween(0, 1),
         'item_drop_common' => $faker->numberBetween(5, 10000),
         'item_drop_equip' => $faker->numberBetween(1, 10000),
         'item_drop_card' => $faker->numberBetween(20, 10000),
