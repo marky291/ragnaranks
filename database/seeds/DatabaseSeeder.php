@@ -5,6 +5,7 @@ use App\Listings\Listing;
 use App\Interactions\Vote;
 use App\Interactions\Click;
 use App\Interactions\Review;
+use App\User;
 use Illuminate\Database\Seeder;
 use App\Listings\ListingScreenshot;
 use App\Jobs\BuildListingRankingTable;
@@ -96,7 +97,9 @@ class DatabaseSeeder extends Seeder
         }
 
         for ($i = 0; $i < $this->seed_counts['reviews']; $i++) {
-            $this->listings->random(1)->first()->reviews()->save(factory(Review::class)->make());
+            $this->listings->random(1)->first()->reviews()->save(factory(Review::class)->make(
+                ['user_id' => User::all()->random()->id]
+            ));
             $this->progress_bar->advance();
         }
 

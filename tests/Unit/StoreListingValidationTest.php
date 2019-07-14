@@ -2,6 +2,8 @@
 
 namespace Tests\Unit;
 
+use App\Http\Requests\StoreListingRequest;
+use Illuminate\Validation\Validator;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Listings\ListingConfiguration;
@@ -184,7 +186,7 @@ class StoreListingValidationTest extends TestCase
 
         $listing->configuration()->save(factory(ListingConfiguration::class)->make($attributes));
 
-        $response = $this->post('/listing', array_merge($listing->toArray(), $listing->configuration->toArray()));
+        $response = $this->post('/listing', array_merge($listing->toArray(), ['config' => $listing->configuration->toArray()]));
 
         $response->assertSessionHasErrors($errorKey);
     }

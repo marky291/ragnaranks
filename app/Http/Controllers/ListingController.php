@@ -69,7 +69,7 @@ class ListingController extends Controller
             }
         }, 5);
 
-        return response()->json(['success' => true]);
+        return response()->json(['success' => true, 'redirect' => route('listing.index')]);
     }
 
     /**

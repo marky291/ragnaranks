@@ -31,7 +31,7 @@
                 <div class="server-card-body align-items-center tw-shadow-inner px-4 py-3 d-flex">
                     <span class="tw-mr-4 tw-text-grey-darker" style="font-size:30px">{{ listing['ranking']['rank'] }}</span>
                     <div class="tw-border-l-2 tw-pl-4 tw-border-grey-light flex-fill pr-3">
-                        <p class="tw-text-grey-darkest tw-tracking-tight tw-font-semibold mb-0" style="font-size:14px">{{ listing.config.title }} <small class="tw-text-grey-darker">({{ listing.config.base_exp_rate }}x/{{ listing.config.job_exp_rate }}x)</small></p>
+                        <p class="tw-text-grey-darkest tw-tracking-tight tw-font-semibold mb-0" style="font-size:14px">{{ $t('homepage.card.rate.'+listing['config']['title']) }} <small class="tw-text-grey-darker">({{ listing['config']['base_exp_rate'] }}x/{{ listing['config']['job_exp_rate'] }}x)</small></p>
                         <p :class="'review-score-'+listing.review_score">{{ $t(reviewScoreMessage(listing.review_score)) }}</p>
                     </div>
 

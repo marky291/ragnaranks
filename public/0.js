@@ -352,13 +352,20 @@ var render = function() {
                           staticStyle: { "font-size": "14px" }
                         },
                         [
-                          _vm._v(_vm._s(listing.config.title) + " "),
+                          _vm._v(
+                            _vm._s(
+                              _vm.$t(
+                                "homepage.card.rate." +
+                                  listing["config"]["title"]
+                              )
+                            ) + " "
+                          ),
                           _c("small", { staticClass: "tw-text-grey-darker" }, [
                             _vm._v(
                               "(" +
-                                _vm._s(listing.config.base_exp_rate) +
+                                _vm._s(listing["config"]["base_exp_rate"]) +
                                 "x/" +
-                                _vm._s(listing.config.job_exp_rate) +
+                                _vm._s(listing["config"]["job_exp_rate"]) +
                                 "x)"
                             )
                           ])

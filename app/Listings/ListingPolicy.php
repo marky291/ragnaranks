@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Listings\Policies;
+namespace App\Listings;
 
 use App\User;
 use App\Listings\Listing;
@@ -9,13 +9,6 @@ use Illuminate\Auth\Access\HandlesAuthorization;
 class ListingPolicy
 {
     use HandlesAuthorization;
-
-    public function before($user, $ability): ?bool
-    {
-        if ($user->hasRole('admin')) {
-            return true;
-        }
-    }
 
     /**
      * Determine whether the user can view the listing.
@@ -47,7 +40,7 @@ class ListingPolicy
      * @param Listing $listing
      * @return mixed
      */
-    public function update(User $user, Listing $listing)
+    public function update(?User $user, Listing $listing)
     {
         return $user->id === $listing->user_id;
     }
