@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Listings\ListingRanking;
 use App\Tag;
 use App\Listings\Listing;
 use Illuminate\View\View;
@@ -55,20 +56,29 @@ class ListingController extends Controller
     {
         RoleAssignment::dispatch(auth()->user(), 'creator');
 
-        DB::transaction(static function () use ($request) {
+        DB::transaction(static function () use ($request)
+        {
             /** @var Listing $listing */
+            // Create the listing.
             $listing = user()->listings()->save(Listing::make($request->validated()));
 
+            // create the ranking, first entry data.
+            $listing->ranking()->save(new ListingRanking());
+
+            // grab the configuration that has been validated and assign to the model.
             $validatedConfig = ListingConfiguration::make($request->validated()['config']);
 
             /** @var ListingConfiguration $configs */
+            // save the configurations to the listing.
             $configs = $listing->configuration()->save($validatedConfig);
 
+            // attach all the tags passed from the request.
             foreach ($request->get('tags') as $tagName) {
                 $listing->tags()->attach(Tag::where('name', $tagName)->first());
             }
         }, 5);
 
+        // return a response and a redirect link to next page.
         return response()->json(['success' => true, 'redirect' => route('listing.index')]);
     }
 

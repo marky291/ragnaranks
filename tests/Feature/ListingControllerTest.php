@@ -65,5 +65,7 @@ class ListingControllerTest extends TestCase
 
         $this->assertDatabaseHas('listing_configurations', array_merge($configs->toArray(),
             ['listing_id' => $createdListing->getKey()]));
+
+        $this->assertDatabaseHas('listing_rankings', ['listing_id' => $createdListing->getKey()]);
     }
 }
