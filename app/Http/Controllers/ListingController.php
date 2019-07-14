@@ -59,8 +59,10 @@ class ListingController extends Controller
             /** @var Listing $listing */
             $listing = user()->listings()->save(Listing::make($request->validated()));
 
+            $validatedConfig = ListingConfiguration::make($request->validated()['config']);
+
             /** @var ListingConfiguration $configs */
-            $configs = $listing->configuration()->save(ListingConfiguration::make($request->validated()));
+            $configs = $listing->configuration()->save($validatedConfig);
 
             foreach ($request->get('tags') as $tagName) {
                 $listing->tags()->attach(Tag::where('name', $tagName)->first());

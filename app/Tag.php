@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * @method static where(string $string, $tagName)
+ * @method static whereName($int)
  */
 class Tag extends Model
 {

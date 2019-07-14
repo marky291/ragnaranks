@@ -1,5 +1,7 @@
 <?php
 
+use App\Listings\ListingConfiguration;
+use App\User;
 use Carbon\Carbon;
 use App\Listings\Listing;
 use Faker\Generator as Faker;
@@ -22,9 +24,9 @@ $factory->define(Listing::class, static function (Faker $faker) {
 
     return [
         'name' => $server['name'],
-        'user_id' => factory('App\User')->create()->id,
-        'website' => $faker->url,
-        'mode' => $faker->randomElement(array_keys(trans('homepage.mode'))),
+        'user_id' => factory(User::class)->create()->id,
+        'website' => 'http://ragnaranks.com',
+        'mode' => $faker->randomElement(config('filter.modes')),
         'description' => trans('profile.defaultMarkup'),
         'language_id' => ListingLanguage::all()->random()->getKey(),
         'episode' => collect([13.10, 13.09, 13.05, 12.11])->random(),
@@ -33,7 +35,7 @@ $factory->define(Listing::class, static function (Faker $faker) {
     ];
 });
 
-$factory->define(\App\Listings\ListingConfiguration::class, static function (Faker $faker) {
+$factory->define(ListingConfiguration::class, static function (Faker $faker) {
     return [
         'max_base_level' => $faker->numberBetween(99, 255),
         'max_job_level' => $faker->numberBetween(99, 255),
@@ -42,12 +44,12 @@ $factory->define(\App\Listings\ListingConfiguration::class, static function (Fak
         'base_exp_rate' =>$faker->numberBetween(config('filter.exp.low-rate.min'), config('filter.exp.high-rate.max') + 1200),
         'job_exp_rate' => $faker->numberBetween(config('filter.exp.low-rate.min'), config('filter.exp.high-rate.max') + 1200),
         'quest_exp_rate' => $faker->numberBetween(config('filter.exp.low-rate.min'), config('filter.exp.high-rate.max') + 1200),
-        'instant_cast_stat' => $faker->boolean(),
-        'pk_mode' => $faker->boolean(),
-        'castrate_dex_scale' => $faker->boolean(),
-        'arrow_decrement' => $faker->boolean(),
-        'undead_detect_type' => $faker->boolean(),
-        'attribute_recover' => $faker->boolean(),
+        'instant_cast_stat' => $faker->numberBetween(0,1),
+        'pk_mode' => $faker->numberBetween(0,1),
+        'castrate_dex_scale' => 0,
+        'arrow_decrement' => $faker->numberBetween(0,1),
+        'undead_detect_type' => $faker->numberBetween(0,1),
+        'attribute_recover' => $faker->numberBetween(0,1),
         'item_drop_common' => $faker->numberBetween(5, 10000),
         'item_drop_equip' => $faker->numberBetween(1, 10000),
         'item_drop_card' => $faker->numberBetween(20, 10000),
