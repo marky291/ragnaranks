@@ -2,7 +2,6 @@
 
 namespace App\Console\Commands;
 
-use MartinLindhe\VueInternationalizationGenerator\Generator;
 use MartinLindhe\VueInternationalizationGenerator\Commands\GenerateInclude;
 
 class MakeTranslations extends GenerateInclude
@@ -18,5 +17,5 @@ class MakeTranslations extends GenerateInclude
      *
      * @var string
      */
-    protected $description = "Generates a vue-i18n|vuex-i18n compatible js array out of project translations";
+    protected $description = 'Generates a vue-i18n|vuex-i18n compatible js array out of project translations';
 }

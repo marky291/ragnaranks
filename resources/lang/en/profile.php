@@ -113,6 +113,6 @@ return [
     ],
 
     'reviews' => [
-        'empty' => 'no reviews have been created.'
-    ]
+        'empty' => 'no reviews have been created.',
+    ],
 ];
