@@ -111,4 +111,8 @@ return [
             'describe' => 'Does LUK stat affect the drops by absolute basis?',
         ],
     ],
+
+    'reviews' => [
+        'empty' => 'no reviews have been created.'
+    ]
 ];
