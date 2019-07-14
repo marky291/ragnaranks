@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Listings\ListingRanking;
 use App\Tag;
 use App\Listings\Listing;
 use Illuminate\View\View;
 use App\Jobs\RoleAssignment;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Listings\ListingRanking;
 use Illuminate\Support\Facades\DB;
 use App\Listings\ListingConfiguration;
 use App\Http\Requests\StoreListingRequest;
@@ -56,8 +56,7 @@ class ListingController extends Controller
     {
         RoleAssignment::dispatch(auth()->user(), 'creator');
 
-        DB::transaction(static function () use ($request)
-        {
+        DB::transaction(static function () use ($request) {
             /** @var Listing $listing */
             // Create the listing.
             $listing = user()->listings()->save(Listing::make($request->validated()));
