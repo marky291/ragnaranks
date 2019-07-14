@@ -37,7 +37,7 @@ class ListingResource extends JsonResource
             'config' => ConfigurationResource::make($this->whenLoaded('configuration')),
             'language' => $this->resource->relationLoaded('language') ? $this->language->name : 'english',
             'reviews' => ReviewResource::collection($this->whenLoaded('reviews')),
-            'isEditor' => auth()->user()->can('update', $this->resource),
+            'isEditor' => auth()->check() && auth()->user()->can('update', $this->resource),
         ];
     }
 }
