@@ -7,7 +7,7 @@
 				<div class="row pb-5 pt-2">
 					<div class="col-4" id="sidebar">
 						@include('sidebar.message')
-{{--						@include('sidebar.selector')--}}
+						@include('sidebar.selector')
 						@include('sidebar.config')
 						<div v-if="!listing.isEditor">
 							@include('sidebar.recent')

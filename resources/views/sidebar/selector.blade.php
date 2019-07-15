@@ -1,4 +1,4 @@
-<div class="tw-h-full tw-mt-4">
+<div class="tw-mt-4">
 	<div class="heading">
 		<h3>User Actions</h3>
 	</div>
