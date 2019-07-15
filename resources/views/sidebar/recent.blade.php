@@ -16,7 +16,6 @@
 					</div>
 					<div class="buttons w-25 d-flex align-items-center justify-content-end">
 						<at-button @click="redirect('{{ route('listing.show', $listing) }}')" type="info">Visit <i class="icon icon-arrow-right"></i></at-button>
-						{{--                                    <a href="{{ route('listing.show', $listing) }}" tabindex="0" class="btn btn-blue btn-sm">Visit <i class="icon icon-arrow-right"></i></a>--}}
 					</div>
 				</div>
 			</div>
