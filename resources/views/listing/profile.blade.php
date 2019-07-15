@@ -9,8 +9,10 @@
 						@include('sidebar.message')
 {{--						@include('sidebar.selector')--}}
 						@include('sidebar.config')
-						@include('sidebar.recent')
-						@include('sidebar.social')
+						<div v-if="!listing.isEditor">
+							@include('sidebar.recent')
+							@include('sidebar.social')
+						</div>
 					</div>
 					<div class="col-8">
 						<profile :reviews="listing.reviews" :slug="slug"></profile>
