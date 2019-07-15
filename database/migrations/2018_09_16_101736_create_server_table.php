@@ -49,8 +49,8 @@ class CreateServerTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->string('name');
-            $table->string('slug');
-            $table->string('background');
+            $table->string('slug')->index();
+            $table->text('background');
             $table->longText('description');
             $table->string('website');
             $table->string('mode');

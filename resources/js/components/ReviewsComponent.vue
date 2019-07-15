@@ -1,8 +1,17 @@
 <template>
-		<section id="reviews" class="tw-px-10">
-			<h3 class="heading tw-py-4 mb-4 tw-font-bold text-dark heading-underline">Player Reviews</h3>
-			<div v-for="(review, index) in reviews">
-				<review :review="review"></review>
+		<section id="reviews" class="tw-px-10 pb-4">
+			<h3 class="heading tw-py-4 mb-4 tw-font-bold text-dark heading-underline tw-capitalize">{{ $t('profile.reviews.heading')}}</h3>
+			<div v-if="reviews.length > 0">
+				<div v-for="(review, i) in reviews">
+					<review :review="review" :key="i"></review>
+				</div>
+			</div>
+			<div v-else>
+				<div class="tw-flex tw-items-center" id="review-enticement-img">
+					<div class="tw-flex-1">
+						<p class="w-100 tw-capitalize">{{ $t('profile.reviews.enticement')}}</p>
+					</div>
+				</div>
 			</div>
 		</section>
 </template>

@@ -44,15 +44,12 @@
         },
         methods: {
             average(element) {
-                if (this.hasReviews()) {
+                if (this.reviews.length > 0) {
                     return Math.round(meanBy(this.reviews, function(item) {
                         return item[element];
                     }));
                 }
                 return 3;
-            },
-            hasReviews() {
-                return this.reviews !== {};
             },
         }
     }

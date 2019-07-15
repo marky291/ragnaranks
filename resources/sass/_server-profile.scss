@@ -237,3 +237,12 @@
       }
     }
   }
+
+  #review-enticement-img {
+    //min-width: 427px;
+    min-height: 250px;
+    background-image: url('/img/review_enticement.png');
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }

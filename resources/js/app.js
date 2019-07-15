@@ -20,6 +20,11 @@ import Locale from './messages';
 Vue.use(SimpleVueValidation);
 Vue.use(VueInternationalization);
 
+// the validation is passive at first, just the same as manual mode.
+// But once the $validate() method is called, it becomes active
+// and acts exactly like interactive mode.
+SimpleVueValidation.setMode('conservative');
+
 //const lang = document.documentElement.lang.substr(0, 2);
 
 const i18n = new VueInternationalization({

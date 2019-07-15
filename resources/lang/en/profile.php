@@ -113,6 +113,7 @@ return [
     ],
 
     'reviews' => [
-        'empty' => 'no reviews have been created.'
+        'heading' => 'player reviews',
+        'enticement' => 'be the first to write a review on this server listing',
     ]
 ];

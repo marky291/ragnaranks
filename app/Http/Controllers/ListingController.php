@@ -52,8 +52,10 @@ class ListingController extends Controller
      * @param StoreListingRequest $request
      * @return void
      */
-    public function store(StoreListingRequest $request)
+    public function store(Request $request)
     {
+        return response()->json(['success' => true, 'redirect' => route('listing.index')]);
+
         RoleAssignment::dispatch(auth()->user(), 'creator');
 
         DB::transaction(static function () use ($request) {
