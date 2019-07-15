@@ -1,6 +1,5 @@
 <script>
     import marked from 'marked';
-    import sample from 'lodash/sample';
 
     export default {
         props: ['slug'],

@@ -16599,10 +16599,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.$validate().then(function (success) {
-        console.log(success);
-
         if (success) {
-          console.log(_this.current);
           var form = new vform__WEBPACK_IMPORTED_MODULE_0___default.a(_this.current);
 
           if (_this.current.slug === null) {
@@ -16752,14 +16749,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var marked__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! marked */ "./node_modules/marked/lib/marked.js");
 /* harmony import */ var marked__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(marked__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var lodash_sample__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash/sample */ "./node_modules/lodash/sample.js");
-/* harmony import */ var lodash_sample__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash_sample__WEBPACK_IMPORTED_MODULE_2__);
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -18999,32 +18993,6 @@ module.exports = arrayPush;
 
 /***/ }),
 
-/***/ "./node_modules/lodash/_arraySample.js":
-/*!*********************************************!*\
-  !*** ./node_modules/lodash/_arraySample.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var baseRandom = __webpack_require__(/*! ./_baseRandom */ "./node_modules/lodash/_baseRandom.js");
-
-/**
- * A specialized version of `_.sample` for arrays.
- *
- * @private
- * @param {Array} array The array to sample.
- * @returns {*} Returns the random element.
- */
-function arraySample(array) {
-  var length = array.length;
-  return length ? array[baseRandom(0, length - 1)] : undefined;
-}
-
-module.exports = arraySample;
-
-
-/***/ }),
-
 /***/ "./node_modules/lodash/_arraySome.js":
 /*!*******************************************!*\
   !*** ./node_modules/lodash/_arraySome.js ***!
@@ -19827,61 +19795,6 @@ module.exports = basePropertyDeep;
 
 /***/ }),
 
-/***/ "./node_modules/lodash/_baseRandom.js":
-/*!********************************************!*\
-  !*** ./node_modules/lodash/_baseRandom.js ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/* Built-in method references for those with the same name as other `lodash` methods. */
-var nativeFloor = Math.floor,
-    nativeRandom = Math.random;
-
-/**
- * The base implementation of `_.random` without support for returning
- * floating-point numbers.
- *
- * @private
- * @param {number} lower The lower bound.
- * @param {number} upper The upper bound.
- * @returns {number} Returns the random number.
- */
-function baseRandom(lower, upper) {
-  return lower + nativeFloor(nativeRandom() * (upper - lower + 1));
-}
-
-module.exports = baseRandom;
-
-
-/***/ }),
-
-/***/ "./node_modules/lodash/_baseSample.js":
-/*!********************************************!*\
-  !*** ./node_modules/lodash/_baseSample.js ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var arraySample = __webpack_require__(/*! ./_arraySample */ "./node_modules/lodash/_arraySample.js"),
-    values = __webpack_require__(/*! ./values */ "./node_modules/lodash/values.js");
-
-/**
- * The base implementation of `_.sample`.
- *
- * @private
- * @param {Array|Object} collection The collection to sample.
- * @returns {*} Returns the random element.
- */
-function baseSample(collection) {
-  return arraySample(values(collection));
-}
-
-module.exports = baseSample;
-
-
-/***/ }),
-
 /***/ "./node_modules/lodash/_baseSum.js":
 /*!*****************************************!*\
   !*** ./node_modules/lodash/_baseSum.js ***!
@@ -20017,36 +19930,6 @@ function baseUnary(func) {
 }
 
 module.exports = baseUnary;
-
-
-/***/ }),
-
-/***/ "./node_modules/lodash/_baseValues.js":
-/*!********************************************!*\
-  !*** ./node_modules/lodash/_baseValues.js ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var arrayMap = __webpack_require__(/*! ./_arrayMap */ "./node_modules/lodash/_arrayMap.js");
-
-/**
- * The base implementation of `_.values` and `_.valuesIn` which creates an
- * array of `object` property values corresponding to the property names
- * of `props`.
- *
- * @private
- * @param {Object} object The object to query.
- * @param {Array} props The property names to get values for.
- * @returns {Object} Returns the array of property values.
- */
-function baseValues(object, props) {
-  return arrayMap(props, function(key) {
-    return object[key];
-  });
-}
-
-module.exports = baseValues;
 
 
 /***/ }),
@@ -22891,41 +22774,6 @@ module.exports = property;
 
 /***/ }),
 
-/***/ "./node_modules/lodash/sample.js":
-/*!***************************************!*\
-  !*** ./node_modules/lodash/sample.js ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var arraySample = __webpack_require__(/*! ./_arraySample */ "./node_modules/lodash/_arraySample.js"),
-    baseSample = __webpack_require__(/*! ./_baseSample */ "./node_modules/lodash/_baseSample.js"),
-    isArray = __webpack_require__(/*! ./isArray */ "./node_modules/lodash/isArray.js");
-
-/**
- * Gets a random element from `collection`.
- *
- * @static
- * @memberOf _
- * @since 2.0.0
- * @category Collection
- * @param {Array|Object} collection The collection to sample.
- * @returns {*} Returns the random element.
- * @example
- *
- * _.sample([1, 2, 3, 4]);
- * // => 2
- */
-function sample(collection) {
-  var func = isArray(collection) ? arraySample : baseSample;
-  return func(collection);
-}
-
-module.exports = sample;
-
-
-/***/ }),
-
 /***/ "./node_modules/lodash/stubArray.js":
 /*!******************************************!*\
   !*** ./node_modules/lodash/stubArray.js ***!
@@ -23024,51 +22872,6 @@ function toString(value) {
 }
 
 module.exports = toString;
-
-
-/***/ }),
-
-/***/ "./node_modules/lodash/values.js":
-/*!***************************************!*\
-  !*** ./node_modules/lodash/values.js ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var baseValues = __webpack_require__(/*! ./_baseValues */ "./node_modules/lodash/_baseValues.js"),
-    keys = __webpack_require__(/*! ./keys */ "./node_modules/lodash/keys.js");
-
-/**
- * Creates an array of the own enumerable string keyed property values of `object`.
- *
- * **Note:** Non-object values are coerced to objects.
- *
- * @static
- * @since 0.1.0
- * @memberOf _
- * @category Object
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property values.
- * @example
- *
- * function Foo() {
- *   this.a = 1;
- *   this.b = 2;
- * }
- *
- * Foo.prototype.c = 3;
- *
- * _.values(new Foo);
- * // => [1, 2] (iteration order is not guaranteed)
- *
- * _.values('hi');
- * // => ['h', 'i']
- */
-function values(object) {
-  return object == null ? [] : baseValues(object, keys(object));
-}
-
-module.exports = values;
 
 
 /***/ }),
