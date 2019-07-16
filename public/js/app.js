@@ -38746,10 +38746,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "at-button",
-              {
-                staticClass: "mt-2",
-                attrs: { type: "primary", icon: "icon-log-out" }
-              },
+              { staticClass: "mt-2", attrs: { type: "primary" } },
               [_vm._v("Vote for " + _vm._s(_vm.listingName))]
             )
           ],

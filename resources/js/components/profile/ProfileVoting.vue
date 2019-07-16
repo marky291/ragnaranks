@@ -5,7 +5,7 @@
             <div class="row no-gutters">
                 <p class="tw-font-bold mb-3 tw-text-green">{{ $t('profile.voting.available', {value: availableVotes}) }}</p>
                 <p class="mb-3">{{ $t('profile.voting.notice', {hours: stats.spread}) }}</p>
-                <at-button type="primary" icon="icon-log-out" class="mt-2">Vote for {{ listingName }}</at-button>
+                <at-button type="primary" class="mt-2">Vote for {{ listingName }}</at-button>
             </div>
         </div>
     </section>
