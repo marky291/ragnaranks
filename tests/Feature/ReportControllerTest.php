@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Listings\Listing;
 use Tests\TestCase;
+use App\Listings\Listing;
 use App\Interactions\Review;
 use App\Notifications\ReportedReviewAllowed;
 use App\Notifications\ReportedReviewRemoved;

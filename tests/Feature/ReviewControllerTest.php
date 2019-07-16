@@ -92,7 +92,7 @@ class ReviewControllerTest extends TestCase
 
         $review = $this->listing->reviews()->save(factory(Review::class)->create(
             [
-                'listing_id' => $this->listing->id
+                'listing_id' => $this->listing->id,
             ]
         ));
 
@@ -106,7 +106,7 @@ class ReviewControllerTest extends TestCase
         $this->signIn();
 
         $review = factory(Review::class)->create([
-            'listing_id' => $this->listing->id
+            'listing_id' => $this->listing->id,
         ]);
 
         $listing = factory(Listing::class)->create();
