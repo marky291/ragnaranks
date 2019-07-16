@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use App\Tag;
+use App\User;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Interactions\Vote;
@@ -70,7 +71,12 @@ class ListingTest extends TestCase
     {
         $listing = $this->createListing([], 0, 0);
 
-        $listing->reviews()->saveMany(factory(Review::class, 3)->create());
+        $listing->reviews()->saveMany(factory(Review::class, 3)->create(
+            [
+                'user_id' => factory(User::class)->create()->id,
+                'listing_id' => factory(Listing::class)->create()->id
+            ]
+        ));
 
         $this->assertCount(3, $listing->reviews);
     }
@@ -88,6 +94,7 @@ class ListingTest extends TestCase
             'hosting_score' => 1,
             'content_score' => 5,
             'event_score' => 4,
+            'user_id' => factory(User::class)->create()->id,
         ]));
 
         $this->assertEquals(3.1, Review::first()->average_score);
@@ -225,8 +232,21 @@ class ListingTest extends TestCase
         /** @var Listing $listing */
         $listing = $this->createListing([], 0, 0);
 
-        $listing->reviews()->save(factory(Review::class)->create(['donation_score' => 0]));
-        $listing->reviews()->save(factory(Review::class)->create(['donation_score' => 10]));
+        $listing->reviews()->save(factory(Review::class)->create(
+            [
+                'donation_score' => 0,
+                'user_id' => factory(User::class)->create()->id,
+                'listing_id' => factory(Listing::class)->create()->id
+            ]
+        ));
+
+        $listing->reviews()->save(factory(Review::class)->create(
+            [
+                'donation_score' => 10,
+                'user_id' => factory(User::class)->create()->id,
+                'listing_id' => factory(Listing::class)->create()->id
+            ]
+        ));
 
         $this->assertEquals(5.0, $listing->reviews()->average('donation_score'));
     }
@@ -239,8 +259,20 @@ class ListingTest extends TestCase
         /** @var Listing $listing */
         $listing = $this->createListing([], 0, 0);
 
-        $listing->reviews()->save(factory(Review::class)->create(['update_score' => 2]));
-        $listing->reviews()->save(factory(Review::class)->create(['update_score' => 5]));
+        $listing->reviews()->save(factory(Review::class)->create(
+            [
+                'update_score' => 2,
+                'user_id' => factory(User::class)->create()->id,
+                'listing_id' => factory(Listing::class)->create()->id
+            ]
+        ));
+        $listing->reviews()->save(factory(Review::class)->create(
+            [
+                'update_score' => 5,
+                'user_id' => factory(User::class)->create()->id,
+                'listing_id' => factory(Listing::class)->create()->id
+            ]
+        ));
 
         $this->assertEquals(3.5, $listing->reviews()->average('update_score'));
     }
@@ -253,8 +285,21 @@ class ListingTest extends TestCase
         /** @var Listing $listing */
         $listing = $this->createListing([], 0, 0);
 
-        $listing->reviews()->save(factory(Review::class)->create(['class_score' => 7]));
-        $listing->reviews()->save(factory(Review::class)->create(['class_score' => 8]));
+        $listing->reviews()->save(factory(Review::class)->create(
+            [
+                'class_score' => 7,
+                'user_id' => factory(User::class)->create()->id,
+                'listing_id' => $listing->id,
+            ]
+        ));
+
+        $listing->reviews()->save(factory(Review::class)->create(
+            [
+                'class_score' => 8,
+                'user_id' => factory(User::class)->create()->id,
+                'listing_id' => $listing->id,
+            ]
+        ));
 
         $this->assertEquals(7.5, $listing->reviews()->average('class_score'));
     }
@@ -267,8 +312,21 @@ class ListingTest extends TestCase
         /** @var Listing $listing */
         $listing = $this->createListing([], 0, 0);
 
-        $listing->reviews()->save(factory(Review::class)->create(['item_score' => 9]));
-        $listing->reviews()->save(factory(Review::class)->create(['item_score' => 3]));
+        $listing->reviews()->save(factory(Review::class)->create(
+            [
+                'item_score' => 9,
+                'user_id' => factory(User::class)->create()->id,
+                'listing_id' => factory(Listing::class)->create()->id
+            ]
+        ));
+
+        $listing->reviews()->save(factory(Review::class)->create(
+            [
+                'item_score' => 3,
+                'user_id' => factory(User::class)->create()->id,
+                'listing_id' => factory(Listing::class)->create()->id
+            ]
+        ));
 
         $this->assertEquals(6.0, $listing->reviews()->average('item_score'));
     }
@@ -281,8 +339,21 @@ class ListingTest extends TestCase
         /** @var Listing $listing */
         $listing = $this->createListing([], 0, 0);
 
-        $listing->reviews()->save(factory(Review::class)->create(['support_score' => 8]));
-        $listing->reviews()->save(factory(Review::class)->create(['support_score' => 8]));
+        $listing->reviews()->save(factory(Review::class)->create(
+            [
+                'support_score' => 8,
+                'user_id' => factory(User::class)->create()->id,
+                'listing_id' => factory(Listing::class)->create()->id
+            ]
+        ));
+
+        $listing->reviews()->save(factory(Review::class)->create(
+            [
+                'support_score' => 8,
+                'user_id' => factory(User::class)->create()->id,
+                'listing_id' => factory(Listing::class)->create()->id
+            ]
+        ));
 
         $this->assertEquals(8.0, $listing->reviews()->average('support_score'));
     }
@@ -295,8 +366,21 @@ class ListingTest extends TestCase
         /** @var Listing $listing */
         $listing = $this->createListing([], 0, 0);
 
-        $listing->reviews()->save(factory(Review::class)->create(['hosting_score' => 8]));
-        $listing->reviews()->save(factory(Review::class)->create(['hosting_score' => 8]));
+        $listing->reviews()->save(factory(Review::class)->create(
+            [
+                'hosting_score' => 8,
+                'user_id' => factory(User::class)->create()->id,
+                'listing_id' => factory(Listing::class)->create()->id
+            ]
+        ));
+
+        $listing->reviews()->save(factory(Review::class)->create(
+            [
+                'hosting_score' => 8,
+                'user_id' => factory(User::class)->create()->id,
+                'listing_id' => factory(Listing::class)->create()->id
+            ]
+        ));
 
         $this->assertEquals(8.0, $listing->reviews()->average('hosting_score'));
     }
@@ -309,8 +393,21 @@ class ListingTest extends TestCase
         /** @var Listing $listing */
         $listing = $this->createListing([], 0, 0);
 
-        $listing->reviews()->save(factory(Review::class)->create(['content_score' => 2]));
-        $listing->reviews()->save(factory(Review::class)->create(['content_score' => 1]));
+        $listing->reviews()->save(factory(Review::class)->create(
+            [
+                'content_score' => 2,
+                'user_id' => factory(User::class)->create()->id,
+                'listing_id' => factory(Listing::class)->create()->id
+            ]
+        ));
+
+        $listing->reviews()->save(factory(Review::class)->create(
+            [
+                'content_score' => 1,
+                'user_id' => factory(User::class)->create()->id,
+                'listing_id' => factory(Listing::class)->create()->id
+            ]
+        ));
 
         $this->assertEquals(1.5, $listing->reviews()->average('content_score'));
     }
@@ -323,8 +420,21 @@ class ListingTest extends TestCase
         /** @var Listing $listing */
         $listing = $this->createListing([], 0, 0);
 
-        $listing->reviews()->save(factory(Review::class)->create(['event_score' => 9]));
-        $listing->reviews()->save(factory(Review::class)->create(['event_score' => 2]));
+        $listing->reviews()->save(factory(Review::class)->create(
+            [
+                'event_score' => 9,
+                'user_id' => factory(User::class)->create()->id,
+                'listing_id' => factory(Listing::class)->create()->id
+            ]
+        ));
+
+        $listing->reviews()->save(factory(Review::class)->create(
+            [
+                'event_score' => 2,
+                'user_id' => factory(User::class)->create()->id,
+                'listing_id' => factory(Listing::class)->create()->id
+            ]
+        ));
 
         $this->assertEquals(5.5, $listing->reviews()->average('event_score'));
     }

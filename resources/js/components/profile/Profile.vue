@@ -146,26 +146,20 @@
 												</div>
 											</section>
 
+											<!-- Show reviews -->
 											<reviews :reviews="reviews"></reviews>
 
+											<!-- View scoreboards/ratings -->
 											<ratings :reviews="reviews"></ratings>
 
 										</span>
 
+								<!-- Create a review -->
                 <review-creator v-if="$parent.isCurrentPage('reviewing')"></review-creator>
 
-                <span v-if="$parent.isCurrentPage('voting')">
-											<section id="voting" class="content-block mt-4">
-												<div class="container px-5 py-4">
-													<h3 class="heading tw-font-bold mb-4 text-dark heading-underline">You are voting for x</h3>
-													<div class="row no-gutters">
-														<p class="tw-font-bold mb-3 tw-text-green">You have (1) vote remaining!</p>
-														<p class="mb-3">Your vote will have a cooling period of <b>{{ config('interaction.vote.spread') }} hours</b>, this cannot be returned and will remain on x for 7 days starting from the time and date of your cast</p>
-														<at-button type="primary" icon="icon-log-out" class="mt-2">Vote for x</at-button>
-													</div>
-												</div>
-											</section>
-										</span>
+								<!-- Voting View -->
+								<voting v-if="$parent.isCurrentPage('voting')"></voting>
+
             </div>
         </div>
     </transition>
@@ -176,15 +170,17 @@
     import Reviews from '../ReviewsComponent';
     import ReviewCreator from '../profile/ProfileReviewCreator';
     import Ratings from '../profile/RatingsComponent';
+    import Voting from '../profile/ProfileVoting';
 
     export default {
     	props: ['slug', 'reviews'],
         components: {
-            Slide,
-            Reviews,
-            ReviewCreator,
-            Carousel3d,
-            Ratings,
+					Slide,
+					Reviews,
+					ReviewCreator,
+					Carousel3d,
+					Ratings,
+					Voting,
         },
     }
 </script>

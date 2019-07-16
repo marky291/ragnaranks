@@ -154,9 +154,20 @@ class StoreListingValidationTest extends TestCase
     public function test_configuration_validation_integer_conditions()
     {
         $fields = [
-            'max_base_level', 'max_job_level', 'max_aspd', 'max_stats',
-            'base_exp_rate', 'job_exp_rate', 'quest_exp_rate',
-            'item_drop_common', 'item_drop_equip', 'item_drop_card', 'item_drop_common_mvp', 'item_drop_equip_mvp', 'item_drop_card_mvp', ];
+            'config.max_base_level',
+            'config.max_job_level',
+            'config.max_aspd',
+            'config.max_stats',
+            'config.base_exp_rate',
+            'config.job_exp_rate',
+            'config.quest_exp_rate',
+            'config.item_drop_common',
+            'config.item_drop_equip',
+            'config.item_drop_card',
+            'config.item_drop_common_mvp',
+            'config.item_drop_equip_mvp',
+            'config.item_drop_card_mvp',
+        ];
 
         foreach ($fields as $field) {
             $this->configurationTest([$field => ''], $field);
@@ -168,7 +179,11 @@ class StoreListingValidationTest extends TestCase
     public function test_configuration_validation_boolean_conditions()
     {
         $fields = [
-            'instant_cast_stat', 'pk_mode', 'arrow_decrement', 'undead_detect_type', 'attribute_recover',
+            'config.instant_cast_stat',
+            'config.pk_mode',
+            'config.arrow_decrement',
+            'config.undead_detect_type',
+            'config.attribute_recover',
         ];
 
         foreach ($fields as $field) {

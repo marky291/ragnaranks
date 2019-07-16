@@ -58,7 +58,9 @@ class ReviewControllerTest extends TestCase
     {
         $this->signIn();
 
-        $this->listing->reviews()->save(factory(Review::class)->create());
+        $this->listing->reviews()->save(factory(Review::class)->create(
+            ['listing_id' => factory(Listing::class)->create()->id]
+        ));
 
         $this->delete("/listing/{$this->listing->slug}/reviews/{$this->listing->reviews()->first()->id}");
 
@@ -72,7 +74,9 @@ class ReviewControllerTest extends TestCase
     {
         $this->signIn();
 
-        $this->listing->reviews()->save(factory(Review::class)->create());
+        $this->listing->reviews()->save(factory(Review::class)->create(
+            ['listing_id' => factory(Listing::class)->create()->id]
+        ));
 
         $this->patch("/listing/{$this->listing->slug}/reviews/{$this->listing->reviews()->first()->id}", ['message' => 'foo bar']);
 
@@ -86,7 +90,11 @@ class ReviewControllerTest extends TestCase
     {
         $this->signIn();
 
-        $review = $this->listing->reviews()->save(factory(Review::class)->create());
+        $review = $this->listing->reviews()->save(factory(Review::class)->create(
+            [
+                'listing_id' => $this->listing->id
+            ]
+        ));
 
         $this->delete("/listing/{$this->listing->slug}/reviews/{$review->getKey()}");
 
@@ -97,7 +105,9 @@ class ReviewControllerTest extends TestCase
     {
         $this->signIn();
 
-        $review = factory(Review::class)->create();
+        $review = factory(Review::class)->create([
+            'listing_id' => $this->listing->id
+        ]);
 
         $listing = factory(Listing::class)->create();
 

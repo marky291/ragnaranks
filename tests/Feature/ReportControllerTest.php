@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Listings\Listing;
 use Tests\TestCase;
 use App\Interactions\Review;
 use App\Notifications\ReportedReviewAllowed;
@@ -40,7 +41,9 @@ class ReportControllerTest extends TestCase
 
         Notification::fake();
 
-        $review = factory(Review::class)->create();
+        $review = factory(Review::class)->create(
+            ['listing_id' => factory(Listing::class)->create()->id]
+        );
 
         $review->report(['reason' => 'foo'], auth()->user());
 
@@ -57,7 +60,9 @@ class ReportControllerTest extends TestCase
 
         Notification::fake();
 
-        $review = factory(Review::class)->create();
+        $review = factory(Review::class)->create(
+            ['listing_id' => factory(Listing::class)->create()->id]
+        );
 
         $review->report(['reason' => 'foo'], auth()->user());
 
