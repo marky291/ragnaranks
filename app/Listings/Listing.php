@@ -198,6 +198,6 @@ class Listing extends Model
      */
     public function getPointsAttribute()
     {
-        return round($this->votes()->count() * 6 + $this->clicks()->count(), 0);
+        return round(($this->votes()->count() * config('action.vote.value')) + ($this->clicks()->count() * config('action.click.value')), 0);
     }
 }
