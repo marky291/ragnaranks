@@ -74,7 +74,7 @@ class ListingTest extends TestCase
         $listing->reviews()->saveMany(factory(Review::class, 3)->create(
             [
                 'user_id' => factory(User::class)->create()->id,
-                'listing_id' => factory(Listing::class)->create()->id
+                'listing_id' => factory(Listing::class)->create()->id,
             ]
         ));
 
@@ -236,7 +236,7 @@ class ListingTest extends TestCase
             [
                 'donation_score' => 0,
                 'user_id' => factory(User::class)->create()->id,
-                'listing_id' => factory(Listing::class)->create()->id
+                'listing_id' => factory(Listing::class)->create()->id,
             ]
         ));
 
@@ -244,7 +244,7 @@ class ListingTest extends TestCase
             [
                 'donation_score' => 10,
                 'user_id' => factory(User::class)->create()->id,
-                'listing_id' => factory(Listing::class)->create()->id
+                'listing_id' => factory(Listing::class)->create()->id,
             ]
         ));
 
@@ -263,14 +263,14 @@ class ListingTest extends TestCase
             [
                 'update_score' => 2,
                 'user_id' => factory(User::class)->create()->id,
-                'listing_id' => factory(Listing::class)->create()->id
+                'listing_id' => factory(Listing::class)->create()->id,
             ]
         ));
         $listing->reviews()->save(factory(Review::class)->create(
             [
                 'update_score' => 5,
                 'user_id' => factory(User::class)->create()->id,
-                'listing_id' => factory(Listing::class)->create()->id
+                'listing_id' => factory(Listing::class)->create()->id,
             ]
         ));
 
@@ -316,7 +316,7 @@ class ListingTest extends TestCase
             [
                 'item_score' => 9,
                 'user_id' => factory(User::class)->create()->id,
-                'listing_id' => factory(Listing::class)->create()->id
+                'listing_id' => factory(Listing::class)->create()->id,
             ]
         ));
 
@@ -324,7 +324,7 @@ class ListingTest extends TestCase
             [
                 'item_score' => 3,
                 'user_id' => factory(User::class)->create()->id,
-                'listing_id' => factory(Listing::class)->create()->id
+                'listing_id' => factory(Listing::class)->create()->id,
             ]
         ));
 
@@ -343,7 +343,7 @@ class ListingTest extends TestCase
             [
                 'support_score' => 8,
                 'user_id' => factory(User::class)->create()->id,
-                'listing_id' => factory(Listing::class)->create()->id
+                'listing_id' => factory(Listing::class)->create()->id,
             ]
         ));
 
@@ -351,7 +351,7 @@ class ListingTest extends TestCase
             [
                 'support_score' => 8,
                 'user_id' => factory(User::class)->create()->id,
-                'listing_id' => factory(Listing::class)->create()->id
+                'listing_id' => factory(Listing::class)->create()->id,
             ]
         ));
 
@@ -370,7 +370,7 @@ class ListingTest extends TestCase
             [
                 'hosting_score' => 8,
                 'user_id' => factory(User::class)->create()->id,
-                'listing_id' => factory(Listing::class)->create()->id
+                'listing_id' => factory(Listing::class)->create()->id,
             ]
         ));
 
@@ -378,7 +378,7 @@ class ListingTest extends TestCase
             [
                 'hosting_score' => 8,
                 'user_id' => factory(User::class)->create()->id,
-                'listing_id' => factory(Listing::class)->create()->id
+                'listing_id' => factory(Listing::class)->create()->id,
             ]
         ));
 
@@ -397,7 +397,7 @@ class ListingTest extends TestCase
             [
                 'content_score' => 2,
                 'user_id' => factory(User::class)->create()->id,
-                'listing_id' => factory(Listing::class)->create()->id
+                'listing_id' => factory(Listing::class)->create()->id,
             ]
         ));
 
@@ -405,7 +405,7 @@ class ListingTest extends TestCase
             [
                 'content_score' => 1,
                 'user_id' => factory(User::class)->create()->id,
-                'listing_id' => factory(Listing::class)->create()->id
+                'listing_id' => factory(Listing::class)->create()->id,
             ]
         ));
 
@@ -424,7 +424,7 @@ class ListingTest extends TestCase
             [
                 'event_score' => 9,
                 'user_id' => factory(User::class)->create()->id,
-                'listing_id' => factory(Listing::class)->create()->id
+                'listing_id' => factory(Listing::class)->create()->id,
             ]
         ));
 
@@ -432,7 +432,7 @@ class ListingTest extends TestCase
             [
                 'event_score' => 2,
                 'user_id' => factory(User::class)->create()->id,
-                'listing_id' => factory(Listing::class)->create()->id
+                'listing_id' => factory(Listing::class)->create()->id,
             ]
         ));
 
