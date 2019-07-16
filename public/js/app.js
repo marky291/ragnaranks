@@ -17008,9 +17008,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['listingName'],
   data: function data() {
-    return {//
+    return {
+      stats: {
+        total: Number,
+        spread: Number,
+        value: Number,
+        concluded: Number
+      }
     };
+  },
+  computed: {
+    availableVotes: function availableVotes() {
+      return this.stats.total - this.stats.concluded;
+    }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/api/voting/stats').then(function (response) {
+      _this.stats = response.data;
+    })["catch"](function (error) {
+      console.log(error.message);
+    });
   }
 });
 
@@ -36130,7 +36151,11 @@ var render = function() {
                 ? _c("review-creator")
                 : _vm._e(),
               _vm._v(" "),
-              _vm.$parent.isCurrentPage("voting") ? _c("voting") : _vm._e()
+              _vm.$parent.isCurrentPage("voting")
+                ? _c("voting", {
+                    attrs: { "listing-name": _vm.$parent.listing.name }
+                  })
+                : _vm._e()
             ],
             1
           )
@@ -38694,7 +38719,7 @@ var render = function() {
           {
             staticClass: "heading tw-font-bold mb-4 text-dark heading-underline"
           },
-          [_vm._v("You are voting for x")]
+          [_vm._v("You are voting for " + _vm._s(_vm.listingName))]
         ),
         _vm._v(" "),
         _c(
@@ -38702,10 +38727,22 @@ var render = function() {
           { staticClass: "row no-gutters" },
           [
             _c("p", { staticClass: "tw-font-bold mb-3 tw-text-green" }, [
-              _vm._v("You have (1) vote remaining!")
+              _vm._v(
+                _vm._s(
+                  _vm.$t("profile.voting.available", {
+                    value: _vm.availableVotes
+                  })
+                )
+              )
             ]),
             _vm._v(" "),
-            _vm._m(0),
+            _c("p", { staticClass: "mb-3" }, [
+              _vm._v(
+                _vm._s(
+                  _vm.$t("profile.voting.notice", { hours: _vm.stats.spread })
+                )
+              )
+            ]),
             _vm._v(" "),
             _c(
               "at-button",
@@ -38713,7 +38750,7 @@ var render = function() {
                 staticClass: "mt-2",
                 attrs: { type: "primary", icon: "icon-log-out" }
               },
-              [_vm._v("Vote for x")]
+              [_vm._v("Vote for " + _vm._s(_vm.listingName))]
             )
           ],
           1
@@ -38722,20 +38759,7 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "mb-3" }, [
-      _vm._v("Your vote will have a cooling period of "),
-      _c("b", [_vm._v("6 hours")]),
-      _vm._v(
-        ", this cannot be returned and will remain on x for 7 days starting from the time and date of your cast"
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -52374,6 +52398,10 @@ __webpack_require__.r(__webpack_exports__);
       "reviews": {
         "heading": "player reviews",
         "enticement": "be the first to write a review on this server listing"
+      },
+      "voting": {
+        "available": "You have {value} vote available to spend on a server!",
+        "notice": "When you have decided to give this server your vote, you will not be able to give another vote for {hours} hours to any other server, this prevents mass voting and allows votes to have value on our ranking algorithm."
       }
     },
     "validation": {

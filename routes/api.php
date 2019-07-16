@@ -11,8 +11,10 @@
 |
 */
 
+use App\Interactions\Vote;
 use App\Listings\Listing;
 use App\Listings\ListingRanking;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\ReviewResource;
 use App\Listings\ListingConfiguration;
@@ -50,6 +52,12 @@ Route::get('/listing/{listing}/reviews', static function (Listing $listing) {
     return cache()->remember("listing:{$listing->name}:reviews", 120, static function () use ($listing) {
         return ReviewResource::collection($listing->reviews()->with('user')->get());
     });
+});
+
+Route::get('/voting/stats', static function() {
+    return array_merge(config('action.vote'), [
+        'concluded' => Vote::betweenPeriod(Carbon::now(), Carbon::yesterday())->byCurrentIP()->count(),
+    ]);
 });
 
 Route::get('/servers/{exp_group}/{mode}/{tag}/{sort}/{limit}')->uses('ListingFilteringController@filters');

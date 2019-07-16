@@ -116,4 +116,9 @@ return [
         'heading' => 'player reviews',
         'enticement' => 'be the first to write a review on this server listing',
     ],
+
+    'voting' => [
+        'available' => 'You have :value vote available to spend on a server!',
+        'notice' => 'When you have decided to give this server your vote, you will not be able to give another vote for :hours hours to any other server, this prevents mass voting and allows votes to have value on our ranking algorithm.',
+    ]
 ];

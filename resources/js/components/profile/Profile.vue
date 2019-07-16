@@ -158,7 +158,7 @@
                 <review-creator v-if="$parent.isCurrentPage('reviewing')"></review-creator>
 
 								<!-- Voting View -->
-								<voting v-if="$parent.isCurrentPage('voting')"></voting>
+								<voting v-if="$parent.isCurrentPage('voting')" :listing-name="$parent.listing.name"></voting>
 
             </div>
         </div>

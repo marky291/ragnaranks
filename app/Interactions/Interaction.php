@@ -42,15 +42,16 @@ abstract class Interaction extends Model
      */
     public function scopeByClientIp(Builder $query, string $ip_address)
     {
-        $query->where('ip_address', $ip_address);
+        return $query->where('ip_address', $ip_address);
     }
 
     /**
      * @param Builder $query
+     * @return Builder
      */
-    public function scopeLatestByCurrentClientIp(Builder $query)
+    public function scopeByCurrentIP(Builder $query) : Builder
     {
-        $query->byClientIp(request()->getClientIp())->latest()->limit(1);
+        return $query->byClientIp(request()->getClientIp())->latest();
     }
 
     /**
