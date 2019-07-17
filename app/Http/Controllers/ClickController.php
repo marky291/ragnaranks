@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\RoleAssignment;
 use App\Listings\Listing;
-use App\Interactions\Click;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 
 class ClickController extends Controller
 {
@@ -24,14 +21,13 @@ class ClickController extends Controller
             $listing->clicks()->create(['ip_address' => request()->getClientIp()]);
 
             return response()->json([
-                'success' => true
+                'success' => true,
             ]);
         }
 
-
         return response()->json([
             'success' => false,
-            'message' => 'Click already concluded within '. config('action.click.spread'.' hours')
+            'message' => 'Click already concluded within '.config('action.click.spread'.' hours'),
         ]);
     }
 }

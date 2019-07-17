@@ -2,11 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Interactions\Click;
-use App\Interactions\Vote;
-use Carbon\Carbon;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class APIFunctionalityTest extends TestCase
@@ -22,14 +18,14 @@ class APIFunctionalityTest extends TestCase
                 'total' => 1,
                 'spread' => 6,
                 'value' => 7,
-                'concluded' => 0
+                'concluded' => 0,
             ]
         ));
     }
 
     public function test_it_can_store_clicks()
     {
-        $listing = $this->createListing(['name' => 'foo'], 0,0);
+        $listing = $this->createListing(['name' => 'foo'], 0, 0);
 
         $this->post('/listing/foo/clicks');
 
