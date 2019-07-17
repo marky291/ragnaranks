@@ -11,10 +11,10 @@
 |
 */
 
-use App\Interactions\Vote;
-use App\Listings\Listing;
-use App\Listings\ListingRanking;
 use Carbon\Carbon;
+use App\Listings\Listing;
+use App\Interactions\Vote;
+use App\Listings\ListingRanking;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\ReviewResource;
 use App\Listings\ListingConfiguration;
@@ -54,7 +54,7 @@ Route::get('/listing/{listing}/reviews', static function (Listing $listing) {
     });
 });
 
-Route::get('/voting/stats', static function() {
+Route::get('/voting/stats', static function () {
     return array_merge(config('action.vote'), [
         'concluded' => Vote::betweenPeriod(Carbon::now(), Carbon::yesterday())->byCurrentIP()->count(),
     ]);
