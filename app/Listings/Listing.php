@@ -2,13 +2,13 @@
 
 namespace App\Listings;
 
-use App\Interactions\Interaction;
 use App\Tag;
 use App\User;
 use Carbon\Carbon;
 use App\Interactions\Vote;
 use App\Interactions\Click;
 use App\Interactions\Review;
+use App\Interactions\Interaction;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
