@@ -16097,6 +16097,102 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/googlerecaptchav3/GoogleReCaptchaV3.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/googlerecaptchav3/GoogleReCaptchaV3.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'google-recaptcha-v3',
+  props: {
+    action: {
+      type: String,
+      required: false,
+      "default": 'validate_grecaptcha'
+    },
+    id: {
+      type: String,
+      required: false,
+      "default": 'grecaptcha_container'
+    },
+    siteKey: {
+      type: String,
+      required: false,
+      // set to true if you don't want to store the siteKey in this component
+      "default": '' // set siteKey here if you want to store it in this component
+
+    },
+    inline: {
+      type: Boolean,
+      required: false,
+      "default": false
+    }
+  },
+  data: function data() {
+    return {
+      captchaId: null
+    };
+  },
+  mounted: function mounted() {
+    this.init();
+  },
+  methods: {
+    init: function init() {
+      if (!document.getElementById('gRecaptchaScript')) {
+        window.gRecaptchaOnLoadCallbacks = [this.render];
+
+        window.gRecaptchaOnLoad = function () {
+          for (var i = 0; i < window.gRecaptchaOnLoadCallbacks.length; i++) {
+            window.gRecaptchaOnLoadCallbacks[i]();
+          }
+
+          delete window.gRecaptchaOnLoadCallbacks;
+          delete window.gRecaptchaOnLoad;
+        };
+
+        var recaptchaScript = document.createElement('script');
+        recaptchaScript.setAttribute('src', 'https://www.google.com/recaptcha/api.js?render=explicit&onload=gRecaptchaOnLoad');
+        recaptchaScript.setAttribute('id', 'gRecaptchaScript');
+        recaptchaScript.async = true;
+        recaptchaScript.defer = true;
+        document.head.appendChild(recaptchaScript);
+      } else if (!window.grecaptcha || !window.grecaptcha.render) {
+        window.gRecaptchaOnLoadCallbacks.push(this.render);
+      } else {
+        this.render();
+      }
+    },
+    render: function render() {
+      this.captchaId = window.grecaptcha.render(this.id, {
+        sitekey: this.siteKey,
+        badge: this.inline === true ? 'inline' : '',
+        size: 'invisible',
+        'expired-callback': this.execute
+      });
+      this.execute();
+    },
+    execute: function execute() {
+      var _this = this;
+
+      window.grecaptcha.execute(this.captchaId, {
+        action: this.action
+      }).then(function (token) {
+        _this.$emit('input', token);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/profile/Profile.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/profile/Profile.vue?vue&type=script&lang=js& ***!
@@ -16833,6 +16929,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     setCurrentPage: function setCurrentPage(page) {
       this.currentPage = page;
+    },
+    visitWebsite: function visitWebsite() {
+      axios.post('/listing/' + this.listing.slug + '/clicks').then(function (response) {
+        console.log(response);
+      })["catch"](function (error) {
+        console.log(error.message);
+      });
+    },
+    goBack: function goBack() {
+      return window.history.back();
     }
   }
 });
@@ -16994,6 +17100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _googlerecaptchav3_GoogleReCaptchaV3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../googlerecaptchav3/GoogleReCaptchaV3 */ "./resources/js/components/googlerecaptchav3/GoogleReCaptchaV3.vue");
 //
 //
 //
@@ -17007,8 +17114,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['listingName'],
+  props: ['listingName', 'listingSlug'],
+  components: {
+    GoogleReCaptchaV3: _googlerecaptchav3_GoogleReCaptchaV3__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   data: function data() {
     return {
       stats: {
@@ -17016,7 +17138,12 @@ __webpack_require__.r(__webpack_exports__);
         spread: Number,
         value: Number,
         concluded: Number
-      }
+      },
+      messages: {
+        heading: "",
+        content: ""
+      },
+      gRecaptchaResponse: null
     };
   },
   computed: {
@@ -17024,12 +17151,52 @@ __webpack_require__.r(__webpack_exports__);
       return this.stats.total - this.stats.concluded;
     }
   },
+  methods: {
+    sendVote: function sendVote() {
+      var _this = this;
+
+      axios.post('/listing/' + this.listingSlug + '/votes', {
+        captchaV3: this.gRecaptchaResponse
+      }).then(function (success) {
+        _this.$refs.captcha.execute();
+
+        _this.stats.concluded++;
+        _this.messages.heading = _this.$t('profile.voting.heading.finished', {
+          name: _this.listingName
+        });
+        _this.messages.content = _this.$t('profile.voting.finished', {
+          name: _this.listingName,
+          hours: _this.stats.spread
+        });
+      })["catch"](function (error) {
+        _this.$refs.captcha.execute();
+      });
+    }
+  },
   mounted: function mounted() {
-    var _this = this;
+    var _this2 = this;
 
     axios.get('/api/voting/stats').then(function (response) {
-      _this.stats = response.data;
+      _this2.stats = response.data;
+
+      if (_this2.availableVotes < 1) {
+        _this2.messages.heading = _this2.$t('profile.voting.heading.completed', {
+          name: _this2.listingName
+        });
+        _this2.messages.content = _this2.$t('profile.voting.completed', {
+          hours: _this2.stats.spread
+        });
+      } else {
+        _this2.messages.heading = _this2.$t('profile.voting.heading.pending', {
+          name: _this2.listingName
+        });
+        _this2.messages.content = _this2.$t('profile.voting.pending', {
+          hours: _this2.stats.spread
+        });
+      }
     })["catch"](function (error) {
+      _this2.messages.heading = _this2.$t('profile.voting.heading.declined');
+      _this2.messages.content = _this2.$t('profile.voting.declined');
       console.log(error.message);
     });
   }
@@ -35377,6 +35544,30 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/googlerecaptchav3/GoogleReCaptchaV3.vue?vue&type=template&id=6299eecc&":
+/*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/googlerecaptchav3/GoogleReCaptchaV3.vue?vue&type=template&id=6299eecc& ***!
+  \**************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: _vm.id } })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/profile/Profile.vue?vue&type=template&id=5031abb0&":
 /*!******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/profile/Profile.vue?vue&type=template&id=5031abb0& ***!
@@ -36153,7 +36344,10 @@ var render = function() {
               _vm._v(" "),
               _vm.$parent.isCurrentPage("voting")
                 ? _c("voting", {
-                    attrs: { "listing-name": _vm.$parent.listing.name }
+                    attrs: {
+                      "listing-name": _vm.$parent.listing.name,
+                      "listing-slug": _vm.slug
+                    }
                   })
                 : _vm._e()
             ],
@@ -38713,45 +38907,76 @@ var render = function() {
     "section",
     { staticClass: "content-block mt-4", attrs: { id: "voting" } },
     [
-      _c("div", { staticClass: "container px-5 py-4" }, [
+      _c("div", { staticClass: "container px-5 pb-4 pt-2" }, [
         _c(
           "h3",
           {
             staticClass: "heading tw-font-bold mb-4 text-dark heading-underline"
           },
-          [_vm._v("You are voting for " + _vm._s(_vm.listingName))]
+          [_vm._v(_vm._s(_vm.messages.heading))]
         ),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "row no-gutters" },
-          [
-            _c("p", { staticClass: "tw-font-bold mb-3 tw-text-green" }, [
+        _c("div", { staticClass: "row no-gutters" }, [
+          _c(
+            "p",
+            {
+              staticClass: "tw-font-bold mb-3",
+              class: _vm.availableVotes > 0 ? "tw-text-green" : "tw-text-red"
+            },
+            [
               _vm._v(
                 _vm._s(
-                  _vm.$t("profile.voting.available", {
+                  _vm.$t("profile.voting.spending", {
                     value: _vm.availableVotes
                   })
                 )
               )
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "mb-3" }, [
-              _vm._v(
-                _vm._s(
-                  _vm.$t("profile.voting.notice", { hours: _vm.stats.spread })
-                )
+            ]
+          ),
+          _vm._v(" "),
+          _c("p", { staticClass: "mb-3" }, [
+            _vm._v(_vm._s(_vm.messages.content))
+          ]),
+          _vm._v(" "),
+          _vm.availableVotes > 0
+            ? _c(
+                "div",
+                [
+                  _c("google-re-captcha-v3", {
+                    ref: "captcha",
+                    attrs: {
+                      siteKey: "6LdT_aMUAAAAANYwPoNyZ4eaFX2kqZHi4wZTySp9",
+                      id: "vote_id",
+                      inline: false,
+                      action: "vote"
+                    },
+                    model: {
+                      value: _vm.gRecaptchaResponse,
+                      callback: function($$v) {
+                        _vm.gRecaptchaResponse = $$v
+                      },
+                      expression: "gRecaptchaResponse"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "at-button",
+                    {
+                      staticClass: "mt-2 tw-h-10 tw-w-full",
+                      attrs: { type: "primary" },
+                      on: {
+                        click: function($event) {
+                          return _vm.sendVote()
+                        }
+                      }
+                    },
+                    [_vm._v("Vote for " + _vm._s(_vm.listingName))]
+                  )
+                ],
+                1
               )
-            ]),
-            _vm._v(" "),
-            _c(
-              "at-button",
-              { staticClass: "mt-2", attrs: { type: "primary" } },
-              [_vm._v("Vote for " + _vm._s(_vm.listingName))]
-            )
-          ],
-          1
-        )
+            : _vm._e()
+        ])
       ])
     ]
   )
@@ -51866,6 +52091,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/googlerecaptchav3/GoogleReCaptchaV3.vue":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/googlerecaptchav3/GoogleReCaptchaV3.vue ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _GoogleReCaptchaV3_vue_vue_type_template_id_6299eecc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GoogleReCaptchaV3.vue?vue&type=template&id=6299eecc& */ "./resources/js/components/googlerecaptchav3/GoogleReCaptchaV3.vue?vue&type=template&id=6299eecc&");
+/* harmony import */ var _GoogleReCaptchaV3_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GoogleReCaptchaV3.vue?vue&type=script&lang=js& */ "./resources/js/components/googlerecaptchav3/GoogleReCaptchaV3.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _GoogleReCaptchaV3_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _GoogleReCaptchaV3_vue_vue_type_template_id_6299eecc___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _GoogleReCaptchaV3_vue_vue_type_template_id_6299eecc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/googlerecaptchav3/GoogleReCaptchaV3.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/googlerecaptchav3/GoogleReCaptchaV3.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/googlerecaptchav3/GoogleReCaptchaV3.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GoogleReCaptchaV3_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./GoogleReCaptchaV3.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/googlerecaptchav3/GoogleReCaptchaV3.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GoogleReCaptchaV3_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/googlerecaptchav3/GoogleReCaptchaV3.vue?vue&type=template&id=6299eecc&":
+/*!********************************************************************************************************!*\
+  !*** ./resources/js/components/googlerecaptchav3/GoogleReCaptchaV3.vue?vue&type=template&id=6299eecc& ***!
+  \********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GoogleReCaptchaV3_vue_vue_type_template_id_6299eecc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./GoogleReCaptchaV3.vue?vue&type=template&id=6299eecc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/googlerecaptchav3/GoogleReCaptchaV3.vue?vue&type=template&id=6299eecc&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GoogleReCaptchaV3_vue_vue_type_template_id_6299eecc___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GoogleReCaptchaV3_vue_vue_type_template_id_6299eecc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/profile/Profile.vue":
 /*!*****************************************************!*\
   !*** ./resources/js/components/profile/Profile.vue ***!
@@ -52397,8 +52691,17 @@ __webpack_require__.r(__webpack_exports__);
         "enticement": "be the first to write a review on this server listing"
       },
       "voting": {
-        "available": "You have {value} vote available to spend on a server!",
-        "notice": "When you have decided to give this server your vote, you will not be able to give another vote for {hours} hours to any other server, this prevents mass voting and allows votes to have value on our ranking algorithm."
+        "heading": {
+          "pending": "You are voting for {name}",
+          "completed": "You have already voted for {name}",
+          "declined": "We could not process your vote right now!",
+          "finished": "You successfully voted on {name}!"
+        },
+        "spending": "You have {value} vote available to spend on a server!",
+        "pending": "When you have decided to give this server your vote, you will not be able to give another vote for {hours} hours to any other server, this prevents mass voting and allows votes to have value on our ranking algorithm.",
+        "completed": "Thanks for your interest in another vote to this server, however you must wait {hours} hours from your first vote before you can send another vote",
+        "declined": "Sorry for the inconvenience, you can true voting later or get in touch with an administrator to make the problem aware.",
+        "finished": "Your vote has been sent to this server, and will be applied for the next 7 days, you can continue to vote every {hours}, thank you for your continued support on behalf of RagnaRanks and {name}."
       }
     },
     "validation": {

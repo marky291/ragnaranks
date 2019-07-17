@@ -9,6 +9,7 @@
 namespace App\Interactions;
 
 use App\User;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -19,7 +20,7 @@ use Illuminate\Database\Eloquent\Collection;
  *
  * @method static Collection byClientIp($ip_address)
  * @method Collection latestByCurrentClientIp()
- * @method Collection hasClientInteractedWith($hours)
+ * @method Collection hasInteractedDuring($hours)
  *
  * @property User $publisher
  */
@@ -28,9 +29,9 @@ abstract class Interaction extends Model
     /**
      * A review has a single publisher user.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
@@ -39,8 +40,9 @@ abstract class Interaction extends Model
      * Scope votes to the current logged in IP Address.
      * @param Builder $query
      * @param string $ip_address
+     * @return Builder
      */
-    public function scopeByClientIp(Builder $query, string $ip_address)
+    public function scopeByClientIp(Builder $query, string $ip_address): Builder
     {
         return $query->where('ip_address', $ip_address);
     }
@@ -61,8 +63,8 @@ abstract class Interaction extends Model
      * @param int $hours
      * @return bool
      */
-    public function scopeHasClientInteractedWith(Builder $query, int $hours)
+    public function scopeHasInteractedDuring(Builder $query, int $hours): bool
     {
-        return Carbon::now()->subHours($hours) <= $query->latestByCurrentClientIp()->pluck('created_at')->first();
+        return Carbon::now()->subHours($hours) <= $query->byCurrentIP()->pluck('created_at')->first();
     }
 }

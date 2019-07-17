@@ -15,8 +15,6 @@ class APIFunctionalityTest extends TestCase
 
     public function test_it_returns_vote_stats()
     {
-        $this->signIn();
-
         $response = $this->get('/api/voting/stats');
 
         $response->assertJson(array_merge(config('action.vote'),
@@ -27,5 +25,14 @@ class APIFunctionalityTest extends TestCase
                 'concluded' => 0
             ]
         ));
+    }
+
+    public function test_it_can_store_clicks()
+    {
+        $listing = $this->createListing(['name' => 'foo'], 0,0);
+
+        $this->post('/listing/foo/clicks');
+
+        $this->assertDatabaseHas('clicks', ['listing_id' => $listing->getKey()]);
     }
 }

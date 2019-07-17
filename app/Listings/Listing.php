@@ -2,6 +2,7 @@
 
 namespace App\Listings;
 
+use App\Interactions\Interaction;
 use App\Tag;
 use App\User;
 use Carbon\Carbon;
@@ -108,7 +109,7 @@ class Listing extends Model
     /**
      * A listing can have many clicks.
      *
-     * @return HasMany
+     * @return HasMany|Vote
      */
     public function votes()
     {
@@ -118,7 +119,7 @@ class Listing extends Model
     /**
      * A listing can have many clicks.
      *
-     * @return HasMany|\Illuminate\Database\Query\Builder
+     * @return HasMany|\Illuminate\Database\Query\Builder|Interaction
      */
     public function clicks()
     {

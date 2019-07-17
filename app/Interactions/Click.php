@@ -23,9 +23,16 @@ class Click extends Interaction
     use Periods;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['ip_address'];
+
+    /**
      * The name of the "updated at" column.
      *
      * @var string
      */
-    const UPDATED_AT = null;
+    public const UPDATED_AT = null;
 }

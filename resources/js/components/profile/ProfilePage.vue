@@ -50,7 +50,17 @@
             },
             setCurrentPage(page) {
                 this.currentPage = page;
-            }
+            },
+            visitWebsite() {
+                axios.post('/listing/' + this.listing.slug + '/clicks').then((response) => {
+                    console.log(response);
+                }).catch((error) => {
+                    console.log(error.message);
+                })
+            },
+            goBack() {
+                return window.history.back();
+            },
         }
     }
 </script>
