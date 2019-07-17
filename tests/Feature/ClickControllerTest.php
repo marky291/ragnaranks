@@ -2,11 +2,11 @@
 
 namespace Tests\Feature;
 
-use App\Jobs\SyncRankingTableListing;
-use Illuminate\Support\Facades\Queue;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Interactions\Click;
+use App\Jobs\SyncRankingTableListing;
+use Illuminate\Support\Facades\Queue;
 
 class ClickControllerTest extends TestCase
 {
