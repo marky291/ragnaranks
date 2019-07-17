@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\VoteInteracted;
 use App\Jobs\RoleAssignment;
+use App\Jobs\SyncRankingTableListing;
 use App\Listings\Listing;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -25,6 +27,8 @@ class VoteController extends Controller
         {
             if ($listing->votes()->hasInteractedDuring(config('action.vote.spread')) === false) {
                 $listing->votes()->create(['ip_address' => request()->getClientIp()]);
+
+                SyncRankingTableListing::dispatch($listing);
 
                 if (auth()->check()) {
                     RoleAssignment::dispatch(auth()->user(), 'player');

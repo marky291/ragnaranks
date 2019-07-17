@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Tag;
 use App\Listings\Listing;
+use App\User;
 use Illuminate\View\View;
 use App\Jobs\RoleAssignment;
 use Illuminate\Http\Request;

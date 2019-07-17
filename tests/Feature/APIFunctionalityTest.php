@@ -20,7 +20,7 @@ class APIFunctionalityTest extends TestCase
         $response->assertJson(array_merge(config('action.vote'),
             [
                 'total' => 1,
-                'spread' => 6,
+                'spread' => config('action.vote.spread'),
                 'value' => 7,
                 'concluded' => 0
             ]

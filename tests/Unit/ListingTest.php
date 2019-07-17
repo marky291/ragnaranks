@@ -211,7 +211,7 @@ class ListingTest extends TestCase
     {
         $listing = $this->createListing([], 9, 7);
 
-        $this->assertEquals(61, $listing->points);
+        $this->assertEquals(70, $listing->points);
     }
 
     /**
@@ -447,7 +447,7 @@ class ListingTest extends TestCase
         /** @var Listing $listing */
         $listing = factory(Listing::class)->create();
 
-        $status = $listing->votes()->hasClientInteractedWith(1);
+        $status = $listing->votes()->hasInteractedDuring(1);
 
         $this->assertFalse($status);
     }
@@ -461,7 +461,7 @@ class ListingTest extends TestCase
 
         $listing->votes()->save(new Vote);
 
-        $status = $listing->votes()->hasClientInteractedWith(1);
+        $status = $listing->votes()->hasInteractedDuring(1);
 
         $this->assertTrue($status);
     }

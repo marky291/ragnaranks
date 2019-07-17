@@ -2,11 +2,13 @@
 
 namespace Tests\Feature;
 
+use App\Jobs\SyncRankingTableListing;
+use Illuminate\Support\Facades\Queue;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Interactions\Click;
 
-class ClickRequestTest extends TestCase
+class ClickControllerTest extends TestCase
 {
     /**
      * @test
@@ -49,6 +51,22 @@ class ClickRequestTest extends TestCase
 
         $response = $this->post("/listing/{$listing->slug}/clicks");
 
-        $response->assertRedirect($listing->website);
+        $response->assertJson(['success' => true]);
+    }
+
+    /**
+     * @test
+     */
+    public function it_dispatches_sync_ranking_event()
+    {
+        $this->withoutExceptionHandling();
+
+        Queue::fake();
+
+        factory(Listing::class)->create(['slug' => 'foo']);
+
+        $this->post('/listing/foo/votes');
+
+        Queue::assertPushed(SyncRankingTableListing::class, 1);
     }
 }

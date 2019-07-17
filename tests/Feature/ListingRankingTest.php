@@ -43,6 +43,6 @@ class ListingRankingTest extends TestCase
 
         BuildListingRankingTable::dispatchNow();
 
-        $this->assertEquals(7, $listing->ranking->points);
+        $this->assertEquals(8, $listing->ranking->points);
     }
 }

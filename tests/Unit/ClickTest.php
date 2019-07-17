@@ -67,6 +67,6 @@ class ClickTest extends TestCase
      */
     public function it_has_a_configuration_for_spread()
     {
-        $this->assertEquals(1, config('interaction.click.spread'));
+        $this->assertEquals(1, config('action.click.spread'));
     }
 }

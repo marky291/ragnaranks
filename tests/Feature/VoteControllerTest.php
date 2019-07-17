@@ -2,12 +2,17 @@
 
 namespace Tests\Feature;
 
+use App\Jobs\SyncRankingTableListing;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Queue;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Interactions\Vote;
 
-class VoteRequestTest extends TestCase
+class VoteControllerTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * @test
      */
@@ -29,12 +34,28 @@ class VoteRequestTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        $listing = factory(Listing::class)->create(['slug' => 'listing-name']);
+        $listing = factory(Listing::class)->create(['slug' => 'foo']);
 
-        $this->post('/listing/listing-name/votes', [], ['REMOTE_ADDR' => '10.1.0.1'])->assertOk();
+        $this->post('/listing/foo/votes')->assertOk();
 
         $this->assertCount(1, $listing->votes);
 
-        $this->assertDatabaseHas('votes', ['ip_address' => '10.1.0.1']);
+        $this->assertDatabaseHas('votes', ['ip_address' => '127.0.0.1']);
+    }
+
+    /**
+     * @test
+     */
+    public function it_dispatches_sync_ranking_event()
+    {
+        $this->withoutExceptionHandling();
+
+        Queue::fake();
+
+        factory(Listing::class)->create(['slug' => 'foo']);
+
+        $this->post('/listing/foo/votes');
+
+        Queue::assertPushed(SyncRankingTableListing::class, 1);
     }
 }
