@@ -2,13 +2,11 @@
 
 namespace Tests\Unit;
 
-use App\Jobs\SyncRankingVote;
-use App\Listings\Listing;
-use App\Listings\ListingClickedEvent;
-use App\Listings\ListingRanking;
-use App\Listings\ListingVotedEvent;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
+use App\Listings\Listing;
+use App\Jobs\SyncRankingVote;
+use App\Listings\ListingVotedEvent;
+use App\Listings\ListingClickedEvent;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 /**

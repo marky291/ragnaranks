@@ -2,14 +2,12 @@
 
 namespace Tests\Feature;
 
-use App\Jobs\SyncRankingVote;
-use App\Listings\ListingVotedEvent;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Event;
-use Illuminate\Support\Facades\Queue;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Interactions\Vote;
+use App\Listings\ListingVotedEvent;
+use Illuminate\Support\Facades\Event;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class VoteControllerTest extends TestCase
 {

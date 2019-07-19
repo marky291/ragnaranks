@@ -2,12 +2,11 @@
 
 namespace Tests\Feature;
 
-use App\Listings\ListingClickedEvent;
-use Illuminate\Support\Facades\Event;
-use Illuminate\Support\Facades\Queue;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Interactions\Click;
+use App\Listings\ListingClickedEvent;
+use Illuminate\Support\Facades\Event;
 
 class ClickControllerTest extends TestCase
 {
