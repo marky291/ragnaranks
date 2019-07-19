@@ -3,7 +3,6 @@
 namespace App\Listings;
 
 use Illuminate\Support\Facades\Gate;
-use App\Jobs\ReconstructRankingTable;
 use Illuminate\Support\ServiceProvider;
 
 /**

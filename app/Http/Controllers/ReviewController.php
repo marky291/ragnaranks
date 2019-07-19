@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Listings\Listing;
 use App\Interactions\Review;
-use App\Jobs\AssignRoleToUser;
 use Illuminate\Http\Request;
+use App\Jobs\AssignRoleToUser;
 use Illuminate\Http\JsonResponse;
 use App\Http\Requests\ReviewRequest;
 use Illuminate\Support\Facades\Auth;

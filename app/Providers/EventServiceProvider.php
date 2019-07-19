@@ -2,15 +2,15 @@
 
 namespace App\Providers;
 
-use App\Listings\ListingClickedEvent;
+use App\Listeners\SyncRankingVote;
+use App\Listeners\SyncRankingClick;
 use App\Listings\ListingVotedEvent;
+use App\Listings\ListingClickedEvent;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
+use App\Listeners\ConfirmRankingPosition;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use App\Listeners\ConfirmRankingPosition;
-use App\Listeners\SyncRankingClick;
-use App\Listeners\SyncRankingVote;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -25,12 +25,12 @@ class EventServiceProvider extends ServiceProvider
         ],
         ListingVotedEvent::class => [
             SyncRankingVote::class,
-            ConfirmRankingPosition::class
+            ConfirmRankingPosition::class,
         ],
         ListingClickedEvent::class => [
             SyncRankingClick::class,
             ConfirmRankingPosition::class,
-        ]
+        ],
     ];
 
     /**
