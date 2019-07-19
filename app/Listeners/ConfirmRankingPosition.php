@@ -49,13 +49,13 @@ class ConfirmRankingPosition implements ShouldQueue
        DB::transaction(static function() use ($listing, $next, $swap)
        {
            // first we update the next ranked to the current lower rank
-           ListingRanking::query()->whereColumn('rank', $listing->rank)->update(['rank' => 0]);
+           ListingRanking::query()->where('rank', $listing->rank)->update(['rank' => 0]);
 
            // then we use the swap value to store the next rank to the current.
-           ListingRanking::query()->whereColumn('rank', $next->rank)->update(['rank' => $listing->rank]);
+           ListingRanking::query()->where('rank', $next->rank)->update(['rank' => $listing->rank]);
 
            // next we swap the rank back to the new position
-           ListingRanking::query()->whereColumn('rank', 0)->update(['rank' => $swap]);
+           ListingRanking::query()->where('rank', 0)->update(['rank' => $swap]);
 
        }, 5);
 
