@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Jobs\ReconstructRankingTable;
 use App\Listing;
 use App\Jobs\GenerateServerReport;
 use App\Jobs\RankServerCollection;
@@ -23,30 +24,15 @@ class Kernel extends ConsoleKernel
     /**
      * Define the application's command schedule.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @param Schedule $schedule
      * @return void
      */
     protected function schedule(Schedule $schedule)
     {
-
-        // Generate a monthly report for all servers.
-        $schedule->call(function () {
-            foreach (Listing::all() as $server) {
-                GenerateServerReport::dispatch($server);
-            }
-        })->monthlyOn(1, '00:00');
-
-        // Update the trend growth every day for all servers.
-        $schedule->call(function () {
-            foreach (Listing::all() as $server) {
-                UpdateServerTrendGrowth::dispatch($server);
-            }
-        })->dailyAt('00:00');
-
         // Calculate a listing ranking for every sever every hour.
-        $schedule->call(function () {
-            RankServerCollection::dispatch(Listing::all());
-        })->everyFiveMinutes();
+        $schedule->call(static function () {
+            ReconstructRankingTable::dispatch();
+        })->daily();
     }
 
     /**
