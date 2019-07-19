@@ -4,8 +4,6 @@ namespace App\Listeners;
 
 use App\Listings\ListingRanking;
 use App\Listings\ListingVotedEvent;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class SyncRankingVote
 {

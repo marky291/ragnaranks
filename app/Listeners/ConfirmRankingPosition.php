@@ -3,14 +3,11 @@
 namespace App\Listeners;
 
 use App\Listings\ListingRanking;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 /**
- * Class ConfirmRankingPosition
- *
- * @package App\Listeners
+ * Class ConfirmRankingPosition.
  */
 class ConfirmRankingPosition implements ShouldQueue
 {
@@ -46,18 +43,16 @@ class ConfirmRankingPosition implements ShouldQueue
 
         $swap = $next->rank;
 
-       DB::transaction(static function() use ($listing, $next, $swap)
-       {
-           // first we update the next ranked to the current lower rank
-           ListingRanking::query()->whereColumn('rank', $listing->rank)->update(['rank' => 0]);
+        DB::transaction(static function () use ($listing, $next, $swap) {
+            // first we update the next ranked to the current lower rank
+            ListingRanking::query()->whereColumn('rank', $listing->rank)->update(['rank' => 0]);
 
-           // then we use the swap value to store the next rank to the current.
-           ListingRanking::query()->whereColumn('rank', $next->rank)->update(['rank' => $listing->rank]);
+            // then we use the swap value to store the next rank to the current.
+            ListingRanking::query()->whereColumn('rank', $next->rank)->update(['rank' => $listing->rank]);
 
-           // next we swap the rank back to the new position
-           ListingRanking::query()->whereColumn('rank', 0)->update(['rank' => $swap]);
-
-       }, 5);
+            // next we swap the rank back to the new position
+            ListingRanking::query()->whereColumn('rank', 0)->update(['rank' => $swap]);
+        }, 5);
 
         // we should look around, in case another listing is in front with less points.
         $this->recursiveGain($listing);

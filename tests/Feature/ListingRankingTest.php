@@ -2,7 +2,6 @@
 
 namespace Tests\Feature;
 
-use App\Listings\ListingRanking;
 use Tests\TestCase;
 use App\Jobs\ReconstructRankingTable;
 use Illuminate\Foundation\Testing\RefreshDatabase;

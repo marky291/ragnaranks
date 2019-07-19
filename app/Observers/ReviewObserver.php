@@ -3,7 +3,6 @@
 namespace App\Observers;
 
 use App\Interactions\Review;
-use App\Jobs\UpdateListingReviewScoreAverage;
 
 /**
  * Class ReviewObserver.

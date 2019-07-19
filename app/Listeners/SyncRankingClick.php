@@ -2,10 +2,8 @@
 
 namespace App\Listeners;
 
-use App\Listings\ListingClickedEvent;
 use App\Listings\ListingRanking;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Listings\ListingClickedEvent;
 
 class SyncRankingClick
 {

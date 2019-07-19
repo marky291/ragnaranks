@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\AssignRoleToUser;
-use App\Jobs\SyncRankingVote;
 use App\Listings\Listing;
-use App\Listings\ListingVotedEvent;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Event;
+use App\Jobs\AssignRoleToUser;
+use Illuminate\Http\JsonResponse;
+use App\Listings\ListingVotedEvent;
 use TimeHunter\LaravelGoogleReCaptchaV3\Facades\GoogleReCaptchaV3;
 
 class VoteController extends Controller
@@ -24,8 +22,7 @@ class VoteController extends Controller
     {
         $captcha = GoogleReCaptchaV3::setAction('vote')->verifyResponse($request->get('captchaV3'), $request->getClientIp());
 
-        if ($captcha->isSuccess())
-        {
+        if ($captcha->isSuccess()) {
             if ($listing->votes()->hasInteractedDuring(config('action.vote.spread')) === false) {
                 $listing->votes()->create(['ip_address' => request()->getClientIp()]);
 
@@ -46,7 +43,7 @@ class VoteController extends Controller
                 'success' => false,
                 'redirect' => route('listing.show', $listing),
                 'captcha' => $captcha,
-                'message' => trans('profile.voting.declined', ['hours' => config('action.vote.spread')])
+                'message' => trans('profile.voting.declined', ['hours' => config('action.vote.spread')]),
             ]);
         }
 

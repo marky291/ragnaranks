@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Listings\Listing;
-use App\Listings\ListingClickedEvent;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Event;
+use App\Listings\ListingClickedEvent;
 
 class ClickController extends Controller
 {
