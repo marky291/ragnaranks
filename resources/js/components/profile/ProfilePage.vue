@@ -52,11 +52,10 @@
                 this.currentPage = page;
             },
             visitWebsite() {
-                axios.post('/listing/' + this.listing.slug + '/clicks').then((response) => {
-                    console.log(response);
-                }).catch((error) => {
-                    console.log(error.message);
-                })
+                // track the click.
+                axios.post('/listing/' + this.listing.slug + '/clicks');
+                // visit the page.
+                window.open(this.listing.website,'_blank');
             },
             goBack() {
                 return window.history.back();

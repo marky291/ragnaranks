@@ -16931,11 +16931,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.currentPage = page;
     },
     visitWebsite: function visitWebsite() {
-      axios.post('/listing/' + this.listing.slug + '/clicks').then(function (response) {
-        console.log(response);
-      })["catch"](function (error) {
-        console.log(error.message);
-      });
+      // track the click.
+      axios.post('/listing/' + this.listing.slug + '/clicks'); // visit the page.
+
+      window.open(this.listing.website, '_blank');
     },
     goBack: function goBack() {
       return window.history.back();
