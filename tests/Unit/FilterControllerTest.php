@@ -6,7 +6,7 @@ use App\Tag;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Interactions\Click;
-use App\Jobs\BuildListingRankingTable;
+use App\Jobs\ReconstructRankingTable;
 use App\Listings\ListingConfiguration;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -35,7 +35,7 @@ class FilterControllerTest extends TestCase
             factory(ListingConfiguration::class)->make(['base_exp_rate' => 2])
         );
 
-        BuildListingRankingTable::dispatchNow();
+        ReconstructRankingTable::dispatchNow();
 
         $response = $this->getJson('/api/servers/official-rate/all/all/rank/7');
 
@@ -50,7 +50,7 @@ class FilterControllerTest extends TestCase
             factory(ListingConfiguration::class)->make(['base_exp_rate' => 10])
         );
 
-        BuildListingRankingTable::dispatchNow();
+        ReconstructRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/low-rate/all/all/all/7');
 
@@ -65,7 +65,7 @@ class FilterControllerTest extends TestCase
             factory(ListingConfiguration::class)->make(['base_exp_rate' => 60])
         );
 
-        BuildListingRankingTable::dispatchNow();
+        ReconstructRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/mid-rate/all/all/all/7');
 
@@ -80,7 +80,7 @@ class FilterControllerTest extends TestCase
             factory(ListingConfiguration::class)->make(['base_exp_rate' => 500])
         );
 
-        BuildListingRankingTable::dispatchNow();
+        ReconstructRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/high-rate/all/all/all/7');
 
@@ -95,7 +95,7 @@ class FilterControllerTest extends TestCase
             factory(ListingConfiguration::class)->make(['base_exp_rate' => 10000])
         );
 
-        BuildListingRankingTable::dispatchNow();
+        ReconstructRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/super-high-rate/all/all/all/7');
 
@@ -107,7 +107,7 @@ class FilterControllerTest extends TestCase
         /** @var Listing $listing */
         $listing = factory(Listing::class)->create();
 
-        BuildListingRankingTable::dispatchNow();
+        ReconstructRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/all/all/all/all/7');
 
@@ -121,7 +121,7 @@ class FilterControllerTest extends TestCase
 
         $listing2 = factory(Listing::class)->create(['mode' => 'classic']);
 
-        BuildListingRankingTable::dispatchNow();
+        ReconstructRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/all/renewal/all/all/7');
 
@@ -135,7 +135,7 @@ class FilterControllerTest extends TestCase
 
         $listing2 = factory(Listing::class)->create(['mode' => 'customo']);
 
-        BuildListingRankingTable::dispatchNow();
+        ReconstructRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/all/pre-renewal/all/all/7');
 
@@ -149,7 +149,7 @@ class FilterControllerTest extends TestCase
 
         $listing2 = factory(Listing::class)->create(['mode' => 'pre-renewal']);
 
-        BuildListingRankingTable::dispatchNow();
+        ReconstructRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/all/custom/all/all/7');
 
@@ -163,7 +163,7 @@ class FilterControllerTest extends TestCase
 
         $listing2 = factory(Listing::class)->create(['mode' => 'renewal']);
 
-        BuildListingRankingTable::dispatchNow();
+        ReconstructRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/all/classic/all/all/7');
 
@@ -176,7 +176,7 @@ class FilterControllerTest extends TestCase
 
         $tags = $listing->tags()->save(Tag::where('name', 'freebies')->first());
 
-        BuildListingRankingTable::dispatchNow();
+        ReconstructRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/all/all/freebies/all/7');
 
@@ -189,7 +189,7 @@ class FilterControllerTest extends TestCase
 
         $tags = $listing->tags()->save(Tag::where('name', 'gepard')->first());
 
-        BuildListingRankingTable::dispatchNow();
+        ReconstructRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/all/all/gepard/all/7');
 
@@ -202,7 +202,7 @@ class FilterControllerTest extends TestCase
 
         $tags = $listing->tags()->save(Tag::where('name', 'guild-pack')->first());
 
-        BuildListingRankingTable::dispatchNow();
+        ReconstructRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/all/all/guild-pack/all/7');
 
@@ -215,7 +215,7 @@ class FilterControllerTest extends TestCase
 
         $tags = $listing->tags()->save(Tag::where('name', 'mobile')->first());
 
-        BuildListingRankingTable::dispatchNow();
+        ReconstructRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/all/all/mobile/all/7');
 
@@ -228,7 +228,7 @@ class FilterControllerTest extends TestCase
 
         $tags = $listing->tags()->save(Tag::where('name', 'frost')->first());
 
-        BuildListingRankingTable::dispatchNow();
+        ReconstructRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/all/all/frost/all/7');
 
@@ -241,7 +241,7 @@ class FilterControllerTest extends TestCase
 
         $tags = $listing->tags()->save(Tag::where('name', 'no-donations')->first());
 
-        BuildListingRankingTable::dispatchNow();
+        ReconstructRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/all/all/no-donations/all/7');
 
@@ -254,7 +254,7 @@ class FilterControllerTest extends TestCase
 
         $tags = $listing->tags()->save(Tag::where('name', 'instant-level')->first());
 
-        BuildListingRankingTable::dispatchNow();
+        ReconstructRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/all/all/instant-level/all/7');
 
@@ -267,7 +267,7 @@ class FilterControllerTest extends TestCase
 
         $tags = $listing->tags()->save(Tag::where('name', 'themed-server')->first());
 
-        BuildListingRankingTable::dispatchNow();
+        ReconstructRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/all/all/themed-server/all/7');
 
@@ -291,7 +291,7 @@ class FilterControllerTest extends TestCase
         $bar = factory(Listing::class)->create(['name' => 'zap']);
         $bar->clicks()->saveMany(factory(Click::class, 2)->make(['created_at' => now()]));
 
-        BuildListingRankingTable::dispatchNow();
+        ReconstructRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/all/all/all/rank/7');
 
@@ -321,7 +321,7 @@ class FilterControllerTest extends TestCase
         $listing4 = factory(Listing::class)->create(['name' => 'echo']);
         $listing5 = factory(Listing::class)->create(['name' => 'delta']);
 
-        BuildListingRankingTable::dispatchNow();
+        ReconstructRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/all/all/all/name/7');
 
@@ -353,7 +353,7 @@ class FilterControllerTest extends TestCase
         $listing4 = factory(Listing::class)->create(['name'=>'delta', 'created_at' => now()->subDays(33)]);
         $listing5 = factory(Listing::class)->create(['name'=>'echo', 'created_at' => now()->subMinute()]);
 
-        BuildListingRankingTable::dispatchNow();
+        ReconstructRankingTable::dispatchNow();
 
         $response = $this->getJson('api/servers/all/all/all/name/7');
 

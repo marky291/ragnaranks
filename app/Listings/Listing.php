@@ -23,7 +23,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property int $id
  * @property string $name
  * @property string $slug
- * @property string $points
+ * @property int $points
  * @property string $website
  * @property int $average_score
  * @property string $description
@@ -40,6 +40,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property Vote|HasMany $votes
  * @property Click|HasMany $clicks
  * @property ListingConfiguration $configuration
+ * @property ListingRanking ranking
  * @method static create(array $validated)
  * @method static make(array $validated)
  * @method static whereName(string $name)
@@ -89,9 +90,9 @@ class Listing extends Model
     /**
      * Get the ranking table shit.
      *
-     * @return HasOne
+     * @return HasOne|ListingRanking
      */
-    public function ranking(): HasOne
+    public function ranking()
     {
         return $this->hasOne(ListingRanking::class);
     }

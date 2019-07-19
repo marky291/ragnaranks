@@ -2,7 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Jobs\SyncRankingTableListing;
+use App\Listings\ListingClickedEvent;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Queue;
 use Tests\TestCase;
 use App\Listings\Listing;
@@ -57,16 +58,16 @@ class ClickControllerTest extends TestCase
     /**
      * @test
      */
-    public function it_dispatches_sync_ranking_event()
+    public function it_dispatches_click_completed_event()
     {
         $this->withoutExceptionHandling();
 
-        Queue::fake();
+        Event::fake();
 
         factory(Listing::class)->create(['slug' => 'foo']);
 
-        $this->post('/listing/foo/votes');
+        $this->post('/listing/foo/clicks');
 
-        Queue::assertPushed(SyncRankingTableListing::class, 1);
+        Event::assertDispatched(ListingClickedEvent::class);
     }
 }

@@ -13,9 +13,9 @@ class ListingObserver
      * @param Listing $listing
      * @return void
      */
-    public function created(Listing $listing)
+    public function created(Listing $listing): void
     {
-        //
+        $listing->ranking()->save(new ListingRanking(['rank'=>ListingRanking::query()->max('rank')+1]));
     }
 
     /**

@@ -2,30 +2,39 @@
 
 namespace App\Jobs;
 
-use App\Listings\Listing;
+use App\User;
 use Illuminate\Bus\Queueable;
+use Spatie\Permission\Models\Role;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 
-class UpdateListingReviewScoreAverage implements ShouldQueue
+class AssignRoleToUser implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     /**
-     * @var Listing
+     * @var User
      */
-    private $listing;
+    private $user;
+
+    /**
+     * @var string
+     */
+    private $role;
 
     /**
      * Create a new job instance.
      *
-     * @param Listing $listing
+     * @param User $user
+     * @param string $role
      */
-    public function __construct(Listing $listing)
+    public function __construct(User $user, string $role)
     {
-        $this->listing = $listing;
+        $this->user = $user;
+
+        $this->role = $role;
     }
 
     /**
@@ -35,6 +44,6 @@ class UpdateListingReviewScoreAverage implements ShouldQueue
      */
     public function handle()
     {
-        $this->listing->update(['review_score' => $this->listing->reviews()->avg('average_score')]);
+        $this->user->assignRole(Role::findByName($this->role));
     }
 }

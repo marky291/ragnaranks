@@ -73,11 +73,12 @@ class CreateServerTable extends Migration
         });
 
         Schema::create('listing_rankings', function (Blueprint $table) {
+            $table->increments('id');
             $table->unsignedInteger('listing_id');
-            $table->increments('rank');
-            $table->integer('points')->default(0);
-            $table->integer('votes')->default(0);
-            $table->integer('clicks')->default(0);
+            $table->unsignedInteger('rank');
+            $table->unsignedInteger('points')->default(0);
+            $table->unsignedInteger('votes')->default(0);
+            $table->unsignedInteger('clicks')->default(0);
             $table->timestamp('updated_at');
             $table->foreign('listing_id')->references('id')->on('listings')->onDelete('cascade')->onUpdate('cascade');
         });

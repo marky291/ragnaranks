@@ -499,4 +499,13 @@ class ListingTest extends TestCase
 
         $this->assertInstanceOf(ListingConfiguration::class, $listing->configuration);
     }
+
+    public function test_a_ranking_is_generated_when_a_listing_is_created()
+    {
+        $listing = factory(Listing::class)->create();
+
+        $this->assertNotNull($listing->ranking);
+
+        $this->assertDatabaseHas('listing_rankings', ['rank' => 1, 'votes' => 0, 'clicks' => 0]);
+    }
 }

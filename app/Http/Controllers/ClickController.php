@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Listings\Listing;
+use App\Listings\ListingClickedEvent;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Event;
 
 class ClickController extends Controller
 {
@@ -19,6 +21,8 @@ class ClickController extends Controller
     {
         if ($listing->clicks()->hasInteractedDuring(config('action.click.spread')) === false) {
             $listing->clicks()->create(['ip_address' => request()->getClientIp()]);
+
+            ListingClickedEvent::dispatch($listing);
 
             return response()->json([
                 'success' => true,

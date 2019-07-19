@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Listings\Listing;
 use App\Interactions\Review;
-use App\Jobs\RoleAssignment;
+use App\Jobs\AssignRoleToUser;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Http\Requests\ReviewRequest;
@@ -28,7 +28,7 @@ class ReviewController extends Controller
 
         $listing->user->notify(new ReviewPublished($listing));
 
-        RoleAssignment::dispatch(auth()->user(), 'player');
+        AssignRoleToUser::dispatch(auth()->user(), 'player');
 
         return response()->json(['review' => $review], 200);
     }

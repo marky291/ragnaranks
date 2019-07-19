@@ -3,7 +3,19 @@
 namespace App\Listings;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
+/**
+ * Class ListingRanking
+ *
+ * @property int id
+ * @property int rank
+ * @property int votes
+ * @property int clicks
+ * @property int points
+ *
+ * @package App\Listings
+ */
 class ListingRanking extends Model
 {
     /**
@@ -11,10 +23,10 @@ class ListingRanking extends Model
      *
      * @var array
      */
-    protected $fillable = ['id', 'rank', 'votes', 'points', 'clicks'];
+    protected $fillable = ['rank', 'votes', 'points', 'clicks'];
 
     /**
-     * The model's attributes.
+     * The model's default attributes.
      *
      * @var array
      */
@@ -26,4 +38,30 @@ class ListingRanking extends Model
      * @var string
      */
     public const CREATED_AT = null;
+
+    /**
+     * Add a vote and populate its points on a table
+     *
+     * @param Listing $listing
+     */
+    public static function incrementVote(Listing $listing): void
+    {
+        self::query()->where('listing_id', $listing->getKey())->update([
+            'votes' => DB::raw('votes + 1'),
+            'points' => DB::raw('points + '.config('action.vote.value'))
+        ]);
+    }
+
+    /**
+     * Add a click and populate its points on the table
+     *
+     * @param Listing $listing
+     */
+    public static function incrementClick(Listing $listing)
+    {
+        self::query()->where('listing_id', $listing->getKey())->update([
+            'clicks' => DB::raw('clicks + 1'),
+            'points' => DB::raw('points + '.config('action.click.value'))
+        ]);
+    }
 }

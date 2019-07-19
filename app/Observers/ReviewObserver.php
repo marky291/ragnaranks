@@ -40,6 +40,6 @@ class ReviewObserver
      */
     public function created(Review $review): void
     {
-        dispatch(new UpdateListingReviewScoreAverage($review->listing));
+        $review->listing->update(['review_score' => $review->listing->reviews()->avg('average_score')]);
     }
 }

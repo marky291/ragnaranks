@@ -6,7 +6,7 @@ use App\Tag;
 use App\Listings\Listing;
 use App\User;
 use Illuminate\View\View;
-use App\Jobs\RoleAssignment;
+use App\Jobs\AssignRoleToUser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Listings\ListingRanking;
@@ -55,15 +55,12 @@ class ListingController extends Controller
      */
     public function store(StoreListingRequest $request)
     {
-        RoleAssignment::dispatch(auth()->user(), 'creator');
+        AssignRoleToUser::dispatch(auth()->user(), 'creator');
 
         DB::transaction(static function () use ($request) {
             /** @var Listing $listing */
             // Create the listing.
             $listing = user()->listings()->save(Listing::make($request->validated()));
-
-            // create the ranking, first entry data.
-            $listing->ranking()->save(new ListingRanking());
 
             // grab the configuration that has been validated and assign to the model.
             $validatedConfig = ListingConfiguration::make($request->validated()['config']);

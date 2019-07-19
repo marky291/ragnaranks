@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use App\Listings\Listing;
-use App\Jobs\BuildListingRankingTable;
+use App\Jobs\ReconstructRankingTable;
 use App\Http\Resources\ListingResource;
 
 class ListingResourceTest extends TestCase
@@ -41,7 +41,7 @@ class ListingResourceTest extends TestCase
     {
         $listing = factory(Listing::class)->create();
 
-        BuildListingRankingTable::dispatchNow();
+        ReconstructRankingTable::dispatchNow();
 
         $this->assertEquals(1, ListingResource::make($listing->load('ranking'))['ranking']['rank']);
     }

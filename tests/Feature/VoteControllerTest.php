@@ -2,8 +2,10 @@
 
 namespace Tests\Feature;
 
-use App\Jobs\SyncRankingTableListing;
+use App\Jobs\SyncRankingVote;
+use App\Listings\ListingVotedEvent;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Queue;
 use Tests\TestCase;
 use App\Listings\Listing;
@@ -46,16 +48,16 @@ class VoteControllerTest extends TestCase
     /**
      * @test
      */
-    public function it_dispatches_sync_ranking_event()
+    public function it_dispatches_vote_completed_event()
     {
         $this->withoutExceptionHandling();
 
-        Queue::fake();
+        Event::fake();
 
         factory(Listing::class)->create(['slug' => 'foo']);
 
         $this->post('/listing/foo/votes');
 
-        Queue::assertPushed(SyncRankingTableListing::class, 1);
+        Event::assertDispatched(ListingVotedEvent::class);
     }
 }

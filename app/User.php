@@ -5,7 +5,7 @@ namespace App;
 use Carbon\Carbon;
 use App\Listings\Listing;
 use App\Interactions\Review;
-use App\Jobs\RoleAssignment;
+use App\Jobs\AssignRoleToUser;
 use Gstt\Achievements\Achiever;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -56,7 +56,7 @@ class User extends Authenticatable implements MustVerifyEmail
         parent::boot();
 
         static::created(static function (self $user) {
-            RoleAssignment::dispatchNow($user, 'member');
+            AssignRoleToUser::dispatchNow($user, 'member');
         });
     }
 

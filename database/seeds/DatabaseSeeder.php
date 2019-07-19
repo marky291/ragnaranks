@@ -8,7 +8,7 @@ use App\Interactions\Click;
 use App\Interactions\Review;
 use Illuminate\Database\Seeder;
 use App\Listings\ListingScreenshot;
-use App\Jobs\BuildListingRankingTable;
+use App\Jobs\ReconstructRankingTable;
 use App\Listings\ListingConfiguration;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Database\Eloquent\Collection;
@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
      */
     public function setup()
     {
-        $this->seed_counts = ['listings' => 5, 'votes' => 5000, 'clicks' => 5000, 'reviews' => rand(20, 40), 'screenshots' => rand(50, 100)];
+        $this->seed_counts = ['listings' => 5, 'votes' => 250, 'clicks' => 250, 'reviews' => rand(1, 6), 'screenshots' => rand(1, 6)];
 
         $this->progress_bar = new ProgressBar($this->command->getOutput(), $this->seed_counts['listings'] + $this->seed_counts['votes'] + $this->seed_counts['clicks'] + $this->seed_counts['reviews']);
 
@@ -113,7 +113,7 @@ class DatabaseSeeder extends Seeder
         $this->command->warn("\t{$this->seed_counts['votes']} Votes, {$this->seed_counts['clicks']} Clicks & {$this->seed_counts['reviews']} reviews interacted.");
 
         $this->command->info("\nBuilding cache table...\n");
-        BuildListingRankingTable::dispatchNow();
+        ReconstructRankingTable::dispatchNow();
         $this->command->info('Completed');
     }
 }

@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\VoteInteracted;
-use App\Jobs\RoleAssignment;
-use App\Jobs\SyncRankingTableListing;
+use App\Jobs\AssignRoleToUser;
+use App\Jobs\SyncRankingVote;
 use App\Listings\Listing;
+use App\Listings\ListingVotedEvent;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Event;
 use TimeHunter\LaravelGoogleReCaptchaV3\Facades\GoogleReCaptchaV3;
 
 class VoteController extends Controller
@@ -28,10 +29,10 @@ class VoteController extends Controller
             if ($listing->votes()->hasInteractedDuring(config('action.vote.spread')) === false) {
                 $listing->votes()->create(['ip_address' => request()->getClientIp()]);
 
-                SyncRankingTableListing::dispatch($listing);
+                ListingVotedEvent::dispatch($listing);
 
                 if (auth()->check()) {
-                    RoleAssignment::dispatch(auth()->user(), 'player');
+                    AssignRoleToUser::dispatch(auth()->user(), 'player');
                 }
 
                 return response()->json([

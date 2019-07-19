@@ -3,13 +3,14 @@
 namespace App\Jobs;
 
 use App\Listings\Listing;
+use App\Listings\ListingRanking;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 
-class BuildListingRankingTable implements ShouldQueue
+class ReconstructRankingTable implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -30,15 +31,15 @@ class BuildListingRankingTable implements ShouldQueue
     {
         $counter = 0;
 
-        Listing::withCount(['clicks', 'votes'])->chunkById(100, function ($listings) use (&$counter) {
+        Listing::withCount(['clicks', 'votes'])->chunkById(100, static function ($listings) use (&$counter) {
             $listings = $listings->sortByDesc(static function (Listing $listing) {
                 return $listing->points;
             });
 
             foreach ($listings as $listing) {
-                $listing->ranking()->firstOrCreate(
-                    ['listing_id' => $listing->id], ['rank' => ++$counter, 'points' => $listing->points, 'votes' => $listing->votes_count, 'clicks' => $listing->clicks_count]
-                )->save();
+                $listing->ranking()->update(
+                    ['rank' => ++$counter, 'points' => $listing->points, 'votes' => $listing->votes_count, 'clicks' => $listing->clicks_count]
+                );
             }
         });
     }
