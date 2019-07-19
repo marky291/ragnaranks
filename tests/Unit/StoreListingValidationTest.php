@@ -133,7 +133,7 @@ class StoreListingValidationTest extends TestCase
     {
         $this->signIn();
 
-        $listing = factory(Listing::class)->make(['description' => fake()->sentence(10)]);
+        $listing = factory(Listing::class)->make(['description' => fake()->sentence(3)]);
 
         $response = $this->post('/listing', $listing->toArray());
 
