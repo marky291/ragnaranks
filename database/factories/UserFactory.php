@@ -1,9 +1,9 @@
 <?php
 
-use App\Interactions\Review;
 use App\User;
 use App\Interactions\Vote;
 use App\Interactions\Click;
+use App\Interactions\Review;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 
@@ -17,8 +17,7 @@ use Illuminate\Database\Eloquent\Factory;
 | model instances for testing / seeding your application's database.
 |
 */
-/** @var Factory $factory */
-
+/* @var Factory $factory */
 
 $factory->define(User::class, static function (Faker $faker) {
     return [

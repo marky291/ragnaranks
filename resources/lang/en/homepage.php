@@ -38,7 +38,7 @@
             ],
             'null' => [
                 'name' => 'Unknown Rate',
-            ]
+            ],
         ],
 
         'mode' => [
