@@ -22,7 +22,8 @@ class CheckForMaintenanceMode extends Middleware
      * @var array
      */
     protected $exemptIP = [
-        '78.18.246.70',
+        '78.18.98.123',
+        '112.215.170.81',
     ];
 
     /**
