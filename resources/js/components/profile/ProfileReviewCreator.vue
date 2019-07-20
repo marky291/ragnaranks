@@ -127,9 +127,7 @@
 						this.$Message.success('Your Review has been posted, thank you!');
 						this.$emit('review:created', this.review.data);
 					}).catch(error => {
-						if (error.response.status !== 422) {
-							this.$Message.error(error.message);
-						}
+						this.$Message.error(error.message);
 					});
 				},
 			}
