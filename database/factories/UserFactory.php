@@ -1,8 +1,11 @@
 <?php
 
+use App\Interactions\Review;
+use App\User;
 use App\Interactions\Vote;
 use App\Interactions\Click;
 use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factory;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,19 +17,21 @@ use Faker\Generator as Faker;
 | model instances for testing / seeding your application's database.
 |
 */
+/** @var Factory $factory */
 
-$factory->define(App\User::class, function (Faker $faker) {
+
+$factory->define(User::class, static function (Faker $faker) {
     return [
         'username' => $faker->userName,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
         'remember_token' => str_random(10),
         'avatarUrl' => $faker->imageUrl(640, 480),
     ];
 });
 
-$factory->define(\App\Interactions\Review::class, function (Faker $faker) {
+$factory->define(Review::class, function (Faker $faker) {
     return [
         'message' => $faker->text(rand(300, 500)),
         'ip_address' => $faker->ipv4,

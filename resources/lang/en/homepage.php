@@ -36,6 +36,9 @@
             'super-high-rate' => [
                 'name' => 'Super High Rates',
             ],
+            'null' => [
+                'name' => 'Unknown Rate',
+            ]
         ],
 
         'mode' => [

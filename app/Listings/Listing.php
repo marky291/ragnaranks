@@ -44,6 +44,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static create(array $validated)
  * @method static make(array $validated)
  * @method static whereName(string $name)
+ * @method static orderBy(string $string)
  */
 class Listing extends Model
 {

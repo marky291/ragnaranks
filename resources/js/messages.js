@@ -1,7 +1,7 @@
 export default {
     "en": {
         "passwords": {
-            "password": "Passwords must be at least six characters and match the confirmation.",
+            "password": "Passwords must be at least eight characters and match the confirmation.",
             "reset": "Your password has been reset!",
             "sent": "We have e-mailed your password reset link!",
             "token": "This password reset token is invalid.",
@@ -166,6 +166,7 @@ export default {
             "dimensions": "The {attribute} has invalid image dimensions.",
             "distinct": "The {attribute} field has a duplicate value.",
             "email": "The {attribute} must be a valid email address.",
+            "ends_with": "The {attribute} must end with one of the following: {values}",
             "exists": "The selected {attribute} is invalid.",
             "file": "The {attribute} must be a file.",
             "filled": "The {attribute} field must have a value.",
@@ -282,6 +283,9 @@ export default {
                 },
                 "super-high-rate": {
                     "name": "Super High Rates"
+                },
+                "null": {
+                    "name": "Unknown Rate"
                 }
             },
             "mode": {
