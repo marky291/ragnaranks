@@ -2,11 +2,8 @@
 
 namespace App\Console;
 
-use App\Jobs\ReconstructRankingTable;
 use App\Listing;
-use App\Jobs\GenerateServerReport;
-use App\Jobs\RankServerCollection;
-use App\Jobs\UpdateServerTrendGrowth;
+use App\Jobs\ReconstructRankingTable;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
