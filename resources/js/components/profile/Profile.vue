@@ -1,11 +1,10 @@
 <template>
-    <transition name="fade">
-        <div class="" v-if="$parent.profileLoaded">
+        <div class="tw-shadow" v-if="$parent.profileLoaded">
             <div :class="'use-accent-'+$parent.listing.accent" class="mb-3 server-card item flex-fill border rounded">
                 <div id="profile-card" class="profile-block">
                     <div class="server-card-head image rounded-top" style="height:350px;" v-bind:style="{ backgroundImage: 'url(' + $parent.listing.background + ')' }"></div>
                     <div class="server-card-head overlap d-flex" style="margin-top:-169px;">
-                        <i class="fas fa-arrow-left tw-text-white tw-text-2xl tw-absolute tw-align-top"></i>
+<!--                        <i class="fas fa-arrow-left tw-text-white tw-text-2xl tw-absolute tw-align-top"></i>-->
                         <div class="left-side d-flex w-75 flex-column align-items-start px-4 py-2 align-self-end">
                             <h1 class="text-white font-weight-bold mb-0" style="font-size: 26px; color:rgb(243, 243, 243);">{{ $parent.listing.name }}</h1>
                             <ul class="tag-list list-unstyled d-flex tw-text-xs tw-text-green-light" style="font-size:13px;">
@@ -29,13 +28,13 @@
                     </div>
                 </div>
 
-                <span v-if="$parent.isCurrentPage('profile')">
-											<div class="tw-px-10 mt-4">
-												<div id="description" class="profile-block markdown tw-py-4">
-													<h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tight">Introduction</h3>
-													<div class="row no-gutters">
-														<div class="tw-tracking-normal tw-whitespace-pre-wrap markdown-compiled" v-html="$parent.description"></div>
-													</div>
+								<span v-if="$parent.isCurrentPage('profile')">
+											<div id="description" class="profile-block markdown tw-py-4">
+												<div class="tw-px-10 mt-4">
+														<h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tight">Introduction</h3>
+														<div class="row no-gutters">
+															<div class="tw-tracking-normal tw-whitespace-pre-wrap markdown-compiled" v-html="$parent.description"></div>
+														</div>
 												</div>
 											</div>
 
@@ -146,23 +145,25 @@
 												</div>
 											</section>
 
-											<!-- Show reviews -->
+										<!-- Show reviews -->
 											<reviews :reviews="reviews"></reviews>
 
-											<!-- View scoreboards/ratings -->
+										<!-- View scoreboards/ratings -->
 											<ratings :reviews="reviews"></ratings>
 
 										</span>
 
 								<!-- Create a review -->
-                <review-creator v-if="$parent.isCurrentPage('reviewing')"></review-creator>
+								<transition name="fade">
+									<review-creator v-if="$parent.isCurrentPage('reviewing')"></review-creator>
+								</transition>
 
 								<!-- Voting View -->
-								<voting v-if="$parent.isCurrentPage('voting')" :listing-name="$parent.listing.name" :listing-slug="slug"></voting>
-
+								<transition name="fade">
+									<voting v-if="$parent.isCurrentPage('voting')" :listing-name="$parent.listing.name" :listing-slug="slug"></voting>
+								</transition>
             </div>
         </div>
-    </transition>
 </template>
 
 <script>

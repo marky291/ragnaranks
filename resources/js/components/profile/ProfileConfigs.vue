@@ -1,8 +1,11 @@
 <template>
     <div class="">
+        <div class="heading">
+            <h3>Card Creator</h3>
+        </div>
         <at-collapse accordion value="details" class="" style="overflow:visible">
             <at-collapse-item name="details">
-                <div slot="title">Initial Card Setup</div>
+                <div slot="title">Detailing</div>
                 <div :class="'bg-'+current.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
                     <p class="tw-font-bold">Card Design</p>
                 </div>
@@ -105,7 +108,7 @@
                 </div>
             </at-collapse-item>
             <at-collapse-item name="config">
-                <div slot="title">Config File Setup</div>
+                <div slot="title">Configurations</div>
                 <div class="">
                     <div class="mb-3 configuration">
                         <div class="list">

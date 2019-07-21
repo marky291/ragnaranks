@@ -3,7 +3,7 @@
 </div>
 <filtered-search inline-template>
 	<transition name="fade" mode="out-in">
-		<div id="filters" class="d-flex flex-column content p-2 rounded tw-mb-6 lg:tw-mb-0">
+		<div id="filters" class="d-flex tw-shadow flex-column content p-2 rounded tw-mb-6 lg:tw-mb-0">
 			<select @change="filterChanged" v-model="rates" class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
 				@foreach(trans('homepage.rate') as $key => $rate)
 					<option value="{{ $key }}">{{ $rate['name'] }}</option>

@@ -1,10 +1,10 @@
 <template>
-    <section id="reviewCreator" class="tw-px-10">
-        <div id="comment-reply" class="tw-mt-4 create-reply tw-flex tw-items-center rounded tw-cursor-pointer">
-            <div class="tw-flex tw-w-full tw-items-center">
+		<section id="reviewCreator" class="tw-px-10 pt-4 pb-3 mb-3">
+			<div id="comment-reply" class="create-reply tw-flex tw-items-center rounded tw-cursor-pointer">
+				<div class="tw-flex tw-w-full tw-items-center">
 							<span id="reply-action" class="tw-w-full">
 									<div class="py-3">
-										<h3 class="heading tw-mb-1 tw-font-bold text-dark mb-4 heading-underline">You are creating a <span class="tw-text-blue">Review</span></h3>
+										<h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tight">You are creating a <span class="tw-text-blue">Review</span></h3>
 										<p class="tw-text-grey-dark mb-4">Focus on being factual and objective. Don't use aggressive language and don't post personal details...</p>
 										<at-textarea ref="textarea" v-model="review.message" min-rows="8" autosize placeholder="Your experience, Your review"></at-textarea>
 										<has-error :form="review" field="message"></has-error>
@@ -79,11 +79,11 @@
 										</div>
 									</div>
 								<at-button @click="postReview" type="primary" class="flex-fill">Post my Review!</at-button>
-<!--								<at-button @click="$parent.$parent.setCurrentPage('profile')" type="info" hollow>Maybe I will create one later!</at-button>-->
+								<!--								<at-button @click="$parent.$parent.setCurrentPage('profile')" type="info" hollow>Maybe I will create one later!</at-button>-->
 							</span>
-            </div>
-        </div>
-    </section>
+				</div>
+			</div>
+		</section>
 </template>
 
 <script>

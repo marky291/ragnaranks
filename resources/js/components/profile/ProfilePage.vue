@@ -20,7 +20,7 @@
                 this.profileLoaded = true;
             });
 
-            if (this.slug === 'defaults' || this.listing.isEditor === true) {
+            if (this.isCreating() || this.listing.isEditor === true) {
                 await axios.get('/api/listing/configurations').then((response) => {
                     this.configurations = response.data;
                     this.configLoaded = true;
@@ -45,6 +45,9 @@
             },
         },
         methods: {
+            isCreating() {
+                return this.slug === 'defaults';
+            },
             isCurrentPage(page) {
                 return this.currentPage === page;
             },

@@ -37,7 +37,7 @@
                 'name' => 'Super High Rates',
             ],
             'null' => [
-                'name' => 'Unknown Rate',
+                'name' => 'Unknown Rates',
             ],
         ],
 
