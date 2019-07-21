@@ -3,7 +3,7 @@
         <div class="heading">
             <h3>Card Creator</h3>
         </div>
-        <at-collapse accordion value="details" class="" style="overflow:visible">
+        <at-collapse accordion value="details" class="tw-shadow" style="overflow:visible">
             <at-collapse-item name="details">
                 <div slot="title">Detailing</div>
                 <div :class="'bg-'+current.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
