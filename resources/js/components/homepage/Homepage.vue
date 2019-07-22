@@ -27,6 +27,7 @@
                 });
             },
             changeResource(resource) {
+                console.log('resource : ' + resource);
                 this.resource = resource;
                 this.currentPage = 1;
                 this.loadResource();
