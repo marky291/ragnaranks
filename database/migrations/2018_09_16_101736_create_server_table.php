@@ -47,7 +47,7 @@ class CreateServerTable extends Migration
 
         Schema::create('listings', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('slug')->index();
             $table->text('background');
@@ -118,7 +118,7 @@ class CreateServerTable extends Migration
 
         Schema::create('reviews', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id')->index();
+            $table->unsignedBigInteger('user_id')->index();
             $table->unsignedInteger('listing_id')->index();
             $table->ipAddress('ip_address');
             $table->text('message');
