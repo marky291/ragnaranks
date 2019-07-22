@@ -14,12 +14,12 @@
                 <div class="tw-flex pb-5 pt-2 tw--mx-4 tw-flex-wrap">
                     <div id="sidebar" class="lg:tw-w-1/3 tw-px-4">
                         @include('sidebar.message')
-                        @include('sidebar.paginate')
+{{--                        @include('sidebar.paginate')--}}
                         @include('sidebar.filter')
                         @include('sidebar.recent')
                         @include('sidebar.social')
                     </div>
-                    <div class="lg:tw-w-2/3 tw-px-4">
+                    <div class="lg:tw-w-2/3 tw-px-4" id="listingsContainer" ref="listingsContainer">
                         <filtered-listings :data="listings.data"></filtered-listings>
                         <div class="tw-flex tw-flex-row tw-bg-transparent tw-mb-6 lg:tw-mb-0 tw-items-center tw-py-2 tw-justify-around">
                             <at-button @click="changePage(1)" size="normal">First</at-button>

@@ -7,9 +7,7 @@
                 listings: {
                     data: {},
                     links: {},
-                    meta: {
-                        per_page: Number,
-                    },
+                    meta: {},
                 },
             }
         },
@@ -24,6 +22,7 @@
             loadResource() {
                 axios.get(`${this.resource}?page=${this.currentPage}`).then((response) => {
                     this.listings = response.data;
+                    document.getElementById('navbar-top').scrollIntoView();
                 });
             },
             changeResource(resource) {
