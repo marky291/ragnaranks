@@ -1,7 +1,7 @@
 <div class="heading">
 	<h3>Filtered Search</h3>
 </div>
-<filtered-search inline-template>
+<filtered-search @filter:changed="changeResource" inline-template>
 	<transition name="fade" mode="out-in">
 		<div id="filters" class="d-flex tw-shadow flex-column content p-2 rounded tw-mb-6 lg:tw-mb-0">
 			<select @change="filterChanged" v-model="rates" class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">

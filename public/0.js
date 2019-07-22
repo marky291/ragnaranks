@@ -9,18 +9,8 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var velocity_animate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! velocity-animate */ "./node_modules/velocity-animate/velocity.js");
-/* harmony import */ var velocity_animate__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(velocity_animate__WEBPACK_IMPORTED_MODULE_1__);
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
+/* harmony import */ var velocity_animate__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! velocity-animate */ "./node_modules/velocity-animate/velocity.js");
+/* harmony import */ var velocity_animate__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(velocity_animate__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -68,27 +58,11 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
-
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      listings: [],
-      pagination: {}
-    };
-  },
-  created: function created() {
-    var _this = this;
-
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('api/servers/all/all/all/rank/7?page=1').then(function (response) {
-      _this.listings = response.data.data;
-    });
-    this.$root.$on('filter:changed', function (param) {
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(param).then(function (response) {
-        _this.listings = response.data.data;
-      });
-    });
-  },
+  props: ['data'],
   methods: {
     reviewScoreMessage: function reviewScoreMessage(score) {
       if (score > 2) return 'homepage.card.review.positive';
@@ -99,29 +73,6 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     visit: function visit(slug) {
       window.location.href = '/listing/' + slug;
     },
-    infiniteHandler: function infiniteHandler($state) {
-      var _this2 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('test', {
-        params: {
-          page: this.page
-        }
-      }).then(function (_ref) {
-        var data = _ref.data;
-
-        if (data.hits.length) {
-          var _this2$list;
-
-          _this2.page += 1;
-
-          (_this2$list = _this2.list).push.apply(_this2$list, _toConsumableArray(data.hits));
-
-          $state.loaded();
-        } else {
-          $state.complete();
-        }
-      });
-    },
     beforeEnter: function beforeEnter(el) {
       el.style.opacity = 0;
       el.style.height = 0;
@@ -129,7 +80,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     enter: function enter(el, done) {
       var delay = el.dataset.index * 0.4;
       setTimeout(function () {
-        velocity_animate__WEBPACK_IMPORTED_MODULE_1___default()(el, {
+        velocity_animate__WEBPACK_IMPORTED_MODULE_0___default()(el, {
           opacity: 1,
           height: '270px'
         }, {
@@ -140,7 +91,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     leave: function leave(el, done) {
       var delay = el.dataset.index * 0.4;
       setTimeout(function () {
-        velocity_animate__WEBPACK_IMPORTED_MODULE_1___default()(el, {
+        velocity_animate__WEBPACK_IMPORTED_MODULE_0___default()(el, {
           opacity: 0,
           height: 0
         }, {
@@ -169,219 +120,162 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "transition-group",
-    {
-      attrs: { name: "staggered-fade", css: false },
-      on: {
-        "before-enter": _vm.beforeEnter,
-        enter: _vm.enter,
-        leave: _vm.leave
-      }
-    },
-    _vm._l(_vm.listings, function(listing, index) {
-      return _c(
-        "div",
-        { key: listing["id"], attrs: { "data-index": listing["id"] } },
-        [
-          _c(
+    "div",
+    {},
+    [
+      _c(
+        "transition-group",
+        {
+          attrs: { name: "staggered-fade", css: false },
+          on: {
+            "before-enter": _vm.beforeEnter,
+            enter: _vm.enter,
+            leave: _vm.leave
+          }
+        },
+        _vm._l(_vm.data, function(listing) {
+          return _c(
             "div",
-            {
-              staticClass:
-                "mb-3 server-card item flex-fill tw-shadow border rounded"
-            },
+            { key: listing["id"], attrs: { "data-index": listing["id"] } },
             [
-              _c("div", {
-                staticClass: "server-card-head image rounded-top",
-                style: {
-                  "background-image": "url(" + listing["background"] + ")"
-                }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "server-card-head overlap d-flex" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "left-side d-flex w-75 flex-column align-items-start px-4 py-2 align-self-end"
-                  },
-                  [
-                    _c(
-                      "h1",
-                      {
-                        staticClass: "font-weight-bold mb-0",
-                        staticStyle: {
-                          "font-size": "26px",
-                          color: "rgb(243, 243, 243)"
-                        }
-                      },
-                      [_vm._v(_vm._s(listing["name"]))]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "ul",
-                      {
-                        staticClass:
-                          "tag-list tw-list-reset tw-flex tw-text-xs tw-text-green-light",
-                        staticStyle: {
-                          "font-size": "13px",
-                          "margin-bottom": ".5rem"
-                        }
-                      },
-                      _vm._l(listing.tags, function(tag) {
-                        return _c("li", { staticClass: "mr-2" }, [
-                          _vm._v("#" + _vm._s(tag))
-                        ])
-                      }),
-                      0
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "right-side flex-fill d-flex justify-content-end pr-3",
-                    staticStyle: { "padding-bottom": "12px" }
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "d-flex flex-column justify-content-end mr-3",
-                        staticStyle: { height: "100%" }
-                      },
-                      [
-                        _c(
-                          "h3",
-                          {
-                            staticClass:
-                              "card-counter-title mb-0 font-weight-bold transparency"
-                          },
-                          [_vm._v("Votes")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "span",
-                          {
-                            staticClass:
-                              "card-counter font-weight-bold transparency"
-                          },
-                          [_vm._v(_vm._s(listing["ranking"]["votes"]))]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "d-flex flex-column justify-content-end mr-2",
-                        staticStyle: { height: "100%" }
-                      },
-                      [
-                        _c(
-                          "h3",
-                          {
-                            staticClass:
-                              "card-counter-title mb-0 font-weight-bold transparency"
-                          },
-                          [_vm._v("Clicks")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "span",
-                          {
-                            staticClass:
-                              "card-counter font-weight-bold transparency"
-                          },
-                          [_vm._v(_vm._s(listing["ranking"]["clicks"]))]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "d-flex flex-column justify-content-end",
-                        staticStyle: { height: "100%" }
-                      },
-                      [
-                        _c("img", {
-                          staticClass: "tw-w-6 tw-h-6 tw-shadow tw-mr-2",
-                          attrs: {
-                            src: "/img/flags/" + listing.language + ".svg",
-                            alt: ""
-                          }
-                        })
-                      ]
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
               _c(
                 "div",
                 {
                   staticClass:
-                    "server-card-body align-items-center tw-shadow-inner px-4 py-3 d-flex"
+                    "mb-3 server-card item flex-fill tw-shadow border rounded"
                 },
                 [
-                  _c(
-                    "span",
-                    {
-                      staticClass: "tw-mr-4 tw-text-grey-darker",
-                      staticStyle: { "font-size": "30px" }
-                    },
-                    [_vm._v(_vm._s(listing["ranking"]["rank"]))]
-                  ),
+                  _c("div", {
+                    staticClass: "server-card-head image rounded-top",
+                    style: {
+                      "background-image": "url(" + listing["background"] + ")"
+                    }
+                  }),
                   _vm._v(" "),
                   _c(
                     "div",
-                    {
-                      staticClass:
-                        "tw-border-l-2 tw-pl-4 tw-border-grey-light flex-fill pr-3"
-                    },
+                    { staticClass: "server-card-head overlap d-flex" },
                     [
                       _c(
-                        "p",
+                        "div",
                         {
                           staticClass:
-                            "tw-text-grey-darkest tw-tracking-tight tw-font-semibold mb-0",
-                          staticStyle: { "font-size": "14px" }
+                            "left-side d-flex w-75 flex-column align-items-start px-4 py-2 align-self-end"
                         },
                         [
-                          _vm._v(
-                            _vm._s(
-                              _vm.$t(
-                                "homepage.card.rate." +
-                                  listing["config"]["title"]
-                              )
-                            ) + " "
+                          _c(
+                            "h1",
+                            {
+                              staticClass: "font-weight-bold mb-0",
+                              staticStyle: {
+                                "font-size": "26px",
+                                color: "rgb(243, 243, 243)"
+                              }
+                            },
+                            [_vm._v(_vm._s(listing["name"]))]
                           ),
-                          _c("small", { staticClass: "tw-text-grey-darker" }, [
-                            _vm._v(
-                              "(" +
-                                _vm._s(listing["config"]["base_exp_rate"]) +
-                                "x/" +
-                                _vm._s(listing["config"]["job_exp_rate"]) +
-                                "x)"
-                            )
-                          ])
+                          _vm._v(" "),
+                          _c(
+                            "ul",
+                            {
+                              staticClass:
+                                "tag-list tw-list-reset tw-flex tw-text-xs tw-text-green-light",
+                              staticStyle: {
+                                "font-size": "13px",
+                                "margin-bottom": ".5rem"
+                              }
+                            },
+                            _vm._l(listing.tags, function(tag) {
+                              return _c("li", { staticClass: "mr-2" }, [
+                                _vm._v("#" + _vm._s(tag))
+                              ])
+                            }),
+                            0
+                          )
                         ]
                       ),
                       _vm._v(" "),
                       _c(
-                        "p",
-                        { class: "review-score-" + listing.review_score },
+                        "div",
+                        {
+                          staticClass:
+                            "right-side flex-fill d-flex justify-content-end pr-3",
+                          staticStyle: { "padding-bottom": "12px" }
+                        },
                         [
-                          _vm._v(
-                            _vm._s(
-                              _vm.$t(
-                                _vm.reviewScoreMessage(listing.review_score)
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "d-flex flex-column justify-content-end mr-3",
+                              staticStyle: { height: "100%" }
+                            },
+                            [
+                              _c(
+                                "h3",
+                                {
+                                  staticClass:
+                                    "card-counter-title mb-0 font-weight-bold transparency"
+                                },
+                                [_vm._v("Votes")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "card-counter font-weight-bold transparency"
+                                },
+                                [_vm._v(_vm._s(listing["ranking"]["votes"]))]
                               )
-                            )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "d-flex flex-column justify-content-end mr-2",
+                              staticStyle: { height: "100%" }
+                            },
+                            [
+                              _c(
+                                "h3",
+                                {
+                                  staticClass:
+                                    "card-counter-title mb-0 font-weight-bold transparency"
+                                },
+                                [_vm._v("Clicks")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "card-counter font-weight-bold transparency"
+                                },
+                                [_vm._v(_vm._s(listing["ranking"]["clicks"]))]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "d-flex flex-column justify-content-end",
+                              staticStyle: { height: "100%" }
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "tw-w-6 tw-h-6 tw-shadow tw-mr-2",
+                                attrs: {
+                                  src:
+                                    "/img/flags/" + listing.language + ".svg",
+                                  alt: ""
+                                }
+                              })
+                            ]
                           )
                         ]
                       )
@@ -391,47 +285,126 @@ var render = function() {
                   _c(
                     "div",
                     {
-                      staticClass: "tw-w-1/4 tw-flex tw-justify-end tw-flex-1"
+                      staticClass:
+                        "server-card-body align-items-center tw-shadow-inner px-4 py-3 d-flex"
                     },
                     [
                       _c(
-                        "at-button",
+                        "span",
                         {
-                          staticClass: "tw-mr-2 tw-shadow",
-                          attrs: { hollow: "" },
-                          on: {
-                            click: function($event) {
-                              return _vm.visit(listing["slug"])
-                            }
-                          }
+                          staticClass: "tw-mr-4 tw-text-grey-darker",
+                          staticStyle: { "font-size": "30px" }
                         },
-                        [_vm._v("Website")]
+                        [_vm._v(_vm._s(listing["ranking"]["rank"]))]
                       ),
                       _vm._v(" "),
                       _c(
-                        "at-button",
+                        "div",
                         {
-                          staticClass: "tw-shadow",
-                          attrs: { type: "primary" },
-                          on: {
-                            click: function($event) {
-                              return _vm.visit(listing["slug"])
-                            }
-                          }
+                          staticClass:
+                            "tw-border-l-2 tw-pl-4 tw-border-grey-light flex-fill pr-3"
                         },
-                        [_vm._v("Details")]
+                        [
+                          _c(
+                            "p",
+                            {
+                              staticClass:
+                                "tw-text-grey-darkest tw-tracking-tight tw-font-semibold mb-0",
+                              staticStyle: { "font-size": "14px" }
+                            },
+                            [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.$t(
+                                    "homepage.card.rate." +
+                                      listing["config"]["title"]
+                                  )
+                                ) + " "
+                              ),
+                              _c(
+                                "small",
+                                { staticClass: "tw-text-grey-darker" },
+                                [
+                                  _vm._v(
+                                    "(" +
+                                      _vm._s(
+                                        listing["config"]["base_exp_rate"]
+                                      ) +
+                                      "x/" +
+                                      _vm._s(
+                                        listing["config"]["job_exp_rate"]
+                                      ) +
+                                      "x)"
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "p",
+                            { class: "review-score-" + listing.review_score },
+                            [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.$t(
+                                    _vm.reviewScoreMessage(listing.review_score)
+                                  )
+                                )
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "tw-w-1/4 tw-flex tw-justify-end tw-flex-1"
+                        },
+                        [
+                          _c(
+                            "at-button",
+                            {
+                              staticClass: "tw-mr-2 tw-shadow",
+                              attrs: { hollow: "" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.visit(listing["slug"])
+                                }
+                              }
+                            },
+                            [_vm._v("Website")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "at-button",
+                            {
+                              staticClass: "tw-shadow",
+                              attrs: { type: "primary" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.visit(listing["slug"])
+                                }
+                              }
+                            },
+                            [_vm._v("Details")]
+                          )
+                        ],
+                        1
                       )
-                    ],
-                    1
+                    ]
                   )
                 ]
               )
             ]
           )
-        ]
+        }),
+        0
       )
-    }),
-    0
+    ],
+    1
   )
 }
 var staticRenderFns = []

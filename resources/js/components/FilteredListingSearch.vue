@@ -1,8 +1,5 @@
 <script>
     export default {
-        created: function () {
-            this.filterChanged();
-        },
         data: function () {
             return {
                 rates: 'all',
@@ -15,7 +12,7 @@
 
         methods: {
             filterChanged: function() {
-                this.$root.$emit('filter:changed', "api/servers/" + this.rates + "/" + this.mode + "/"  + this.tag + "/" + this.sort + "/" + this.paginate);
+                this.$emit('filter:changed', "api/servers/" + this.rates + "/" + this.mode + "/"  + this.tag + "/" + this.sort + "/" + this.paginate);
             }
         }
     }

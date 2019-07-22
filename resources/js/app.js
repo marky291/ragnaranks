@@ -55,6 +55,12 @@ Vue.mixin({
 Vue.component('filtered-listings', () => import('./components/FilteredListingContainer'));
 Vue.component('filtered-search', () => import('./components/FilteredListingSearch.vue'));
 
+Vue.component('pagination', require('laravel-vue-pagination'));
+Vue.component('profile-page', require('./components/profile/ProfilePage.vue').default);
+Vue.component('profile', require('./components/profile/Profile').default);
+Vue.component('configs', require('./components/profile/ProfileConfigs').default);
+Vue.component('homepage', require('./components/homepage/Homepage').default);
+
 // Vue.component('filtered-listings', require('./components/FilteredListingContainer.vue').default);
 //Vue.component('listing-profile-old', require('./Pages/ListingProfileComponent.vue').default);
 Vue.component('login-component', require('./components/LoginComponent').default);
@@ -66,10 +72,6 @@ Vue.component('account-component', require('./components/AccountComponent').defa
 Vue.component('account-details-component', require('./components/AccountDetailsComponent').default);
 Vue.component('account-notification-component', require('./components/AccountNotificationComponent').default);
 Vue.component('report-tool-component', require('./components/ReportToolComponent').default);
-
-Vue.component('profile-page', require('./components/profile/ProfilePage.vue').default);
-Vue.component('profile', require('./components/profile/Profile').default);
-Vue.component('configs', require('./components/profile/ProfileConfigs').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
