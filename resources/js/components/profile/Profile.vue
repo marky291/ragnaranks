@@ -62,23 +62,23 @@
 															</div>
 															<div class="config">
 																<div class="name">{{ $t('profile.config.max_base_level.name') }}</div>
-																<div class="value">{{ $parent.listing.config.max_base_level }}</div>
+																<div class="value">{{ $parent.listing.config.max_base_level.toLocaleString()}} <span class="tw-text-grey-dark">x</span></div>
 															</div>
 															<div class="config">
 																<div class="name">{{ $t('profile.config.max_job_level.name') }}</div>
-																<div class="value">{{ $parent.listing.config.max_job_level }}</div>
+																<div class="value">{{ $parent.listing.config.max_job_level.toLocaleString()}} <span class="tw-text-grey-dark">x</span></div>
 															</div>
 															<div class="config">
 																<div class="name">{{ $t('profile.config.base_exp_rate.name') }}</div>
-																<div class="value">{{ $parent.listing.config.base_exp_rate}}</div>
+																<div class="value">{{ $parent.listing.config.base_exp_rate.toLocaleString()}} <span class="tw-text-grey-dark">x</span></div>
 															</div>
 															<div class="config">
 																<div class="name">{{ $t('profile.config.job_exp_rate.name') }}</div>
-																<div class="value">{{ $parent.listing.config.job_exp_rate }}</div>
+																<div class="value">{{ $parent.listing.config.job_exp_rate.toLocaleString()}} <span class="tw-text-grey-dark">x</span></div>
 															</div>
 															<div class="config">
 																<div class="name">{{ $t('profile.config.quest_exp_rate.name') }}</div>
-																<div class="value">{{ $parent.listing.config.quest_exp_rate}}</div>
+																<div class="value">{{ $parent.listing.config.quest_exp_rate.toLocaleString()}} <span class="tw-text-grey-dark">x</span></div>
 															</div>
 														</div>
 														<div class="list tw-w-1/2 tw-flex tw-flex-col tw-mx-2 mb-3">
@@ -86,23 +86,48 @@
 																<p class="tw-font-bold">Battle</p>
 															</div>
 															<div class="config">
-																<div class="name">{{ $t('profile.config.instant_cast.name') }}</div>
+																<div class="name">
+																	{{ $t('profile.config.instant_cast.name') }}
+																	<at-popover trigger="hover" :content="$t('profile.config.instant_cast.describe')" placement="right">
+																		<small class="help-tooltip">[?]</small>
+																	</at-popover>
+																</div>
 																<div class="value">{{ $parent.listing.config.instant_cast_stat === 1 ? 'Yes' : 'No' }}</div>
 															</div>
 															<div class="config">
-																<div class="name">{{ $t('profile.config.pk_mode.name') }}</div>
+																<div class="name">
+																	{{ $t('profile.config.pk_mode.name') }}
+																	<at-popover trigger="hover" :content="$t('profile.config.pk_mode.describe')" placement="right">
+																		<small class="help-tooltip">[?]</small>
+																	</at-popover>
+																</div>
 																<div class="value">{{ $parent.listing.config.pk_mode === 1 ? 'Yes' : 'No'  }}</div>
 															</div>
 															<div class="config">
-																<div class="name">{{ $t('profile.config.arrow_decrement.name') }}</div>
+																<div class="name">
+																	{{ $t('profile.config.arrow_decrement.name') }}
+																<at-popover trigger="hover" :content="$t('profile.config.arrow_decrement.describe')" placement="right">
+																		<small class="help-tooltip">[?]</small>
+																	</at-popover>
+																</div>
 																<div class="value">{{ $parent.listing.config.arrow_decrement === 1 ? 'Yes' : 'No'  }}</div>
 															</div>
 															<div class="config">
-																<div class="name">{{ $t('profile.config.undead_detect_type.name') }}</div>
+																<div class="name">
+																	{{ $t('profile.config.undead_detect_type.name') }}
+																	<at-popover trigger="hover" :content="$t('profile.config.undead_detect_type.describe')" placement="right">
+																		<small class="help-tooltip">[?]</small>
+																	</at-popover>
+																</div>
 																<div class="value">{{ $parent.listing.config.undead_detect_type === 1 ? 'Yes' : 'No'  }}</div>
 															</div>
 															<div class="config">
-																<div class="name">{{ $t('profile.config.attribute_recover.name') }}</div>
+																<div class="name">
+																	{{ $t('profile.config.attribute_recover.name') }}
+																	<at-popover trigger="hover" :content="$t('profile.config.attribute_recover.describe')" placement="right">
+																		<small class="help-tooltip">[?]</small>
+																	</at-popover>
+																</div>
 																<div class="value">{{ $parent.listing.config.attribute_recover === 1 ? 'Yes' : 'No'  }}</div>
 															</div>
 														</div>
@@ -115,29 +140,29 @@
 															<div class="list tw-w-1/2 tw-flex tw-flex-col tw-mx-2 mb-3">
 																<div class="config">
 																	<div class="name">{{ $t('profile.config.item_drop_common.name') }}</div>
-																	<div class="value">{{ $parent.listing.config.item_drop_common }}</div>
+																	<div class="value">{{ $parent.listing.config.item_drop_common.toLocaleString()}} <span class="tw-text-grey-dark">x</span></div>
 																</div>
 																<div class="config">
 																	<div class="name">{{ $t('profile.config.item_drop_equip.name') }}</div>
-																	<div class="value">{{ $parent.listing.config.item_drop_equip }}</div>
+																	<div class="value">{{ $parent.listing.config.item_drop_equip.toLocaleString()}} <span class="tw-text-grey-dark">x</span></div>
 																</div>
 																<div class="config">
 																	<div class="name">{{ $t('profile.config.item_drop_card.name') }}</div>
-																	<div class="value">{{ $parent.listing.config.item_drop_card }}</div>
+																	<div class="value">{{ $parent.listing.config.item_drop_card.toLocaleString()}} <span class="tw-text-grey-dark">x</span></div>
 																</div>
 															</div>
 															<div class="list tw-w-1/2 tw-flex tw-flex-col tw-mx-2 mb-3">
 																<div class="config">
 																	<div class="name">{{ $t('profile.config.item_drop_common_mvp.name') }}</div>
-																	<div class="value">{{ $parent.listing.config.item_drop_common_mvp }}</div>
+																	<div class="value">{{ $parent.listing.config.item_drop_common_mvp.toLocaleString()}} <span class="tw-text-grey-dark">x</span></div>
 																</div>
 																<div class="config">
 																	<div class="name">{{ $t('profile.config.item_drop_equip_mvp.name') }}</div>
-																	<div class="value">{{ $parent.listing.config.item_drop_equip_mvp }}</div>
+																	<div class="value">{{ $parent.listing.config.item_drop_equip_mvp.toLocaleString()}} <span class="tw-text-grey-dark">x</span></div>
 																</div>
 																<div class="config">
 																	<div class="name">{{ $t('profile.config.item_drop_card_mvp.name') }}</div>
-																	<div class="value">{{ $parent.listing.config.item_drop_card_mvp }}</div>
+																	<div class="value">{{ $parent.listing.config.item_drop_card_mvp.toLocaleString()}} <span class="tw-text-grey-dark">x</span></div>
 																</div>
 															</div>
 														</div>

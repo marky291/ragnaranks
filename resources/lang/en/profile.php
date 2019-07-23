@@ -130,4 +130,10 @@ return [
         'declined' => 'Sorry for the inconvenience, you can true voting later or get in touch with an administrator to make the problem aware.',
         'finished' => 'Your vote has been sent to this server, and will be applied for the next 7 days, you can continue to vote every :hours hours, thank you for your continued support on behalf of RagnaRanks and :name.',
     ],
+
+    'buttons' => [
+        'save_server' => 'Save my new server listing',
+        'update_server' => 'Update my server listing',
+        'delete_server' => 'Delete this server listing'
+    ],
 ];
