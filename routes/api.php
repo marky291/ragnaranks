@@ -18,8 +18,8 @@ use App\Listings\ListingRanking;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\ReviewResource;
 use App\Listings\ListingConfiguration;
-use App\Http\Resources\NewListingResource;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Resources\NewListingResource;
 
 Route::get('/listing/defaults', static function () {
     return cache()->rememberForever('listing:defaults', static function () {
