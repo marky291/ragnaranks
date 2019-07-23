@@ -38093,7 +38093,7 @@ var render = function() {
                           ? "color:#b3312d"
                           : null
                       },
-                      [_vm._v("Website URL")]
+                      [_vm._v("Website Full URL (HTTP/HTTPS)")]
                     ),
                     _vm._v(" "),
                     _vm.validation.hasError("current.website")
