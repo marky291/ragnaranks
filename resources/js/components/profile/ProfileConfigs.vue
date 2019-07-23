@@ -280,7 +280,7 @@
                                 <div class="column">
                                     <div class="name" :style="validation.hasError('current.config.attribute_recover') ? 'color:#b3312d' : null">
                                         {{ $t('profile.config.attribute_recover.name') }}
-                                        <at-popover trigger="hover" :content="$t('profile.config.attribute_recover.describe')" placement="bottom">
+                                        <at-popover trigger="hover" :content="$t('profile.config.attribute_recover.describe')" placement="right">
                                             <small class="help-tooltip">[?]</small>
                                         </at-popover>
                                     </div>
