@@ -1,5 +1,5 @@
 <template>
-    <div class="">
+    <div v-if="data.length > 0">
         <transition-group name="staggered-fade"
                           v-bind:css="false"
                           v-on:before-enter="beforeEnter"
@@ -44,6 +44,9 @@
                 </div>
             </div>
         </transition-group>
+    </div>
+    <div v-else>
+        <h3>{{ $t('homepage.listings.none_found')}}</h3>
     </div>
 </template>
 

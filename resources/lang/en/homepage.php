@@ -118,4 +118,8 @@
                 'name' => 'Sorted by Date Added',
             ],
         ],
+
+        'listings' => [
+            'none_found' => 'No Listings found with requested parameters.'
+        ]
     ];

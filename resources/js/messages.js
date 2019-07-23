@@ -285,7 +285,7 @@ export default {
                     "name": "Super High Rates"
                 },
                 "null": {
-                    "name": "Unknown Rate"
+                    "name": "Unknown Rates"
                 }
             },
             "mode": {
@@ -362,6 +362,9 @@ export default {
                 "created": {
                     "name": "Sorted by Date Added"
                 }
+            },
+            "listings": {
+                "none_found": "No Listings found with requested parameters."
             }
         }
     }

@@ -60,6 +60,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['data'],
@@ -119,222 +122,254 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {},
-    [
-      _c(
-        "transition-group",
-        {
-          attrs: { name: "staggered-fade", css: false },
-          on: {
-            "before-enter": _vm.beforeEnter,
-            enter: _vm.enter,
-            leave: _vm.leave
-          }
-        },
-        _vm._l(_vm.data, function(listing) {
-          return _c(
-            "div",
-            { key: listing["id"], attrs: { "data-index": listing["id"] } },
-            [
-              _c(
+  return _vm.data.length > 0
+    ? _c(
+        "div",
+        [
+          _c(
+            "transition-group",
+            {
+              attrs: { name: "staggered-fade", css: false },
+              on: {
+                "before-enter": _vm.beforeEnter,
+                enter: _vm.enter,
+                leave: _vm.leave
+              }
+            },
+            _vm._l(_vm.data, function(listing) {
+              return _c(
                 "div",
-                {
-                  staticClass:
-                    "mb-3 server-card item flex-fill tw-shadow border rounded"
-                },
+                { key: listing["id"], attrs: { "data-index": listing["id"] } },
                 [
-                  _c("div", {
-                    staticClass: "server-card-head image rounded-top",
-                    style: {
-                      "background-image": "url(" + listing["background"] + ")"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "server-card-head overlap d-flex" },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "left-side d-flex w-75 flex-column align-items-start px-4 py-2 align-self-end"
-                        },
-                        [
-                          _c(
-                            "h1",
-                            {
-                              staticClass: "font-weight-bold mb-0",
-                              staticStyle: {
-                                "font-size": "26px",
-                                color: "rgb(243, 243, 243)"
-                              }
-                            },
-                            [_vm._v(_vm._s(listing["name"]))]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "ul",
-                            {
-                              staticClass:
-                                "tag-list tw-list-reset tw-flex tw-text-xs tw-text-green-light",
-                              staticStyle: {
-                                "font-size": "13px",
-                                "margin-bottom": ".5rem"
-                              }
-                            },
-                            _vm._l(listing.tags, function(tag) {
-                              return _c("li", { staticClass: "mr-2" }, [
-                                _vm._v("#" + _vm._s(tag))
-                              ])
-                            }),
-                            0
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "right-side flex-fill d-flex justify-content-end pr-3",
-                          staticStyle: { "padding-bottom": "12px" }
-                        },
-                        [
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "d-flex flex-column justify-content-end mr-3",
-                              staticStyle: { height: "100%" }
-                            },
-                            [
-                              _c(
-                                "h3",
-                                {
-                                  staticClass:
-                                    "card-counter-title mb-0 font-weight-bold transparency"
-                                },
-                                [_vm._v("Votes")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "card-counter font-weight-bold transparency"
-                                },
-                                [_vm._v(_vm._s(listing["ranking"]["votes"]))]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "d-flex flex-column justify-content-end mr-2",
-                              staticStyle: { height: "100%" }
-                            },
-                            [
-                              _c(
-                                "h3",
-                                {
-                                  staticClass:
-                                    "card-counter-title mb-0 font-weight-bold transparency"
-                                },
-                                [_vm._v("Clicks")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "card-counter font-weight-bold transparency"
-                                },
-                                [_vm._v(_vm._s(listing["ranking"]["clicks"]))]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "div",
-                            {
-                              staticClass:
-                                "d-flex flex-column justify-content-end",
-                              staticStyle: { height: "100%" }
-                            },
-                            [
-                              _c("img", {
-                                staticClass: "tw-w-6 tw-h-6 tw-shadow tw-mr-2",
-                                attrs: {
-                                  src:
-                                    "/img/flags/" + listing.language + ".svg",
-                                  alt: ""
-                                }
-                              })
-                            ]
-                          )
-                        ]
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
                   _c(
                     "div",
                     {
                       staticClass:
-                        "server-card-body align-items-center tw-shadow-inner px-4 py-3 d-flex"
+                        "mb-3 server-card item flex-fill tw-shadow border rounded"
                     },
                     [
+                      _c("div", {
+                        staticClass: "server-card-head image rounded-top",
+                        style: {
+                          "background-image":
+                            "url(" + listing["background"] + ")"
+                        }
+                      }),
+                      _vm._v(" "),
                       _c(
-                        "span",
-                        {
-                          staticClass: "tw-mr-4 tw-text-grey-darker",
-                          staticStyle: { "font-size": "30px" }
-                        },
-                        [_vm._v(_vm._s(listing["ranking"]["rank"]))]
+                        "div",
+                        { staticClass: "server-card-head overlap d-flex" },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "left-side d-flex w-75 flex-column align-items-start px-4 py-2 align-self-end"
+                            },
+                            [
+                              _c(
+                                "h1",
+                                {
+                                  staticClass: "font-weight-bold mb-0",
+                                  staticStyle: {
+                                    "font-size": "26px",
+                                    color: "rgb(243, 243, 243)"
+                                  }
+                                },
+                                [_vm._v(_vm._s(listing["name"]))]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "ul",
+                                {
+                                  staticClass:
+                                    "tag-list tw-list-reset tw-flex tw-text-xs tw-text-green-light",
+                                  staticStyle: {
+                                    "font-size": "13px",
+                                    "margin-bottom": ".5rem"
+                                  }
+                                },
+                                _vm._l(listing.tags, function(tag) {
+                                  return _c("li", { staticClass: "mr-2" }, [
+                                    _vm._v("#" + _vm._s(tag))
+                                  ])
+                                }),
+                                0
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "right-side flex-fill d-flex justify-content-end pr-3",
+                              staticStyle: { "padding-bottom": "12px" }
+                            },
+                            [
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "d-flex flex-column justify-content-end mr-3",
+                                  staticStyle: { height: "100%" }
+                                },
+                                [
+                                  _c(
+                                    "h3",
+                                    {
+                                      staticClass:
+                                        "card-counter-title mb-0 font-weight-bold transparency"
+                                    },
+                                    [_vm._v("Votes")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass:
+                                        "card-counter font-weight-bold transparency"
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(listing["ranking"]["votes"])
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "d-flex flex-column justify-content-end mr-2",
+                                  staticStyle: { height: "100%" }
+                                },
+                                [
+                                  _c(
+                                    "h3",
+                                    {
+                                      staticClass:
+                                        "card-counter-title mb-0 font-weight-bold transparency"
+                                    },
+                                    [_vm._v("Clicks")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      staticClass:
+                                        "card-counter font-weight-bold transparency"
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(listing["ranking"]["clicks"])
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "d-flex flex-column justify-content-end",
+                                  staticStyle: { height: "100%" }
+                                },
+                                [
+                                  _c("img", {
+                                    staticClass:
+                                      "tw-w-6 tw-h-6 tw-shadow tw-mr-2",
+                                    attrs: {
+                                      src:
+                                        "/img/flags/" +
+                                        listing.language +
+                                        ".svg",
+                                      alt: ""
+                                    }
+                                  })
+                                ]
+                              )
+                            ]
+                          )
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
                         "div",
                         {
                           staticClass:
-                            "tw-border-l-2 tw-pl-4 tw-border-grey-light flex-fill pr-3"
+                            "server-card-body align-items-center tw-shadow-inner px-4 py-3 d-flex"
                         },
                         [
                           _c(
-                            "p",
+                            "span",
+                            {
+                              staticClass: "tw-mr-4 tw-text-grey-darker",
+                              staticStyle: { "font-size": "30px" }
+                            },
+                            [_vm._v(_vm._s(listing["ranking"]["rank"]))]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
                             {
                               staticClass:
-                                "tw-text-grey-darkest tw-tracking-tight tw-font-semibold mb-0",
-                              staticStyle: { "font-size": "14px" }
+                                "tw-border-l-2 tw-pl-4 tw-border-grey-light flex-fill pr-3"
                             },
                             [
-                              _vm._v(
-                                _vm._s(
-                                  _vm.$t(
-                                    "homepage.card.rate." +
-                                      listing["config"]["title"]
-                                  )
-                                ) + " "
-                              ),
                               _c(
-                                "small",
-                                { staticClass: "tw-text-grey-darker" },
+                                "p",
+                                {
+                                  staticClass:
+                                    "tw-text-grey-darkest tw-tracking-tight tw-font-semibold mb-0",
+                                  staticStyle: { "font-size": "14px" }
+                                },
                                 [
                                   _vm._v(
-                                    "(" +
-                                      _vm._s(
-                                        listing["config"]["base_exp_rate"]
-                                      ) +
-                                      "x/" +
-                                      _vm._s(
-                                        listing["config"]["job_exp_rate"]
-                                      ) +
-                                      "x)"
+                                    _vm._s(
+                                      _vm.$t(
+                                        "homepage.card.rate." +
+                                          listing["config"]["title"]
+                                      )
+                                    ) + " "
+                                  ),
+                                  _c(
+                                    "small",
+                                    { staticClass: "tw-text-grey-darker" },
+                                    [
+                                      _vm._v(
+                                        "(" +
+                                          _vm._s(
+                                            listing["config"]["base_exp_rate"]
+                                          ) +
+                                          "x/" +
+                                          _vm._s(
+                                            listing["config"]["job_exp_rate"]
+                                          ) +
+                                          "x)"
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "p",
+                                {
+                                  class: "review-score-" + listing.review_score
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(
+                                      _vm.$t(
+                                        _vm.reviewScoreMessage(
+                                          listing.review_score
+                                        )
+                                      )
+                                    )
                                   )
                                 ]
                               )
@@ -342,70 +377,57 @@ var render = function() {
                           ),
                           _vm._v(" "),
                           _c(
-                            "p",
-                            { class: "review-score-" + listing.review_score },
+                            "div",
+                            {
+                              staticClass:
+                                "tw-w-1/4 tw-flex tw-justify-end tw-flex-1"
+                            },
                             [
-                              _vm._v(
-                                _vm._s(
-                                  _vm.$t(
-                                    _vm.reviewScoreMessage(listing.review_score)
-                                  )
-                                )
+                              _c(
+                                "at-button",
+                                {
+                                  staticClass: "tw-mr-2 tw-shadow",
+                                  attrs: { hollow: "" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.visit(listing["slug"])
+                                    }
+                                  }
+                                },
+                                [_vm._v("Website")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "at-button",
+                                {
+                                  staticClass: "tw-shadow",
+                                  attrs: { type: "primary" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.visit(listing["slug"])
+                                    }
+                                  }
+                                },
+                                [_vm._v("Details")]
                               )
-                            ]
+                            ],
+                            1
                           )
                         ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "tw-w-1/4 tw-flex tw-justify-end tw-flex-1"
-                        },
-                        [
-                          _c(
-                            "at-button",
-                            {
-                              staticClass: "tw-mr-2 tw-shadow",
-                              attrs: { hollow: "" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.visit(listing["slug"])
-                                }
-                              }
-                            },
-                            [_vm._v("Website")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "at-button",
-                            {
-                              staticClass: "tw-shadow",
-                              attrs: { type: "primary" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.visit(listing["slug"])
-                                }
-                              }
-                            },
-                            [_vm._v("Details")]
-                          )
-                        ],
-                        1
                       )
                     ]
                   )
                 ]
               )
-            ]
+            }),
+            0
           )
-        }),
-        0
+        ],
+        1
       )
-    ],
-    1
-  )
+    : _c("div", [
+        _c("h3", [_vm._v(_vm._s(_vm.$t("homepage.listings.none_found")))])
+      ])
 }
 var staticRenderFns = []
 render._withStripped = true
