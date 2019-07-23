@@ -14,7 +14,7 @@
                 <div class="tw-flex pb-5 pt-2 tw--mx-4 tw-flex-wrap">
                     <div id="sidebar" class="lg:tw-w-1/3 tw-px-4">
                         @include('sidebar.message')
-{{--                        @include('sidebar.paginate')--}}
+                        @include('sidebar.paginate')
                         @include('sidebar.filter')
                         @include('sidebar.recent')
                         @include('sidebar.social')
