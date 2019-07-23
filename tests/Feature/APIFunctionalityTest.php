@@ -34,7 +34,7 @@ class APIFunctionalityTest extends TestCase
 
     public function test_it_can_validate_name()
     {
-        $this->createListing(['name' => 'foo'],0,0);
+        $this->createListing(['name' => 'foo'], 0, 0);
 
         $response = $this->get('/api/listing/bar/available');
 

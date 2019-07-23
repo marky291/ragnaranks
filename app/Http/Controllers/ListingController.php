@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use App\Tag;
 use App\User;
 use App\Listings\Listing;
-use Illuminate\Http\JsonResponse;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Jobs\AssignRoleToUser;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use App\Listings\ListingConfiguration;
 use App\Http\Requests\StoreListingRequest;
@@ -71,7 +71,6 @@ class ListingController extends Controller
 
             // attach all the tags passed from the request.
             $listing->tags()->attach(Tag::query()->select('id')->whereIn('name', $request->get('tags'))->pluck('id'));
-
         }, 5);
 
         // return a response and a redirect link to next page.
@@ -102,21 +101,19 @@ class ListingController extends Controller
      */
     public function update(StoreListingRequest $request, Listing $listing): JsonResponse
     {
-        DB::transaction(static function () use ($request, $listing)
-        {
+        DB::transaction(static function () use ($request, $listing) {
             $listing->fill($request->validated())->save();
 
             $listing->configuration->fill($request->validated()['config'])->save();
 
             $listing->tags()->sync(Tag::query()->select('id')->whereIn('name', $request->get('tags'))->pluck('id'));
-
         }, 5);
 
         // should we tell the client to redirect/reload
         $redirect = '';
 
         // redirect to new slug if that was changed.
-        if($request->get('name') === $listing->getAttribute('name')) {
+        if ($request->get('name') === $listing->getAttribute('name')) {
             $redirect = route('listing.show', $listing);
         }
 

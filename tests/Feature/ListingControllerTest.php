@@ -2,7 +2,6 @@
 
 namespace Tests\Feature;
 
-use App\Http\Requests\StoreListingRequest;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Listings\ListingConfiguration;
@@ -77,10 +76,10 @@ class ListingControllerTest extends TestCase
         $this->signIn();
 
         $listing = factory(Listing::class)->create([
-            'name' => 'foo'
+            'name' => 'foo',
         ]);
 
-        $configs  = factory(ListingConfiguration::class)->make([
+        $configs = factory(ListingConfiguration::class)->make([
             'base_exp_rate' => 20,
             'pk_mode' => true,
             'arrow_decrement' => true,
@@ -94,7 +93,7 @@ class ListingControllerTest extends TestCase
             'exp_title' => 'low-rate',
             'pk_mode' => 1,
             'arrow_decrement' => 1,
-            'attribute_recover' => 0
+            'attribute_recover' => 0,
         ]);
 
         $response = $this->patch("/listing/{$listing->slug}", array_merge($listing->toArray(),
@@ -106,7 +105,7 @@ class ListingControllerTest extends TestCase
                     'pk_mode' => false,
                     'item_drop_card' => 300,
                     'attribute_recover' => true,
-                ])
+                ]),
             ]
         ));
 
@@ -118,6 +117,5 @@ class ListingControllerTest extends TestCase
             'item_drop_card' => 300,
             'attribute_recover' => 1,
         ]);
-
     }
 }
