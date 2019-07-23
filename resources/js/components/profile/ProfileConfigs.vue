@@ -3,7 +3,7 @@
         <div class="heading">
             <h3>Card Creator</h3>
         </div>
-        <at-collapse accordion value="config" class="tw-shadow" style="overflow:visible">
+        <at-collapse accordion value="details" class="tw-shadow" style="overflow:visible">
             <at-collapse-item name="details">
                 <div slot="title">Detailing</div>
                 <div :class="'bg-'+current.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
@@ -54,7 +54,7 @@
                 </div>
                 <div class="tw-p-2">
                     <div class="tw-flex tw-flex-row tw-items-baseline">
-                        <p class="tw-text-left tw-font-semibold tw-mb-1" :style="validation.hasError('current.website') ? 'color:#b3312d' : null">Website ht Url</p>
+                        <p class="tw-text-left tw-font-semibold tw-mb-1" :style="validation.hasError('current.website') ? 'color:#b3312d' : null">Website HTTP Address</p>
                         <div v-if="validation.hasError('current.website')" class="tw-flex-1 tw-text-right help-block invalid-feedback">{{ validation.firstError('current.website') }}</div>
                     </div>
                     <at-input v-model="current.website" size="small" placeholder="Please input" :status="validation.hasError('current.website') ? 'error' : ''"></at-input>
