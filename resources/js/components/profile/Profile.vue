@@ -62,11 +62,11 @@
 															</div>
 															<div class="config">
 																<div class="name">{{ $t('profile.config.max_base_level.name') }}</div>
-																<div class="value">{{ $parent.listing.config.max_base_level.toLocaleString()}} <span class="tw-text-grey-dark">x</span></div>
+																<div class="value">{{ $parent.listing.config.max_base_level.toLocaleString()}}</div>
 															</div>
 															<div class="config">
 																<div class="name">{{ $t('profile.config.max_job_level.name') }}</div>
-																<div class="value">{{ $parent.listing.config.max_job_level.toLocaleString()}} <span class="tw-text-grey-dark">x</span></div>
+																<div class="value">{{ $parent.listing.config.max_job_level.toLocaleString()}}</div>
 															</div>
 															<div class="config">
 																<div class="name">{{ $t('profile.config.base_exp_rate.name') }}</div>

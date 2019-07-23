@@ -23,7 +23,7 @@ Vue.use(VueInternationalization);
 // the validation is passive at first, just the same as manual mode.
 // But once the $validate() method is called, it becomes active
 // and acts exactly like interactive mode.
-SimpleVueValidation.setMode('conservative');
+// SimpleVueValidation.setMode('conservative');
 
 //const lang = document.documentElement.lang.substr(0, 2);
 
@@ -73,21 +73,6 @@ Vue.component('account-details-component', require('./components/AccountDetailsC
 Vue.component('account-notification-component', require('./components/AccountNotificationComponent').default);
 Vue.component('report-tool-component', require('./components/ReportToolComponent').default);
 
-var VueScrollTo = require('vue-scrollto');
-
-Vue.use(VueScrollTo, {
-    container: "body",
-    duration: 500,
-    easing: "ease",
-    offset: 0,
-    force: true,
-    cancelable: true,
-    onStart: false,
-    onDone: false,
-    onCancel: false,
-    x: false,
-    y: true
-});
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Http\Requests\StoreListingRequest;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Listings\ListingConfiguration;
@@ -67,5 +68,56 @@ class ListingControllerTest extends TestCase
             ['listing_id' => $createdListing->getKey()]));
 
         $this->assertDatabaseHas('listing_rankings', ['listing_id' => $createdListing->getKey()]);
+    }
+
+    public function test_listing_can_be_updated()
+    {
+        $this->withoutExceptionHandling();
+
+        $this->signIn();
+
+        $listing = factory(Listing::class)->create([
+            'name' => 'foo'
+        ]);
+
+        $configs  = factory(ListingConfiguration::class)->make([
+            'base_exp_rate' => 20,
+            'pk_mode' => true,
+            'arrow_decrement' => true,
+            'attribute_recover' => false,
+        ]);
+
+        $listing->configuration()->save($configs);
+
+        $this->assertDatabaseHas('listings', ['name' => 'foo']);
+        $this->assertDatabaseHas('listing_configurations', [
+            'exp_title' => 'low-rate',
+            'pk_mode' => 1,
+            'arrow_decrement' => 1,
+            'attribute_recover' => 0
+        ]);
+
+        $response = $this->patch("/listing/{$listing->slug}", array_merge($listing->toArray(),
+            ['name' => 'foo'],
+            ['tags' => ['freebies', 'guild-pack']],
+            ['config' => array_merge($configs->toArray(),
+                [
+                    'base_exp_rate' => 200,
+                    'pk_mode' => false,
+                    'item_drop_card' => 300,
+                    'attribute_recover' => true,
+                ])
+            ]
+        ));
+
+        $response->assertOk();
+        $this->assertDatabaseHas('listings', ['name' => 'foo']);
+        $this->assertDatabaseHas('listing_configurations', [
+            'exp_title' => 'mid-rate',
+            'pk_mode' => 0,
+            'item_drop_card' => 300,
+            'attribute_recover' => 1,
+        ]);
+
     }
 }

@@ -2,9 +2,15 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @property int id
+ */
 class StoreListingRequest extends FormRequest
 {
     /**
@@ -25,7 +31,7 @@ class StoreListingRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:3',
+            'name' => "required|min:3|unique:listings,name,{$this->id}",
             'accent' => Rule::in(config('filter.accents')),
             'language' => Rule::in(config('filter.languages')),
             'background' => 'active_url|required|min:3',

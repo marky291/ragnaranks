@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Str;
 
 /**
  * Class Listings.
@@ -65,16 +66,6 @@ class Listing extends Model
     public function getRouteKeyName()
     {
         return 'slug';
-    }
-
-    /**
-     * Generate a default slug for the column.
-     *
-     * @return string
-     */
-    public function generateDefaultSlug()
-    {
-        return $this->slug = str_slug($this->name);
     }
 
     /**

@@ -75,7 +75,6 @@
             }).catch((error) => {
                 this.messages.heading = this.$t('profile.voting.heading.declined');
                 this.messages.content = this.$t('profile.voting.declined');
-                console.log(error.message);
             })
         },
     }

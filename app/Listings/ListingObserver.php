@@ -2,6 +2,8 @@
 
 namespace App\Listings;
 
+use Illuminate\Support\Str;
+
 /**
  * Class ListingObserver.
  */
@@ -24,8 +26,8 @@ class ListingObserver
      * @param Listing $listing
      * @return void
      */
-    public function creating(Listing $listing): void
+    public function saving(Listing $listing): void
     {
-        $listing->slug ?: $listing->generateDefaultSlug();
+        $listing->slug = Str::slug($listing->name);
     }
 }

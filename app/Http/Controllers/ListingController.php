@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Tag;
 use App\User;
 use App\Listings\Listing;
+use Illuminate\Http\JsonResponse;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -69,9 +70,8 @@ class ListingController extends Controller
             $configs = $listing->configuration()->save($validatedConfig);
 
             // attach all the tags passed from the request.
-            foreach ($request->get('tags') as $tagName) {
-                $listing->tags()->attach(Tag::where('name', $tagName)->first());
-            }
+            $listing->tags()->attach(Tag::query()->select('id')->whereIn('name', $request->get('tags'))->pluck('id'));
+
         }, 5);
 
         // return a response and a redirect link to next page.
@@ -96,13 +96,32 @@ class ListingController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param  int  $id
-     * @return Response
+     * @param StoreListingRequest $request
+     * @param Listing $listing
+     * @return JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(StoreListingRequest $request, Listing $listing): JsonResponse
     {
-        //
+        DB::transaction(static function () use ($request, $listing)
+        {
+            $listing->fill($request->validated())->save();
+
+            $listing->configuration->fill($request->validated()['config'])->save();
+
+            $listing->tags()->sync(Tag::query()->select('id')->whereIn('name', $request->get('tags'))->pluck('id'));
+
+        }, 5);
+
+        // should we tell the client to redirect/reload
+        $redirect = '';
+
+        // redirect to new slug if that was changed.
+        if($request->get('name') === $listing->getAttribute('name')) {
+            $redirect = route('listing.show', $listing);
+        }
+
+        // otherwise done.
+        return response()->json(['success' => true, 'redirect' => $redirect]);
     }
 
     /**

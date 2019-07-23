@@ -31,4 +31,17 @@ class APIFunctionalityTest extends TestCase
 
         $this->assertDatabaseHas('clicks', ['listing_id' => $listing->getKey()]);
     }
+
+    public function test_it_can_validate_name()
+    {
+        $this->createListing(['name' => 'foo'],0,0);
+
+        $response = $this->get('/api/listing/bar/available');
+
+        $response->assertJson(['name' => 'bar']);
+
+        $response = $this->get('/api/listing/foo/available');
+
+        $response->assertSessionHasErrors('name');
+    }
 }

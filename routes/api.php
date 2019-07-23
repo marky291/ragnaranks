@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Resources\ReviewResource;
 use App\Listings\ListingConfiguration;
 use App\Http\Resources\NewListingResource;
+use Illuminate\Support\Facades\Validator;
 
 Route::get('/listing/defaults', static function () {
     return cache()->rememberForever('listing:defaults', static function () {
@@ -39,7 +40,7 @@ Route::get('/listing/configurations', static function () {
 });
 
 Route::get('/listing/{name}/available', static function (string $name) {
-    return json_encode(! Listing::whereName($name)->count());
+    return json_encode(validator(['name' => $name], ['name' => 'required|unique:listings,name'], ['unique' => 'Server name taken!'])->validate());
 });
 
 Route::get('/listing/{listing}', static function (Listing $listing) {

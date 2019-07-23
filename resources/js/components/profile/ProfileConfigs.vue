@@ -16,7 +16,7 @@
                         <div v-if="current.name && validation.isPassed('current.name')" class="tw-flex-1 tw-text-right help-block tw-text-green-dark" style="font-size:12px;">Available!</div>
                     </div>
                     <div class="tw-flex tw-flex-row">
-                        <at-input class="tw-flex-1" v-model="current.name" size="small" placeholder="Please input" :status="validation.hasError('current.name') ? 'error' : ''"></at-input>
+                        <at-input class="tw-flex-1" v-model.trim="current.name" size="small" placeholder="Please input" :status="validation.hasError('current.name') ? 'error' : ''"></at-input>
                         <div class="validation tw-ml-2">
                             <i v-if="current.name && validation.isPassed('current.name')" class="tw-mr-2 tw-text-green-dark fa fa-check-circle"></i>
                             <i v-if="current.name && !validation.isPassed('current.name') && !validation.isValidating('current.name')" class="tw-mr-2 tw-text-red-dark fa fa-exclamation-circle"></i>
@@ -57,14 +57,14 @@
                         <p class="tw-text-left tw-font-semibold tw-mb-1" :style="validation.hasError('current.website') ? 'color:#b3312d' : null">Website HTTP Address</p>
                         <div v-if="validation.hasError('current.website')" class="tw-flex-1 tw-text-right help-block invalid-feedback">{{ validation.firstError('current.website') }}</div>
                     </div>
-                    <at-input v-model="current.website" size="small" placeholder="Please input" :status="validation.hasError('current.website') ? 'error' : ''"></at-input>
+                    <at-input v-model.trim="current.website" size="small" placeholder="Please input" :status="validation.hasError('current.website') ? 'error' : ''"></at-input>
                 </div>
                 <div class="tw-p-2">
                     <div class="tw-flex tw-flex-row tw-items-baseline">
                         <p class="tw-font-semibold tw-flex tw-mb-1">Background</p>
                         <div v-if="validation.hasError('current.background')" class="tw-flex-1 tw-text-right help-block invalid-feedback">{{ validation.firstError('current.background') }}</div>
                     </div>
-                    <at-input v-model="current.background" placeholder="Enter an Image URL" :status="validation.hasError('current.background') ? 'error' : ''"></at-input>
+                    <at-input v-model.trim="current.background" placeholder="Enter an Image URL" :status="validation.hasError('current.background') ? 'error' : ''"></at-input>
 <!--                    <small class="tw-text-blue">(Optimal size 728x350px)</small>-->
                 </div>
                 <div :class="'bg-'+current.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1 tw-mt-3">
@@ -85,7 +85,7 @@
                         <div class="tw-flex-1 tw-text-right help-block invalid-feedback">{{ validation.firstError('screenshot') }}</div>
                     </div>
                     <div class="tw-flex tw-flex-row">
-                        <at-input @keyup.enter.native="addScreenshot" :status="validation.hasError('screenshot') ? 'error' : ''" icon="link" type="url" v-model="screenshot" class="tw-flex-1 tw-mr-2" placeholder="Enter an Image URL"></at-input>
+                        <at-input @keyup.enter.native="addScreenshot" :status="validation.hasError('screenshot') ? 'error' : ''" icon="link" type="url" v-model.trim="screenshot" class="tw-flex-1 tw-mr-2" placeholder="Enter an Image URL"></at-input>
                         <at-button :disabled="validation.hasError('screenshot')" @click="addScreenshot" type="primary" icon="icon-plus"></at-button>
                     </div>
                     <span v-for="(screenshot, i) in current.screenshots">
@@ -104,10 +104,10 @@
                         <div v-if="validation.hasError('current.description')" class="tw-flex-1 tw-text-right help-block invalid-feedback">{{ validation.firstError('current.description') }}</div>
                     </div>
                     <p class="tw-mb-2"><small><a class="tw-underline" href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">View the MarkDown Syntax Guide</a></small></p>
-                    <at-textarea style="margin-left:-.5rem; margin-right:-.5rem;" :class="validation.hasError('current.description') ? 'invalid-textarea' : ''" v-model="current.description" min-rows="15" max-rows="25" placeholder="Write something catchy"></at-textarea>
+                    <at-textarea style="margin-left:-.5rem; margin-right:-.5rem;" :class="validation.hasError('current.description') ? 'invalid-textarea' : ''" v-model.trim="current.description" min-rows="15" max-rows="25" placeholder="Write something catchy"></at-textarea>
                 </div>
                 <div v-if="isUpdatingCard()">
-                    <at-button :loading="validation.isValidating()" type="primary" class="tw-w-full">{{ $t('profile.buttons.update_server') }}</at-button>
+                    <at-button @click="updateOrSave" :loading="validation.isValidating()" type="primary" class="tw-w-full">{{ $t('profile.buttons.update_server') }}</at-button>
                 </div>
             </at-collapse-item>
             <at-collapse-item name="config">
@@ -123,26 +123,26 @@
                                     <div class="name" :style="validation.hasError('current.config.max_base_level') ? 'color:#b3312d' : null">{{ $t('profile.config.max_base_level.name') }}</div>
                                     <div v-if="validation.hasError('current.config.max_base_level')" class="tw-flex-1 help-block invalid-feedback">{{ validation.firstError('current.config.max_base_level') }}</div>
                                 </div>
-                                <at-input class="value" v-model="current.config.max_base_level" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
+                                <at-input class="value" v-model.number="current.config.max_base_level" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
                             </div>
                             <div class="config">
                                 <div class="column">
                                     <div class="name" :style="validation.hasError('current.config.max_job_level') ? 'color:#b3312d' : null">{{ $t('profile.config.max_job_level.name') }}</div>
                                     <div v-if="validation.hasError('current.config.max_job_level')" class="tw-flex-1 help-block invalid-feedback">{{ validation.firstError('current.config.max_job_level') }}</div>
                                 </div>
-                                <at-input class="value" v-model="current.config.max_job_level" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
+                                <at-input class="value" v-model.number="current.config.max_job_level" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
                             </div>
                             <div class="config">
                                 <div class="column">
                                     <div class="name" :style="validation.hasError('current.config.max_aspd') ? 'color:#b3312d' : null">{{ $t('profile.config.max_aspd.name') }}</div>
                                     <div v-if="validation.hasError('current.config.max_aspd')" class="tw-flex-1 help-block invalid-feedback">{{ validation.firstError('current.config.max_aspd') }}</div>                                </div>
-                                <at-input class="value" v-model="current.config.max_aspd" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
+                                <at-input class="value" v-model.number="current.config.max_aspd" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
                             </div>
                             <div class="config">
                                 <div class="column">
                                     <div class="name" :style="validation.hasError('current.config.max_stats') ? 'color:#b3312d' : null">{{ $t('profile.config.max_stats.name') }}</div>
                                     <div v-if="validation.hasError('current.config.max_stats')" class="tw-flex-1 help-block invalid-feedback">{{ validation.firstError('current.config.max_stats') }}</div>                                </div>
-                                <at-input class="value" v-model="current.config.max_stats" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
+                                <at-input class="value" v-model.number="current.config.max_stats" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
                             </div>
                             <div :class="'bg-'+current.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
                                 <p class="tw-font-bold">Experience Points Setup</p>
@@ -152,21 +152,21 @@
                                     <div class="name" :style="validation.hasError('current.config.base_exp_rate') ? 'color:#b3312d' : null">{{ $t('profile.config.base_exp_rate.name') }}</div>
                                     <div v-if="validation.hasError('current.config.base_exp_rate')" class="tw-flex-1 help-block invalid-feedback">{{ validation.firstError('current.config.base_exp_rate') }}</div>
                                 </div>
-                                <at-input class="value" v-model="current.config.base_exp_rate" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
+                                <at-input class="value" v-model.number="current.config.base_exp_rate" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
                             </div>
                             <div class="config">
                                 <div class="column">
                                     <div class="name" :style="validation.hasError('current.config.job_exp_rate') ? 'color:#b3312d' : null">{{ $t('profile.config.job_exp_rate.name') }}</div>
                                     <div v-if="validation.hasError('current.config.job_exp_rate')" class="tw-flex-1 help-block invalid-feedback">{{ validation.firstError('current.config.job_exp_rate') }}</div>
                                 </div>
-                                <at-input class="value" v-model="current.config.job_exp_rate" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
+                                <at-input class="value" v-model.number="current.config.job_exp_rate" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
                             </div>
                             <div class="config">
                                 <div class="column">
                                     <div class="name" :style="validation.hasError('current.config.quest_exp_rate') ? 'color:#b3312d' : null">{{ $t('profile.config.quest_exp_rate.name') }}</div>
                                     <div v-if="validation.hasError('current.config.quest_exp_rate')" class="tw-flex-1 help-block invalid-feedback">{{ validation.firstError('current.config.quest_exp_rate') }}</div>
                                 </div>
-                                <at-input class="value" v-model="current.config.quest_exp_rate" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
+                                <at-input class="value" v-model.number="current.config.quest_exp_rate" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
                             </div>
                             <div :class="'bg-'+current.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
                                 <p class="tw-font-bold">Drop Rate Setup</p>
@@ -176,42 +176,42 @@
                                     <div class="name" :style="validation.hasError('current.config.item_drop_common') ? 'color:#b3312d' : null">{{ $t('profile.config.item_drop_common.name') }}</div>
                                     <div v-if="validation.hasError('current.config.item_drop_common')" class="tw-flex-1 help-block invalid-feedback">{{ validation.firstError('current.config.item_drop_common') }}</div>
                                 </div>
-                                <at-input class="value" v-model="current.config.item_drop_common" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
+                                <at-input class="value" v-model.number="current.config.item_drop_common" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
                             </div>
                             <div class="config">
                                 <div class="column">
                                     <div class="name" :style="validation.hasError('current.config.item_drop_equip') ? 'color:#b3312d' : null">{{ $t('profile.config.item_drop_equip.name') }}</div>
                                     <div v-if="validation.hasError('current.config.item_drop_equip')" class="tw-flex-1 help-block invalid-feedback">{{ validation.firstError('current.config.item_drop_equip') }}</div>
                                 </div>
-                                <at-input class="value" v-model="current.config.item_drop_equip" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
+                                <at-input class="value" v-model.number="current.config.item_drop_equip" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
                             </div>
                             <div class="config">
                                 <div class="column">
                                     <div class="name" :style="validation.hasError('current.config.item_drop_card') ? 'color:#b3312d' : null">{{ $t('profile.config.item_drop_card.name') }}</div>
                                     <div v-if="validation.hasError('current.config.item_drop_card')" class="tw-flex-1 help-block invalid-feedback">{{ validation.firstError('current.config.item_drop_card') }}</div>
                                 </div>
-                                <at-input class="value" v-model="current.config.item_drop_card" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
+                                <at-input class="value" v-model.number="current.config.item_drop_card" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
                             </div>
                             <div class="config">
                                 <div class="column">
                                     <div class="name" :style="validation.hasError('current.config.item_drop_common_mvp') ? 'color:#b3312d' : null">{{ $t('profile.config.item_drop_common_mvp.name') }}</div>
                                     <div v-if="validation.hasError('current.config.item_drop_common_mvp')" class="tw-flex-1 help-block invalid-feedback">{{ validation.firstError('current.config.item_drop_common_mvp') }}</div>
                                 </div>
-                                <at-input class="value" v-model="current.config.item_drop_common_mvp" size="small" type="number" placeholder="Please input"></at-input>
+                                <at-input class="value" v-model.number="current.config.item_drop_common_mvp" size="small" type="number" placeholder="Please input"></at-input>
                             </div>
                             <div class="config">
                                 <div class="column">
                                     <div class="name" :style="validation.hasError('current.config.item_drop_equip_mvp') ? 'color:#b3312d' : null">{{ $t('profile.config.item_drop_equip_mvp.name') }}</div>
                                     <div v-if="validation.hasError('current.config.item_drop_equip_mvp')" class="tw-flex-1 help-block invalid-feedback">{{ validation.firstError('current.config.item_drop_equip_mvp') }}</div>
                                 </div>
-                                <at-input class="value" v-model="current.config.item_drop_equip_mvp" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
+                                <at-input class="value" v-model.number="current.config.item_drop_equip_mvp" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
                             </div>
                             <div class="config">
                                 <div class="column">
                                     <div class="name" :style="validation.hasError('current.config.item_drop_card_mvp') ? 'color:#b3312d' : null">{{ $t('profile.config.item_drop_card_mvp.name') }}</div>
                                     <div v-if="validation.hasError('current.config.item_drop_card_mvp')" class="tw-flex-1 help-block invalid-feedback">{{ validation.firstError('current.config.item_drop_card_mvp') }}</div>
                                 </div>
-                                <at-input class="value" v-model="current.config.item_drop_card_mvp" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
+                                <at-input class="value" v-model.number="current.config.item_drop_card_mvp" size="small" type="number" placeholder="Rate eg. 350x"></at-input>
                             </div>
                             <div :class="'bg-'+current.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
                                 <p class="tw-font-bold">Battle Setup</p>
@@ -298,7 +298,7 @@
                     <at-button @click="updateOrSave" :loading="validation.isValidating()" :disabled="validation.hasError()" class="tw-w-full" type="primary">{{ $t('profile.buttons.save_server')}}</at-button>
                 </div>
                 <div v-else>
-                    <at-button :loading="validation.isValidating()" type="primary" class="tw-w-full">{{ $t('profile.buttons.update_server') }}</at-button>
+                    <at-button @click="updateOrSave" :loading="validation.isValidating()" type="primary" class="tw-w-full">{{ $t('profile.buttons.update_server') }}</at-button>
                     <at-button :loading="validation.isValidating()" type="error" hollow class="tw-w-full tw-mt-1">{{ $t('profile.buttons.delete_server')}}</at-button>
                 </div>
             </at-collapse-item>
@@ -314,26 +314,33 @@
         props: ['current', 'defaultDescription', 'configurations'],
         data: function () {
             return {
+                defaultName: this.current.name,
                 screenshot: '',
             }
         },
         methods: {
+            nameWasChanged() {
+                return this.current.name !== this.defaultName && this.current.name !== 'Default RO';
+            },
             updateOrSave() {
                 this.$validate().then((success) => {
+                    let form = new Form(this.current);
                     if (success) {
-                        let form = new Form(this.current);
                         if (this.isCreatingCard()) {
                             form.post('/listing', this.current.data).then((response) => {
                                 window.location.href = response.data.redirect;
-                            }).catch((error) => {
-                                if (error.status !== 422) {
-                                    this.$Notify({
-                                        title: 'Opps!',
-                                        message: error.message,
-                                        type: 'error'
-                                    })
+                            });
+                        } else {
+                            form.patch(`/listing/${this.current.slug}`).then((response) => {
+                                if (response.data.redirect !== "") {
+                                    this.$Message.success('Listing updated with a new name, reloading..!');
+                                    setTimeout(function () {
+                                        window.location.href = response.data.redirect;
+                                    }.bind(this), 1000);
+                                } else {
+                                    this.$Message.success('Your listing was successfully updated!');
                                 }
-                            })
+                            });
                         }
                     } else {
                         this.$Notify({
@@ -372,18 +379,20 @@
             }
         },
         validators: {
-            'current.name': {
-                debounce: 200,
+            'current.name, defaultName': {
+                debounce: 450,
                 validator: function(name) {
-                    return Validator.value(name).required().minLength(3).maxLength(255).custom(function () {
-                        if (!Validator.isEmpty(name)) {
-                            return axios.get('/api/listing/' + name + '/available').then((response) => {
-                                if (response.data === false) {
+                    if (this.nameWasChanged()) {
+                        return Validator.value(name).required().minLength(3).maxLength(255).custom(function () {
+                            if (!Validator.isEmpty(name)) {
+                                return axios.get(`/api/listing/${name.trim()}/available`).then((response) => {
+                                    //
+                                }).catch((error) => {
                                     return 'Already taken!';
-                                }
-                            });
-                        }
-                    });
+                                });
+                            }
+                        });
+                    }
                 }
             },
             'current.background': function(value) {

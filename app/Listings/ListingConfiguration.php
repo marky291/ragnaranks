@@ -73,6 +73,20 @@ class ListingConfiguration extends Model
     ];
 
     /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'pk_mode' => 'Integer',
+        'castrate_dex_scale' => 'Integer',
+        'arrow_decrement' =>'Integer',
+        'undead_detect_type' => 'Integer',
+        'attribute_recover' =>'Integer',
+        'instant_cast_stat' => 'Integer',
+    ];
+
+    /**
      * The primary key for the model.
      *
      * @var string
