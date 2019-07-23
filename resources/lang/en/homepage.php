@@ -120,6 +120,6 @@
         ],
 
         'listings' => [
-            'none_found' => 'No Listings found with requested parameters.'
-        ]
+            'none_found' => 'No Listings found with requested parameters.',
+        ],
     ];
