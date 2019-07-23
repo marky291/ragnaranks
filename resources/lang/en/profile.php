@@ -134,6 +134,6 @@ return [
     'buttons' => [
         'save_server' => 'Save my new server listing',
         'update_server' => 'Update my server listing',
-        'delete_server' => 'Delete this server listing'
+        'delete_server' => 'Delete this server listing',
     ],
 ];
