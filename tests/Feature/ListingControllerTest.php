@@ -118,4 +118,17 @@ class ListingControllerTest extends TestCase
             'attribute_recover' => 1,
         ]);
     }
+
+    public function test_listing_can_be_soft_deleted()
+    {
+        $this->signIn('member');
+
+        $listing = $this->createListing(['name' => 'foo', 'user_id' => auth()->id()],0,0);
+
+        $response = $this->delete("listing/{$listing->slug}");
+
+        $response->assertJson(['success' => true, 'redirect' => route('listing.index')]);
+
+        $this->assertDatabaseHas('listings', ['deleted_at' => now(), 'name' => 'foo']);
+    }
 }

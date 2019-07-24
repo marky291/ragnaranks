@@ -19,8 +19,13 @@ use App\Http\Requests\StoreListingRequest;
  */
 class ListingController extends Controller
 {
+    /**
+     * ListingController constructor.
+     */
     public function __construct()
     {
+        $this->authorizeResource(Listing::class);
+
         $this->middleware(['auth'])->except(['index', 'show']);
     }
 
@@ -124,11 +129,14 @@ class ListingController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return Response
+     * @param Listing $listing
+     * @return void
+     * @throws \Exception
      */
-    public function destroy($id)
+    public function destroy(Listing $listing)
     {
-        //
+        $listing->delete();
+
+        return response()->json(['success' => true, 'redirect' => route('listing.index')]);
     }
 }

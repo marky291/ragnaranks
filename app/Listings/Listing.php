@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Listings.
@@ -48,6 +49,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  */
 class Listing extends Model
 {
+
+    /**
+     * Allow users to soft delete entries, rather than full deletion
+     * this allows users to restore if they ever choose to, or provide
+     * a history of previous servers made by a single user to an
+     * admin or moderator.
+     */
+    use SoftDeletes;
+
     /**
      * The attributes that are mass assignable.
      *

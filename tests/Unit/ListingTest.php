@@ -508,4 +508,13 @@ class ListingTest extends TestCase
 
         $this->assertDatabaseHas('listing_rankings', ['rank' => 1, 'votes' => 0, 'clicks' => 0]);
     }
+
+    public function test_a_listing_can_be_soft_deleted()
+    {
+        $listing = factory(Listing::class)->create();
+
+        $action = $listing->delete();
+
+        $this->assertDatabaseHas('listings', ['deleted_at' => now(), 'id' => $listing->id]);
+    }
 }

@@ -58,6 +58,7 @@ class CreateServerTable extends Migration
             $table->unsignedInteger('language_id')->default(1);
             $table->smallInteger('review_score')->default(0);
             $table->double('episode')->nullable();
+            $table->softDeletes();
             $table->timestamps();
             $table->index(['episode']);
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
