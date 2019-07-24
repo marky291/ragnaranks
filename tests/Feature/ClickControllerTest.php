@@ -33,9 +33,9 @@ class ClickControllerTest extends TestCase
 
         $ip_address = '127.0.0.5';
 
-        $listing = factory(Listing::class)->create(['slug' => 'listing-name']);
+        $listing = factory(Listing::class)->create(['name' => 'foo']);
 
-        $this->post('/listing/listing-name/clicks', [], ['REMOTE_ADDR' => $ip_address]);
+        $this->post('/listing/foo/clicks', [], ['REMOTE_ADDR' => $ip_address]);
 
         $this->assertCount(1, $listing->clicks);
 

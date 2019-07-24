@@ -3,7 +3,7 @@
 @section('content')
 	<div class="shadow-inner">
 		<div class="container pt-4">
-			<profile-page slug="{{ $slug ?? 'defaults' }}" inline-template>
+			<profile-page slug="{{ $slug }}" inline-template>
 				<div class="row pb-5 pt-2">
 					<div class="col-4" id="sidebar">
 						@include('sidebar.message')

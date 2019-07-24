@@ -24,9 +24,9 @@ class ListingController extends Controller
      */
     public function __construct()
     {
-        $this->authorizeResource(Listing::class);
-
         $this->middleware(['auth'])->except(['index', 'show']);
+
+        $this->authorizeResource(Listing::class, 'listing');
     }
 
     /**
@@ -47,9 +47,7 @@ class ListingController extends Controller
      */
     public function create(Listing $listing) : View
     {
-        return view('listing.profile')->with([
-            'listing' => $listing,
-        ]);
+        return view('listing.profile')->with(['slug' => 'defaults']);
     }
 
     /**
@@ -90,11 +88,9 @@ class ListingController extends Controller
      * @param string $listing
      * @return Response
      */
-    public function show(string $listing)
+    public function show(Listing $listing)
     {
-        return view('listing.profile')->with([
-            'slug' => $listing,
-        ]);
+        return view('listing.profile')->with(['slug' => $listing->slug]);
     }
 
     /**

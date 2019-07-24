@@ -16997,25 +16997,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
+              console.log('slug: ' + this.slug);
+              _context.next = 3;
               return axios.get('/api/listing/' + this.slug).then(function (response) {
                 _this.listing = response.data;
                 _this.profileLoaded = true;
               });
 
-            case 2:
+            case 3:
               if (!(this.isCreating() || this.listing.isEditor === true)) {
-                _context.next = 5;
+                _context.next = 6;
                 break;
               }
 
-              _context.next = 5;
+              _context.next = 6;
               return axios.get('/api/listing/configurations').then(function (response) {
                 _this.configurations = response.data;
                 _this.configLoaded = true;
               });
 
-            case 5:
+            case 6:
             case "end":
               return _context.stop();
           }

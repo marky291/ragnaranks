@@ -16,9 +16,9 @@ class ListingPolicy
      * @param Listing $listing
      * @return mixed
      */
-    public function view(User $user, Listing $listing)
+    public function view(?User $user, Listing $listing)
     {
-        //
+        return true;
     }
 
     /**
@@ -29,7 +29,7 @@ class ListingPolicy
      */
     public function create(User $user)
     {
-        //
+        return true;
     }
 
     /**

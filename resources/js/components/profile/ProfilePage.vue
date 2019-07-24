@@ -15,6 +15,7 @@
             }
         },
         async mounted() {
+            console.log('slug: ' + this.slug);
             await axios.get('/api/listing/'+(this.slug)).then((response) => {
                 this.listing = response.data;
                 this.profileLoaded = true;
