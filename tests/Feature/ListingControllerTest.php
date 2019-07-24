@@ -125,7 +125,7 @@ class ListingControllerTest extends TestCase
     {
         $this->signIn('member');
 
-        $listing = $this->createListing(['name' => 'foo', 'user_id' => auth()->id()],0,0);
+        $listing = $this->createListing(['name' => 'foo', 'user_id' => auth()->id()], 0, 0);
 
         $response = $this->delete("listing/{$listing->slug}");
 

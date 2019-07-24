@@ -12,11 +12,11 @@ use App\Interactions\Interaction;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Listings.
@@ -49,8 +49,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Listing extends Model
 {
-
-    /**
+    /*
      * Allow users to soft delete entries, rather than full deletion
      * this allows users to restore if they ever choose to, or provide
      * a history of previous servers made by a single user to an
