@@ -52,14 +52,16 @@
         },
         methods: {
             sendVote() {
-                axios.post('/listing/'+this.listingSlug+'/votes', {captchaV3:this.gRecaptchaResponse}).then((success) => {
-                    this.$refs.captcha.execute();
+                axios.post(`/listing/${this.listingSlug}/votes`, {captchaV3:this.gRecaptchaResponse}).then((success) => {
                     this.stats.concluded++;
+                    this.$emit('vote:created');
                     this.messages.heading = this.$t('profile.voting.heading.finished', {name:this.listingName});
                     this.messages.content = this.$t('profile.voting.finished', {name:this.listingName, hours:this.stats.spread});
+                    this.$Message.success('Awesome, your vote has been contributed towards ' + this.listingName + '!');
                 }).catch((error) => {
-                    this.$refs.captcha.execute();
-                })
+                    this.$Message.error(error.message);
+                });
+                this.$refs.captcha.execute();
             }
         },
         mounted() {
@@ -72,6 +74,7 @@
                     this.messages.heading = this.$t('profile.voting.heading.pending', {name: this.listingName});
                     this.messages.content = this.$t('profile.voting.pending', {hours:this.stats.spread});
                 }
+
             }).catch((error) => {
                 this.messages.heading = this.$t('profile.voting.heading.declined');
                 this.messages.content = this.$t('profile.voting.declined');

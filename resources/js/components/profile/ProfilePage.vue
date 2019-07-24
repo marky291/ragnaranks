@@ -48,6 +48,9 @@
             isCreating() {
                 return this.slug === 'defaults';
             },
+            incrementVote(count) {
+                this.listing.ranking.votes++;
+            },
             isCurrentPage(page) {
                 return this.currentPage === page;
             },

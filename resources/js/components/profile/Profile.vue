@@ -185,7 +185,7 @@
 
 								<!-- Voting View -->
 								<transition name="fade">
-									<voting v-if="$parent.isCurrentPage('voting')" :listing-name="$parent.listing.name" :listing-slug="slug"></voting>
+									<voting @vote:created="$parent.incrementVote(1)" v-if="$parent.isCurrentPage('voting')" :listing-name="$parent.listing.name" :listing-slug="slug"></voting>
 								</transition>
             </div>
         </div>
