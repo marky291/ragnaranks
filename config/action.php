@@ -28,7 +28,7 @@ return [
     |
     */
     'click' => [
-        'total' => 1,
+        'total' => 50,
         'spread' => 1,
         'value' => 1,
     ],

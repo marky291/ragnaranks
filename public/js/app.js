@@ -17062,8 +17062,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.currentPage = page;
     },
     visitWebsite: function visitWebsite() {
+      var _this2 = this;
+
       // track the click.
-      axios.post('/listing/' + this.listing.slug + '/clicks'); // visit the page.
+      axios.post('/listing/' + this.listing.slug + '/clicks').then(function (response) {
+        _this2.listing.ranking.clicks++;
+      }); // visit the page.
 
       window.open(this.listing.website, '_blank');
     },

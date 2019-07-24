@@ -59,7 +59,9 @@
             },
             visitWebsite() {
                 // track the click.
-                axios.post('/listing/' + this.listing.slug + '/clicks');
+                axios.post('/listing/' + this.listing.slug + '/clicks').then((response) => {
+                    this.listing.ranking.clicks++;
+                });
                 // visit the page.
                 window.open(this.listing.website,'_blank');
             },
