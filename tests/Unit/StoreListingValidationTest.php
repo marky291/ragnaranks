@@ -176,7 +176,7 @@ class StoreListingValidationTest extends TestCase
         }
     }
 
-    public function test_configuration_validation_boolean_conditions()
+    public function test_configuration_validation_0_or_1_conditions()
     {
         $fields = [
             'config.instant_cast_stat',
@@ -187,7 +187,7 @@ class StoreListingValidationTest extends TestCase
         ];
 
         foreach ($fields as $field) {
-            $this->configurationTest([$field => ''], $field);
+            $this->configurationTest([$field => 50], $field);
         }
     }
 

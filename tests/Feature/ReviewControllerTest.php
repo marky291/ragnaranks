@@ -40,11 +40,11 @@ class ReviewControllerTest extends TestCase
 
         $this->withoutExceptionHandling();
 
-        $listing = factory(Listing::class)->create(['slug' => 'listing-name']);
+        $listing = factory(Listing::class)->create(['name' => 'foo']);
 
         $review = factory(Review::class)->make(['message' => $this->faker->sentence(300)]);
 
-        $this->post('/listing/listing-name/reviews', $review->toArray());
+        $this->post('/listing/foo/reviews', $review->toArray());
 
         $this->assertCount(1, $listing->reviews);
 

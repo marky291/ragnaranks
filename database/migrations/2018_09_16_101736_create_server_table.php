@@ -149,6 +149,7 @@ class CreateServerTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('listing_id');
             $table->ipAddress('ip_address')->index();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamp('created_at');
             $table->foreign('listing_id')->references('id')->on('listings');
             $table->index(['listing_id', 'created_at']);
@@ -158,6 +159,7 @@ class CreateServerTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('listing_id')->index();
             $table->ipAddress('ip_address');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamp('created_at');
             $table->foreign('listing_id')->references('id')->on('listings');
             $table->index(['listing_id', 'created_at']);

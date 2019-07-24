@@ -34,7 +34,7 @@ class VoteControllerTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        $listing = factory(Listing::class)->create(['slug' => 'foo']);
+        $listing = factory(Listing::class)->create(['name' => 'foo']);
 
         $this->post('/listing/foo/votes')->assertOk();
 
