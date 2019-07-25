@@ -18,11 +18,10 @@
                         @if(auth()->user()->hasUnlocked(new \App\Achievements\FounderAchievement))
                             <p class="tw-text-purple tw-font-bold">Founder</p>
                         @endif
-
-                        <div class="navigation mt-4">
+                        <div class="account navigation mt-4">
                             <ul class="list-unstyled">
-                                <li class="tw-py-2" {{ $selected === 'account' ? 'selected' : null }}><a class="tw-border-l-4 hover:tw-border-purple tw-px-6 hover:tw-no-underline tw-pb-1 tw-text-sm tw-text-grey-darkest tw-font-bold" href="/account">My Account</a></li>
-                                <li class="tw-py-2" {{ $selected === 'notifications' ? 'selected' : null }}><a class="tw-border-l-4 hover:tw-border-purple tw-px-6 hover:tw-no-underline tw-pb-1 tw-text-sm tw-text-grey-darkest" href="/account/notifications">Notifications</a></li>
+                                <li class="tw-py-2 {{ $selected == 'account' ? 'selected' : null }}"><a class="tw-border-l-4 tw-px-6 hover:tw-no-underline tw-pb-1 tw-text-sm tw-text-grey-darkest" href="/account">My Account</a></li>
+                                <li class="tw-py-2 {{ $selected == 'notifications' ? 'selected' : null }}"><a class="tw-border-l-4 hover:tw-border-purple tw-px-6 hover:tw-no-underline tw-pb-1 tw-text-sm tw-text-grey-darkest" href="/account/notifications">Notifications</a></li>
                                 @role('creator')
                                 <li class="tw-py-2" {{ $selected === 'servers' ? 'selected' : null }}><a class="tw-border-l-4 hover:tw-border-purple tw-px-6 hover:tw-no-underline tw-pb-1 tw-text-sm tw-text-grey-darkest" href="/account/servers">My Servers</a></li>
                                 @endrole
