@@ -16863,6 +16863,25 @@ __webpack_require__.r(__webpack_exports__);
     },
     isUpdatingCard: function isUpdatingCard() {
       return this.isCreatingCard() === false;
+    },
+    deleteListing: function deleteListing() {
+      var _this2 = this;
+
+      this.$Modal.confirm({
+        title: 'Confirmation Required',
+        okText: 'Confirm',
+        content: "Are you sure you wish to delete the server ".concat(this.current.name, " from our listings?")
+      }).then(function () {
+        axios["delete"]("/listing/".concat(_this2.current.slug)).then(function (response) {
+          if (response.data.success) {
+            _this2.$Message.success("You successfully removed the server ".concat(_this2.current.name, ", redirecting!"));
+
+            setTimeout(function () {
+              window.location.href = response.data.redirect;
+            }.bind(_this2), 1200);
+          }
+        });
+      });
     }
   },
   validators: {
@@ -40200,7 +40219,8 @@ var render = function() {
                           loading: _vm.validation.isValidating(),
                           type: "error",
                           hollow: ""
-                        }
+                        },
+                        on: { click: _vm.deleteListing }
                       },
                       [_vm._v(_vm._s(_vm.$t("profile.buttons.delete_server")))]
                     )

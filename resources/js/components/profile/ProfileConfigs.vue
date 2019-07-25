@@ -300,7 +300,7 @@
                 </div>
                 <div v-else>
                     <at-button @click="updateOrSave" :loading="validation.isValidating()" type="primary" class="tw-w-full">{{ $t('profile.buttons.update_server') }}</at-button>
-                    <at-button :loading="validation.isValidating()" type="error" hollow class="tw-w-full tw-mt-1">{{ $t('profile.buttons.delete_server')}}</at-button>
+                    <at-button @click="deleteListing" :loading="validation.isValidating()" type="error" hollow class="tw-w-full tw-mt-1">{{ $t('profile.buttons.delete_server')}}</at-button>
                 </div>
             </at-collapse-item>
         </at-collapse>
@@ -377,7 +377,23 @@
             },
             isUpdatingCard() {
                 return this.isCreatingCard() === false;
-            }
+            },
+            deleteListing() {
+                this.$Modal.confirm({
+                    title: 'Confirmation Required',
+                    okText: 'Confirm',
+                    content: `Are you sure you wish to delete the server ${this.current.name} from our listings?`
+                }).then(() => {
+                    axios.delete(`/listing/${this.current.slug}`).then((response) => {
+                        if (response.data.success) {
+                            this.$Message.success(`You successfully removed the server ${this.current.name}, redirecting!`);
+                            setTimeout(function () {
+                                window.location.href = response.data.redirect;
+                            }.bind(this), 1200);
+                        }
+                    });
+                });
+            },
         },
         validators: {
             'current.name, defaultName': {
