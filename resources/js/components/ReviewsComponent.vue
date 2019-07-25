@@ -8,9 +8,9 @@
 			</div>
 			<div v-else>
 				<div class="tw-flex tw-items-center" id="review-enticement-img">
-					<div class="tw-flex-1">
-						<p class="w-100 tw-capitalize">{{ $t('profile.reviews.enticement')}}</p>
-					</div>
+<!--					<div class="tw-flex-1">-->
+<!--						<p class="w-100 tw-capitalize">{{ $t('profile.reviews.enticement')}}</p>-->
+<!--					</div>-->
 				</div>
 			</div>
 		</section>
