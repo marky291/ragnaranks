@@ -29,7 +29,7 @@
                         <template slot="title"><i class="icon icon-user"></i>{{ auth()->user()->username }}</template>
                         <at-menu-item name="account"><i class="icon icon-settings"></i>My Account</at-menu-item>
                         @can('moderate')
-                        <at-menu-item name="moderate/reports"><i class="icon icon-alert-octagon"></i>Moderator Tools</at-menu-item>
+                        <at-menu-item name="moderate/report"><i class="icon icon-alert-octagon"></i>Moderator Tools</at-menu-item>
                         @endcan
                         @role('creator')
                         <at-menu-item name="account/servers"><i class="icon icon-settings"></i>My Listings</at-menu-item>
