@@ -18,9 +18,10 @@
                     <div class="tw-flex tw-flex-row">
                         <at-input class="tw-flex-1" v-model.trim="current.name" size="small" placeholder="Please input" :status="validation.hasError('current.name') ? 'error' : ''"></at-input>
                         <div class="validation tw-ml-2">
-                            <i v-if="current.name && validation.isPassed('current.name')" class="tw-mr-2 tw-text-green-dark fa fa-check-circle"></i>
-                            <i v-if="current.name && !validation.isPassed('current.name') && !validation.isValidating('current.name')" class="tw-mr-2 tw-text-red-dark fa fa-exclamation-circle"></i>
-                            <i v-if="validation.isValidating('current.name')" class="tw-ml-2 fa fa-spinner fa-spin"></i>
+                            <i v-if="current.name === 'Default RO'" class="tw-mr-2 tw-text-orange-dark fa fa-exclamation"></i>
+                            <i v-else-if="validation.isPassed('current.name') || !this.nameWasChanged()" class="tw-mr-2 tw-text-green-dark fa fa-check-circle"></i>
+                            <i v-else-if="validation.isValidating('current.name')" class="tw-ml-2 fa fa-spinner fa-spin"></i>
+                            <i v-else="!validation.isPassed('current.name')" class="tw-mr-2 tw-text-red-dark fa fa-exclamation-circle"></i>
                         </div>
                     </div>
                 </div>
@@ -61,7 +62,7 @@
                 </div>
                 <div class="tw-p-2">
                     <div class="tw-flex tw-flex-row tw-items-baseline">
-                        <p class="tw-font-semibold tw-flex tw-mb-1">Background</p>
+                        <p class="tw-font-semibold tw-flex tw-mb-1">Background HTTP Address</p>
                         <div v-if="validation.hasError('current.background')" class="tw-flex-1 tw-text-right help-block invalid-feedback">{{ validation.firstError('current.background') }}</div>
                     </div>
                     <at-input v-model.trim="current.background" placeholder="Enter an Image URL" :status="validation.hasError('current.background') ? 'error' : ''"></at-input>
@@ -81,7 +82,7 @@
                 </div>
                 <div class="tw-p-2">
                     <div class="tw-flex tw-flex-row tw-justify-around">
-                        <p class="tw-flex-1 tw-font-semibold tw-mb-1">Screenshots</p>
+                        <p class="tw-flex-1 tw-font-semibold tw-mb-1">Screenshots HTTP Address</p>
                         <div class="tw-flex-1 tw-text-right help-block invalid-feedback">{{ validation.firstError('screenshot') }}</div>
                     </div>
                     <div class="tw-flex tw-flex-row">
@@ -320,7 +321,7 @@
         },
         methods: {
             nameWasChanged() {
-                return this.current.name !== this.defaultName && this.current.name !== 'Default RO';
+                return (this.current.name !== this.defaultName);
             },
             updateOrSave() {
                 this.$validate().then((success) => {
