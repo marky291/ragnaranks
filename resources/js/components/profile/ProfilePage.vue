@@ -15,7 +15,6 @@
             }
         },
         async mounted() {
-            console.log('slug: ' + this.slug);
             await axios.get('/api/listing/'+(this.slug)).then((response) => {
                 this.listing = response.data;
                 this.profileLoaded = true;
@@ -61,7 +60,9 @@
             visitWebsite() {
                 // track the click.
                 axios.post('/listing/' + this.listing.slug + '/clicks').then((response) => {
-                    this.listing.ranking.clicks++;
+                    if(response.data.success === true) {
+                        this.listing.ranking.clicks++;
+                    }
                 });
                 // visit the page.
                 window.open(this.listing.website,'_blank');
