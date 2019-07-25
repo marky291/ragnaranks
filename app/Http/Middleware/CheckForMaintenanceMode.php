@@ -23,6 +23,7 @@ class CheckForMaintenanceMode extends Middleware
      */
     protected $exemptIP = [
         '78.19.242.129',
+        '169.254.6.90',
     ];
 
     /**
