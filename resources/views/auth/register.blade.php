@@ -10,7 +10,7 @@
                         <register-component inline-template>
                             <form action="" @keydown="form.onKeydown($event)" @keydown.enter="attemptRegister">
                                 <div class="tw-flex tw-flex-row tw-items-center my-3">
-                                    <img src="https://www.midgard-community.com/forums/lunatic-carrot.png" alt="poring monster" width="75">
+                                    <img src="/img/monsters/lunatic.png" alt="lunatic monster" width="85">
                                     <h2 class="ml-2 tw-font-bold mb-0">Gain access to more features by registering<br><small>Have an account? <span><a href="/login">Login now!</a></span></small></h2>
                                 </div>
                                 <div class="item-group">

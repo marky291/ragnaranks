@@ -10,7 +10,7 @@
                         <login-component inline-template>
                             <form action="" @keydown="form.onKeydown($event)" @keydown.enter="attemptLogin">
                                 <div class="tw-flex tw-flex-row tw-items-center mb-3">
-                                    <img src="https://pngimage.net/wp-content/uploads/2018/06/poring-png-4.png" alt="poring monster" width="75">
+                                    <img src="/img/monsters/poring.png" alt="poring monster" width="75">
                                     <h2 class="ml-2 tw-font-bold mb-0">Be Part of the Community, Login! <br><small>Don't have an account? <span><a href="/register">Register now!</a></span></small></h2>
                                 </div>
                                 <div class="item-group">
