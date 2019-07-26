@@ -2,9 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Console\Commands\RankingRebuilder;
 use Tests\TestCase;
-use App\Jobs\ReconstructRankingTable;
+use App\Console\Commands\RankingRebuilder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ListingRankingTest extends TestCase

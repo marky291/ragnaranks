@@ -8,7 +8,6 @@ use App\Interactions\Click;
 use App\Interactions\Review;
 use Illuminate\Database\Seeder;
 use App\Listings\ListingScreenshot;
-use App\Jobs\ReconstructRankingTable;
 use App\Listings\ListingConfiguration;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Database\Eloquent\Collection;
