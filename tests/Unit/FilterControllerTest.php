@@ -2,14 +2,12 @@
 
 namespace Tests\Unit;
 
-use App\Console\Commands\RankingRebuilder;
 use App\Tag;
-use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Interactions\Click;
-use App\Jobs\ReconstructRankingTable;
 use App\Listings\ListingConfiguration;
+use App\Console\Commands\RankingRebuilder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class FilterControllerTest extends TestCase
