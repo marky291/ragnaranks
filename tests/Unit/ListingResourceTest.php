@@ -2,11 +2,10 @@
 
 namespace Tests\Unit;
 
-use App\Console\Commands\RankingRebuilder;
 use Tests\TestCase;
 use App\Listings\Listing;
-use App\Jobs\ReconstructRankingTable;
 use App\Http\Resources\ListingResource;
+use App\Console\Commands\RankingRebuilder;
 
 class ListingResourceTest extends TestCase
 {
