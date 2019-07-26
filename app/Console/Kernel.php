@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\RankingRebuilder;
 use App\Listing;
 use App\Jobs\ReconstructRankingTable;
 use Illuminate\Console\Scheduling\Schedule;
@@ -15,7 +16,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        RankingRebuilder::class
     ];
 
     /**
@@ -26,8 +27,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('ranking:rebuilder')->everyMinute()->hourly()->storeOutput()
-            ->pingOnSuccess('http://beats.envoyer.io/heartbeat/t6UbyPJHP264LPH')->withoutOverlapping;
+        $schedule->command('ranking:rebuilder')->hourly()->storeOutput()
+            ->pingOnSuccess('http://beats.envoyer.io/heartbeat/t6UbyPJHP264LPH');
     }
 
     /**
