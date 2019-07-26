@@ -2,8 +2,6 @@
 
 namespace App\Console\Commands;
 
-use App\Interactions\Click;
-use App\Interactions\Vote;
 use App\Listings\Listing;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Collection;
@@ -38,7 +36,7 @@ class RankingRebuilder extends Command
 
         $totalListings = Listing::count();
 
-        $progress =  new ProgressBar($this->getOutput(), $totalListings);
+        $progress = new ProgressBar($this->getOutput(), $totalListings);
 
         Listing::withCount(['clicks', 'votes'])->chunkById(100, static function (Collection $listings) use (&$counter, &$progress) {
             $listings = $listings->sortByDesc(static function (Listing $listing) {

@@ -2,8 +2,6 @@
 
 namespace App\Console;
 
-use App\Listing;
-use App\Jobs\ReconstructRankingTable;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
