@@ -1,6 +1,5 @@
 <?php
 
-use App\Console\Commands\RankingRebuilder;
 use App\Tag;
 use App\User;
 use App\Listings\Listing;
