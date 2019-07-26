@@ -25,6 +25,7 @@ class CheckForMaintenanceMode extends Middleware
         '78.19.242.129',
         '152.32.96.25',
         '136.36.6.130',
+        '41.38.35.10',
     ];
 
     /**
