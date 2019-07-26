@@ -25,8 +25,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('ranking:rebuilder')->everyMinute()->storeOutput()
-            ->pingOnSuccess('http://beats.envoyer.io/heartbeat/xc3uFwfhNHMQGqT')->evenInMaintenanceMode();
+        $schedule->command('ranking:rebuilder')->hourly()->storeOutput()
+            ->pingOnSuccess('http://beats.envoyer.io/heartbeat/lHkb4f040HL212S')->evenInMaintenanceMode();
     }
 
     /**
