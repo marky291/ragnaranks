@@ -29,7 +29,7 @@ class Kernel extends ConsoleKernel
         // Calculate a listing ranking for every sever every hour.
         $schedule->call(static function () {
             ReconstructRankingTable::dispatch();
-        })->everyMinute()->thenPing('http://beats.envoyer.io/heartbeat/t6UbyPJHP264LPH');
+        })->everyMinute()->evenInMaintenanceMode()->thenPing('http://beats.envoyer.io/heartbeat/t6UbyPJHP264LPH');
     }
 
     /**
