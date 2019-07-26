@@ -113,7 +113,9 @@ class DatabaseSeeder extends Seeder
         $this->command->warn("\t{$this->seed_counts['votes']} Votes, {$this->seed_counts['clicks']} Clicks & {$this->seed_counts['reviews']} reviews interacted.");
 
         $this->command->info("\nBuilding cache table...\n");
-        ReconstructRankingTable::dispatchNow();
-        $this->command->info('Completed');
+
+        $this->call('ranking:builder');
+
+        $this->command->info('Database Seeding Completed!');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Console\Commands\RankingRebuilder;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Jobs\ReconstructRankingTable;
@@ -41,7 +42,7 @@ class ListingResourceTest extends TestCase
     {
         $listing = factory(Listing::class)->create();
 
-        ReconstructRankingTable::dispatchNow();
+        $this->artisan(RankingRebuilder::class);
 
         $this->assertEquals(1, ListingResource::make($listing->load('ranking'))['ranking']['rank']);
     }

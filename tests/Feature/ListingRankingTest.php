@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Console\Commands\RankingRebuilder;
 use Tests\TestCase;
 use App\Jobs\ReconstructRankingTable;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -14,7 +15,7 @@ class ListingRankingTest extends TestCase
     {
         $listing = $this->createListing([], 0, 0);
 
-        ReconstructRankingTable::dispatchNow();
+        $this->artisan(RankingRebuilder::class);
 
         $this->assertEquals(1, $listing->ranking->rank);
     }
@@ -23,7 +24,7 @@ class ListingRankingTest extends TestCase
     {
         $listing = $this->createListing([], 1, 0);
 
-        ReconstructRankingTable::dispatchNow();
+        $this->artisan(RankingRebuilder::class);
 
         $this->assertEquals(1, $listing->ranking->votes);
     }
@@ -32,7 +33,7 @@ class ListingRankingTest extends TestCase
     {
         $listing = $this->createListing([], 0, 1);
 
-        ReconstructRankingTable::dispatchNow();
+        $this->artisan(RankingRebuilder::class);
 
         $this->assertEquals(1, $listing->ranking->clicks);
     }
@@ -41,7 +42,7 @@ class ListingRankingTest extends TestCase
     {
         $listing = $this->createListing([], 1, 1);
 
-        ReconstructRankingTable::dispatchNow();
+        $this->artisan(RankingRebuilder::class);
 
         $this->assertEquals(8, $listing->ranking->points);
     }
