@@ -27,5 +27,16 @@
 
         <script src="{{ mix('/js/app.js') }}"></script>
 
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        @if (app()->environment('production'))
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117148224-4"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'UA-117148224-4');
+            </script>
+        @endif
     </body>
 </html>
