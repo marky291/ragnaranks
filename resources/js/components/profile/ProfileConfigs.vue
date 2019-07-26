@@ -82,15 +82,15 @@
                 </div>
                 <div class="tw-p-2">
                     <div class="tw-flex tw-flex-row tw-justify-around">
-                        <p class="tw-flex-1 tw-font-semibold tw-mb-1">Screenshots HTTP Address</p>
+                        <p class="tw-flex-1 tw-font-semibold tw-mb-1">Screenshot Urls</p>
                         <div class="tw-flex-1 tw-text-right help-block invalid-feedback">{{ validation.firstError('screenshot') }}</div>
                     </div>
                     <div class="tw-flex tw-flex-row">
-                        <at-input @keyup.enter.native="addScreenshot" :status="validation.hasError('screenshot') ? 'error' : ''" icon="link" type="url" v-model.trim="screenshot" class="tw-flex-1 tw-mr-2" placeholder="Enter an Image URL"></at-input>
+                        <at-input @keyup.enter.native="addScreenshot" :status="validation.hasError('screenshot') ? 'error' : ''" icon="link" type="url" v-model.trim="screenshot" class="tw-flex-1 tw-mr-2" placeholder="http://example.com/poring.png"></at-input>
                         <at-button :disabled="validation.hasError('screenshot')" @click="addScreenshot" type="primary" icon="icon-plus"></at-button>
                     </div>
                     <span v-for="(screenshot, i) in current.screenshots">
-												<span class="tw-flex tw-flex-row tw-mb-2">
+												<span class="tw-flex tw-flex-row tw-my-2">
 													<at-button @click="removeScreenshot(i)" size="small" icon="icon-trash-2 tw-text-red" class="tw-mr-2" circle></at-button>
 													<at-input size="small" :placeholder="screenshot" class="tw-flex-1" disabled></at-input>
 												</span>
