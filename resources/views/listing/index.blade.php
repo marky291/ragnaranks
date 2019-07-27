@@ -7,7 +7,7 @@
                 <div class="row">
                     @if (auth()->check() && !auth()->user()->hasVerifiedEmail())
                         <div class="col-12 pb-3">
-                            <at-alert message="Verification Required" description="Your account has limited functionality until you verify the email address!" type="error" show-icon></at-alert>
+                            <at-alert message="Verification Required" description="A verification email has been sent and awaiting response, account functionality is limited until completed!" type="error" show-icon></at-alert>
                         </div>
                     @endif
                 </div>
