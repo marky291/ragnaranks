@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -10,7 +11,6 @@ use Illuminate\Support\Facades\Validator;
 use App\Notifications\WelcomeNotification;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
