@@ -2,7 +2,7 @@
     import marked from 'marked';
 
     export default {
-        props: ['slug'],
+        props: ['slug', 'action'],
         data: function () {
             return {
                 listing: {
@@ -18,6 +18,7 @@
             await axios.get('/api/listing/'+(this.slug)).then((response) => {
                 this.listing = response.data;
                 this.profileLoaded = true;
+                this.currentPage = this.action;
             });
 
             if (this.isCreating() || this.listing.isEditor === true) {
@@ -56,6 +57,7 @@
             },
             setCurrentPage(page) {
                 this.currentPage = page;
+                history.pushState({}, 'null', `?action=${page}`);
             },
             visitWebsite() {
                 // track the click.
