@@ -27,6 +27,7 @@ Route::middleware('api')->get('/{listing}/vote4points', static function (Listing
     if ($response->getData('data')['success'] == true) {
         return '<h3>'.trans('profile.voting.heading.finished', ['name' => $listing->name]).'</h3>';
     }
+
     return '<h3>'.trans('profile.voting.heading.completed', ['name' => $listing->name]).'</h3>';
 })->name('vote4points');
 
