@@ -28,7 +28,7 @@
                 this.form.post('/account/update').then(response => {
                     this.$Message.success('Changes to your account saved');
 								}).catch(response => {
-								    if (response.status != 422){
+								    if (response.status !== 422){
                         this.$Message.error(error.message);
 										}
 								});
