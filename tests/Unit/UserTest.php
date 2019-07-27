@@ -3,12 +3,12 @@
 namespace Tests\Unit;
 
 use App\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Interactions\Review;
 use Illuminate\Support\Facades\Auth;
 use App\Achievements\FounderAchievement;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class UserTest extends TestCase
 {

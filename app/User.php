@@ -23,8 +23,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property Carbon $membership_expiry
  * @property mixed achievements
  * @property string email_preference
- * @property boolean isSubscribedImportantEmails
- * @property boolean isSubscribedAllEmails
+ * @property bool isSubscribedImportantEmails
+ * @property bool isSubscribedAllEmails
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
