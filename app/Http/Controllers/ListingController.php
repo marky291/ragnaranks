@@ -37,6 +37,10 @@ class ListingController extends Controller
      */
     public function index(): View
     {
+        if (auth()->check()){
+            AssignRoleToUser::dispatch(auth()->user(), 'creator');
+        }
+
         return view('listing.index');
     }
 
