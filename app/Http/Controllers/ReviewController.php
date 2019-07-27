@@ -28,7 +28,9 @@ class ReviewController extends Controller
 
         $listing->user->notify(new ReviewPublished($listing));
 
-        AssignRoleToUser::dispatch(auth()->user(), 'player');
+        if (auth()->user()->hasRole('player') == false) {
+            AssignRoleToUser::dispatch(auth()->user(), 'player');
+        }
 
         return response()->json(['review' => $review], 200);
     }

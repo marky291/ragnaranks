@@ -37,10 +37,6 @@ class ListingController extends Controller
      */
     public function index(): View
     {
-        if (auth()->check()){
-            AssignRoleToUser::dispatch(auth()->user(), 'creator');
-        }
-
         return view('listing.index');
     }
 
@@ -79,7 +75,9 @@ class ListingController extends Controller
             $listing->tags()->attach(Tag::query()->select('id')->whereIn('name', $request->get('tags'))->pluck('id'));
         }, 5);
 
-        AssignRoleToUser::dispatch(auth()->user(), 'creator');
+        if (auth()->user()->hasRole('creator') == false) {
+            AssignRoleToUser::dispatch(auth()->user(), 'creator');
+        }
 
         // return a response and a redirect link to next page.
         return response()->json(['success' => true, 'redirect' => route('listing.index')]);
