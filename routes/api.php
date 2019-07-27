@@ -11,7 +11,6 @@
 |
 */
 
-use App\Http\Controllers\VoteController;
 use Carbon\Carbon;
 use App\Listings\Listing;
 use App\Interactions\Vote;
@@ -19,13 +18,13 @@ use App\Listings\ListingRanking;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\ReviewResource;
 use App\Listings\ListingConfiguration;
+use App\Http\Controllers\VoteController;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Resources\NewListingResource;
 
 Route::middleware('api')->get('/{listing}/vote4points', static function (Listing $listing) {
     return (new VoteController)->processVote($listing);
 })->name('vote4points');
-
 
 Route::get('/listing/defaults', static function () {
     return cache()->rememberForever('listing:defaults', static function () {
