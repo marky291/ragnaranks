@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\User;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Interactions\Vote;
@@ -45,11 +46,16 @@ class VoteControllerTest extends TestCase
 
     public function test_it_can_process_an_automatic_vote()
     {
-        $listing = factory(Listing::class)->create(['name' => 'foo']);
+        $this->withoutExceptionHandling();
 
-        $token = null;
+        /** @var User $user */
+        $user = $this->signIn();
 
-        $response = $this->get("api/vote/foo?api_token={$token}");
+        $listing = factory(Listing::class)->create(['name' => 'listing']);
+
+        $response = $this->get("/api/listing/vote4points?api_token={$user->api_token}");
+
+        $this->assertDatabaseHas('votes', ['ip_address' => '127.0.0.1']);
     }
 
     /**

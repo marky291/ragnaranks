@@ -18,7 +18,7 @@
             await axios.get('/api/listing/'+(this.slug)).then((response) => {
                 this.listing = response.data;
                 this.profileLoaded = true;
-                this.currentPage = this.action;
+                this.currentPage = this.action ? this.action : 'profile';
             });
 
             if (this.isCreating() || this.listing.isEditor === true) {

@@ -10,7 +10,7 @@ class MyAccountController extends Controller
 {
     public function index()
     {
-        return view('account.index');
+        return view('account.index')->with('listings', auth()->user()->listings);
     }
 
     public function notifications()

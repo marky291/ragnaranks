@@ -32,7 +32,14 @@ class VoteController extends Controller
         ]);
     }
 
-    private function processVote(Listing $listing, $captcha = null)
+    /**
+     * Public allows API Access to auto vote.
+     *
+     * @param Listing $listing
+     * @param null $captcha
+     * @return JsonResponse
+     */
+    public function processVote(Listing $listing, $captcha = null)
     {
         if ($listing->votes()->hasInteractedDuring(config('action.vote.spread')) === false) {
             $listing->votes()->create(['ip_address' => request()->getClientIp()]);
