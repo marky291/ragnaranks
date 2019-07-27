@@ -5,5 +5,8 @@
     @else
         <at-input v-model="form.{{ $model }}" :status="form.errors.has('{{$model}}') ? 'error' : ''" id="{{ str_slug($title) }}"></at-input>
     @endif
+    @if (isset($describe))
+        <p class="tw-mt-2 tw-text-grey-darker">{{ $describe }}</p>
+    @endif
     <has-error :form="form" field="{{$model}}"></has-error>
 </div>

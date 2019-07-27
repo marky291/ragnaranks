@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use App\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Interactions\Review;
@@ -11,6 +12,8 @@ use App\Achievements\FounderAchievement;
 
 class UserTest extends TestCase
 {
+    use RefreshDatabase;
+
     /**
      * @test
      */
@@ -66,5 +69,21 @@ class UserTest extends TestCase
         $user->unlock(new FounderAchievement);
 
         $this->assertCount(1, $user->achievements);
+    }
+
+    public function test_it_has_important_email_preference()
+    {
+        /** @var User $user */
+        $user = factory(User::class)->create(['email_preference' => 'important']);
+
+        $this->assertTrue($user->isSubscribedImportantEmails);
+    }
+
+    public function test_it_has_all_email_preference()
+    {
+        /** @var User $user */
+        $user = factory(User::class)->create(['email_preference' => 'all']);
+
+        $this->assertTrue($user->isSubscribedAllEmails);
     }
 }

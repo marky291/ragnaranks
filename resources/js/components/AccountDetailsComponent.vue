@@ -1,4 +1,5 @@
 <script>
+    import merge from 'lodash/merge';
     import { Form, HasError, AlertError } from 'vform'
 
     export default {
@@ -15,6 +16,7 @@
                     username: this.$parent.account.username,
                     email: this.$parent.account.email,
                     avatarUrl: this.$parent.account.avatarUrl,
+                    email_preference: this.$parent.account.email_preference,
                 })
             }
         },
@@ -30,6 +32,7 @@
                         this.$Message.error(error.message);
 										}
 								});
+                merge(this.$parent.account, this.form);
 						}
         }
   }

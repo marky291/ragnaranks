@@ -9,7 +9,7 @@
                         <div class="avatar sm:tw-h-48 tw-w-48 mb-4">
                             <img class="tw-rounded-full shadow tw-border tw-border-grey tw-border-2" :src="avatar" alt="">
                         </div>
-                        <h4 class="tw-text-lg mb-0 tw-font-bold">{{ auth()->user()->username }}</h4>
+                        <h4 class="tw-text-lg mb-0 tw-font-bold">@{{ account.username }}</h4>
                         @if (auth()->user()->hasRole('admin'))
                             <p class="tw-text-red tw-font-bold">Admin</p>
                         @else

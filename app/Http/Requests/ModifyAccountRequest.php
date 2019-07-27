@@ -29,6 +29,7 @@ class ModifyAccountRequest extends FormRequest
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($this->request->get('email'), 'email')],
             'password' => ['required', 'string', 'min:6', 'confirmed', 'sometimes'],
             'avatarUrl' => ['string', 'active_url', 'min:3', 'max:600'],
+            'email_preference' => Rule::in(['all', 'important']),
         ];
     }
 }
