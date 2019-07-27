@@ -23,7 +23,11 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Resources\NewListingResource;
 
 Route::middleware('api')->get('/{listing}/vote4points', static function (Listing $listing) {
-    return (new VoteController)->processVote($listing);
+    $response = (new VoteController)->processVote($listing);
+    if ($response->getData('data')['success'] == true) {
+        return '<h3>'.trans('profile.voting.heading.finished', ['name' => $listing->name]).'</h3>';
+    }
+    return '<h3>'.trans('profile.voting.heading.completed', ['name' => $listing->name]).'</h3>';
 })->name('vote4points');
 
 Route::get('/listing/defaults', static function () {
