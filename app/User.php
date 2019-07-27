@@ -4,10 +4,10 @@ namespace App;
 
 use Carbon\Carbon;
 use App\Listings\Listing;
+use Illuminate\Support\Str;
 use App\Interactions\Review;
 use App\Jobs\AssignRoleToUser;
 use Gstt\Achievements\Achiever;
-use Illuminate\Support\Str;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -101,7 +101,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function refreshApiToken(): self
     {
-       return $this->setAttribute('api_token', hash('sha256', Str::random(60)));
+        return $this->setAttribute('api_token', hash('sha256', Str::random(60)));
     }
 
     /**

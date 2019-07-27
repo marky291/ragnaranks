@@ -96,6 +96,5 @@ class UserTest extends TestCase
         $this->post('/account/refreshApiToken');
 
         $this->assertNotEquals(User::first()->api_token, $user->api_token);
-
     }
 }

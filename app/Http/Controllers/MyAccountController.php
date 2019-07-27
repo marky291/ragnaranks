@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Http\Resources\ListingResource;
 use App\Http\Requests\ModifyAccountRequest;
-use App\User;
 
 class MyAccountController extends Controller
 {
