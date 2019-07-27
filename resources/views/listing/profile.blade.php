@@ -7,7 +7,7 @@
 				<div class="row pb-5 pt-2">
 					<div class="col-4" id="sidebar">
 						@include('sidebar.message')
-						<div v-if="!listing.isEditor">
+						<div v-if="!isCreating()">
 							@include('sidebar.selector')
 						</div>
 						@include('sidebar.config')
