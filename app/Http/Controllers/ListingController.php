@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Listings\ListingLanguage;
 use App\Tag;
 use App\User;
 use App\Listings\Listing;
@@ -10,6 +9,7 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Jobs\AssignRoleToUser;
+use App\Listings\ListingLanguage;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use App\Listings\ListingConfiguration;
