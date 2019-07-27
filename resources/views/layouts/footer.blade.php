@@ -27,23 +27,21 @@
                     <h2>Develop</h2>
                     <ul class="list-unstyled list">
                         <li class="text-transparent">Share your ideas</li>
-                        <li class="text-transparent">API Callbacks</li>
                         <li class="text-transparent">Contribute to Codebase</li>
                     </ul>
                 </div>
                 <div class="flex-fill">
                     <h2>Play</h2>
                     <ul class="list-unstyled list">
-                        @foreach(trans('homepage.mode') as $key => $mode)
-                            <li class="text-transparent">{{ ucfirst($mode['name']) }}</li>
+                        @foreach(config('filter.modes') as $mode)
+                            <li class="text-transparent">{{ ucfirst($mode) }}</li>
                         @endforeach
                     </ul>
                 </div>
                 <div class="flex-fill">
                     <h2>Administrate</h2>
                     <ul class="list-unstyled list">
-                        <li class="text-transparent">Register A Server</li>
-                        <li class="text-transparent">View Server Stats</li>
+                        <li class="text-transparent"><a href="/listing/create">Register A Server</a></li>
                     </ul>
                 </div>
             </div>

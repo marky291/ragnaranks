@@ -5,20 +5,23 @@
 	<transition name="fade" mode="out-in">
 		<div id="filters" class="d-flex tw-shadow flex-column content p-2 rounded tw-mb-6 lg:tw-mb-0">
 			<select @change="filterChanged" v-model="rates" class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
-				@foreach(trans('homepage.rate') as $key => $rate)
-					<option value="{{ $key }}">{{ $rate['name'] }}</option>
+				<option value="all">{{ trans('homepage.rate.all.name') }}</option>
+				@foreach(config('filter.rates') as $rate)
+					<option value="{{ $rate }}">{{ trans("homepage.rate.$rate.name") }}</option>
 				@endforeach
 			</select>
 
 			<select @change="filterChanged" v-model="mode" class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
-				@foreach(trans('homepage.mode') as $key => $mode)
-					<option value="{{ $key }}">{{ $mode['name'] }}</option>
+				<option value="all">{{ trans('homepage.mode.all.name') }}</option>
+				@foreach(config('filter.modes') as $mode)
+					<option value="{{ $mode }}">{{ trans("homepage.mode.$mode.name") }}</option>
 				@endforeach
 			</select>
 
 			<select @change="filterChanged" v-model="tag" class="mb-2 form-control-sm tw-text-grey-dark tw-text-sm tw-bg-grey-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
-				@foreach(trans('homepage.tag') as $key => $tag)
-					<option value="{{ $key }}">{{ $tag['name'] }}</option>
+				<option value="all">{{ trans('homepage.tag.all.name') }}</option>
+				@foreach(config('filter.tags') as $tag)
+					<option value="{{ $tag }}">{{ trans("homepage.tag.$tag.name") }}</option>
 				@endforeach
 			</select>
 
