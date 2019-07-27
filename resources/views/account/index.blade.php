@@ -30,7 +30,7 @@
 
             <h3 class="mb-3 tw-text-xl tw-border-b tw-pb-2 tw-font-bold tw-mt-10">API Direct Vote For Point Links</h3>
             @foreach($listings as $listing)
-                <div class="tw-flex tw-flex-row tw-items-center">
+                <div class="tw-flex tw-flex-row tw-items-center tw-my-2">
                     <p class="tw-font-bold">{{ $listing->name }}</p>
                     <at-input class="tw-flex-1 tw-ml-2" size="small" value="{{ route('vote4points', $listing).'?api_token='.auth()->user()->api_token }}" icon="alert-circle" readonly></at-input>
                 </div>
