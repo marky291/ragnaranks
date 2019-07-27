@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Listings\ListingLanguage;
 use App\Tag;
 use App\User;
 use App\Listings\Listing;
@@ -108,6 +109,8 @@ class ListingController extends Controller
             $listing->configuration->fill($request->validated()['config'])->save();
 
             $listing->tags()->sync(Tag::query()->select('id')->whereIn('name', $request->get('tags'))->pluck('id'));
+
+            $listing->language()->associate(ListingLanguage::query()->where('name', $request->get('language'))->first())->save();
         }, 5);
 
         // should we tell the client to redirect/reload

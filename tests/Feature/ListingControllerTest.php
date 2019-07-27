@@ -79,6 +79,7 @@ class ListingControllerTest extends TestCase
 
         $listing = factory(Listing::class)->create([
             'name' => 'foo',
+            'language_id' => 3,
         ]);
 
         $configs = factory(ListingConfiguration::class)->make([
@@ -90,7 +91,7 @@ class ListingControllerTest extends TestCase
 
         $listing->configuration()->save($configs);
 
-        $this->assertDatabaseHas('listings', ['name' => 'foo']);
+        $this->assertDatabaseHas('listings', ['name' => 'foo', 'language_id' => 3]);
         $this->assertDatabaseHas('listing_configurations', [
             'exp_title' => 'low-rate',
             'pk_mode' => 1,
@@ -100,6 +101,7 @@ class ListingControllerTest extends TestCase
 
         $response = $this->patch("/listing/{$listing->slug}", array_merge($listing->toArray(),
             ['name' => 'foo'],
+            ['language' => 'english'],
             ['tags' => ['freebies', 'guild-pack']],
             ['config' => array_merge($configs->toArray(),
                 [
@@ -112,7 +114,7 @@ class ListingControllerTest extends TestCase
         ));
 
         $response->assertOk();
-        $this->assertDatabaseHas('listings', ['name' => 'foo']);
+        $this->assertDatabaseHas('listings', ['name' => 'foo', 'language_id' => 1]);
         $this->assertDatabaseHas('listing_configurations', [
             'exp_title' => 'mid-rate',
             'pk_mode' => 0,
