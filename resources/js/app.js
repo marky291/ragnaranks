@@ -52,8 +52,8 @@ Vue.mixin({
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('filtered-listings', () => import('./components/FilteredListingContainer'));
-Vue.component('filtered-search', () => import('./components/FilteredListingSearch.vue'));
+Vue.component('filtered-listings', require('./components/FilteredListingContainer').default);
+Vue.component('filtered-search', require('./components/FilteredListingSearch.vue').default);
 
 Vue.component('pagination', require('laravel-vue-pagination'));
 Vue.component('profile-page', require('./components/profile/ProfilePage.vue').default);

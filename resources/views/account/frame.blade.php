@@ -23,7 +23,7 @@
                                 <li class="tw-py-2 {{ $selected == 'account' ? 'selected' : null }}"><a class="tw-border-l-4 tw-px-6 hover:tw-no-underline tw-pb-1 tw-text-sm tw-text-grey-darkest" href="/account">My Account</a></li>
                                 <li class="tw-py-2 {{ $selected == 'notifications' ? 'selected' : null }}"><a class="tw-border-l-4 tw-px-6 hover:tw-no-underline tw-pb-1 tw-text-sm tw-text-grey-darkest" href="/account/notifications">Notifications</a></li>
                                 @role('creator')
-                                <li class="tw-py-2" {{ $selected === 'servers' ? 'selected' : null }}><a class="tw-border-l-4 tw-px-6 hover:tw-no-underline tw-pb-1 tw-text-sm tw-text-grey-darkest" href="/account/servers">My Servers</a></li>
+                                <li class="tw-py-2 {{ $selected == 'servers' ? 'selected' : null }}"><a class="tw-border-l-4 tw-px-6 hover:tw-no-underline tw-pb-1 tw-text-sm tw-text-grey-darkest" href="/account/servers">My Servers</a></li>
                                 @endrole
                                 @can('moderate')
                                 <li class="tw-py-2 {{ $selected == 'moderate' ? 'selected' : null }}"><a class="tw-border-l-4 tw-px-6 hover:tw-no-underline tw-pb-1 tw-text-sm tw-text-grey-darkest" href="/moderate/report">Moderator Tools</a></li>

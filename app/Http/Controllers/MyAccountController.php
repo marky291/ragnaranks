@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ModifyAccountRequest;
+use App\Http\Resources\ListingResource;
 
 class MyAccountController extends Controller
 {
@@ -27,7 +28,9 @@ class MyAccountController extends Controller
 
     public function servers()
     {
-        return view('account.servers', ['listings' => app('listings')->where('user_id', auth()->id())->sortByDesc('created_at')]);
+        return view('account.servers', [
+            'listings' => ListingResource::collection(auth()->user()->listings()->with(['configuration', 'tags', 'ranking', 'language'])->withTrashed()->get())
+        ]);
     }
 
     public function markNotificationRead(string $key)
