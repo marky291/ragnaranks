@@ -59,8 +59,6 @@ class ListingController extends Controller
      */
     public function store(StoreListingRequest $request)
     {
-        AssignRoleToUser::dispatch(auth()->user(), 'creator');
-
         DB::transaction(static function () use ($request) {
             /** @var Listing $listing */
             // Create the listing.
@@ -76,6 +74,8 @@ class ListingController extends Controller
             // attach all the tags passed from the request.
             $listing->tags()->attach(Tag::query()->select('id')->whereIn('name', $request->get('tags'))->pluck('id'));
         }, 5);
+
+        AssignRoleToUser::dispatch(auth()->user(), 'creator');
 
         // return a response and a redirect link to next page.
         return response()->json(['success' => true, 'redirect' => route('listing.index')]);
