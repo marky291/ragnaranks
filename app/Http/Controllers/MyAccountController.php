@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ModifyAccountRequest;
 use App\Http\Resources\ListingResource;
+use App\Http\Requests\ModifyAccountRequest;
 
 class MyAccountController extends Controller
 {
@@ -29,7 +29,7 @@ class MyAccountController extends Controller
     public function servers()
     {
         return view('account.servers', [
-            'listings' => ListingResource::collection(auth()->user()->listings()->with(['configuration', 'tags', 'ranking', 'language'])->withTrashed()->get())
+            'listings' => ListingResource::collection(auth()->user()->listings()->with(['configuration', 'tags', 'ranking', 'language'])->withTrashed()->get()),
         ]);
     }
 
