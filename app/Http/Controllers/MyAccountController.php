@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\ListingResource;
 use App\Http\Requests\ModifyAccountRequest;
+use App\User;
 
 class MyAccountController extends Controller
 {
@@ -24,6 +25,21 @@ class MyAccountController extends Controller
         $user->fill($request->validated())->save();
 
         return response()->json(['status' => true], 200);
+    }
+
+    /**
+     * Assigns a new user api token and returns for json.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function refreshApiToken()
+    {
+        /** @var User $user */
+        $user = auth()->user();
+
+        $user->refreshApiToken()->save();
+
+        return response()->json(['token' => $user->api_token]);
     }
 
     public function servers()

@@ -86,4 +86,16 @@ class UserTest extends TestCase
 
         $this->assertTrue($user->isSubscribedAllEmails);
     }
+
+    public function test_a_user_can_get_a_new_api_token()
+    {
+        $this->signIn();
+
+        $user = factory(User::class)->create(['email_preference' => 'all']);
+
+        $this->post('/account/refreshApiToken');
+
+        $this->assertNotEquals(User::first()->api_token, $user->api_token);
+
+    }
 }

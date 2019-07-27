@@ -18,6 +18,17 @@
                 </div>
             </div>
 
+            @role('creator')
+            <h3 class="mb-3 tw-text-xl tw-border-b tw-pb-2 tw-font-bold tw-mt-10">API Token</h3>
+            <i class="icon icon-alert-triangle tw-float-left tw-mr-2"></i>
+            <p class="tw-text-grey-darker tw-mb-2">This token allows your website to interact directly to ragnaranks.com and auto vote on your behalf.</p>
+            <div class="tw-flex">
+                <at-input class="tw-flex-1" v-model="$parent.account.api_token" icon="alert-circle" readonly></at-input>
+                <at-button @click="refreshApiToken" class="tw-ml-4">Generate new token</at-button>
+            </div>
+            <at-alert class="tw-mt-2" message="Changing the token will require your website to redirect to a new api link for authentication" type="error"></at-alert>
+            @endrole
+
             <at-button @click="saveAccount" :loading="form.busy" type="primary" class="mt-4">Save Changes</at-button>
         </div>
     </account-details-component>

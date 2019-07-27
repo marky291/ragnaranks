@@ -43,6 +43,15 @@ class VoteControllerTest extends TestCase
         $this->assertDatabaseHas('votes', ['ip_address' => '127.0.0.1']);
     }
 
+    public function test_it_can_process_an_automatic_vote()
+    {
+        $listing = factory(Listing::class)->create(['name' => 'foo']);
+
+        $token = null;
+
+        $response = $this->get("api/vote/foo?api_token={$token}");
+    }
+
     /**
      * @test
      */

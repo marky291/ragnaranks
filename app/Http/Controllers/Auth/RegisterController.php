@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Notifications\WelcomeNotification;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -72,6 +73,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'avatarUrl' => $data['avatarUrl'],
+            'api_token' => hash('sha256', Str::random(60)),
         ]);
     }
 

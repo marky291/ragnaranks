@@ -23,33 +23,38 @@ class VoteController extends Controller
         $captcha = GoogleReCaptchaV3::setAction('vote')->verifyResponse($request->get('captchaV3'), $request->getClientIp());
 
         if ($captcha->isSuccess()) {
-            if ($listing->votes()->hasInteractedDuring(config('action.vote.spread')) === false) {
-                $listing->votes()->create(['ip_address' => request()->getClientIp()]);
-
-                ListingVotedEvent::dispatch($listing);
-
-                if (auth()->check()) {
-                    AssignRoleToUser::dispatch(auth()->user(), 'player');
-                }
-
-                return response()->json([
-                    'success' => true,
-                    'redirect' => route('listing.show', $listing),
-                    'captcha' => $captcha,
-                ]);
-            }
-
-            return response()->json([
-                'success' => false,
-                'redirect' => route('listing.show', $listing),
-                'captcha' => $captcha,
-                'message' => trans('profile.voting.declined', ['hours' => config('action.vote.spread')]),
-            ]);
+            $this->processVote($listing, $captcha);
         }
 
         return response()->json([
             'success' => false,
             'captcha' => $captcha->toArray(),
+        ]);
+    }
+
+    private function processVote(Listing $listing, $captcha = null)
+    {
+        if ($listing->votes()->hasInteractedDuring(config('action.vote.spread')) === false) {
+            $listing->votes()->create(['ip_address' => request()->getClientIp()]);
+
+            ListingVotedEvent::dispatch($listing);
+
+            if (auth()->check()) {
+                AssignRoleToUser::dispatch(auth()->user(), 'player');
+            }
+
+            return response()->json([
+                'success' => true,
+                'redirect' => route('listing.show', $listing),
+                'captcha' => $captcha,
+            ]);
+        }
+
+        return response()->json([
+            'success' => false,
+            'redirect' => route('listing.show', $listing),
+            'captcha' => $captcha,
+            'message' => trans('profile.voting.declined', ['hours' => config('action.vote.spread')]),
         ]);
     }
 }

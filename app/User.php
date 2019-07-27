@@ -7,6 +7,7 @@ use App\Listings\Listing;
 use App\Interactions\Review;
 use App\Jobs\AssignRoleToUser;
 use Gstt\Achievements\Achiever;
+use Illuminate\Support\Str;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -25,6 +26,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string email_preference
  * @property bool isSubscribedImportantEmails
  * @property bool isSubscribedAllEmails
+ * @property string api_token
+ * @method static first()
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -39,7 +42,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'avatarUrl', 'email_preference',
+        'username', 'email', 'password', 'avatarUrl', 'email_preference', 'api_token',
     ];
 
     /**
@@ -89,6 +92,16 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getIsSubscribedAllEmailsAttribute(): bool
     {
         return $this->email_preference == 'all';
+    }
+
+    /**
+     * Set a new api token to the user.
+     *
+     * @return User
+     */
+    public function refreshApiToken(): self
+    {
+       return $this->setAttribute('api_token', hash('sha256', Str::random(60)));
     }
 
     /**

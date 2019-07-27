@@ -33,7 +33,20 @@
 										}
 								});
                 merge(this.$parent.account, this.form);
-						}
+						},
+            refreshApiToken: function() {
+                this.$Modal.confirm({
+                    title: 'Confirmation Required',
+                    okText: 'Confirm',
+                    content: `Are you sure you want to change your listing API token?`
+                }).then(() => {
+                    axios.post(`/account/refreshApiToken`).then((response) => {
+                        console.log(response.data.token);
+                        this.$parent.account.api_token = response.data.token;
+                        this.$Message.success(`Token successfully changed, please update any links being used!`);
+                    });
+                });
+            }
         }
   }
 </script>

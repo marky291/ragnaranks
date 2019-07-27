@@ -6,6 +6,7 @@ use App\Interactions\Click;
 use App\Interactions\Review;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +26,9 @@ $factory->define(User::class, static function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        'api_token' => hash('sha256', Str::random(60)),
         'email_preference' => $faker->randomElement(['all', 'important']),
-        'remember_token' => str_random(10),
+        'remember_token' => Str::random(10),
         'avatarUrl' => 'http://ragnaranks.com/img/preset/avatar.png',
     ];
 });
