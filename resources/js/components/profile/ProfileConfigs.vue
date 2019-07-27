@@ -329,7 +329,10 @@
                     if (success) {
                         if (this.isCreatingCard()) {
                             form.post('/listing', this.current.data).then((response) => {
-                                window.location.href = response.data.redirect;
+                                this.$Message.success('Great job, Your new listing has been uploaded, redirecting!');
+                                setTimeout(function () {
+                                    window.location.href = response.data.redirect;
+                                }.bind(this), 1400);
                             });
                         } else {
                             form.patch(`/listing/${this.current.slug}`).then((response) => {

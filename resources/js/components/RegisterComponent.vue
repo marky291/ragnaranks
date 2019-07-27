@@ -20,8 +20,11 @@
       methods: {
           attemptRegister: function() {
               this.form.post('/register').then(response => {
-                  window.location = '/'; })
-							.catch((error) => {
+                  this.$Message.success('Welcome!, A validation email has been sent to the registered email!');
+                  setTimeout(function () {
+                      window.location = '/';
+                  }.bind(this), 1000);
+              }).catch((error) => {
                   if (error.status === 302) {
                       window.location = '/';
                   }

@@ -17,7 +17,12 @@
     },
     methods: {
       attemptLogin: function() {
-          this.form.post('/login').then(({ data }) => { window.location = '/'; }).catch((error) => {
+          this.form.post('/login').then((response) => {
+              this.$Message.success('Welcome back to Ragnaranks!');
+              setTimeout(function () {
+                  window.location = '/';
+              }.bind(this), 1000);
+          }).catch((error) => {
               this.$Message.error(error.message);
           });
       }
