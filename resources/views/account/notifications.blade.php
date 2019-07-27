@@ -1,5 +1,5 @@
 @component('account.frame', ['selected' => 'notifications'])
-	@include('format.heading', ['title' => 'Account Notifications'])
+	@include('format.heading', ['title' => 'Notifications'])
 
 	@foreach ($notifications as $notification)
 		<account-notification-component id="{{ $notification->getKey() }}" status="{{ $notification->read() }}" inline-template>

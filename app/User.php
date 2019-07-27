@@ -22,6 +22,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property int $membership_id
  * @property Carbon $membership_expiry
  * @property mixed achievements
+ * @property string email_preference
+ * @property bool isSubscribedImportantEmails
+ * @property bool isSubscribedAllEmails
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -36,7 +39,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'avatarUrl',
+        'username', 'email', 'password', 'avatarUrl', 'email_preference',
     ];
 
     /**
@@ -78,5 +81,21 @@ class User extends Authenticatable implements MustVerifyEmail
     public function reviews()
     {
         return $this->hasMany(Review::class);
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsSubscribedAllEmailsAttribute(): bool
+    {
+        return $this->email_preference == 'all';
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsSubscribedImportantEmailsAttribute(): bool
+    {
+        return $this->email_preference == 'important';
     }
 }

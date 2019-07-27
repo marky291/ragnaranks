@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->longText('avatarUrl');
             $table->rememberToken();
+            $table->string('email_preference')->default('important');
             $table->timestamps();
         });
     }
