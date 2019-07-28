@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Notifications\NewUserJoinedNotification;
 use App\User;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Notifications\WelcomeNotification;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Notifications\NewUserJoinedNotification;
 
 class RegisterController extends Controller
 {
