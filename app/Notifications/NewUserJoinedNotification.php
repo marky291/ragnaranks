@@ -47,7 +47,7 @@ class NewUserJoinedNotification extends Notification
         return (new MailMessage)
                     ->subject('New member has joined!')
                     ->line('Just to let you know of some current user activity')
-                    ->line("{$this->user->username} has just joined http://ragnaranks.com");
+                    ->line("{$this->user->username} has just joined.");
     }
 
     /**

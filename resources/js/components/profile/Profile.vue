@@ -171,21 +171,29 @@
 											</section>
 
 										<!-- Show reviews -->
-											<reviews :reviews="reviews"></reviews>
+											<keep-alive>
+												<reviews :reviews="reviews"></reviews>
+											</keep-alive>
 
 										<!-- View scoreboards/ratings -->
-											<ratings :reviews="reviews"></ratings>
+											<keep-alive>
+												<ratings :reviews="reviews"></ratings>
+											</keep-alive>
 
 										</span>
 
 								<!-- Create a review -->
 								<transition name="fade">
-									<review-creator v-if="$parent.isCurrentPage('reviewing')"></review-creator>
+									<keep-alive>
+										<review-creator v-if="$parent.isCurrentPage('reviewing')"></review-creator>
+									</keep-alive>
 								</transition>
 
 								<!-- Voting View -->
 								<transition name="fade">
-									<voting @vote:created="$parent.incrementVote(1)" v-if="$parent.isCurrentPage('voting')" :listing-name="$parent.listing.name" :listing-slug="slug"></voting>
+									<keep-alive>
+										<voting @vote:created="$parent.incrementVote(1)" v-if="$parent.isCurrentPage('voting')" :listing-name="$parent.listing.name" :listing-slug="slug"></voting>
+									</keep-alive>
 								</transition>
             </div>
         </div>
