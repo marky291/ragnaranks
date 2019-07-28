@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Notifications\NewUserJoinedNotification;
 use App\User;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -87,5 +89,7 @@ class RegisterController extends Controller
     protected function registered(Request $request, $user)
     {
         Notification::send($user, new WelcomeNotification($user));
+
+        Notification::send(User::first(), new NewUserJoinedNotification($user));
     }
 }
