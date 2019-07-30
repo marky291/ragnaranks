@@ -42,6 +42,15 @@
                 </div>
             </div>
         </div>
+        <div :style="$parent.listings.meta.total === 0 ? 'display: block !important' : null" :key="9999999" class="tw-hidden">
+            <div class="tw-flex">
+                <i class="fas fa-search tw-text-5xl tw-mr-4"></i>
+                <div class="tw-flex tw-flex-col">
+                    <h3>Whoops, No listings found with your search parameters</h3>
+                    <p>It could just be that no such servers exist or they just have not found their home at ragnaranks yet!</p>
+                </div>
+            </div>
+        </div>
     </transition-group>
 </template>
 
