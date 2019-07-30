@@ -2,7 +2,6 @@
 
 namespace App\Http\Resources;
 
-use App\Interactions\Review;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ListingResource extends JsonResource

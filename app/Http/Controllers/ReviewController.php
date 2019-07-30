@@ -24,8 +24,7 @@ class ReviewController extends Controller
      */
     public function store(Listing $listing, ReviewRequest $request): JsonResponse
     {
-        if ($listing->reviews()->where('user_id', auth()->id())->count() == false)
-        {
+        if ($listing->reviews()->where('user_id', auth()->id())->count() == false) {
             $review = $listing->reviews()->create($request->validated());
 
             $listing->user->notify(new ReviewPublished($listing));
