@@ -134,6 +134,5 @@ class ReviewControllerTest extends TestCase
 
         $this->assertDatabaseHas('reviews', ['content_score' => 5]);
         $this->assertDatabaseMissing('reviews', ['content_score' => 1]);
-
     }
 }

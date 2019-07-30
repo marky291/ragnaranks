@@ -2,11 +2,10 @@
 
 namespace Tests\Unit;
 
-use App\Interactions\Review;
-use App\Listings\Listing;
-use App\ReviewComment;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
+use App\ReviewComment;
+use App\Listings\Listing;
+use App\Interactions\Review;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ReviewCommentControllerTest extends TestCase
@@ -36,6 +35,5 @@ class ReviewCommentControllerTest extends TestCase
 
         $this->assertDatabaseHas('review_comments', ['message' => $comment1->message]);
         $this->assertDatabaseMissing('review_comments', ['message' => $comment2->message]);
-
     }
 }

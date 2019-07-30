@@ -1,7 +1,7 @@
 <?php
 
-use App\ReviewComment;
 use App\User;
+use App\ReviewComment;
 use App\Interactions\Vote;
 use App\Interactions\Click;
 use Illuminate\Support\Str;
