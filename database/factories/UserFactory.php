@@ -1,5 +1,6 @@
 <?php
 
+use App\ReviewComment;
 use App\User;
 use App\Interactions\Vote;
 use App\Interactions\Click;
@@ -37,14 +38,14 @@ $factory->define(Review::class, function (Faker $faker) {
     return [
         'message' => $faker->text(rand(300, 500)),
         'ip_address' => $faker->ipv4,
-        'donation_score' => $faker->numberBetween(0, 5),
-        'update_score' => $faker->numberBetween(0, 5),
-        'class_score' => $faker->numberBetween(0, 5),
-        'item_score' => $faker->numberBetween(0, 5),
-        'support_score' => $faker->numberBetween(0, 5),
-        'hosting_score' => $faker->numberBetween(0, 5),
-        'content_score' => $faker->numberBetween(0, 5),
-        'event_score' => $faker->numberBetween(0, 5),
+        'donation_score' => $faker->numberBetween(1, 5),
+        'update_score' => $faker->numberBetween(1, 5),
+        'class_score' => $faker->numberBetween(1, 5),
+        'item_score' => $faker->numberBetween(1, 5),
+        'support_score' => $faker->numberBetween(1, 5),
+        'hosting_score' => $faker->numberBetween(1, 5),
+        'content_score' => $faker->numberBetween(1, 5),
+        'event_score' => $faker->numberBetween(1, 5),
     ];
 });
 
@@ -76,8 +77,8 @@ $factory->define(Vote::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(\App\ReviewComment::class, function (Faker $faker) {
+$factory->define(ReviewComment::class, function (Faker $faker) {
     return [
-        'message' => $faker->sentence(random_int(70, 150)),
+        'message' => $faker->sentence(rand(20, 50)),
     ];
 });

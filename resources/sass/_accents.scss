@@ -71,7 +71,7 @@ $accents: (
 	}
 	.scoreboard-low {
 		color: $scoreboard-text;
-		background-color: map_get($accent, lightest)
+		background-color: map_get($accent, light)
 	 }
 	.scoreboard-mid {
 		color: $scoreboard-text;

@@ -1,25 +1,49 @@
 <script>
     import marked from 'marked';
+    import find from 'lodash/find'
 
     export default {
-        props: ['slug', 'action'],
+        props: ['slug', 'action', 'auth'],
         data: function () {
             return {
                 listing: {
-                    isEditor: Boolean
+                    isEditor: Boolean,
+                    canReview: Boolean,
+                },
+                buttons: {
+                    reviewButton: {
+                        text: 'Log in to create a review',
+                        disabled : true,
+                    },
                 },
                 configurations: {},
                 profileLoaded: false,
                 configLoaded: false,
                 currentPage: 'profile',
+                availablePages: [
+                    'profile',
+                    'voting',
+                ]
             }
         },
         async mounted() {
             await axios.get('/api/listing/'+(this.slug)).then((response) => {
                 this.listing = response.data;
                 this.profileLoaded = true;
-                this.currentPage = this.action ? this.action : 'profile';
+                this.currentPage = this.isPageAccessible(this.action) ? this.action : 'profile';
             });
+
+            if (this.isPageOwner()) {
+                this.buttons.reviewButton.text = "Cannot review own server";
+                this.buttons.reviewButton.disabled = true;
+            } else if (this.listing.canReview === false) {
+                this.buttons.reviewButton.text = "Cannot Review Listing";
+                this.buttons.reviewButton.disabled = true;
+            } else if (this.auth !== false) {
+                this.buttons.reviewButton.text = "Create a review";
+                this.buttons.reviewButton.disabled = false;
+                this.availablePages.push('reviewing');
+            }
 
             if (this.isCreating() || this.listing.isEditor === true) {
                 await axios.get('/api/listing/configurations').then((response) => {
@@ -46,6 +70,18 @@
             },
         },
         methods: {
+            pushNewReview(review) {
+                this.listing.reviews.push(review);
+                this.buttons.reviewButton.text = "Cannot Review Listing";
+                this.buttons.reviewButton.disabled = true;
+                this.setCurrentPage('profile');
+            },
+            isPageOwner() {
+                return this.auth == this.listing.user_id
+            },
+            isPageAccessible(page) {
+              return find(this.availablePages, page);
+            },
             isCreating() {
                 return this.slug === 'defaults';
             },

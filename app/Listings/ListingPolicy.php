@@ -57,6 +57,18 @@ class ListingPolicy
     }
 
     /**
+     * Determine whether the user can review the listing.
+     *
+     * @param User $user
+     * @param Listing $listing
+     * @return bool
+     */
+    public function review(User $user, Listing $listing): bool
+    {
+        return $listing->reviews()->where('user_id', $user->id)->doesntExist();
+    }
+
+    /**
      * Determine whether the user can restore the listing.
      *
      * @param User $user

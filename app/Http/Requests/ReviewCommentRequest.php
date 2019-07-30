@@ -24,7 +24,7 @@ class ReviewCommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'message' => 'required|min:140|max:550|string',
+            'message' => 'required|min:50|max:550|string',
         ];
     }
 }

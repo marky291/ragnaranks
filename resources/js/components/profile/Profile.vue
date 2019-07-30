@@ -185,7 +185,7 @@
 								<!-- Create a review -->
 								<transition name="fade">
 									<keep-alive>
-										<review-creator v-if="$parent.isCurrentPage('reviewing')"></review-creator>
+										<review-creator @review:created="$parent.pushNewReview" v-if="$parent.isCurrentPage('reviewing')" :listing-slug="slug"></review-creator>
 									</keep-alive>
 								</transition>
 

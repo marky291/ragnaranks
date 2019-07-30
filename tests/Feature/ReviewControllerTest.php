@@ -119,4 +119,21 @@ class ReviewControllerTest extends TestCase
 
         $this->assertCount(1, $review->reports);
     }
+
+    public function test_user_cannot_make_a_review_twice_on_same_listing()
+    {
+        $this->signIn();
+
+        $this->withoutExceptionHandling();
+
+        $review1 = factory(Review::class)->make(['content_score' => 5]);
+        $review2 = factory(Review::class)->make(['content_score' => 1]);
+
+        $response1 = $this->post("/listing/{$this->listing->slug}/reviews", $review1->toArray());
+        $response2 = $this->post("/listing/{$this->listing->slug}/reviews", $review2->toArray());
+
+        $this->assertDatabaseHas('reviews', ['content_score' => 5]);
+        $this->assertDatabaseMissing('reviews', ['content_score' => 1]);
+
+    }
 }

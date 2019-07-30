@@ -10,7 +10,7 @@
 		<at-button @click="setCurrentPage('profile')" class="w-100 mb-2">Back to Listing</at-button>
 	</span>
 	<span v-if="!isCurrentPage('reviewing')">
-		<at-button @click="setCurrentPage('reviewing')" class="w-100 mb-2">Create a review <i class="tw-ml-2 fas fa-keyboard"></i></at-button>
+		<at-button :disabled="buttons.reviewButton.disabled" @click="setCurrentPage('reviewing')" class="w-100 mb-2">@{{ buttons.reviewButton.text }} <i class="tw-ml-2 fas fa-keyboard"></i></at-button>
 	</span>
 	<span v-else>
 		<at-button @click="setCurrentPage('profile')" class="w-100 mb-2">Back to Listing</at-button>

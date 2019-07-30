@@ -18,10 +18,14 @@ class ReviewCommentController extends Controller
      */
     public function store(Review $review, ReviewCommentRequest $request)
     {
-        $reviewComment = $review->comments()->create($request->validated());
+        if ($review->comments()->count() == 0) {
+            $reviewComment = $review->comments()->create($request->validated());
 
-        $review->publisher->notify(new ReviewCommentPublished($review));
+            $review->user->notify(new ReviewCommentPublished($review));
 
-        return response()->json(['comment' => $reviewComment], 200);
+            return response()->json(['success' => true, 'comment' => $reviewComment]);
+        }
+
+        return response()->json(['success' => false, 'message' => trans('review.comments.errors.exists')]);
     }
 }

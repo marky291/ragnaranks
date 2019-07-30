@@ -119,8 +119,8 @@ class CreateServerTable extends Migration
 
         Schema::create('reviews', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('user_id')->index();
-            $table->unsignedInteger('listing_id')->index();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedInteger('listing_id');
             $table->ipAddress('ip_address');
             $table->text('message');
             $table->smallInteger('average_score');
@@ -134,6 +134,7 @@ class CreateServerTable extends Migration
             $table->smallInteger('event_score');
             $table->timestamps();
 
+            $table->unique(['user_id', 'listing_id']);
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('listing_id')->references('id')->on('listings');
         });

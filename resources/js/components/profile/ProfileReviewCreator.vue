@@ -5,9 +5,11 @@
 							<span id="reply-action" class="tw-w-full">
 									<div class="py-3">
 										<h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tight">You are creating a <span class="tw-text-blue">Review</span></h3>
-										<p class="tw-text-grey-dark mb-4">Focus on being factual and objective. Don't use aggressive language and don't post personal details...</p>
-										<at-textarea ref="textarea" v-model="review.message" min-rows="8" autosize placeholder="Your experience, Your review"></at-textarea>
-										<has-error :form="review" field="message"></has-error>
+										<p class="font-weight-bold tw-mb-1" :style="validation.hasError('review.message') ? 'color:#b3312d' : null">Write your Experience, Write your Review</p>
+										<p class="tw-text-grey-dark tw-mb-3">Focus on being factual and objective. Don't use aggressive language and don't post personal details...</p>
+										<at-textarea ref="textarea" v-model.trim="review.message" min-rows="8" autosize placeholder="I have been playing this server for some time and I can say with confidence this is one of the ..." :class="validation.hasError('review.message') ? 'invalid-textarea' : ''"></at-textarea>
+										<div v-if="validation.hasError('review.message')" class="tw-flex-1 tw-text-right help-block invalid-feedback">{{ validation.firstError('review.message') }}</div>
+										<p v-if="messageCharactersRemaining > 0" class="tw-flex-1 tw-text-right help-block">{{ messageCharactersRemaining }} characters remaining.</p>
 									</div>
 									<div class="row tw-mb-5">
 										<div class="col-6">
@@ -79,7 +81,6 @@
 										</div>
 									</div>
 								<at-button @click="postReview" type="primary" class="flex-fill">Post my Review!</at-button>
-								<!--								<at-button @click="$parent.$parent.setCurrentPage('profile')" type="info" hollow>Maybe I will create one later!</at-button>-->
 							</span>
 				</div>
 			</div>
@@ -88,8 +89,10 @@
 
 <script>
     import { Form, HasError, AlertError } from 'vform';
+		import {Validator} from 'simple-vue-validator';
 
     export default {
+    		props: ['listing-slug'],
         components: {
             'has-error': HasError,
             'alert-error': AlertError,
@@ -109,6 +112,11 @@
                 })
             }
         },
+			computed: {
+				messageCharactersRemaining() {
+					return 200 - this.review.message.length;
+				}
+			},
 			methods: {
 				ratingScore(score) {
 					if (score === 5)
@@ -122,14 +130,23 @@
 					if (score === 1)
 						return 'Terrible'
 				},
-				postReview() {
-					this.review.post(window.location.href + '/reviews').then(response => {
-						this.$Message.success('Your Review has been posted, thank you!');
-						this.$emit('review:created', this.review.data);
-					}).catch(error => {
-						this.$Message.error(error.message);
+				postReview: function () {
+					this.review.post(`/listing/${this.listingSlug}/reviews`).then((response) => {
+						if (response.data.success === true) {
+							this.$Message.success(response.data.message);
+							this.$emit('review:created', response.data.review);
+						} else {
+							this.$Message.error(response.data.message);
+						}
+					}).catch(response => {
+						this.$Message.error(response.message);
 					});
 				},
+			},
+			validators: {
+    			'review.message': function(value) {
+						return Validator.value(value).required().minLength(200);
+					}
 			}
     }
 </script>

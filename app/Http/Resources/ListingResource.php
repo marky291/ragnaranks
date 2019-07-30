@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Interactions\Review;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ListingResource extends JsonResource
@@ -28,6 +29,7 @@ class ListingResource extends JsonResource
             'website' => $this->website,
             'accent' => $this->accent,
             'mode' => $this->mode,
+            'user_id' => $this->user_id,
             'review_score' => $this->review_score,
             'screenshots' => $this->resource->relationLoaded('screenshots') ? $this->screenshots()->pluck('link')->toArray() : [],
             'ranking' => RankingResource::make($this->whenLoaded('ranking')),
@@ -38,6 +40,7 @@ class ListingResource extends JsonResource
             'language' => $this->resource->relationLoaded('language') ? $this->language->name : 'english',
             'reviews' => ReviewResource::collection($this->whenLoaded('reviews')),
             'isEditor' => auth()->check() && auth()->user()->can('update', $this->resource),
+            'canReview' => auth()->check() && auth()->user()->can('review', $this->resource),
         ];
     }
 }
