@@ -24,26 +24,25 @@
             </div>
             <div class="w-50 d-flex flex-row justify-content-between">
                 <div class="flex-fill">
-                    <h2>Develop</h2>
+                    <h2>Docs</h2>
                     <ul class="list-unstyled list">
-                        <li class="text-transparent">Share your ideas</li>
-                        <li class="text-transparent">Contribute to Codebase</li>
+                        <li><a class="tw-text-grey hover:tw-text-white" href="https://ragnaranks.github.io/docs/listing.html">Creating a new Listing</a></li>
+                        <li><a class="tw-text-grey hover:tw-text-white" href="https://ragnaranks.github.io/docs/vote4points.html">Vote For Points Setup</a></li>
                     </ul>
                 </div>
                 <div class="flex-fill">
-                    <h2>Play</h2>
+                    <h2>Contribute</h2>
                     <ul class="list-unstyled list">
-                        @foreach(config('filter.modes') as $mode)
-                            <li class="text-transparent">{{ ucfirst($mode) }}</li>
-                        @endforeach
+                        <li class="text-transparent"><a class="tw-text-grey hover:tw-text-white" href="https://www.reddit.com/r/RagnaRanks">Share your ideas</a></li>
+                        <li class="text-transparent"><a class="tw-text-grey hover:tw-text-white"  href="/listing/create">Register A Server</a></li>
                     </ul>
                 </div>
-                <div class="flex-fill">
-                    <h2>Administrate</h2>
-                    <ul class="list-unstyled list">
-                        <li class="text-transparent"><a href="/listing/create">Register A Server</a></li>
-                    </ul>
-                </div>
+{{--                <div class="flex-fill">--}}
+{{--                    <h2>Administrate</h2>--}}
+{{--                    <ul class="list-unstyled list">--}}
+{{--                        <li class="text-transparent"><a class="tw-text-grey hover:tw-text-white"  href="/listing/create">Register A Server</a></li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
             </div>
         </div>
 
