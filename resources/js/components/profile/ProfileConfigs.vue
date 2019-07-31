@@ -336,7 +336,7 @@
                             });
                         } else {
                             form.patch(`/listing/${this.current.slug}`).then((response) => {
-                                if (response.data.redirect !== "") {
+                                if (this.nameWasChanged()) {
                                     this.$Message.success('Listing updated with a new name, reloading..!');
                                     setTimeout(function () {
                                         window.location.href = response.data.redirect;
