@@ -5,8 +5,11 @@
                 <at-menu-item name="/">
                     <span><i class="icon icon-home"></i>Home</span>
                 </at-menu-item>
+                <at-menu-item name="help">
+                    <span><i class="icon icon-alert-circle"></i>Support</span>
+                </at-menu-item>
                 <at-menu-item name="listing/create">
-                    <span><i class="icon icon-tag"></i>Add Your Server</span>
+                    <span><i class="icon icon-tag"></i>Add Server</span>
                 </at-menu-item>
             </at-menu>
 

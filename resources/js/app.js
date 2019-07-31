@@ -84,7 +84,9 @@ const app = new Vue({
     i18n,
     methods: {
         navigate: function(name) {
-            if (name === 'logout') {
+            if (name == 'help') {
+                window.location = 'https://ragnaranks.github.io/docs/';
+            } else if (name === 'logout') {
                 axios.post('/logout').then((response) => {
                     window.location = '/';
                 });
