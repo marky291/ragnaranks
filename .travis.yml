@@ -31,5 +31,11 @@ install:
   - if [[ $setup = 'stable' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-stable --no-suggest; fi
   - if [[ $setup = 'lowest' ]]; then travis_retry composer update --prefer-dist --no-interaction --prefer-lowest --prefer-stable --no-suggest; fi
 
+notifications:
+  webhooks:
+    urls:
+      secure: https://envoyer.io/deploy/bRR9pvAaQFQP7PVjUtAIZsc5IyOPezAjeHrULwgc
+    on_success: always
+    on_failure: never
+    
 script: vendor/bin/phpunit
-
