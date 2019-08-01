@@ -34,8 +34,11 @@ install:
 notifications:
   webhooks:
     urls:
-      secure: https://envoyer.io/deploy/bRR9pvAaQFQP7PVjUtAIZsc5IyOPezAjeHrULwgc
-    on_success: always
-    on_failure: never
-    
+      - https://envoyer.io/deploy/bRR9pvAaQFQP7PVjUtAIZsc5IyOPezAjeHrULwgc
+    on_success: always # default: always
+    on_failure: never # default: always
+    on_start:   never # default: never
+    on_cancel:  never # default: always
+    on_error:   never # default: always
+
 script: vendor/bin/phpunit
