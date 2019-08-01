@@ -36,7 +36,7 @@ $factory->define(User::class, static function (Faker $faker) {
 
 $factory->define(Review::class, function (Faker $faker) {
     return [
-        'message' => $faker->text(rand(300, 500)),
+        'message' => $faker->paragraph(9),
         'ip_address' => $faker->ipv4,
         'donation_score' => $faker->numberBetween(1, 5),
         'update_score' => $faker->numberBetween(1, 5),
