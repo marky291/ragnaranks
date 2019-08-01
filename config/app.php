@@ -17,6 +17,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Webservice version
+    |--------------------------------------------------------------------------
+    |
+    | The current version of the filesystem, this allows us to track the filestructure
+    | and that deployments are loading the correct filesource.
+    |
+    */
+    'version' => '1.0.0',
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Environment
     |--------------------------------------------------------------------------
     |
