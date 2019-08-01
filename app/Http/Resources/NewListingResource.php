@@ -23,7 +23,7 @@ class NewListingResource extends JsonResource
             'slug' => $this->slug,
             'website' => $this->website,
             'accent' => $preset['accent'],
-            'mode' => $this->mode,
+            'mode' => 'renewal',
             'review_score' => $this->review_score,
             'screenshots' => [],
             'ranking' => RankingResource::make($this->whenLoaded('ranking')),

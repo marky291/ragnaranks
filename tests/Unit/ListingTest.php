@@ -71,14 +71,15 @@ class ListingTest extends TestCase
     {
         $listing = $this->createListing([], 0, 0);
 
-        $listing->reviews()->saveMany(factory(Review::class, 3)->create(
+        $listing->reviews()->saveMany(factory(Review::class, 1)->make(
             [
                 'user_id' => factory(User::class)->create()->id,
                 'listing_id' => factory(Listing::class)->create()->id,
             ]
         ));
 
-        $this->assertCount(3, $listing->reviews);
+
+        $this->assertCount(1, $listing->reviews);
     }
 
     public function test_it_has_review_score()
