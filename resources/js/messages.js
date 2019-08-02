@@ -15,6 +15,19 @@ export default {
             "previous": "&laquo; Previous",
             "next": "Next &raquo;"
         },
+        "review": {
+            "creation": {
+                "success": "Success, Your review is now Live!",
+                "errors": {
+                    "present": "You have already created a review for this listing."
+                }
+            },
+            "comments": {
+                "errors": {
+                    "exists": "You have already created a comment on this review."
+                }
+            }
+        },
         "profile": {
             "defaultName": "Default RO",
             "defaultMarkup": "# Welcome to RagnaRanks markdown editor!\n You can write something nice and descriptive with a huge amount of different formats!' [Guide](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)\n You can also use emojis copied from the web and paste them right here! 😍\n \n**Please utilize all the configuration options to allow us to maximize the potential of your listing(s)!**",
@@ -118,6 +131,11 @@ export default {
                 "drops_by_luk": {
                     "name": "Influenced Drops",
                     "describe": "Does LUK stat affect the drops by absolute basis?"
+                }
+            },
+            "scoreboards": {
+                "score": {
+                    "default": "N/A"
                 }
             },
             "reviews": {

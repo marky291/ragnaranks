@@ -36,8 +36,8 @@
                     </div>
 
                     <div class="tw-w-1/4 tw-flex tw-justify-end tw-flex-1">
-                        <at-button @click="visit(listing['slug'])" hollow class="tw-mr-2 tw-shadow">Website</at-button>
-                        <at-button @click="visit(listing['slug'])" type="primary" class="tw-shadow">Details</at-button>
+                        <at-button @click="visitWebsite(listing)" hollow class="tw-mr-2 tw-shadow">Website</at-button>
+                        <at-button @click="visitProfile(listing)" type="primary" class="tw-shadow">Details</at-button>
                     </div>
                 </div>
             </div>
@@ -66,12 +66,22 @@
                 if (score > 0) return 'homepage.card.review.negative';
                 return 'homepage.card.review.fresh';
             },
-            visit: function(slug) {
-                window.location.href = '/listing/' + slug;
+            visitProfile: function(listing) {
+                console.log(listing);
+                window.location.href = `/listing/${listing.slug}`;
+            },
+            visitWebsite: function(listing) {
+                console.log(listing);
+                axios.post(`/listing/${listing.slug}/clicks`).then((response) => {
+                    if(response.data.success === true) {
+                        listing.ranking.clicks++;
+                    }
+                });
+                window.open(listing.website,'_blank');
             },
             beforeEnter: function (el) {
-                el.style.opacity = 0
-                el.style.height = 0
+                el.style.opacity = 0;
+                el.style.height = 0;
             },
             enter: function (el, done) {
                 var delay = el.dataset.index * 0.4;
