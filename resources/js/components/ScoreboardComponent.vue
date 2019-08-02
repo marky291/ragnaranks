@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="w-100 h-100 align-items-end d-flex">
-            <p class="tw-text-2xl text-right tw-font-bold">{{ score }} / 5</p>
+            <p class="tw-text-2xl text-right tw-font-bold">{{ computedScore }}</p>
         </div>
     </div>
 </template>
@@ -16,6 +16,11 @@
 
     export default {
         props: ['title', 'description', 'score'],
+        computed: {
+            computedScore() {
+                return this.score ? (`${this.score}/5`) : this.$t('profile.scoreboards.score.default');
+            },
+        },
         methods: {
             /**
              * @return {string}
@@ -28,7 +33,7 @@
                     return "scoreboard-mid";
                 }
                 return "scoreboard-low";
-            },
+            }
         }
     }
 
