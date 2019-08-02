@@ -14,13 +14,13 @@
                                     <h2 class="ml-2 tw-font-bold mb-0">Be Part of the Community, Login! <br><small>Don't have an account? <span><a href="/register">Register now!</a></span></small></h2>
                                 </div>
                                 <div class="item-group">
-                                    <label>Enter your Email Account</label>
-                                    <at-input autofocus id="email" v-model="form.email" :status="form.errors.has('email') ? 'error' : ''" placeholder="{{ __('E-Mail Address') }}" name="email"></at-input>
+                                    <label for="email">Enter your Email Account</label>
+                                    <at-input autocomplete="email" required type="email" autofocus id="email" v-model="form.email" :status="form.errors.has('email') ? 'error' : ''" placeholder="name@example.com" name="email" icon="at-sign"></at-input>
                                     <has-error :form="form" field="email"></has-error>
                                 </div>
                                 <div class="item-group">
-                                    <label class="tw-font-bold mb-1">Enter your password</label>
-                                    <at-input v-model="form.password" :status="form.errors.has('password') ? 'error' : ''" type="password" placeholder="{{ __('Password') }}" name="password"></at-input>
+                                    <label for="password" class="tw-font-bold mb-1">Enter your password</label>
+                                    <at-input v-model="form.password" :status="form.errors.has('password') ? 'error' : ''" type="password" name="password" icon="user-check"></at-input>
                                     <has-error :form="form" field="password"></has-error>
                                 </div>
                                 <at-checkbox v-model="form.rememberMe" style="display:inherit" class="mb-4" label="Remember">{{ __('Remember Me') }}</at-checkbox>
