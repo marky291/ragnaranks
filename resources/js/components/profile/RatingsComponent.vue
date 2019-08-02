@@ -49,7 +49,6 @@
                         return item[element];
                     }));
                 }
-                return 3;
             },
         }
     }
