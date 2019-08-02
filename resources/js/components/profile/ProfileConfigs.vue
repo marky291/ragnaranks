@@ -5,7 +5,7 @@
         </div>
         <at-collapse accordion value="details" class="tw-shadow" style="overflow:visible">
             <at-collapse-item name="details">
-                <div slot="title">Detailing</div>
+                <div slot="title">Detailing <span class="tw-text-xs tw-text-red">{{ detailingErrorCount ? ('('+detailingErrorCount+' Fields Requires Attention)') : ''}}</span></div>
                 <div :class="'bg-'+current.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1">
                     <p class="tw-font-bold">Card Design</p>
                 </div>
@@ -112,7 +112,7 @@
                 </div>
             </at-collapse-item>
             <at-collapse-item name="config">
-                <div slot="title">Configurations</div>
+                <div slot="title">Configurations <span class="tw-text-xs tw-text-red">{{ configurationErrorCount ? ('('+configurationErrorCount+' Fields Requires Attention)') : ''}}</span></div>
                 <div class="">
                     <div class="mb-3 configuration">
                         <div class="list">
@@ -296,7 +296,7 @@
                     </div>
                 </div>
                 <div v-if="isCreatingCard()">
-                    <at-button @click="updateOrSave" :loading="validation.isValidating()" :disabled="validation.hasError()" class="tw-w-full" type="primary">{{ $t('profile.buttons.save_server')}}</at-button>
+                    <at-button @click="updateOrSave" :loading="validation.isValidating()" class="tw-w-full" type="primary">{{ $t('profile.buttons.save_server')}}</at-button>
                 </div>
                 <div v-else>
                     <at-button @click="updateOrSave" :loading="validation.isValidating()" type="primary" class="tw-w-full">{{ $t('profile.buttons.update_server') }}</at-button>
@@ -318,6 +318,37 @@
                 defaultName: this.current.name,
                 screenshot: '',
             }
+        },
+        computed: {
+            detailingErrorCount() {
+                return this.validation.hasError('current.name') +
+                       this.validation.hasError('current.accent') +
+                       this.validation.hasError('current.language') +
+                       this.validation.hasError('current.mode') +
+                       this.validation.hasError('current.website') +
+                       this.validation.hasError('current.background');
+            },
+            configurationErrorCount() {
+                return this.validation.hasError('current.config.max_base_level') +
+                       this.validation.hasError('current.config.max_job_level') +
+                       this.validation.hasError('current.config.max_stats') +
+                       this.validation.hasError('current.config.max_aspd') +
+                       this.validation.hasError('current.config.base_exp_rate') +
+                       this.validation.hasError('current.config.job_exp_rate') +
+                       this.validation.hasError('current.config.quest_exp_rate') +
+                       this.validation.hasError('current.config.item_drop_common') +
+                       this.validation.hasError('current.config.item_drop_equip') +
+                       this.validation.hasError('current.config.item_drop_card') +
+                       this.validation.hasError('current.config.item_drop_common_mvp') +
+                       this.validation.hasError('current.config.item_drop_equip_mvp') +
+                       this.validation.hasError('current.config.item_drop_card_mvp') +
+                       this.validation.hasError('current.config.pk_mode') +
+                       this.validation.hasError('current.config.castrate_dex_scale') +
+                       this.validation.hasError('current.config.arrow_decrement') +
+                       this.validation.hasError('current.config.undead_detect_type') +
+                       this.validation.hasError('current.config.attribute_recover') +
+                       this.validation.hasError('current.config.instant_cast_stat');
+            },
         },
         methods: {
             nameWasChanged() {
@@ -347,11 +378,7 @@
                             });
                         }
                     } else {
-                        this.$Notify({
-                            title: 'Time for a fix!',
-                            message: 'Some fields failed validation and require you to correct the input.',
-                            type: 'error'
-                        })
+                        this.$Message.error('Some fields require a change, please check all fields have no errors!')
                     }
                 });
             },
