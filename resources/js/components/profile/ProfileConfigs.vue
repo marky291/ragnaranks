@@ -85,15 +85,15 @@
                         <p class="tw-flex-1 tw-font-semibold tw-mb-1">Screenshot Urls</p>
                         <div class="tw-flex-1 tw-text-right help-block invalid-feedback">{{ validation.firstError('screenshot') }}</div>
                     </div>
-                    <div class="tw-flex tw-flex-row">
+                    <div class="tw-flex tw-flex-row" v-if="current.screenshots.length < 7">
                         <at-input @keyup.enter.native="addScreenshot" :status="validation.hasError('screenshot') ? 'error' : ''" icon="link" type="url" v-model.trim="screenshot" class="tw-flex-1 tw-mr-2" placeholder="http://example.com/poring.png"></at-input>
                         <at-button :disabled="validation.hasError('screenshot')" @click="addScreenshot" type="primary" icon="icon-plus"></at-button>
                     </div>
                     <span v-for="(screenshot, i) in current.screenshots">
-												<span class="tw-flex tw-flex-row tw-my-2">
-													<at-button @click="removeScreenshot(i)" size="small" icon="icon-trash-2 tw-text-red" class="tw-mr-2" circle></at-button>
-													<at-input size="small" :placeholder="screenshot" class="tw-flex-1" disabled></at-input>
-												</span>
+                        <span class="tw-flex tw-flex-row tw-my-2">
+                            <at-button @click="removeScreenshot(i)" size="small" icon="icon-trash-2 tw-text-red" class="tw-mr-2" circle></at-button>
+                            <at-input size="small" :placeholder="screenshot" class="tw-flex-1" disabled></at-input>
+                        </span>
                   </span>
                 </div>
                 <div :class="'bg-'+current.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1 tw-mt-3">
@@ -309,6 +309,7 @@
 
 <script>
     import Form from 'vform';
+    import isEmpty from 'lodash/isEmpty';
     import {Validator} from 'simple-vue-validator';
 
     export default {
@@ -388,9 +389,11 @@
                 this.commandChoices.push(tag);
             },
             addScreenshot() {
-                if (!_.isEmpty(this.screenshot)) {
-                    this.current.screenshots.push(this.screenshot);
-                    this.screenshot = '';
+                if (!isEmpty(this.screenshot)) {
+                    if (this.current.screenshots.length < 7) {
+                        this.current.screenshots.push(this.screenshot);
+                        this.screenshot = '';
+                    }
                 }
             },
             removeScreenshot(index) {
