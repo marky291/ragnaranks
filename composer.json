@@ -19,6 +19,7 @@
         "martinlindhe/laravel-vue-i18n-generator": "^0.1.39",
         "predis/predis": "^1.1",
         "sentry/sentry-laravel": "1.1.0",
+        "sopamo/laravel-filepond": "^0.1.0",
         "spatie/laravel-permission": "^2.37",
         "timehunter/laravel-google-recaptcha-v3": "~2.2.19"
     },
@@ -28,6 +29,7 @@
         "doctrine/dbal": "^2.9",
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
+        "laravel/dusk": "^5.4",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^3.0",
         "phpunit/phpunit": "^7.5"

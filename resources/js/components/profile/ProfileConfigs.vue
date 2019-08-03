@@ -1,3 +1,261 @@
+<script>
+    import Form from 'vform';
+    import {Validator} from 'simple-vue-validator';
+
+    // Import Vue FilePond
+    import vueFilePond from 'vue-filepond';
+
+    // Import FilePond styles
+    import 'filepond/dist/filepond.min.css';
+
+    // Import FilePond plugins
+    // Please note that you need to install these plugins separately
+    // Import the plugin code
+    import FilePondPluginFilePoster from 'filepond-plugin-file-poster';
+    import 'filepond-plugin-file-poster/dist/filepond-plugin-file-poster.css';
+
+    // Import image preview plugin styles
+    import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css';
+
+    // Import image preview and file type validation plugins
+    import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
+    import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
+
+    let FilePond = vueFilePond(FilePondPluginFileValidateType, FilePondPluginImagePreview, FilePondPluginFilePoster);
+
+    export default {
+        props: ['current', 'defaultDescription', 'configurations'],
+        data: function () {
+            return {
+                defaultName: this.current.name,
+                screenshot: '',
+                files: [
+                    {
+                        // the server file reference
+                        source: '12345',
+
+                        // set type to local to indicate an already uploaded file
+                        options: {
+                            type: 'local',
+
+                            // stub file information
+                            file: {
+                                name: this.current.background,
+                                size: 3001025,
+                                type: 'image/png'
+                            },
+
+                            // pass poster property
+                            metadata: {
+                                poster: this.current.background,
+                            }
+                        }
+                    }],
+            }
+        },
+        components: {
+            FilePond
+        },
+        computed: {
+            detailingErrorCount() {
+                return this.validation.hasError('current.name') +
+                       this.validation.hasError('current.accent') +
+                       this.validation.hasError('current.language') +
+                       this.validation.hasError('current.mode') +
+                       this.validation.hasError('current.website') +
+                       this.validation.hasError('current.background');
+            },
+            configurationErrorCount() {
+                return this.validation.hasError('current.config.max_base_level') +
+                       this.validation.hasError('current.config.max_job_level') +
+                       this.validation.hasError('current.config.max_stats') +
+                       this.validation.hasError('current.config.max_aspd') +
+                       this.validation.hasError('current.config.base_exp_rate') +
+                       this.validation.hasError('current.config.job_exp_rate') +
+                       this.validation.hasError('current.config.quest_exp_rate') +
+                       this.validation.hasError('current.config.item_drop_common') +
+                       this.validation.hasError('current.config.item_drop_equip') +
+                       this.validation.hasError('current.config.item_drop_card') +
+                       this.validation.hasError('current.config.item_drop_common_mvp') +
+                       this.validation.hasError('current.config.item_drop_equip_mvp') +
+                       this.validation.hasError('current.config.item_drop_card_mvp') +
+                       this.validation.hasError('current.config.pk_mode') +
+                       this.validation.hasError('current.config.castrate_dex_scale') +
+                       this.validation.hasError('current.config.arrow_decrement') +
+                       this.validation.hasError('current.config.undead_detect_type') +
+                       this.validation.hasError('current.config.attribute_recover') +
+                       this.validation.hasError('current.config.instant_cast_stat');
+            },
+        },
+        methods: {
+            updateTitleImage() {
+              console.log(this.$refs.pond.files);
+            },
+            nameWasChanged() {
+                return (this.current.name !== this.defaultName);
+            },
+            updateOrSave() {
+                this.$validate().then((success) => {
+                    let form = new Form(this.current);
+                    if (success) {
+                        if (this.isCreatingCard()) {
+                            form.post('/listing', this.current.data).then((response) => {
+                                this.$Message.success('Great job, Your new listing has been uploaded, redirecting!');
+                                setTimeout(function () {
+                                    window.location.href = response.data.redirect;
+                                }.bind(this), 1400);
+                            });
+                        } else {
+                            form.patch(`/listing/${this.current.slug}`).then((response) => {
+                                if (this.nameWasChanged()) {
+                                    this.$Message.success('Listing updated with a new name, reloading..!');
+                                    setTimeout(function () {
+                                        window.location.href = response.data.redirect;
+                                    }.bind(this), 1000);
+                                } else {
+                                    this.$Message.success('Your listing was successfully updated!');
+                                }
+                            });
+                        }
+                    } else {
+                        this.$Message.error('Some fields require a change, please check all fields have no errors!')
+                    }
+                });
+            },
+            addTag (newTag) {
+                let tag = { name: newTag };
+                this.current.commands.push(tag);
+                this.commandChoices.push(tag);
+            },
+            addScreenshot() {
+                if (!_.isEmpty(this.screenshot)) {
+                    this.current.screenshots.push(this.screenshot);
+                    this.screenshot = '';
+                }
+            },
+            removeScreenshot(index) {
+                this.current.screenshots.splice(index, 1);
+            },
+            validateNumericField(value) {
+                return Validator.value(value).digit().greaterThan(1).lessThan(2147483648).required();
+            },
+            validateBooleanField(value) {
+                return Validator.value(value).required();
+            },
+            isCreatingCard() {
+                return this.current.slug === null;
+            },
+            isUpdatingCard() {
+                return this.isCreatingCard() === false;
+            },
+            deleteListing() {
+                this.$Modal.confirm({
+                    title: 'Confirmation Required',
+                    okText: 'Confirm',
+                    content: `Are you sure you wish to delete the server ${this.current.name} from our listings?`
+                }).then(() => {
+                    axios.delete(`/listing/${this.current.slug}`).then((response) => {
+                        if (response.data.success) {
+                            this.$Message.success(`You successfully removed the server ${this.current.name}, redirecting!`);
+                            setTimeout(function () {
+                                window.location.href = response.data.redirect;
+                            }.bind(this), 1200);
+                        }
+                    });
+                });
+            },
+        },
+        validators: {
+            'current.name, defaultName': {
+                debounce: 450,
+                validator: function(name) {
+                    if (this.nameWasChanged()) {
+                        return Validator.value(name).required().minLength(3).maxLength(255).custom(function () {
+                            if (!Validator.isEmpty(name)) {
+                                return axios.get(`/api/listing/${name.trim()}/available`).then((response) => {
+                                    //
+                                }).catch((error) => {
+                                    return 'Already taken!';
+                                });
+                            }
+                        });
+                    }
+                }
+            },
+            'current.background': function(value) {
+                return Validator.value(value).required().url();
+            },
+            'current.website': function(value) {
+                return Validator.value(value).required().url();
+            },
+            'current.description': function(value) {
+                return Validator.value(value).required().minLength(100).maxLength(999);
+            },
+            'current.config.max_base_level': function(value) {
+                return this.validateNumericField(value);
+            },
+            'current.config.max_job_level': function(value) {
+                return this.validateNumericField(value);
+            },
+            'current.config.max_stats': function(value) {
+                return this.validateNumericField(value);
+            },
+            'current.config.max_aspd': function(value) {
+                return this.validateNumericField(value);
+            },
+            'current.config.base_exp_rate': function(value) {
+                return this.validateNumericField(value);
+            },
+            'current.config.job_exp_rate': function(value) {
+                return this.validateNumericField(value);
+            },
+            'current.config.quest_exp_rate': function(value) {
+                return this.validateNumericField(value);
+            },
+            'current.config.item_drop_common': function(value) {
+                return this.validateNumericField(value);
+            },
+            'current.config.item_drop_equip': function(value) {
+                return this.validateNumericField(value);
+            },
+            'current.config.item_drop_card': function(value) {
+                return this.validateNumericField(value);
+            },
+            'current.config.item_drop_common_mvp': function(value) {
+                return this.validateNumericField(value);
+            },
+            'current.config.item_drop_equip_mvp': function(value) {
+                return this.validateNumericField(value);
+            },
+            'current.config.item_drop_card_mvp': function(value) {
+                return this.validateNumericField(value);
+            },
+            'current.config.pk_mode': function(value) {
+                return this.validateBooleanField(value);
+            },
+            'current.config.castrate_dex_scale': function(value) {
+                return this.validateBooleanField(value);
+            },
+            'current.config.arrow_decrement': function(value) {
+                return this.validateBooleanField(value);
+            },
+            'current.config.undead_detect_type': function(value) {
+                return this.validateBooleanField(value);
+            },
+            'current.config.attribute_recover': function(value) {
+                return this.validateBooleanField(value);
+            },
+            'current.config.instant_cast_stat': function(value) {
+                return this.validateBooleanField(value);
+            },
+            screenshot: function (value) {
+                return Validator.value(value).url();
+            },
+
+        }
+    }
+</script>
+
 <template>
     <div class="">
         <div class="heading">
@@ -62,11 +320,21 @@
                 </div>
                 <div class="tw-p-2">
                     <div class="tw-flex tw-flex-row tw-items-baseline">
-                        <p class="tw-font-semibold tw-flex tw-mb-1">Title Picture URL</p>
+                        <p class="tw-font-semibold tw-flex tw-mb-1">Title Picture</p>
                         <div v-if="validation.hasError('current.background')" class="tw-flex-1 tw-text-right help-block invalid-feedback">{{ validation.firstError('current.background') }}</div>
                     </div>
-                    <at-input v-model.trim="current.background" placeholder="Enter an Image URL" :status="validation.hasError('current.background') ? 'error' : ''"></at-input>
-<!--                    <small class="tw-text-blue">(Optimal size 728x350px)</small>-->
+                    <file-pond
+                        name="title-image"
+                        ref="pond"
+                        label-idle="Drop your image here..."
+                        allow-multiple="false"
+                        max-files="1"
+                        accepted-file-types="image/jpeg, image/png"
+                        server="/filepond/api/process"
+                        :files="files"
+                        :addfile="updateTitleImage"/>
+<!--                    <at-input v-model.trim="current.background" placeholder="Enter an Image URL" :status="validation.hasError('current.background') ? 'error' : ''"></at-input>-->
+                    <!--                    <small class="tw-text-blue">(Optimal size 728x350px)</small>-->
                 </div>
                 <div :class="'bg-'+current.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1 tw-mt-3">
                     <p class="tw-font-bold">Filtering</p>
@@ -249,12 +517,12 @@
                             </div>
                             <div class="config">
                                 <div class="column">
-                                     <div class="name" :style="validation.hasError('current.config.arrow_decrement') ? 'color:#b3312d' : null">
-                                         {{ $t('profile.config.arrow_decrement.name') }}
-                                         <at-popover trigger="hover" :content="$t('profile.config.arrow_decrement.describe')" placement="right">
-                                             <small class="help-tooltip">[?]</small>
-                                         </at-popover>
-                                     </div>
+                                    <div class="name" :style="validation.hasError('current.config.arrow_decrement') ? 'color:#b3312d' : null">
+                                        {{ $t('profile.config.arrow_decrement.name') }}
+                                        <at-popover trigger="hover" :content="$t('profile.config.arrow_decrement.describe')" placement="right">
+                                            <small class="help-tooltip">[?]</small>
+                                        </at-popover>
+                                    </div>
                                     <div v-if="validation.hasError('current.config.arrow_decrement')" class="tw-flex-1 help-block invalid-feedback">{{ validation.firstError('current.config.arrow_decrement') }}</div>
                                 </div>
                                 <at-radio-group v-model="current.config.arrow_decrement">
@@ -306,212 +574,3 @@
         </at-collapse>
     </div>
 </template>
-
-<script>
-    import Form from 'vform';
-    import {Validator} from 'simple-vue-validator';
-
-    export default {
-        props: ['current', 'defaultDescription', 'configurations'],
-        data: function () {
-            return {
-                defaultName: this.current.name,
-                screenshot: '',
-            }
-        },
-        computed: {
-            detailingErrorCount() {
-                return this.validation.hasError('current.name') +
-                       this.validation.hasError('current.accent') +
-                       this.validation.hasError('current.language') +
-                       this.validation.hasError('current.mode') +
-                       this.validation.hasError('current.website') +
-                       this.validation.hasError('current.background');
-            },
-            configurationErrorCount() {
-                return this.validation.hasError('current.config.max_base_level') +
-                       this.validation.hasError('current.config.max_job_level') +
-                       this.validation.hasError('current.config.max_stats') +
-                       this.validation.hasError('current.config.max_aspd') +
-                       this.validation.hasError('current.config.base_exp_rate') +
-                       this.validation.hasError('current.config.job_exp_rate') +
-                       this.validation.hasError('current.config.quest_exp_rate') +
-                       this.validation.hasError('current.config.item_drop_common') +
-                       this.validation.hasError('current.config.item_drop_equip') +
-                       this.validation.hasError('current.config.item_drop_card') +
-                       this.validation.hasError('current.config.item_drop_common_mvp') +
-                       this.validation.hasError('current.config.item_drop_equip_mvp') +
-                       this.validation.hasError('current.config.item_drop_card_mvp') +
-                       this.validation.hasError('current.config.pk_mode') +
-                       this.validation.hasError('current.config.castrate_dex_scale') +
-                       this.validation.hasError('current.config.arrow_decrement') +
-                       this.validation.hasError('current.config.undead_detect_type') +
-                       this.validation.hasError('current.config.attribute_recover') +
-                       this.validation.hasError('current.config.instant_cast_stat');
-            },
-        },
-        methods: {
-            nameWasChanged() {
-                return (this.current.name !== this.defaultName);
-            },
-            updateOrSave() {
-                this.$validate().then((success) => {
-                    let form = new Form(this.current);
-                    if (success) {
-                        if (this.isCreatingCard()) {
-                            form.post('/listing', this.current.data).then((response) => {
-                                this.$Message.success('Great job, Your new listing has been uploaded, redirecting!');
-                                setTimeout(function () {
-                                    window.location.href = response.data.redirect;
-                                }.bind(this), 1400);
-                            });
-                        } else {
-                            form.patch(`/listing/${this.current.slug}`).then((response) => {
-                                if (this.nameWasChanged()) {
-                                    this.$Message.success('Listing updated with a new name, reloading..!');
-                                    setTimeout(function () {
-                                        window.location.href = response.data.redirect;
-                                    }.bind(this), 1000);
-                                } else {
-                                    this.$Message.success('Your listing was successfully updated!');
-                                }
-                            });
-                        }
-                    } else {
-                        this.$Message.error('Some fields require a change, please check all fields have no errors!')
-                    }
-                });
-            },
-            addTag (newTag) {
-                let tag = { name: newTag };
-                this.current.commands.push(tag);
-                this.commandChoices.push(tag);
-            },
-            addScreenshot() {
-                if (!_.isEmpty(this.screenshot)) {
-                    this.current.screenshots.push(this.screenshot);
-                    this.screenshot = '';
-                }
-            },
-            removeScreenshot(index) {
-                this.current.screenshots.splice(index, 1);
-            },
-            validateNumericField(value) {
-                return Validator.value(value).digit().greaterThan(1).lessThan(2147483648).required();
-            },
-            validateBooleanField(value) {
-                return Validator.value(value).required();
-            },
-            isCreatingCard() {
-                return this.current.slug === null;
-            },
-            isUpdatingCard() {
-                return this.isCreatingCard() === false;
-            },
-            deleteListing() {
-                this.$Modal.confirm({
-                    title: 'Confirmation Required',
-                    okText: 'Confirm',
-                    content: `Are you sure you wish to delete the server ${this.current.name} from our listings?`
-                }).then(() => {
-                    axios.delete(`/listing/${this.current.slug}`).then((response) => {
-                        if (response.data.success) {
-                            this.$Message.success(`You successfully removed the server ${this.current.name}, redirecting!`);
-                            setTimeout(function () {
-                                window.location.href = response.data.redirect;
-                            }.bind(this), 1200);
-                        }
-                    });
-                });
-            },
-        },
-        validators: {
-            'current.name, defaultName': {
-                debounce: 450,
-                validator: function(name) {
-                    if (this.nameWasChanged()) {
-                        return Validator.value(name).required().minLength(3).maxLength(255).custom(function () {
-                            if (!Validator.isEmpty(name)) {
-                                return axios.get(`/api/listing/${name.trim()}/available`).then((response) => {
-                                    //
-                                }).catch((error) => {
-                                    return 'Already taken!';
-                                });
-                            }
-                        });
-                    }
-                }
-            },
-            'current.background': function(value) {
-                return Validator.value(value).required().url();
-            },
-            'current.website': function(value) {
-                return Validator.value(value).required().url();
-            },
-            'current.description': function(value) {
-                return Validator.value(value).required().minLength(100).maxLength(999);
-            },
-            'current.config.max_base_level': function(value) {
-                return this.validateNumericField(value);
-            },
-            'current.config.max_job_level': function(value) {
-                return this.validateNumericField(value);
-            },
-            'current.config.max_stats': function(value) {
-                return this.validateNumericField(value);
-            },
-            'current.config.max_aspd': function(value) {
-                return this.validateNumericField(value);
-            },
-            'current.config.base_exp_rate': function(value) {
-                return this.validateNumericField(value);
-            },
-            'current.config.job_exp_rate': function(value) {
-                return this.validateNumericField(value);
-            },
-            'current.config.quest_exp_rate': function(value) {
-                return this.validateNumericField(value);
-            },
-            'current.config.item_drop_common': function(value) {
-                return this.validateNumericField(value);
-            },
-            'current.config.item_drop_equip': function(value) {
-                return this.validateNumericField(value);
-            },
-            'current.config.item_drop_card': function(value) {
-                return this.validateNumericField(value);
-            },
-            'current.config.item_drop_common_mvp': function(value) {
-                return this.validateNumericField(value);
-            },
-            'current.config.item_drop_equip_mvp': function(value) {
-                return this.validateNumericField(value);
-            },
-            'current.config.item_drop_card_mvp': function(value) {
-                return this.validateNumericField(value);
-            },
-            'current.config.pk_mode': function(value) {
-                return this.validateBooleanField(value);
-            },
-            'current.config.castrate_dex_scale': function(value) {
-                return this.validateBooleanField(value);
-            },
-            'current.config.arrow_decrement': function(value) {
-                return this.validateBooleanField(value);
-            },
-            'current.config.undead_detect_type': function(value) {
-                return this.validateBooleanField(value);
-            },
-            'current.config.attribute_recover': function(value) {
-                return this.validateBooleanField(value);
-            },
-            'current.config.instant_cast_stat': function(value) {
-                return this.validateBooleanField(value);
-            },
-            screenshot: function (value) {
-                return Validator.value(value).url();
-            },
-
-        }
-    }
-</script>

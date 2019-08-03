@@ -17,6 +17,12 @@ use Illuminate\Support\Facades\Route;
 // authentication routes (login & logout)
 Auth::routes(['verify' => true]);
 
+// image uploading
+Route::prefix('api')->group(static function () {
+    Route::post('/process', 'FilepondController@upload')->name('filepond.upload');
+    Route::delete('/process', 'FilepondController@delete')->name('filepond.delete');
+});
+
 Route::resource('moderate/report', 'ReportController', ['middleware' => ['auth', 'can:moderate']])->only([
     'index', 'destroy', 'update',
 ]);

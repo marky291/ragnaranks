@@ -31,7 +31,8 @@ abstract class DuskTestCase extends BaseTestCase
     {
         $options = (new ChromeOptions)->addArguments([
             '--disable-gpu',
-            '--headless',
+//            '--headless',
+            '--disable-notifications',
             '--window-size=1920,1080',
         ]);
 
