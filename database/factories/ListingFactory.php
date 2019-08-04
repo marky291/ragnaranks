@@ -27,6 +27,7 @@ $factory->define(Listing::class, static function (Faker $faker) {
         'user_id' => factory(User::class)->create()->id,
         'website' => 'http://ragnaranks.com',
         'mode' => $faker->randomElement(config('filter.modes')),
+        'space' => \Illuminate\Support\Str::uuid(),
         'description' => trans('profile.defaultMarkup'),
         'language_id' => ListingLanguage::all()->random()->getKey(),
         'episode' => collect([13.10, 13.09, 13.05, 12.11])->random(),

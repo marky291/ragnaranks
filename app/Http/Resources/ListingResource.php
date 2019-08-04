@@ -33,7 +33,7 @@ class ListingResource extends JsonResource
             'review_score' => $this->review_score,
             'screenshots' => $this->resource->relationLoaded('screenshots') ? $this->screenshots()->pluck('link')->toArray() : [],
             'ranking' => RankingResource::make($this->whenLoaded('ranking')),
-            'background' => Storage::url('background.png'),
+            'background' => $this->background,
             'description' => $this->description,
             'tags' => $this->resource->relationLoaded('tags') ? $this->resource->tags->pluck('name')->toArray() : [],
             'config' => ConfigurationResource::make($this->whenLoaded('configuration')),

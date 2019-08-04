@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Tag;
 use App\User;
 use App\Listings\Listing;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -14,6 +15,8 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use App\Listings\ListingConfiguration;
 use App\Http\Requests\StoreListingRequest;
+use Ramsey\Uuid\Builder\UuidBuilderInterface;
+use Ramsey\Uuid\Uuid;
 
 /**
  * Class ListingController.

@@ -2,6 +2,7 @@
 
 namespace App\Listings;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 /**
@@ -18,6 +19,16 @@ class ListingObserver
     public function created(Listing $listing): void
     {
         $listing->ranking()->save(new ListingRanking(['rank'=>ListingRanking::query()->max('rank') + 1]));
+    }
+
+    /**
+     * Generate its unique space that will allow file uploading.
+     *
+     * @param Listing $listing
+     */
+    public function creating(Listing $listing): void
+    {
+        $listing->space = Str::uuid();
     }
 
     /**

@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/store', function () {
-    $path = config('app.env') . '/' . date('Y-m-d') . '.json'; // local/2019-03-01.json
-    \Illuminate\Support\Facades\Storage::disk('spaces')->put($path, json_encode(['foo' => 'bar']));
-});
 
 // authentication routes (login & logout)
 Auth::routes(['verify' => true]);

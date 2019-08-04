@@ -2,6 +2,7 @@
 
 namespace App\Listings;
 
+use App\FileSpaces;
 use App\Tag;
 use App\User;
 use Carbon\Carbon;
@@ -17,6 +18,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Str;
 
 /**
  * Class Listings.
@@ -42,6 +44,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property Click|HasMany $clicks
  * @property ListingConfiguration $configuration
  * @property ListingRanking ranking
+ * @property string space
  * @method static create(array $validated)
  * @method static make(array $validated)
  * @method static whereName(string $name)
@@ -76,6 +79,16 @@ class Listing extends Model
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    /**
+     * Get the space directory of this listing.
+     *
+     * @return string
+     */
+    public function getSpaceAttribute() : string
+    {
+        return "listing/{$this->attributes['space']}";
     }
 
     /**

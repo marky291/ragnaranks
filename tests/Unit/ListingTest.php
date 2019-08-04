@@ -4,6 +4,8 @@ namespace Tests\Unit;
 
 use App\Tag;
 use App\User;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Interactions\Vote;
