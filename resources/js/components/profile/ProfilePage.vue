@@ -66,7 +66,7 @@
                 return marked(this.listing.description, {sanitize: true});
             },
             screenshots: function() {
-                return this.listing.screenshots.length ? this.listing.screenshots : ['/img/preset/slider_one.png', '/img/preset/slider_two.png', '/img/preset/slider_three.png'];
+                return this.listing.screenshots.length ? this.listing.screenshots : ['preset/slider_one.png', 'preset/slider_two.png', 'preset/slider_three.png'];
             },
         },
         methods: {

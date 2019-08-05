@@ -2,7 +2,7 @@
         <div class="tw-shadow" v-if="$parent.profileLoaded">
             <div :class="'use-accent-'+$parent.listing.accent" class="mb-3 server-card item flex-fill border rounded">
                 <div id="profile-card" class="profile-block">
-                    <div class="server-card-head image rounded-top" style="height:350px;" v-bind:style="{ backgroundImage: 'url(' + $parent.listing.background + ')' }"></div>
+                    <div class="server-card-head image rounded-top" style="height:350px;" v-bind:style="{ backgroundImage: 'url(' + space + $parent.listing.background + ')' }"></div>
                     <div class="server-card-head overlap d-flex" style="margin-top:-169px;">
 <!--                        <i class="fas fa-arrow-left tw-text-white tw-text-2xl tw-absolute tw-align-top"></i>-->
                         <div class="left-side d-flex w-75 flex-column align-items-start px-4 py-2 align-self-end">
@@ -45,7 +45,7 @@
                                         <carousel-3d :count="$parent.screenshots.length" :height="220" :width="380" :controls-visible="true">
                                             <slide v-for="(screenshot, i) in $parent.screenshots" :index="i" :key="i">
                                                 <template slot-scope="{ index, isCurrent, leftIndex, rightIndex }">
-                                                    <img :data-index="index" :class="{ current: isCurrent, onLeft: (leftIndex >= 0), onRight: (rightIndex >= 0) }" :src="screenshot">
+                                                    <img :data-index="index" :class="{ current: isCurrent, onLeft: (leftIndex >= 0), onRight: (rightIndex >= 0) }" :src="space+screenshot">
                                                 </template>
                                             </slide>
                                         </carousel-3d>
@@ -207,7 +207,7 @@
     import Voting from '../profile/ProfileVoting';
 
     export default {
-    	props: ['slug', 'reviews'],
+    	props: ['slug', 'reviews', 'space'],
         components: {
             Slide,
             Reviews,

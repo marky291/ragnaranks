@@ -1,7 +1,7 @@
 <template>
 		<section id="reviews" class="tw-px-10 pb-4">
 			<h3 class="heading tw-py-4 mb-4 tw-font-bold text-dark heading-underline tw-capitalize">{{ $t('profile.reviews.heading')}}</h3>
-			<div v-if="reviews.length > 0">
+			<div v-if="reviews && reviews.length > 0">
 				<div v-for="(review, i) in reviews">
 					<review :review="review" :key="i"></review>
 				</div>

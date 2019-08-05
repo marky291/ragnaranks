@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Str;
 
 /**
  * Class FilepondController
@@ -14,18 +18,26 @@ use Illuminate\Support\Facades\Storage;
  */
 class FilepondController extends Controller
 {
+
+    public function fetch(Request $request)
+    {
+        if ($request->get('load')) {
+            return Storage::get($request->get('load'));
+        }
+
+        return Storage::get($request->get('fetch'));
+    }
+
     /**
      * Uploads the file to the temporary directory
      * and returns an encrypted path to the file
      *
      * @param Request $request
-     * @return Response
+     * @return false|string
      */
     public function upload(Request $request)
     {
-        $filename = $request->file('file')->store('tmp');
-
-        return Storage::url($filename);
+        return $request->file('file')->store('tmp');
     }
 
     /**
@@ -37,6 +49,6 @@ class FilepondController extends Controller
      */
     public function delete(Request $request)
     {
-        //
+        return Storage::deleteDirectory($request->get('fetch'));
     }
 }
