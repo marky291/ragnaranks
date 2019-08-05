@@ -92,9 +92,9 @@
                         if (this.isCreatingCard()) {
                             form.post('/listing', this.current.data).then((response) => {
                                 this.$Message.success('Great job, Your new listing has been uploaded, redirecting!');
-                                setTimeout(function () {
-                                    window.location.href = response.data.redirect;
-                                }.bind(this), 1400);
+                                // setTimeout(function () {
+                                //     window.location.href = response.data.redirect;
+                                // }.bind(this), 1400);
                             });
                         } else {
                             form.patch(`/listing/${this.current.slug}`).then((response) => {
@@ -358,7 +358,7 @@
                     <file-pond
                         name="file"
                         ref="screenshots"
-                        max-files="15"
+                        max-files="7"
                         class-name="pond-screenies"
                         label-idle="Drop screenshots here..."
                         allowImagePreview="false"

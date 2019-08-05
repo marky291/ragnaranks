@@ -14,7 +14,7 @@ class CreateListingsSpaceField extends Migration
     public function up()
     {
         Schema::table('listings', static function (Blueprint $table) {
-            $table->uuid('space')->after('website')->default('');
+            $table->uuid('space')->after('slug')->default('');
         });
     }
 

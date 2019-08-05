@@ -8,7 +8,7 @@
         ],
         [
             'name' => 'Spark Ragnarok Online',
-            'banner' => 'https://scontent.fdub2-2.fna.fbcdn.net/v/t1.0-9/60110823_395099434410828_8948002145701986304_o.jpg?_nc_cat=107&_nc_ht=scontent.fdub2-2.fna&oh=fe7c3f72aae1da2c63281f59cc884c1c&oe=5D758177',
+            'banner' => 'test/clashed_background.jpg',
             'description' =>'One Guild Leader, died on a battle. Then 4 of his members want to take his position. They want to proved that they are strong...',
         ],
         [

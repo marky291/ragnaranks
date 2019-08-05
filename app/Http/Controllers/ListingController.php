@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Listings\ListingScreenshot;
 use App\Tag;
 use App\User;
 use App\Listings\Listing;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -63,6 +65,7 @@ class ListingController extends Controller
     public function store(StoreListingRequest $request)
     {
         DB::transaction(static function () use ($request) {
+
             /** @var Listing $listing */
             // Create the listing.
             $listing = user()->listings()->save(Listing::make($request->validated()));
@@ -70,14 +73,22 @@ class ListingController extends Controller
             // grab the configuration that has been validated and assign to the model.
             $validatedConfig = ListingConfiguration::make($request->validated()['config']);
 
-            /** @var ListingConfiguration $configs */
+            // save all the screenshots
+            $screenshotModels = collect($request->get('screenshots'))->map(static function($screenshot) {
+                return new ListingScreenshot(['link' => $screenshot]);
+            });
+
+            // save all the new screenshots to the model/
+           $listing->screenshots()->saveMany($screenshotModels);
+
             // save the configurations to the listing.
-            $configs = $listing->configuration()->save($validatedConfig);
+            $listing->configuration()->save($validatedConfig);
 
             // attach all the tags passed from the request.
             $listing->tags()->attach(Tag::query()->select('id')->whereIn('name', $request->get('tags'))->pluck('id'));
         }, 5);
 
+        // set the user to a creator role.
         if (auth()->user()->hasRole('creator') == false) {
             AssignRoleToUser::dispatch(auth()->user(), 'creator');
         }
