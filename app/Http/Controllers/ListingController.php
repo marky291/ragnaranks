@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Listings\ListingScreenshot;
+use App\Listings\ReconditionListingSpace;
 use App\Tag;
 use App\User;
 use App\Listings\Listing;
@@ -86,6 +87,10 @@ class ListingController extends Controller
 
             // attach all the tags passed from the request.
             $listing->tags()->attach(Tag::query()->select('id')->whereIn('name', $request->get('tags'))->pluck('id'));
+
+            // update temporary files for permanent storage.
+            ReconditionListingSpace::dispatch($listing);
+
         }, 5);
 
         // set the user to a creator role.
@@ -141,10 +146,15 @@ class ListingController extends Controller
 
             //  associate a language to the listing.
             $listing->language()->associate(ListingLanguage::query()->where('name', $request->get('language'))->first())->save();
+
+            // update temporary files for permanent storage.
+            ReconditionListingSpace::dispatch($listing);
+
         }, 5);
 
         // should we tell the client to redirect/reload
         $redirect = '';
+
 
         // redirect to new slug if that was changed.
         if ($request->get('name') === $listing->getAttribute('name')) {
