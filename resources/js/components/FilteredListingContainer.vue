@@ -6,7 +6,7 @@
                       v-on:leave="leave">
         <div v-for="listing in data" :key="listing['id']" :data-index="listing['id']">
             <div class="mb-3 server-card item flex-fill tw-shadow border rounded">
-                <div class="server-card-head image rounded-top" v-bind:style="{ 'background-image': 'url(' + listing['background'] + ')' }"></div>
+                <div class="server-card-head image rounded-top" v-bind:style="{ 'background-image': 'url(' + space + '/' + listing['background'] + ')' }"></div>
                 <div @click="visitProfile(listing)" class="server-card-head hover:tw-bg-transparent tw-cursor-pointer overlap d-flex">
                     <div class="left-side d-flex w-75 flex-column align-items-start px-4 py-2 align-self-end">
                         <h1 class="font-weight-bold mb-0" style="font-size: 26px; color:rgb(243, 243, 243);">{{ listing['name'] }}</h1>
@@ -58,7 +58,7 @@
     import Velocity from 'velocity-animate';
 
     export default {
-        props: ['data'],
+        props: ['data', 'space'],
         methods: {
             reviewScoreMessage: function(score) {
                 if (score > 2) return 'homepage.card.review.positive';

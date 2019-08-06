@@ -58,13 +58,13 @@ return [
     ],
 
     'presets' => [
-        ['accent' => 'nightmare', 'card' => 'http://ragnaranks.com/img/preset/card-red.png'],
-        ['accent' => 'deviling', 'card' => 'http://ragnaranks.com/img/preset/card-purple.png'],
-        ['accent' => 'poporing', 'card' => 'http://ragnaranks.com/img/preset/card-green.png'],
-        ['accent' => 'pouring', 'card' => 'http://ragnaranks.com/img/preset/card-blue.png'],
-        ['accent' => 'ghostring', 'card' => 'http://ragnaranks.com/img/preset/card-aqua.png'],
-        ['accent' => 'nightmare', 'card' => 'http://ragnaranks.com/img/preset/card-black.png'],
-        ['accent' => 'drops', 'card' => 'http://ragnaranks.com/img/preset/card-mauve.png'],
-        ['accent' => 'poring', 'card' => 'http://ragnaranks.com/img/preset/card-pink.png'],
+        ['accent' => 'nightmare', 'card' => 'preset/card-red.png'],
+        ['accent' => 'deviling', 'card' => 'preset/card-purple.png'],
+        ['accent' => 'poporing', 'card' => 'preset/card-green.png'],
+        ['accent' => 'pouring', 'card' => 'preset/card-blue.png'],
+        ['accent' => 'ghostring', 'card' => 'preset/card-aqua.png'],
+        ['accent' => 'nightmare', 'card' => 'preset/card-black.png'],
+        ['accent' => 'drops', 'card' => 'preset/card-mauve.png'],
+        ['accent' => 'poring', 'card' => 'preset/card-pink.png'],
     ],
 ];

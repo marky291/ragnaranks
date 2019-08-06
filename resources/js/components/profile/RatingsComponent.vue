@@ -44,7 +44,7 @@
         },
         methods: {
             average(element) {
-                if (this.reviews.length > 0) {
+                if (this.reviews && this.reviews.length > 0) {
                     return Math.round(meanBy(this.reviews, function(item) {
                         return item[element];
                     }));

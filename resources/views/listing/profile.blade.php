@@ -17,7 +17,7 @@
 						</div>
 					</div>
 					<div class="col-8">
-						<profile :reviews="listing.reviews" :slug="slug"></profile>
+						<profile :reviews="listing.reviews" :slug="slug" space="{{ config('filesystems.disks.spaces.domain') }}/"></profile>
 					</div>
 				</div>
 			</profile-page>

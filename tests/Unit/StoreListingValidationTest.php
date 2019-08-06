@@ -91,7 +91,7 @@ class StoreListingValidationTest extends TestCase
 
         $listing = factory(Listing::class)->make();
 
-        $response = $this->post('/listing', array_merge(['screenshots' => ['http://fake.com']], $listing->toArray()));
+        $response = $this->post('/listing', array_merge(['screenshots' => [1]], $listing->toArray()));
 
         $response->assertSessionHasErrors('screenshots.*');
     }
