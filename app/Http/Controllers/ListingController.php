@@ -122,10 +122,24 @@ class ListingController extends Controller
         DB::transaction(static function () use ($request, $listing) {
             $listing->fill($request->validated())->save();
 
+            // store the configuration.
             $listing->configuration->fill($request->validated()['config'])->save();
 
+            // make a model for each screenshot from the request.
+            $screenshotModels = collect($request->get('screenshots'))->map(static function($screenshot) {
+                return new ListingScreenshot(['link' => $screenshot]);
+            });
+
+            // remove all screenshots to make way for the current request items.
+            $listing->screenshots()->delete();
+
+            // store all the screenshots as models.
+            $listing->screenshots()->saveMany($screenshotModels);
+
+            // sync all the tags that are used on the listing, removing those that no longer exist.
             $listing->tags()->sync(Tag::query()->select('id')->whereIn('name', $request->get('tags'))->pluck('id'));
 
+            //  associate a language to the listing.
             $listing->language()->associate(ListingLanguage::query()->where('name', $request->get('language'))->first())->save();
         }, 5);
 

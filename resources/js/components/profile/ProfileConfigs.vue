@@ -12,7 +12,10 @@
     import vueFilePond from 'vue-filepond';
     import 'filepond/dist/filepond.min.css';
     import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
-    const FilePond = vueFilePond(FilePondPluginFileValidateType);
+    import FilePondPluginImageTransform from 'filepond-plugin-image-transform';
+    import FilePondPluginImageResize from 'filepond-plugin-image-resize';
+    import FilePondPluginImageCrop from 'filepond-plugin-image-crop';
+    const FilePond = vueFilePond(FilePondPluginFileValidateType, FilePondPluginImageCrop, FilePondPluginImageTransform, FilePondPluginImageResize);
 
     export default {
         props: ['current', 'defaultDescription', 'configurations'],
@@ -79,7 +82,7 @@
                 let files = this.$refs.screenshots.getFiles();
 
                 files.forEach(function(file) {
-                    console.log(file);
+                    console.log(file.serverId);
                 });
             },
             nameWasChanged() {
@@ -343,11 +346,15 @@
                         :max-files="1"
                         label-idle="Drop card image here..."
                         accepted-file-types="image/jpeg, image/png"
-                        imageResizeTargetWidth="728"
+                        maxFileSize = "1MB"
+                        imageResizeTargetWidth="730"
                         server="/api/filepond/process"
                         allow-multiple="false"
                         allowReplace="true"
                         imagePreviewUpscale="true"
+                        imageResizeMode="cover"
+                        imageTransformOutputMimeType="image/jpeg"
+                        imageCropAspectRatio="2:1"
                         :files="background"
                         @processfile="uploadedBackground"/>
                 </div>
