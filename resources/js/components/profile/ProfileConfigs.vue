@@ -110,7 +110,7 @@
                                         window.location.href = response.data.redirect;
                                     }.bind(this), 1000);
                                 } else {
-                                    this.$Message.success('Your listing was successfully updated!');
+                                    this.$Message.success('You have successfully saved the changes on your listing!');
                                 }
                             });
                         }
