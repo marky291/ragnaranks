@@ -9,7 +9,7 @@ use App\Listings\ListingConfiguration;
 
 $factory->define(\App\Listings\ListingScreenshot::class, static function (Faker $faker) {
     return [
-        'link' => $faker->imageUrl(640, 480, 'cats'),
+        'link' => $faker->randomElement(['preset/slider_one.png', 'preset/slider_two.png', 'preset/slider_three.png']),
     ];
 });
 

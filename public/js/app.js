@@ -15530,7 +15530,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['data'],
+  props: ['data', 'space'],
   methods: {
     reviewScoreMessage: function reviewScoreMessage(score) {
       if (score > 2) return 'homepage.card.review.positive';
@@ -53640,7 +53640,8 @@ var render = function() {
                 _c("div", {
                   staticClass: "server-card-head image rounded-top",
                   style: {
-                    "background-image": "url(" + listing["background"] + ")"
+                    "background-image":
+                      "url(" + _vm.space + "/" + listing["background"] + ")"
                   }
                 }),
                 _vm._v(" "),
