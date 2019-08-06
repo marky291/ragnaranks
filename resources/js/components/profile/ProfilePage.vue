@@ -29,8 +29,9 @@
             await axios.get('/api/listing/'+(this.slug)).then((response) => {
                 this.listing = response.data;
                 this.profileLoaded = true;
-                console.log(this.action,  this.isPageAccessible(this.action));
-                this.currentPage = this.isPageAccessible(this.action) ? this.action : 'profile';
+                if (this.action) {
+                    this.currentPage = this.isPageAccessible(this.action) ? this.action : 'profile';
+                }
             });
 
             if (this.isPageOwner()) {
