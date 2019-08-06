@@ -16568,27 +16568,30 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var lodash_isEmpty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/isEmpty */ "./node_modules/lodash/isEmpty.js");
-/* harmony import */ var lodash_isEmpty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_isEmpty__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var simple_vue_validator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! simple-vue-validator */ "./node_modules/simple-vue-validator/src/index.js");
-/* harmony import */ var simple_vue_validator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(simple_vue_validator__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var vue_filepond__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-filepond */ "./node_modules/vue-filepond/dist/vue-filepond.js");
-/* harmony import */ var vue_filepond__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_filepond__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var filepond_dist_filepond_min_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! filepond/dist/filepond.min.css */ "./node_modules/filepond/dist/filepond.min.css");
-/* harmony import */ var filepond_dist_filepond_min_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(filepond_dist_filepond_min_css__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var filepond_plugin_file_validate_type__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! filepond-plugin-file-validate-type */ "./node_modules/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js");
-/* harmony import */ var filepond_plugin_file_validate_type__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(filepond_plugin_file_validate_type__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var filepond_plugin_image_transform__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! filepond-plugin-image-transform */ "./node_modules/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js");
-/* harmony import */ var filepond_plugin_image_transform__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(filepond_plugin_image_transform__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var filepond_plugin_image_resize__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! filepond-plugin-image-resize */ "./node_modules/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js");
-/* harmony import */ var filepond_plugin_image_resize__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(filepond_plugin_image_resize__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var filepond_plugin_image_crop__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! filepond-plugin-image-crop */ "./node_modules/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.js");
-/* harmony import */ var filepond_plugin_image_crop__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(filepond_plugin_image_crop__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var lodash_map__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/map */ "./node_modules/lodash/map.js");
+/* harmony import */ var lodash_map__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_map__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var lodash_intersection__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash/intersection */ "./node_modules/lodash/intersection.js");
+/* harmony import */ var lodash_intersection__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash_intersection__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var simple_vue_validator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! simple-vue-validator */ "./node_modules/simple-vue-validator/src/index.js");
+/* harmony import */ var simple_vue_validator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(simple_vue_validator__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vue_filepond__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-filepond */ "./node_modules/vue-filepond/dist/vue-filepond.js");
+/* harmony import */ var vue_filepond__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_filepond__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var filepond_dist_filepond_min_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! filepond/dist/filepond.min.css */ "./node_modules/filepond/dist/filepond.min.css");
+/* harmony import */ var filepond_dist_filepond_min_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(filepond_dist_filepond_min_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var filepond_plugin_file_validate_type__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! filepond-plugin-file-validate-type */ "./node_modules/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js");
+/* harmony import */ var filepond_plugin_file_validate_type__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(filepond_plugin_file_validate_type__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var filepond_plugin_image_transform__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! filepond-plugin-image-transform */ "./node_modules/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js");
+/* harmony import */ var filepond_plugin_image_transform__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(filepond_plugin_image_transform__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var filepond_plugin_image_resize__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! filepond-plugin-image-resize */ "./node_modules/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js");
+/* harmony import */ var filepond_plugin_image_resize__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(filepond_plugin_image_resize__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var filepond_plugin_image_crop__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! filepond-plugin-image-crop */ "./node_modules/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.js");
+/* harmony import */ var filepond_plugin_image_crop__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(filepond_plugin_image_crop__WEBPACK_IMPORTED_MODULE_9__);
 //
 //
 //
 //
 //
+
 
 
  // Import Vue FilePond
@@ -16599,7 +16602,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var FilePond = vue_filepond__WEBPACK_IMPORTED_MODULE_3___default()(filepond_plugin_file_validate_type__WEBPACK_IMPORTED_MODULE_5___default.a, filepond_plugin_image_crop__WEBPACK_IMPORTED_MODULE_8___default.a, filepond_plugin_image_transform__WEBPACK_IMPORTED_MODULE_6___default.a, filepond_plugin_image_resize__WEBPACK_IMPORTED_MODULE_7___default.a);
+var FilePond = vue_filepond__WEBPACK_IMPORTED_MODULE_4___default()(filepond_plugin_file_validate_type__WEBPACK_IMPORTED_MODULE_6___default.a, filepond_plugin_image_crop__WEBPACK_IMPORTED_MODULE_9___default.a, filepond_plugin_image_transform__WEBPACK_IMPORTED_MODULE_7___default.a, filepond_plugin_image_resize__WEBPACK_IMPORTED_MODULE_8___default.a);
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['current', 'defaultDescription', 'configurations'],
   mounted: function mounted() {
@@ -16641,9 +16644,10 @@ var FilePond = vue_filepond__WEBPACK_IMPORTED_MODULE_3___default()(filepond_plug
     },
     updateScreenshots: function updateScreenshots(file) {
       var files = this.$refs.screenshots.getFiles();
-      files.forEach(function (file) {
-        console.log(file.serverId);
+      var values = lodash_map__WEBPACK_IMPORTED_MODULE_1___default()(files, function (file) {
+        return file.serverId;
       });
+      this.current.screenshots = lodash_intersection__WEBPACK_IMPORTED_MODULE_2___default()(values, this.current.screenshots);
     },
     nameWasChanged: function nameWasChanged() {
       return this.current.name !== this.defaultName;
@@ -16688,10 +16692,10 @@ var FilePond = vue_filepond__WEBPACK_IMPORTED_MODULE_3___default()(filepond_plug
       this.commandChoices.push(tag);
     },
     validateNumericField: function validateNumericField(value) {
-      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_2__["Validator"].value(value).digit().greaterThan(1).lessThan(2147483648).required();
+      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_3__["Validator"].value(value).digit().greaterThan(1).lessThan(2147483648).required();
     },
     validateBooleanField: function validateBooleanField(value) {
-      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_2__["Validator"].value(value).required();
+      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_3__["Validator"].value(value).required();
     },
     isCreatingCard: function isCreatingCard() {
       return this.current.slug === null;
@@ -16724,8 +16728,8 @@ var FilePond = vue_filepond__WEBPACK_IMPORTED_MODULE_3___default()(filepond_plug
       debounce: 450,
       validator: function validator(name) {
         if (this.nameWasChanged()) {
-          return simple_vue_validator__WEBPACK_IMPORTED_MODULE_2__["Validator"].value(name).required().minLength(3).maxLength(255).custom(function () {
-            if (!simple_vue_validator__WEBPACK_IMPORTED_MODULE_2__["Validator"].isEmpty(name)) {
+          return simple_vue_validator__WEBPACK_IMPORTED_MODULE_3__["Validator"].value(name).required().minLength(3).maxLength(255).custom(function () {
+            if (!simple_vue_validator__WEBPACK_IMPORTED_MODULE_3__["Validator"].isEmpty(name)) {
               return axios.get("/api/listing/".concat(name.trim(), "/available")).then(function (response) {//
               })["catch"](function (error) {
                 return 'Already taken!';
@@ -16736,13 +16740,13 @@ var FilePond = vue_filepond__WEBPACK_IMPORTED_MODULE_3___default()(filepond_plug
       }
     },
     'current.background': function currentBackground(value) {
-      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_2__["Validator"].value(value).required();
+      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_3__["Validator"].value(value).required();
     },
     'current.website': function currentWebsite(value) {
-      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_2__["Validator"].value(value).required().url();
+      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_3__["Validator"].value(value).required().url();
     },
     'current.description': function currentDescription(value) {
-      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_2__["Validator"].value(value).required().minLength(100).maxLength(999);
+      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_3__["Validator"].value(value).required().minLength(100).maxLength(999);
     },
     'current.config.max_base_level': function currentConfigMax_base_level(value) {
       return this.validateNumericField(value);
@@ -16802,7 +16806,7 @@ var FilePond = vue_filepond__WEBPACK_IMPORTED_MODULE_3___default()(filepond_plug
       return this.validateBooleanField(value);
     },
     screenshot: function screenshot(value) {
-      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_2__["Validator"].value(value).url();
+      return simple_vue_validator__WEBPACK_IMPORTED_MODULE_3__["Validator"].value(value).url();
     }
   }
 });
@@ -32564,6 +32568,67 @@ module.exports = arrayFilter;
 
 /***/ }),
 
+/***/ "./node_modules/lodash/_arrayIncludes.js":
+/*!***********************************************!*\
+  !*** ./node_modules/lodash/_arrayIncludes.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseIndexOf = __webpack_require__(/*! ./_baseIndexOf */ "./node_modules/lodash/_baseIndexOf.js");
+
+/**
+ * A specialized version of `_.includes` for arrays without support for
+ * specifying an index to search from.
+ *
+ * @private
+ * @param {Array} [array] The array to inspect.
+ * @param {*} target The value to search for.
+ * @returns {boolean} Returns `true` if `target` is found, else `false`.
+ */
+function arrayIncludes(array, value) {
+  var length = array == null ? 0 : array.length;
+  return !!length && baseIndexOf(array, value, 0) > -1;
+}
+
+module.exports = arrayIncludes;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_arrayIncludesWith.js":
+/*!***************************************************!*\
+  !*** ./node_modules/lodash/_arrayIncludesWith.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * This function is like `arrayIncludes` except that it accepts a comparator.
+ *
+ * @private
+ * @param {Array} [array] The array to inspect.
+ * @param {*} target The value to search for.
+ * @param {Function} comparator The comparator invoked per element.
+ * @returns {boolean} Returns `true` if `target` is found, else `false`.
+ */
+function arrayIncludesWith(array, value, comparator) {
+  var index = -1,
+      length = array == null ? 0 : array.length;
+
+  while (++index < length) {
+    if (comparator(value, array[index])) {
+      return true;
+    }
+  }
+  return false;
+}
+
+module.exports = arrayIncludesWith;
+
+
+/***/ }),
+
 /***/ "./node_modules/lodash/_arrayLikeKeys.js":
 /*!***********************************************!*\
   !*** ./node_modules/lodash/_arrayLikeKeys.js ***!
@@ -32900,6 +32965,31 @@ module.exports = baseCreate;
 
 /***/ }),
 
+/***/ "./node_modules/lodash/_baseEach.js":
+/*!******************************************!*\
+  !*** ./node_modules/lodash/_baseEach.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseForOwn = __webpack_require__(/*! ./_baseForOwn */ "./node_modules/lodash/_baseForOwn.js"),
+    createBaseEach = __webpack_require__(/*! ./_createBaseEach */ "./node_modules/lodash/_createBaseEach.js");
+
+/**
+ * The base implementation of `_.forEach` without support for iteratee shorthands.
+ *
+ * @private
+ * @param {Array|Object} collection The collection to iterate over.
+ * @param {Function} iteratee The function invoked per iteration.
+ * @returns {Array|Object} Returns `collection`.
+ */
+var baseEach = createBaseEach(baseForOwn);
+
+module.exports = baseEach;
+
+
+/***/ }),
+
 /***/ "./node_modules/lodash/_baseFindIndex.js":
 /*!***********************************************!*\
   !*** ./node_modules/lodash/_baseFindIndex.js ***!
@@ -32958,6 +33048,33 @@ var createBaseFor = __webpack_require__(/*! ./_createBaseFor */ "./node_modules/
 var baseFor = createBaseFor();
 
 module.exports = baseFor;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_baseForOwn.js":
+/*!********************************************!*\
+  !*** ./node_modules/lodash/_baseForOwn.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseFor = __webpack_require__(/*! ./_baseFor */ "./node_modules/lodash/_baseFor.js"),
+    keys = __webpack_require__(/*! ./keys */ "./node_modules/lodash/keys.js");
+
+/**
+ * The base implementation of `_.forOwn` without support for iteratee shorthands.
+ *
+ * @private
+ * @param {Object} object The object to iterate over.
+ * @param {Function} iteratee The function invoked per iteration.
+ * @returns {Object} Returns `object`.
+ */
+function baseForOwn(object, iteratee) {
+  return object && baseFor(object, iteratee, keys);
+}
+
+module.exports = baseForOwn;
 
 
 /***/ }),
@@ -33087,6 +33204,122 @@ function baseHasIn(object, key) {
 }
 
 module.exports = baseHasIn;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_baseIndexOf.js":
+/*!*********************************************!*\
+  !*** ./node_modules/lodash/_baseIndexOf.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseFindIndex = __webpack_require__(/*! ./_baseFindIndex */ "./node_modules/lodash/_baseFindIndex.js"),
+    baseIsNaN = __webpack_require__(/*! ./_baseIsNaN */ "./node_modules/lodash/_baseIsNaN.js"),
+    strictIndexOf = __webpack_require__(/*! ./_strictIndexOf */ "./node_modules/lodash/_strictIndexOf.js");
+
+/**
+ * The base implementation of `_.indexOf` without `fromIndex` bounds checks.
+ *
+ * @private
+ * @param {Array} array The array to inspect.
+ * @param {*} value The value to search for.
+ * @param {number} fromIndex The index to search from.
+ * @returns {number} Returns the index of the matched value, else `-1`.
+ */
+function baseIndexOf(array, value, fromIndex) {
+  return value === value
+    ? strictIndexOf(array, value, fromIndex)
+    : baseFindIndex(array, baseIsNaN, fromIndex);
+}
+
+module.exports = baseIndexOf;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_baseIntersection.js":
+/*!**************************************************!*\
+  !*** ./node_modules/lodash/_baseIntersection.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var SetCache = __webpack_require__(/*! ./_SetCache */ "./node_modules/lodash/_SetCache.js"),
+    arrayIncludes = __webpack_require__(/*! ./_arrayIncludes */ "./node_modules/lodash/_arrayIncludes.js"),
+    arrayIncludesWith = __webpack_require__(/*! ./_arrayIncludesWith */ "./node_modules/lodash/_arrayIncludesWith.js"),
+    arrayMap = __webpack_require__(/*! ./_arrayMap */ "./node_modules/lodash/_arrayMap.js"),
+    baseUnary = __webpack_require__(/*! ./_baseUnary */ "./node_modules/lodash/_baseUnary.js"),
+    cacheHas = __webpack_require__(/*! ./_cacheHas */ "./node_modules/lodash/_cacheHas.js");
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeMin = Math.min;
+
+/**
+ * The base implementation of methods like `_.intersection`, without support
+ * for iteratee shorthands, that accepts an array of arrays to inspect.
+ *
+ * @private
+ * @param {Array} arrays The arrays to inspect.
+ * @param {Function} [iteratee] The iteratee invoked per element.
+ * @param {Function} [comparator] The comparator invoked per element.
+ * @returns {Array} Returns the new array of shared values.
+ */
+function baseIntersection(arrays, iteratee, comparator) {
+  var includes = comparator ? arrayIncludesWith : arrayIncludes,
+      length = arrays[0].length,
+      othLength = arrays.length,
+      othIndex = othLength,
+      caches = Array(othLength),
+      maxLength = Infinity,
+      result = [];
+
+  while (othIndex--) {
+    var array = arrays[othIndex];
+    if (othIndex && iteratee) {
+      array = arrayMap(array, baseUnary(iteratee));
+    }
+    maxLength = nativeMin(array.length, maxLength);
+    caches[othIndex] = !comparator && (iteratee || (length >= 120 && array.length >= 120))
+      ? new SetCache(othIndex && array)
+      : undefined;
+  }
+  array = arrays[0];
+
+  var index = -1,
+      seen = caches[0];
+
+  outer:
+  while (++index < length && result.length < maxLength) {
+    var value = array[index],
+        computed = iteratee ? iteratee(value) : value;
+
+    value = (comparator || value !== 0) ? value : 0;
+    if (!(seen
+          ? cacheHas(seen, computed)
+          : includes(result, computed, comparator)
+        )) {
+      othIndex = othLength;
+      while (--othIndex) {
+        var cache = caches[othIndex];
+        if (!(cache
+              ? cacheHas(cache, computed)
+              : includes(arrays[othIndex], computed, comparator))
+            ) {
+          continue outer;
+        }
+      }
+      if (seen) {
+        seen.push(computed);
+      }
+      result.push(value);
+    }
+  }
+  return result;
+}
+
+module.exports = baseIntersection;
 
 
 /***/ }),
@@ -33322,6 +33555,29 @@ function baseIsMatch(object, source, matchData, customizer) {
 }
 
 module.exports = baseIsMatch;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_baseIsNaN.js":
+/*!*******************************************!*\
+  !*** ./node_modules/lodash/_baseIsNaN.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * The base implementation of `_.isNaN` without support for number objects.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is `NaN`, else `false`.
+ */
+function baseIsNaN(value) {
+  return value !== value;
+}
+
+module.exports = baseIsNaN;
 
 
 /***/ }),
@@ -33578,6 +33834,39 @@ function baseKeysIn(object) {
 }
 
 module.exports = baseKeysIn;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_baseMap.js":
+/*!*****************************************!*\
+  !*** ./node_modules/lodash/_baseMap.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseEach = __webpack_require__(/*! ./_baseEach */ "./node_modules/lodash/_baseEach.js"),
+    isArrayLike = __webpack_require__(/*! ./isArrayLike */ "./node_modules/lodash/isArrayLike.js");
+
+/**
+ * The base implementation of `_.map` without support for iteratee shorthands.
+ *
+ * @private
+ * @param {Array|Object} collection The collection to iterate over.
+ * @param {Function} iteratee The function invoked per iteration.
+ * @returns {Array} Returns the new mapped array.
+ */
+function baseMap(collection, iteratee) {
+  var index = -1,
+      result = isArrayLike(collection) ? Array(collection.length) : [];
+
+  baseEach(collection, function(value, key, collection) {
+    result[++index] = iteratee(value, key, collection);
+  });
+  return result;
+}
+
+module.exports = baseMap;
 
 
 /***/ }),
@@ -34124,6 +34413,31 @@ module.exports = cacheHas;
 
 /***/ }),
 
+/***/ "./node_modules/lodash/_castArrayLikeObject.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/lodash/_castArrayLikeObject.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isArrayLikeObject = __webpack_require__(/*! ./isArrayLikeObject */ "./node_modules/lodash/isArrayLikeObject.js");
+
+/**
+ * Casts `value` to an empty array if it's not an array like object.
+ *
+ * @private
+ * @param {*} value The value to inspect.
+ * @returns {Array|Object} Returns the cast array-like object.
+ */
+function castArrayLikeObject(value) {
+  return isArrayLikeObject(value) ? value : [];
+}
+
+module.exports = castArrayLikeObject;
+
+
+/***/ }),
+
 /***/ "./node_modules/lodash/_castPath.js":
 /*!******************************************!*\
   !*** ./node_modules/lodash/_castPath.js ***!
@@ -34400,6 +34714,49 @@ function createAssigner(assigner) {
 }
 
 module.exports = createAssigner;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_createBaseEach.js":
+/*!************************************************!*\
+  !*** ./node_modules/lodash/_createBaseEach.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isArrayLike = __webpack_require__(/*! ./isArrayLike */ "./node_modules/lodash/isArrayLike.js");
+
+/**
+ * Creates a `baseEach` or `baseEachRight` function.
+ *
+ * @private
+ * @param {Function} eachFunc The function to iterate over a collection.
+ * @param {boolean} [fromRight] Specify iterating from right to left.
+ * @returns {Function} Returns the new base function.
+ */
+function createBaseEach(eachFunc, fromRight) {
+  return function(collection, iteratee) {
+    if (collection == null) {
+      return collection;
+    }
+    if (!isArrayLike(collection)) {
+      return eachFunc(collection, iteratee);
+    }
+    var length = collection.length,
+        index = fromRight ? length : -1,
+        iterable = Object(collection);
+
+    while ((fromRight ? index-- : ++index < length)) {
+      if (iteratee(iterable[index], index, iterable) === false) {
+        break;
+      }
+    }
+    return collection;
+  };
+}
+
+module.exports = createBaseEach;
 
 
 /***/ }),
@@ -36610,6 +36967,40 @@ module.exports = stackSet;
 
 /***/ }),
 
+/***/ "./node_modules/lodash/_strictIndexOf.js":
+/*!***********************************************!*\
+  !*** ./node_modules/lodash/_strictIndexOf.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * A specialized version of `_.indexOf` which performs strict equality
+ * comparisons of values, i.e. `===`.
+ *
+ * @private
+ * @param {Array} array The array to inspect.
+ * @param {*} value The value to search for.
+ * @param {number} fromIndex The index to search from.
+ * @returns {number} Returns the index of the matched value, else `-1`.
+ */
+function strictIndexOf(array, value, fromIndex) {
+  var index = fromIndex - 1,
+      length = array.length;
+
+  while (++index < length) {
+    if (array[index] === value) {
+      return index;
+    }
+  }
+  return -1;
+}
+
+module.exports = strictIndexOf;
+
+
+/***/ }),
+
 /***/ "./node_modules/lodash/_stringToPath.js":
 /*!**********************************************!*\
   !*** ./node_modules/lodash/_stringToPath.js ***!
@@ -37042,6 +37433,47 @@ module.exports = identity;
 
 /***/ }),
 
+/***/ "./node_modules/lodash/intersection.js":
+/*!*********************************************!*\
+  !*** ./node_modules/lodash/intersection.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayMap = __webpack_require__(/*! ./_arrayMap */ "./node_modules/lodash/_arrayMap.js"),
+    baseIntersection = __webpack_require__(/*! ./_baseIntersection */ "./node_modules/lodash/_baseIntersection.js"),
+    baseRest = __webpack_require__(/*! ./_baseRest */ "./node_modules/lodash/_baseRest.js"),
+    castArrayLikeObject = __webpack_require__(/*! ./_castArrayLikeObject */ "./node_modules/lodash/_castArrayLikeObject.js");
+
+/**
+ * Creates an array of unique values that are included in all given arrays
+ * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+ * for equality comparisons. The order and references of result values are
+ * determined by the first array.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Array
+ * @param {...Array} [arrays] The arrays to inspect.
+ * @returns {Array} Returns the new array of intersecting values.
+ * @example
+ *
+ * _.intersection([2, 1], [2, 3]);
+ * // => [2]
+ */
+var intersection = baseRest(function(arrays) {
+  var mapped = arrayMap(arrays, castArrayLikeObject);
+  return (mapped.length && mapped[0] === arrays[0])
+    ? baseIntersection(mapped)
+    : [];
+});
+
+module.exports = intersection;
+
+
+/***/ }),
+
 /***/ "./node_modules/lodash/isArguments.js":
 /*!********************************************!*\
   !*** ./node_modules/lodash/isArguments.js ***!
@@ -37261,94 +37693,6 @@ var isBuffer = nativeIsBuffer || stubFalse;
 module.exports = isBuffer;
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
-
-/***/ }),
-
-/***/ "./node_modules/lodash/isEmpty.js":
-/*!****************************************!*\
-  !*** ./node_modules/lodash/isEmpty.js ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var baseKeys = __webpack_require__(/*! ./_baseKeys */ "./node_modules/lodash/_baseKeys.js"),
-    getTag = __webpack_require__(/*! ./_getTag */ "./node_modules/lodash/_getTag.js"),
-    isArguments = __webpack_require__(/*! ./isArguments */ "./node_modules/lodash/isArguments.js"),
-    isArray = __webpack_require__(/*! ./isArray */ "./node_modules/lodash/isArray.js"),
-    isArrayLike = __webpack_require__(/*! ./isArrayLike */ "./node_modules/lodash/isArrayLike.js"),
-    isBuffer = __webpack_require__(/*! ./isBuffer */ "./node_modules/lodash/isBuffer.js"),
-    isPrototype = __webpack_require__(/*! ./_isPrototype */ "./node_modules/lodash/_isPrototype.js"),
-    isTypedArray = __webpack_require__(/*! ./isTypedArray */ "./node_modules/lodash/isTypedArray.js");
-
-/** `Object#toString` result references. */
-var mapTag = '[object Map]',
-    setTag = '[object Set]';
-
-/** Used for built-in method references. */
-var objectProto = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/**
- * Checks if `value` is an empty object, collection, map, or set.
- *
- * Objects are considered empty if they have no own enumerable string keyed
- * properties.
- *
- * Array-like values such as `arguments` objects, arrays, buffers, strings, or
- * jQuery-like collections are considered empty if they have a `length` of `0`.
- * Similarly, maps and sets are considered empty if they have a `size` of `0`.
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is empty, else `false`.
- * @example
- *
- * _.isEmpty(null);
- * // => true
- *
- * _.isEmpty(true);
- * // => true
- *
- * _.isEmpty(1);
- * // => true
- *
- * _.isEmpty([1, 2, 3]);
- * // => false
- *
- * _.isEmpty({ 'a': 1 });
- * // => false
- */
-function isEmpty(value) {
-  if (value == null) {
-    return true;
-  }
-  if (isArrayLike(value) &&
-      (isArray(value) || typeof value == 'string' || typeof value.splice == 'function' ||
-        isBuffer(value) || isTypedArray(value) || isArguments(value))) {
-    return !value.length;
-  }
-  var tag = getTag(value);
-  if (tag == mapTag || tag == setTag) {
-    return !value.size;
-  }
-  if (isPrototype(value)) {
-    return !baseKeys(value).length;
-  }
-  for (var key in value) {
-    if (hasOwnProperty.call(value, key)) {
-      return false;
-    }
-  }
-  return true;
-}
-
-module.exports = isEmpty;
-
 
 /***/ }),
 
@@ -37766,6 +38110,70 @@ function keysIn(object) {
 }
 
 module.exports = keysIn;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/map.js":
+/*!************************************!*\
+  !*** ./node_modules/lodash/map.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayMap = __webpack_require__(/*! ./_arrayMap */ "./node_modules/lodash/_arrayMap.js"),
+    baseIteratee = __webpack_require__(/*! ./_baseIteratee */ "./node_modules/lodash/_baseIteratee.js"),
+    baseMap = __webpack_require__(/*! ./_baseMap */ "./node_modules/lodash/_baseMap.js"),
+    isArray = __webpack_require__(/*! ./isArray */ "./node_modules/lodash/isArray.js");
+
+/**
+ * Creates an array of values by running each element in `collection` thru
+ * `iteratee`. The iteratee is invoked with three arguments:
+ * (value, index|key, collection).
+ *
+ * Many lodash methods are guarded to work as iteratees for methods like
+ * `_.every`, `_.filter`, `_.map`, `_.mapValues`, `_.reject`, and `_.some`.
+ *
+ * The guarded methods are:
+ * `ary`, `chunk`, `curry`, `curryRight`, `drop`, `dropRight`, `every`,
+ * `fill`, `invert`, `parseInt`, `random`, `range`, `rangeRight`, `repeat`,
+ * `sampleSize`, `slice`, `some`, `sortBy`, `split`, `take`, `takeRight`,
+ * `template`, `trim`, `trimEnd`, `trimStart`, and `words`
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Collection
+ * @param {Array|Object} collection The collection to iterate over.
+ * @param {Function} [iteratee=_.identity] The function invoked per iteration.
+ * @returns {Array} Returns the new mapped array.
+ * @example
+ *
+ * function square(n) {
+ *   return n * n;
+ * }
+ *
+ * _.map([4, 8], square);
+ * // => [16, 64]
+ *
+ * _.map({ 'a': 4, 'b': 8 }, square);
+ * // => [16, 64] (iteration order is not guaranteed)
+ *
+ * var users = [
+ *   { 'user': 'barney' },
+ *   { 'user': 'fred' }
+ * ];
+ *
+ * // The `_.property` iteratee shorthand.
+ * _.map(users, 'user');
+ * // => ['barney', 'fred']
+ */
+function map(collection, iteratee) {
+  var func = isArray(collection) ? arrayMap : baseMap;
+  return func(collection, baseIteratee(iteratee, 3));
+}
+
+module.exports = map;
 
 
 /***/ }),
@@ -56521,8 +56929,8 @@ var render = function() {
                               {
                                 attrs: {
                                   count: _vm.$parent.screenshots.length,
-                                  height: 220,
-                                  width: 380,
+                                  height: 240,
+                                  width: 426,
                                   "controls-visible": true
                                 }
                               },
@@ -57859,6 +58267,8 @@ var render = function() {
                   attrs: {
                     name: "file",
                     "max-files": "7",
+                    maxFileSize: "1MB",
+                    imageResizeTargetWidth: "1280",
                     "class-name": "pond-screenies",
                     "label-idle": "Drop screenshots here...",
                     allowImagePreview: "false",
@@ -57866,6 +58276,9 @@ var render = function() {
                     "accepted-file-types": "image/jpeg, image/png",
                     server: "/api/filepond/process",
                     "allow-multiple": "true",
+                    imageResizeMode: "cover",
+                    imageTransformOutputMimeType: "image/jpeg",
+                    imageCropAspectRatio: "16:9",
                     files: _vm.screenshots
                   },
                   on: {

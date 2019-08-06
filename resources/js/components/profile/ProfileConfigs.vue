@@ -5,7 +5,8 @@
 </style>
 <script>
     import Form from 'vform';
-    import isEmpty from 'lodash/isEmpty';
+    import map from 'lodash/map';
+    import intersect from 'lodash/intersection';
     import {Validator} from 'simple-vue-validator';
 
     // Import Vue FilePond
@@ -81,9 +82,11 @@
             updateScreenshots(file) {
                 let files = this.$refs.screenshots.getFiles();
 
-                files.forEach(function(file) {
-                    console.log(file.serverId);
+                let values = map(files, function(file) {
+                    return file.serverId;
                 });
+
+                this.current.screenshots = intersect(values, this.current.screenshots);
             },
             nameWasChanged() {
                 return (this.current.name !== this.defaultName);
@@ -366,6 +369,8 @@
                         name="file"
                         ref="screenshots"
                         max-files="7"
+                        maxFileSize = "1MB"
+                        imageResizeTargetWidth="1280"
                         class-name="pond-screenies"
                         label-idle="Drop screenshots here..."
                         allowImagePreview="false"
@@ -373,6 +378,9 @@
                         accepted-file-types="image/jpeg, image/png"
                         server="/api/filepond/process"
                         allow-multiple="true"
+                        imageResizeMode="cover"
+                        imageTransformOutputMimeType="image/jpeg"
+                        imageCropAspectRatio="16:9"
                         :files="screenshots"
                         @processfile="uploadedScreenshot"
                         @removefile="updateScreenshots"/>

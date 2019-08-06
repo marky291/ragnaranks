@@ -36,7 +36,30 @@ class ReconditionListingSpace implements ShouldQueue
      */
     public function handle()
     {
-        $this->conditionBackground($this->listing);
+        if ($this->containsTempFile($this->listing->background))
+        {
+            // naming for the background iamge.
+            $newStorageLoc = "{$this->listing->space}/background.jpg";
+
+            $this->moveFile($this->listing->background, $newStorageLoc);
+        }
+
+        /** @var ListingScreenshot $screenshot */
+        foreach ($this->listing->screenshots as $key => $screenshot)
+        {
+            if ($this->containsTempFile($screenshot->link)) {
+                $newLocation = "{$this->listing->space}/screenshot_{$key}.jpg";
+                // Delete file if already exists in the new location.
+                if (Storage::exists($newLocation)) {
+                    Storage::delete($newLocation);
+                }
+
+                if (Storage::move($screenshot->link, $newLocation)) {
+                    $screenshot->update(['link' => $newLocation]);
+                }
+            }
+        }
+
     }
 
     /**
@@ -50,27 +73,18 @@ class ReconditionListingSpace implements ShouldQueue
         return Str::contains($path,'tmp');
     }
 
-    /**
-     * Condition the background from its temporary location to its space location.
-     *
-     * @param Listing $listing
-     */
-    private function conditionBackground(Listing $listing): void
+    private function moveFile(string $oldLocation, string $newLocation)
     {
-        if ($this->containsTempFile($listing->background))
-        {
-            // naming for the background iamge.
-            $newStorageLoc = "{$listing->space}/background.jpg";
+        // Delete file if already exists in the new location.
+        if (Storage::exists($newLocation)) {
+            Storage::delete($newLocation);
+        }
 
-            // Delete file if already exists in the new location.
-            if (Storage::exists($newStorageLoc)) {
-                Storage::delete($newStorageLoc);
-            }
-
-            // Move the new file to the location
-            if (Storage::move($listing->background, $newStorageLoc)) {
-                $listing->update(['background' => $newStorageLoc]);
-            }
+        // Move the new file to the location
+        if (Storage::move($oldLocation, $newLocation)) {
+            $this->listing->update(['background' => $newLocation]);
         }
     }
+
+
 }

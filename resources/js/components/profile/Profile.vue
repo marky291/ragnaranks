@@ -42,7 +42,7 @@
                                 <div class="tw-px-10 pt-4 pb-3">
                                     <h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tight">Specifications</h3>
                                     <div class="tw-my-0 w-flex">
-                                        <carousel-3d :count="$parent.screenshots.length" :height="220" :width="380" :controls-visible="true">
+                                        <carousel-3d :count="$parent.screenshots.length" :height="240" :width="426" :controls-visible="true">
                                             <slide v-for="(screenshot, i) in $parent.screenshots" :index="i" :key="i">
                                                 <template slot-scope="{ index, isCurrent, leftIndex, rightIndex }">
                                                     <img :data-index="index" :class="{ current: isCurrent, onLeft: (leftIndex >= 0), onRight: (rightIndex >= 0) }" :src="space+screenshot">
