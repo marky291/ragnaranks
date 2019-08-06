@@ -98,9 +98,9 @@
                         if (this.isCreatingCard()) {
                             form.post('/listing', this.current.data).then((response) => {
                                 this.$Message.success('Great job, Your new listing has been uploaded, redirecting!');
-                                // setTimeout(function () {
-                                //     window.location.href = response.data.redirect;
-                                // }.bind(this), 1400);
+                                setTimeout(function () {
+                                    window.location.href = response.data.redirect;
+                                }.bind(this), 1400);
                             });
                         } else {
                             form.patch(`/listing/${this.current.slug}`).then((response) => {
@@ -312,15 +312,6 @@
                         <at-option v-for="(tag, index) in configurations.tags" :key="index" :value="tag">#{{ $t('homepage.tag.'+tag+'.name') }}</at-option>
                     </at-select>
                 </div>
-                <!--                <div :class="'bg-'+current.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1 tw-mt-3">-->
-                <!--                    <p class="tw-font-bold">Filtering</p>-->
-                <!--                </div>-->
-                <!--                <div class="tw-p-2">-->
-                <!--                    <p class="tw-font-semibold tw-mb-1">Relatable Tags</p>-->
-                <!--                    <at-select v-model="current.tags" multiple>-->
-                <!--                        <at-option v-for="(tag, index) in configurations.tags" :key="index" :value="tag">#{{ $t('homepage.tag.'+tag+'.name') }}</at-option>-->
-                <!--                    </at-select>-->
-                <!--                </div>-->
                 <div :class="'bg-'+current.accent+'-dark'" class="tw-text-white tw-rounded tw-px-2 tw-py-1 tw-mt-3">
                     <p class="tw-font-bold">Content</p>
                 </div>
