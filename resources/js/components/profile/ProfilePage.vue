@@ -1,6 +1,5 @@
 <script>
     import marked from 'marked';
-    import find from 'lodash/find'
 
     export default {
         props: ['slug', 'action', 'auth'],
@@ -30,6 +29,7 @@
             await axios.get('/api/listing/'+(this.slug)).then((response) => {
                 this.listing = response.data;
                 this.profileLoaded = true;
+                console.log(this.action,  this.isPageAccessible(this.action));
                 this.currentPage = this.isPageAccessible(this.action) ? this.action : 'profile';
             });
 
@@ -79,8 +79,8 @@
             isPageOwner() {
                 return this.auth == this.listing.user_id
             },
-            isPageAccessible(page) {
-              return find(this.availablePages, page);
+            isPageAccessible(action) {
+              return this.availablePages.indexOf(action)
             },
             isCreating() {
                 return this.slug === 'defaults';
