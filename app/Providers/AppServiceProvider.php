@@ -24,6 +24,11 @@ class AppServiceProvider extends ServiceProvider
         Review::observe(ReviewObserver::class);
 
         ListingConfiguration::observe(ConfigurationObserver::class);
+
+        // change the file system space domain to itself if local.
+        if (app()->environment('local')) {
+            config()->set('filesystems.disks.spaces.domain', config('app.url'));
+        }
     }
 
     /**

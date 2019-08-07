@@ -24,7 +24,6 @@
         "timehunter/laravel-google-recaptcha-v3": "~2.2.19"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.2",
         "beyondcode/laravel-dump-server": "^1.0",
         "doctrine/dbal": "^2.9",
         "filp/whoops": "^2.0",
