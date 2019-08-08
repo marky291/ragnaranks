@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Listings\Listing;
+use App\Listings\ListingRanking;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Listings\ListingClickedEvent;
@@ -18,8 +19,21 @@ class ClickController extends Controller
      */
     public function store(Listing $listing): JsonResponse
     {
+        return $this->processClick($listing);
+    }
+
+    /**
+     * Process an incoming click.
+     *
+     * @param Listing $listing
+     * @return JsonResponse
+     */
+    public function processClick(Listing $listing)
+    {
         if ($listing->clicks()->hasInteractedDuring(config('action.click.spread')) === false) {
             $listing->clicks()->create(['ip_address' => request()->getClientIp()]);
+
+            ListingRanking::incrementClick($listing);
 
             ListingClickedEvent::dispatch($listing);
 
@@ -30,7 +44,7 @@ class ClickController extends Controller
 
         return response()->json([
             'success' => false,
-            'message' => 'Click already concluded within '.config('action.click.spread'.' hours'),
+            'message' => 'A click has already been made recently with this IP Address.',
         ]);
     }
 }

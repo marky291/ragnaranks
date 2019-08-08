@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Listings\Listing;
+use App\Listings\ListingRanking;
 use Illuminate\Http\Request;
 use App\Jobs\AssignRoleToUser;
 use Illuminate\Http\JsonResponse;
@@ -43,6 +44,8 @@ class VoteController extends Controller
     {
         if ($listing->votes()->hasInteractedDuring(config('action.vote.spread')) === false) {
             $listing->votes()->create(['ip_address' => request()->getClientIp()]);
+
+            ListingRanking::incrementVote($listing);
 
             ListingVotedEvent::dispatch($listing);
 

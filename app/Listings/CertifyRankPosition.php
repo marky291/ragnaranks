@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Listeners;
+namespace App\Listings;
 
 use App\Listings\ListingRanking;
 use Illuminate\Support\Facades\DB;
@@ -9,7 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 /**
  * Class ConfirmRankingPosition.
  */
-class ConfirmRankingPosition implements ShouldQueue
+class CertifyRankPosition implements ShouldQueue
 {
     /**
      * Handle the event.
@@ -19,10 +19,10 @@ class ConfirmRankingPosition implements ShouldQueue
      */
     public function handle($event): void
     {
-        $this->recursiveGain($event->listing->ranking);
+        $this->sortListingPosition($event->listing->ranking);
     }
 
-    private function recursiveGain(ListingRanking $listing): void
+    private function sortListingPosition(ListingRanking $listing): void
     {
         // We dont care if its already rank 1.
         if ($listing->rank == 1) {
@@ -55,6 +55,6 @@ class ConfirmRankingPosition implements ShouldQueue
         }, 5);
 
         // we should look around, in case another listing is in front with less points.
-        $this->recursiveGain($listing);
+        $this->sortListingPosition($listing);
     }
 }
