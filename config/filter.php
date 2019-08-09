@@ -12,6 +12,7 @@ return [
         'no-donations',
         'instant-level',
         'themed-server',
+        'grinding',
     ],
 
     'languages' => [

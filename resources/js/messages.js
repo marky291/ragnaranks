@@ -373,6 +373,10 @@ export default {
                 "themed-server": {
                     "name": "Themed Server",
                     "describe": "A server that has a heavy theme and/or lots of roleplay and storytelling."
+                },
+                "grinding": {
+                    "name": "Grinding",
+                    "describe": "There is lots of time consuming tasks to accomplish and achieve."
                 }
             },
             "order": {
