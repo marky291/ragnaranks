@@ -16,7 +16,6 @@
         </div>
 
         <a id="logo" class="tw-w-1/3  navbar-brand mx-auto order-1 order-md-3 font-weight-bold text-center" href="{{ route('index') }}">
-            {{--Ragna<br><span id="under">Ranks</span>--}}
             <img src="{{ asset('img/logo.png') }}" alt="" style="height:64px; width: auto;">
         </a>
 

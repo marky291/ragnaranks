@@ -56,7 +56,9 @@ Route::get('/listing/{listing}/reviews', static function (Listing $listing) {
 
 Route::get('/voting/stats', static function () {
     return array_merge(config('action.vote'), [
-        'concluded' => Vote::betweenPeriod(Carbon::now(), Carbon::yesterday())->byCurrentIP()->count(),
+        'concluded' => (int) Vote::hasInteractedDuring(config('action.vote.spread')),
+        'last_vote' => Vote::byCurrentIP()->pluck('created_at')->first(),
+        'current_time' => Carbon::now(),
     ]);
 });
 
