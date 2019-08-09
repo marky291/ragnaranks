@@ -73,4 +73,20 @@ class VoteControllerTest extends TestCase
 
         Event::assertDispatched(ListingVotedEvent::class);
     }
+
+    public function test_casting_vote_repositions_rank()
+    {
+        $this->withoutExceptionHandling();
+
+        $listing1 = factory(Listing::class)->create(['id' => 5, 'name' => 'foo']);
+        $listing2 = factory(Listing::class)->create(['id' => 20, 'name' => 'bar']);
+
+        $this->assertEquals(1, $listing1->ranking->rank);
+        $this->assertEquals(2, $listing2->ranking->rank);
+
+        $this->post('/listing/bar/votes');
+
+        $this->assertDatabaseHas('listing_rankings', ['listing_id' => 20, 'rank' => 1]);
+        $this->assertDatabaseHas('listing_rankings', ['listing_id' => 5, 'rank' => 2]);
+    }
 }

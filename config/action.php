@@ -13,7 +13,7 @@ return [
     */
     'vote' => [
         'total' => 1,
-        'spread' => 12,
+        'spread' => 6,
         'value' => 7,
     ],
 

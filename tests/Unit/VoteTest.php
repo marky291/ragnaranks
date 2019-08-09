@@ -54,6 +54,6 @@ class VoteTest extends TestCase
      */
     public function it_has_a_configuration_for_spread()
     {
-        $this->assertEquals(12, config('action.vote.spread'));
+        $this->assertEquals(6, config('action.vote.spread'));
     }
 }
