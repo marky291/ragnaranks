@@ -11,7 +11,9 @@
         },
         methods: {
             filterChanged: function() {
-                this.$emit('filter:changed', "api/servers/" + this.rates + "/" + this.mode + "/"  + this.tag + "/" + this.sort + "/" + this.paginate);
+                let filter = "api/servers/" + this.rates + "/" + this.mode + "/"  + this.tag + "/" + this.sort + "/" + this.paginate;
+                ga('send', 'event', 'Filter Changed', 'viewing', filter);
+                this.$emit('filter:changed', filter);
             }
         }
     }
