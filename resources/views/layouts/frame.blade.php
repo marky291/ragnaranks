@@ -8,13 +8,6 @@
         <link rel="stylesheet" href="{{ url('css/app.css') }}">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({
-                google_ad_client: "ca-pub-2280364578236676",
-                enable_page_level_ads: true
-            });
-        </script>
     </head>
 
     <body>
@@ -47,6 +40,13 @@
             </script>
             <script async src="https://www.google-analytics.com/analytics.js"></script>
             <script async src="https://ragnabox.fra1.digitaloceanspaces.com/assets/autotrack-2.4.1.js"></script>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({
+                    google_ad_client: "ca-pub-2280364578236676",
+                    enable_page_level_ads: true
+                });
+            </script>
         @endif
     </body>
 </html>
