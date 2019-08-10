@@ -30,7 +30,7 @@ $factory->define(User::class, static function (Faker $faker) {
         'api_token' => hash('sha256', Str::random(60)),
         'email_preference' => $faker->randomElement(['all', 'important']),
         'remember_token' => Str::random(10),
-        'avatarUrl' => 'http://ragnaranks.com/img/preset/avatar.png',
+        'avatarUrl' => 'https://ragnaranks.com/img/preset/avatar.png',
     ];
 });
 

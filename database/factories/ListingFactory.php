@@ -25,7 +25,7 @@ $factory->define(Listing::class, static function (Faker $faker) {
     return [
         'name' => $server['name'],
         'user_id' => factory(User::class)->create()->id,
-        'website' => 'http://ragnaranks.com',
+        'website' => 'https://ragnaranks.com',
         'mode' => $faker->randomElement(config('filter.modes')),
         'space' => \Illuminate\Support\Str::uuid(),
         'description' => trans('profile.defaultMarkup'),

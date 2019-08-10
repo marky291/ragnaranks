@@ -87,6 +87,7 @@
                 return this.slug === 'defaults';
             },
             incrementVote(count) {
+                ga('send', 'event', 'Listing', 'voted', this.listing.name);
                 this.listing.ranking.votes++;
             },
             isCurrentPage(page) {
@@ -101,6 +102,7 @@
                 axios.post('/listing/' + this.listing.slug + '/clicks').then((response) => {
                     if(response.data.success === true) {
                         this.listing.ranking.clicks++;
+                        ga('send', 'event', 'Listing', 'clicked', this.listing.name);
                     }
                 });
                 // visit the page.

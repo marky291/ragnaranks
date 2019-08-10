@@ -24,9 +24,14 @@ class CreateServerTable extends Migration
         /*
          * Use the trans array for generating available tags
          */
-        foreach (array_keys(trans('homepage.tag')) as $tag) {
-            (new Tag(['name' => $tag]))->save();
-        }
+        (new Tag(['name' => 'freebies']))->save();
+        (new Tag(['name' => 'gepard']))->save();
+        (new Tag(['name' => 'guild-pack']))->save();
+        (new Tag(['name' => 'mobile']))->save();
+        (new Tag(['name' => 'frost']))->save();
+        (new Tag(['name' => 'no-donations']))->save();
+        (new Tag(['name' => 'instant-level']))->save();
+        (new Tag(['name' => 'themed-server']))->save();
 
         Schema::create('listing_languages', function (Blueprint $table) {
             $table->increments('id');

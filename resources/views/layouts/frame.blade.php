@@ -3,19 +3,14 @@
     <head>
         <meta charset="utf-8">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-{{--        <meta name="viewport" content="width=device-width, initial-scale=1">--}}
         <meta name="viewport" content="width=1200" />
-
         <title>RagnaRanks.com</title>
-
-        <!-- Fonts -->
         <link rel="stylesheet" href="{{ url('css/app.css') }}">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     </head>
 
     <body>
-
         <div id="app">
 
             @include('layouts.header')
@@ -27,17 +22,24 @@
         </div>
 
         <script src="{{ mix('/js/app.js') }}"></script>
-
-        <!-- Global site tag (gtag.js) - Google Analytics -->
         @if (app()->environment('production'))
-            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117148224-4"></script>
             <script>
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
+                window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+                ga('create', 'UA-117148224-4', 'auto');
 
-                gtag('config', 'UA-117148224-4');
+                // Replace the following lines with the plugins you want to use.
+                ga('require', 'eventTracker');
+                ga('require', 'outboundLinkTracker');
+                ga('require', 'urlChangeTracker');
+                // ga('require', 'pageVisibilityTracker');
+                // ga('require', 'impressionTracker');
+                // ga('require', 'maxScrollTracker');
+                // ...
+
+                ga('send', 'pageview');
             </script>
+            <script async src="https://www.google-analytics.com/analytics.js"></script>
+            <script async src="https://ragnabox.fra1.digitaloceanspaces.com/assets/autotrack-2.4.1.js"></script>
         @endif
     </body>
 </html>
