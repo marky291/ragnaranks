@@ -22,7 +22,7 @@
         </div>
 
         <script src="{{ mix('/js/app.js') }}"></script>
-        @if (app()->environment('production'))
+        @if (app()->environment('local'))
             <script>
                 window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
                 ga('create', 'UA-117148224-4', 'auto');
