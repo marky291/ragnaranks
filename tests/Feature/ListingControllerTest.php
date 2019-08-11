@@ -63,7 +63,7 @@ class ListingControllerTest extends TestCase
 
         $createdListing = Listing::whereName('foo')->first();
 
-        $this->assertDatabaseHas('listing_tag', ['listing_id' => $createdListing->getKey(), 'tag_id' => 2]);
+        $this->assertDatabaseHas('listing_tag', ['listing_id' => $createdListing->getKey(), 'tag_id' => 1]);
 
         $this->assertDatabaseHas('listing_configurations', array_merge($configs->toArray(),
             ['listing_id' => $createdListing->getKey()]));

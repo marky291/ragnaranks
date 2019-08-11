@@ -27,6 +27,7 @@ class CreateServerTable extends Migration
         (new Tag(['name' => 'freebies']))->save();
         (new Tag(['name' => 'gepard']))->save();
         (new Tag(['name' => 'guild-pack']))->save();
+        (new Tag(['name' => 'pk-mode']))->save();
         (new Tag(['name' => 'mobile']))->save();
         (new Tag(['name' => 'frost']))->save();
         (new Tag(['name' => 'no-donations']))->save();
