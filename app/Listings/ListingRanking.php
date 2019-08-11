@@ -2,6 +2,7 @@
 
 namespace App\Listings;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int votes
  * @property int clicks
  * @property int points
+ * @method static Builder where(string $string, int $param)
  */
 class ListingRanking extends Model
 {

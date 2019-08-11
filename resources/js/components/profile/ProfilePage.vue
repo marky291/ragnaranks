@@ -87,8 +87,8 @@
                 return this.slug === 'defaults';
             },
             incrementVote(count) {
-                ga('send', 'event', 'Listing', 'voted', this.listing.name);
                 this.listing.ranking.votes++;
+                ga('send', 'event', 'Listing', 'voted', this.listing.name);
             },
             isCurrentPage(page) {
                 return this.currentPage === page;

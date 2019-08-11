@@ -22,31 +22,29 @@
         </div>
 
         <script src="{{ mix('/js/app.js') }}"></script>
-        @if (app()->environment('production'))
-            <script>
-                window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-                ga('create', 'UA-117148224-4', 'auto');
+        <script>
+            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+            ga('create', 'UA-117148224-4', 'auto');
 
-                // Replace the following lines with the plugins you want to use.
-                ga('require', 'eventTracker');
-                ga('require', 'outboundLinkTracker');
-                ga('require', 'urlChangeTracker');
-                // ga('require', 'pageVisibilityTracker');
-                ga('require', 'impressionTracker');
-                // ga('require', 'maxScrollTracker');
-                // ...
+            // Replace the following lines with the plugins you want to use.
+            ga('require', 'eventTracker');
+            ga('require', 'outboundLinkTracker');
+            ga('require', 'urlChangeTracker');
+            // ga('require', 'pageVisibilityTracker');
+            ga('require', 'impressionTracker');
+            // ga('require', 'maxScrollTracker');
+            // ...
 
-                ga('send', 'pageview');
-            </script>
-            <script async src="https://www.google-analytics.com/analytics.js"></script>
-            <script async src="https://ragnabox.fra1.digitaloceanspaces.com/assets/autotrack-2.4.1.js"></script>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({
-                    google_ad_client: "ca-pub-2280364578236676",
-                    enable_page_level_ads: true
-                });
-            </script>
-        @endif
+            ga('send', 'pageview');
+        </script>
+        <script async src="https://www.google-analytics.com/analytics.js"></script>
+        <script async src="https://ragnabox.fra1.digitaloceanspaces.com/assets/autotrack-2.4.1.js"></script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-2280364578236676",
+                enable_page_level_ads: true
+            });
+        </script>
     </body>
 </html>

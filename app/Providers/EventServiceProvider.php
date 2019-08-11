@@ -6,7 +6,7 @@ use App\Listings\ListingVotedEvent;
 use App\Listings\ListingClickedEvent;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
-use App\Listings\CertifyRankPosition;
+use App\Listings\RankPositionComparator;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -22,10 +22,10 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         ListingVotedEvent::class => [
-            CertifyRankPosition::class,
+            RankPositionComparator::class,
         ],
         ListingClickedEvent::class => [
-            CertifyRankPosition::class,
+            RankPositionComparator::class,
         ],
     ];
 
