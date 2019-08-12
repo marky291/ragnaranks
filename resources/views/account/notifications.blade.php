@@ -1,3 +1,6 @@
+@section('title', 'My Notifications')
+@section('description', 'Manage incoming account notifications')
+
 @component('account.frame', ['selected' => 'notifications'])
 	@include('format.heading', ['title' => 'Notifications'])
 

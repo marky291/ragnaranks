@@ -1,3 +1,6 @@
+@section('title', 'My Account')
+@section('description', 'View and modify your account details')
+
 @component('account.frame', ['selected' => 'account'])
     <account-details-component inline-template>
         <div class="">

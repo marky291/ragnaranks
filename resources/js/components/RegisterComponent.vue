@@ -13,7 +13,7 @@
                   email: '',
                   password: '',
                   password_confirmation: '',
-                  avatarUrl: 'http://ragnaranks.com/img/preset/avatar.png',
+                  avatarUrl: 'https://ragnabox.fra1.digitaloceanspaces.com/preset/avatar.png',
               })
           }
       },

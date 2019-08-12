@@ -1,5 +1,8 @@
 @extends('layouts.frame')
 
+@section('title', "{$name}'s Server Profile")
+@section('description', 'View detailed statistics, reviews and screenshots about this private ragnarok server.')
+
 @section('content')
 	<div class="shadow-inner">
 		<div class="container pt-4">

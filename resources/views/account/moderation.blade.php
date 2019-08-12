@@ -1,3 +1,6 @@
+@section('title', 'Moderation Tools')
+@section('description', 'Moderate user actions taht have been reported')
+
 @component('account.frame', ['selected' => 'moderate'])
 	@include('format.heading', ['title' => 'Moderation Tools'])
 		@foreach ($reports as $report)
