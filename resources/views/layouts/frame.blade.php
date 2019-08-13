@@ -7,7 +7,7 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="viewport" content="width=1200"/>
-        <meta name="Description" content="@yield('description', 'A new type of ragnarok online private server community website that makes it easier for players to find a specific server.')">
+        <meta name="Description" content="@yield('description', 'A new type of ragnarok online private server community with a website that makes it easier for players to find a specific server, utilizing advanced filter searching and tag narrowing we make it a breeze')">
 
         <link rel="stylesheet" href="{{ url('css/app.css') }}">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
