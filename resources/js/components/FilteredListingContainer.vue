@@ -35,8 +35,8 @@
                         <p :class="'review-score-'+listing.review_score">{{ $t(reviewScoreMessage(listing.review_score)) }}</p>
                     </div>
                     <div class="tw-w-1/4 tw-flex tw-justify-end tw-flex-1">
-                        <a :href="listing.website" @click="incrementClick()" :name="'Redirect from ragnaranks to '+listing.website" target="_blank" class="at-btn tw-shadow at-btn--primary at-btn__text">Website</a>
-                        <a :href="`/listing/${listing.slug}`" :name="'View '+listing.name+' profile on Ragnaranks'" class="at-btn tw-shadow at-btn--primary at-btn__text">Details</a>
+                        <at-button @click="visitWebsite(listing)" hollow class="tw-mr-2 tw-shadow">Website</at-button>
+                        <at-button @click="visitProfile(listing)" type="primary" class="tw-shadow">Details</at-button>
                     </div>
                 </div>
             </div>
@@ -65,12 +65,16 @@
                 if (score > 0) return 'homepage.card.review.negative';
                 return 'homepage.card.review.fresh';
             },
-            incrementClick: function(listing) {
+            visitProfile: function(listing) {
+                window.location.href = `/listing/${listing.slug}`;
+            },
+            visitWebsite: function(listing) {
                 axios.post(`/listing/${listing.slug}/clicks`).then((response) => {
                     if(response.data.success === true) {
                         listing.ranking.clicks++;
                     }
                 });
+                window.open(listing.website,'_blank');
             },
             beforeEnter: function (el) {
                 el.style.opacity = 0;
