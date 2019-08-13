@@ -1,7 +1,12 @@
 @extends('layouts.frame')
 
-@section('title', "{$name}'s Server Profile")
-@section('description', 'View detailed statistics, reviews and screenshots about this private ragnarok server.')
+@if (isset($name))
+    @section('title', "{$name}'s Server Profile")
+    @section('description', 'View detailed statistics, reviews and screenshots about this private ragnarok server.')
+@else
+    @section('title', 'Create a new private server listing')
+    @section('description', 'Design and create a profile listing that suits your style and configuration')
+@endif
 
 @section('content')
 	<div class="shadow-inner">
