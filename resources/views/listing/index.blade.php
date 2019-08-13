@@ -1,6 +1,6 @@
 @extends('layouts.frame')
 
-@section('title', 'Find the perfect ragnarok private server')
+@section('title', 'Home | Find the perfect ragnarok private server')
 
 @section('content')
     <homepage inline-template>
