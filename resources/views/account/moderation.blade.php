@@ -1,4 +1,4 @@
-@section('title', 'Moderation Tools')
+@section('title', 'Moderation Tools | Ragnaranks')
 @section('description', 'Moderate user actions taht have been reported')
 
 @component('account.frame', ['selected' => 'moderate'])

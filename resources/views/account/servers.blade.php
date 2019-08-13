@@ -1,4 +1,4 @@
-@section('title', 'My Private Ragnarok Servers')
+@section('title', 'Listings | Ragnaranks')
 @section('description', 'Manage the servers you listed')
 
 @component('account.frame', ['selected' => 'servers'])

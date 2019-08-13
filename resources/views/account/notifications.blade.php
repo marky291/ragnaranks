@@ -1,4 +1,4 @@
-@section('title', 'My Notifications')
+@section('title', 'Notifications | Ragnaranks')
 @section('description', 'Manage incoming account notifications')
 
 @component('account.frame', ['selected' => 'notifications'])

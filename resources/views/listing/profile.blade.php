@@ -1,7 +1,7 @@
 @extends('layouts.frame')
 
 @if (isset($name))
-    @section('title', "{$name}'s Server Profile")
+    @section('title', "{$name} Server Overview | Ragnaranks")
     @section('description', 'View detailed statistics, reviews and screenshots about this private ragnarok server.')
 @else
     @section('title', 'Create a new private server listing')

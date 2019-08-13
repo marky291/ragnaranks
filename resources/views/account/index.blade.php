@@ -1,4 +1,4 @@
-@section('title', 'My Account')
+@section('title', 'Account | Ragnaranks ')
 @section('description', 'View and modify your account details')
 
 @component('account.frame', ['selected' => 'account'])
