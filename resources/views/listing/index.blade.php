@@ -15,14 +15,14 @@
                     @endif
                 </div>
                 <div class="tw-flex pb-5 pt-2 tw--mx-4 tw-flex-wrap">
-                    <div id="sidebar" class="lg:tw-w-1/3 tw-px-4">
+                    <div id="sidebar" class="lg:tw-w-1/3 tw-px-4 tw-flex-1">
                         @include('sidebar.message')
 {{--                        @include('sidebar.paginate')--}}
                         @include('sidebar.filter')
                         @include('sidebar.recent')
                         @include('sidebar.social')
                     </div>
-                    <div class="lg:tw-w-2/3 tw-px-4" id="listingsContainer" ref="listingsContainer">
+                    <div class="lg:tw-w-2/3 tw-px-4 tw-w-full" id="listingsContainer" ref="listingsContainer">
                         <filtered-listings :data="listings.data" space="{{ config('filesystems.disks.spaces.domain') }}"></filtered-listings>
                         <div v-if="listings.meta.total > listings.meta.per_page" class="tw-flex tw-flex-row tw-bg-transparent tw-mb-6 lg:tw-mb-0 tw-items-center tw-py-2 tw-justify-around">
                             <at-button @click="changePage(1)" size="normal">First</at-button>
