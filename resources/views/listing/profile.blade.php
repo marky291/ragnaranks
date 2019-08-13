@@ -2,7 +2,7 @@
 
 @if (isset($name))
     @section('title', "{$name} Server Overview | Ragnaranks")
-    @section('description', 'View detailed statistics, reviews and screenshots about this private ragnarok server.')
+    @section('description', "View detailed statistics, reviews and screenshots about {$name} private ragnarok server.")
 @else
     @section('title', 'Create a new private server listing')
     @section('description', 'Design and create a profile listing that suits your style and configuration')
