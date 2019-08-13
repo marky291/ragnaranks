@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\GenerateSitemap;
 use App\Console\Commands\RankingRebuilder;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -14,6 +15,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
+        GenerateSitemap::class,
         RankingRebuilder::class,
     ];
 
@@ -25,6 +27,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->command('sitemap:generate')->daily()
+            ->pingOnSuccess('http://beats.envoyer.io/heartbeat/dpsj5fOZpRGaDfX');
+
         $schedule->command('ranking:rebuilder')->daily()->storeOutput()
             ->pingOnSuccess('http://beats.envoyer.io/heartbeat/4Epr9gjSrl5Gzb1')->evenInMaintenanceMode();
     }

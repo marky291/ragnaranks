@@ -40,6 +40,7 @@
         "laravel-vue-pagination": "^2.3.0",
         "marked": "^0.7.0",
         "moment": "^2.24.0",
+        "puppeteer": "^1.19.0",
         "simple-vue-validator": "^0.16.0",
         "velocity-animate": "^1.5.2",
         "vform": "^1.0.1",
