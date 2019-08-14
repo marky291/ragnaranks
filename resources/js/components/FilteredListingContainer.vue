@@ -71,6 +71,7 @@
                         listing.ranking.clicks++;
                     }
                 });
+                ga('send', 'event', 'website', 'clicked', this.listing.name);
             },
             beforeEnter: function (el) {
                 el.style.opacity = 0;

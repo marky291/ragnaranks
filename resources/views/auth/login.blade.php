@@ -1,5 +1,9 @@
 @extends('layouts.frame')
 
+@section('title', 'Ragnaranks - Login')
+@section('description', 'Sign in to your account and access even more features')
+@section('canonical', route('login'))
+
 @section('content')
 
     <div class="shadow-inner">

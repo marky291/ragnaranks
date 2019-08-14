@@ -112,7 +112,7 @@ class ListingController extends Controller
      */
     public function show(Listing $listing)
     {
-        return view('listing.profile')->with(['slug' => $listing->slug, 'name' => $listing->name]);
+        return view('listing.profile')->with(['slug' => $listing->slug, 'name' => $listing->name, 'route' => route('listing.show', $listing)]);
     }
 
     /**
