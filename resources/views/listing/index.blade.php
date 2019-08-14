@@ -1,6 +1,6 @@
 @extends('layouts.frame')
 
-@section('title', 'Ragnaranks - Find the perfect ragnarok, private server')
+@section('title', 'Ragnaranks - Ragnarok Online Top 100, Ranked Private Server Listings')
 @section('description', 'Browse hundreds of listings, with advanced filtering, reviews & voting we make it a breeze.')
 @section('canonical', route('index'))
 
