@@ -16,7 +16,7 @@
 
         <div id="logo" class="tw-flex-1">
             <a href="{{ route('index') }}" class="tw-m-auto">
-                <img src="{{ asset('img/logo.png') }}" alt="" style="height:64px; width: auto;">
+                <img src="{{ asset('img/logo.png') }}" class="tw-m-auto" alt="" style="height:64px; width: auto;">
             </a>
         </div>
 
