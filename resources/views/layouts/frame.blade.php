@@ -11,7 +11,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="Description" content="@yield('description', 'Browse hundreds of ragnarok online private server listings, with advanced filtering, reviews & voting we make it a breeze.')">
 
-        <link href="@yield('canonical')" rel="canonical">
+        <link href="@yield('canonical', '')" rel="canonical">
         <link rel="stylesheet" href="{{ url('css/app.css') }}">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">

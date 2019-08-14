@@ -1,11 +1,11 @@
 @extends('layouts.frame')
 
 @if (isset($name))
-    @section('title', "{$name} Server Overview | Ragnaranks")
+    @section('title', "Ragnaranks - {$name} Server Overview")
     @section('description', "View detailed statistics, reviews and screenshots about {$name} private ragnarok server.")
     @section('canonical', "{$route}")
 @else
-    @section('title', 'Create a new private server listing')
+    @section('title', 'Ragnaranks - Create a new private server listing')
     @section('description', 'Design and create a profile listing that suits your style and configuration')
     @section('canonical', route('listing.create'))
 @endif
