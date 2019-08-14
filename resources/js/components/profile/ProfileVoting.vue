@@ -1,7 +1,7 @@
 <template>
     <section id="voting" class="tw-px-10 pt-4 pb-3">
         <div class="py-3">
-            <h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tight">{{ messages.heading }}</h3>
+            <h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tighter">{{ messages.heading }}</h3>
             <div class="row no-gutters">
                 <p class="tw-font-bold mb-3" :class="availableVotes > 0 ?'tw-text-green':'tw-text-red'">{{ $t('profile.voting.spending', {value: availableVotes}) }}</p>
                 <p class="mb-3">{{ messages.content }}</p>

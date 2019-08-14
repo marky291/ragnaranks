@@ -4,9 +4,9 @@
 				<div class="tw-flex tw-w-full tw-items-center">
 							<span id="reply-action" class="tw-w-full">
 									<div class="py-3">
-										<h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tight">You are creating a <span class="tw-text-blue">Review</span></h3>
+										<h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tighter">You are creating a <span class="tw-text-blue">Review</span></h3>
 										<p class="font-weight-bold tw-mb-1" :style="validation.hasError('review.message') ? 'color:#b3312d' : null">Write your Experience, Write your Review</p>
-										<p class="tw-text-grey-dark tw-mb-3">Focus on being factual and objective. Don't use aggressive language and don't post personal details...</p>
+										<p class="tw-text-gray-600 tw-mb-3">Focus on being factual and objective. Don't use aggressive language and don't post personal details...</p>
 										<at-textarea ref="textarea" v-model.trim="review.message" min-rows="8" autosize placeholder="I have been playing this server for some time and I can say with confidence this is one of the ..." :class="validation.hasError('review.message') ? 'invalid-textarea' : ''"></at-textarea>
 										<div v-if="validation.hasError('review.message')" class="tw-flex-1 tw-text-right help-block invalid-feedback">{{ validation.firstError('review.message') }}</div>
 										<p v-if="messageCharactersRemaining > 0" class="tw-flex-1 tw-text-right help-block">{{ messageCharactersRemaining }} characters remaining.</p>
@@ -14,32 +14,32 @@
 									<div class="row tw-mb-5">
 										<div class="col-6">
 											<div class="tw-p-2 tw-rounded tw-mb-4">
-												<p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Donations</p>
-												<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the experience against non-donators on the server?</p>
+												<p class="tw-text-sm heading tw-text-gray-800 tw-mb-1 tw-font-semibold">Donations</p>
+												<p class="tw-text-xs tw-mb-2 tw-text-gray-700">How did you find the experience against non-donators on the server?</p>
 												<at-rate :show-text="true" :count="5" v-model="review.donation_score" class="tw-flex">
 													<p class="tw-font-bold">{{ ratingScore(review.donation_score) }}</p>
 												</at-rate>
 											</div>
 
 											<div class="tw-p-2 tw-rounded tw-mb-4">
-												<p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Updates</p>
-												<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the updates and their effects on the server?</p>
+												<p class="tw-text-sm heading tw-text-gray-800 tw-mb-1 tw-font-semibold">Updates</p>
+												<p class="tw-text-xs tw-mb-2 tw-text-gray-700">How did you find the updates and their effects on the server?</p>
 												<at-rate :show-text="true" :count="5" v-model="review.update_score" class="tw-flex">
 													<p class="tw-font-bold">{{ ratingScore(review.update_score) }}</p>
 												</at-rate>
 											</div>
 
 											<div class="tw-p-2 tw-rounded tw-mb-4">
-												<p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Class Experience</p>
-												<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the class diversity and balance on the server?</p>
+												<p class="tw-text-sm heading tw-text-gray-800 tw-mb-1 tw-font-semibold">Class Experience</p>
+												<p class="tw-text-xs tw-mb-2 tw-text-gray-700">How did you find the class diversity and balance on the server?</p>
 												<at-rate :show-text="true" :count="5" v-model="review.class_score" class="tw-flex">
 													<p class="tw-font-bold">{{ ratingScore(review.class_score) }}</p>
 												</at-rate>
 											</div>
 
 											<div class="tw-p-2 tw-rounded tw-mb-4">
-												<p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Custom Items</p>
-												<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the item balance and customization on the server?</p>
+												<p class="tw-text-sm heading tw-text-gray-800 tw-mb-1 tw-font-semibold">Custom Items</p>
+												<p class="tw-text-xs tw-mb-2 tw-text-gray-700">How did you find the item balance and customization on the server?</p>
 												<at-rate :show-text="true" :count="5" v-model="review.item_score" class="tw-flex">
 													<p class="tw-font-bold">{{ ratingScore(review.item_score) }}</p>
 												</at-rate>
@@ -48,32 +48,32 @@
 										<div class="col-6">
 
 											<div class="tw-p-2 tw-rounded tw-mb-4">
-												<p class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Staff Support</p>
-												<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the experience of reaching the Staff and their support of the server?</p>
+												<p class="tw-text-sm heading tw-text-gray-800 tw-mb-1 tw-font-semibold">Staff Support</p>
+												<p class="tw-text-xs tw-mb-2 tw-text-gray-700">How did you find the experience of reaching the Staff and their support of the server?</p>
 												<at-rate :show-text="true" :count="5" v-model="review.support_score" class="tw-flex">
 													<p class="tw-font-bold">{{ ratingScore(review.support_score) }}</p>
 												</at-rate>
 											</div>
 
 											<div class="tw-p-2 tw-rounded tw-mb-4">
-												<h4 class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Server Latency</h4>
-												<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the latency on the server?</p>
+												<h4 class="tw-text-sm heading tw-text-gray-800 tw-mb-1 tw-font-semibold">Server Latency</h4>
+												<p class="tw-text-xs tw-mb-2 tw-text-gray-700">How did you find the latency on the server?</p>
 												<at-rate :show-text="true" :count="5" v-model="review.hosting_score" class="tw-flex">
 													<p class="tw-font-bold">{{ ratingScore(review.hosting_score) }}</p>
 												</at-rate>
 											</div>
 
 											<div class="tw-p-2 tw-rounded tw-mb-4">
-												<h4 class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Custom Content</h4>
-												<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the overall customization of the server?</p>
+												<h4 class="tw-text-sm heading tw-text-gray-800 tw-mb-1 tw-font-semibold">Custom Content</h4>
+												<p class="tw-text-xs tw-mb-2 tw-text-gray-700">How did you find the overall customization of the server?</p>
 												<at-rate :show-text="true" :count="5" v-model="review.content_score" class="tw-flex">
 													<p class="tw-font-bold">{{ ratingScore(review.content_score) }}</p>
 												</at-rate>
 											</div>
 
 											<div class="tw-p-2 tw-rounded tw-mb-4">
-												<h4 class="tw-text-sm heading tw-text-grey-darkest tw-mb-1 tw-font-semibold">Events</h4>
-												<p class="tw-text-xs tw-mb-2 tw-text-grey-darker">How did you find the eventfulness of automated and/or GM hosted events on the server?</p>
+												<h4 class="tw-text-sm heading tw-text-gray-800 tw-mb-1 tw-font-semibold">Events</h4>
+												<p class="tw-text-xs tw-mb-2 tw-text-gray-700">How did you find the eventfulness of automated and/or GM hosted events on the server?</p>
 												<at-rate :show-text="true" :count="5" v-model="review.event_score" class="tw-flex">
 													<p class="tw-font-bold">{{ ratingScore(review.event_score) }}</p>
 												</at-rate>

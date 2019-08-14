@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="description tw-p-6">
-                    <p class="tw-text-grey-darker">{{ review.message }}</p>
+                    <p class="tw-text-gray-700">{{ review.message }}</p>
                 </div>
                 <div class="tw-border-red tw-px-6 tw-py-2 tw-rounded" v-for="comment in review.comments">
                     <p class="tw-font-semibold"><i class="fas fa-reply-all"></i> Response from server owner</p>
@@ -51,7 +51,7 @@
                     <div v-if="validation.hasError('comment.message')" class="tw-flex-1 tw-text-right help-block invalid-feedback">{{ validation.firstError('comment.message') }}</div>
                     <at-button @click="postComment" type="error" class="tw-mt-2">Post Comment</at-button>
                 </div>
-                <div class="tw-border-t tw-border-grey-light tw-py-2" :class="'bg-'+$parent.$parent.$parent.accent+'-lighter'">
+                <div class="tw-border-t tw-border-gray-400 tw-py-2" :class="'bg-'+$parent.$parent.$parent.accent+'-lighter'">
                     <div class="tw-flex tw-justify-end">
                         <at-button @click="viewingDetails = !viewingDetails" icon="icon-maximize-2" type="text">{{ detailButtonText }}</at-button>
                         <at-button @click="reportReview" icon="icon-flag" type="text">Report</at-button>

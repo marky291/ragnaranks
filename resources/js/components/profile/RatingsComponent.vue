@@ -2,7 +2,7 @@
     <section id="ratings">
         <div class="tw-px-10">
             <div class="py-3 mb-3 rounded" style="border:1px solid rgba(255, 255, 255, 0.2);">
-                <h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tight">Balance Ratings</h3>
+                <h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tighter">Balance Ratings</h3>
                 <div class="row no-gutters">
                     <div class="d-flex">
                         <scoreboard title="Donations" description="Non-Donators can compete with Donators." :score="avg_donation_score"></scoreboard>
@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="py-3 mb-3 rounded" style="border:1px solid rgba(255, 255, 255, 0.2)">
-                <h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tight">Server Ratings</h3>
+                <h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tighter">Server Ratings</h3>
                 <div class="row no-gutters">
                     <div class="d-flex">
                         <scoreboard title="Support" description="Non-Donators can compete with Donators." :score="avg_support_score"></scoreboard>

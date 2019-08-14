@@ -10,7 +10,7 @@
                 <div @click="visitProfile(listing)" class="server-card-head hover:tw-bg-transparent tw-cursor-pointer overlap d-flex">
                     <div class="left-side d-flex w-75 flex-column align-items-start px-4 py-2 align-self-end">
                         <h1 class="font-weight-bold mb-0" style="font-size: 26px; color:rgb(243, 243, 243);">{{ listing['name'] }}</h1>
-                        <ul class="tag-list tw-list-reset tw-flex tw-flex-wrap tw-text-xs tw-text-green-light" style="font-size:13px; margin-bottom: .5rem; width:inherit">
+                        <ul class="tag-list tw-flex tw-flex-wrap tw-text-xs tw-text-green-light" style="font-size:13px; margin-bottom: .5rem; width:inherit">
                             <li v-for="tag in listing.tags" class="mr-2">#{{ tag }}</li>
                         </ul>
                     </div>
@@ -29,9 +29,9 @@
                     </div>
                 </div>
                 <div class="server-card-body align-items-center tw-shadow-inner px-4 py-3 d-flex">
-                    <span class="tw-mr-4 tw-text-grey-darker" style="font-size:30px">{{ listing['ranking']['rank'] }}</span>
+                    <span class="tw-mr-4 tw-text-gray-600" style="font-size:30px">{{ listing['ranking']['rank'] }}</span>
                     <div class="tw-border-l-2 tw-pl-4 tw-border-grey-light flex-fill pr-3">
-                        <p class="tw-text-grey-darkest tw-tracking-tight tw-font-semibold mb-0" style="font-size:14px">{{ $t('homepage.card.rate.'+listing['config']['title']) }} <small class="tw-text-grey-darker">({{ listing['config']['base_exp_rate'] }}x/{{ listing['config']['job_exp_rate'] }}x)</small></p>
+                        <p class="tw-text-gray-700 tw-tracking-tighter tw-font-semibold mb-0" style="font-size:14px">{{ $t('homepage.card.rate.'+listing['config']['title']) }} <small class="tw-text-gray-600">({{ listing['config']['base_exp_rate'] }}x/{{ listing['config']['job_exp_rate'] }}x)</small></p>
                         <p :class="'review-score-'+listing.review_score">{{ $t(reviewScoreMessage(listing.review_score)) }}</p>
                     </div>
                     <div class="tw-w-1/4 tw-flex tw-justify-end tw-flex-1">

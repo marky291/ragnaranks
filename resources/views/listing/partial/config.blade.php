@@ -6,7 +6,7 @@
                 <p><i class="icon icon-info"></i></p>
             </at-popover>
         @endif
-        <p class="tw-text-grey-darker tw-font-semibold tw-text-xs tw-w-100">{{ $name }}</p>
+        <p class="tw-text-gray-700 tw-font-semibold tw-text-xs tw-w-100">{{ $name }}</p>
     </div>
-    <p class="tw-text-grey-darkest tw-font-bold  mb-0">{{ $slot }}</p>
+    <p class="tw-text-gray-800 tw-font-bold  mb-0">{{ $slot }}</p>
 </div>
