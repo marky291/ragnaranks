@@ -1,5 +1,5 @@
 <template>
-    <div v-bind:class="ScoreScale(score)" class="rating-block tw-shadow-md tw-tracking-tight tw-flex-1 p-2 d-flex align-items-center rounded overflow-hidden flex-column">
+    <div v-bind:class="ScoreScale(score)" class="rating-block tw-shadow-md tw-tracking-tighter tw-flex-1 p-2 d-flex align-items-center rounded overflow-hidden flex-column">
         <div class="d-flex flex-row">
             <div class="">
                 <h4 class="tw-font-bold">{{ this.title }}</h4>

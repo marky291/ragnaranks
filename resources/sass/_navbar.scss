@@ -120,31 +120,3 @@
     border-radius: 3px;
   }
 }
-
-#navbar-right, #navbar-left {
-  .at-menu--horizontal {
-    color: rgba(255, 255, 255, .7);
-    border-bottom: none;
-  }
-  .at-menu__item--active, .at-menu--horizontal .at-menu__item-link:hover, .at-menu--horizontal .at-menu__item-link.router-link-active, .at-menu--horizontal .at-menu__submenu:hover > .at-menu__submenu-title, .at-menu--horizontal .at-menu__submenu.at-menu__submenu--active > .at-menu__submenu-title {
-    color: white!important;
-    background: rgba(255, 255, 255, 0.05);
-    .at-menu__item-link {
-      color:white;
-    }
-  }
-  .at-menu--horizontal .at-menu__item-link::after, .at-menu--horizontal .at-menu__submenu::after {
-    background: white;
-  }
-  .at-menu__item-link,   .at-menu__item-group-title {
-    color: rgba(255, 255, 255, 0.7);
-  }
-  .at-menu__submenu {
-    .at-menu__item-link,   .at-menu__item-group-title {
-      color:white;
-    }
-    .at-dropdown-menu {
-      background-color: rgb(99, 26, 167);
-    }
-  }
-}

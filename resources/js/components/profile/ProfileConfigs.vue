@@ -259,15 +259,15 @@
                     <div class="tw-flex tw-flex-row tw-items-baseline">
                         <p class="tw-text-left tw-font-semibold tw-mb-1" :style="validation.hasError('current.name') ? 'color:#b3312d' : null">Server Name</p>
                         <div v-if="validation.hasError('current.name')" class="tw-flex-1 tw-text-right help-block invalid-feedback">{{ validation.firstError('current.name') }}</div>
-                        <div v-if="current.name && validation.isPassed('current.name')" class="tw-flex-1 tw-text-right help-block tw-text-green-dark" style="font-size:12px;">Available!</div>
+                        <div v-if="current.name && validation.isPassed('current.name')" class="tw-flex-1 tw-text-right help-block tw-text-green-600" style="font-size:12px;">Available!</div>
                     </div>
                     <div class="tw-flex tw-flex-row">
                         <at-input class="tw-flex-1" v-model.trim="current.name" size="small" placeholder="Please input" :status="validation.hasError('current.name') ? 'error' : ''"></at-input>
                         <div class="validation tw-ml-2">
                             <i v-if="current.name === 'Default RO'" class="tw-mr-2 tw-text-orange-dark fa fa-exclamation"></i>
-                            <i v-else-if="validation.isPassed('current.name') || !this.nameWasChanged()" class="tw-mr-2 tw-text-green-dark fa fa-check-circle"></i>
+                            <i v-else-if="validation.isPassed('current.name') || !this.nameWasChanged()" class="tw-mr-2 tw-text-green-600 fa fa-check-circle"></i>
                             <i v-else-if="validation.isValidating('current.name')" class="tw-ml-2 fa fa-spinner fa-spin"></i>
-                            <i v-else="!validation.isPassed('current.name')" class="tw-mr-2 tw-text-red-dark fa fa-exclamation-circle"></i>
+                            <i v-else="!validation.isPassed('current.name')" class="tw-mr-2 tw-text-red-600 fa fa-exclamation-circle"></i>
                         </div>
                     </div>
                 </div>

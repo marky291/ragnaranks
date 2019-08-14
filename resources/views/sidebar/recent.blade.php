@@ -11,8 +11,8 @@
 						<i class="fas fa-plus"></i>
 					</div>
 					<div class="details flex-grow-1">
-						<h3 class="mb-0 tw-text-grey-darkest tw-text-xs">{{ $listing->name }}</h3>
-						<p class="tw-text-grey-dark tw-text-xs">Created {{ $listing->created_at->format('dS F Y') }}</p>
+						<h3 class="mb-0 tw-text-gray-800 tw-text-xs">{{ $listing->name }}</h3>
+						<p class="tw-text-gray-600 tw-text-xs">Created {{ $listing->created_at->format('dS F Y') }}</p>
 					</div>
 					<div class="buttons w-25 d-flex align-items-center justify-content-end">
 						<at-button @click="redirect('{{ route('listing.show', $listing) }}')" type="info">Visit <i class="icon icon-arrow-right"></i></at-button>

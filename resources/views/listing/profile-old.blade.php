@@ -39,7 +39,7 @@
 
 	<section data-aos="fade-up" data-aos-once="true" id="previews">
 		<div class="container px-5 pt-4 pb-3">
-			<h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tight">Specifications</h3>
+			<h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tighter">Specifications</h3>
 			<div class="tw-my-0 w-flex">
 				<carousel-3d :count="$parent.screenshots.length" :height="220" :width="380" :controls-visible="true" :autoplay="true" :autoplay-timeout="2500">
 					<slide v-for="(screenshot, i) in $parent.screenshots" :index="i" :key="i">
@@ -173,7 +173,7 @@
 	<section id="ratings">
 		<div class="container pl-5 pr-5">
 			<div class="py-3 mb-3 rounded" data-aos="fade-up" data-aos-once="true" style="border:1px solid rgba(255, 255, 255, 0.2);">
-				<h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tight">Balance Ratings</h3>
+				<h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tighter">Balance Ratings</h3>
 				<div class="row no-gutters">
 					<scoreboards inline-template>
 						<div class="d-flex">
@@ -186,7 +186,7 @@
 				</div>
 			</div>
 			<div class="py-3 mb-3 rounded" data-aos="fade-up" data-aos-once="true" style="border:1px solid rgba(255, 255, 255, 0.2)">
-				<h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tight">Server Ratings</h3>
+				<h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tighter">Server Ratings</h3>
 				<div class="row no-gutters">
 					<scoreboards inline-template>
 						<div class="d-flex">

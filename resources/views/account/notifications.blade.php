@@ -14,13 +14,13 @@
 				<div class="">
 					<div class="tw-ml-4">
 						<h4 class="tw-font-semibold tw-mb-0">{{ $notification->data['title'] }}</h4>
-						<p class="tw-text-xs tw-text-grey-darker tw-mb-2">{{ $notification->created_at->diffForHumans() }}</p>
+						<p class="tw-text-xs tw-text-gray-700 tw-mb-2">{{ $notification->created_at->diffForHumans() }}</p>
 						<p>{{ $notification->data['message'] }}</p>
 						@if (isset($notification->data['link']))
 							<a href="{{ $notification->data['link'] }}">View</a>
 						@endif
 					</div>
-					<div class="tw-mt-3 tw-bg-grey-lightest tw-rounded-full">
+					<div class="tw-mt-3 tw-bg-gray-100 tw-rounded-full">
 						<at-button v-if="!read" @click="markRead" type="text"><i class="icon icon-eye tw-mr-1"></i>Mark as read</at-button>
 						<at-button v-if="read" @click="markUnread" type="text"><i class="icon icon-eye-off tw-mr-1"></i>Mark as unread</at-button>
 {{--						<at-button type="text"><i class="icon icon-trash-2 tw-mr-1"></i>Delete</at-button>--}}

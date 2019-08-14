@@ -19,7 +19,6 @@
 
     <body>
         <div id="app">
-
             @include('layouts.header')
 
             @yield('content')
@@ -46,12 +45,12 @@
         </script>
         <script async src="https://www.google-analytics.com/analytics.js"></script>
         <script async src="https://ragnabox.fra1.digitaloceanspaces.com/assets/autotrack-2.4.1.js"></script>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({
-                google_ad_client: "ca-pub-2280364578236676",
-                enable_page_level_ads: true
-            });
-        </script>
+{{--        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>--}}
+{{--        <script>--}}
+{{--            (adsbygoogle = window.adsbygoogle || []).push({--}}
+{{--                google_ad_client: "ca-pub-2280364578236676",--}}
+{{--                enable_page_level_ads: true--}}
+{{--            });--}}
+{{--        </script>--}}
     </body>
 </html>
