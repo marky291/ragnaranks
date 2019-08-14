@@ -31,7 +31,7 @@
                 <span v-if="$parent.isCurrentPage('profile')">
                             <div id="description" class="profile-block markdown tw-py-4">
                                 <div class="tw-px-10 mt-4">
-                                        <h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tight">Introduction</h3>
+                                        <h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tighter">Introduction</h3>
                                         <div class="row no-gutters">
                                             <div class="tw-tracking-normal tw-whitespace-pre-wrap markdown-compiled" v-html="$parent.description"></div>
                                         </div>
@@ -40,7 +40,7 @@
 
                             <section id="previews">
                                 <div class="tw-px-10 pt-4 pb-3">
-                                    <h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tight">Specifications</h3>
+                                    <h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tighter">Specifications</h3>
                                     <div class="tw-my-0 w-flex">
                                         <carousel-3d :count="$parent.screenshots.length" :height="240" :width="426" :controls-visible="true">
                                             <slide v-for="(screenshot, i) in $parent.screenshots" :index="i" :key="i">
@@ -70,15 +70,15 @@
                                             </div>
                                             <div class="config">
                                                 <div class="name">{{ $t('profile.config.base_exp_rate.name') }}</div>
-                                                <div class="value">{{ $parent.listing.config.base_exp_rate.toLocaleString()}} <span class="tw-text-grey-dark">x</span></div>
+                                                <div class="value">{{ $parent.listing.config.base_exp_rate.toLocaleString()}} <span class="tw-text-gray-600">x</span></div>
                                             </div>
                                             <div class="config">
                                                 <div class="name">{{ $t('profile.config.job_exp_rate.name') }}</div>
-                                                <div class="value">{{ $parent.listing.config.job_exp_rate.toLocaleString()}} <span class="tw-text-grey-dark">x</span></div>
+                                                <div class="value">{{ $parent.listing.config.job_exp_rate.toLocaleString()}} <span class="tw-text-gray-600">x</span></div>
                                             </div>
                                             <div class="config">
                                                 <div class="name">{{ $t('profile.config.quest_exp_rate.name') }}</div>
-                                                <div class="value">{{ $parent.listing.config.quest_exp_rate.toLocaleString()}} <span class="tw-text-grey-dark">x</span></div>
+                                                <div class="value">{{ $parent.listing.config.quest_exp_rate.toLocaleString()}} <span class="tw-text-gray-600">x</span></div>
                                             </div>
                                         </div>
                                         <div class="list tw-w-1/2 tw-flex tw-flex-col tw-mx-2 mb-3">
@@ -140,29 +140,29 @@
                                             <div class="list tw-w-1/2 tw-flex tw-flex-col tw-mx-2 mb-3">
                                                 <div class="config">
                                                     <div class="name">{{ $t('profile.config.item_drop_common.name') }}</div>
-                                                    <div class="value">{{ $parent.listing.config.item_drop_common.toLocaleString()}} <span class="tw-text-grey-dark">x</span></div>
+                                                    <div class="value">{{ $parent.listing.config.item_drop_common.toLocaleString()}} <span class="tw-text-gray-600">x</span></div>
                                                 </div>
                                                 <div class="config">
                                                     <div class="name">{{ $t('profile.config.item_drop_equip.name') }}</div>
-                                                    <div class="value">{{ $parent.listing.config.item_drop_equip.toLocaleString()}} <span class="tw-text-grey-dark">x</span></div>
+                                                    <div class="value">{{ $parent.listing.config.item_drop_equip.toLocaleString()}} <span class="tw-text-gray-600">x</span></div>
                                                 </div>
                                                 <div class="config">
                                                     <div class="name">{{ $t('profile.config.item_drop_card.name') }}</div>
-                                                    <div class="value">{{ $parent.listing.config.item_drop_card.toLocaleString()}} <span class="tw-text-grey-dark">x</span></div>
+                                                    <div class="value">{{ $parent.listing.config.item_drop_card.toLocaleString()}} <span class="tw-text-gray-600">x</span></div>
                                                 </div>
                                             </div>
                                             <div class="list tw-w-1/2 tw-flex tw-flex-col tw-mx-2 mb-3">
                                                 <div class="config">
                                                     <div class="name">{{ $t('profile.config.item_drop_common_mvp.name') }}</div>
-                                                    <div class="value">{{ $parent.listing.config.item_drop_common_mvp.toLocaleString()}} <span class="tw-text-grey-dark">x</span></div>
+                                                    <div class="value">{{ $parent.listing.config.item_drop_common_mvp.toLocaleString()}} <span class="tw-text-gray-600">x</span></div>
                                                 </div>
                                                 <div class="config">
                                                     <div class="name">{{ $t('profile.config.item_drop_equip_mvp.name') }}</div>
-                                                    <div class="value">{{ $parent.listing.config.item_drop_equip_mvp.toLocaleString()}} <span class="tw-text-grey-dark">x</span></div>
+                                                    <div class="value">{{ $parent.listing.config.item_drop_equip_mvp.toLocaleString()}} <span class="tw-text-gray-600">x</span></div>
                                                 </div>
                                                 <div class="config">
                                                     <div class="name">{{ $t('profile.config.item_drop_card_mvp.name') }}</div>
-                                                    <div class="value">{{ $parent.listing.config.item_drop_card_mvp.toLocaleString()}} <span class="tw-text-grey-dark">x</span></div>
+                                                    <div class="value">{{ $parent.listing.config.item_drop_card_mvp.toLocaleString()}} <span class="tw-text-gray-600">x</span></div>
                                                 </div>
                                             </div>
                                         </div>

@@ -1,7 +1,7 @@
 <nav id="rr-navbar" class="tw-shadow-md">
     <div class="tw-container tw-flex tw-items-center">
         <div id="nav-left" class="tw-flex-1">
-            <ul class="tw-flex tw-list-reset">
+            <ul class="tw-flex">
                 <li class="nav-item tw-text-sm {{ request()->route()->named('index') ? 'active' : '' }}">
                     <a href="/" class="tw-px-4 tw-block"><i class="icon icon-home"></i> Home</a>
                 </li>
@@ -14,14 +14,14 @@
             </ul>
         </div>
 
-        <div id="logo" class="tw-flex-1 tw-text-center">
-            <a href="{{ route('index') }}">
+        <div id="logo" class="tw-flex-1">
+            <a href="{{ route('index') }}" class="tw-m-auto">
                 <img src="{{ asset('img/logo.png') }}" alt="" style="height:64px; width: auto;">
             </a>
         </div>
 
         <div id="nav-right" class="tw-flex-1 tw-flex tw-justify-end">
-            <ul class="tw-flex tw-list-reset">
+            <ul class="tw-flex">
                 @if(auth()->check())
                     <li class="nav-item tw-text-sm {{ request()->route()->named('myAccount') ? 'active' : '' }}">
                         <a href="/account" class="tw-px-4 tw-block"><i class="icon icon-user"></i> Account</a>

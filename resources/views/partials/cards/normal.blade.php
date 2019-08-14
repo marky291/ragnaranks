@@ -7,7 +7,7 @@
     <div class="server-card-head overlap d-flex">
         <div class="left-side d-flex w-75 flex-column align-items-start px-4 py-2 align-self-end">
             <h1 class="text-white font-weight-bold mb-0" style="font-size: 24px;">{{ $listing->name }}</h1>
-            <ul class="tag-list tw-list-reset tw-flex tw-text-xs tw-text-green-light tw-mb-0">
+            <ul class="tag-list tw-flex tw-text-xs tw-text-green-light tw-mb-0">
                 <?php /** @var \App\Tag $tag */ ?>
                 @foreach ($listing->tags as $tag)
                     <li>#{{ $tag->name }}</li>
