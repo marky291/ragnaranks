@@ -82,20 +82,4 @@ Vue.component('report-tool-component', require('./components/ReportToolComponent
 const app = new Vue({
     el: '#app',
     i18n,
-    methods: {
-        navigate: function(name) {
-            if (name == 'help') {
-                ga('send', 'event', 'Navigation', 'clicked', 'documentation');
-                window.location = 'https://ragnaranks.github.io/docs/';
-            } else if (name === 'logout') {
-                axios.post('/logout').then((response) => {
-                    window.location = '/';
-                });
-            } else if (name === '/') {
-                window.location = '/'
-            } else {
-                window.location = '/' + name;
-            }
-        }
-    }
 });

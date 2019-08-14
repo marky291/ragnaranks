@@ -3,9 +3,11 @@
 @if (isset($name))
     @section('title', "{$name} Server Overview | Ragnaranks")
     @section('description', "View detailed statistics, reviews and screenshots about {$name} private ragnarok server.")
+    @section('canonical', "{$route}")
 @else
     @section('title', 'Create a new private server listing')
     @section('description', 'Design and create a profile listing that suits your style and configuration')
+    @section('canonical', route('listing.create'))
 @endif
 
 @section('content')

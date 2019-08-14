@@ -1,5 +1,9 @@
 @extends('layouts.frame')
 
+@section('title', 'Ragnaranks - Register')
+@section('description', 'Create an account and be apart of the growing community')
+@section('canonical', route('register'))
+
 @section('content')
     <div class="shadow-inner">
         <div class="container">

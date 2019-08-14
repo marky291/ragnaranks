@@ -1,5 +1,9 @@
 @extends('layouts.frame')
 
+@section('title', 'Ragnaranks - Forgotton Password')
+@section('description', 'Sometimes it happens, let us fix it and set up a new one,')
+@section('canonical', route('password.request'))
+
 @section('content')
     <div class="shadow-inner">
         <div class="container">
