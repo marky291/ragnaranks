@@ -7,7 +7,7 @@
 {{--        </div>--}}
 
         <div class="container d-flex mb-5">
-            <div class="w-50 mr-5">
+            <div class="tw-flex-1  mr-5">
                 <h2 class="pb-1">RagnaRanks</h2>
                 <p>
                     Our web-service is designed in a way that allows you to easily find the server
@@ -17,24 +17,26 @@
                     found otherwise.
                 </p>
                 <div class="social pt-2">
-                    <a href="https://www.facebook.com/ragnaranks/"><i class="fab fa-facebook text-white mr-1"></i></a>
-                    <a href="http://discord.gg/WGSAce2"><i class="fab fa-discord text-white mr-1"></i></a>
-                    <a href="https://www.reddit.com/r/RagnaRanks/"><i class="fab fa-reddit-square text-white mr-1"></i></a>
+                    <a href="https://www.facebook.com/ragnaranks/" class="tw-text-2xl"><i class="fab fa-facebook text-white mr-2"></i></a>
+                    <a href="http://discord.gg/WGSAce2" class="tw-text-2xl"><i class="fab fa-discord text-white mr-2"></i></a>
+                    <a href="https://www.reddit.com/r/RagnaRanks/" class="tw-text-2xl"><i class="fab fa-reddit-square text-white mr-2"></i></a>
                 </div>
             </div>
-            <div class="w-50 d-flex flex-row justify-content-between">
-                <div class="flex-fill">
+            <div class="tw-hidden lg:tw-flex tw-flex-1" style="justify-content: space-evenly">
+                <div>
                     <h2>Docs</h2>
                     <ul class="list-unstyled list">
-                        <li><a class="tw-text-gray-500 hover:tw-text-white" href="https://ragnaranks.github.io/docs/listing.html">Creating a new Listing</a></li>
-                        <li><a class="tw-text-gray-500 hover:tw-text-white" href="https://ragnaranks.github.io/docs/vote4points.html">Vote For Points Setup</a></li>
+                        <li><a class="tw-text-gray-300 hover:tw-text-white tw-text-sm" href="https://ragnaranks.github.io/docs/listing.html">Creating a new Listing</a></li>
+                        <li><a class="tw-text-gray-300 hover:tw-text-white tw-text-sm" href="https://ragnaranks.github.io/docs/vote4points.html">Vote For Points Setup</a></li>
+                        <li><a class="tw-text-gray-300 hover:tw-text-white tw-text-sm" href="https://ragnaranks.github.io/docs/listing.html">Documentation Overview</a></li>
                     </ul>
                 </div>
-                <div class="flex-fill">
-                    <h2>Contribute</h2>
+                <div>
+                    <h2>Actions</h2>
                     <ul class="list-unstyled list">
-                        <li class="text-transparent"><a class="tw-text-gray-500 hover:tw-text-white" href="https://www.reddit.com/r/RagnaRanks">Share your ideas</a></li>
-                        <li class="text-transparent"><a class="tw-text-gray-500 hover:tw-text-white"  href="/listing/create">Register A Server</a></li>
+                        <li><a class="tw-text-gray-300 hover:tw-text-white tw-text-sm" href="https://www.reddit.com/r/RagnaRanks">Share your ideas</a></li>
+                        <li><a class="tw-text-gray-300 hover:tw-text-white tw-text-sm"  href="/listing/create">Create a new Listing</a></li>
+                        <li><a class="tw-text-gray-300 hover:tw-text-white tw-text-sm"  href="https://www.facebook.com/ragnaranks/">Message us for Help</a></li>
                     </ul>
                 </div>
 {{--                <div class="flex-fill">--}}

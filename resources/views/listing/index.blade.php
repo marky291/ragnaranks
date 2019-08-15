@@ -1,7 +1,7 @@
 @extends('layouts.frame')
 
-@section('title', 'Ragnaranks - Ragnarok Online Top 100, Ranked Private Server Listings')
-@section('description', 'Browse hundreds of listings utilizing our top 100 ranking algorithms, with advanced filtering, reviews & voting we make it a breeze to find your next perfect server.')
+@section('title', 'Ragnaranks - Ragnarok Private Server Listings')
+@section('description', 'Browse hundreds of listings on our unique ranking algorithm, with advanced filtering, reviews & voting we will find your next perfect server.')
 @section('canonical', route('index'))
 
 @section('content')
@@ -15,7 +15,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="tw-flex pb-5 pt-2 tw--mx-4 tw-flex-wrap">
+                <div class="tw-flex pb-2 pt-2 tw--mx-4 tw-flex-wrap">
                     <div id="sidebar" class="lg:tw-w-1/3 tw-px-4 tw-flex-1">
                         @include('sidebar.message')
 {{--                        @include('sidebar.paginate')--}}

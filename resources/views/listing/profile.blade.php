@@ -15,7 +15,7 @@
 		<div class="container pt-4">
 			<profile-page slug="{{ $slug }}" action="{{ request()->get('action') }}" auth="{{ auth()->id() }}" inline-template>
 				<div class="row pb-5 pt-2">
-					<div class="col-4" id="sidebar">
+					<div class="col-4 tw-hidden lg:tw-block" id="sidebar">
 						@include('sidebar.message')
 						<div v-if="!isCreating()">
 							@include('sidebar.selector')
