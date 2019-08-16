@@ -6,7 +6,7 @@
 {{--            </h1>--}}
 {{--        </div>--}}
 
-        <div class="container d-flex mb-5">
+        <div class="tw-container d-flex mb-5">
             <div class="tw-flex-1  mr-5">
                 <h2 class="pb-1">RagnaRanks</h2>
                 <p>
