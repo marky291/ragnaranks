@@ -3,6 +3,8 @@ const mix = require('laravel-mix');
 
 require('laravel-mix-tailwind');
 
+mix.browserSync('https://ragnaranks.test');
+
 // require('laravel-mix-bundle-analyzer');
 // mix.bundleAnalyzer();
 

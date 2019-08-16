@@ -1,22 +1,22 @@
 @extends('layouts.frame')
 
-@section('title', 'Ragnaranks - Ragnarok Online Top 100, Ranked Private Server Listings')
-@section('description', 'Browse hundreds of listings utilizing our top 100 ranking algorithms, with advanced filtering, reviews & voting we make it a breeze to find your next perfect server.')
+@section('title', 'Ragnaranks - Ragnarok Private Server Listings')
+@section('description', 'Browse hundreds of listings using our unique ranking algorithm, with advanced filtering, reviews & voting we will find your next perfect server.')
 @section('canonical', route('index'))
 
 @section('content')
     <homepage inline-template>
-        <div class="">
-            <div class="tw-container pt-4">
+        <div class="shadow-inner">
+            <div class="tw-container tw-pt-5">
+                @if (auth()->check() && !auth()->user()->hasVerifiedEmail())
                 <div class="row">
-                    @if (auth()->check() && !auth()->user()->hasVerifiedEmail())
                         <div class="col-12 pb-3">
                             <at-alert message="Verification Required" description="A verification email has been sent and awaiting response, account functionality is limited until completed!" type="error" show-icon></at-alert>
                         </div>
-                    @endif
                 </div>
-                <div class="tw-flex pb-5 pt-2 tw--mx-4 tw-flex-wrap">
-                    <div id="sidebar" class="lg:tw-w-1/3 tw-px-4 tw-flex-1">
+                @endif
+                <div class="tw-flex pb-2 pt-2 tw-flex-wrap">
+                    <div id="sidebar" class="lg:tw-w-1/3 tw-px-3 tw-flex-1">
                         @include('sidebar.message')
 {{--                        @include('sidebar.paginate')--}}
                         @include('sidebar.filter')

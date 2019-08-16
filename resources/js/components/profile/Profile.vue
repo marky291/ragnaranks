@@ -13,11 +13,11 @@
                             </ul>
                         </div>
                         <div class="right-side flex-fill d-flex justify-content-end pr-3" style="padding-bottom:12px;">
-                            <div class="d-flex flex-column justify-content-end mr-3" style="height:100%;">
+                            <div class="d-flex flex-column justify-content-end tw-mr-3" style="height:100%;">
                                 <h3 class="card-counter-title mb-0 font-weight-bold transparency">Votes</h3>
                                 <span class="card-counter font-weight-bold transparency">{{ $parent.listing.ranking.votes }}</span>
                             </div>
-                            <div class="d-flex flex-column justify-content-end mr-2" style="height:100%;">
+                            <div class="d-flex flex-column justify-content-end tw-mr-2" style="height:100%;">
                                 <h3 class="card-counter-title mb-0 font-weight-bold transparency">Clicks</h3>
                                 <span class="card-counter font-weight-bold transparency">{{ $parent.listing.ranking.clicks }}</span>
                             </div>

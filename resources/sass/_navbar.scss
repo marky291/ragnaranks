@@ -3,8 +3,13 @@
     border-bottom: 2px solid white;
     background: linear-gradient(90deg, rgba(56,39,180,1) 0%, rgba(108,24,164,1) 100%);
 
+    @media (max-width: 1024px) {
+        background: linear-gradient(90deg, #4822af 0%, #4822af 100%), url(/img/overlay-stripe.jpg) !important;
+        background-blend-mode: overlay;
+    }
+
     .tw-container {
-        min-height: 92px;
+        //min-height: 92px;
     }
 
     ul {
