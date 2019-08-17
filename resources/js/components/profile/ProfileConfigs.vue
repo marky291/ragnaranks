@@ -288,7 +288,7 @@
                 <div class="tw-p-2">
                     <p class="tw-font-semibold tw-mb-1">Main Language</p>
                     <div class="tw-flex">
-                        <at-select v-model="current.language" class="tw-capitalize">
+                        <at-select v-model="current.language" class="tw-capitalize tw-flex">
                             <at-option v-for="(language, i) in configurations.languages" :key="i" :value="language" :label="language"><img class="tw-w-4 tw-h-4 tw-mr-2" :src="'/img/flags/'+language+'.svg'" alt="">{{ language }}</at-option>
                         </at-select>
                     </div>
