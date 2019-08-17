@@ -18,7 +18,7 @@
             <a href="{{ route('index') }}" class="tw-m-auto">
                 <img src="{{ asset('img/logo.png') }}" class="tw-m-auto tw-hidden lg:tw-block" alt="" style="height:64px; width: auto;">
                 <span class="tw-flex tw-items-center tw-text-white tw-rounded-r-lg lg:tw-hidden">
-                    <img src="{{ asset('img/logo-mobile.png') }}" class="tw-border-white tw-shadow lg:tw-hidden tw-block tw-rounded" alt="" style="height:64px; width: auto;">
+                    <img src="{{ asset('img/logo-mobile.jp2') }}" class="tw-border-white tw-shadow lg:tw-hidden tw-block tw-rounded" alt="" style="height:64px; width: auto;">
                     <h2 class="tw-mb-0 tw-tracking-tight tw-normal-case tw-mt-1 tw-ml-3 tw-text-lg tw-text-gray-200">RagnaRanks<br><span class="tw-text-xs">Mobile Mode</span></h2>
                 </span>
             </a>
