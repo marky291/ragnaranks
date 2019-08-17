@@ -37,7 +37,7 @@
             ga('require', 'outboundLinkTracker');
             ga('require', 'urlChangeTracker');
             // ga('require', 'pageVisibilityTracker');
-            ga('require', 'impressionTracker');
+            // ga('require', 'impressionTracker');
             // ga('require', 'maxScrollTracker');
             // ...
 
