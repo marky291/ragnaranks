@@ -9,7 +9,8 @@
         <meta name="viewport" content="width=1200"/>
 {{--        <meta name="viewport" content="width=device-width, initial-scale=1">--}}
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <meta name="Description" content="@yield('description', 'Browse hundreds of ragnarok online private server listings, with advanced filtering, reviews & voting we make it a breeze.')">
+        <meta name="description" content="@yield('description', 'Browse hundreds of ragnarok online private server listings, with advanced filtering, reviews & voting we make it a breeze.')">
+        <meta name="keywords" content="listings, ragnarok, ro, online, private servers, private server, vote, vote4points, top 100, official rate, low rate, pk, roleplaying, mid rate, high rate, super high rate, server, mmorpg, rpg">
 
         <link href="@yield('canonical', '')" rel="canonical">
         <link rel="stylesheet" href="{{ url('css/app.css') }}">
