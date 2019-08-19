@@ -7,7 +7,7 @@
 @section('content')
     <homepage inline-template>
         <div class="shadow-inner">
-            <div class="tw-container tw-pt-5">
+            <div class="tw-container tw-pt-5" id="listingView">
                 @if (auth()->check() && !auth()->user()->hasVerifiedEmail())
                 <div class="row">
                         <div class="col-12 pb-3">

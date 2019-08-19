@@ -6,7 +6,7 @@
                 mode: 'all',
                 sort: 'rank',
                 tag: 'all',
-                paginate: '7',
+                paginate: '10',
             }
         },
         methods: {

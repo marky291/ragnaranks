@@ -50,7 +50,8 @@
         methods : {
             changePage(page) {
                 this.pagination.current_page = page;
-                this.$emit('paginate', `/api/servers/all/all/all/rank/7?page=${this.pagination.current_page}`);
+
+                this.$emit('paginate', `/api/servers/all/all/all/rank/10?page=${this.pagination.current_page}`);
             }
         }
     }
