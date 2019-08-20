@@ -33,7 +33,7 @@ class StoreListingRequest extends FormRequest
             'accent' => Rule::in(config('filter.accents')),
             'language' => Rule::in(config('filter.languages')),
             'background' => 'required',
-            'website' => 'active_url|required|min:3',
+            'website' => 'required|min:3',
             'mode' => Rule::in(config('filter.modes')),
             'tags.*' => Rule::in(config('filter.tags')),
             'screenshots.*' => 'sometimes|string',

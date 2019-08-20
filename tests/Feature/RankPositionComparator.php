@@ -9,7 +9,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class CertifyRankPositionTest extends TestCase
+class RankPositionComparator extends TestCase
 {
     use RefreshDatabase;
 
@@ -59,5 +59,20 @@ class CertifyRankPositionTest extends TestCase
 
         $this->assertDatabaseHas('listing_rankings', ['rank' => 1, 'listing_id' => 1]);
         $this->assertDatabaseHas('listing_rankings', ['rank' => 2, 'listing_id' => 2]);
+    }
+
+    public function test_listing_rank_does_not_compare_deleted_listings()
+    {
+        $listing1 = factory(Listing::class)->create(['id' => 1]);
+        $listing2 = factory(Listing::class)->create(['id' => 2]);
+
+        // delete listing two
+        $listing2->delete();
+
+        // add a new listing after deleting one. (should set a rank ignoring deleted)
+        $listing3 = factory(Listing::class)->create(['id' => 3]);
+
+        $this->assertDatabaseHas('listing_rankings', ['rank' => 1, 'listing_id' => 1]);
+        $this->assertDatabaseHas('listing_rankings', ['rank' => 2, 'listing_id' => 3]);
     }
 }
