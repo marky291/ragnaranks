@@ -28,9 +28,6 @@ class EventServiceProvider extends ServiceProvider
         ListingClickedEvent::class => [
             RankPositionComparator::class,
         ],
-        'eloquent.created: App\Listings\Listing' => [
-            RankPositionComparator::class,
-        ],
     ];
 
     /**

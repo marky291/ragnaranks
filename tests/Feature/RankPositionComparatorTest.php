@@ -9,7 +9,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class RankPositionComparator extends TestCase
+class RankPositionComparatorTest extends TestCase
 {
     use RefreshDatabase;
 
