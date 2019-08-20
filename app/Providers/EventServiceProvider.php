@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Events\ListingCreatedEvent;
 use App\Listings\ListingVotedEvent;
 use App\Listings\ListingClickedEvent;
 use Illuminate\Support\Facades\Event;

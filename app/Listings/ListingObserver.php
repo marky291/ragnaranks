@@ -18,7 +18,9 @@ class ListingObserver
      */
     public function created(Listing $listing): void
     {
-        $listing->ranking()->save(new ListingRanking(['rank'=>ListingRanking::query()->max('rank') + 1]));
+        $listing->ranking()->save(new ListingRanking([
+            'rank' => ListingRanking::query()->max('rank') + 1
+        ]));
     }
 
     /**

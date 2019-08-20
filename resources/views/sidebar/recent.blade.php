@@ -4,7 +4,7 @@
 	</div>
 
 	<div id="additions" class="content tw-shadow py-0 rounded">
-		@foreach (\App\Listings\ListingRepository::LatestEntriesCache(7) as $listing)
+		@foreach (\App\Listings\ListingRepository::LatestEntriesCache(10) as $listing)
 			<div class="microcard" style="{{ $loop->last ? null : 'border-bottom: 1px dashed #e3e3e3;' }}">
 				<div class="information d-flex flex-row py-3">
 					<div class="icon text-green align-self-center mr-3">

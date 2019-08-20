@@ -33,11 +33,9 @@
                 </select>
 
                 <select @change="filterChanged" v-model="paginate" style="color: #8795a1" class="form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
-                    <option value="7" selected>And show 7 servers</option>
-                    <option value="15">And show 15 servers</option>
-                    <option value="30">And show 30 servers</option>
+                    <option value="10" selected>And show 10 servers</option>
+                    <option value="25">And show 25 servers</option>
                     <option value="50">And show 50 servers</option>
-                    <option value="100">And show 100 servers</option>
                 </select>
             </div>
         </transition>

@@ -9,8 +9,8 @@ class ListingRepository
 {
     public static function LatestEntriesCache(int $count)
     {
-        return Cache::remember('listing:latest-entries', 60, static function () use ($count) {
-            return ListingResource::collection(Listing::orderBy('created_at')->limit($count)->get());
+        return Cache::remember('listing:latest-entries', 300, static function () use ($count) {
+            return ListingResource::collection(Listing::latest()->orderBy('created_at')->limit($count)->get());
         });
     }
 }

@@ -2,7 +2,6 @@
 
 namespace App\Listings;
 
-use App\FileSpaces;
 use App\Tag;
 use App\User;
 use Carbon\Carbon;
@@ -48,9 +47,10 @@ use Illuminate\Support\Str;
  * @method static create(array $validated)
  * @method static make(array $validated)
  * @method static whereName(string $name)
- * @method static orderBy(string $string)
+ * @method static Builder orderBy(string $string)
  * @method static Builder withCount(array $array)
  * @method static count()
+ * @method static Builder latest()
  */
 class Listing extends Model
 {
