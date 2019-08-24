@@ -12,7 +12,14 @@ use Illuminate\Support\Str;
 
 class ReconditionListingSpace implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable;
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
+    /**
+     * Delete the job if its models no longer exist.
+     *
+     * @var bool
+     */
+    public $deleteWhenMissingModels = true;
 
     /**
      * @var Listing
@@ -85,6 +92,4 @@ class ReconditionListingSpace implements ShouldQueue
             $this->listing->update(['background' => $newLocation]);
         }
     }
-
-
 }
