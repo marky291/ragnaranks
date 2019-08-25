@@ -22,7 +22,7 @@
             loadResource() {
                 axios.get(`${this.resource}?page=${this.currentPage}`).then((response) => {
                     this.listings = response.data;
-                    document.getElementById('navbar-top').scrollIntoView();
+                    document.getElementById('rr-navbar').scrollIntoView();
                 });
             },
             changeResource(resource) {

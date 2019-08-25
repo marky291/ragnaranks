@@ -1,9 +1,5 @@
 <template>
-    <transition-group name="staggered-fade"
-                      v-bind:css="false"
-                      v-on:before-enter="beforeEnter"
-                      v-on:enter="enter"
-                      v-on:leave="leave">
+    <transition-group name="staggered-fade" v-bind:css="false" v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:leave="leave">
         <div v-for="listing in data" :key="listing['id']" :data-index="listing['id']">
             <div class="mb-3 server-card item flex-fill tw-shadow border rounded">
                 <div class="server-card-head image rounded-top" v-bind:style="{ 'background-image': 'url(' + space + '/' + listing['background'] + ')' }"></div>
@@ -81,7 +77,7 @@
                 el.style.height = 0;
             },
             enter: function (el, done) {
-                var delay = el.dataset.index * 0.4;
+                let delay = el.dataset.index * 37;
                 setTimeout(function () {
                     Velocity(
                         el,
@@ -91,7 +87,7 @@
                 }, delay)
             },
             leave: function (el, done) {
-                var delay = el.dataset.index * 0.4;
+                let delay = el.dataset.index * 37;
                 setTimeout(function () {
                     Velocity(
                         el,

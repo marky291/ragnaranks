@@ -20,11 +20,11 @@ return [
     | Webservice version
     |--------------------------------------------------------------------------
     |
-    | The current version of the filesystem, this allows us to track the filestructure
+    | The current version of the filesystem, this allows us to track the file structure
     | and that deployments are loading the correct filesource.
     |
     */
-    'version' => '1.2.3',
+    'version' => '1.2.4',
 
     /*
     |--------------------------------------------------------------------------
