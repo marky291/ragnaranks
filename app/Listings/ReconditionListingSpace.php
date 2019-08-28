@@ -12,7 +12,7 @@ use Illuminate\Support\Str;
 
 class ReconditionListingSpace implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable;
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     /**
      * @var Listing
