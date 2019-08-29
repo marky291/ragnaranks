@@ -9,11 +9,11 @@
         <div class="shadow-inner">
             <div class="tw-container tw-pt-5" id="listingView">
                 @if (auth()->check())
-                    <div class="row">
-                        <div class="col-12 pb-3">
-                            <at-alert show-icon message="We are currently investigating issues with some images failing to upload and hope to have this fixed shortly." type="error"></at-alert>
-                        </div>
-                    </div>
+{{--                    <div class="row">--}}
+{{--                        <div class="col-12 pb-3">--}}
+{{--                            <at-alert show-icon message="We are currently investigating issues with some images failing to upload and hope to have this fixed shortly." type="error"></at-alert>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                     @if (!auth()->user()->hasVerifiedEmail())
                         <div class="row">
                             <div class="col-12 pb-3">

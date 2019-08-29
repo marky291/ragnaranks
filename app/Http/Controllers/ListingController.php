@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\ListingCreatedEvent;
 use App\Listings\ListingScreenshot;
 use App\Listings\ReconditionListingSpace;
 use App\Tag;
