@@ -12,7 +12,9 @@
             }
         },
         created() {
-            this.loadResource();
+            axios.get(`${this.resource}?page=${this.currentPage}`).then((response) => {
+                this.listings = response.data;
+            });
         },
         methods: {
             changePage(pageNumber) {
