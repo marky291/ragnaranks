@@ -22,7 +22,7 @@ class HeartbeatStatusTest extends TestCase
     {
         $checkup = new FluxControlPanelStatus('http://oracle-ro.com');
 
-        $decoded = json_decode($checkup->data(), true);
+        $decoded = json_decode($checkup->formattedData(), true);
 
         $this->assertTrue($decoded['login']);
     }
