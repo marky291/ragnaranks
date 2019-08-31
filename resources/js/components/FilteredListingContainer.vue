@@ -42,16 +42,16 @@
                         <p class="tw-text-gray-700 tw-tracking-tighter tw-font-semibold mb-0" style="font-size:14px">{{ $t('homepage.card.rate.'+listing['config']['title']) }}</p>
                         <p :class="'review-score-'+listing.review_score">{{ $t(reviewScoreMessage(listing.review_score)) }}</p>
                     </div>
-                    <div class="tw-flex-1 tw-px-2 tw-py-1 tw-text-xs tw-flex tw-justify-around tw-rounded tw-leading-tight tw-text-gray-700">
+                    <div class="tw-flex-1 tw-px-2 tw-py-1 tw-flex tw-justify-around tw-rounded tw-leading-tight tw-text-gray-700" style="font-size:8px;">
                         <div class="">
-                            <p><span class="tw-font-bold">Mode</span>: <span class="tw-text-gray-700 tw-capitalize">{{ listing.mode }} </span></p>
-                            <p><span class="tw-font-bold">Max Base</span>: <span class="tw-text-gray-700">{{ listing.config.max_base_level }}</span></p>
-                            <p><span class="tw-font-bold">Max Job</span>: <span class="tw-text-gray-700">{{ listing.config.max_job_level }}</span></p>
+                            <p><span class="tw-font-bold">Mode</span>: <span class="tw-text-gray-600 tw-capitalize">{{ listing.mode }} </span></p>
+                            <p><span class="tw-font-bold">Max Base</span>: <span class="tw-text-gray-600">{{ listing.config.max_base_level }}</span></p>
+                            <p><span class="tw-font-bold">Max Job</span>: <span class="tw-text-gray-600">{{ listing.config.max_job_level }}</span></p>
                         </div>
                         <div class="">
-                            <p><span class="tw-font-bold">Drop Rate</span>: <span class="tw-text-gray-700">{{ listing.config.item_drop_common }}x</span></p>
-                            <p><span class="tw-font-bold">Base Exp</span>: <span class="tw-text-gray-700">{{ listing.config.base_exp_rate }}x</span></p>
-                            <p><span class="tw-font-bold">Job Exp</span>: <span class="tw-text-gray-700">{{ listing.config.job_exp_rate }}x</span></p>
+                            <p><span class="tw-font-bold">Drop Rate</span>: <span class="tw-text-gray-600">{{ listing.config.item_drop_common }}</span></p>
+                            <p><span class="tw-font-bold">Base Exp</span>: <span class="tw-text-gray-600">{{ listing.config.base_exp_rate }}</span></p>
+                            <p><span class="tw-font-bold">Job Exp</span>: <span class="tw-text-gray-600">{{ listing.config.job_exp_rate }}</span></p>
                         </div>
                     </div>
                     <div class="tw-w-1/4 tw-flex tw-justify-end tw-flex-1">

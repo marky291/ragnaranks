@@ -1,9 +1,15 @@
 <?php
 
+use App\Listings\Listing;
+use App\Listings\ListingHeartbeat;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ * Class CreateListingHeartbeat
+ */
 class CreateListingHeartbeat extends Migration
 {
     /**
@@ -22,6 +28,11 @@ class CreateListingHeartbeat extends Migration
             $table->unsignedInteger('players')->default('0');
             $table->timestamps();
         });
+
+        /** @var Listing $listing */
+        foreach (Listing::all() as $listing) {
+            $listing->heartbeat()->save(new ListingHeartbeat);
+        }
     }
 
     /**

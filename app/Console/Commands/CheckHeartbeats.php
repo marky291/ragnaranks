@@ -4,8 +4,10 @@ namespace App\Console\Commands;
 
 use App\Heartbeats\FluxControlPanelStatus;
 use App\Listings\Listing;
+use GuzzleHttp\Exception\RequestException;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Log;
 
 class CheckHeartbeats extends Command
 {
@@ -37,17 +39,23 @@ class CheckHeartbeats extends Command
             foreach ($listings as $listing) {
                 $heartbeat = new FluxControlPanelStatus($listing->website);
 
-                if ($heartbeat->exists()) {
-                    $status = json_decode($heartbeat->formattedData(), true);
-                    $listing->heartbeat()->update([
-                        'recorder' => 'flux-cp',
-                        'login' => $status['login'] ? 'online' : 'offline',
-                        'char' => $status['char'] ? 'online' : 'offline',
-                        'map' => $status['map'] ? 'online' : 'offline',
-                        'players' => $status['players'],
-                    ]);
+                try {
+                    if ($heartbeat->exists()) {
+                        $status = json_decode($heartbeat->formattedData(), true);
+                        $listing->heartbeat()->update([
+                            'recorder' => 'flux-cp',
+                            'login' => $status['login'] ? 'online' : 'offline',
+                            'char' => $status['char'] ? 'online' : 'offline',
+                            'map' => $status['map'] ? 'online' : 'offline',
+                            'players' => $status['players'],
+                        ]);
+                    }
+                } catch (RequestException $e) {
+                    Log::warning("An error occurred checking heartbeat for {$listing->website}: {$e->getMessage()}");
                 }
             }
         });
+
+        return;
     }
 }

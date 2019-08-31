@@ -58206,7 +58206,8 @@ var render = function() {
                       "div",
                       {
                         staticClass:
-                          "tw-flex-1 tw-px-2 tw-py-1 tw-text-xs tw-flex tw-justify-around tw-rounded tw-leading-tight tw-text-gray-700"
+                          "tw-flex-1 tw-px-2 tw-py-1 tw-flex tw-justify-around tw-rounded tw-leading-tight tw-text-gray-700",
+                        staticStyle: { "font-size": "8px" }
                       },
                       [
                         _c("div", {}, [
@@ -58217,7 +58218,7 @@ var render = function() {
                             _vm._v(": "),
                             _c(
                               "span",
-                              { staticClass: "tw-text-gray-700 tw-capitalize" },
+                              { staticClass: "tw-text-gray-600 tw-capitalize" },
                               [_vm._v(_vm._s(listing.mode) + " ")]
                             )
                           ]),
@@ -58227,7 +58228,7 @@ var render = function() {
                               _vm._v("Max Base")
                             ]),
                             _vm._v(": "),
-                            _c("span", { staticClass: "tw-text-gray-700" }, [
+                            _c("span", { staticClass: "tw-text-gray-600" }, [
                               _vm._v(_vm._s(listing.config.max_base_level))
                             ])
                           ]),
@@ -58237,7 +58238,7 @@ var render = function() {
                               _vm._v("Max Job")
                             ]),
                             _vm._v(": "),
-                            _c("span", { staticClass: "tw-text-gray-700" }, [
+                            _c("span", { staticClass: "tw-text-gray-600" }, [
                               _vm._v(_vm._s(listing.config.max_job_level))
                             ])
                           ])
@@ -58249,10 +58250,8 @@ var render = function() {
                               _vm._v("Drop Rate")
                             ]),
                             _vm._v(": "),
-                            _c("span", { staticClass: "tw-text-gray-700" }, [
-                              _vm._v(
-                                _vm._s(listing.config.item_drop_common) + "x"
-                              )
+                            _c("span", { staticClass: "tw-text-gray-600" }, [
+                              _vm._v(_vm._s(listing.config.item_drop_common))
                             ])
                           ]),
                           _vm._v(" "),
@@ -58261,8 +58260,8 @@ var render = function() {
                               _vm._v("Base Exp")
                             ]),
                             _vm._v(": "),
-                            _c("span", { staticClass: "tw-text-gray-700" }, [
-                              _vm._v(_vm._s(listing.config.base_exp_rate) + "x")
+                            _c("span", { staticClass: "tw-text-gray-600" }, [
+                              _vm._v(_vm._s(listing.config.base_exp_rate))
                             ])
                           ]),
                           _vm._v(" "),
@@ -58271,8 +58270,8 @@ var render = function() {
                               _vm._v("Job Exp")
                             ]),
                             _vm._v(": "),
-                            _c("span", { staticClass: "tw-text-gray-700" }, [
-                              _vm._v(_vm._s(listing.config.job_exp_rate) + "x")
+                            _c("span", { staticClass: "tw-text-gray-600" }, [
+                              _vm._v(_vm._s(listing.config.job_exp_rate))
                             ])
                           ])
                         ])
@@ -76720,9 +76719,9 @@ __webpack_require__.r(__webpack_exports__);
     "homepage": {
       "card": {
         "review": {
-          "positive": "with mostly positive reviews",
+          "positive": "with excellent reviews",
           "mediocre": "with mixed reviews",
-          "negative": "with mainly negative reviews",
+          "negative": "with negative reviews",
           "fresh": "with no player reviews"
         },
         "rate": {

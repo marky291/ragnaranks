@@ -43,6 +43,9 @@ abstract class Checkup
      */
     public function response(): ResponseInterface
     {
+        if ($this->website == 'https://www.facebook.com/Spark-Ragnarok-Online-2442046062747934/') {
+            dd((new Client)->get($this->website . $this->append));
+        }
         return $this->response ?? (new Client)->get($this->website . $this->append);
     }
 }
