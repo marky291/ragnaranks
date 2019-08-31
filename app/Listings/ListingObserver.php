@@ -21,6 +21,8 @@ class ListingObserver
         $listing->ranking()->save(new ListingRanking([
             'rank' => ListingRanking::query()->max('rank') + 1
         ]));
+
+        $listing->heartbeat()->save(new ListingHeartbeat);
     }
 
     /**

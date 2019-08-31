@@ -3,36 +3,60 @@
         <div v-for="listing in data" :key="listing['id']" :data-index="listing['id']">
             <div class="mb-3 server-card item flex-fill tw-shadow border rounded">
                 <div class="server-card-head image rounded-top" v-bind:style="{ 'background-image': 'url(' + space + '/' + listing['background'] + ')' }"></div>
-                <div @click="openProfile(listing)" class="server-card-head hover:tw-bg-transparent tw-cursor-pointer overlap d-flex">
-                    <div class="left-side d-flex w-75 flex-column align-items-start px-4 py-2 align-self-end">
-                        <h1 class="font-weight-bold mb-0" style="font-size: 26px; color:rgb(243, 243, 243);">{{ listing['name'] }}</h1>
-                        <ul class="tag-list tw-flex tw-flex-wrap tw-text-xs tw-text-green-light" style="font-size:13px; margin-bottom: .5rem; width:inherit">
-                            <li v-for="tag in listing.tags" class="mr-2">#{{ tag }}</li>
-                        </ul>
+                <div @click="openProfile(listing)" class="server-card-head hover:tw-bg-transparent tw-cursor-pointer overlap tw-flex tw-flex-col tw-justify-between">
+                    <div class="tw-text-right">
+                        <div v-if="listing.heartbeat.recorder != 'none'" class="tw-inline-block tw-px-3 tw-py-1 tw-rounded-l" style="font-size:9px; background-color: rgba(247, 247, 247, 0.9)">
+                            <i class="fas fa-circle tw-ml-1" :class="listing.heartbeat.login == 'online' ? 'tw-text-green-500' : 'tw-text-red-500'"></i> Login
+                            <i class="fas fa-circle tw-ml-1" :class="listing.heartbeat.char == 'online' ? 'tw-text-green-500' : 'tw-text-red-500'"></i> Char
+                            <i class="fas fa-circle tw-ml-1" :class="listing.heartbeat.map == 'online' ? 'tw-text-green-500' : 'tw-text-red-500'"></i> Map
+                            <span v-if="listing.heartbeat.players > 0">
+                                || <i class="fas fa-gamepad tw-ml-1" style="font-size:12px"></i> {{ listing.heartbeat.players }}
+                            </span>
+                        </div>
                     </div>
-                    <div class="right-side flex-fill d-flex justify-content-end pr-3" style="padding-bottom:12px;">
-                        <div class="d-flex flex-column justify-content-end mr-3" style="height:100%;">
-                            <h3 class="card-counter-title mb-0 font-weight-bold transparency">Votes</h3>
-                            <span class="card-counter font-weight-bold transparency">{{ listing['ranking']['votes']}}</span>
+                    <div class="tw-flex">
+                        <div class="left-side d-flex w-75 flex-column px-4 py-2 align-self-end">
+                            <h1 class="font-weight-bold mb-0" style="font-size: 26px; color:rgb(243, 243, 243);">{{ listing['name'] }}</h1>
+                            <ul class="tag-list tw-flex tw-flex-wrap tw-text-xs tw-text-green-light" style="font-size:13px; margin-bottom: .5rem; width:inherit">
+                                <li v-for="tag in listing.tags" class="mr-2">#{{ tag }}</li>
+                            </ul>
                         </div>
-                        <div class="d-flex flex-column justify-content-end mr-2" style="height:100%;">
-                            <h3 class="card-counter-title mb-0 font-weight-bold transparency">Clicks</h3>
-                            <span class="card-counter font-weight-bold transparency">{{ listing['ranking']['clicks']}}</span>
-                        </div>
-                        <div class="d-flex flex-column justify-content-end" style="height:100%;">
-                            <img class="tw-w-6 tw-h-6 tw-shadow tw-mr-2" :src="'/img/flags/'+listing.language+'.svg'" alt="">
+                        <div class="right-side flex-fill d-flex justify-content-end pr-3" style="padding-bottom:12px;">
+                            <div class="d-flex flex-column justify-content-end mr-3" style="height:100%;">
+                                <h3 class="card-counter-title mb-0 font-weight-bold transparency">Votes</h3>
+                                <span class="card-counter font-weight-bold transparency">{{ listing['ranking']['votes']}}</span>
+                            </div>
+                            <div class="d-flex flex-column justify-content-end mr-2" style="height:100%;">
+                                <h3 class="card-counter-title mb-0 font-weight-bold transparency">Clicks</h3>
+                                <span class="card-counter font-weight-bold transparency">{{ listing['ranking']['clicks']}}</span>
+                            </div>
+                            <div class="d-flex flex-column justify-content-end" style="height:100%;">
+                                <img class="tw-w-6 tw-h-6 tw-shadow tw-mr-2" :src="'/img/flags/'+listing.language+'.svg'" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="server-card-body align-items-center tw-shadow-inner px-4 py-3 d-flex">
                     <span class="tw-mr-4 tw-text-gray-600" style="font-size:30px">{{ listing['ranking']['rank'] }}</span>
-                    <div class="tw-border-l-2 tw-pl-4 tw-border-grey-light flex-fill pr-3">
-                        <p class="tw-text-gray-700 tw-tracking-tighter tw-font-semibold mb-0" style="font-size:14px">{{ $t('homepage.card.rate.'+listing['config']['title']) }} <small class="tw-text-gray-600">({{ listing['config']['base_exp_rate'] }}x/{{ listing['config']['job_exp_rate'] }}x)</small></p>
+                    <div class="tw-border-l-2 tw-pl-4 tw-border-grey-light pr-3">
+                        <p class="tw-text-gray-700 tw-tracking-tighter tw-font-semibold mb-0" style="font-size:14px">{{ $t('homepage.card.rate.'+listing['config']['title']) }}</p>
                         <p :class="'review-score-'+listing.review_score">{{ $t(reviewScoreMessage(listing.review_score)) }}</p>
+                    </div>
+                    <div class="tw-flex-1 tw-px-2 tw-py-1 tw-text-xs tw-flex tw-justify-around tw-rounded tw-leading-tight tw-text-gray-700">
+                        <div class="">
+                            <p><span class="tw-font-bold">Mode</span>: <span class="tw-text-gray-700 tw-capitalize">{{ listing.mode }} </span></p>
+                            <p><span class="tw-font-bold">Max Base</span>: <span class="tw-text-gray-700">{{ listing.config.max_base_level }}</span></p>
+                            <p><span class="tw-font-bold">Max Job</span>: <span class="tw-text-gray-700">{{ listing.config.max_job_level }}</span></p>
+                        </div>
+                        <div class="">
+                            <p><span class="tw-font-bold">Drop Rate</span>: <span class="tw-text-gray-700">{{ listing.config.item_drop_common }}x</span></p>
+                            <p><span class="tw-font-bold">Base Exp</span>: <span class="tw-text-gray-700">{{ listing.config.base_exp_rate }}x</span></p>
+                            <p><span class="tw-font-bold">Job Exp</span>: <span class="tw-text-gray-700">{{ listing.config.job_exp_rate }}x</span></p>
+                        </div>
                     </div>
                     <div class="tw-w-1/4 tw-flex tw-justify-end tw-flex-1">
                         <a :href="listing.website" rel="noopener" @click="incrementClick(listing)" :name="'Redirect from ragnaranks to '+listing.website" target="_blank" class="at-btn tw-mr-2 tw-shadow at-btn--default at-btn--default--hollow at-btn__text">Website</a>
-                        <a :href="`/listing/${listing.slug}`" :name="'View '+listing.name+' profile on Ragnaranks'" class="at-btn tw-shadow hover:tw-text-white at-btn--primary at-btn__text">Details</a>
+                        <a :href="`/listing/${listing.slug}`" :name="'View '+listing.name+' profile on Ragnaranks'" class="at-btn tw-shadow hover:tw-text-white at-btn--primary at-btn__text" style="display:flex">Expand <img src="/img/icons/magnifyer.gif" alt="Expand the details of this listing" width="18" height="18" class="tw-ml-1"></a>
                     </div>
                 </div>
             </div>
@@ -81,7 +105,7 @@
                 setTimeout(function () {
                     Velocity(
                         el,
-                        { opacity: 1, height: '270px' },
+                        { opacity: 1, height: '280px' },
                         { complete: done }
                     )
                 }, delay)
