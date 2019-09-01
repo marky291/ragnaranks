@@ -5,7 +5,7 @@
                 <div class="server-card-head image rounded-top" v-bind:style="{ 'background-image': 'url(' + space + '/' + listing['background'] + ')' }"></div>
                 <div @click="openProfile(listing)" class="server-card-head hover:tw-bg-transparent tw-cursor-pointer overlap tw-flex tw-flex-col tw-justify-between">
                     <div class="tw-text-right">
-                        <div v-if="listing.heartbeat.recorder != 'none'" class="tw-inline-block tw-px-3 tw-py-1 tw-rounded-l" style="font-size:9px; background-color: rgba(247, 247, 247, 0.9)">
+                        <div v-if="listing.heartbeat.recorder != 'none'" class="tw-shadow tw-inline-block tw-px-3 tw-py-1 tw-rounded-l" style="font-size:9px; background-color: rgba(247, 247, 247, 1)">
                             <i class="fas fa-circle tw-ml-1" :class="listing.heartbeat.login == 'online' ? 'tw-text-green-500' : 'tw-text-red-500'"></i> Login
                             <i class="fas fa-circle tw-ml-1" :class="listing.heartbeat.char == 'online' ? 'tw-text-green-500' : 'tw-text-red-500'"></i> Char
                             <i class="fas fa-circle tw-ml-1" :class="listing.heartbeat.map == 'online' ? 'tw-text-green-500' : 'tw-text-red-500'"></i> Map

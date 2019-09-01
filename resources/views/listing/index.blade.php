@@ -30,12 +30,12 @@
                         @include('sidebar.recent')
                         @include('sidebar.social')
                     </div>
-                    <div class="lg:tw-w-2/3 tw-px-4 tw-w-full" id="listingsContainer" ref="listingsContainer">
+                    <div class="lg:tw-w-2/3 tw-px-4 tw-w-full tw-bg-white" id="listingsContainer" ref="listingsContainer">
                         <filtered-listings :data="listings.data" space="{{ config('filesystems.disks.spaces.domain') }}"></filtered-listings>
-                        <div v-if="listings.meta.total > listings.meta.per_page" class="tw-flex tw-flex-row tw-bg-transparent tw-mb-6 lg:tw-mb-0 tw-items-center tw-py-2 tw-justify-around">
-                            <at-button @click="changePage(1)" size="normal">First</at-button>
+                        <div class="tw-flex tw-flex-row tw-bg-transparent tw-mb-6 lg:tw-mb-0 tw-items-center tw-py-2 tw-justify-around">
+                            <at-button :disabled="listings.meta.current_page <= 1" @click="changePage(listings.meta.current_page - 1)" size="normal" type="primary">« Prev</at-button>
                             <at-pagination @page-change="changePage" :show-quickjump="true" :show-total="true" class="tw-pl-0 tw-mb-0" :current="listings.meta.current_page" :page-size="listings.meta.per_page" :total="listings.meta.total"></at-pagination>
-                            <at-button @click="changePage(listings.meta.last_page)" size="normal">Last</at-button>
+                            <at-button :disabled="listings.meta.current_page >= listings.meta.last_page" @click="changePage(listings.meta.current_page + 1)" size="normal" type="primary">Next</at-button>
                         </div>
                     </div>
 

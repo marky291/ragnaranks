@@ -57962,10 +57962,10 @@ var render = function() {
                             "div",
                             {
                               staticClass:
-                                "tw-inline-block tw-px-3 tw-py-1 tw-rounded-l",
+                                "tw-shadow tw-inline-block tw-px-3 tw-py-1 tw-rounded-l",
                               staticStyle: {
                                 "font-size": "9px",
-                                "background-color": "rgba(247, 247, 247, 0.9)"
+                                "background-color": "rgba(247, 247, 247, 1)"
                               }
                             },
                             [
