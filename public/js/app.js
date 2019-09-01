@@ -15951,6 +15951,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -15994,6 +16028,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     memberSinceDate: function memberSinceDate() {
       return moment__WEBPACK_IMPORTED_MODULE_0___default()(this.review.created_at).format('dddd, MMMM Do YYYY');
+    },
+    formattedDate: function formattedDate() {
+      return moment__WEBPACK_IMPORTED_MODULE_0___default()(this.review.created_at).startOf('day').fromNow();
     },
     postComment: function postComment() {
       var _this = this;
@@ -58443,15 +58480,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("p", { staticClass: "tw-text-white" }, [
                           _c("small", [
-                            _vm._v(
-                              "Posted " +
-                                _vm._s(
-                                  _vm
-                                    .moment(this.review.created_at)
-                                    .startOf("day")
-                                    .fromNow()
-                                )
-                            )
+                            _vm._v("Posted " + _vm._s(_vm.formattedDate()))
                           ])
                         ])
                       ])
@@ -58548,9 +58577,9 @@ var render = function() {
                     _vm._v(
                       ": " +
                         _vm._s(_vm.review.donation_score) +
-                        " (" +
+                        "\n                            (" +
                         _vm._s(this.ratingScore(_vm.review.donation_score)) +
-                        ")"
+                        ")\n                        "
                     )
                   ]),
                   _vm._v(" "),
@@ -58559,9 +58588,9 @@ var render = function() {
                     _vm._v(
                       ": " +
                         _vm._s(_vm.review.update_score) +
-                        " (" +
+                        "\n                            (" +
                         _vm._s(this.ratingScore(_vm.review.update_score)) +
-                        ")"
+                        ")\n                        "
                     )
                   ]),
                   _vm._v(" "),
@@ -58570,9 +58599,9 @@ var render = function() {
                     _vm._v(
                       ": " +
                         _vm._s(_vm.review.class_score) +
-                        " (" +
+                        "\n                            (" +
                         _vm._s(this.ratingScore(_vm.review.class_score)) +
-                        ")"
+                        ")\n                        "
                     )
                   ]),
                   _vm._v(" "),
@@ -58581,9 +58610,9 @@ var render = function() {
                     _vm._v(
                       ": " +
                         _vm._s(_vm.review.item_score) +
-                        " (" +
+                        "\n                            (" +
                         _vm._s(this.ratingScore(_vm.review.item_score)) +
-                        ")"
+                        ")\n                        "
                     )
                   ])
                 ]),
@@ -58594,9 +58623,9 @@ var render = function() {
                     _vm._v(
                       ": " +
                         _vm._s(_vm.review.support_score) +
-                        " (" +
+                        "\n                            (" +
                         _vm._s(this.ratingScore(_vm.review.support_score)) +
-                        ")"
+                        ")\n                        "
                     )
                   ]),
                   _vm._v(" "),
@@ -58605,9 +58634,9 @@ var render = function() {
                     _vm._v(
                       ": " +
                         _vm._s(_vm.review.hosting_score) +
-                        " (" +
+                        "\n                            (" +
                         _vm._s(this.ratingScore(_vm.review.hosting_score)) +
-                        ")"
+                        ")\n                        "
                     )
                   ]),
                   _vm._v(" "),
@@ -58616,9 +58645,9 @@ var render = function() {
                     _vm._v(
                       ": " +
                         _vm._s(_vm.review.content_score) +
-                        " (" +
+                        "\n                            (" +
                         _vm._s(this.ratingScore(_vm.review.content_score)) +
-                        ")"
+                        ")\n                        "
                     )
                   ]),
                   _vm._v(" "),
@@ -58627,9 +58656,9 @@ var render = function() {
                     _vm._v(
                       ": " +
                         _vm._s(_vm.review.event_score) +
-                        " (" +
+                        "\n                            (" +
                         _vm._s(this.ratingScore(_vm.review.event_score)) +
-                        ")"
+                        ")\n                        "
                     )
                   ])
                 ])
@@ -58683,7 +58712,8 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        _vm._s(_vm.validation.firstError("comment.message"))
+                        _vm._s(_vm.validation.firstError("comment.message")) +
+                          "\n                "
                       )
                     ]
                   )
@@ -58723,7 +58753,11 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v(_vm._s(_vm.detailButtonText))]
+                    [
+                      _vm._v(
+                        _vm._s(_vm.detailButtonText) + "\n                    "
+                      )
+                    ]
                   ),
                   _vm._v(" "),
                   _c(
@@ -58747,7 +58781,12 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._v(_vm._s(_vm.commentButtonText))]
+                        [
+                          _vm._v(
+                            _vm._s(_vm.commentButtonText) +
+                              "\n                    "
+                          )
+                        ]
                       )
                     : _vm._e()
                 ],
