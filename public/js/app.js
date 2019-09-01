@@ -15995,9 +15995,6 @@ __webpack_require__.r(__webpack_exports__);
     memberSinceDate: function memberSinceDate() {
       return moment__WEBPACK_IMPORTED_MODULE_0___default()(this.review.created_at).format('dddd, MMMM Do YYYY');
     },
-    formattedDate: function formattedDate() {
-      return moment__WEBPACK_IMPORTED_MODULE_0___default()(this.review.created_at).startOf('day').fromNow();
-    },
     postComment: function postComment() {
       var _this = this;
 
@@ -58164,7 +58161,7 @@ var render = function() {
                       "div",
                       {
                         staticClass:
-                          "tw-border-l-2 tw-pl-4 tw-border-grey-light pr-3"
+                          "tw-border-l-2 tw-pl-4 tw-pr-5 tw-border-grey-light"
                       },
                       [
                         _c(
@@ -58206,8 +58203,12 @@ var render = function() {
                       "div",
                       {
                         staticClass:
-                          "tw-flex-1 tw-px-2 tw-py-1 tw-flex tw-justify-around tw-rounded tw-leading-tight tw-text-gray-700",
-                        staticStyle: { "font-size": "8px" }
+                          "tw-flex-1 tw-pr-12 tw-py-1 tw-flex tw-leading-tight tw-text-gray-700",
+                        staticStyle: {
+                          "font-size": "8px",
+                          "justify-content": "space-evenly",
+                          "border-left": "1px dashed #cacaca"
+                        }
                       },
                       [
                         _c("div", {}, [
@@ -58251,7 +58252,9 @@ var render = function() {
                             ]),
                             _vm._v(": "),
                             _c("span", { staticClass: "tw-text-gray-600" }, [
-                              _vm._v(_vm._s(listing.config.item_drop_common))
+                              _vm._v(
+                                _vm._s(listing.config.item_drop_common) + "x"
+                              )
                             ])
                           ]),
                           _vm._v(" "),
@@ -58261,7 +58264,7 @@ var render = function() {
                             ]),
                             _vm._v(": "),
                             _c("span", { staticClass: "tw-text-gray-600" }, [
-                              _vm._v(_vm._s(listing.config.base_exp_rate))
+                              _vm._v(_vm._s(listing.config.base_exp_rate) + "x")
                             ])
                           ]),
                           _vm._v(" "),
@@ -58271,70 +58274,61 @@ var render = function() {
                             ]),
                             _vm._v(": "),
                             _c("span", { staticClass: "tw-text-gray-600" }, [
-                              _vm._v(_vm._s(listing.config.job_exp_rate))
+                              _vm._v(_vm._s(listing.config.job_exp_rate) + "x")
                             ])
                           ])
                         ])
                       ]
                     ),
                     _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tw-w-1/4 tw-flex tw-justify-end tw-flex-1"
-                      },
-                      [
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "at-btn tw-mr-2 tw-shadow at-btn--default at-btn--default--hollow at-btn__text",
-                            attrs: {
-                              href: listing.website,
-                              rel: "noopener",
-                              name:
-                                "Redirect from ragnaranks to " +
-                                listing.website,
-                              target: "_blank"
-                            },
-                            on: {
-                              click: function($event) {
-                                return _vm.incrementClick(listing)
-                              }
-                            }
+                    _c("div", { staticClass: "tw-flex tw-justify-end" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass:
+                            "at-btn tw-mr-2 tw-shadow at-btn--default at-btn--default--hollow at-btn__text",
+                          attrs: {
+                            href: listing.website,
+                            rel: "noopener",
+                            name:
+                              "Redirect from ragnaranks to " + listing.website,
+                            target: "_blank"
                           },
-                          [_vm._v("Website")]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass:
-                              "at-btn tw-shadow hover:tw-text-white at-btn--primary at-btn__text",
-                            staticStyle: { display: "flex" },
-                            attrs: {
-                              href: "/listing/" + listing.slug,
-                              name:
-                                "View " +
-                                listing.name +
-                                " profile on Ragnaranks"
+                          on: {
+                            click: function($event) {
+                              return _vm.incrementClick(listing)
                             }
-                          },
-                          [
-                            _vm._v("Expand "),
-                            _c("img", {
-                              staticClass: "tw-ml-1",
-                              attrs: {
-                                src: "/img/icons/magnifyer.gif",
-                                alt: "Expand the details of this listing",
-                                width: "18",
-                                height: "18"
-                              }
-                            })
-                          ]
-                        )
-                      ]
-                    )
+                          }
+                        },
+                        [_c("i", { staticClass: "fas fa-globe-americas" })]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass:
+                            "at-btn tw-shadow hover:tw-text-white at-btn--primary at-btn__text",
+                          staticStyle: { display: "flex" },
+                          attrs: {
+                            href: "/listing/" + listing.slug,
+                            name:
+                              "View " + listing.name + " profile on Ragnaranks"
+                          }
+                        },
+                        [
+                          _vm._v("Expand "),
+                          _c("img", {
+                            staticClass: "tw-ml-1",
+                            attrs: {
+                              src: "/img/icons/magnifyer.gif",
+                              alt: "Expand the details of this listing",
+                              width: "18",
+                              height: "18"
+                            }
+                          })
+                        ]
+                      )
+                    ])
                   ]
                 )
               ]
@@ -58449,7 +58443,15 @@ var render = function() {
                         _vm._v(" "),
                         _c("p", { staticClass: "tw-text-white" }, [
                           _c("small", [
-                            _vm._v("Posted " + _vm._s(_vm.formattedDate()))
+                            _vm._v(
+                              "Posted " +
+                                _vm._s(
+                                  _vm
+                                    .moment(this.review.created_at)
+                                    .startOf("day")
+                                    .fromNow()
+                                )
+                            )
                           ])
                         ])
                       ])

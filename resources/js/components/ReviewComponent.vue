@@ -10,7 +10,7 @@
                             </div>
                             <div class="tw-flex tw-flex-col">
                                 <p class="tw-flex-1 tw-font-semibold tw-mb-0 tw-text-white" style="font-size:.9rem">{{ review.user.username }}</p>
-                                <p class="tw-text-white"><small>Posted {{ formattedDate() }}</small></p>
+                                <p class="tw-text-white"><small>Posted {{ moment(this.review.created_at).startOf('day').fromNow() }}</small></p>
                             </div>
                         </div>
                         <div class="tw-flex tw-flex-col tw-self-center tw-rounded-l tw-text-right tw-p-3 tw-bg-white" :class="'bg-'+$parent.$parent.$parent.accent+'-base'">
@@ -114,11 +114,8 @@
                 this.detailedView = !this.detailedView;
             },
             memberSinceDate() {
-                return moment(this.review.created_at).format('dddd, MMMM Do YYYY');
-						},
-						formattedDate()  {
-						    return moment(this.review.created_at).startOf('day').fromNow();
-						},
+                    return moment(this.review.created_at).format('dddd, MMMM Do YYYY');
+            },
 						postComment() {
 							this.comment.post('/review/'+this.review.id+'/comment').then(response => {
 							    if(response.data.success === true) {
