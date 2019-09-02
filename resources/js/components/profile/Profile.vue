@@ -2,27 +2,37 @@
         <div class="tw-shadow" v-if="$parent.profileLoaded">
             <div :class="'use-accent-'+$parent.listing.accent" class="mb-3 server-card item flex-fill border rounded">
                 <div id="profile-card" class="profile-block">
-                    <div class="server-card-head image rounded-top" style="height:350px;" v-bind:style="{ backgroundImage: 'url(' + space + $parent.listing.background + ')' }"></div>
-                    <div class="server-card-head overlap d-flex" style="margin-top:-169px;">
-<!--                        <i class="fas fa-arrow-left tw-text-white tw-text-2xl tw-absolute tw-align-top"></i>-->
-                        <div class="left-side d-flex w-75 flex-column align-items-start px-4 py-2 align-self-end">
-                            <h1 class="text-white font-weight-bold mb-0" style="font-size: 26px; color:rgb(243, 243, 243);">{{ $parent.listing.name }}</h1>
-                            <ul class="tag-list list-unstyled d-flex tw-text-xs tw-text-green-light" style="font-size:13px;">
-                                <li class="mr-2" v-for="tag in $parent.listing.tags">#{{ $t('homepage.tag.'+tag+'.name') }}</li>
-                                <li class="mr-2" v-if="!$parent.listing.tags.length">#TagYourServerFunctionality</li>
-                            </ul>
+                    <div class="server-card-head-large image rounded-top" style="height:350px;" v-bind:style="{ backgroundImage: 'url(' + space + $parent.listing.background + ')' }"></div>
+                    <div class="server-card-head-large hover:tw-bg-transparent tw-cursor-pointer overlap tw-flex tw-flex-col tw-justify-between" style="margin-top:-350px;">
+                        <div class="tw-text-right">
+                            <div v-if="$parent.listing.heartbeat.recorder != 'none'" class="tw-shadow tw-inline-block tw-px-3 tw-py-1 tw-rounded-l" style="font-size:9px; background-color: rgba(247, 247, 247, 1)">
+                                <i class="fas fa-circle tw-ml-1" :class="$parent.listing.heartbeat.login == 'online' ? 'tw-text-green-500' : 'tw-text-red-500'"></i> Login
+                                <i class="fas fa-circle tw-ml-1" :class="$parent.listing.heartbeat.char == 'online' ? 'tw-text-green-500' : 'tw-text-red-500'"></i> Char
+                                <i class="fas fa-circle tw-ml-1" :class="$parent.listing.heartbeat.map == 'online' ? 'tw-text-green-500' : 'tw-text-red-500'"></i> Map
+                                <span v-if="$parent.listing.heartbeat.players > 0">
+                                || <i class="fas fa-gamepad tw-ml-1" style="font-size:12px"></i> {{ $parent.listing.heartbeat.players }}
+                            </span>
+                            </div>
                         </div>
-                        <div class="right-side flex-fill d-flex justify-content-end pr-3" style="padding-bottom:12px;">
-                            <div class="d-flex flex-column justify-content-end tw-mr-3" style="height:100%;">
-                                <h3 class="card-counter-title mb-0 font-weight-bold transparency">Votes</h3>
-                                <span class="card-counter font-weight-bold transparency">{{ $parent.listing.ranking.votes }}</span>
+                        <div class="tw-flex">
+                            <div class="left-side d-flex w-75 flex-column px-4 py-2 align-self-end">
+                                <h1 class="font-weight-bold mb-0" style="font-size: 26px; color:rgb(243, 243, 243);">{{ $parent.listing['name'] }}</h1>
+                                <ul class="tag-list tw-flex tw-flex-wrap tw-text-xs tw-text-green-light" style="font-size:13px; margin-bottom: .5rem; width:inherit">
+                                    <li v-for="tag in $parent.listing.tags" class="mr-2">#{{ tag }}</li>
+                                </ul>
                             </div>
-                            <div class="d-flex flex-column justify-content-end tw-mr-2" style="height:100%;">
-                                <h3 class="card-counter-title mb-0 font-weight-bold transparency">Clicks</h3>
-                                <span class="card-counter font-weight-bold transparency">{{ $parent.listing.ranking.clicks }}</span>
-                            </div>
-                            <div class="d-flex flex-column justify-content-end" style="height:100%;">
-                                <img class="tw-h-6 tw-w-6 tw-shadow" :src="'/img/flags/'+$parent.listing.language+'.svg'" alt="flag">
+                            <div class="right-side flex-fill d-flex justify-content-end pr-3" style="padding-bottom:12px;">
+                                <div class="d-flex flex-column justify-content-end mr-3" style="height:100%;">
+                                    <h3 class="card-counter-title mb-0 font-weight-bold transparency">Votes</h3>
+                                    <span class="card-counter font-weight-bold transparency">{{ $parent.listing['ranking']['votes']}}</span>
+                                </div>
+                                <div class="d-flex flex-column justify-content-end mr-2" style="height:100%;">
+                                    <h3 class="card-counter-title mb-0 font-weight-bold transparency">Clicks</h3>
+                                    <span class="card-counter font-weight-bold transparency">{{ $parent.listing['ranking']['clicks']}}</span>
+                                </div>
+                                <div class="d-flex flex-column justify-content-end" style="height:100%;">
+                                    <img class="tw-w-6 tw-h-6 tw-shadow tw-mr-2" :src="'/img/flags/'+$parent.listing.language+'.svg'" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
