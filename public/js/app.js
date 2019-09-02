@@ -16935,11 +16935,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               });
 
             case 2:
-              if (this.isPageOwner()) {
+              if (this.auth === "") {
+                this.buttons.reviewButton.text = "Login to Review";
+                this.buttons.reviewButton.disabled = true;
+              } else if (this.isPageOwner()) {
                 this.buttons.reviewButton.text = "Cannot review own server";
                 this.buttons.reviewButton.disabled = true;
               } else if (this.listing.canReview === false) {
-                this.buttons.reviewButton.text = "Cannot Review Listing";
+                this.buttons.reviewButton.text = "Listing already reviewed";
                 this.buttons.reviewButton.disabled = true;
               } else if (this.auth !== false) {
                 this.buttons.reviewButton.text = "Create a review";
@@ -16994,7 +16997,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   methods: {
     pushNewReview: function pushNewReview(review) {
       this.listing.reviews.push(review);
-      this.buttons.reviewButton.text = "Cannot Review Listing";
+      this.buttons.reviewButton.text = "Listing already reviewed";
       this.buttons.reviewButton.disabled = true;
       this.setCurrentPage('profile');
     },
