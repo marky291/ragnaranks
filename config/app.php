@@ -24,7 +24,7 @@ return [
     | and that deployments are loading the correct filesource.
     |
     */
-    'version' => '1.2.9',
+    'version' => '1.3.0',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/London',
 
     /*
     |--------------------------------------------------------------------------

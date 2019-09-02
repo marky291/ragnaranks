@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Listings\ListingHeartbeat;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Storage;
 
@@ -39,6 +40,7 @@ class ListingResource extends JsonResource
             'config' => ConfigurationResource::make($this->whenLoaded('configuration')),
             'language' => $this->resource->relationLoaded('language') ? $this->language->name : 'english',
             'reviews' => ReviewResource::collection($this->whenLoaded('reviews')),
+            'heartbeat' => ListingHeartbeatResource::make($this->whenLoaded('heartbeat')),
             'isEditor' => auth()->check() && auth()->user()->can('update', $this->resource),
             'canReview' => auth()->check() && auth()->user()->can('review', $this->resource),
         ];

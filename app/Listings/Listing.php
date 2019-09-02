@@ -51,6 +51,8 @@ use Illuminate\Support\Str;
  * @method static Builder withCount(array $array)
  * @method static count()
  * @method static Builder latest()
+ * @method static chunkById(int $int, \Closure $param)
+ * @property  ListingHeartbeat heartbeat
  */
 class Listing extends Model
 {
@@ -120,6 +122,15 @@ class Listing extends Model
     public function configuration(): HasOne
     {
         return $this->hasOne(ListingConfiguration::class);
+    }
+
+    /**
+     * A listing has one heartbeat status.
+     * @return HasOne
+     */
+    public function heartbeat(): HasOne
+    {
+        return $this->hasOne(ListingHeartbeat::class);
     }
 
     /**

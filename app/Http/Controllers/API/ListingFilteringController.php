@@ -74,7 +74,7 @@ class ListingFilteringController extends Controller
             /*
              * Return a json response resource.
              */
-            return ListingResource::collection($builder->with(['configuration', 'tags', 'ranking', 'language'])->paginate($paginate));
+            return ListingResource::collection($builder->with(['configuration', 'tags', 'ranking', 'language', 'heartbeat'])->paginate($paginate));
         });
     }
 }

@@ -10,11 +10,16 @@ $color-blue: #10a9f5;
 .server-card-head {
   height:170px;
   background: linear-gradient(rgba(247, 247, 247, 0) 0%, rgba(139, 139, 139, 0.21) 32.51%, rgba(0, 0, 0, 0.81) 100%);
+    &:hover {
+        background: linear-gradient(rgba(247, 247, 247, 0) 0%, rgba(139, 139, 139, .21) 32.51%, rgb(82, 32, 172) 100%);
+    }
 }
-.server-card-head:hover {
-    background: linear-gradient(rgba(247, 247, 247, 0) 0%, rgba(139, 139, 139, .21) 32.51%, rgb(82, 32, 172) 100%);
+.server-card-head-large {
+    height:350px;
+    background: linear-gradient(rgba(247, 247, 247, 0) 0%, rgba(139, 139, 139, 0.21) 66.93%, rgba(0, 0, 0, 0.81) 100%);
 }
-.server-card-head.image {
+
+.server-card-head.image, .server-card-head-large.image {
   background-position: center;
   background-size: cover;
 }

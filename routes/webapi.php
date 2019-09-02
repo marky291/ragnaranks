@@ -44,7 +44,7 @@ Route::get('/listing/{name}/available', static function (string $name) {
 
 Route::get('/listing/{listing}', static function (Listing $listing) {
     return cache()->remember("listing:{$listing->name}", 1, static function () use ($listing) {
-        return App\Http\Resources\ListingResource::make($listing->load('ranking', 'screenshots', 'tags', 'configuration', 'language', 'reviews', 'reviews.user', 'reviews.comments'));
+        return App\Http\Resources\ListingResource::make($listing->load('ranking', 'screenshots', 'tags', 'configuration', 'language', 'reviews', 'reviews.user', 'reviews.comments', 'heartbeat'));
     });
 });
 

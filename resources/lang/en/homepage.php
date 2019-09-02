@@ -3,9 +3,9 @@
 
         'card' => [
             'review' => [
-                'positive' => 'with mostly positive reviews',
+                'positive' => 'with excellent reviews',
                 'mediocre' => 'with mixed reviews',
-                'negative' => 'with mainly negative reviews',
+                'negative' => 'with negative reviews',
                 'fresh' => 'with no player reviews',
             ],
             'rate' => [

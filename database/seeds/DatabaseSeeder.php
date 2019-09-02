@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
      */
     public function setup()
     {
-        $this->seed_counts = ['listings' => 3, 'votes' => 3, 'clicks' => 3, 'reviews' => 1, 'screenshots' => 7];
+        $this->seed_counts = ['listings' => 25, 'votes' => 500, 'clicks' => 500, 'reviews' => 1, 'screenshots' => 7];
 
         $this->progress_bar = new ProgressBar($this->command->getOutput(), $this->seed_counts['listings'] + $this->seed_counts['votes'] + $this->seed_counts['clicks'] + $this->seed_counts['reviews']);
 
