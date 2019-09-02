@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "de36fbc6edeacf15f1a841b8833967b0",
+    "content-hash": "e43bdc33fc76cf53052dbffc42cdbac3",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -3447,16 +3447,16 @@
         },
         {
             "name": "spatie/laravel-sitemap",
-            "version": "5.3.0",
+            "version": "5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-sitemap.git",
-                "reference": "1bd689d14e807c3e6b739b89922a3475c3535ece"
+                "reference": "cdf9d8b127e32e2613fcb2ad31d7279808cd6c6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-sitemap/zipball/1bd689d14e807c3e6b739b89922a3475c3535ece",
-                "reference": "1bd689d14e807c3e6b739b89922a3475c3535ece",
+                "url": "https://api.github.com/repos/spatie/laravel-sitemap/zipball/cdf9d8b127e32e2613fcb2ad31d7279808cd6c6d",
+                "reference": "cdf9d8b127e32e2613fcb2ad31d7279808cd6c6d",
                 "shasum": ""
             },
             "require": {
@@ -3491,9 +3491,9 @@
             "authors": [
                 {
                     "name": "Freek Van der Herten",
-                    "role": "Developer",
                     "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be"
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
                 }
             ],
             "description": "Create and generate sitemaps with ease",
@@ -3502,7 +3502,7 @@
                 "laravel-sitemap",
                 "spatie"
             ],
-            "time": "2019-02-27T20:30:30+00:00"
+            "time": "2019-09-02T07:55:06+00:00"
         },
         {
             "name": "spatie/robots-txt",
@@ -7379,5 +7379,8 @@
         "php": "^7.1.3",
         "ext-json": "*"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "platform-overrides": {
+        "php": "7.2.19"
+    }
 }
