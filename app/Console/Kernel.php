@@ -35,7 +35,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('ranking:rebuilder')->daily()->storeOutput()
             ->pingOnSuccess('http://beats.envoyer.io/heartbeat/4Epr9gjSrl5Gzb1')->evenInMaintenanceMode();
 
-        $schedule->command('check:heartbeat')->hourly()
+        $schedule->command('check:heartbeat')->everyTenMinutes()
             ->pingOnSuccess('http://beats.envoyer.io/heartbeat/ZrMaBOf5MHjtKDH');
     }
 
