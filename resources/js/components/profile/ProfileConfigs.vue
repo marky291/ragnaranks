@@ -125,7 +125,7 @@
                 this.commandChoices.push(tag);
             },
             validateNumericField(value) {
-                return Validator.value(value).digit().greaterThan(1).lessThan(2147483648).required();
+                return Validator.value(value).digit().greaterThanOrEqualTo(1).lessThan(2147483648).required();
             },
             validateBooleanField(value) {
                 return Validator.value(value).required();
