@@ -56,7 +56,7 @@
                     </div>
                     <div class="tw-flex tw-justify-end">
                         <a :href="listing.website" rel="noopener" @click="incrementClick(listing)" :name="'Redirect from ragnaranks to '+listing.website" target="_blank" class="at-btn tw-mr-2 tw-shadow at-btn--default at-btn--default--hollow at-btn__text"><i class="fas fa-globe-americas"></i></a>
-                        <a :href="`/listing/${listing.slug}`" :name="'View '+listing.name+' profile on Ragnaranks'" class="at-btn tw-shadow hover:tw-text-white at-btn--primary at-btn__text" style="display:flex">Expand <img src="/img/icons/magnifyer.gif" alt="Expand the details of this listing" width="18" height="18" class="tw-ml-1"></a>
+                        <a :href="`/listing/${listing.slug}`" :name="'View '+listing.name+' profile on Ragnaranks'" class="at-btn tw-shadow hover:tw-text-white at-btn--primary at-btn__text" style="display:flex">Explore</a>
                     </div>
                 </div>
             </div>
