@@ -281,11 +281,11 @@ export default {
                     "fresh": "with no player reviews"
                 },
                 "rate": {
-                    "official-rate": "Official Rate Server",
-                    "low-rate": "Low Rate Server",
-                    "mid-rate": "Mid Rate Server",
-                    "high-rate": "High Rate Server",
-                    "super-high-rate": "Super High Rate Server"
+                    "official-rate": "Official Rate",
+                    "low-rate": "Low Rate",
+                    "mid-rate": "Mid Rate",
+                    "high-rate": "High Rate",
+                    "super-high-rate": "Super High Rate"
                 }
             },
             "rate": {
