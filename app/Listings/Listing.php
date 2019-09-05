@@ -70,7 +70,7 @@ class Listing extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'background', 'mode', 'description', 'accent', 'website', 'episode',
+        'name', 'background', 'mode', 'description', 'accent', 'website', 'episode', 'review_score',
     ];
 
     /**
