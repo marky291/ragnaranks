@@ -4,6 +4,7 @@ namespace App;
 
 use Carbon\Carbon;
 use App\Listings\Listing;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
 use App\Interactions\Review;
 use App\Jobs\AssignRoleToUser;
@@ -28,6 +29,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property bool isSubscribedAllEmails
  * @property string api_token
  * @method static first()
+ * @method static Builder role(string $string)
  */
 class User extends Authenticatable implements MustVerifyEmail
 {

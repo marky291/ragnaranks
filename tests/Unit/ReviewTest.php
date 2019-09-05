@@ -309,4 +309,22 @@ class ReviewTest extends TestCase
 
         $this->assertEquals(3.1, $review->average_score);
     }
+
+    public function test_review_updated_listing_review_score_when_created()
+    {
+        $review = factory(Review::class)->create([
+            'donation_score' => 3,
+            'update_score' => 5,
+            'class_score' => 1,
+            'item_score' => 5,
+            'support_score' => 1,
+            'hosting_score' => 1,
+            'content_score' => 5,
+            'event_score' => 4,
+            'user_id' => factory(User::class)->create()->id,
+            'listing_id' => factory(Listing::class)->create()->id,
+        ]);
+
+        $this->assertEquals(3.1, $review->listing->review_score);
+    }
 }

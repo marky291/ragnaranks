@@ -4,9 +4,10 @@ namespace App\Notifications;
 
 use App\Listings\Listing;
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
 
-class ReviewPublished extends Notification
+class ReviewPublished extends Notification implements ShouldQueue
 {
     use Queueable;
 

@@ -2,29 +2,28 @@
 
 namespace App\Notifications;
 
-use App\User;
+use App\Listings\Listing;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class NewUserJoinedNotification extends Notification implements ShouldQueue
+class NewListingCreatedNotification extends Notification implements ShouldQueue
 {
     use Queueable;
-
     /**
-     * @var User
+     * @var Listing
      */
-    private $user;
+    private $listing;
 
     /**
      * Create a new notification instance.
      *
-     * @param User $user
+     * @param Listing $listing
      */
-    public function __construct(User $user)
+    public function __construct(Listing $listing)
     {
-        $this->user = $user;
+        $this->listing = $listing;
     }
 
     /**
@@ -47,9 +46,9 @@ class NewUserJoinedNotification extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('New member has signed up!')
-                    ->line('Awesome, as an admin you get this unique email letting you know that a user has joined!')
-                    ->line("Username: {$this->user->username}, Created: {$this->user->created_at}.");
+            ->subject('New Listing Posted!')
+            ->line('Good News, as an admin you get this unique email letting you know that a new listing has posted!')
+            ->line("Listing: {$this->listing->name}, Created: {$this->listing->created_at}.");
     }
 
     /**
