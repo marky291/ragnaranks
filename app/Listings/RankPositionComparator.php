@@ -3,6 +3,8 @@
 namespace App\Listings;
 
 use App\Listings\ListingRanking;
+use Illuminate\Bus\Queueable;
+use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -11,6 +13,15 @@ use Illuminate\Contracts\Queue\ShouldQueue;
  */
 class RankPositionComparator implements ShouldQueue
 {
+    use Queueable, SerializesModels;
+
+    /**
+     * Delete the job if its models no longer exist.
+     *
+     * @var bool
+     */
+    public $deleteWhenMissingModels = true;
+
     /**
      * Handle the event.
      *
