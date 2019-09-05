@@ -89,6 +89,6 @@ class RegisterController extends Controller
     {
         Notification::send($user, new WelcomeNotification($user));
 
-        Notification::send(User::first(), new NewUserJoinedNotification($user));
+        Notification::send(User::role('admin')->get(), new NewUserJoinedNotification($user));
     }
 }

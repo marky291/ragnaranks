@@ -4,9 +4,10 @@ namespace App\Notifications;
 
 use App\Report;
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
 
-class ReportedReviewRemoved extends Notification
+class ReportedReviewRemoved extends Notification implements ShouldQueue
 {
     use Queueable;
 

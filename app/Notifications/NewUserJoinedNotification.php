@@ -4,12 +4,14 @@ namespace App\Notifications;
 
 use App\User;
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class NewUserJoinedNotification extends Notification
+class NewUserJoinedNotification extends Notification implements ShouldQueue
 {
     use Queueable;
+
     /**
      * @var User
      */
@@ -45,9 +47,9 @@ class NewUserJoinedNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('New member has joined!')
-                    ->line('Just to let you know of some current user activity')
-                    ->line("{$this->user->username} has just joined.");
+                    ->subject('New member has signed up!')
+                    ->line('Awesome, as an admin you get this unique email letting you know that a user has joined!')
+                    ->line("Username: {$this->user->username}, Created: {$this->user->created_at}.");
     }
 
     /**

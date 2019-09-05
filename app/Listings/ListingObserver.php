@@ -2,6 +2,10 @@
 
 namespace App\Listings;
 
+use App\Notifications\NewListingCreatedNotification;
+use App\Notifications\NewUserJoinedNotification;
+use App\User;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -18,11 +22,16 @@ class ListingObserver
      */
     public function created(Listing $listing): void
     {
+        // create a listing ranking in the database.
         $listing->ranking()->save(new ListingRanking([
             'rank' => ListingRanking::query()->max('rank') + 1
         ]));
 
+        // create an heartbeat for the listing.
         $listing->heartbeat()->save(new ListingHeartbeat);
+
+        // email about new listings being created to all admins.
+        Notification::send(User::role('admin')->get(), new NewListingCreatedNotification($listing));
     }
 
     /**
