@@ -19,7 +19,7 @@
         "league/flysystem-aws-s3-v3": "^1.0",
         "martinlindhe/laravel-vue-i18n-generator": "^0.1.39",
         "predis/predis": "^1.1",
-        "sentry/sentry-laravel": "1.1.0",
+        "sentry/sentry-laravel": "1.2.0",
         "spatie/laravel-permission": "^2.37",
         "spatie/laravel-sitemap": "^5.3",
         "timehunter/laravel-google-recaptcha-v3": "~2.2.19"
