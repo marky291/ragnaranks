@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Heartbeats;
-
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\CurlHandler;

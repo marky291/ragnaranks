@@ -1,12 +1,16 @@
 <?php
 
+use App\User;
+use Illuminate\Contracts\Auth\Authenticatable;
+
 /**
  * /servers/{exp_group}/{mode}/{sort}/{orderBy}.
  *
  * @param string $exp_group
  * @param string $mode
+ * @param string $tags
  * @param string $sorting
- * @param string $orderBy
+ * @param int $paginate
  * @return string
  */
 function filter_query($exp_group = 'all', $mode = 'any', $tags = 'any', $sorting = 'all', $paginate = 7)
@@ -28,7 +32,7 @@ function trend_calculate()
 }
 
 /**
- * @return \Illuminate\Contracts\Auth\Authenticatable|\App\User
+ * @return Authenticatable|User
  */
 function user()
 {
