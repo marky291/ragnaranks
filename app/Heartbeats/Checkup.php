@@ -43,9 +43,6 @@ abstract class Checkup
      */
     public function response()
     {
-        if ($this->website == 'https://www.facebook.com/Spark-Ragnarok-Online-2442046062747934/') {
-            return false;
-        }
-        return $this->response ?? (new Client)->get($this->website . $this->append);
+        return $this->response ?? (new Client)->get($this->website . $this->append, ['connect_timeout' => 3.14]);
     }
 }

@@ -8,6 +8,7 @@ use GuzzleHttp\Exception\RequestException;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 class CheckHeartbeats extends Command
 {
@@ -34,9 +35,16 @@ class CheckHeartbeats extends Command
     {
         $this->info('Checkup being carried out');
 
-        Listing::chunkById(100, static function (Collection $listings) {
+        $console = $this;
+
+        Listing::chunkById(100, static function (Collection $listings) use ($console) {
             /** @var Listing $listing */
-            foreach ($listings as $listing) {
+            foreach ($listings as $listing)
+            {
+                $executionStartTime = microtime(true);
+
+                $console->info("Running heartbeat on '{$listing->name}' using website '{$listing->website}'");
+
                 $heartbeat = new FluxControlPanelStatus($listing->website);
 
                 try {
@@ -51,11 +59,20 @@ class CheckHeartbeats extends Command
                         ]);
                     }
                 } catch (RequestException $e) {
+                    $console->warn("Ignored {$listing->name} using website {$listing->website}");
                     Log::warning("An error occurred checking heartbeat for {$listing->website}: {$e->getMessage()}");
                 }
+
+                // store time we completed.
+                $executionEndTime = microtime(true);
+
+                //The result will be in seconds and milliseconds.
+                $seconds = round($executionEndTime - $executionStartTime, 2);
+
+                $console->info("Completed in {$seconds} seconds");
             }
         });
 
-        return;
+        $this->info('Completed heartbeat checkup successfully');
     }
 }
