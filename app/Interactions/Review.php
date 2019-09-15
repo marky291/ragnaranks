@@ -28,13 +28,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $event_score
  * @property Carbon $updated_at
  * @property Carbon $created_at
- * @method static Collection latest()
+ * @method static Builder latest()
  * @property Listing listing
  * @method static Collection publishedBy($publisher)
  * @method static first()
  * @property int $average_score
  * @property-read User $user
- * @mixin \Eloquent
+ * @property int totalScore
+ * @property int percentScore
  */
 class Review extends Interaction
 {
@@ -87,5 +88,25 @@ class Review extends Interaction
     public function scopePublishedBy(Builder $query, User $user): Builder
     {
         return $query->where('user_id', $user->id);
+    }
+
+    /**
+     * Get a total count of all the stars giving.
+     *
+     * @return float|int
+     */
+    public function getTotalScoreAttribute()
+    {
+        return array_sum([$this->donation_score, $this->update_score, $this->class_score, $this->item_score, $this->support_score, $this->hosting_score, $this->content_score, $this->event_score]);
+    }
+
+    /**
+     * Get a percentage based score.
+     *
+     * @return float
+     */
+    public function getPercentScoreAttribute(): float
+    {
+        return ceil($this->totalScore * 2.5);
     }
 }

@@ -15,17 +15,14 @@
         <link href="@yield('canonical', '')" rel="canonical">
         <link rel="stylesheet" href="{{ url('css/app.css') }}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+{{--        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">--}}
     </head>
 
     <body>
         <div id="app">
             @include('layouts.header')
-
             @yield('content')
-
             @include('layouts.footer')
-
         </div>
 
         <script src="{{ mix('/js/app.js') }}"></script>
@@ -44,6 +41,7 @@
 
             ga('send', 'pageview');
         </script>
+        <script src="https://kit.fontawesome.com/fd57eb34f0.js"></script>
         <script async src="https://www.google-analytics.com/analytics.js"></script>
         <script async src="https://ragnabox.fra1.digitaloceanspaces.com/assets/autotrack-2.4.1.js"></script>
 {{--        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>--}}

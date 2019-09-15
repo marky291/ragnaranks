@@ -57,6 +57,9 @@ $accents: (
 	.bg-#{$key}-#{$label} {
 	  background-color: $hex;
 	}
+    .bc-#{$key}-#{$label} {
+        border-color: $hex;
+    }
   }
   .use-accent-#{$key} {
 	.markdown-compiled {

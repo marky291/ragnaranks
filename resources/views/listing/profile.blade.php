@@ -23,6 +23,7 @@
 						@include('sidebar.config')
 						<div v-if="!listing.isEditor">
 							@include('sidebar.recent')
+                            @include('sidebar.reviews')
 							@include('sidebar.social')
 						</div>
 					</div>

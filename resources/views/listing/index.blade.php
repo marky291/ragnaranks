@@ -28,6 +28,7 @@
 {{--                        @include('sidebar.paginate')--}}
                         @include('sidebar.filter')
                         @include('sidebar.recent')
+                        @include('sidebar.reviews')
                         @include('sidebar.social')
                     </div>
                     <div class="lg:tw-w-2/3 tw-px-4 tw-w-full" id="listingsContainer" ref="listingsContainer">

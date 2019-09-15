@@ -251,6 +251,41 @@ class ReviewTest extends TestCase
         $this->assertEquals(10, $review->event_score);
     }
 
+    public function test_it_has_a_total_score()
+    {
+        $review = factory(Review::class)->create([
+            'donation_score' => 3,
+            'update_score' => 5,
+            'class_score' => 1,
+            'item_score' => 5,
+            'support_score' => 1,
+            'hosting_score' => 1,
+            'content_score' => 5,
+            'event_score' => 4,
+            'user_id' => factory(User::class)->create()->id,
+            'listing_id' => factory(Listing::class)->create()->id,
+        ]);
+
+        $this->assertEquals(25, $review->totalScore);
+    }
+
+    public function test_it_has_a_percentage_score()
+    {
+        $review = factory(Review::class)->create([
+            'donation_score' => 3,
+            'update_score' => 5,
+            'class_score' => 1,
+            'item_score' => 5,
+            'support_score' => 1,
+            'hosting_score' => 1,
+            'content_score' => 5,
+            'event_score' => 4,
+            'user_id' => factory(User::class)->create()->id,
+            'listing_id' => factory(Listing::class)->create()->id,
+        ]);
+
+        $this->assertEquals(63, $review->percentScore);
+    }
     /**
      * @test
      */
