@@ -1,5 +1,10 @@
 $color-blue: #10a9f5;
 
+a.microcard:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
 .server-card {
   //width: 750px;
   background: rgba(255, 255, 255, 0.96);
