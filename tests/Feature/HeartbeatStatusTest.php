@@ -13,7 +13,7 @@ class HeartbeatStatusTest extends TestCase
 
     public function test_flux_control_xml_response()
     {
-        $checkup = new FluxControlPanelStatus('http://oracle-ro.com');
+        $checkup = new FluxControlPanelStatus('https://xilero.net');
 
         $this->assertTrue($checkup->exists());
     }

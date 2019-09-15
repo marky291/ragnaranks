@@ -39,6 +39,6 @@ class ReviewObserver
      */
     public function created(Review $review): void
     {
-        $review->listing->update(['review_score' => round($review->listing->reviews()->avg('average_score'))]);
+        $review->listing->update(['review_score' => $review->listing->reviews()->avg('average_score')]);
     }
 }

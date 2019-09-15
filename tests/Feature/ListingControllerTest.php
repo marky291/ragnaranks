@@ -24,7 +24,9 @@ class ListingControllerTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        $listing = $this->createListing([], 0, 0);
+        $listing = factory(Listing::class)->create();
+
+        $listing->configuration()->save(factory(ListingConfiguration::class)->make());
 
         $response = $this->get("/listing/{$listing->slug}");
 
