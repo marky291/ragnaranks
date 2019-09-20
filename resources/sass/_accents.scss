@@ -60,6 +60,9 @@ $accents: (
     .bc-#{$key}-#{$label} {
         border-color: $hex;
     }
+    .text-#{$key}-#{$label} {
+        color: $hex !important;
+    }
   }
   .use-accent-#{$key} {
 	.markdown-compiled {

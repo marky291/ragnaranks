@@ -52,6 +52,7 @@
         },
         methods: {
             sendVote() {
+                console.log('called vote');
                 axios.post(`/listing/${this.listingSlug}/votes`, {captchaV3:this.gRecaptchaResponse}).then((success) => {
                     this.stats.concluded++;
                     this.$emit('vote:created');

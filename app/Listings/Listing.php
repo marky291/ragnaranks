@@ -101,7 +101,7 @@ class Listing extends Model
      */
     public function scopeRelations(Builder $builder): Builder
     {
-        return $builder->with(['configuration', 'tags', 'ranking', 'language']);
+        return $builder->with(['configuration', 'tags', 'ranking', 'language', 'heartbeat']);
     }
 
     /**

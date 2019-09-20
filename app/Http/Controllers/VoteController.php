@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Jobs\AssignRoleToUser;
 use Illuminate\Http\JsonResponse;
 use App\Listings\ListingVotedEvent;
+use Illuminate\Support\Facades\Log;
 use TimeHunter\LaravelGoogleReCaptchaV3\Facades\GoogleReCaptchaV3;
 
 class VoteController extends Controller
@@ -25,6 +26,8 @@ class VoteController extends Controller
 
         if ($captcha->isSuccess()) {
             $this->processVote($listing, $captcha);
+        } else {
+            Log::warning('Captcha Failure was issued.' . now());
         }
 
         return response()->json([

@@ -54,7 +54,7 @@ class ListingController extends Controller
      */
     public function create(Listing $listing) : View
     {
-        return view('listing.profile')->with(['slug' => 'defaults']);
+        return view('listing.show')->with(['slug' => 'defaults']);
     }
 
     /**
@@ -112,7 +112,7 @@ class ListingController extends Controller
      */
     public function show(Listing $listing)
     {
-        return view('listing.profile')->with(['slug' => $listing->slug, 'name' => $listing->name, 'route' => route('listing.show', $listing)]);
+        return view('listing.show')->with(['listing' => $listing]);
     }
 
     /**

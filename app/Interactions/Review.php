@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use App\ReviewComment;
 use App\Listings\Listing;
 use Illuminate\Database\Eloquent\Builder;
-use BrianFaust\Reportable\Traits\HasReports;
+use Artisanry\Reportable\Traits\HasReports;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -30,7 +30,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property Carbon $created_at
  * @method static Builder latest()
  * @property Listing listing
- * @method static Collection publishedBy($publisher)
+ * @method static Review|Builder publishedBy($publisher)
+ * @method static Review|Builder forListing($listing)
  * @method static first()
  * @property int $average_score
  * @property-read User $user
@@ -88,6 +89,16 @@ class Review extends Interaction
     public function scopePublishedBy(Builder $query, User $user): Builder
     {
         return $query->where('user_id', $user->id);
+    }
+
+    /**
+     * @param Builder $query
+     * @param Listing $listing
+     * @return Builder
+     */
+    public function scopeForListing(Builder $query, Listing $listing): Builder
+    {
+        return $query->where('listing_id', $listing->id);
     }
 
     /**

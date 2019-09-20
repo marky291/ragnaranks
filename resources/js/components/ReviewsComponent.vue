@@ -49,9 +49,9 @@
             ReviewsExist() {
                 return count(this.collection);
             },
-						hasReviews() {
-								return false;
-						}
+            hasReviews() {
+                    return false;
+            }
         }
     }
 

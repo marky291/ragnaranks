@@ -1,10 +1,10 @@
-@extends('layouts.frame')
+@extends('layouts.master')
 
 @section('title', 'Ragnaranks - Login')
 @section('description', 'Sign in to your account and access even more features')
 @section('canonical', route('login'))
 
-@section('content')
+@section('wrapper')
 
     <div class="shadow-inner">
         <div class="container">

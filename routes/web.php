@@ -29,9 +29,9 @@ Route::resource('review.comment', 'ReviewCommentController', ['middleware'=>['au
 Route::resource('review.report', 'ReviewReportController', ['middleware' => ['auth', 'can:moderate']])->only([
     'store',
 ]);
-Route::resource('listing.reviews', 'ReviewController', ['middleware' => ['auth']])->only([
-    'store', 'update', 'destroy', 'report',
-]);
+//Route::resource('listing.reviews', 'ReviewController', ['middleware' => ['auth']])->only([
+//    'create', 'store', 'update', 'destroy', 'report',
+//]);
 
 // default index page.
 Route::get('/')->uses('ListingController@index')->name('index');
@@ -48,5 +48,7 @@ Route::post('/notifications/unread/{notification}')->middleware('auth')->uses('M
 // listing votes controllers.
 Route::resource('listing.votes', 'VoteController')->only(['store']);
 Route::resource('listing.clicks', 'ClickController')->only(['store']);
+Route::resource('listing.reviews', 'ListingReviewController')->only(['index']);
+
 
 Route::post('/config/parse')->uses('ConfigController@parse');

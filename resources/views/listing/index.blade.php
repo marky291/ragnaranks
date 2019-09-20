@@ -1,10 +1,10 @@
-@extends('layouts.frame')
+@extends('layouts.master')
 
 @section('title', 'Ragnaranks - Ragnarok Private Server Listings')
 @section('description', 'Browse hundreds of listings using our unique ranking algorithm, with advanced filtering, reviews & voting we will find your next perfect server.')
 @section('canonical', route('index'))
 
-@section('content')
+@section('wrapper')
     <homepage inline-template>
         <div class="shadow-inner">
             <div class="tw-container tw-pt-5" id="listingView">

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
 
 /**
@@ -73,8 +74,8 @@ class ConfigParser
         $this->configs->each(function ($item, $key) {
 
             // Logic for multiplier
-            if (str_contains($key, '_min')) {
-                $config = str_replace_first('_min', '', $key);
+            if (Str::contains($key, '_min')) {
+                $config = Str::replaceFirst('_min', '', $key);
                 $rateMin = $this->configs->get($config.'_min');
                 $rateMax = $this->configs->get($config.'_max');
                 $this->configs->put($config, $rateMin * $rateMax / 10000);

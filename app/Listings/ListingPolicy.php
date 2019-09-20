@@ -9,6 +9,11 @@ class ListingPolicy
 {
     use HandlesAuthorization;
 
+    public function viewAny(?User $user)
+    {
+        return true;
+    }
+
     /**
      * Determine whether the user can view the listing.
      *
