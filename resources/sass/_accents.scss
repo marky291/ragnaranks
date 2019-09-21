@@ -63,6 +63,15 @@ $accents: (
     .text-#{$key}-#{$label} {
         color: $hex !important;
     }
+    .selector-item.active.#{$key}-#{$label}, .selector-item.active.#{$key}-#{$label}:hover {
+        background: rgba($hex, 0.05);
+        border-left: 4px solid $hex;
+        .title { color: $hex; }
+        .icon { color: $hex; }
+    }
+    .selector-item.#{$key}-#{$label}:hover {
+        border-left: 4px solid #525860;
+    }
   }
   .use-accent-#{$key} {
 	.markdown-compiled {

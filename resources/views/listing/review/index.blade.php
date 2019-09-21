@@ -118,6 +118,6 @@
             </div>
         @endforeach
     @else
-        No Reviews Found
+        <h2>No Reviews Found</h2>
     @endif
 @endsection
