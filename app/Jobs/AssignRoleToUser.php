@@ -44,6 +44,8 @@ class AssignRoleToUser implements ShouldQueue
      */
     public function handle()
     {
-        $this->user->assignRole(Role::findByName($this->role));
+        if ($this->user->hasRole('player') == false) {
+            $this->user->assignRole(Role::findByName($this->role));
+        }
     }
 }

@@ -73,8 +73,8 @@
 {{--<h2 class="heading">Player Reviews</h2>--}}
 
     {{--  If the player has not reviewed yet lets let them know they can  --}}
-    @if (auth()->check())
-        <a href="" class="text-{{$listing->accent}}-dark">
+    @can ('create', [new App\Interactions\Review, $listing])
+        <a href="{{ route('listing.reviews.create', $listing) }}" class="text-{{$listing->accent}}-dark">
             <div class="tw-mt-6 tw-flex tw-flex-row tw-items-center tw-shadow-lg tw-p-4 tw-rounded bc-{{$listing->accent}}-base tw-border-t-2">
                 <div class="tw-rounded-full tw-h-10 tw-w-10 tw-flex tw-avatar-circle tw-items-center tw-justify-center tw-mr-3 tw-bg-white">
                     <img class="border hover:tw-border-solid hover:tw-border-grey hover:tw-shadow tw-rounded-full tw-avatar-circle tw-h-10 tw-w-10" src="{{ auth()->user()->avatarUrl }}" alt="">
@@ -87,7 +87,8 @@
         </a>
     @endif
 
-        @foreach($reviews as $review)
+    @foreach($reviews as $review)
+        <review inline-template>
             <div class="review-item bc-{{$listing->accent}}-base">
                 <div class="content left tw-flex-1 tw-flex tw-flex-col">
                     <div class="head tw-flex tw-flex-row tw-mb-4">
@@ -99,7 +100,7 @@
                                 <h2 class="tw-font-bold tw-mb-1 tw-text-lg">{{ $review->user->username }}</h2>
                             </div>
                             <div class="">
-                                <at-rate :show-text="false"  size="small" value="{{ $review->average_score }}" :count="{{ $review->average_score }}" disabled></at-rate>
+                                <at-rate :show-text="false"  size="small" :value="{{ $review->average_score }}" :count="{{ $review->average_score }}" disabled></at-rate>
                             </div>
                         </div>
                     </div>
@@ -109,14 +110,21 @@
                 </div>
                 <div class="tools">
                     <div class="tw-flex">
-                        <p class="tw-text-gray-700"><i class="far fa-flag"></i> Report</p>
+                        <button><i class="far fa-flag"></i> Report</button>
+                        @can('delete', $review)
+                            <button @click="destroy('{{route('listing.reviews.destroy', [$listing, $review])}}')"><i class="far fa-trash-alt"></i> Delete</button>
+                        @endcan
+                        @can('edit', $review)
+                            <button @click="edit('{{route('listing.reviews.edit', [$listing, $review])}}')"><i class="fas fa-user-edit"></i> Edit</button>
+                        @endcan
                     </div>
                     <div class="tw-text-right">
                         <p style="font-size:15px;">View Breakdown</p>
                     </div>
                 </div>
             </div>
-        @endforeach
+        </review>
+    @endforeach
     @else
         <h2>No Reviews Found</h2>
     @endif

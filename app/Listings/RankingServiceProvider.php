@@ -2,6 +2,8 @@
 
 namespace App\Listings;
 
+use App\Interactions\Review;
+use App\Policies\ReviewListingPolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 

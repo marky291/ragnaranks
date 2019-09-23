@@ -37,6 +37,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property-read User $user
  * @property int totalScore
  * @property int percentScore
+ * @property int user_id
  */
 class Review extends Interaction
 {
@@ -51,6 +52,23 @@ class Review extends Interaction
      * @var array
      */
     protected $guarded = [];
+
+    /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'message' => '',
+        'donation_score' => 0,
+        'update_score' => 0,
+        'class_score' => 0,
+        'item_score' => 0,
+        'support_score' => 0,
+        'hosting_score' => 0,
+        'content_score' => 0,
+        'event_score' => 0,
+    ];
 
     /**
      * @return BelongsTo

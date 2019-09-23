@@ -6,7 +6,7 @@
             <div class="tw-pb-5 tw-pt-2 tw-flex">
                 <div class="tw-hidden lg:tw-block tw-px-3 lg:tw-w-1/3" id="sidebar">
                     @include('sidebar.message')
-                    @if (basename(request()->getUri()) != 'create')
+                    @if (request()->segment(3) != '')
                         @include('sidebar.selector')
                     @endif
                     @include('sidebar.config')

@@ -94,9 +94,7 @@ class ListingController extends Controller
         }, 5);
 
         // set the user to a creator role.
-        if (auth()->user()->hasRole('creator') == false) {
-            AssignRoleToUser::dispatch(auth()->user(), 'creator');
-        }
+        AssignRoleToUser::dispatch(auth()->user(), 'creator');
 
         // return a response and a redirect link to next page.
         return response()->json(['success' => true, 'redirect' => route('listing.index')]);

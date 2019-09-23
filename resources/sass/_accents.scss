@@ -70,7 +70,7 @@ $accents: (
         .icon { color: $hex; }
     }
     .selector-item.#{$key}-#{$label}:hover {
-        border-left: 4px solid #525860;
+        border-left: 4px solid rgba(($hex), 0.7);
     }
   }
   .use-accent-#{$key} {

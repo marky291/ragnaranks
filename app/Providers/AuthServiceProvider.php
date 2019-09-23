@@ -2,8 +2,11 @@
 
 namespace App\Providers;
 
+use App\Interactions\Review;
 use App\Listings\Listing;
 use App\Listings\ListingPolicy;
+use App\Policies\ReviewListingPolicy;
+use App\Reviews\ReviewPolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -16,6 +19,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         Listing::class => ListingPolicy::class,
+        Review::class => ReviewPolicy::class
     ];
 
     /**

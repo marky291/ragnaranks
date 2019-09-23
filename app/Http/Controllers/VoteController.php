@@ -52,9 +52,7 @@ class VoteController extends Controller
 
             ListingVotedEvent::dispatch($listing);
 
-            if (auth()->check() && auth()->user()->hasRole('player') == false) {
-                AssignRoleToUser::dispatch(auth()->user(), 'player');
-            }
+            AssignRoleToUser::dispatch(auth()->user(), 'player');
 
             return response()->json([
                 'success' => true,
