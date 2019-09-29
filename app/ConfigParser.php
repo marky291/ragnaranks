@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Support\Str;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 
 /**
@@ -63,7 +64,7 @@ class ConfigParser
         /*
          * first we get all the values into a readable format.
          */
-        foreach (array_flatten($this->matches) as $line) {
+        foreach (Arr::flatten($this->matches) as $line) {
             $segment = explode(': ', $line);
             $this->configs->put($segment[0], (int) $segment[1]);
         }

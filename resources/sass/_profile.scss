@@ -40,10 +40,21 @@
             @apply tw-p-4;
         }
         .tools {
-            color: #8165a8;
-            font-weight: 600;
             border-top: 1px solid #efeeee;
             @apply tw-px-6 tw-flex tw-py-4 tw-items-center;
+
+            .tw-text-right {
+                color: #8165a8;
+                font-weight: 600;
+            }
+
+            .tool-button {
+                @apply tw-mr-4 tw-text-xs tw-text-gray-700;
+
+                &:hover {
+                    @apply tw-text-gray-900 tw-underline;
+                }
+            }
 
             > div {
                 @apply tw-flex-1;

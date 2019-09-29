@@ -2,10 +2,10 @@
 
 use App\User;
 use App\ReviewComment;
+use App\Reviews\Review;
 use App\Interactions\Vote;
 use App\Interactions\Click;
 use Illuminate\Support\Str;
-use App\Interactions\Review;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 

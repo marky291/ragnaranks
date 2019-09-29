@@ -2,12 +2,13 @@
 
 namespace Tests\Unit;
 
+use App\Reviews\ReviewCollection;
 use App\User;
 use Carbon\Carbon;
 use Tests\TestCase;
 use App\ReviewComment;
 use App\Listings\Listing;
-use App\Interactions\Review;
+use App\Reviews\Review;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -19,10 +20,7 @@ class ReviewTest extends TestCase
 {
     use RefreshDatabase, WithFaker;
 
-    /**
-     * @test
-     */
-    public function it_belongs_to_a_listing()
+    public function test_it_belongs_to_a_listing()
     {
         /** @var Review $review */
         $listing = factory(Listing::class)->create();
@@ -361,5 +359,56 @@ class ReviewTest extends TestCase
         ]);
 
         $this->assertEquals(3.1, $review->listing->review_score);
+    }
+
+    public function test_it_returns_a_review_collection()
+    {
+        $reviews = Review::all();
+
+        $this->assertInstanceOf(ReviewCollection::class, $reviews);
+    }
+
+    public function test_it_can_return_the_review_star_count()
+    {
+        $review = factory(Review::class)->create([
+            'donation_score' => 3,
+            'update_score' => 5,
+            'class_score' => 1,
+            'item_score' => 5,
+            'support_score' => 4,
+            'hosting_score' => 4,
+            'content_score' => 5,
+            'event_score' => 4,
+            'user_id' => factory(User::class)->create()->id,
+            'listing_id' => factory(Listing::class)->create()->id,
+        ]);
+
+        /** @var ReviewCollection $reviews */
+        $reviews = Review::all();
+
+        $this->assertIsArray($reviews->countAverageScores());
+
+        $this->assertEquals(1, $reviews->countAverageScores()[4]);
+    }
+
+    public function test_it_can_get_review_percentage_score()
+    {
+        $review = factory(Review::class)->create([
+            'donation_score' => 3,
+            'update_score' => 5,
+            'class_score' => 1,
+            'item_score' => 5,
+            'support_score' => 4,
+            'hosting_score' => 4,
+            'content_score' => 5,
+            'event_score' => 4,
+            'user_id' => factory(User::class)->create()->id,
+            'listing_id' => factory(Listing::class)->create()->id,
+        ]);
+
+        /** @var ReviewCollection $reviews */
+        $reviews = Review::all();
+
+        $this->assertEquals(100, $reviews->countPercentScores()[4]);
     }
 }

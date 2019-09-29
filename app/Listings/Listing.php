@@ -5,9 +5,9 @@ namespace App\Listings;
 use App\Tag;
 use App\User;
 use Carbon\Carbon;
+use App\Reviews\Review;
 use App\Interactions\Vote;
 use App\Interactions\Click;
-use App\Interactions\Review;
 use App\Interactions\Interaction;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -71,6 +71,16 @@ class Listing extends Model
      */
     protected $fillable = [
         'name', 'background', 'mode', 'description', 'accent', 'website', 'episode', 'review_score',
+    ];
+
+    /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'title' => 'Default RO',
+        'slug' => 'defaults',
     ];
 
     /**

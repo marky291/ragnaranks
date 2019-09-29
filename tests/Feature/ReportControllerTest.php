@@ -3,8 +3,8 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
+use App\Reviews\Review;
 use App\Listings\Listing;
-use App\Interactions\Review;
 use App\Notifications\ReportedReviewAllowed;
 use App\Notifications\ReportedReviewRemoved;
 use Illuminate\Support\Facades\Notification;

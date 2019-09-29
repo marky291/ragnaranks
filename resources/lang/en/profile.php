@@ -121,6 +121,14 @@ return [
     'reviews' => [
         'heading' => 'player reviews',
         'enticement' => 'be the first to write a review on this server listing',
+
+        'grades' => [
+            1 => 'Terrible',
+            2 => 'Bad',
+            3 => 'Ok',
+            4 => 'Good',
+            5 => 'Excellent',
+        ],
     ],
 
     'voting' => [

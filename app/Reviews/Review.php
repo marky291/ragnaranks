@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Interactions;
+namespace App\Reviews;
 
+use App\Interactions\Interaction;
 use App\User;
 use Carbon\Carbon;
 use App\ReviewComment;
@@ -137,5 +138,17 @@ class Review extends Interaction
     public function getPercentScoreAttribute(): float
     {
         return ceil($this->totalScore * 2.5);
+    }
+
+    /**
+     * Create a new Eloquent Collection instance.
+     *
+     * @param  array  $models
+     *
+     * @return Collection
+     */
+    public function newCollection(array $models = [])
+    {
+        return new ReviewCollection($models);
     }
 }

@@ -33,6 +33,7 @@
                                 <at-rate :show-text="true" :count="5" v-model="review.donation_score" class="tw-flex">
                                     <p class="tw-font-bold">@{{ ratingScore(review.donation_score) }}</p>
                                 </at-rate>
+                                <div v-if="validation.hasError('review.donation_score')" class="tw-text-left tw-pt-3 tw-flex-1 help-block invalid-feedback">@{{ validation.firstError('review.donation_score') }}</div>
                             </div>
                             <div class="block">
                                 <h3>Updates</h3>
@@ -40,6 +41,7 @@
                                 <at-rate :show-text="true" :count="5" v-model="review.update_score" class="tw-flex">
                                     <p class="tw-font-bold">@{{ ratingScore(review.update_score) }}</p>
                                 </at-rate>
+                                <div v-if="validation.hasError('review.update_score')" class="tw-text-left tw-pt-3 tw-flex-1 help-block invalid-feedback">@{{ validation.firstError('review.update_score') }}</div>
                             </div>
                             <div class="block">
                                 <h3>Class Experience</h3>
@@ -47,6 +49,7 @@
                                 <at-rate :show-text="true" :count="5" v-model="review.class_score" class="tw-flex">
                                     <p class="tw-font-bold">@{{ ratingScore(review.class_score) }}</p>
                                 </at-rate>
+                                <div v-if="validation.hasError('review.class_score')" class="tw-text-left tw-pt-3 tw-flex-1 help-block invalid-feedback">@{{ validation.firstError('review.class_score') }}</div>
                             </div>
                             <div class="block">
                                 <h3>Custom Items</h3>
@@ -54,6 +57,7 @@
                                 <at-rate :show-text="true" :count="5" v-model="review.item_score" class="tw-flex">
                                     <p class="tw-font-bold">@{{ ratingScore(review.item_score) }}</p>
                                 </at-rate>
+                                <div v-if="validation.hasError('review.item_score')" class="tw-text-left tw-pt-3 tw-flex-1 help-block invalid-feedback">@{{ validation.firstError('review.item_score') }}</div>
                             </div>
                             <div class="block">
                                 <h3>Staff Support</h3>
@@ -61,14 +65,15 @@
                                 <at-rate :show-text="true" :count="5" v-model="review.support_score" class="tw-flex">
                                     <p class="tw-font-bold">@{{ ratingScore(review.support_score) }}</p>
                                 </at-rate>
+                                <div v-if="validation.hasError('review.support_score')" class="tw-text-left tw-pt-3 tw-flex-1 help-block invalid-feedback">@{{ validation.firstError('review.support_score') }}</div>
                             </div>
-
                             <div class="block">
                                 <h3>Server Hosting</h3>
                                 <p>How good was the connection to the host and ping responsiveness?</p>
                                 <at-rate :show-text="true" :count="5" v-model="review.hosting_score" class="tw-flex">
                                     <p class="tw-font-bold">@{{ ratingScore(review.hosting_score) }}</p>
                                 </at-rate>
+                                <div v-if="validation.hasError('review.hosting_score')" class="tw-text-left tw-pt-3 tw-flex-1 help-block invalid-feedback">@{{ validation.firstError('review.hosting_score') }}</div>
                             </div>
                             <div class="block">
                                 <h3>Custom Content</h3>
@@ -76,6 +81,7 @@
                                 <at-rate :show-text="true" :count="5" v-model="review.content_score" class="tw-flex">
                                     <p class="tw-font-bold">@{{ ratingScore(review.content_score) }}</p>
                                 </at-rate>
+                                <div v-if="validation.hasError('review.content_score')" class="tw-text-left tw-pt-3 tw-flex-1 help-block invalid-feedback">@{{ validation.firstError('review.content_score') }}</div>
                             </div>
                             <div class="block">
                                 <h3>Events</h3>
@@ -83,10 +89,14 @@
                                 <at-rate :show-text="true" :count="5" v-model="review.event_score" class="tw-flex">
                                     <p class="tw-font-bold">@{{ ratingScore(review.event_score) }}</p>
                                 </at-rate>
+                                <div v-if="validation.hasError('review.event_score')" class="tw-text-left tw-pt-3 tw-flex-1 help-block invalid-feedback">@{{ validation.firstError('review.event_score') }}</div>
                             </div>
                         </div>
+                        @if ($review->exists)
+                        <at-button @click="updateReview('{{ route('listing.reviews.update', [$listing, $review]) }}')" type="primary" class="flex-fill" :loading="review.busy">Update my Review!</at-button>
+                        @else
                         <at-button @click="postReview('{{ route('listing.reviews.store', $listing) }}')" type="primary" class="flex-fill" :loading="review.busy">Post my Review!</at-button>
-                        <p v-if="validation.firstError()" class="tw-inline tw-ml-4 tw-text-red-600 tw-text-base"><i class="fas fa-exclamation tw-mr-2"></i> @{{ validation.firstError() }}</p>
+                        @endif
                     </span>
                 </span>
                 </div>

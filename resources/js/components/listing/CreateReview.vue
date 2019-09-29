@@ -53,7 +53,35 @@
                         }).catch((errors) => {
                             this.$Message.error('Unable to process review, please try again.');
                         });
+                    } else {
+                        this.$Message.error('Validation errors: Fix all fields highlighted in red');
                     }
+                });
+            },
+            updateReview: function(route) {
+                this.$validate().then(success => {
+                    if (success) {
+                        this.review.patch(route).then((response) => {
+                            window.location.assign(response.data.route);
+                        }).catch((errors) => {
+                            this.$Message.error('Unable to process changes, please try again.');
+                        });
+                    } else {
+                        this.$Message.error('Validation errors: Fix all fields highlighted in red');
+                    }
+                });
+            },
+            reportReview: function () {
+                this.$Modal.prompt({
+                    title: 'Report Content',
+                    content: 'Type your reason for reporting this review:'
+                }).then((data) => {
+                    this.report.reason = data.value;
+                    this.report.post('/review/' + this.review.id + '/report').then(response => {
+                        this.$Message.success('Thanks, We will notify you when we decide action upon the review.');
+                    }).catch(error => {
+                        this.$Message.error("Oops, Something went wrong.");
+                    })
                 });
             },
         },
@@ -62,30 +90,29 @@
                 return Validator.value(value).required("You must enter a message to submit your review").minLength(200);
             },
             'review.donation_score': function(value) {
-                return Validator.value(value).between(0,5, "Donation score must be between 0-5");
+                return Validator.value(value).between(1,5, "Donation score must be between 1 & 5 stars");
             },
             'review.update_score': function(value) {
-                return Validator.value(value).between(0,5, "Update score must be between 0-5");
+                return Validator.value(value).between(1,5, "Update score must be between 1 & 5 stars");
             },
             'review.class_score': function(value) {
-                return Validator.value(value).between(0,5, "Class score must be between 0-5");
+                return Validator.value(value).between(1,5, "Class score must be between 1 & 5 stars");
             },
             'review.item_score': function(value) {
-                return Validator.value(value).between(0,5, "Item score must be between 0-5");
+                return Validator.value(value).between(1,5, "Item score must be between 1 & 5 stars");
             },
             'review.support_score': function(value) {
-                return Validator.value(value).between(0,5, "Support score must be between 0-5");
+                return Validator.value(value).between(1,5, "Support score must be between 1 & 5 stars");
             },
             'review.hosting_score': function(value) {
-                return Validator.value(value).between(0,5, "Hosting score must be between 0-5");
+                return Validator.value(value).between(1,5, "Hosting score must be between 1 & 5 stars");
             },
             'review.content_score': function(value) {
-                return Validator.value(value).between(0,5, "Content score must be between 0-5");
+                return Validator.value(value).between(1,5, "Content score must be between 1 & 5 stars");
             },
             'review.event_score': function(value) {
-                return Validator.value(value).between(0,5, "Event score must be between 0-5");
+                return Validator.value(value).between(1,5, "Event score must be between 1 & 5 stars");
             }
-
         }
     }
 </script>

@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Interactions\Review;
+use App\Reviews\Review;
 use App\Observers\ReviewObserver;
 use App\Listings\ListingConfiguration;
 use Illuminate\Support\Facades\Schema;

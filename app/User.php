@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use App\Listings\Listing;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Str;
-use App\Interactions\Review;
+use App\Reviews\Review;
 use App\Jobs\AssignRoleToUser;
 use Gstt\Achievements\Achiever;
 use Spatie\Permission\Traits\HasRoles;

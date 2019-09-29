@@ -62,6 +62,7 @@ Vue.component('homepage', require('./components/homepage/Homepage').default);
 
 Vue.component('review', require('./components/listing/Review').default);
 Vue.component('create-review', require('./components/listing/CreateReview').default);
+Vue.component('voting', require('./components/listing/VoteComponent.vue').default);
 
 // Vue.component('filtered-listings', require('./components/FilteredListingContainer.vue').default);
 //Vue.component('listing-profile-old', require('./Pages/ListingProfileComponent.vue').default);

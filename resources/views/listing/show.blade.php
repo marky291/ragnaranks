@@ -20,15 +20,17 @@
 						<div v-if="!isCreating()">
 							@include('sidebar.selector')
 						</div>
-						@include('sidebar.config')
-						<div v-if="!listing.isEditor">
+						<div v-if="listing.isEditor">
+                            @include('sidebar.config')
+                        </div>
+						<div v-else="!listing.isEditor">
                             @include('sidebar.reviews')
 							@include('sidebar.recent')
 							@include('sidebar.social')
 						</div>
 					</div>
 					<div class="tw-px-4 lg:tw-w-2/3">
-						<profile :reviews="listing.reviews" :slug="slug" space="{{ config('filesystems.disks.spaces.domain') }}/"></profile>
+						<profile :reviews="listing.reviews" :breakdown="{{ $breakdown ?? 'null' }}" :slug="slug" space="{{ config('filesystems.disks.spaces.domain') }}/"></profile>
 					</div>
 				</div>
 			</profile-page>

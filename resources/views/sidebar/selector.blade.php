@@ -35,7 +35,7 @@
             <i class="icon tw-text-gray-600 tw-text-xl far fa-edit"></i>
         </div>
     </a>
-    <a class="selector-item {{ request()->segment(3) == 'votes' ? 'active' : '' }} {{ $listing->accent }}-dark" href="#">
+    <a class="selector-item {{ request()->segment(3) == 'votes' ? 'active' : '' }} {{ $listing->accent }}-dark" href="{{ route('listing.votes.index', $listing) }}">
         <div class="tw-items-center tw-py-3 tw-px-6 tw-flex tw-border-b tw-border-gray-200">
             <div class="tw-pr-4 tw-leading-snug">
                 <h5 class="title tw-mb-1">Vote Dispatcher</h5>

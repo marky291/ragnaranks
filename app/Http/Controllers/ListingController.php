@@ -54,7 +54,7 @@ class ListingController extends Controller
      */
     public function create(Listing $listing) : View
     {
-        return view('listing.show')->with(['slug' => 'defaults']);
+        return view('listing.show', ['listing' => $listing]);
     }
 
     /**
@@ -105,12 +105,17 @@ class ListingController extends Controller
      *
      * Only the string is passed as we use VUE JSON.
      *
-     * @param string $listing
-     * @return Response
+     * @param Listing $listing
+     * @return View
      */
-    public function show(Listing $listing)
+    public function show(Listing $listing): View
     {
-        return view('listing.show')->with(['listing' => $listing]);
+        $listing->load('reviews');
+
+        return view('listing.show')->with([
+            'listing' => $listing,
+            'breakdown' => json_encode($listing->reviews->countPercentScores())
+        ]);
     }
 
     /**

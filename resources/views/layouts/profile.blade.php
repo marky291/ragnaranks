@@ -8,12 +8,11 @@
                     @include('sidebar.message')
                     @if (request()->segment(3) != '')
                         @include('sidebar.selector')
-                    @endif
-                    @include('sidebar.config')
-                    @if (auth()->id() != $listing->user_id)
                         @include('sidebar.reviews')
                         @include('sidebar.recent')
                         @include('sidebar.social')
+                    @else
+                        @include('sidebar.config')
                     @endif
                 </div>
                 <div class="tw-px-4 lg:tw-w-2/3">

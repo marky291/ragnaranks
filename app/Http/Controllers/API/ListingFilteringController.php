@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Listings\Listing;
+use Illuminate\Support\Arr;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
 use App\Http\Resources\ListingResource;

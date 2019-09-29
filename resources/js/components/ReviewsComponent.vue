@@ -7,8 +7,7 @@
 				</div>
 			</div>
 			<div v-else>
-				<div class="tw-flex tw-items-center" id="review-enticement-img">
-				</div>
+				<div class="tw-flex tw-items-center" id="review-enticement-img"></div>
 			</div>
 		</section>
 </template>
