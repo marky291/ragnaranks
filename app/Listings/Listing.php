@@ -79,7 +79,7 @@ class Listing extends Model
      * @var array
      */
     protected $attributes = [
-        'title' => 'Default RO',
+        'name' => 'Default RO',
         'slug' => 'defaults',
     ];
 

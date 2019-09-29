@@ -26,7 +26,7 @@ class ReportControllerTest extends TestCase
         $response->assertStatus(302);
     }
 
-    public function test_index()
+    public function test_moderation_tools_index_page_returns_200()
     {
         $this->signIn();
 

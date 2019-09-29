@@ -10,19 +10,20 @@
     "require": {
         "php": "^7.2",
         "ext-json": "*",
-        "artisanry/reportable": "^3.2",
+        "predis/predis": "^1.1",
+        "doctrine/dbal": "^2.9",
+        "laravel/tinker": "^1.0",
         "fideloper/proxy": "^4.0",
-        "gstt/laravel-achievements": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^6.0",
-        "laravel/tinker": "^1.0",
-        "league/flysystem-aws-s3-v3": "^1.0",
-        "martinlindhe/laravel-vue-i18n-generator": "^0.1.39",
-        "predis/predis": "^1.1",
+        "artisanry/reportable": "^3.2",
         "sentry/sentry-laravel": "1.2.0",
-        "spatie/laravel-permission": "^3.0",
         "spatie/laravel-sitemap": "^5.3",
-        "timehunter/laravel-google-recaptcha-v3": "~2.2.19"
+        "gstt/laravel-achievements": "^1.0",
+        "spatie/laravel-permission": "^3.0",
+        "league/flysystem-aws-s3-v3": "^1.0",
+        "timehunter/laravel-google-recaptcha-v3": "~2.2.19",
+        "martinlindhe/laravel-vue-i18n-generator": "^0.1.39"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

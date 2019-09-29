@@ -49,6 +49,8 @@ class RankPositionComparatorTest extends TestCase
 
     public function test_no_change_in_listing_rank_position()
     {
+        $this->signIn();
+
         $listing1 = factory(Listing::class)->create(['name' => 'foo']);
 
         app(VoteController::class)->processVote($listing1);

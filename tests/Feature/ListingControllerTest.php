@@ -30,7 +30,7 @@ class ListingControllerTest extends TestCase
 
         $response = $this->get("/listing/{$listing->slug}");
 
-        $response->assertOk()->assertViewIs('listing.profile');
+        $response->assertOk()->assertViewIs('listing.show');
     }
 
     public function test_storing_a_listing_requires_authentication()

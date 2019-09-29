@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Reviews\Review;
 use App\Listings\Listing;
-use App\Interactions\Review;
 use Illuminate\Http\Request;
 use App\Jobs\AssignRoleToUser;
 use Illuminate\Http\JsonResponse;

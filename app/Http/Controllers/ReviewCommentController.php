@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Interactions\Review;
+use App\Reviews\Review;
 use Illuminate\Http\Response;
 use App\Http\Requests\ReviewCommentRequest;
 use App\Notifications\ReviewCommentPublished;
