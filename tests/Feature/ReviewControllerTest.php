@@ -116,10 +116,6 @@ class ReviewControllerTest extends TestCase
      */
     public function test_it_can_be_reported()
     {
-        $this->markTestIncomplete(
-            'Requires update to artisanry/reportable'
-        );
-
         $this->signIn();
 
         $listing = factory(Listing::class)->create(['name' => 'foo']);

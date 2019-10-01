@@ -12,8 +12,7 @@ class ReviewRepository
 {
     public static function LatestEntriesCache(int $count)
     {
-        return Cache::remember('reviews:latest-entries', 300, static function () use ($count) {
-            return ReviewResource::collection(Review::latest()->with(['listing', 'user'])->orderBy('created_at')->limit($count)->get());
-        });
+        return Cache::remember('reviews:latest-entries', 60, static function () use ($count) {
+            return ReviewResource::collection(Review::has('listing')->latest()->with(['listing', 'user'])->orderBy('created_at')->limit($count)->get());        });
     }
 }

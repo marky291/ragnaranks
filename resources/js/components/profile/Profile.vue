@@ -194,7 +194,7 @@
                             <a :href="'/listing/'+slug+'/reviews'" class="tw-flex-1 tw-mx-2 at-btn tw-flex-1 tw-mx-2 at-btn--primary at-btn--small">Read Reviews</a>
                         </div>
                         </div>
-                        <div class="tw-flex-1 tw-pl-6">show
+                        <div class="tw-flex-1 tw-pl-6">
                             <h2 class="tw-font-bold" style="margin-bottom: 15px;">Review Breakdowns:</h2>
                             <div class="tw-mb-2">
                                 <div class="tw-flex tw-justify-between tw-font-semibold">
