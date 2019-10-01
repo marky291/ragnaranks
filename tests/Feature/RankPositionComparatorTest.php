@@ -66,7 +66,7 @@ class RankPositionComparatorTest extends TestCase
     public function test_listing_rank_does_not_compare_deleted_listings()
     {
         $this->markTestIncomplete(
-            'Currently missing functionality, required for v1.2.2'
+            'Requires checks on the listing created observer!'
         );
 
         $listing1 = factory(Listing::class)->create(['id' => 1]);

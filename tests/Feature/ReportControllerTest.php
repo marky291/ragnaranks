@@ -30,6 +30,8 @@ class ReportControllerTest extends TestCase
     {
         $this->signIn();
 
+        $this->withoutExceptionHandling();
+
         $response = $this->get('/moderate/report');
 
         $response->assertStatus(200);
@@ -38,6 +40,8 @@ class ReportControllerTest extends TestCase
     public function test_update()
     {
         $this->signIn();
+
+        $this->withoutExceptionHandling();
 
         Notification::fake();
 
@@ -56,13 +60,15 @@ class ReportControllerTest extends TestCase
 
     public function test_destroy()
     {
-        $this->signIn();
+        $user = $this->signIn();
+
+        $this->withoutExceptionHandling();
 
         Notification::fake();
 
-        $review = factory(Review::class)->create(
-            ['listing_id' => factory(Listing::class)->create()->id]
-        );
+        $listing = $user->listings()->save(factory(Listing::class)->make());
+
+        $review = $listing->reviews()->save(factory(Review::class)->make());
 
         $review->report(['reason' => 'foo'], auth()->user());
 

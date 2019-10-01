@@ -77,21 +77,11 @@ class ListingControllerTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        $this->signIn();
+        $user = $this->signIn();
 
-        $listing = factory(Listing::class)->create([
-            'name' => 'foo',
-            'language_id' => 3,
-        ]);
+        $listing = $user->listings()->save(factory(Listing::class)->make(['name' => 'foo','language_id' => 3]));
 
-        $configs = factory(ListingConfiguration::class)->make([
-            'base_exp_rate' => 20,
-            'pk_mode' => true,
-            'arrow_decrement' => true,
-            'attribute_recover' => false,
-        ]);
-
-        $listing->configuration()->save($configs);
+        $configs = $listing->configuration()->save(factory(ListingConfiguration::class)->make(['base_exp_rate' => 20, 'pk_mode' => true, 'arrow_decrement' => true, 'attribute_recover' => false]));
 
         $this->assertDatabaseHas('listings', ['name' => 'foo', 'language_id' => 3]);
         $this->assertDatabaseHas('listing_configurations', [
@@ -127,11 +117,11 @@ class ListingControllerTest extends TestCase
 
     public function test_listing_can_be_soft_deleted()
     {
-        $this->signIn('member');
+        $user = $this->signIn();
 
-        $listing = $this->createListing(['name' => 'foo', 'user_id' => auth()->id()], 0, 0);
+        $listing = $user->listings()->save(factory(Listing::class)->make(['name' => 'foo']));
 
-        $response = $this->delete("listing/{$listing->slug}");
+        $response = $this->delete(route('listing.destroy', $listing));
 
         $response->assertJson(['success' => true, 'redirect' => route('listing.index')]);
 

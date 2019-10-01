@@ -126,7 +126,7 @@ class ReviewControllerTest extends TestCase
 
         $listing->reviews()->save($review);
 
-        $response = $this->post("/review/{$review->getKey()}/report", ['reason' => 'foo', 'meta' => 'bar']);
+        $response = $this->post(route('review.report.store', $review), ['reason' => 'foo', 'meta' => 'bar']);
 
         $response->assertStatus(200);
 

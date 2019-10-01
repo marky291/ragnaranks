@@ -50,6 +50,6 @@ class ReviewObserver
      */
     public function deleted(Review $review): void
     {
-        $review->listing->update(['review_score' => $review->listing->reviews()->avg('average_score')]);
+        $review->listing->update(['review_score' => $review->listing->reviews()->avg('average_score') ?? 0]);
     }
 }
