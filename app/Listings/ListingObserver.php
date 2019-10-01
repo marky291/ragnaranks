@@ -5,6 +5,7 @@ namespace App\Listings;
 use App\Notifications\NewListingCreatedNotification;
 use App\Notifications\NewUserJoinedNotification;
 use App\User;
+use Exception;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -42,6 +43,18 @@ class ListingObserver
     public function creating(Listing $listing): void
     {
         $listing->space = Str::uuid();
+    }
+
+    /**
+     * Handle the User "updated" event.
+     *
+     * @param Listing $listing
+     * @return void
+     * @throws Exception
+     */
+    public function updated(Listing $listing): void
+    {
+        cache()->forget("listing:{$listing->name}");
     }
 
     /**
