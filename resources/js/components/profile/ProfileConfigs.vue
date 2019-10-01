@@ -131,7 +131,7 @@
                 return Validator.value(value).required();
             },
             isCreatingCard() {
-                return this.current.slug === null;
+                return this.current.slug === 'defaults';
             },
             isUpdatingCard() {
                 return this.isCreatingCard() === false;
