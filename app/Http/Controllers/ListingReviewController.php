@@ -70,7 +70,7 @@ class ListingReviewController extends Controller
     {
         $this->authorize('create', [new Review, $listing]);
 
-        $review = $listing->reviews()->create($request->validated());
+        $listing->reviews()->create($request->validated());
 
         $listing->user->notify(new ReviewPublished($listing));
 

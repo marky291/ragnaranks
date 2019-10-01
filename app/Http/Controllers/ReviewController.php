@@ -12,6 +12,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use App\Notifications\ReviewPublished;
 
+/**
+ * Class ReviewController
+ *
+ * @depreciated unused file, moved to ListingReviewController
+ *
+ * @package App\Http\Controllers
+ */
 class ReviewController extends Controller
 {
     /**

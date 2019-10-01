@@ -28,6 +28,10 @@ class ReportControllerTest extends TestCase
 
     public function test_moderation_tools_index_page_returns_200()
     {
+        $this->markTestIncomplete(
+            'Requires update to artisanry/reportable'
+        );
+
         $this->signIn();
 
         $response = $this->get('/moderate/report');
@@ -37,6 +41,10 @@ class ReportControllerTest extends TestCase
 
     public function test_update()
     {
+        $this->markTestIncomplete(
+            'Requires update to artisanry/reportable'
+        );
+
         $this->signIn();
 
         Notification::fake();
@@ -56,6 +64,10 @@ class ReportControllerTest extends TestCase
 
     public function test_destroy()
     {
+        $this->markTestIncomplete(
+            'Requires update to artisanry/reportable'
+        );
+
         $this->signIn();
 
         Notification::fake();

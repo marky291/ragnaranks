@@ -101,7 +101,7 @@ class ListingControllerTest extends TestCase
             'attribute_recover' => 0,
         ]);
 
-        $response = $this->patch("/listing/{$listing->slug}", array_merge($listing->toArray(),
+        $response = $this->patch(route('listing.update', $listing), array_merge($listing->toArray(),
             ['name' => 'foo'],
             ['language' => 'english'],
             ['tags' => ['freebies', 'guild-pack']],

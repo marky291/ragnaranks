@@ -2,9 +2,9 @@
 
 namespace App\Reviews;
 
-use App\Listings\Listing;
 use App\User;
-use App\Interactions\Review;
+use App\Reviews\Review;
+use App\Listings\Listing;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ReviewPolicy

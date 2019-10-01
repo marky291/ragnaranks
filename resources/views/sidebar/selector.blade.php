@@ -44,7 +44,7 @@
             <i class="icon tw-text-gray-600 tw-text-xl far fa-thumbs-up"></i>
         </div>
     </a>
-    <a class="selector-item {{ $listing->accent }}-dark" href="#">
+    <a class="selector-item {{ $listing->accent }}-dark" href="{{ route('listing.index') }}">
         <div class="tw-items-center tw-py-3 tw-px-6 tw-flex">
             <div class="tw-pr-4 tw-leading-snug">
                 <h5 class="title tw-mb-1">Back to Searching</h5>

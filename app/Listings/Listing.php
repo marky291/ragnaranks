@@ -52,6 +52,7 @@ use Illuminate\Support\Str;
  * @method static count()
  * @method static Builder latest()
  * @method static chunkById(int $int, \Closure $param)
+ * @method static Collection has(string $string)
  * @property  ListingHeartbeat heartbeat
  */
 class Listing extends Model

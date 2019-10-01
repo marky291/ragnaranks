@@ -186,7 +186,7 @@
                         <div class="tw-flex-1 tw-flex tw-flex-col tw-justify-between tw-pr-6 tw-border-r tw-border-gray-300">
                             <h2 class="tw-font-bold tw-text-center">Average Rating</h2>
                             <div class="">
-                                <p class="tw-text-6xl tw-text-center">{{ $parent.listing.review_score }}</p>
+                                <p class="tw-text-6xl tw-text-center">{{ $parent.listing.review_score.toFixed(1) }}</p>
                                 <p class="tw-text-gray-500 tw-text-sm tw-text-center tw-font-semibold">{{ reviews.length }} reviews</p>
                             </div>
                         <div class="tw-flex tw-py-4">
@@ -194,7 +194,7 @@
                             <a :href="'/listing/'+slug+'/reviews'" class="tw-flex-1 tw-mx-2 at-btn tw-flex-1 tw-mx-2 at-btn--primary at-btn--small">Read Reviews</a>
                         </div>
                         </div>
-                        <div class="tw-flex-1 tw-pl-6">
+                        <div class="tw-flex-1 tw-pl-6">show
                             <h2 class="tw-font-bold" style="margin-bottom: 15px;">Review Breakdowns:</h2>
                             <div class="tw-mb-2">
                                 <div class="tw-flex tw-justify-between tw-font-semibold">
