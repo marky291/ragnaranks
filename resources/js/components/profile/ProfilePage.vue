@@ -11,7 +11,8 @@
                 },
                 buttons: {
                     reviewButton: {
-                        text: 'Log in to create a review',
+                        text: '',
+                        description: '',
                         disabled : true,
                     },
                 },
@@ -33,21 +34,6 @@
                     this.currentPage = this.isPageAccessible(this.action) ? this.action : 'profile';
                 }
             });
-
-            if (this.auth === "") {
-                this.buttons.reviewButton.text = "Login to Review";
-                this.buttons.reviewButton.disabled = true;
-            } else if (this.isPageOwner()) {
-                this.buttons.reviewButton.text = "Cannot review own server";
-                this.buttons.reviewButton.disabled = true;
-            } else if (this.listing.canReview === false) {
-                this.buttons.reviewButton.text = "Listing already reviewed";
-                this.buttons.reviewButton.disabled = true;
-            } else if (this.auth !== false) {
-                this.buttons.reviewButton.text = "Create a review";
-                this.buttons.reviewButton.disabled = false;
-                this.availablePages.push('reviewing');
-            }
 
             if (this.isCreating() || this.listing.isEditor === true) {
                 await axios.get('/api/listing/configurations').then((response) => {

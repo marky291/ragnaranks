@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Interactions\Review;
+use App\Reviews\Review;
 
 /**
  * Class ReviewObserver.
@@ -40,5 +40,16 @@ class ReviewObserver
     public function created(Review $review): void
     {
         $review->listing->update(['review_score' => $review->listing->reviews()->avg('average_score')]);
+    }
+
+    /**
+     * Handle the app listings listing "creating" event.
+     *
+     * @param Review $review
+     * @return void
+     */
+    public function deleted(Review $review): void
+    {
+        $review->listing->update(['review_score' => $review->listing->reviews()->avg('average_score') ?? 0]);
     }
 }

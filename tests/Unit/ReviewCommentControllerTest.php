@@ -4,8 +4,8 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use App\ReviewComment;
+use App\Reviews\Review;
 use App\Listings\Listing;
-use App\Interactions\Review;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ReviewCommentControllerTest extends TestCase

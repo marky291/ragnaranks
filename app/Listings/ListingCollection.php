@@ -11,6 +11,7 @@ namespace App\Listings;
 use App\Tag;
 use App\User;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Str;
 
 /**
  * Class ListingFilter.
@@ -48,7 +49,7 @@ class ListingCollection extends Collection
     {
         if (in_array($rate, ['official-rate', 'low-rate', 'mid-rate', 'high-rate', 'super-high-rate'])) {
             return $this->filter(static function (Listing $listing) use ($rate) {
-                return ucwords(str_replace('-', ' ', $rate)) == $listing->expRateTitle;
+                return ucwords(Str::replaceArray('-', [' '], $rate)) == $listing->expRateTitle;
             });
         }
 

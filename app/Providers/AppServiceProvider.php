@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Interactions\Review;
+use App\Reviews\Review;
 use App\Observers\ReviewObserver;
 use App\Listings\ListingConfiguration;
 use Illuminate\Support\Facades\Schema;
@@ -17,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         Schema::defaultStringLength(191);
 
@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register() : void
     {
         Resource::withoutWrapping();
     }

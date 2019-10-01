@@ -30,7 +30,7 @@ class AssignRoleToUser implements ShouldQueue
      * @param User $user
      * @param string $role
      */
-    public function __construct(User $user, string $role)
+    public function __construct(?User $user, string $role)
     {
         $this->user = $user;
 
@@ -44,6 +44,8 @@ class AssignRoleToUser implements ShouldQueue
      */
     public function handle()
     {
-        $this->user->assignRole(Role::findByName($this->role));
+        if ($this->user && $this->user->hasRole('player') == false) {
+            $this->user->assignRole(Role::findByName($this->role));
+        }
     }
 }

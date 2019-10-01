@@ -2,9 +2,10 @@
 
 namespace Tests\Feature;
 
+use App\Listings\ListingConfiguration;
 use Tests\TestCase;
 use App\Listings\Listing;
-use App\Interactions\Review;
+use App\Reviews\Review;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -12,23 +13,33 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class ReviewControllerTest extends TestCase
 {
     use WithFaker;
+
     use RefreshDatabase;
 
-    /**
-     * @var Listing
-     */
-    private $listing;
-
-    /**
-     * Setup the test environment.
-     *
-     * @return void
-     */
-    protected function setUp() : void
+    public function test_review_index_returns_200()
     {
-        parent::setUp();
+        $this->withoutExceptionHandling();
 
-        $this->listing = factory(Listing::class)->create();
+        $listing = factory(Listing::class)->create(['name' => 'foo']);
+
+        $listing->configuration()->save(factory(ListingConfiguration::class)->make());
+
+        $response = $this->get(route('listing.reviews.index', $listing));
+
+        $response->assertStatus(200);
+    }
+
+    public function test_create_review_form_requires_login_and_returns_200()
+    {
+        $listing = factory(Listing::class)->create(['name' => 'foo']);
+
+        $listing->configuration()->save(factory(ListingConfiguration::class)->make());
+
+        $this->get(route('listing.reviews.create', $listing))->assertStatus(302);
+
+        $this->signIn();
+
+        $this->get(route('listing.reviews.create', $listing))->assertStatus(200);
     }
 
     /**
@@ -58,29 +69,30 @@ class ReviewControllerTest extends TestCase
     {
         $this->signIn();
 
-        $this->listing->reviews()->save(factory(Review::class)->create(
+        $listing = factory(Listing::class)->create(['name' => 'foo']);
+
+        $listing->reviews()->save(factory(Review::class)->create(
             ['listing_id' => factory(Listing::class)->create()->id]
         ));
 
-        $this->delete("/listing/{$this->listing->slug}/reviews/{$this->listing->reviews()->first()->id}");
+        $this->delete("/listing/{$listing->slug}/reviews/{$listing->reviews()->first()->id}");
 
-        $this->assertCount(0, $this->listing->reviews);
+        $this->assertCount(0, $listing->reviews);
     }
 
-    /**
-     * @test
-     */
-    public function a_review_can_be_updated()
+    public function test_a_review_can_be_updated()
     {
         $this->signIn();
 
-        $this->listing->reviews()->save(factory(Review::class)->create(
-            ['listing_id' => factory(Listing::class)->create()->id]
-        ));
+        $listing = factory(Listing::class)->create(['name' => 'foo']);
 
-        $this->patch("/listing/{$this->listing->slug}/reviews/{$this->listing->reviews()->first()->id}", ['message' => 'foo bar']);
+        $review = $listing->reviews()->save(factory(Review::class)->make());
 
-        $this->assertDatabaseHas('reviews', ['id' => $this->listing->reviews()->first()->getkey(), 'message' => 'foo bar']);
+        $updateReview = factory(Review::class)->make();
+
+        $this->patch(route('listing.reviews.update', [$listing, $review]), $updateReview->toArray());
+
+        $this->assertDatabaseHas('reviews', ['id' => $listing->reviews()->first()->getkey(), 'message' => $updateReview->message]);
     }
 
     /**
@@ -90,47 +102,47 @@ class ReviewControllerTest extends TestCase
     {
         $this->signIn();
 
-        $review = $this->listing->reviews()->save(factory(Review::class)->create(
-            [
-                'listing_id' => $this->listing->id,
-            ]
-        ));
+        $listing = factory(Listing::class)->create(['name' => 'foo']);
 
-        $this->delete("/listing/{$this->listing->slug}/reviews/{$review->getKey()}");
+        $review = $listing->reviews()->save(factory(Review::class)->make());
+
+        $this->delete("/listing/{$listing->slug}/reviews/{$review->getKey()}");
 
         $this->assertDatabaseMissing('reviews', ['id' => $review->getKey()]);
     }
 
+    /**
+     *
+     */
     public function test_it_can_be_reported()
     {
         $this->signIn();
 
-        $review = factory(Review::class)->create([
-            'listing_id' => $this->listing->id,
-        ]);
+        $listing = factory(Listing::class)->create(['name' => 'foo']);
+
+        $review = $listing->reviews()->save(factory(Review::class)->make());
 
         $listing = factory(Listing::class)->create();
 
         $listing->reviews()->save($review);
 
-        $response = $this->post("/review/{$review->getKey()}/report", ['reason' => 'foo', 'meta' => 'bar']);
+        $response = $this->post(route('review.report.store', $review), ['reason' => 'foo', 'meta' => 'bar']);
 
         $response->assertStatus(200);
 
         $this->assertCount(1, $review->reports);
     }
 
-    public function test_user_cannot_make_a_review_twice_on_same_listing()
+    public function test_a_review_cannot_be_created_twice_by_same_user_on_listing()
     {
         $this->signIn();
 
-        $this->withoutExceptionHandling();
-
+        $listing = factory(Listing::class)->create();
         $review1 = factory(Review::class)->make(['content_score' => 5]);
         $review2 = factory(Review::class)->make(['content_score' => 1]);
 
-        $response1 = $this->post("/listing/{$this->listing->slug}/reviews", $review1->toArray());
-        $response2 = $this->post("/listing/{$this->listing->slug}/reviews", $review2->toArray());
+        $response1 = $this->post("/listing/{$listing->slug}/reviews", $review1->toArray());
+        $response2 = $this->post("/listing/{$listing->slug}/reviews", $review2->toArray());
 
         $this->assertDatabaseHas('reviews', ['content_score' => 5]);
         $this->assertDatabaseMissing('reviews', ['content_score' => 1]);

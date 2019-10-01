@@ -7,8 +7,7 @@
 				</div>
 			</div>
 			<div v-else>
-				<div class="tw-flex tw-items-center" id="review-enticement-img">
-				</div>
+				<div class="tw-flex tw-items-center" id="review-enticement-img"></div>
 			</div>
 		</section>
 </template>
@@ -49,9 +48,9 @@
             ReviewsExist() {
                 return count(this.collection);
             },
-						hasReviews() {
-								return false;
-						}
+            hasReviews() {
+                    return false;
+            }
         }
     }
 

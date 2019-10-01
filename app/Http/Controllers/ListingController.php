@@ -7,6 +7,7 @@ use App\Listings\ReconditionListingSpace;
 use App\Tag;
 use App\User;
 use App\Listings\Listing;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
@@ -32,8 +33,6 @@ class ListingController extends Controller
     public function __construct()
     {
         $this->middleware(['auth'])->except(['index', 'show']);
-
-        $this->authorizeResource(Listing::class, 'listing');
     }
 
     /**
@@ -51,10 +50,13 @@ class ListingController extends Controller
      *
      * @param Listing $listing
      * @return View
+     * @throws AuthorizationException
      */
     public function create(Listing $listing) : View
     {
-        return view('listing.profile')->with(['slug' => 'defaults']);
+        $this->authorize('create', $listing);
+
+        return view('listing.show', ['listing' => $listing]);
     }
 
     /**
@@ -65,6 +67,8 @@ class ListingController extends Controller
      */
     public function store(StoreListingRequest $request)
     {
+        $this->authorize('create', new Listing);
+
         DB::transaction(static function () use ($request) {
 
             /** @var Listing $listing */
@@ -94,9 +98,7 @@ class ListingController extends Controller
         }, 5);
 
         // set the user to a creator role.
-        if (auth()->user()->hasRole('creator') == false) {
-            AssignRoleToUser::dispatch(auth()->user(), 'creator');
-        }
+        AssignRoleToUser::dispatch(auth()->user(), 'creator');
 
         // return a response and a redirect link to next page.
         return response()->json(['success' => true, 'redirect' => route('listing.index')]);
@@ -107,12 +109,17 @@ class ListingController extends Controller
      *
      * Only the string is passed as we use VUE JSON.
      *
-     * @param string $listing
-     * @return Response
+     * @param Listing $listing
+     * @return View
      */
-    public function show(Listing $listing)
+    public function show(Listing $listing): View
     {
-        return view('listing.profile')->with(['slug' => $listing->slug, 'name' => $listing->name, 'route' => route('listing.show', $listing)]);
+        $this->authorize('view', $listing);
+
+        return view('listing.show')->with([
+            'listing' => $listing,
+            'breakdown' => json_encode($listing->reviews->countPercentScores())
+        ]);
     }
 
     /**
@@ -124,6 +131,8 @@ class ListingController extends Controller
      */
     public function update(StoreListingRequest $request, Listing $listing): JsonResponse
     {
+        $this->authorize('update', $listing);
+
         DB::transaction(static function () use ($request, $listing) {
             $listing->fill($request->validated())->save();
 
@@ -174,6 +183,8 @@ class ListingController extends Controller
      */
     public function destroy(Listing $listing)
     {
+        $this->authorize('delete', $listing);
+
         $listing->delete();
 
         return response()->json(['success' => true, 'redirect' => route('listing.index')]);

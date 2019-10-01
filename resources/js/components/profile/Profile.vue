@@ -180,51 +180,145 @@
                                 </div>
                             </section>
 
-                        <!-- Show reviews -->
-                            <keep-alive>
-                                <reviews :reviews="reviews"></reviews>
-                            </keep-alive>
+                <div v-if="reviews && reviews.length > 0" class="tw-px-10 tw-py-4">
+                    <h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tighter">Review Scoring</h3>
+                    <div class="tw-flex tw-flex-row">
+                        <div class="tw-flex-1 tw-flex tw-flex-col tw-justify-between tw-pr-6 tw-border-r tw-border-gray-300">
+                            <h2 class="tw-font-bold tw-text-center">Average Rating</h2>
+                            <div class="">
+                                <p class="tw-text-6xl tw-text-center">{{ $parent.listing.review_score.toFixed(1) }}</p>
+                                <p class="tw-text-gray-500 tw-text-sm tw-text-center tw-font-semibold">{{ reviews.length }} reviews</p>
+                            </div>
+                        <div class="tw-flex tw-py-4">
+                            <a :href="'/listing/'+slug+'/reviews/create'" class="tw-flex-1 tw-mx-2 at-btn tw-flex-1 tw-mx-2 at-btn--primary at-btn--small at-btn--primary--hollow">Write Review</a>
+                            <a :href="'/listing/'+slug+'/reviews'" class="tw-flex-1 tw-mx-2 at-btn tw-flex-1 tw-mx-2 at-btn--primary at-btn--small">Read Reviews</a>
+                        </div>
+                        </div>
+                        <div class="tw-flex-1 tw-pl-6">
+                            <h2 class="tw-font-bold" style="margin-bottom: 15px;">Review Breakdowns:</h2>
+                            <div class="tw-mb-2">
+                                <div class="tw-flex tw-justify-between tw-font-semibold">
+                                    <p>Excellent</p>
+                                    <p>{{ breakdown["5"] }}%</p>
+                                </div>
+                                <div class="progress">
+                                    <div :class="'bg-'+$parent.accent+'-base'" class="progress-bar" role="progressbar" :style="'width:'+breakdown[5]+'%'" :aria-valuenow="breakdown[5]" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="tw-mb-2">
+                                <div class="tw-flex tw-justify-between tw-font-semibold">
+                                    <p>Good</p>
+                                    <p>{{ breakdown["4"] }}%</p>
+                                </div>
+                                <div class="progress">
+                                    <div :class="'bg-'+$parent.accent+'-base'" class="progress-bar" role="progressbar" :style="'width:'+breakdown[4]+'%'" :aria-valuenow="breakdown[4]" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="tw-mb-2">
+                                <div class="tw-flex tw-justify-between tw-font-semibold">
+                                    <p>Ok</p>
+                                    <p>{{ breakdown["3"] }}%</p>
+                                </div>
+                                <div class="progress">
+                                    <div :class="'bg-'+$parent.accent+'-base'" class="progress-bar" role="progressbar" :style="'width: '+breakdown[3]+'%'" :aria-valuenow="breakdown[3]" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="tw-mb-2">
+                                <div class="tw-flex tw-justify-between tw-font-semibold">
+                                    <p>Bad</p>
+                                    <p>{{ breakdown["2"] }}%</p>
+                                </div>
+                                <div class="progress">
+                                    <div :class="'bg-'+$parent.accent+'-base'" class="progress-bar" role="progressbar" :style="'width: '+breakdown[2]+'%'" :aria-valuenow="breakdown[2]" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="tw-mb-2">
+                                <div class="tw-flex tw-justify-between tw-font-semibold">
+                                    <p>Terrible</p>
+                                    <p>{{ breakdown["1"] }}%</p>
+                                </div>
+                                <div class="progress">
+                                    <div :class="'bg-'+$parent.accent+'-base'" class="progress-bar" role="progressbar" :style="'width: '+breakdown[1]+'%'" :aria-valuenow="breakdown[1]" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div v-else class="tw-px-10">
+                    <h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tighter">Review Scoring</h3>
+                    <span v-if="$parent.listing.slug === 'defaults'">
+                        <div class="tw-flex tw-items-center review-enticement-img"></div>
+                    </span>
+                    <span v-else>
+                        <a :href="'/listing/'+slug+'/reviews/create'" v-if="$parent.listing.slug !== 'defaults'">
+                            <div class="tw-flex tw-items-center review-enticement-img"></div>
+                        </a>
+                    </span>
 
-                        <!-- View scoreboards/ratings -->
-                            <keep-alive>
-                                <ratings :reviews="reviews"></ratings>
-                            </keep-alive>
+                </div>
 
-                        </span>
-
-                <!-- Create a review -->
-                <transition name="fade">
-                    <keep-alive>
-                        <review-creator @review:created="$parent.pushNewReview" v-if="$parent.isCurrentPage('reviewing')" :listing-slug="slug"></review-creator>
-                    </keep-alive>
-                </transition>
-
-                <!-- Voting View -->
-                <transition name="fade">
-                    <keep-alive>
-                        <voting @vote:created="$parent.incrementVote(1)" v-if="$parent.isCurrentPage('voting')" :listing-name="$parent.listing.name" :listing-slug="slug"></voting>
-                    </keep-alive>
-                </transition>
+                    <!-- View scoreboards/ratings -->
+                    <section id="ratings">
+                        <div class="tw-px-10">
+                            <div class="py-3 mb-3 rounded" style="border:1px solid rgba(255, 255, 255, 0.2);">
+                                <h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tighter">Balance Ratings</h3>
+                                <div class="row no-gutters">
+                                    <div class="d-flex">
+                                        <scoreboard title="Donations" description="Non-Donators can compete with Donators." :score="avg_donation_score"></scoreboard>
+                                        <scoreboard title="Updates" description="Improvements made each update." :score="avg_update_score"></scoreboard>
+                                        <scoreboard title="Classes" description="Classes are balanced against other classes." :score="avg_class_score"></scoreboard>
+                                        <scoreboard title="Items" description="Item stats are fair and well thought out." :score="avg_item_score"></scoreboard>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="py-3 mb-3 rounded" style="border:1px solid rgba(255, 255, 255, 0.2)">
+                                <h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tighter">Server Ratings</h3>
+                                <div class="row no-gutters">
+                                    <div class="d-flex">
+                                        <scoreboard title="Support" description="Staff helpfulness on fixing server and player issues" :score="avg_donation_score"></scoreboard>
+                                        <scoreboard title="Hosting" description="The availability and ping is playable and fun." :score="avg_hosting_score"></scoreboard>
+                                        <scoreboard title="Content" description="There is much to do and progress upon." :score="avg_content_score"></scoreboard>
+                                        <scoreboard title="Events" description="Rewards are good and events are regular." :score="avg_event_score"></scoreboard>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </span>
             </div>
         </div>
 </template>
 
 <script>
     import {Carousel3d, Slide} from 'vue-carousel-3d';
-    import Reviews from '../ReviewsComponent';
-    import ReviewCreator from '../profile/ProfileReviewCreator';
-    import Ratings from '../profile/RatingsComponent';
-    import Voting from '../profile/ProfileVoting';
+    import meanBy from 'lodash/meanBy';
+    import Scoreboard from '../ScoreboardComponent';
 
     export default {
-    	props: ['slug', 'reviews', 'space'],
+    	props: ['review-score', 'slug', 'reviews', 'space', 'breakdown'],
         components: {
             Slide,
-            Reviews,
-            ReviewCreator,
             Carousel3d,
-            Ratings,
-            Voting,
+            Scoreboard,
         },
+        computed: {
+            avg_donation_score(){ return this.average('donation_score'); },
+            avg_update_score()  { return this.average('update_score');   },
+            avg_class_score()   { return this.average('class_score');    },
+            avg_item_score()    { return this.average('item_score');     },
+            avg_support_score() { return this.average('support_score');  },
+            avg_hosting_score() { return this.average('hosting_score');  },
+            avg_content_score() { return this.average('content_score');  },
+            avg_event_score()   { return this.average('event_score');    },
+        },
+        methods: {
+            average(element) {
+                if (this.reviews && this.reviews.length > 0) {
+                    return Math.round(meanBy(this.reviews, function(item) {
+                        return item[element];
+                    }));
+                }
+            },
+        }
     }
 </script>

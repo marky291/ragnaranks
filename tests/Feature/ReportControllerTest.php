@@ -3,8 +3,8 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
+use App\Reviews\Review;
 use App\Listings\Listing;
-use App\Interactions\Review;
 use App\Notifications\ReportedReviewAllowed;
 use App\Notifications\ReportedReviewRemoved;
 use Illuminate\Support\Facades\Notification;
@@ -26,9 +26,11 @@ class ReportControllerTest extends TestCase
         $response->assertStatus(302);
     }
 
-    public function test_index()
+    public function test_moderation_tools_index_page_returns_200()
     {
         $this->signIn();
+
+        $this->withoutExceptionHandling();
 
         $response = $this->get('/moderate/report');
 
@@ -38,6 +40,8 @@ class ReportControllerTest extends TestCase
     public function test_update()
     {
         $this->signIn();
+
+        $this->withoutExceptionHandling();
 
         Notification::fake();
 
@@ -56,13 +60,15 @@ class ReportControllerTest extends TestCase
 
     public function test_destroy()
     {
-        $this->signIn();
+        $user = $this->signIn();
+
+        $this->withoutExceptionHandling();
 
         Notification::fake();
 
-        $review = factory(Review::class)->create(
-            ['listing_id' => factory(Listing::class)->create()->id]
-        );
+        $listing = $user->listings()->save(factory(Listing::class)->make());
+
+        $review = $listing->reviews()->save(factory(Review::class)->make());
 
         $review->report(['reason' => 'foo'], auth()->user());
 

@@ -1,6 +1,6 @@
-@extends('layouts.frame')
+@extends('layouts.master')
 
-@section('content')
+@section('wrapper')
     <div class="shadow-inner">
         <div class="container">
             <div class="row">

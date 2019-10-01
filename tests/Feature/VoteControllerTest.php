@@ -33,6 +33,8 @@ class VoteControllerTest extends TestCase
      */
     public function it_can_store_a_new_vote()
     {
+        $this->signIn();
+
         $this->withoutExceptionHandling();
 
         $listing = factory(Listing::class)->create(['name' => 'foo']);
@@ -67,6 +69,8 @@ class VoteControllerTest extends TestCase
 
         Event::fake();
 
+        $this->signIn();
+
         factory(Listing::class)->create(['slug' => 'foo']);
 
         $this->post('/listing/foo/votes');
@@ -76,6 +80,8 @@ class VoteControllerTest extends TestCase
 
     public function test_casting_vote_repositions_rank()
     {
+        $this->signIn();
+
         $this->withoutExceptionHandling();
 
         $listing1 = factory(Listing::class)->create(['id' => 5, 'name' => 'foo']);

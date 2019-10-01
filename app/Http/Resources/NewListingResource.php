@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use Illuminate\Support\Arr;
 use App\Listings\ListingConfiguration;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -15,7 +16,7 @@ class NewListingResource extends JsonResource
      */
     public function toArray($request)
     {
-        $preset = array_random(config('filter.presets'));
+        $preset = Arr::random(config('filter.presets'));
 
         return [
             'id' => $this->id,

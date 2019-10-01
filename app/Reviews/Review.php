@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Interactions;
+namespace App\Reviews;
 
+use App\Interactions\Interaction;
 use App\User;
 use Carbon\Carbon;
 use App\ReviewComment;
 use App\Listings\Listing;
 use Illuminate\Database\Eloquent\Builder;
-use BrianFaust\Reportable\Traits\HasReports;
+use Artisanry\Reportable\Traits\HasReports;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -28,13 +29,16 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $event_score
  * @property Carbon $updated_at
  * @property Carbon $created_at
- * @method static Collection latest()
+ * @method static Builder latest()
  * @property Listing listing
- * @method static Collection publishedBy($publisher)
+ * @method static Review|Builder publishedBy($publisher)
+ * @method static Review|Builder forListing($listing)
  * @method static first()
  * @property int $average_score
  * @property-read User $user
- * @mixin \Eloquent
+ * @property int totalScore
+ * @property int percentScore
+ * @property int user_id
  */
 class Review extends Interaction
 {
@@ -49,6 +53,23 @@ class Review extends Interaction
      * @var array
      */
     protected $guarded = [];
+
+    /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'message' => '',
+        'donation_score' => 0,
+        'update_score' => 0,
+        'class_score' => 0,
+        'item_score' => 0,
+        'support_score' => 0,
+        'hosting_score' => 0,
+        'content_score' => 0,
+        'event_score' => 0,
+    ];
 
     /**
      * @return BelongsTo
@@ -87,5 +108,47 @@ class Review extends Interaction
     public function scopePublishedBy(Builder $query, User $user): Builder
     {
         return $query->where('user_id', $user->id);
+    }
+
+    /**
+     * @param Builder $query
+     * @param Listing $listing
+     * @return Builder
+     */
+    public function scopeForListing(Builder $query, Listing $listing): Builder
+    {
+        return $query->where('listing_id', $listing->id);
+    }
+
+    /**
+     * Get a total count of all the stars giving.
+     *
+     * @return float|int
+     */
+    public function getTotalScoreAttribute()
+    {
+        return array_sum([$this->donation_score, $this->update_score, $this->class_score, $this->item_score, $this->support_score, $this->hosting_score, $this->content_score, $this->event_score]);
+    }
+
+    /**
+     * Get a percentage based score.
+     *
+     * @return float
+     */
+    public function getPercentScoreAttribute(): float
+    {
+        return ceil($this->totalScore * 2.5);
+    }
+
+    /**
+     * Create a new Eloquent Collection instance.
+     *
+     * @param  array  $models
+     *
+     * @return Collection
+     */
+    public function newCollection(array $models = [])
+    {
+        return new ReviewCollection($models);
     }
 }

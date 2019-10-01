@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Reviews\Review;
 use App\Listings\Listing;
-use App\Interactions\Review;
 use Illuminate\Http\Request;
 use App\Jobs\AssignRoleToUser;
 use Illuminate\Http\JsonResponse;
@@ -12,6 +12,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use App\Notifications\ReviewPublished;
 
+/**
+ * Class ReviewController
+ *
+ * @depreciated unused file, moved to ListingReviewController
+ *
+ * @package App\Http\Controllers
+ */
 class ReviewController extends Controller
 {
     /**
@@ -24,19 +31,7 @@ class ReviewController extends Controller
      */
     public function store(Listing $listing, ReviewRequest $request): JsonResponse
     {
-        if ($listing->reviews()->where('user_id', auth()->id())->count() == false) {
-            $review = $listing->reviews()->create($request->validated());
 
-            $listing->user->notify(new ReviewPublished($listing));
-
-            if (auth()->user()->hasRole('player') == false) {
-                AssignRoleToUser::dispatch(auth()->user(), 'player');
-            }
-
-            return response()->json(['success' => true, 'message' => trans('review.creation.success'), 'review' => $review->load(['user', 'comments'])]);
-        }
-
-        return response()->json(['success' => false, 'message' => trans('review.creation.errors.present')]);
     }
 
     /**

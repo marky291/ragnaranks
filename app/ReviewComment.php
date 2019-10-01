@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Interactions\Review;
+use App\Reviews\Review;
 use Illuminate\Database\Eloquent\Model;
 
 class ReviewComment extends Model

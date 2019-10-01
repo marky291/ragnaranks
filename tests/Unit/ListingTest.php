@@ -4,13 +4,11 @@ namespace Tests\Unit;
 
 use App\Tag;
 use App\User;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 use Tests\TestCase;
+use App\Reviews\Review;
 use App\Listings\Listing;
 use App\Interactions\Vote;
 use App\Interactions\Click;
-use App\Interactions\Review;
 use App\Listings\ListingScreenshot;
 use App\Listings\ListingConfiguration;
 use Illuminate\Foundation\Testing\RefreshDatabase;

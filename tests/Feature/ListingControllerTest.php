@@ -24,11 +24,13 @@ class ListingControllerTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        $listing = $this->createListing([], 0, 0);
+        $listing = factory(Listing::class)->create();
+
+        $listing->configuration()->save(factory(ListingConfiguration::class)->make());
 
         $response = $this->get("/listing/{$listing->slug}");
 
-        $response->assertOk()->assertViewIs('listing.profile');
+        $response->assertOk()->assertViewIs('listing.show');
     }
 
     public function test_storing_a_listing_requires_authentication()
@@ -75,21 +77,11 @@ class ListingControllerTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        $this->signIn();
+        $user = $this->signIn();
 
-        $listing = factory(Listing::class)->create([
-            'name' => 'foo',
-            'language_id' => 3,
-        ]);
+        $listing = $user->listings()->save(factory(Listing::class)->make(['name' => 'foo','language_id' => 3]));
 
-        $configs = factory(ListingConfiguration::class)->make([
-            'base_exp_rate' => 20,
-            'pk_mode' => true,
-            'arrow_decrement' => true,
-            'attribute_recover' => false,
-        ]);
-
-        $listing->configuration()->save($configs);
+        $configs = $listing->configuration()->save(factory(ListingConfiguration::class)->make(['base_exp_rate' => 20, 'pk_mode' => true, 'arrow_decrement' => true, 'attribute_recover' => false]));
 
         $this->assertDatabaseHas('listings', ['name' => 'foo', 'language_id' => 3]);
         $this->assertDatabaseHas('listing_configurations', [
@@ -99,7 +91,7 @@ class ListingControllerTest extends TestCase
             'attribute_recover' => 0,
         ]);
 
-        $response = $this->patch("/listing/{$listing->slug}", array_merge($listing->toArray(),
+        $response = $this->patch(route('listing.update', $listing), array_merge($listing->toArray(),
             ['name' => 'foo'],
             ['language' => 'english'],
             ['tags' => ['freebies', 'guild-pack']],
@@ -125,11 +117,11 @@ class ListingControllerTest extends TestCase
 
     public function test_listing_can_be_soft_deleted()
     {
-        $this->signIn('member');
+        $user = $this->signIn();
 
-        $listing = $this->createListing(['name' => 'foo', 'user_id' => auth()->id()], 0, 0);
+        $listing = $user->listings()->save(factory(Listing::class)->make(['name' => 'foo']));
 
-        $response = $this->delete("listing/{$listing->slug}");
+        $response = $this->delete(route('listing.destroy', $listing));
 
         $response->assertJson(['success' => true, 'redirect' => route('listing.index')]);
 

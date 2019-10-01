@@ -2,6 +2,7 @@
 
 namespace App\Interactions;
 
+use App\Reviews\Review;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
@@ -20,7 +21,8 @@ class InteractionServiceProvider extends ServiceProvider
 
         Review::observe(InteractionObserver::class);
 
-        Gate::policy(Interaction::class, InteractionPolicy::class);
+        /** @depreciated Unable to find class */
+        //Gate::policy(Interaction::class, InteractionPolicy::class);
     }
 
     /**

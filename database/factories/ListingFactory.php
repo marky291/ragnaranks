@@ -5,6 +5,7 @@ use Carbon\Carbon;
 use App\Listings\Listing;
 use Faker\Generator as Faker;
 use App\Listings\ListingLanguage;
+use Tightenco\Collect\Support\Arr;
 use App\Listings\ListingConfiguration;
 
 $factory->define(\App\Listings\ListingScreenshot::class, static function (Faker $faker) {
@@ -20,7 +21,7 @@ $factory->define(ListingLanguage::class, function (Faker $faker) {
 });
 
 $factory->define(Listing::class, static function (Faker $faker) {
-    $server = array_random(config('fake.listings'));
+    $server = Arr::random(config('fake.listings'));
 
     return [
         'name' => $server['name'],

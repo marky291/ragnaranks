@@ -1,6 +1,6 @@
-@extends('layouts.frame')
+@extends('layouts.master')
 
-@section('content')
+@section('wrapper')
     <div class="tw-bg-gray-100">
         <div class="tw-container">
             <account-component :user="{{ auth()->user() }}" inline-template :account="{{ auth()->user()->toJson() }}">

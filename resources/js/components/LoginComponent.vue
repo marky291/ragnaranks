@@ -19,9 +19,10 @@
       attemptLogin: function() {
           this.form.post('/login').then((response) => {
               this.$Message.success('Welcome back to Ragnaranks!');
-              setTimeout(function () {
-                  window.location = '/';
-              }.bind(this), 1000);
+              console.log(response);
+              // setTimeout(function () {
+              //     window.location = '/';
+              // }.bind(this), 600);
           }).catch((error) => {
               this.$Message.error(error.message);
           });

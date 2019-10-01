@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Heartbeats;
-
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\CurlHandler;
@@ -31,17 +29,29 @@ class FluxControlPanelStatus extends Checkup implements StatusReadingInterface
     /**
      * Format the data to json response
      *
-     * @return JsonResponse
+     * @return array
      */
     public function formattedData()
     {
-        $response = simplexml_load_string($this->response()->getBody()->getContents())->Group[0]->Server[0]->attributes();
+        $contents = simplexml_load_string($this->response()->getBody()->getContents())->Group[0];
 
-        return json_encode([
-            'login' => (bool) $response['loginServer'],
-            'char' => (bool) $response['charServer'],
-            'map' => (bool) $response['mapServer'],
-            'players' => (int) $response['playersOnline']
-        ]);
+        if ($contents == null) {
+            $data = [
+                'login' => false,
+                'char' => false,
+                'map' => false,
+                'players' => 0
+            ];
+        } else {
+            $response = $contents->Server[0]->attributes();
+            $data = [
+                'login' => (bool) $response['loginServer'],
+                'char' => (bool) $response['charServer'],
+                'map' => (bool) $response['mapServer'],
+                'players' => (int) $response['playersOnline']
+            ];
+        }
+
+        return json_encode($data, true);
     }
 }
