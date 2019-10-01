@@ -24,7 +24,7 @@ return [
     | Supported: true, false
     |
     */
-    'is_service_enabled' => true,
+    'is_service_enabled' => false,
     /*
     |--------------------------------------------------------------------------
     | Host Name
@@ -123,7 +123,7 @@ return [
     | Define a list of ip that you want to skip
     */
     'skip_ips' => [
-        '127.0.0.1',
+        //
     ],
     /*
     |--------------------------------------------------------------------------
