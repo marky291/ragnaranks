@@ -46,21 +46,8 @@ class NewListingCreatedNotification extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject('New Listing Posted!')
-            ->line('Good News, as an admin you get this unique email letting you know that a new listing has posted!')
-            ->line("Listing: {$this->listing->name}, Created: {$this->listing->created_at}.");
-    }
-
-    /**
-     * Get the array representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function toArray($notifiable)
-    {
-        return [
-            //
-        ];
+            ->subject('New Listing!')
+            ->line('You have been sent this special email letting you know that a new listing was posted, here are some details:')
+            ->line("Listing: {$this->listing->name}\nCreated: {$this->listing->created_at}");
     }
 }

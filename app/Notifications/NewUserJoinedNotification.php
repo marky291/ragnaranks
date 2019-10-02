@@ -47,21 +47,8 @@ class NewUserJoinedNotification extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('New member has signed up!')
-                    ->line('Awesome, as an admin you get this unique email letting you know that a user has joined!')
-                    ->line("Username: {$this->user->username}, Created: {$this->user->created_at}.");
-    }
-
-    /**
-     * Get the array representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function toArray($notifiable)
-    {
-        return [
-            //
-        ];
+                    ->subject('New Member!')
+                    ->line('You have been sent this special email letting you know that a new member has joined, here are some details:')
+                    ->line("Username: {$this->user->username}\nEmail: {$this->user->email}\nCreated: {$this->user->created_at}");
     }
 }

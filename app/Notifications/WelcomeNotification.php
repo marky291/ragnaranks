@@ -5,6 +5,7 @@ namespace App\Notifications;
 use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
 class WelcomeNotification extends Notification implements ShouldQueue
@@ -49,5 +50,17 @@ class WelcomeNotification extends Notification implements ShouldQueue
             'title' => 'Welcome to RagnaRanks!',
             'message' => 'Thank you for joining~ We hope you enjoy your experience with us in finding your perfect server.',
         ];
+    }
+    /**
+     * Get the mail representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return MailMessage
+     */
+    public function toMail($notifiable)
+    {
+        return (new MailMessage)
+            ->subject('Welcome to Ragnaranks!')
+            ->line('Thanks for signing up and showing continued support of our web application, we have lots of features yet to come and we hope you can find value in using us!');
     }
 }
