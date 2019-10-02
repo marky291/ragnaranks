@@ -49,6 +49,7 @@ class FilepondController extends Controller
      */
     public function delete(Request $request)
     {
-        return Storage::deleteDirectory($request->get('fetch'));
+        // lets not delete the root directory -_-
+//        return Storage::deleteDirectory($request->get('fetch'));
     }
 }
