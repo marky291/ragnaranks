@@ -54,8 +54,8 @@ class ListingController extends Controller
      */
     public function create(Listing $listing) : View
     {
-//        $this->authorize('create', $listing);
-//
+        $this->authorize('create', $listing);
+
         return view('listing.show', ['listing' => $listing]);
     }
 
@@ -64,6 +64,7 @@ class ListingController extends Controller
      *
      * @param StoreListingRequest $request
      * @return void
+     * @throws AuthorizationException
      */
     public function store(StoreListingRequest $request)
     {
@@ -111,6 +112,7 @@ class ListingController extends Controller
      *
      * @param Listing $listing
      * @return View
+     * @throws AuthorizationException
      */
     public function show(Listing $listing): View
     {
