@@ -1,12 +1,13 @@
 @extends('layouts.master')
 
-@if (isset($name))
-    @section('title', "Ragnaranks - {$name}'s Private Server Information")
+@if ($listing->exists)
+    @section('title', "{$listing->name} Private Server Information - Ragnaranks")
     @section('description', 'Take a quick peek at this servers reviews, screenshots, configurations and statistics before you play.')
-    @section('canonical', "{$route}")
+    @section('keywords', $listing->name . ', ' . $listing->tags->implode('name', ', ') . ', reviews, information, rating, website, ranking, configs')
+    @section('canonical', route('listing.show', $listing))
 @else
     @section('title', 'Ragnaranks - Create a new private server listing')
-    @section('description', 'Design and create a profile listing that suits your style and configuration')
+    @section('description', 'Design and create a profile listing that suits your server style and configuration')
     @section('canonical', route('listing.create'))
 @endif
 
