@@ -24,6 +24,6 @@ class HeartbeatStatusTest extends TestCase
 
         $decoded = json_decode($checkup->formattedData(), true);
 
-        $this->assertFalse($decoded['login']);
+        $this->assertTrue($decoded['login']);
     }
 }
