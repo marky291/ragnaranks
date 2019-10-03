@@ -39,6 +39,8 @@ class ReportControllerTest extends TestCase
 
     public function test_update()
     {
+        $this->markTestSkipped('Feature Disabled');
+
         $this->signIn();
 
         $this->withoutExceptionHandling();
@@ -60,6 +62,8 @@ class ReportControllerTest extends TestCase
 
     public function test_destroy()
     {
+        $this->markTestSkipped('Feature Disabled');
+
         $user = $this->signIn();
 
         $this->withoutExceptionHandling();
