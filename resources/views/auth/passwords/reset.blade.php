@@ -17,7 +17,6 @@
                                 </div>
                                 <div class="item-group">
                                     <label>{{ __('E-Mail Address') }}</label>
-                                    <at-input autofocus id="email" v-model="form.email" :status="form.errors.has('email') ? 'error' : ''" placeholder="{{ __('E-Mail Address') }}" name="email" value="{{ $email }}"></at-input>
                                     <input id="email" type="email" style="font-size:12px;" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
