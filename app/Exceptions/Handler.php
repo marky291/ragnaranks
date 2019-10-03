@@ -35,11 +35,15 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
+        // log to external party.
         if (app()->bound('sentry') && $this->shouldReport($exception)){
             app('sentry')->captureException($exception);
         }
 
-        parent::report($exception);
+        // only log errors if it is on the local or staging branch.
+        if (app()->environment('production') == false) {
+            parent::report($exception);
+        }
     }
 
     /**
