@@ -54,8 +54,8 @@ class ListingController extends Controller
      */
     public function create(Listing $listing) : View
     {
-        $this->authorize('create', $listing);
-
+//        $this->authorize('create', $listing);
+//
         return view('listing.show', ['listing' => $listing]);
     }
 
