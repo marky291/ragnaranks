@@ -37,14 +37,9 @@ class ClickController extends Controller
 
             ListingClickedEvent::dispatch($listing);
 
-            return response()->json([
-                'success' => true,
-            ]);
+            return response()->json([], 200);
         }
 
-        return response()->json([
-            'success' => false,
-            'message' => 'A click has already been made recently with this IP Address.',
-        ]);
+        return response()->json([],503);
     }
 }

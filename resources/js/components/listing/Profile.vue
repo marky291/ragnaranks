@@ -1,12 +1,20 @@
 <script>
     export default {
-        props: ['trackclick'],
+        props: ['trackclick', 'clickcount', 'votecount'],
+        data: function () {
+            return {
+                clicks: this.clickcount,
+                votes: this.votecount,
+            }
+        },
         methods: {
             trackUserClick() {
-                axios.post(this.trackclick).then(function(response) {
-                    ga('send', 'event', 'Listing', 'clicked', this.listing.name);
+                axios.post(this.trackclick).then((response) => {
+                    this.clicks++;
+                }).catch((errors) => {
+                    // we dont need to display anything.
                 });
-            }
+            },
         }
     }
 </script>

@@ -31,6 +31,7 @@
                 axios.post(`/listing/${this.listingSlug}/votes`, {captchaV3:this.gRecaptchaResponse}).then((success) => {
                     this.stats.concluded++;
                     this.$emit('vote:created');
+                    this.$emit('voted');
                     this.messages.heading = this.$t('profile.voting.heading.finished', {name:this.listingName});
                     this.messages.content = this.$t('profile.voting.finished', {name:this.listingName, hours:this.stats.spread});
                     this.$Message.success('Awesome, your vote has been contributed towards ' + this.listingName + '!');

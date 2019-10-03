@@ -1,7 +1,7 @@
 @extends('layouts.profile')
 
 @section('content')
-    <voting inline-template listing-name="{{ $listing->name }}" listing-slug="{{ $listing->slug }}">
+    <voting v-on:voted="votes++" inline-template listing-name="{{ $listing->name }}" listing-slug="{{ $listing->slug }}">
         <section id="voting">
             <h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tighter">@{{ messages.heading }}</h3>
             <div class="row no-gutters">

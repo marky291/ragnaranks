@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('wrapper')
-    <profile-frame inline-template trackclick="{{ route('listing.clicks.store', $listing) }}">
+    <profile-frame inline-template clickcount="{{ $listing->ranking->clicks }}" votecount="{{ $listing->ranking->votes }}" trackclick="{{ route('listing.clicks.store', $listing) }}">
         <div class="shadow-inner">
             <div class="tw-container tw-pt-5">
                 <div class="tw-pb-5 tw-pt-2 tw-flex">
@@ -46,11 +46,11 @@
                                             <div class="right-side flex-fill d-flex justify-content-end pr-3" style="padding-bottom:12px;">
                                                 <div class="d-flex flex-column justify-content-end mr-3" style="height:100%;">
                                                     <h3 class="card-counter-title mb-0 font-weight-bold transparency">Votes</h3>
-                                                    <span class="card-counter font-weight-bold transparency">{{ $listing->ranking->votes }}</span>
+                                                    <span class="card-counter font-weight-bold transparency">@{{ votes }}</span>
                                                 </div>
                                                 <div class="d-flex flex-column justify-content-end mr-2" style="height:100%;">
                                                     <h3 class="card-counter-title mb-0 font-weight-bold transparency">Clicks</h3>
-                                                    <span class="card-counter font-weight-bold transparency">{{ $listing->ranking->clicks }}</span>
+                                                    <span class="card-counter font-weight-bold transparency">@{{ clicks }}</span>
                                                 </div>
                                                 <div class="d-flex flex-column justify-content-end" style="height:100%;">
                                                     <img class="tw-w-6 tw-h-6 tw-shadow tw-mr-2" src="/img/flags/{{ $listing->language->name }}.svg" alt="">

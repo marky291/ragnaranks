@@ -87,8 +87,10 @@
                 history.pushState({}, 'null', `?action=${page}`);
             },
             trackUserClick() {
-                axios.post('/listing/' + this.listing.slug + '/clicks').then(response => {
-                    ga('send', 'event', 'Listing', 'clicked', this.listing.name);
+                axios.post('/listing/' + this.listing.slug + '/clicks').then((response) => {
+                    this.listing.ranking.clicks++;
+                }).catch((errors) => {
+                    // we dont need to display anything.
                 });
             },
             goBack() {
