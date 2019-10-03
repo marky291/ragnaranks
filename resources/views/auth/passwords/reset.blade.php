@@ -15,20 +15,31 @@
                                 <div class="item-group">
                                     <label>{{ __('E-Mail Address') }}</label>
                                     <at-input autofocus id="email" v-model="form.email" :status="form.errors.has('email') ? 'error' : ''" placeholder="{{ __('E-Mail Address') }}" name="email" value="{{ $email }}"></at-input>
-                                    <has-error :form="form" field="email"></has-error>
+                                    <input id="email" type="email" style="font-size:12px;" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="item-group">
                                     <label for="password">Password</label>
-                                    <at-input type="password" id="password" v-model="form.password" :status="form.errors.has('password') ? 'error' : ''" placeholder="{{ __('Password') }}" name="password"></at-input>
-                                    <has-error :form="form" field="password"></has-error>
+                                    <input id="password" type="password" style="font-size: 12px;" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="item-group mb-4">
                                     <label for="password-confirm">{{ __('Confirm Password') }}</label>
-                                    <at-input type="password" id="password-confirm" v-model="form.password_confirmation" :status="form.errors.has('password_confirmation') ? 'error' : ''" placeholder="{{ __('Confirm Password') }}" name="password_confirmation"></at-input>
+                                    <input id="password-confirm" type="password" style="font-size:12px;" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                     <has-error :form="form" field="password_confirmation"></has-error>
                                 </div>
                                 <div class="action-group">
-                                    <at-button @click="attemptSendReset" :loading="form.busy" type="primary">{{ __('Reset Password') }}</at-button>
+                                    <button type="submit" class="at-btn at-btn--primary">
+                                        <span class="at-btn__text">{{ __('Reset Password') }}</span>
+                                    </button>
                                 </div>
                             </form>
                         </reset-password-component>
