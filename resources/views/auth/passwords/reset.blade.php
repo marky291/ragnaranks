@@ -7,7 +7,10 @@
                 <div class="w-50 m-auto mt-5 p-2 tw-rounded tw-items-center tw-flex" style="height: 75vh;">
                     <div class="mb-4 tw-flex-1 tw-bg-white px-5 py-4 tw-rounded shadow">
                         <reset-password-component route="{{ route('password.update') }}" form_token="{{ $token }}" inline-template>
-                            <form action="" @keydown="form.onKeydown($event)" @keydown.enter="attemptSendReset">
+                            <form method="POST" action="{{ route('password.update') }}">
+                                @csrf
+                                <input type="hidden" name="token" value="{{ $token }}">
+
                                 <div class="tw-flex tw-flex-row tw-items-center mb-3">
                                     <img src="https://i.pinimg.com/originals/d9/35/46/d935462f496db09ee9f01da26ff17922.jpg" alt="poring monster" width="75">
                                     <h2 class="ml-2 tw-font-bold mb-0">The final part to resetting your password! <br><small>It was a long journey, but you made it</small></h2>
