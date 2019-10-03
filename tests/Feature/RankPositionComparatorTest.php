@@ -3,11 +3,11 @@
 namespace Tests\Feature;
 
 use App\Http\Controllers\ClickController;
-use App\Http\Controllers\VoteController;
 use App\Listings\Listing;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Http\Controllers\ListingVoteController;
 
 class RankPositionComparatorTest extends TestCase
 {
@@ -53,7 +53,7 @@ class RankPositionComparatorTest extends TestCase
 
         $listing1 = factory(Listing::class)->create(['name' => 'foo']);
 
-        app(VoteController::class)->processVote($listing1);
+        app(ListingVoteController::class)->processVote($listing1);
 
         $listing2 = factory(Listing::class)->create(['name' => 'bar']);
 

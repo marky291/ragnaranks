@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use App\Http\Controllers\ClickController;
-use App\Http\Controllers\VoteController;
+use App\Http\Controllers\ListingVoteController;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Jobs\SyncRankingVote;
@@ -22,7 +22,7 @@ class SyncRankingTest extends TestCase
     {
         $listing = factory(Listing::class)->create();
 
-        app(VoteController::class)->processVote($listing);
+        app(ListingVoteController::class)->processVote($listing);
 
         $this->assertDatabaseHas('listing_rankings', ['listing_id' => 1, 'votes' => 1, 'points' => 7]);
     }

@@ -121,7 +121,7 @@ class ListingVoteController extends Controller
 
             return response()->json([
                 'success' => true,
-                'redirect' => route('listing.show', $listing),
+                'redirect' => route('listing.votes.index', $listing),
                 'captcha' => $captcha,
             ]);
         }
