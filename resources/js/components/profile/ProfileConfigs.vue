@@ -177,7 +177,7 @@
                 return Validator.value(value).required().url();
             },
             'current.description': function(value) {
-                return Validator.value(value).required().minLength(100).maxLength(999);
+                return Validator.value(value).required().minLength(100).maxLength(3000);
             },
             'current.config.max_base_level': function(value) {
                 return this.validateNumericField(value);

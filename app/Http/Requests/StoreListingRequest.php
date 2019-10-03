@@ -37,7 +37,7 @@ class StoreListingRequest extends FormRequest
             'mode' => Rule::in(config('filter.modes')),
             'tags.*' => Rule::in(config('filter.tags')),
             'screenshots.*' => 'sometimes|string',
-            'description' => 'required|string|min:100',
+            'description' => 'required|string|min:100|max:3000',
             'config.max_base_level' => 'required|int|between:1,2147483648',
             'config.max_job_level' => 'required|int|between:1,2147483648',
             'config.max_aspd' => 'required|int|between:1,2147483648',
