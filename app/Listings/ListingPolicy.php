@@ -24,10 +24,10 @@ class ListingPolicy
     /**
      * Determine whether the user can create listings.
      *
-     * @param User $user
+     * @param Listing $listing
      * @return mixed
      */
-    public function create(User $user)
+    public function create(Listing $listing)
     {
         return true;
     }
