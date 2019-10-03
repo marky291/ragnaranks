@@ -6,7 +6,7 @@
     @section('keywords', $listing->name . ', ' . $listing->tags->implode('name', ', ') . ', reviews, information, rating, website, ranking, configs')
     @section('canonical', route('listing.show', $listing))
 @else
-    @section('title', 'Ragnaranks - Create a new private server listing')
+    @section('title', 'Create a new private server listing - Ragnaranks')
     @section('description', 'Design and create a profile listing that suits your server style and configuration')
     @section('canonical', route('listing.create'))
 @endif
