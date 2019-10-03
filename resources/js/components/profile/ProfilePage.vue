@@ -86,16 +86,10 @@
                 this.currentPage = page;
                 history.pushState({}, 'null', `?action=${page}`);
             },
-            visitWebsite() {
-                // track the click.
-                axios.post('/listing/' + this.listing.slug + '/clicks').then((response) => {
-                    if(response.data.success === true) {
-                        this.listing.ranking.clicks++;
-                        ga('send', 'event', 'Listing', 'clicked', this.listing.name);
-                    }
+            trackUserClick() {
+                axios.post('/listing/' + this.listing.slug + '/clicks').then(response => {
+                    ga('send', 'event', 'Listing', 'clicked', this.listing.name);
                 });
-                // visit the page.
-                window.open(this.listing.website,'_blank');
             },
             goBack() {
                 return window.history.back();

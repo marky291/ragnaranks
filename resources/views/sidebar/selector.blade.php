@@ -17,7 +17,7 @@
 @endif
 
 <div class="tw-flex tw-flex-col content tw-shadow-md rounded" id="user-actions">
-    <a class="selector-item {{ $listing->accent }}-dark" href="{{ $listing->website }}" target="_blank">
+    <a class="selector-item {{ $listing->accent }}-dark" href="{{ $listing->website }}" @click="trackUserClick()" target="_blank">
         <div class="tw-items-center tw-py-3 tw-px-6 tw-flex tw-border-b tw-border-gray-200">
             <div class="tw-pr-4 tw-leading-snug">
                 <h5 class="title tw-mb-1">Server Website</h5>

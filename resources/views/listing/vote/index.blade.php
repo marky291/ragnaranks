@@ -11,7 +11,7 @@
                 <div v-if="availableVotes > 0">
                     <google-re-captcha-v3
                         ref="captcha" v-model="gRecaptchaResponse"
-                        :siteKey="'6LdT_aMUAAAAANYwPoNyZ4eaFX2kqZHi4wZTySp9'"
+                        :site-key="'6LdT_aMUAAAAANYwPoNyZ4eaFX2kqZHi4wZTySp9'"
                         :id="'vote_id'"
                         :inline="false"
                         :action="'vote'">

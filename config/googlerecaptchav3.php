@@ -24,7 +24,7 @@ return [
     | Supported: true, false
     |
     */
-    'is_service_enabled' => false,
+    'is_service_enabled' => true,
     /*
     |--------------------------------------------------------------------------
     | Host Name
