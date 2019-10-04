@@ -51,7 +51,7 @@ class ClickControllerTest extends TestCase
 
         $response = $this->post("/listing/{$listing->slug}/clicks");
 
-        $response->assertJson(['success' => true]);
+        $response->assertStatus(200);
     }
 
     /**

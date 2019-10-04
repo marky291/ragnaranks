@@ -116,6 +116,8 @@ class ReviewControllerTest extends TestCase
      */
     public function test_it_can_be_reported()
     {
+        $this->markTestSkipped('Feature Disabled');
+
         $this->signIn();
 
         $listing = factory(Listing::class)->create(['name' => 'foo']);

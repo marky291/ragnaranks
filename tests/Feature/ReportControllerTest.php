@@ -28,6 +28,8 @@ class ReportControllerTest extends TestCase
 
     public function test_moderation_tools_index_page_returns_200()
     {
+        $this->markTestSkipped('Feature Disabled');
+        
         $this->signIn();
 
         $this->withoutExceptionHandling();

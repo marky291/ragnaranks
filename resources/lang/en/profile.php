@@ -142,7 +142,7 @@ return [
         'pending' => 'When you have decided to give this server your vote, you will not be able to give another vote for :hours hours to any other server, this prevents mass voting and allows votes to have value on our ranking algorithm.',
         'completed' => 'Thanks for your interest in another vote to this server, however you must wait :hours hours from your first vote before you can send another vote',
         'declined' => 'Sorry for the inconvenience, you can true voting later or get in touch with an administrator to make the problem aware.',
-        'finished' => 'Your vote has been sent to this server, and will be applied for the next 7 days, you can continue to vote every :hours hours, thank you for your continued support on behalf of RagnaRanks and :name.',
+        'finished' => 'Your vote has been sent to this server, and will be applied for the next 14 days, you can continue to vote every :hours hours, thank you for your continued support on behalf of RagnaRanks and :name.',
     ],
 
     'buttons' => [

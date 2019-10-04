@@ -12,7 +12,7 @@ use App\Http\Resources\NewListingResource;
 use App\Http\Controllers\ListingVoteController;
 
 Route::middleware('api')->get('/{listing}/vote4points', static function (Listing $listing) {
-    $response = (new ListingVoteController())->processVote($listing);
+    $response = (new ListingVoteController)->processVote($listing);
     if ($response->getData('data')['success'] == true) {
         return '<h3>'.trans('profile.voting.heading.finished', ['name' => $listing->name]).'</h3>';
     }

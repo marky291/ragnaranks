@@ -151,7 +151,7 @@ class Listing extends Model
      */
     public function votes()
     {
-        return $this->hasMany(Vote::class)->whereDate('created_at', '>=', ' DATE_SUB(NOW(), INTERVAL 7 DAY)');
+        return $this->hasMany(Vote::class)->where('created_at', '>=', Carbon::today()->subDays(14));
     }
 
     /**
@@ -161,7 +161,7 @@ class Listing extends Model
      */
     public function clicks()
     {
-        return $this->hasMany(Click::class)->whereDate('created_at', '>=', ' DATE_SUB(NOW(), INTERVAL 7 DAY)');
+        return $this->hasMany(Click::class)->whereDate('created_at', '>=', Carbon::today()->subDays(14));
     }
 
     /**

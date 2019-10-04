@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\User;
+use Illuminate\Support\Testing\Fakes\EventFake;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Interactions\Vote;
@@ -39,23 +40,21 @@ class VoteControllerTest extends TestCase
 
         $listing = factory(Listing::class)->create(['name' => 'foo']);
 
-        $this->post('/listing/foo/votes')->assertOk();
+        $this->post(route('listing.clicks.store', $listing))->assertOk();
 
-        $this->assertCount(1, $listing->votes);
+        $this->assertCount(1, $listing->clicks);
 
-        $this->assertDatabaseHas('votes', ['ip_address' => '127.0.0.1']);
+        $this->assertDatabaseHas('clicks', ['ip_address' => '127.0.0.1']);
     }
 
     public function test_it_can_process_an_automatic_vote()
     {
-        $this->withoutExceptionHandling();
-
         /** @var User $user */
         $user = $this->signIn();
 
-        $listing = factory(Listing::class)->create(['name' => 'listing']);
+        $listing = factory(Listing::class)->create(['name' => 'foo']);
 
-        $response = $this->get("/api/listing/vote4points?api_token={$user->api_token}");
+        $this->get(route('vote4points', ['listing' => $listing, 'api_token' => $user->api_token]));
 
         $this->assertDatabaseHas('votes', ['ip_address' => '127.0.0.1']);
     }
@@ -65,34 +64,30 @@ class VoteControllerTest extends TestCase
      */
     public function it_dispatches_vote_completed_event()
     {
-        $this->withoutExceptionHandling();
-
-        Event::fake();
-
         $this->signIn();
 
-        factory(Listing::class)->create(['slug' => 'foo']);
+        $event = Event::fake();
 
-        $this->post('/listing/foo/votes');
+        $listing = factory(Listing::class)->create(['slug' => 'foo']);
 
-        Event::assertDispatched(ListingVotedEvent::class);
+        $this->post(route('listing.votes.store', $listing));
+
+        $event->assertDispatched(ListingVotedEvent::class);
     }
 
     public function test_casting_vote_repositions_rank()
     {
         $this->signIn();
 
-        $this->withoutExceptionHandling();
-
-        $listing1 = factory(Listing::class)->create(['id' => 5, 'name' => 'foo']);
-        $listing2 = factory(Listing::class)->create(['id' => 20, 'name' => 'bar']);
+        $listing1 = factory(Listing::class)->create(['name' => 'foo']);
+        $listing2 = factory(Listing::class)->create(['name' => 'bar']);
 
         $this->assertEquals(1, $listing1->ranking->rank);
         $this->assertEquals(2, $listing2->ranking->rank);
 
-        $this->post('/listing/bar/votes');
+        $this->post(route('listing.votes.store', $listing2));
 
-        $this->assertDatabaseHas('listing_rankings', ['listing_id' => 20, 'rank' => 1]);
-        $this->assertDatabaseHas('listing_rankings', ['listing_id' => 5, 'rank' => 2]);
+        $this->assertDatabaseHas('listing_rankings', ['id' => $listing2->id, 'rank' => 1]);
+        $this->assertDatabaseHas('listing_rankings', ['id' => $listing1->id, 'rank' => 2]);
     }
 }

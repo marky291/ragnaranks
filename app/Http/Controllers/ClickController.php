@@ -30,7 +30,8 @@ class ClickController extends Controller
      */
     public function processClick(Listing $listing)
     {
-        if ($listing->clicks()->hasInteractedDuring(config('action.click.spread')) === false) {
+        if ($listing->clicks()->hasInteractedDuring(config('action.click.spread')) === false)
+        {
             $listing->clicks()->create(['ip_address' => request()->getClientIp()]);
 
             ListingRanking::incrementClick($listing);

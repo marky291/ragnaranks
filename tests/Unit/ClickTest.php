@@ -45,7 +45,7 @@ class ClickTest extends TestCase
     {
         $listing = factory(Listing::class)->create();
 
-        $listing->clicks()->save(factory(Click::class)->make(['ip_address' => '127.0.0.5']));
+        $listing->clicks()->save(factory(Click::class)->make(['ip_address' => '127.0.0.5', 'created_at' => now()]));
 
         $this->assertEquals('127.0.0.5', $listing->clicks()->first()->ip_address);
     }

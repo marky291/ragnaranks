@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use App\Tag;
 use App\User;
+use Carbon\Carbon;
 use Tests\TestCase;
 use App\Reviews\Review;
 use App\Listings\Listing;
@@ -115,7 +116,7 @@ class ListingTest extends TestCase
     {
         $server = factory(Listing::class)->create();
 
-        $server->votes()->save(factory(Vote::class)->make());
+        $server->votes()->save(factory(Vote::class)->make(['created_at' => now()]));
 
         $this->assertCount(1, $server->votes);
     }
@@ -125,11 +126,11 @@ class ListingTest extends TestCase
      */
     public function it_has_a_click_interaction()
     {
-        $server = factory(Listing::class)->create();
+        $listing = factory(Listing::class)->create();
 
-        $server->clicks()->save(factory(Click::class)->make());
+        $click = $listing->clicks()->save(factory(Click::class)->make(['created_at' => Carbon::now()->subDay()]));
 
-        $this->assertCount(1, $server->clicks);
+        $this->assertCount(1, $listing->clicks);
     }
 
     /**
@@ -188,7 +189,7 @@ class ListingTest extends TestCase
     {
         $listing = factory(Listing::class)->create();
 
-        $listing->clicks()->saveMany(factory(Click::class, 7)->make());
+        $listing->clicks()->saveMany(factory(Click::class, 7)->make(['created_at' => Carbon::now()]));
 
         $this->assertCount(7, $listing->clicks);
     }
@@ -200,7 +201,7 @@ class ListingTest extends TestCase
     {
         $listing = factory(Listing::class)->create();
 
-        $listing->votes()->saveMany(factory(Vote::class, 1)->make());
+        $listing->votes()->saveMany(factory(Vote::class, 1)->make(['created_at' => Carbon::now()]));
 
         $this->assertCount(1, $listing->votes);
     }

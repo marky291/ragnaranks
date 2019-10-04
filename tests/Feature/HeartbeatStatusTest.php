@@ -13,14 +13,14 @@ class HeartbeatStatusTest extends TestCase
 
     public function test_flux_control_xml_response()
     {
-        $checkup = new FluxControlPanelStatus('https://xilero.net');
+        $checkup = new FluxControlPanelStatus('http://sunshine-ro.net');
 
         $this->assertTrue($checkup->exists());
     }
 
     public function test_flux_control_data_response()
     {
-        $checkup = new FluxControlPanelStatus('https://xilero.net');
+        $checkup = new FluxControlPanelStatus('http://sunshine-ro.net');
 
         $decoded = json_decode($checkup->formattedData(), true);
 
