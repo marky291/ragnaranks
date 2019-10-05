@@ -87,9 +87,7 @@
             },
             incrementClick: function(listing) {
                 axios.post(`/listing/${listing.slug}/clicks`).then((response) => {
-                    if(response.data.success === true) {
-                        listing.ranking.clicks++;
-                    }
+                    listing.ranking.clicks++;
                 });
                 ga('send', 'event', 'website', 'clicked', this.listing.name);
             },

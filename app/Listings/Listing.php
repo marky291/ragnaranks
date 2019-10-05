@@ -151,7 +151,7 @@ class Listing extends Model
      */
     public function votes()
     {
-        return $this->hasMany(Vote::class)->where('created_at', '>=', Carbon::today()->subDays(14));
+        return $this->hasMany(Vote::class)->where('created_at', '>=', Carbon::today()->subDays(config('ranking.ignore_after_days')));
     }
 
     /**
@@ -161,7 +161,7 @@ class Listing extends Model
      */
     public function clicks()
     {
-        return $this->hasMany(Click::class)->whereDate('created_at', '>=', Carbon::today()->subDays(14));
+        return $this->hasMany(Click::class)->whereDate('created_at', '>=', Carbon::today()->subDays(config('ranking.ignore_after_days')));
     }
 
     /**

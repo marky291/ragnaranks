@@ -25,6 +25,7 @@
                 <div class="tw-flex pb-2 pt-2 tw-flex-wrap">
                     <div id="sidebar" class="lg:tw-w-1/3 tw-px-3 tw-flex-1">
                         @include('sidebar.message')
+                        <at-alert message="No Resets to Zero" class="tw-mt-4 tw-shadow" description="Created votes and clicks last {{ config('ranking.ignore_after_days') }} days!" type="info" show-icon></at-alert>
 {{--                        @include('sidebar.paginate')--}}
                         @include('sidebar.filter')
                         @include('sidebar.reviews')
