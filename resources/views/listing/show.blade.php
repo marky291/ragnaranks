@@ -2,7 +2,7 @@
 
 @if ($listing->exists)
     @section('title', "{$listing->name} Private Server Information - Ragnaranks")
-    @section('description', 'Take a quick peek at this servers reviews, screenshots, configurations and statistics before you play.')
+    @section('description', "Server information about {$listing->name} such as server description, reviews, ratings, ranks, votes and status reports.")
     @section('keywords', $listing->name . ', ' . $listing->tags->implode('name', ', ') . ', reviews, information, rating, website, ranking, configs')
     @section('canonical', route('listing.show', $listing))
 @else
