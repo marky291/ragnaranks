@@ -27,10 +27,14 @@ class RankPositionComparator implements ShouldQueue
      *
      * @param $event
      * @return void
+     *
+     * @throws \Exception
      */
     public function handle($event): void
     {
         $this->sortListingPosition($event->listing->ranking);
+
+        cache()->forget("listing:{$event->listing->name}");
     }
 
     /**
