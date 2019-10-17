@@ -128,7 +128,7 @@
                 </div>
 
                 <div id="copyrights" class="container text-center rounded-top">
-                    <p class="text-transparent mb-0">©Ragnaranks 2018. All Rights belong to Respective Owners. Ver {{ config('app.version') }}</p>
+                    <p class="text-transparent mb-0">©Ragnaranks 2019. All Rights belong to Respective Owners. Ver {{ config('app.version') }}</p>
                     <p class="text-transparent mb-0">
                         Developed and Designed by <a class=text-white href="https://www.facebook.com/Marky291">Mark Hester</a>,
                         with special thanks to Rainer Popowski & Zurina Johnston for their insight.
