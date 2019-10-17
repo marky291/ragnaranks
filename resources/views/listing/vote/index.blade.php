@@ -18,6 +18,16 @@
                     </google-re-captcha-v3>
 
                     <at-button @click="sendVote()" type="primary" class="mt-2 tw-h-10 tw-w-full">Vote for @{{ listingName }}</at-button>
+                    
+                    <div class="mb-4">
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-2280364578236676"
+                             data-ad-slot="6899563036"
+                             data-ad-format="auto"
+                             data-full-width-responsive="true">
+                         </ins>
+                    </div>
                 </div>
             </div>
         </section>
