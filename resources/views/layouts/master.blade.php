@@ -14,8 +14,7 @@
         <script data-ad-client="ca-pub-2280364578236676" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </head>
     <body>
-        <div id="app">
-
+        <div id="app" class="min-width:1200px">
             <nav id="rr-navbar" class="tw-shadow-md">
                 <div class="tw-container tw-flex tw-items-center tw-py-3 lg:tw-py-4">
                     <div id="nav-left" class="tw-flex-1 tw-hidden xl:tw-block lg:tw-self-end">
