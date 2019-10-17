@@ -113,4 +113,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->email_preference == 'important';
     }
+
+    public function isAdmin()
+    {
+        return $this->hasRole('admin');
+    }
 }
