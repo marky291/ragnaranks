@@ -20,11 +20,11 @@
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                     <!-- Test -->
                     <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-2280364578236676"
-                         data-ad-slot="6899563036"
-                         data-ad-format="auto"
-                         data-full-width-responsive="true"></ins>
+                     style="display:block"
+                     data-ad-client="ca-pub-2280364578236676"
+                     data-ad-slot="4462624464"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
                     <script>
                     window.onload = function() {
                         (adsbygoogle = window.adsbygoogle || []).push({});
