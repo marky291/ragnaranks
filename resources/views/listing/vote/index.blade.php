@@ -26,7 +26,9 @@
                          data-ad-format="auto"
                          data-full-width-responsive="true"></ins>
                     <script>
-                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    window.onload = function() {
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    }
                     </script>
 
                     <at-button @click="sendVote()" type="primary" class="mt-2 tw-h-10 tw-w-full">Vote for @{{ listingName }}</at-button>
