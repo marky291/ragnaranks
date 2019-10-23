@@ -89,6 +89,22 @@
 
             @yield('wrapper')
 
+            <div class="tw-my-4">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Test -->
+                <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-2280364578236676"
+                 data-ad-slot="4462624464"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+                <script>
+                window.onload = function() {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                }
+                </script>
+            </div>
+
             <footer class="shadow-inner">
                 <div class="tw-container d-flex mb-5">
                     <div class="tw-flex-1  mr-5">
