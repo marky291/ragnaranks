@@ -93,11 +93,9 @@
                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                 <!-- Test -->
                 <ins class="adsbygoogle"
-                 style="display:block"
+                 style="display:inline-block;width:1100px;height:55px"
                  data-ad-client="ca-pub-2280364578236676"
-                 data-ad-slot="4462624464"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
+                 data-ad-slot="4462624464"></ins>
                 <script>
                 window.onload = function() {
                     (adsbygoogle = window.adsbygoogle || []).push({});
