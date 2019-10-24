@@ -89,20 +89,6 @@
 
             @yield('wrapper')
 
-            <div class="tw-container tw-py-4">
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- Test -->
-                <ins class="adsbygoogle"
-                 style="display:inline-block;width:1100px;height:55px"
-                 data-ad-client="ca-pub-2280364578236676"
-                 data-ad-slot="4462624464"></ins>
-                <script>
-                window.onload = function() {
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                }
-                </script>
-            </div>
-
             <footer class="shadow-inner">
                 <div class="tw-container d-flex mb-5">
                     <div class="tw-flex-1  mr-5">
@@ -150,6 +136,22 @@
             </footer>
         </div>
 
+        <script src="{{ mix('/js/app.js') }}"></script>
+        <script>
+            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+            ga('create', 'UA-117148224-4', 'auto');
+
+            // Replace the following lines with the plugins you want to use.
+            ga('require', 'eventTracker');
+            ga('require', 'outboundLinkTracker');
+            ga('require', 'urlChangeTracker');
+            // ga('require', 'pageVisibilityTracker');
+            // ga('require', 'impressionTracker');
+            // ga('require', 'maxScrollTracker');
+            // ...
+
+            ga('send', 'pageview');
+        </script>
         <script src="https://kit.fontawesome.com/fd57eb34f0.js"></script>
         <script async src="https://www.google-analytics.com/analytics.js"></script>
         <script async src="https://ragnabox.fra1.digitaloceanspaces.com/assets/autotrack-2.4.1.js"></script>
