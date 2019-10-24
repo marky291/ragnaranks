@@ -148,25 +148,8 @@
                     </p>
                 </div>
             </footer>
-
         </div>
 
-        <script src="{{ mix('/js/app.js') }}"></script>
-        <script>
-            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-            ga('create', 'UA-117148224-4', 'auto');
-
-            // Replace the following lines with the plugins you want to use.
-            ga('require', 'eventTracker');
-            ga('require', 'outboundLinkTracker');
-            ga('require', 'urlChangeTracker');
-            // ga('require', 'pageVisibilityTracker');
-            // ga('require', 'impressionTracker');
-            // ga('require', 'maxScrollTracker');
-            // ...
-
-            ga('send', 'pageview');
-        </script>
         <script src="https://kit.fontawesome.com/fd57eb34f0.js"></script>
         <script async src="https://www.google-analytics.com/analytics.js"></script>
         <script async src="https://ragnabox.fra1.digitaloceanspaces.com/assets/autotrack-2.4.1.js"></script>
