@@ -80,10 +80,10 @@
         props: ['data', 'space'],
         methods: {
             reviewScoreMessage: function(score) {
-                if (score === 0) return 'homepage.card.review.fresh';
-                if (score === 3) return 'homepage.card.review.mediocre';
                 if (score > 3) return 'homepage.card.review.positive';
-                if (score < 3) return 'homepage.card.review.negative';
+                if (score === 3) return 'homepage.card.review.mediocre';
+                if (score > 0) return 'homepage.card.review.negative';
+                return 'homepage.card.review.fresh';
             },
             incrementClick: function(listing) {
                 axios.post(`/listing/${listing.slug}/clicks`).then((response) => {
