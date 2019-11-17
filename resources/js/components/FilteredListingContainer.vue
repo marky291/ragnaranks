@@ -81,7 +81,7 @@
         methods: {
             reviewScoreMessage: function(score) {
                 if (score > 3) return 'homepage.card.review.positive';
-                if (score === 3) return 'homepage.card.review.mediocre';
+                if (score > 2) return 'homepage.card.review.mediocre';
                 if (score > 0) return 'homepage.card.review.negative';
                 return 'homepage.card.review.fresh';
             },
