@@ -46,7 +46,7 @@
                                 <h2 class="tw-font-bold tw-mb-1 tw-text-lg">{{ $review->user->username }}</h2>
                             </div>
                             <div class="">
-                                <at-rate :show-text="false"  size="small" :value="{{ $review->average_score }}" :count="{{ $review->average_score }}" disabled></at-rate>
+                                <at-rate :show-text="false" :value="{{ ceil($review->average_score) }}" :count="5" disabled></at-rate>
                             </div>
                         </div>
                     </div>

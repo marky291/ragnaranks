@@ -17,12 +17,9 @@
                                 <p class="tw-text-white"><small>Posted {{ formattedDate() }}</small></p>
                             </div>
                         </div>
-                        <div class="tw-flex tw-flex-col tw-self-center tw-rounded-l tw-text-right tw-p-3 tw-bg-white"
-                             :class="'bg-'+$parent.$parent.$parent.accent+'-base'">
-                            <at-rate :show-text="true" v-model="review.average_score" :count="review.average_score"
-                                     disabled>
-                                <span
-                                    class="tw-text-white tw-font-bold">{{this.ratingScore(review.average_score)}}</span>
+                        <div class="tw-flex tw-flex-col tw-self-center tw-rounded-l tw-text-right tw-p-3 tw-bg-white" :class="'bg-'+$parent.$parent.$parent.accent+'-base'">
+                            <at-rate :show-text="true" :allow-half="true" v-model="review.average_score" :count="review.average_score"disabled>
+                                <span class="tw-text-white tw-font-bold">{{this.ratingScore(review.average_score)}}</span>
                             </at-rate>
                         </div>
                     </div>
