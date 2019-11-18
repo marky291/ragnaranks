@@ -52,7 +52,7 @@
                                                     <h3 class="card-counter-title mb-0 font-weight-bold transparency">Clicks</h3>
                                                     <span class="card-counter font-weight-bold transparency">@{{ clicks }}</span>
                                                 </div>
-                                                <div class="d-flex flex-column justify-content-end" style="height:100%;">
+                                                <div class="d-flex flex-column justify-content-end" style="height:100%; width:22px;">
                                                     <img class="tw-w-6 tw-h-6 tw-shadow tw-mr-2" src="/img/flags/{{ $listing->language->name }}.svg" alt="">
                                                 </div>
                                             </div>
