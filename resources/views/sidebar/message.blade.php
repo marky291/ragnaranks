@@ -1,7 +1,7 @@
 <div class="content tw-shadow tw-hidden lg:tw-block tw-p-6">
 	<h3 class="text-orange font-weight-bold">Site Notice</h3>
 	<p class="subheading">We are keen to learn how we can improve our webservice,
-        let us know your opinions and ideas and get in touch with us on our <a href="https://www.m.me/ragnaranks"><i class="tw-ml-1 fab fa-facebook-square"></i> Facebook Page</a>!
+        let us know your opinions and ideas and get in touch with us on our <a href="https://www.m.me/ragnaranks"><i class="fab fa-facebook-square"></i> Facebook Page</a>!
 	</p>
 </div>
 
