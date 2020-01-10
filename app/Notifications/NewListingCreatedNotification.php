@@ -48,6 +48,7 @@ class NewListingCreatedNotification extends Notification implements ShouldQueue
         return (new MailMessage)
             ->subject('New Listing!')
             ->line('You have been sent this special email letting you know that a new listing was posted, here are some details:')
-            ->line("Listing: {$this->listing->name}\nCreated: {$this->listing->created_at}");
+            ->line("Listing: {$this->listing->name}")
+            ->line("Created: {$this->listing->created_at}");
     }
 }
