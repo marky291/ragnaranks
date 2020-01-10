@@ -9,6 +9,7 @@ use App\Reviews\Review;
 use App\Interactions\Vote;
 use App\Interactions\Click;
 use App\Interactions\Interaction;
+use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
@@ -92,6 +93,16 @@ class Listing extends Model
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    /**
+     * Get the route to view this listing,
+     *
+     * @return UrlGenerator|string
+     */
+    public function route()
+    {
+        return url("listing/{$this->slug}");
     }
 
     /**
