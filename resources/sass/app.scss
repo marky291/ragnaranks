@@ -107,3 +107,24 @@ h1,h2,h3,h4,h5 {
 .at-collapse__content {
   overflow: initial;
 }
+
+
+.collection {
+    display: flex;
+    flex-wrap: wrap;
+
+    .item {
+        .heading {
+            height: 45px;
+        }
+        .body {
+            padding: 1rem;
+        }
+
+        width: 31.92%;
+        background:white;
+        padding: 1rem;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+}

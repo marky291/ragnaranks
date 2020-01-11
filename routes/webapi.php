@@ -63,3 +63,10 @@ Route::get('/voting/stats', static function () {
 });
 
 Route::get('/servers/{exp_group}/{mode}/{tag}/{sort}/{limit}')->uses('ListingFilteringController@filters');
+
+/**
+ * Item database searching api.
+ */
+Route::get('/database/items', static function() {
+    return \App\Http\Resources\ItemResource::collection(\App\Databases\Items\Item::paginate(65));
+});

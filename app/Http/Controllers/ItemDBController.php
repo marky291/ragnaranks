@@ -18,6 +18,6 @@ class ItemDBController extends Controller
      */
     public function index()
     {
-        return ItemResource::collection(Item::take(20)->get());
+        return view('items.index');
     }
 }
