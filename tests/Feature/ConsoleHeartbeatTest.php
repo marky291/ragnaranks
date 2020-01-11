@@ -71,7 +71,7 @@ class ConsoleHeartbeatTest extends TestCase
 
         $this->signIn(); // create admin account.
         $listing = factory(Listing::class)->create(['website' => 'fakeererrr/db']);
-        $listing->heartbeat()->update(['recorder' => 'flux-cp', 'failure_count' => 35]);
+        $listing->heartbeat()->update(['recorder' => 'flux-cp', 'failure_count' => 143]);
         $this->artisan('check:heartbeat')->expectsOutput('Completed heartbeat checkup successfully');
 
         Notification::assertTimesSent(1, HeartbeatFailureNotification::class);

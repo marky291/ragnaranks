@@ -93,10 +93,10 @@ class CheckHeartbeats extends Command
                 ]);
 
                 // 36 = 1 per 10 minute, 6 per hour, notify after 6 hours
-                if ($listing->heartbeat->failure_count+1 >= 36) {
+                if (($listing->heartbeat->failure_count + 1) % 144 == 0) {
                     \Notification::send(
                         User::role('admin')->get(),
-                        new HeartbeatFailureNotification($listing, $listing->heartbeat->failure_count+1)
+                        new HeartbeatFailureNotification($listing, $listing->heartbeat->failure_count + 1)
                     );
                 }
             }
