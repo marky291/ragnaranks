@@ -47,11 +47,13 @@ class CheckHeartbeats extends Command
 
         Listing::chunkById(100, static function (Collection $listings) use ($task) {
             foreach ($listings as $listing) {
-                $executionStartTime = microtime(true);
-                $task->checkListingHeartbeat($listing);
-                $executionEndTime = microtime(true);
-                $seconds = round($executionEndTime - $executionStartTime, 2);
-                $task->info("Completed {$listing->name} in {$seconds} seconds");
+                if ($listing->trashed() == false) {
+                    $executionStartTime = microtime(true);
+                    $task->checkListingHeartbeat($listing);
+                    $executionEndTime = microtime(true);
+                    $seconds = round($executionEndTime - $executionStartTime, 2);
+                    $task->info("Completed {$listing->name} in {$seconds} seconds");
+                }
             }
         });
 
