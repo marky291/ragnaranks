@@ -50,5 +50,7 @@ Route::resource('listing.votes', 'ListingVoteController')->only(['index', 'store
 Route::resource('listing.clicks', 'ClickController')->only(['store']);
 Route::resource('listing.reviews', 'ListingReviewController')->only(['index', 'create', 'store', 'edit', 'destroy', 'update']);
 
+// item database routes.
+Route::get('/database/items')->uses('ItemDBController@index')->name('ItemDatabase');
 
-Route::post('/config/parse')->uses('ConfigController@parse');
+//Route::post('/config/parse')->uses('ConfigController@parse');
