@@ -377,6 +377,14 @@ export default {
                     "name": "Instant Level",
                     "describe": "Players can chose a class and max out base and job levels instantly by login or by NPC."
                 },
+                "ready2pvp": {
+                    "name": "Ready To PVP",
+                    "describe": "This server allows players to easily get into pvp action."
+                },
+                "ready2woe": {
+                    "name": "Ready To WoE",
+                    "describe": "This server allows players to easily get into woe action"
+                },
                 "themed-server": {
                     "name": "Themed Server",
                     "describe": "A server that has a heavy theme and/or lots of roleplay and storytelling."
