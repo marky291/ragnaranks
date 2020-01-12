@@ -18,7 +18,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 /**
  * Class User.
  *
- * @property int id
+ * @property int $id
+ * @property string $username
+ * @property string $coins
  * @property Listing|iterable $listings
  * @property Listing|iterable $reviews
  * @property int $membership_id

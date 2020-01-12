@@ -97,4 +97,11 @@ class UserTest extends TestCase
 
         $this->assertNotEquals(User::first()->api_token, $user->api_token);
     }
+
+    public function test_a_user_has_coin_balance()
+    {
+        $user = factory(User::class)->create();
+
+        $this->assertEquals(0, $user->coin);
+    }
 }

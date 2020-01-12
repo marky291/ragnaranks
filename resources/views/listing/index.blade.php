@@ -25,6 +25,9 @@
                 <div class="tw-flex pb-2 pt-2 tw-flex-wrap">
                     <div id="sidebar" class="lg:tw-w-1/3 tw-px-3 tw-flex-1">
                         @include('sidebar.message')
+                        @auth
+                            @include('sidebar.display.coins')
+                        @endauth
 {{--                        @include('sidebar.paginate')--}}
                         @include('sidebar.filter')
                         @include('sidebar.reviews')
