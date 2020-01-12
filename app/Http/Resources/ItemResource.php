@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources;
 
-use App\Databases\Items\ItemEnum;
+use App\Catalogue\Items\ItemEnum;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -44,6 +44,7 @@ class ItemResource extends JsonResource
             'name' => $this->name_english,
             'type' => ItemEnum::TypeValueToString($this->type),
             'slots' => $this->slot,
+            'script' => $this->script,
         ];
     }
 }

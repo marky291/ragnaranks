@@ -1,14 +1,12 @@
 <template>
     <div class="collection">
-        <div class="item" v-for="item in items.data">
-            <p>{{ item.name }}</p>
-            <p>{{ item.type }}</p>
-            <p v-if="item.slots > 0">{{ item.slots }}</p>
-        </div>
+        <item v-for="item in items.data" :key="item.id" :item="item"/>
     </div>
 </template>
 
 <script>
+    Vue.component('item', require('./Item').default);
+
     export default {
         data: function () {
             return {

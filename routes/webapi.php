@@ -68,5 +68,5 @@ Route::get('/servers/{exp_group}/{mode}/{tag}/{sort}/{limit}')->uses('ListingFil
  * Item database searching api.
  */
 Route::get('/database/items', static function() {
-    return \App\Http\Resources\ItemResource::collection(\App\Databases\Items\Item::paginate(65));
+    return \App\Http\Resources\ItemResource::collection(\App\Catalogue\Items\Item::paginate(65));
 });

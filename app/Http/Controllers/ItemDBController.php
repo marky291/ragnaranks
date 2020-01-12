@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Databases\Items\Item;
-use App\Http\Resources\ItemResource;
 use Illuminate\Http\Request;
 
 /**
@@ -19,5 +17,15 @@ class ItemDBController extends Controller
     public function index()
     {
         return view('items.index');
+    }
+
+    /**
+     * Scrape requests for data.
+     *
+     * @param Request $request
+     */
+    public function scraper(Request $request)
+    {
+        var_dump($request);
     }
 }

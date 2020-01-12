@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Databases\Items;
+namespace App\Catalogue\Items;
 
 /**
  * Class ItemEnum
  *
- * @package App\Databases\Items
+ * @package App\Catalogue\Items
  */
 class ItemEnum
 {

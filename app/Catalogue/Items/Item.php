@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Databases\Items;
+namespace App\Catalogue\Items;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -30,7 +30,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $equip_script
  * @property string $unequip_script
  *
- * @package App\Databases\Items
+ * @package App\Catalogue\Items
  */
 class Item extends Model
 {
