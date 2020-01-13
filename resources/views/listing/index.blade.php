@@ -32,6 +32,7 @@
                         @include('sidebar.filter')
                         @include('sidebar.reviews')
                         @include('sidebar.recent')
+                        @include('sidebar.google-ads.sidebar')
                         @include('sidebar.social')
                     </div>
                     <div class="lg:tw-w-2/3 tw-px-4 tw-w-full" id="listingsContainer" ref="listingsContainer">
