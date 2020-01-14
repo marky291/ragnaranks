@@ -19,8 +19,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         GenerateSitemap::class,
         RankingRebuilder::class,
-        CheckHeartbeats::class,
-        SyncDeletedRankingWithListings::class,
+        CheckHeartbeats::class
     ];
 
     /**

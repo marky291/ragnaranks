@@ -53,23 +53,13 @@ class RankPositionComparator implements ShouldQueue
 
         // what are we comparing this listing against.
         do {
-
             /** @var ListingRanking $compare **/
             $compare = ListingRanking::where('rank', $listing->ranking->rank - 1)->whereHas('listing')->first();
 
             // fill the void if we the rank position is empty.
-            if (! isset($compare)) {
+            if (!isset($compare)) {
                 $listing->ranking->rank--;
             }
-
-            else if (! isset($compare->listing)) {
-                $listing->ranking->rank--;
-            }
-
-            // if the comparison listing was deleted we dont count it.
-//            else if ($compare->listing->trashed()) {
-//                $listing->rank--;
-//            }
 
             // we dont allow negative rankings.
             if ($listing->ranking->rank <= 0) {
