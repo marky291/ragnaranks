@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int votes
  * @property int clicks
  * @property int points
+ * @property Listing $listing
  * @method static Builder where(string $string, int $param)
  */
 class ListingRanking extends Model
@@ -38,6 +39,14 @@ class ListingRanking extends Model
      * @var string
      */
     public const CREATED_AT = null;
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function listing()
+    {
+        return $this->belongsTo(Listing::class);
+    }
 
     /**
      * Add a vote and populate its points on a table.
