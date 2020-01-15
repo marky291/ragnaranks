@@ -44,17 +44,17 @@ class CheckHeartbeats extends Command
      */
     public function handle()
     {
-        $task = &$this;
+        $console = &$this;
         $this->info('Heartbeat checkup being carried out');
 
-        Listing::chunkById(100, static function (Collection $listings) use ($task) {
+        Listing::chunkById(100, static function (Collection $listings) use ($console) {
             foreach ($listings as $listing) {
                 if ($listing->trashed() == false) {
                     $executionStartTime = microtime(true);
-                    $task->checkListingHeartbeat($listing);
+                    $console->checkListingHeartbeat($listing);
                     $executionEndTime = microtime(true);
                     $seconds = round($executionEndTime - $executionStartTime, 2);
-                    $task->info("Completed {$listing->name} in {$seconds} seconds");
+                    $console->info("Completed {$listing->name} in {$seconds} seconds");
                 }
             }
         });

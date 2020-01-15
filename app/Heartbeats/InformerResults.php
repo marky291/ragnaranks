@@ -47,6 +47,13 @@ interface InformerResults
     public function getPlayerCount(): int;
 
     /**
+     * Check if we can parse the content type.
+     *
+     * @return string
+     */
+    public function requiredContentType(): string;
+
+    /**
      * @param string $element
      * @return array
      */

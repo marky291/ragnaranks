@@ -13,13 +13,6 @@ use GuzzleHttp\Psr7\Response;
 abstract class Informer implements InformerResults
 {
     /**
-     * We run a checkup on the website for its status.
-     *
-     * @var string
-     */
-    private $website;
-
-    /**
      * The request response obtained from the website Url.
      *
      * @var Response
@@ -35,6 +28,7 @@ abstract class Informer implements InformerResults
 
     /**
      * Checkup constructor.
+     * @todo: What if response is 404, and it continues to read
      *
      * @param string $website
      */
@@ -42,7 +36,7 @@ abstract class Informer implements InformerResults
     {
         $this->response = (new Client)->get($website.$this->getURI(), ['connect_timeout' => 3.14]);
 
-        $this->attributes = $this->parseWebsiteResponse($this->response->getBody()->getContents());
+        $this->attributes = $this->tryParse($this->response->getBody()->getContents());
     }
 
     /**
@@ -55,12 +49,47 @@ abstract class Informer implements InformerResults
     }
 
     /**
-     * Validate it is online.
+     * Validate if it is online.
      *
      * @return bool
      */
     public function isOnline(): bool
     {
-        return $this->response->getStatusCode();
+        return $this->response->getStatusCode() == 200;
+    }
+
+    /**
+     * Check for eligability of the informer then parse it.
+     *
+     * @param string $getContents
+     * @return array
+     */
+    private function tryParse(string $getContents): array
+    {
+        if (!$this->isOnline() || !$this->hasMatchingContentType()) {
+            return array();
+        }
+
+        return $this->parseWebsiteResponse($getContents);
+    }
+
+    /**
+     * Did we find any data from the check?
+     *
+     * @return bool
+     */
+    public function hasActivePulse(): bool
+    {
+        return empty($this->attributes) == false;
+    }
+
+    /**
+     * Check is the content type matching.
+     *
+     * @return bool
+     */
+    private function hasMatchingContentType(): bool
+    {
+        return $this->response->getHeader('Content-Type')[0] == $this->requiredContentType();
     }
 }

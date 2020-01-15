@@ -52,6 +52,14 @@ class FluxStatusInformer extends Informer
     /**
      * @inheritDoc
      */
+    public function requiredContentType(): string
+    {
+        return 'text/xml;charset=UTF-8';
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function parseWebsiteResponse(string $element): array
     {
         $xml = simplexml_load_string($element);
