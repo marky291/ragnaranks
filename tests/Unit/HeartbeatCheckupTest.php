@@ -36,7 +36,7 @@ class HeartbeatCheckupTest extends TestCase
 
         $checkup = new HeartbeatCheckup($listing);
 
-        $this->assertEquals(true, $checkup->getInformer()->getPlayerCount());
+        $this->assertEquals(true, $checkup->hasInformer());
     }
 
     public function test_it_can_store_state_as_offline_for_previously_registered_informers()
