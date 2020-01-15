@@ -12,7 +12,7 @@ use App\Listings\ListingHeartbeat;
  *
  * @package App\Heartbeats
  */
-class HeartbeatMonitor
+class HeartbeatCheckup
 {
     /**
      * @var Listing
@@ -44,14 +44,6 @@ class HeartbeatMonitor
     }
 
     /**
-     * @return ListingHeartbeat
-     */
-    public function getHeartbeat(): ListingHeartbeat
-    {
-        return $this->listing->heartbeat;
-    }
-
-    /**
      * @return void
      */
     private function findPulseReading(): void
@@ -75,5 +67,29 @@ class HeartbeatMonitor
     public function hasInformer(): bool
     {
         return isset($this->informer) && $this->informer instanceof InformerResults;
+    }
+
+    /**
+     * @return InformerResults
+     */
+    public function getInformer():InformerResults
+    {
+        return $this->informer;
+    }
+
+    /**
+     * Create and save a new heartbeat from the informer we found.
+     *
+     * @return ListingHeartbeat
+     */
+    public function recordResults(): ListingHeartbeat
+    {
+        $heartbeat = new ListingHeartbeat();
+
+        $heartbeat->fillInformerResults($this->informer);
+
+        $this->listing->heartbeats()->save($heartbeat);
+
+        return $heartbeat;
     }
 }

@@ -48,4 +48,18 @@ class FluxStatusInformerTest extends TestCase
 
         $this->assertEquals('FluxStatusInformer', $informer->recorderName());
     }
+
+    public function test_it_does_not_examine_websites_with_404_error()
+    {
+        $informer = new FluxStatusInformer('http://reg.lupon-ro.net/feokfoe');
+
+        $this->assertEquals(false, $informer->isOnline());
+    }
+
+    public function test_it_does_not_examine_websites_that_timeout()
+    {
+        $informer = new FluxStatusInformer('http://soul-ragnarok.com');
+
+        $this->assertEquals(false, $informer->isOnline());
+    }
 }

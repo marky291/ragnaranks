@@ -55,6 +55,7 @@ use Illuminate\Support\Str;
  * @method static chunkById(int $int, \Closure $param)
  * @method static Collection has(string $string)
  * @property  ListingHeartbeat heartbeat
+ * @property HasMany heartbeats
  */
 class Listing extends Model
 {
@@ -148,11 +149,21 @@ class Listing extends Model
 
     /**
      * A listing has one heartbeat status.
-     * @return HasOne
+     * @return Model|HasMany|object|null
      */
-    public function heartbeat(): HasOne
+    public function heartbeat()
     {
-        return $this->hasOne(ListingHeartbeat::class);
+        return $this->hasOne(ListingHeartbeat::class)->latest('id');
+    }
+
+    /**
+     * A listing has many heartbeats
+     *
+     * @return HasMany|Collection
+     */
+    public function heartbeats(): HasMany
+    {
+        return $this->hasMany(ListingHeartbeat::class);
     }
 
     /**

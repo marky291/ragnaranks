@@ -3,7 +3,11 @@
 namespace App\Heartbeats;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ConnectException;
+use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Response;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class Checkup
@@ -24,7 +28,14 @@ abstract class Informer implements InformerResults
      *
      * @var array
      */
-    protected $attributes;
+    protected $attributes = [];
+
+    /**
+     * The name that will be shown to websites as the crawler.
+     *
+     * @var string
+     */
+    public static $agentName = 'Ragnaranks Heartbeat Monitor';
 
     /**
      * Checkup constructor.
@@ -34,7 +45,7 @@ abstract class Informer implements InformerResults
      */
     public function __construct(string $website)
     {
-        $this->response = (new Client)->get($website.$this->getURI(), ['connect_timeout' => 3.14]);
+        $this->response = $this->createResponseFrom($website);
 
         $this->attributes = $this->tryParse($this->response->getBody()->getContents());
     }
@@ -55,7 +66,9 @@ abstract class Informer implements InformerResults
      */
     public function isOnline(): bool
     {
-        return $this->response->getStatusCode() == 200;
+        $allowedCodes = [200, 304]; // ok, not modified.
+
+        return in_array($this->response->getStatusCode(), $allowedCodes, true);
     }
 
     /**
@@ -91,5 +104,30 @@ abstract class Informer implements InformerResults
     private function hasMatchingContentType(): bool
     {
         return $this->response->getHeader('Content-Type')[0] == $this->requiredContentType();
+    }
+
+    /**
+     * @param string $website
+     * @return ResponseInterface
+     */
+    private function createResponseFrom(string $website): ResponseInterface
+    {
+        $client = new Client(['connect_timeout' => 3.14, 'User-Agent' => self::$agentName]);
+
+        try {
+            return $client->get($website . $this->getURI(), ['connect_timeout' => 3.14]);
+        }
+        catch (ConnectException $exception)
+        {
+            return new Response(400); // malformed or incorrect.
+        }
+        catch (ClientException $exception)
+        {
+            return new Response($exception->getResponse()->getStatusCode());
+        }
+        catch (RequestException $exception)
+        {
+            return new Response(400); // malformed or incorrect.
+        }
     }
 }

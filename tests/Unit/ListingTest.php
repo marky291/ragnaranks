@@ -519,4 +519,30 @@ class ListingTest extends TestCase
 
         $this->assertDatabaseHas('listings', ['deleted_at' => now(), 'id' => $listing->id]);
     }
+
+    public function test_it_has_no_heartbeat()
+    {
+        $listing = factory(Listing::class)->create();
+
+        $this->assertNull($listing->heartbeat);
+    }
+
+    public function test_it_has_a_heartbeat()
+    {
+        $listing = factory(Listing::class)->create();
+
+        $listing->heartbeats()->save(new \App\Listings\ListingHeartbeat(['informer' => 'foo']));
+
+        $this->assertInstanceOf(\App\Listings\ListingHeartbeat::class, $listing->heartbeat);
+    }
+
+    public function test_it_has_gets_latest_heartbeat()
+    {
+        $listing = factory(Listing::class)->create();
+
+        $listing->heartbeats()->save(new \App\Listings\ListingHeartbeat(['informer' => 'foo']));
+        $listing->heartbeats()->save(new \App\Listings\ListingHeartbeat(['informer' => 'bar']));
+
+        $this->assertEquals('bar', $listing->heartbeat->informer);
+    }
 }

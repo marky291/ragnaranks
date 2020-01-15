@@ -23,11 +23,11 @@
                                     <div class="server-card-head-large image rounded-top" style="height:350px; background-image: url('{{ Storage::url($listing->background) }}')"></div>
                                     <div class="server-card-head-large hover:tw-bg-transparent tw-cursor-pointer overlap tw-flex tw-flex-col tw-justify-between" style="margin-top:-350px;">
                                         <div class="tw-text-right">
-                                            @if ($listing->heartbeat->recorder != 'none')
+                                            @if ($listing->heartbeat)
                                                 <div class="tw-shadow tw-inline-block tw-px-3 tw-py-1 tw-rounded-l" style="font-size:9px; background-color: rgba(247, 247, 247, 1)">
-                                                    <i class="fas fa-circle tw-ml-1 {{ $listing->heartbeat->login == 'online' ? 'tw-text-green-500' : 'tw-text-red-500' }}"></i> Login
-                                                    <i class="fas fa-circle tw-ml-1 {{ $listing->heartbeat->char == 'online' ? 'tw-text-green-500' : 'tw-text-red-500' }}"></i> Char
-                                                    <i class="fas fa-circle tw-ml-1 {{ $listing->heartbeat->map == 'online' ? 'tw-text-green-500' : 'tw-text-red-500' }}"></i> Map
+                                                    <i class="fas fa-circle tw-ml-1 {{ $listing->heartbeat->login ? 'tw-text-green-500' : 'tw-text-red-500' }}"></i> Login
+                                                    <i class="fas fa-circle tw-ml-1 {{ $listing->heartbeat->char ? 'tw-text-green-500' : 'tw-text-red-500' }}"></i> Char
+                                                    <i class="fas fa-circle tw-ml-1 {{ $listing->heartbeat->map ? 'tw-text-green-500' : 'tw-text-red-500' }}"></i> Map
                                                     @if ($listing->heartbeat->players)
                                                         || <i class="fas fa-gamepad tw-ml-1" style="font-size:12px"></i> {{ $listing->heartbeat->players }}
                                                     @endif
