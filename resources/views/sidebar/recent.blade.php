@@ -1,6 +1,6 @@
 <div class="tw-hidden lg:tw-block">
 	<div class="heading">
-		<h3>Newest Additions</h3>
+		<h3>Newest Servers</h3>
 	</div>
 	<div id="additions" class="content tw-shadow py-0 rounded">
 		@foreach (\App\Listings\ListingRepository::LatestEntriesCache(5) as $listing)
