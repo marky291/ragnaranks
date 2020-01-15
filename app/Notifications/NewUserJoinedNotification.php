@@ -48,7 +48,7 @@ class NewUserJoinedNotification extends Notification implements ShouldQueue
     {
         return (new MailMessage)
                     ->subject('New Member!')
-                    ->line('You have been sent this special email letting you know that a new member has joined, here are some details:')
+                    ->line('A new member has joined Ragnaranks.com, here are some details:')
                     ->line("Username: {$this->user->username}")
                     ->line("Email: {$this->user->email}")
                     ->line("Created: {$this->user->created_at}");

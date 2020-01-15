@@ -20,6 +20,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  *
  * @property int $id
  * @property string $username
+ * @property string $email
  * @property string $coins
  * @property Listing|iterable $listings
  * @property Listing|iterable $reviews

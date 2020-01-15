@@ -4,11 +4,11 @@ namespace App\Notifications;
 
 use App\Listings\Listing;
 use Illuminate\Bus\Queueable;
-use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
 
-class NewListingCreatedNotification extends Notification implements ShouldQueue
+class ServerHasGoneOfflineNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -47,10 +47,9 @@ class NewListingCreatedNotification extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject('New Listing!')
-            ->line('A new listing has been posted to Ragnaranks.com:')
-            ->line("Server: {$this->listing->name}")
-            ->line("Owner: {$this->listing->user->email}")
-            ->line("Creation: {$this->listing->created_at}");
+            ->subject("{$this->listing->name} is offline!")
+            ->line("We just wanted to let you know, we detected downtime on {$this->listing->name} within the last 10 minutes.")
+            ->line('We also wish to thank you for your continued support at https://ragnaranks.com')
+            ->action('Your Website', $this->listing->website);
     }
 }

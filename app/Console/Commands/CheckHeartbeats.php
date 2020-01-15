@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Notifications\ServerHasGoneOfflineNotification;
 use App\User;
 use Exception;
 use App\Listings\Listing;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use App\Heartbeats\FluxControlPanelStatus;
 use Illuminate\Database\Eloquent\Collection;
 use App\Notifications\HeartbeatFailureNotification;
+use Illuminate\Support\Facades\Notification;
 use Symfony\Component\Console\Logger\ConsoleLogger;
 
 /**
@@ -65,7 +67,7 @@ class CheckHeartbeats extends Command
      *
      * @param Listing $listing
      */
-    private function checkListingHeartbeat(Listing $listing): void
+    public function checkListingHeartbeat(Listing $listing): void
     {
         $response = new FluxControlPanelStatus($listing->website);
 
@@ -94,9 +96,13 @@ class CheckHeartbeats extends Command
                     'failure_count' => DB::raw('failure_count + 1'),
                 ]);
 
+                if ($listing->heartbeat->failure_count == 0) {
+                    Notification::send($listing->user, new ServerHasGoneOfflineNotification($listing));
+                }
+
                 // 36 = 1 per 10 minute, 6 per hour, notify after 6 hours
                 if (($listing->heartbeat->failure_count + 1) % 144 == 0) {
-                    \Notification::send(
+                    Notification::send(
                         User::role('admin')->get(),
                         new HeartbeatFailureNotification($listing, $listing->heartbeat->failure_count + 1)
                     );

@@ -2,12 +2,15 @@
 
 namespace Tests\Feature;
 
-use App\Heartbeats\Checkup;
-use App\Heartbeats\FluxControlPanelStatus;
+use App\Console\Commands\CheckHeartbeats;
+use App\Heartbeats\Informer;
+use App\Heartbeats\FluxMonitor;
 use App\Listings\Listing;
 use App\Notifications\HeartbeatFailureNotification;
+use App\Notifications\ServerHasGoneOfflineNotification;
 use App\Notifications\WelcomeNotification;
 use App\User;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -16,16 +19,9 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class ConsoleHeartbeatTest extends TestCase
 {
 
-    public function test_flux_control_xml_response()
-    {
-        $checkup = new FluxControlPanelStatus('https://xilero.net/');
-
-        $this->assertTrue($checkup->exists());
-    }
-
     public function test_flux_control_data_response()
     {
-        $checkup = new FluxControlPanelStatus('https://xilero.net/');
+        $checkup = new FluxMonitor('https://xilero.net/');
 
         $decoded = json_decode($checkup->formattedData(), true);
 
@@ -75,5 +71,20 @@ class ConsoleHeartbeatTest extends TestCase
         $this->artisan('check:heartbeat')->expectsOutput('Completed heartbeat checkup successfully');
 
         Notification::assertTimesSent(1, HeartbeatFailureNotification::class);
+    }
+
+    public function test_heaRtbeat_notifies_server_owner_if_server_goes_offline()
+    {
+        Notification::fake();
+
+        $listing = factory(Listing::class)->create(['website' => 'http://esper-ro.com/']);
+
+        $listing->heartbeat()->update(['recorder' => 'flux-cp', 'failure_count' => 0]);
+
+        $listing->user()->update(['email' => 'marky360@live.ie']);
+
+        (new CheckHeartbeats())->checkListingHeartbeat($listing);
+
+        Notification::assertTimesSent(1, ServerHasGoneOfflineNotification::class);
     }
 }
