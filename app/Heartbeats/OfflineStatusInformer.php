@@ -1,28 +1,26 @@
 <?php
 
+
 namespace App\Heartbeats;
 
-/**
- * Class FluxMonitor
- *
- * @package App\Heartbeats
- */
-class FluxStatusInformer extends Informer
+
+class OfflineStatusInformer extends Informer
 {
     /**
      * @inheritDoc
      */
     public function getInformerName(): string
     {
-        return 'FluxCP';
+        return 'Offline';
     }
 
     /**
      * @inheritDoc
+     * @throws InformerLogicException
      */
     public function getURI(): string
     {
-        return '/?module=server&action=status-xml';
+        throw new InformerLogicException('No URI to process for offline status');
     }
 
     /**
@@ -30,7 +28,7 @@ class FluxStatusInformer extends Informer
      */
     public function getLoginStatus(): bool
     {
-        return $this->attributes['loginServer'];
+        return false;
     }
 
     /**
@@ -38,7 +36,7 @@ class FluxStatusInformer extends Informer
      */
     public function getCharStatus(): bool
     {
-        return $this->attributes['charServer'];
+        return false;
     }
 
     /**
@@ -46,7 +44,7 @@ class FluxStatusInformer extends Informer
      */
     public function getMapStatus(): bool
     {
-        return (bool) $this->attributes['mapServer'];
+        return false;
     }
 
     /**
@@ -54,28 +52,24 @@ class FluxStatusInformer extends Informer
      */
     public function getPlayerCount(): int
     {
-        return $this->attributes['playersOnline'];
+        return 0;
     }
 
     /**
      * @inheritDoc
+     * @throws InformerLogicException
      */
     public function requiredContentType(): string
     {
-        return 'text/xml;charset=UTF-8';
+        throw new InformerLogicException('Cannot get required type from offline status');
     }
 
     /**
      * @inheritDoc
+     * @throws InformerLogicException
      */
     public function parseWebsiteResponse(string $element): array
     {
-        $xml = simplexml_load_string($element);
-
-        $json = json_encode($xml);
-
-        $raw = json_decode($json, true);
-
-        return $raw['Group']['Server']['@attributes'];
+        throw new InformerLogicException('Cannot parse website response from offline status');
     }
 }

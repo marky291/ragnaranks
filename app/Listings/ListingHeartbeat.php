@@ -43,7 +43,7 @@ class ListingHeartbeat extends Model
     public function fillInformerResults(InformerResults $informer): ListingHeartbeat
     {
         return $this->fill([
-            'informer' => $informer->recorderName(),
+            'informer' => $informer->getInformerName(),
             'login' => $informer->getLoginStatus(),
             'char' => $informer->getCharStatus(),
             'map' => $informer->getMapStatus(),

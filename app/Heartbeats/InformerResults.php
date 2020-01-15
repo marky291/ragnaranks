@@ -2,8 +2,6 @@
 
 namespace App\Heartbeats;
 
-use SimpleXMLElement;
-
 /**
  * Interface StatusPropertiesInterface
  *
@@ -11,6 +9,13 @@ use SimpleXMLElement;
  */
 interface InformerResults
 {
+    /**
+     * The name to appear as informer
+     *
+     * @return string
+     */
+    public function getInformerName(): string;
+
     /**
      * The uri where the data will live.
      *

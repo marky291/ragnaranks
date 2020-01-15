@@ -50,12 +50,18 @@ class HeartbeatCheckup
     {
         foreach ($this->pulseLocations as $pulse) {
             /** @var Informer $informer */
-            $informer = new $pulse($this->listing->website);
+            $informer = (new $pulse);
+            $informer->scrape($this->listing->website);
 
             if ($informer->hasActivePulse()) {
                 $this->informer = $informer;
                 return;
             }
+        }
+
+        // did one exist before?
+        if ($this->hasPreviousHeartbeat()) {
+            $this->informer = new OfflineStatusInformer;
         }
     }
 
@@ -91,5 +97,13 @@ class HeartbeatCheckup
         $this->listing->heartbeats()->save($heartbeat);
 
         return $heartbeat;
+    }
+
+    /**
+     * @return bool
+     */
+    private function hasPreviousHeartbeat(): bool
+    {
+        return $this->listing->heartbeat !== null;
     }
 }

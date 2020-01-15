@@ -38,12 +38,11 @@ abstract class Informer implements InformerResults
     public static $agentName = 'Ragnaranks Heartbeat Monitor';
 
     /**
-     * Checkup constructor.
-     * @todo: What if response is 404, and it continues to read
+     * Attempt to scrape the data from a website.
      *
      * @param string $website
      */
-    public function __construct(string $website)
+    public function scrape(string $website): void
     {
         $this->response = $this->createResponseFrom($website);
 

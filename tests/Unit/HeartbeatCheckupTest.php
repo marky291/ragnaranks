@@ -32,13 +32,25 @@ class HeartbeatCheckupTest extends TestCase
 
     public function test_it_can_retrieve_informer_data()
     {
-        $listing = factory(Listing::class)->create(['website' => 'http://reg.lupon-ro.net/']);
+        $listing = factory(Listing::class)->create(['website' => 'https://playwicked.online/']);
 
         $checkup = new HeartbeatCheckup($listing);
 
-        $informer = $checkup->getInformer();
+        $this->assertEquals(true, $checkup->getInformer()->getPlayerCount());
+    }
 
-        $this->assertEquals(true, $informer->getLoginStatus());
+    public function test_it_can_store_state_as_offline_for_previously_registered_informers()
+    {
+        // should only store as offline, if it was ever connected in first place...
+        $listing = factory(Listing::class)->create(['website' => 'http://reg.lupon-ro.net/']);
+
+        $checkup = (new HeartbeatCheckup($listing))->recordResults();
+
+        $listing->website = 'http://foo.com';
+
+        $checkup = (new HeartbeatCheckup($listing))->recordResults();
+
+        $this->assertCount(2, $listing->heartbeats);
     }
 
     public function test_it_can_write_to_database_the_entry()

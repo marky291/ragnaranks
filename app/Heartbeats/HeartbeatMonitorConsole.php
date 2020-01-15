@@ -3,6 +3,7 @@
 namespace App\Heartbeats;
 
 use App\Listings\Listing;
+use App\Listings\ListingHeartbeat;
 use App\Notifications\HeartbeatFailureNotification;
 use App\Notifications\ServerHasGoneOfflineNotification;
 use App\User;
@@ -39,7 +40,7 @@ class HeartbeatMonitorConsole extends Command
      *
      * @return void
      */
-    public function handle()
+    public function handle(): void
     {
         $console = &$this;
         $this->warn('Attempting to look and check listing heartbeats');
@@ -49,24 +50,13 @@ class HeartbeatMonitorConsole extends Command
                 if ($listing->trashed() == false) {
                     $monitor = new HeartbeatCheckup($listing);
                     if ($monitor->hasInformer()) {
-                        $monitor->recordResults();
-                        $console->info("{$listing->name} checkup found {$monitor->getInformer()->getPlayerCount()} players online");
+                        /** @var ListingHeartbeat $results */
+                        $heartbeat = $monitor->recordResults();
+                        $console->info("{$listing->name} checkup found {$heartbeat->players} players online");
                     }
                 }
             }
         });
-
-//        if ($listing->heartbeat->failure_count == 0) {
-//            Notification::send($listing->user, new ServerHasGoneOfflineNotification($listing));
-//        }
-//
-//        // 36 = 1 per 10 minute, 6 per hour, notify after 6 hours
-//        if (($listing->heartbeat->failure_count + 1) % 144 == 0) {
-//            Notification::send(
-//                User::role('admin')->get(),
-//                new HeartbeatFailureNotification($listing, $listing->heartbeat->failure_count + 1)
-//            );
-//        }
 
         $this->warn('Completed heartbeat monitor successfully');
     }

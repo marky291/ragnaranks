@@ -7,59 +7,78 @@ use PHPUnit\Framework\TestCase;
 
 class FluxStatusInformerTest extends TestCase
 {
+    /**
+     * @var FluxStatusInformer
+     */
+    private $informer;
+
+    /**
+     * Setup the tests for this class.
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->informer = new FluxStatusInformer();
+    }
+
     public function test_it_can_verify_it_is_online()
     {
-        $informer = new FluxStatusInformer('http://reg.lupon-ro.net/');
+        $this->informer->scrape('http://reg.lupon-ro.net/');
 
-        $this->assertEquals(200, $informer->isOnline());
+        $this->assertEquals(200, $this->informer->isOnline());
     }
 
     public function test_it_can_get_a_login_online_status()
     {
-        $informer = new FluxStatusInformer('http://reg.lupon-ro.net/');
+        $this->informer->scrape('http://reg.lupon-ro.net/');
 
-        $this->assertTrue($informer->getLoginStatus());
+        $this->assertTrue($this->informer->getLoginStatus());
     }
 
     public function test_it_can_get_a_char_online_status()
     {
-        $informer = new FluxStatusInformer('http://reg.lupon-ro.net/');
+        $this->informer->scrape('http://reg.lupon-ro.net/');
 
-        $this->assertTrue($informer->getCharStatus());
+        $this->assertTrue($this->informer->getCharStatus());
     }
 
     public function test_it_can_get_a_map_online_status()
     {
-        $informer = new FluxStatusInformer('http://reg.lupon-ro.net/');
+        $this->informer->scrape('http://reg.lupon-ro.net/');
 
-        $this->assertTrue($informer->getMapStatus());
+        $this->assertTrue($this->informer->getMapStatus());
     }
 
     public function test_it_can_get_a_player_count()
     {
-        $informer = new FluxStatusInformer('http://reg.lupon-ro.net/');
+        $this->informer->scrape('http://reg.lupon-ro.net/');
 
-        $this->assertGreaterThan(0, $informer->getPlayerCount());
+        $this->assertGreaterThan(0, $this->informer->getPlayerCount());
     }
 
     public function test_is_can_retrive_the_recorder_name()
     {
-        $informer = new FluxStatusInformer('http://reg.lupon-ro.net/');
+        $this->informer->scrape('http://reg.lupon-ro.net/');
 
-        $this->assertEquals('FluxStatusInformer', $informer->recorderName());
+        $this->assertEquals('FluxStatusInformer', $this->informer->recorderName());
     }
 
     public function test_it_does_not_examine_websites_with_404_error()
     {
-        $informer = new FluxStatusInformer('http://reg.lupon-ro.net/feokfoe');
+        $this->informer->scrape('http://reg.lupon-ro.net/feokfoe');
 
-        $this->assertEquals(false, $informer->isOnline());
+        $this->assertEquals(false, $this->informer->isOnline());
     }
 
     public function test_it_does_not_examine_websites_that_timeout()
     {
-        $informer = new FluxStatusInformer('http://soul-ragnarok.com');
+        $this->markTestIncomplete(
+            'Requires a legit way to test a timeout consistently'
+        );
 
-        $this->assertEquals(false, $informer->isOnline());
+        $this->informer->scrape('http://soul-ragnarok.com');
+
+        $this->assertEquals(false, $this->informer->isOnline());
     }
 }
