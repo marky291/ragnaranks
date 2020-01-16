@@ -32,7 +32,7 @@ class HeartbeatCheckupTest extends TestCase
 
     public function test_it_can_retrieve_informer_data()
     {
-        $listing = factory(Listing::class)->create(['website' => 'https://playwicked.online/']);
+        $listing = factory(Listing::class)->create(['website' => 'http://reg.lupon-ro.net/']);
 
         $checkup = new HeartbeatCheckup($listing);
 
