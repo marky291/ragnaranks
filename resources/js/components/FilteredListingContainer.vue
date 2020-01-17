@@ -9,9 +9,7 @@
                             <i class="fas fa-circle tw-ml-1" :class="listing.heartbeat.login ? 'tw-text-green-500' : 'tw-text-red-500'"></i> Login
                             <i class="fas fa-circle tw-ml-1" :class="listing.heartbeat.char ? 'tw-text-green-500' : 'tw-text-red-500'"></i> Char
                             <i class="fas fa-circle tw-ml-1" :class="listing.heartbeat.map ? 'tw-text-green-500' : 'tw-text-red-500'"></i> Map
-                            <span v-if="listing.heartbeat.players > 0">
-                                || <i class="fas fa-gamepad tw-ml-1" style="font-size:12px"></i> {{ listing.heartbeat.players }}
-                            </span>
+                            || <i class="fas fa-gamepad tw-ml-1" style="font-size:12px"></i> {{ listing.heartbeat.players }}
                         </div>
                     </div>
                     <div class="tw-flex">
