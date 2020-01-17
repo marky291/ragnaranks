@@ -10,9 +10,7 @@
         <meta name="keywords" content="@yield('keywords','listings, ragnarok, ro, online, private servers, private server, vote, vote4points, top 100, official rate, low rate, pk, roleplaying, mid rate, high rate, super high rate, server, mmorpg, rpg')">
         <link href="@yield('canonical', '')" rel="canonical">
         <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-        <script data-ad-client="ca-pub-2280364578236676" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    </head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"></head>
     <body>
         <div id="app" class="min-width:1200px">
             <nav id="rr-navbar" class="tw-shadow-md">
@@ -127,7 +125,7 @@
                 </div>
 
                 <div id="copyrights" class="container text-center rounded-top">
-                    <p class="text-transparent mb-0">©Ragnaranks 2019. All Rights belong to Respective Owners. Ver {{ config('app.version') }}</p>
+                    <p class="text-transparent mb-0">©Ragnaranks 2020. All Rights belong to Respective Owners. Ver {{ config('app.version') }}</p>
                     <p class="text-transparent mb-0">
                         Developed and Designed by <a class=text-white href="https://www.facebook.com/Marky291">Mark Hester</a>,
                         with special thanks to Rainer Popowski & Zurina Johnston for their insight.

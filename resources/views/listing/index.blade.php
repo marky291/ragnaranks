@@ -31,12 +31,13 @@
 {{--                        @include('sidebar.paginate')--}}
                         @include('sidebar.filter')
                         @include('sidebar.recent')
+{{--                        @include('sidebar.google-ads.sidebar')--}}
                         @include('sidebar.reviews')
                         @include('sidebar.social')
                     </div>
                     <div class="lg:tw-w-2/3 tw-px-4 tw-w-full" id="listingsContainer" ref="listingsContainer">
                         <filtered-listings :data="listings.data" space="{{ config('filesystems.disks.spaces.domain') }}"></filtered-listings>
-                        <div class="tw-flex tw-flex-row tw-bg-transparent tw-rounded tw-border tw-border-gray-300 tw-mb-6 lg:tw-mb-2 tw-shadow tw-items-center tw-py-2 tw-px-4 tw-justify-between tw-bg-white">
+                        <div v-if="listings.meta.total > 0" class="tw-flex tw-flex-row tw-bg-transparent tw-rounded tw-border tw-border-gray-300 tw-mb-6 lg:tw-mb-2 tw-shadow tw-items-center tw-py-2 tw-px-4 tw-justify-between tw-bg-white">
                             <at-button :disabled="listings.meta.current_page <= 1" @click="changePage(listings.meta.current_page - 1)" size="normal" type="primary">« Prev</at-button>
                             <at-pagination @page-change="changePage" :show-quickjump="true" :show-total="true" class="tw-pl-0 tw-mb-0" :current="listings.meta.current_page" :page-size="listings.meta.per_page" :total="listings.meta.total"></at-pagination>
                             <at-button :disabled="listings.meta.current_page >= listings.meta.last_page" @click="changePage(listings.meta.current_page + 1)" size="normal" type="primary">Next »</at-button>

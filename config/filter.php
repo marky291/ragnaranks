@@ -11,6 +11,8 @@ return [
         'frost',
         'no-donations',
         'instant-level',
+        'ready2pvp',
+        'ready2woe',
         'themed-server',
         'grinding',
     ],

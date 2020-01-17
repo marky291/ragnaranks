@@ -5,13 +5,11 @@
                 <div class="server-card-head image rounded-top" v-bind:style="{ 'background-image': 'url(' + space + '/' + listing['background'] + ')' }"></div>
                 <div @click="openProfile(listing)" class="server-card-head hover:tw-bg-transparent tw-cursor-pointer overlap tw-flex tw-flex-col tw-justify-between">
                     <div class="tw-text-right">
-                        <div v-if="listing.heartbeat.recorder != 'none'" class="tw-shadow tw-inline-block tw-px-3 tw-py-1 tw-rounded-l" style="font-size:9px; background-color: rgba(247, 247, 247, 1)">
-                            <i class="fas fa-circle tw-ml-1" :class="listing.heartbeat.login == 'online' ? 'tw-text-green-500' : 'tw-text-red-500'"></i> Login
-                            <i class="fas fa-circle tw-ml-1" :class="listing.heartbeat.char == 'online' ? 'tw-text-green-500' : 'tw-text-red-500'"></i> Char
-                            <i class="fas fa-circle tw-ml-1" :class="listing.heartbeat.map == 'online' ? 'tw-text-green-500' : 'tw-text-red-500'"></i> Map
-                            <span v-if="listing.heartbeat.players > 0">
-                                || <i class="fas fa-gamepad tw-ml-1" style="font-size:12px"></i> {{ listing.heartbeat.players }}
-                            </span>
+                        <div v-if="listing.heartbeat" class="tw-shadow tw-inline-block tw-px-3 tw-py-1 tw-rounded-l" style="font-size:9px; background-color: rgba(247, 247, 247, 1)">
+                            <i class="fas fa-circle tw-ml-1" :class="listing.heartbeat.login ? 'tw-text-green-500' : 'tw-text-red-500'"></i> Login
+                            <i class="fas fa-circle tw-ml-1" :class="listing.heartbeat.char ? 'tw-text-green-500' : 'tw-text-red-500'"></i> Char
+                            <i class="fas fa-circle tw-ml-1" :class="listing.heartbeat.map ? 'tw-text-green-500' : 'tw-text-red-500'"></i> Map
+                            || <i class="fas fa-gamepad tw-ml-1" style="font-size:12px"></i> {{ listing.heartbeat.players }}
                         </div>
                     </div>
                     <div class="tw-flex">
@@ -61,12 +59,14 @@
                 </div>
             </div>
         </div>
-        <div :style="$parent.listings.meta.total === 0 ? 'display: block !important' : null" :key="9999999" class="tw-hidden">
-            <div class="tw-flex">
-                <i class="fas fa-search tw-text-5xl tw-mr-4"></i>
-                <div class="tw-flex tw-flex-col">
-                    <h3>Whoops, No listings found with your search parameters</h3>
-                    <p>It could just be that no such servers exist or they just have not found their home at ragnaranks yet!</p>
+        <div :style="$parent.listings.meta.total === 0 ? 'display: block !important' : null" :key="9999999" class="tw-hidden mb-4">
+            <div class="d-flex flex-column text-center">
+                <div class="col d-flex justify-content-center">
+                    <img src="/img/icons/omg-sticker.png" alt="">
+                </div>
+                <div class="col">
+                    <h3><b>Whoops!</b> No listings found with your search parameters</h3>
+                    <p>It could just be that no such servers exist or they just have not found their home at Ragnaranks.com yet!</p>
                 </div>
             </div>
         </div>

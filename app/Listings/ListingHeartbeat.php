@@ -2,6 +2,8 @@
 
 namespace App\Listings;
 
+use App\Heartbeats\Informer;
+use App\Heartbeats\InformerResults;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class ListingHeartbeat
  *
  * @property int $listing_id
- * @property string $recorder
+ * @property string $informer
  * @property string $login
  * @property string $char
  * @property string $map
@@ -29,16 +31,34 @@ class ListingHeartbeat extends Model
      * @var array
      */
     protected $fillable = [
-        'recorder', 'login', 'char', 'map', 'players',
+        'informer', 'login', 'char', 'map', 'players',
     ];
 
     /**
-     * Determine if this heartbeat has a recorder
+     * Save results generated from an informer.
      *
-     * @return bool
+     * @param InformerResults $informer
+     * @return ListingHeartbeat
      */
-    public function hasRecorder()
+    public function fillInformerResults(InformerResults $informer): ListingHeartbeat
     {
-        return $this->recorder !== 'none';
+        return $this->fill([
+            'informer' => $informer->getInformerName(),
+            'login' => $informer->getLoginStatus(),
+            'char' => $informer->getCharStatus(),
+            'map' => $informer->getMapStatus(),
+            'players' => $informer->getPlayerCount(),
+        ]);
+    }
+
+    /**
+     * Return the status as a string.
+     *
+     * @param bool $status
+     * @return string
+     */
+    public function toStatusName(bool $status): string
+    {
+        return $status ? 'online' : 'offline';
     }
 }

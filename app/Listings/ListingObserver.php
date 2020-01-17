@@ -28,9 +28,6 @@ class ListingObserver
             'rank' => ListingRanking::query()->max('rank') + 1
         ]));
 
-        // create an heartbeat for the listing.
-        $listing->heartbeat()->save(new ListingHeartbeat);
-
         // email about new listings being created to all admins.
         Notification::send(User::role('admin')->get(), new NewListingCreatedNotification($listing));
     }

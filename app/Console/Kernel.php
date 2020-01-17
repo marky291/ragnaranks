@@ -2,10 +2,9 @@
 
 namespace App\Console;
 
-use App\Console\Commands\CheckHeartbeats;
 use App\Console\Commands\GenerateSitemap;
+use App\Heartbeats\HeartbeatMonitorConsole;
 use App\Console\Commands\RankingRebuilder;
-use App\Console\Commands\SyncDeletedRankingWithListings;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -19,7 +18,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         GenerateSitemap::class,
         RankingRebuilder::class,
-        CheckHeartbeats::class
+        HeartbeatMonitorConsole::class,
     ];
 
     /**
@@ -36,7 +35,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('ranking:rebuilder')->daily()->storeOutput()
             ->pingOnSuccess('http://beats.envoyer.io/heartbeat/4Epr9gjSrl5Gzb1')->evenInMaintenanceMode();
 
-        $schedule->command('check:heartbeat')->everyTenMinutes()
+        $schedule->command('heartbeat:monitor')->everyTenMinutes()
             ->pingOnSuccess('http://beats.envoyer.io/heartbeat/ZrMaBOf5MHjtKDH');
     }
 

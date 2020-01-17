@@ -32,6 +32,12 @@
                 this.currentPage = 1;
                 this.loadResource();
             },
+            searchServers(url) {
+                axios.get(url).then((response) => {
+                    this.listings = response.data;
+                    document.getElementById('listingView').scrollIntoView();
+                });
+            }
         },
     }
 </script>
