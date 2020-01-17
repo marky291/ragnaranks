@@ -36,7 +36,7 @@ class Kernel extends ConsoleKernel
             ->pingOnSuccess('http://beats.envoyer.io/heartbeat/4Epr9gjSrl5Gzb1')->evenInMaintenanceMode();
 
         $schedule->command('heartbeat:monitor')->everyTenMinutes()
-            ->pingOnSuccess('http://beats.envoyer.io/heartbeat/ZrMaBOf5MHjtKDH');
+            ->pingOnSuccess('http://beats.envoyer.io/heartbeat/LUFTOvvId7ZAD1k');
     }
 
     /**

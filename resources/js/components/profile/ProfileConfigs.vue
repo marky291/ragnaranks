@@ -320,7 +320,7 @@
                         <p class="tw-text-left tw-font-semibold tw-mb-1" :style="validation.hasError('current.description') ? 'color:#b3312d' : null">Description</p>
                         <div v-if="validation.hasError('current.description')" class="tw-flex-1 tw-text-right help-block invalid-feedback">{{ validation.firstError('current.description') }}</div>
                     </div>
-                    <p class="tw-mb-2"><small><a class="tw-underline" href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">View the MarkDown Syntax Guide</a></small></p>
+                    <p class="tw-mb-2"><small><a class="tw-underline" href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">View the MarkDown Syntax Guide in a new tab</a></small></p>
                     <at-textarea style="margin-left:-.5rem; margin-right:-.5rem;" :class="validation.hasError('current.description') ? 'invalid-textarea' : ''" v-model.trim="current.description" min-rows="15" max-rows="25" placeholder="Write something catchy"></at-textarea>
                 </div>
                 <div v-if="isUpdatingCard()">
