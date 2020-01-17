@@ -2,7 +2,7 @@
     <div class="heading">
         <h3>Filtered Search</h3>
     </div>
-    <filtered-search @filter:changed="changeResource" inline-template>
+    <filtered-search @filter:changed="changeResource" @search:text="searchServers" inline-template>
         <transition name="fade" mode="out-in">
             <div id="filters" class="d-flex tw-shadow flex-column content p-2 rounded tw-mb-6 lg:tw-mb-0">
                 <select @change="filterChanged" v-model="rates" style="color: #8795a1" class="mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
@@ -37,6 +37,15 @@
                     <option value="25">And show 25 servers</option>
                     <option value="50">And show 50 servers</option>
                 </select>
+
+                <div class="mt-2">
+                    <at-input v-model="search" @change="searchServers" :placeholder="searchPlaceholder" prepend-button append-button>
+                        <template slot="prepend">
+                            <i class="icon icon-search"></i>
+                        </template>
+                    </at-input>
+                </div>
+
             </div>
         </transition>
     </filtered-search>

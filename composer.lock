@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "df9aaad8043dca98251aa9ef1ae3f3fc",
+    "content-hash": "b5c0a673d3af2cb8fa465006eb6f6188",
     "packages": [
         {
             "name": "artisanry/reportable",
@@ -68,16 +68,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.132.4",
+            "version": "3.133.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "5dcf2fb87a3cde87a5fa0b9df03b8688dcfc4f19"
+                "reference": "27b4f0fbdf34a88df6788ffdefc3620511894676"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/5dcf2fb87a3cde87a5fa0b9df03b8688dcfc4f19",
-                "reference": "5dcf2fb87a3cde87a5fa0b9df03b8688dcfc4f19",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/27b4f0fbdf34a88df6788ffdefc3620511894676",
+                "reference": "27b4f0fbdf34a88df6788ffdefc3620511894676",
                 "shasum": ""
             },
             "require": {
@@ -148,7 +148,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2020-01-13T19:11:21+00:00"
+            "time": "2020-01-16T21:19:17+00:00"
         },
         {
             "name": "clue/stream-filter",
@@ -1483,16 +1483,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "1.2.0",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "2533c389fd2a7573d4f7be279b1c33cf941c8dfc"
+                "reference": "34cf4ddb3892c715ae785c880e6691d839cff88d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/2533c389fd2a7573d4f7be279b1c33cf941c8dfc",
-                "reference": "2533c389fd2a7573d4f7be279b1c33cf941c8dfc",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/34cf4ddb3892c715ae785c880e6691d839cff88d",
+                "reference": "34cf4ddb3892c715ae785c880e6691d839cff88d",
                 "shasum": ""
             },
             "require": {
@@ -1550,7 +1550,7 @@
                 "markdown",
                 "parser"
             ],
-            "time": "2020-01-09T22:41:09+00:00"
+            "time": "2020-01-16T01:18:13+00:00"
         },
         {
             "name": "league/commonmark-ext-table",
@@ -6022,16 +6022,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.7.0",
+            "version": "2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "4c97f814aa2f0dd4d5bedc89181c10ef12c004c5"
+                "reference": "fff6f1e4f36be0e0d0b84d66b413d9dcb0c49130"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/4c97f814aa2f0dd4d5bedc89181c10ef12c004c5",
-                "reference": "4c97f814aa2f0dd4d5bedc89181c10ef12c004c5",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/fff6f1e4f36be0e0d0b84d66b413d9dcb0c49130",
+                "reference": "fff6f1e4f36be0e0d0b84d66b413d9dcb0c49130",
                 "shasum": ""
             },
             "require": {
@@ -6079,7 +6079,7 @@
                 "throwable",
                 "whoops"
             ],
-            "time": "2019-12-29T10:00:00+00:00"
+            "time": "2020-01-15T10:00:00+00:00"
         },
         {
             "name": "fzaninotto/faker",

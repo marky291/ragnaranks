@@ -18,7 +18,6 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Support\Str;
 
 /**
  * Class Listings.
@@ -54,6 +53,7 @@ use Illuminate\Support\Str;
  * @method static Builder latest()
  * @method static chunkById(int $int, \Closure $param)
  * @method static Collection has(string $string)
+ * @method static where(string $string, string $string1, string $string2)
  * @property  ListingHeartbeat heartbeat
  * @property HasMany heartbeats
  */

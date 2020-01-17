@@ -61,12 +61,14 @@
                 </div>
             </div>
         </div>
-        <div :style="$parent.listings.meta.total === 0 ? 'display: block !important' : null" :key="9999999" class="tw-hidden">
-            <div class="tw-flex">
-                <i class="fas fa-search tw-text-5xl tw-mr-4"></i>
-                <div class="tw-flex tw-flex-col">
-                    <h3>Whoops, No listings found with your search parameters</h3>
-                    <p>It could just be that no such servers exist or they just have not found their home at ragnaranks yet!</p>
+        <div :style="$parent.listings.meta.total === 0 ? 'display: block !important' : null" :key="9999999" class="tw-hidden mb-4">
+            <div class="d-flex flex-column text-center">
+                <div class="col d-flex justify-content-center">
+                    <img src="/img/icons/omg-sticker.png" alt="">
+                </div>
+                <div class="col">
+                    <h3><b>Whoops!</b> No listings found with your search parameters</h3>
+                    <p>It could just be that no such servers exist or they just have not found their home at Ragnaranks.com yet!</p>
                 </div>
             </div>
         </div>
