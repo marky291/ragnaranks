@@ -32,7 +32,7 @@
 					</div>
 					<div class="tw-px-4 lg:tw-w-2/3">
 						<profile :reviews="listing.reviews" :breakdown="{{ $breakdown ?? 'null' }}" :slug="slug" space="{{ config('filesystems.disks.spaces.domain') }}/"></profile>
-                        @if (auth()->check() && user()->hasRole('admin'))
+                        @if (isset($listing->user) && auth()->check() && user()->hasRole('admin'))
                             <div class="d-flex justify-content-around content tw-hidden lg:tw-block my-2">
                                 <p><b>Owner username:</b><br> {{ $listing->user->username }}</p>
                                 <p><b>Owner email:</b><br> {{ $listing->user->email }}</p>
