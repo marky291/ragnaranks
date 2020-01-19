@@ -31,14 +31,16 @@
             </div>
             <at-alert class="tw-mt-2" message="Changing the token will require your website to redirect to a new api link for authentication" type="error"></at-alert>
 
-            <h3 class="mb-3 tw-text-xl tw-border-b tw-pb-2 tw-font-bold tw-mt-10">API Direct Vote For Point Links</h3>
-            @foreach($listings as $listing)
-                <div class="tw-flex tw-flex-row tw-items-center tw-my-3">
-                    <p class="tw-font-bold">{{ $listing->name }}</p>
-                    <at-input class="tw-flex-1 tw-ml-2" size="small" value="{{ route('vote4points', $listing).'?api_token='.auth()->user()->api_token }}" icon="alert-circle" readonly></at-input>
-                </div>
-            @endforeach
-            @endrole
+            @if (count($listings))
+                <h3 class="mb-3 tw-text-xl tw-border-b tw-pb-2 tw-font-bold tw-mt-10">API Direct Vote For Point Links</h3>
+                @foreach($listings as $listing)
+                    <div class="tw-flex tw-flex-row tw-items-center tw-my-3">
+                        <p class="tw-font-bold">{{ $listing->name }}</p>
+                        <at-input class="tw-flex-1 tw-ml-2" size="small" value="{{ $listing->routeVote4Points() }}" icon="alert-circle" readonly></at-input>
+                    </div>
+                @endforeach
+                @endrole
+            @endif
 
             <at-button @click="saveAccount" :loading="form.busy" type="primary" class="mt-4">Save Changes</at-button>
         </div>

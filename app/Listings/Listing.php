@@ -107,6 +107,16 @@ class Listing extends Model
     }
 
     /**
+     * The url to link to the vote api route for auto vote.
+     *
+     * @return string
+     */
+    public function routeVote4Points(): string
+    {
+        return route('vote4points', $this).'?api_token='.auth()->user()->api_token;
+    }
+
+    /**
      * Get the space directory of this listing.
      *
      * @return string
