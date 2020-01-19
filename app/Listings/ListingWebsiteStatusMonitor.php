@@ -70,7 +70,7 @@ class ListingWebsiteStatusMonitor extends Command
      */
     private function returnedInvalidResponse(Listing $listing, Response $response): void
     {
-        $hoursAllowedOffline = 48;
+        $hoursAllowedOffline = 12;
 
         $this->warn("Website returned status {$response->getStatusCode()}");
 
