@@ -68,9 +68,9 @@ class ListingWebsiteOfflineNotification extends Notification implements ShouldQu
     {
         return (new MailMessage)
             ->subject('Listing website offline')
-            ->line("We have been monitoring the website belonging to {$this->listing->name} and would like to notify you that it has been offline for {$this->countHours} hours!")
+            ->line("We have been monitoring the website belonging to \n{$this->listing->name} and would like to notify you that it has been offline for {$this->countHours} hours!")
             ->line("The response received is {$this->status->status}, {$this->status->reason}")
-            ->line("Our moderation team may remove the listing if it is believed you will no longer be online.")
+            ->line('Our moderation team may remove the listing if it is believed you will no longer be online.')
             ->action('Check your Listing', $this->listing->route());
     }
 

@@ -41,7 +41,7 @@ class Kernel extends ConsoleKernel
             ->pingOnSuccess('http://beats.envoyer.io/heartbeat/LUFTOvvId7ZAD1k');
 
         $schedule->command('website:monitor')->hourly()
-            ->pingOnSuccess('http://beats.envoyer.io/heartbeat/LUFTOvvId7ZAD1k');
+            ->pingOnSuccess('http://beats.envoyer.io/heartbeat/ZoHYlKOBkDDhCKl');
     }
 
     /**
