@@ -2,9 +2,10 @@
 
 namespace App\Console;
 
-use App\Console\Commands\GenerateSitemap;
-use App\Heartbeats\HeartbeatMonitorConsole;
+use App\Heartbeats\HeartbeatMonitor;
+use App\Console\Commands\SitemapGenerator;
 use App\Console\Commands\RankingRebuilder;
+use App\Listings\ListingWebsiteStatusMonitor;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -16,9 +17,10 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        GenerateSitemap::class,
+        SitemapGenerator::class,
         RankingRebuilder::class,
-        HeartbeatMonitorConsole::class,
+        HeartbeatMonitor::class,
+        ListingWebsiteStatusMonitor::class,
     ];
 
     /**
@@ -36,6 +38,9 @@ class Kernel extends ConsoleKernel
             ->pingOnSuccess('http://beats.envoyer.io/heartbeat/4Epr9gjSrl5Gzb1')->evenInMaintenanceMode();
 
         $schedule->command('heartbeat:monitor')->everyTenMinutes()
+            ->pingOnSuccess('http://beats.envoyer.io/heartbeat/LUFTOvvId7ZAD1k');
+
+        $schedule->command('website:monitor')->hourly()
             ->pingOnSuccess('http://beats.envoyer.io/heartbeat/LUFTOvvId7ZAD1k');
     }
 

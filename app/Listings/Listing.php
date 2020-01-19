@@ -56,6 +56,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static where(string $string, string $string1, string $string2)
  * @property  ListingHeartbeat heartbeat
  * @property HasMany heartbeats
+ * @property HasMany $websiteStatus
  */
 class Listing extends Model
 {
@@ -164,6 +165,14 @@ class Listing extends Model
     public function heartbeat()
     {
         return $this->hasOne(ListingHeartbeat::class)->latest('id');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function websiteStatus(): HasMany
+    {
+        return $this->hasMany(ListingWebsiteStatus::class);
     }
 
     /**
