@@ -16821,6 +16821,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -55787,24 +55788,28 @@ var render = function() {
                                   ? "tw-text-green-500"
                                   : "tw-text-red-500"
                               }),
-                              _vm._v(" Login\n                        "),
+                              _vm._v(
+                                " Login\n                                "
+                              ),
                               _c("i", {
                                 staticClass: "fas fa-circle tw-ml-1",
                                 class: _vm.$parent.listing.heartbeat.char
                                   ? "tw-text-green-500"
                                   : "tw-text-red-500"
                               }),
-                              _vm._v(" Char\n                        "),
+                              _vm._v(" Char\n                                "),
                               _c("i", {
                                 staticClass: "fas fa-circle tw-ml-1",
                                 class: _vm.$parent.listing.heartbeat.map
                                   ? "tw-text-green-500"
                                   : "tw-text-red-500"
                               }),
-                              _vm._v(" Map\n                        "),
+                              _vm._v(" Map\n                                "),
                               _vm.$parent.listing.heartbeat.players > 0
                                 ? _c("span", [
-                                    _vm._v("\n                        || "),
+                                    _vm._v(
+                                      "\n                                || "
+                                    ),
                                     _c("i", {
                                       staticClass: "fas fa-gamepad tw-ml-1",
                                       staticStyle: { "font-size": "12px" }
@@ -55814,7 +55819,7 @@ var render = function() {
                                         _vm._s(
                                           _vm.$parent.listing.heartbeat.players
                                         ) +
-                                        "\n                    "
+                                        "\n                            "
                                     )
                                   ])
                                 : _vm._e()
@@ -56247,13 +56252,13 @@ var render = function() {
                                     { staticClass: "name" },
                                     [
                                       _vm._v(
-                                        "\n                                            " +
+                                        "\n                                                    " +
                                           _vm._s(
                                             _vm.$t(
                                               "profile.config.instant_cast.name"
                                             )
                                           ) +
-                                          "\n                                            "
+                                          "\n                                                    "
                                       ),
                                       _c(
                                         "at-popover",
@@ -56296,13 +56301,13 @@ var render = function() {
                                     { staticClass: "name" },
                                     [
                                       _vm._v(
-                                        "\n                                            " +
+                                        "\n                                                    " +
                                           _vm._s(
                                             _vm.$t(
                                               "profile.config.pk_mode.name"
                                             )
                                           ) +
-                                          "\n                                            "
+                                          "\n                                                    "
                                       ),
                                       _c(
                                         "at-popover",
@@ -56344,13 +56349,13 @@ var render = function() {
                                     { staticClass: "name" },
                                     [
                                       _vm._v(
-                                        "\n                                            " +
+                                        "\n                                                    " +
                                           _vm._s(
                                             _vm.$t(
                                               "profile.config.arrow_decrement.name"
                                             )
                                           ) +
-                                          "\n                                        "
+                                          "\n                                                "
                                       ),
                                       _c(
                                         "at-popover",
@@ -56393,13 +56398,13 @@ var render = function() {
                                     { staticClass: "name" },
                                     [
                                       _vm._v(
-                                        "\n                                            " +
+                                        "\n                                                    " +
                                           _vm._s(
                                             _vm.$t(
                                               "profile.config.undead_detect_type.name"
                                             )
                                           ) +
-                                          "\n                                            "
+                                          "\n                                                    "
                                       ),
                                       _c(
                                         "at-popover",
@@ -56442,13 +56447,13 @@ var render = function() {
                                     { staticClass: "name" },
                                     [
                                       _vm._v(
-                                        "\n                                            " +
+                                        "\n                                                    " +
                                           _vm._s(
                                             _vm.$t(
                                               "profile.config.attribute_recover.name"
                                             )
                                           ) +
-                                          "\n                                            "
+                                          "\n                                                    "
                                       ),
                                       _c(
                                         "at-popover",
@@ -56703,47 +56708,40 @@ var render = function() {
                                 "tw-flex-1 tw-flex tw-flex-col tw-justify-between tw-pr-6 tw-border-r tw-border-gray-300"
                             },
                             [
-                              _c(
-                                "h2",
-                                { staticClass: "tw-font-bold tw-text-center" },
-                                [_vm._v("Average Rating")]
-                              ),
+                              _c("h2", { staticClass: "tw-font-bold" }, [
+                                _vm._v("Latest review:")
+                              ]),
                               _vm._v(" "),
                               _c("div", {}, [
+                                _c("p", [
+                                  _vm._v(_vm._s(_vm.reviews[0].message))
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "tw-flex tw-mt-2" }, [
                                 _c(
-                                  "p",
-                                  { staticClass: "tw-text-6xl tw-text-center" },
+                                  "a",
+                                  {
+                                    staticClass:
+                                      "button tw-font-bold tw-flex-1 tw-mr-1 at-btn tw-flex-1 at-btn--primary at-btn--small",
+                                    attrs: {
+                                      href: "/listing/" + _vm.slug + "/reviews"
+                                    }
+                                  },
                                   [
                                     _vm._v(
-                                      _vm._s(
-                                        _vm.$parent.listing.review_score.toFixed(
-                                          1
-                                        )
-                                      )
+                                      "Read " +
+                                        _vm._s(_vm.reviews.length) +
+                                        " More"
                                     )
                                   ]
                                 ),
                                 _vm._v(" "),
                                 _c(
-                                  "p",
-                                  {
-                                    staticClass:
-                                      "tw-text-gray-500 tw-text-sm tw-text-center tw-font-semibold"
-                                  },
-                                  [
-                                    _vm._v(
-                                      _vm._s(_vm.reviews.length) + " reviews"
-                                    )
-                                  ]
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "tw-flex tw-py-4" }, [
-                                _c(
                                   "a",
                                   {
                                     staticClass:
-                                      "tw-flex-1 tw-mx-2 at-btn tw-flex-1 tw-mx-2 at-btn--primary at-btn--small at-btn--primary--hollow",
+                                      "button-outline tw-font-bold tw-flex-1 tw-ml-1 at-btn tw-flex-1 at-btn--primary at-btn--small at-btn--primary--hollow",
                                     attrs: {
                                       href:
                                         "/listing/" +
@@ -56751,19 +56749,7 @@ var render = function() {
                                         "/reviews/create"
                                     }
                                   },
-                                  [_vm._v("Write Review")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass:
-                                      "tw-flex-1 tw-mx-2 at-btn tw-flex-1 tw-mx-2 at-btn--primary at-btn--small",
-                                    attrs: {
-                                      href: "/listing/" + _vm.slug + "/reviews"
-                                    }
-                                  },
-                                  [_vm._v("Read Reviews")]
+                                  [_vm._v("Write New Review")]
                                 )
                               ])
                             ]

@@ -35499,6 +35499,18 @@ form .item-group input {
   color: #262626;
 }
 
+.use-accent-nightmare .button {
+  background: #595959;
+  color: white;
+  border: 1px solid #595959;
+}
+
+.use-accent-nightmare .button-outline {
+  background: white;
+  color: #595959;
+  border: 1px solid #595959;
+}
+
 .use-accent-nightmare .scoreboard-low {
   color: white;
   background-color: #8C8C8C;
@@ -35667,6 +35679,18 @@ form .item-group input {
 
 .use-accent-poring strong {
   color: #FFA0AF;
+}
+
+.use-accent-poring .button {
+  background: #FFB4C3;
+  color: white;
+  border: 1px solid #FFB4C3;
+}
+
+.use-accent-poring .button-outline {
+  background: white;
+  color: #FFB4C3;
+  border: 1px solid #FFB4C3;
 }
 
 .use-accent-poring .scoreboard-low {
@@ -35839,6 +35863,18 @@ form .item-group input {
   color: #7A5AA4;
 }
 
+.use-accent-deviling .button {
+  background: #9176B9;
+  color: white;
+  border: 1px solid #9176B9;
+}
+
+.use-accent-deviling .button-outline {
+  background: white;
+  color: #9176B9;
+  border: 1px solid #9176B9;
+}
+
 .use-accent-deviling .scoreboard-low {
   color: white;
   background-color: #AF9AD1;
@@ -36007,6 +36043,18 @@ form .item-group input {
 
 .use-accent-ghostring strong {
   color: #A7B3E1;
+}
+
+.use-accent-ghostring .button {
+  background: #BBC2E8;
+  color: white;
+  border: 1px solid #BBC2E8;
+}
+
+.use-accent-ghostring .button-outline {
+  background: white;
+  color: #BBC2E8;
+  border: 1px solid #BBC2E8;
 }
 
 .use-accent-ghostring .scoreboard-low {
@@ -36179,6 +36227,18 @@ form .item-group input {
   color: #FF965A;
 }
 
+.use-accent-drops .button {
+  background: #FFB577;
+  color: white;
+  border: 1px solid #FFB577;
+}
+
+.use-accent-drops .button-outline {
+  background: white;
+  color: #FFB577;
+  border: 1px solid #FFB577;
+}
+
 .use-accent-drops .scoreboard-low {
   color: white;
   background-color: #FFBD81;
@@ -36349,6 +36409,18 @@ form .item-group input {
   color: #7FB357;
 }
 
+.use-accent-poporing .button {
+  background: #9CC46A;
+  color: white;
+  border: 1px solid #9CC46A;
+}
+
+.use-accent-poporing .button-outline {
+  background: white;
+  color: #9CC46A;
+  border: 1px solid #9CC46A;
+}
+
 .use-accent-poporing .scoreboard-low {
   color: white;
   background-color: #A5D074;
@@ -36517,6 +36589,18 @@ form .item-group input {
 
 .use-accent-pouring strong {
   color: #499DFF;
+}
+
+.use-accent-pouring .button {
+  background: #6CC0FF;
+  color: white;
+  border: 1px solid #6CC0FF;
+}
+
+.use-accent-pouring .button-outline {
+  background: white;
+  color: #6CC0FF;
+  border: 1px solid #6CC0FF;
 }
 
 .use-accent-pouring .scoreboard-low {

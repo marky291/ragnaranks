@@ -84,6 +84,16 @@ $accents: (
 	strong {
 	  color: map_get($accent, darkest);
 	}
+    .button {
+        background: map_get($accent, base);
+        color: white;
+        border: 1px solid map_get($accent, base);
+    }
+    .button-outline {
+        background: white;
+        color: map_get($accent, base);
+        border: 1px solid map_get($accent, base);
+    }
 	.scoreboard-low {
 		color: $scoreboard-text;
 		background-color: map_get($accent, light)

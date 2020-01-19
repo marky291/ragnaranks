@@ -184,14 +184,15 @@
                     <h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tighter">Review Scoring</h3>
                     <div class="tw-flex tw-flex-row">
                         <div class="tw-flex-1 tw-flex tw-flex-col tw-justify-between tw-pr-6 tw-border-r tw-border-gray-300">
-                            <h2 class="tw-font-bold tw-text-center">Average Rating</h2>
+                            <h2 class="tw-font-bold">Latest review:</h2>
                             <div class="">
-                                <p class="tw-text-6xl tw-text-center">{{ $parent.listing.review_score.toFixed(1) }}</p>
-                                <p class="tw-text-gray-500 tw-text-sm tw-text-center tw-font-semibold">{{ reviews.length }} reviews</p>
+                                <p>{{ reviews[0].message }}</p>
+<!--                                <p class="tw-text-6xl tw-text-center">{{ $parent.listing.review_score.toFixed(1) }}</p>-->
+<!--                                <p class="tw-text-gray-500 tw-text-sm tw-text-center tw-font-semibold">{{ reviews.length }} reviews</p>-->
                             </div>
-                        <div class="tw-flex tw-py-4">
-                            <a :href="'/listing/'+slug+'/reviews/create'" class="tw-flex-1 tw-mx-2 at-btn tw-flex-1 tw-mx-2 at-btn--primary at-btn--small at-btn--primary--hollow">Write Review</a>
-                            <a :href="'/listing/'+slug+'/reviews'" class="tw-flex-1 tw-mx-2 at-btn tw-flex-1 tw-mx-2 at-btn--primary at-btn--small">Read Reviews</a>
+                        <div class="tw-flex tw-mt-2">
+                            <a :href="'/listing/'+slug+'/reviews'" class="button tw-font-bold tw-flex-1 tw-mr-1 at-btn tw-flex-1 at-btn--primary at-btn--small">Read {{ reviews.length}} More</a>
+                            <a :href="'/listing/'+slug+'/reviews/create'" class="button-outline tw-font-bold tw-flex-1 tw-ml-1 at-btn tw-flex-1 at-btn--primary at-btn--small at-btn--primary--hollow">Write New Review</a>
                         </div>
                         </div>
                         <div class="tw-flex-1 tw-pl-6">
