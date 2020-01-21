@@ -158,5 +158,6 @@
                 enable_page_level_ads: true
             });
         </script>
+        @yield('js')
     </body>
 </html>

@@ -41,7 +41,13 @@
                 <span v-if="$parent.isCurrentPage('profile')">
                             <div id="description" class="profile-block markdown tw-py-4">
                                 <div class="tw-px-10 mt-4">
-                                        <h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tighter">Introduction</h3>
+                                        <div class="heading-underline mb-4 tw-flex tw-items-center tw-justify-between">
+                                            <h3 class="heading mb-0 tw-font-bold tw-tracking-tighter">Introduction</h3>
+                                            <div class="fb-share-button"
+                                                 :data-href="$parent.website"
+                                                 data-layout="button_count">
+                                            </div>
+                                        </div>
                                         <div class="row no-gutters">
                                             <div class="tw-tracking-normal tw-whitespace-pre-wrap markdown-compiled" v-html="$parent.description"></div>
                                         </div>
