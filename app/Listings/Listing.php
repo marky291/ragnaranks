@@ -114,7 +114,7 @@ class Listing extends Model
      */
     public function routeVote4Points(): string
     {
-        return route('vote4points', $this).'?api_token='.auth()->user()->api_token;
+        return route('vote4points', $this).'?api_token='.$this->user->api_token;
     }
 
     /**

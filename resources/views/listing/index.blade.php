@@ -1,8 +1,19 @@
 @extends('layouts.master')
 
-@section('title', 'Ragnaranks - Ragnarok Private Server Listings')
-@section('description', 'Browse hundreds of listings using our unique ranking algorithm, with advanced filtering, reviews & voting we will find your next perfect server.')
-@section('canonical', route('index'))
+@section('meta_tags')
+    <!-- Primary Meta Tags -->
+    <title>Top 100 Ragnarok Private Server Listings 2020</title>
+    <meta name="title" content="Top 100 Ragnarok Private Server Listings 2020">
+    <meta name="description" content="The worlds best website for finding ragnarok private servers in 2020">
+    <meta name="keywords" content="reviews,search,vote,population,status,screenshots,analytics,v4p">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url('/') }}">
+    <meta property="og:title" content="Top 100 Ragnarok Private Server Listings 2020">
+    <meta property="og:description" content="The worlds best website for finding ragnarok private servers in 2020">
+    <meta property="og:image" content="{{ url('img/meta/og_image.png') }}">
+@endsection
 
 @section('wrapper')
     <homepage inline-template>

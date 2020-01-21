@@ -9,8 +9,8 @@
                         @include('sidebar.message')
                         @if (request()->segment(3) != '')
                             @include('sidebar.selector')
-                            @include('sidebar.reviews')
                             @include('sidebar.recent')
+                            @include('sidebar.reviews')
                             @include('sidebar.social')
                         @else
                             @include('sidebar.config')

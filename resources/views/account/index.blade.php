@@ -1,6 +1,13 @@
 @section('title', 'Account | Ragnaranks ')
 @section('description', 'View and modify your account details')
 
+@section('meta_tags')
+    <!-- Primary Meta Tags -->
+    <title>My Account | Ragnaranks</title>
+    <meta name="title" content="My Account | Ragnaranks">
+    <meta name="description" content="View and modify your account details">
+@endsection
+
 @component('account.frame', ['selected' => 'account'])
     <account-details-component inline-template>
         <div class="">
