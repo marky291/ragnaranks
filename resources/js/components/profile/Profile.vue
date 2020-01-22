@@ -190,14 +190,17 @@
                     <h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tighter">Review Scoring</h3>
                     <div class="tw-flex tw-flex-row">
                         <div class="tw-flex-1 tw-flex tw-flex-col tw-justify-between tw-pr-6 tw-border-r tw-border-gray-300">
-                            <h2 class="tw-font-bold">Latest review:</h2>
+                            <div class="tw-flex tw-justify-between">
+                                <h2 class="tw-font-bold">Latest review:</h2>
+                                <at-rate :allow-half="true" v-model="reviews[0].average_score" :count="5" disabled/>
+                            </div>
                             <div class="">
                                 <p>{{ reviews[0].message }}</p>
 <!--                                <p class="tw-text-6xl tw-text-center">{{ $parent.listing.review_score.toFixed(1) }}</p>-->
 <!--                                <p class="tw-text-gray-500 tw-text-sm tw-text-center tw-font-semibold">{{ reviews.length }} reviews</p>-->
                             </div>
-                        <div class="tw-flex tw-mt-2">
-                            <a :href="'/listing/'+slug+'/reviews'" class="button tw-font-bold tw-flex-1 tw-mr-1 at-btn tw-flex-1 at-btn--primary at-btn--small">Read {{ reviews.length}} More</a>
+                        <div class="tw-flex tw-mt-4">
+                            <a :href="'/listing/'+slug+'/reviews'" class="button tw-font-bold tw-flex-1 tw-mr-1 at-btn tw-flex-1 at-btn--primary at-btn--small">Read {{ reviews.length}} Review</a>
                             <a :href="'/listing/'+slug+'/reviews/create'" class="button-outline tw-font-bold tw-flex-1 tw-ml-1 at-btn tw-flex-1 at-btn--primary at-btn--small at-btn--primary--hollow">Write New Review</a>
                         </div>
                         </div>

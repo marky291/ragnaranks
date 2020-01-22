@@ -26,9 +26,9 @@ class Vote4PointsController extends Controller
             ListingVotedEvent::dispatch($listing);
             AssignRoleToUser::dispatch(auth()->user(), 'player');
 
-            return view('listing.vote.index', ['listing' => $listing, 'status' => true]);
+            return view('listing.vote.vote4points', ['listing' => $listing, 'status' => true]);
         }
 
-        return view('listing.vote.index', ['listing' => $listing, 'status' => false]);
+        return view('listing.vote.vote4points', ['listing' => $listing, 'status' => false]);
     }
 }

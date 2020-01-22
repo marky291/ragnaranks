@@ -18,7 +18,7 @@
                             </div>
                         </div>
                         <div class="tw-flex tw-flex-col tw-self-center tw-rounded-l tw-text-right tw-p-3 tw-bg-white" :class="'bg-'+$parent.$parent.$parent.accent+'-base'">
-                            <at-rate :show-text="true" :allow-half="true" v-model="review.average_score" :count="review.average_score"disabled>
+                            <at-rate :allow-half="true" v-model="review.average_score" :count="5" disabled>
                                 <span class="tw-text-white tw-font-bold">{{this.ratingScore(review.average_score)}}</span>
                             </at-rate>
                         </div>
