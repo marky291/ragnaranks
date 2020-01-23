@@ -4,7 +4,7 @@
     <p class="subheading tw-mb-1">
         Numerous improvements have been made to our review system and vote for points API landing pages, we have also implemented new background checks for websites that have gone offline and notifies you before action is taken by our moderation team.
     </p>
-    <a href="https://www.m.me/ragnaranks" style="font-size:0.8em"><i class="fab fa-facebook-square"></i> Contact us on our Facebook Page</a>
+    <a href="https://www.m.me/ragnaranks" style="font-size:0.7em"><i class="fab fa-facebook-square"></i> Contact us on our Facebook Page</a>
 </div>
 
 {{--<div class="content mt-2 tw-shadow tw-hidden lg:tw-block tw-p-5">--}}
