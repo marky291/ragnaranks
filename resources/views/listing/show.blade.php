@@ -1,15 +1,46 @@
 @extends('layouts.master')
 
-@if ($listing->exists)
-    @section('title', "{$listing->name} Private Server Information - Ragnaranks")
-    @section('description', "Server information about {$listing->name} such as server description, reviews, ratings, ranks, votes and status reports.")
-    @section('keywords', $listing->name . ', ' . $listing->tags->implode('name', ', ') . ', reviews, information, rating, website, ranking, configs')
-    @section('canonical', route('listing.show', $listing))
-@else
-    @section('title', 'Create a new private server listing - Ragnaranks')
-    @section('description', 'Design and create a profile listing that suits your server style and configuration')
-    @section('canonical', route('listing.create'))
-@endif
+@section('js')
+    <div id="fb-root"></div>
+    <script async>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+            fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+@endsection
+
+@section('meta_tags')
+    @if ($listing->exists)
+        <!-- Primary Meta Tags -->
+        <title>{{ $listing->name }} Server Information</title>
+        <meta name="title" content="{{ $listing->name }} Server Information">
+        <meta name="description" content="The best place to view reviews and analytics on {{ $listing->name }}">
+        <meta name="keywords" content="{{ $listing->tags->implode('name', ', ') }}">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ url($listing->route()) }}">
+        <meta property="og:title" content="{{ $listing->name }} Server Information">
+        <meta property="og:description" content="The best place to view reviews and analytics on {{ $listing->name }}">
+        <meta property="og:image" content="{{  \Illuminate\Support\Facades\Storage::url($listing->background) }}">
+    @else
+        <!-- Primary Meta Tags -->
+        <title>Create New Private Server Listing | Ragnaranks</title>
+        <meta name="title" content="Create New Private Server Listing | Ragnaranks">
+        <meta name="description" content="Design and upload your server listing on the best ragnarok server finder">
+        <meta name="keywords" content="create,new,setup,v4p">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ url('listing/create') }}">
+        <meta property="og:title" content="Create New Private Server Listing | Ragnaranks">
+        <meta property="og:description" content="Design and upload your server listing on the best ragnarok server finder">
+        <meta property="og:image" content="{{  url('img/meta/og_image.png') }}">
+    @endif
+@endsection
+
 
 @section('wrapper')
 	<div class="shadow-inner">

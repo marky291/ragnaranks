@@ -1,6 +1,13 @@
 @section('title', 'Moderation Tools | Ragnaranks')
 @section('description', 'Moderate user actions taht have been reported')
 
+@section('meta_tags')
+    <!-- Primary Meta Tags -->
+    <title>Moderation Tools | Ragnaranks</title>
+    <meta name="title" content="Moderation Tools | Ragnaranks">
+    <meta name="description" content="Validate behavior of members on ragnaranks">
+@endsection
+
 @component('account.frame', ['selected' => 'moderate'])
 	@include('format.heading', ['title' => 'Moderation Tools'])
 		@foreach ($reports as $report)

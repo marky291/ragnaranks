@@ -19,7 +19,7 @@ use Symfony\Component\Console\Logger\ConsoleLogger;
  *
  * @package App\Console\Commands
  */
-class HeartbeatMonitorConsole extends Command
+class HeartbeatMonitor extends Command
 {
     /**
      * The name and signature of the console command.

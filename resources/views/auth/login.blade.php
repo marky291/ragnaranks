@@ -1,8 +1,19 @@
 @extends('layouts.master')
 
-@section('title', 'Ragnaranks - Login')
-@section('description', 'Sign in to your account and access even more features')
-@section('canonical', route('login'))
+@section('meta_tags')
+    <!-- Primary Meta Tags -->
+    <title>Login | Ragnaranks</title>
+    <meta name="title" content="Sign in | Ragnaranks">
+    <meta name="description" content="Access your private account with our secure login">
+    <meta name="keywords" content="login,join,member,access">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url('login') }}">
+    <meta property="og:title" content="Sign in | Ragnaranks">
+    <meta property="og:description" content="Access your private account with our secure login">
+    <meta property="og:image" content="{{  url('img/meta/og_image.png') }}">
+@endsection
 
 @section('wrapper')
 

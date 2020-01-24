@@ -2,12 +2,10 @@
 <html lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
-        <title>@yield('title', 'RagnaRanks.com')</title>
+        @yield('meta_tags')
         <meta name="robots" content="all">
         <meta name="viewport" content="width=1200"/>
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <meta name="description" content="@yield('description', 'Browse hundreds of ragnarok online private server listings, with advanced filtering, reviews & voting we make it a breeze.')">
-        <meta name="keywords" content="@yield('keywords','listings, ragnarok, ro, online, private servers, private server, vote, vote4points, top 100, official rate, low rate, pk, roleplaying, mid rate, high rate, super high rate, server, mmorpg, rpg')">
         <link href="@yield('canonical', '')" rel="canonical">
         <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"></head>
@@ -160,5 +158,6 @@
                 enable_page_level_ads: true
             });
         </script>
+        @yield('js')
     </body>
 </html>

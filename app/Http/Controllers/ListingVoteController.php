@@ -6,6 +6,7 @@ use App\Jobs\AssignRoleToUser;
 use App\Listings\Listing;
 use App\Listings\ListingRanking;
 use App\Listings\ListingVotedEvent;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -13,27 +14,22 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 use TimeHunter\LaravelGoogleReCaptchaV3\Facades\GoogleReCaptchaV3;
 
+/**
+ * Class ListingVoteController
+ *
+ * @package App\Http\Controllers
+ */
 class ListingVoteController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @param Listing $listing
-     * @return Response
+     * @return Factory|View
      */
     public function index(Listing $listing)
     {
        return view('listing.vote.index', ['listing' => $listing]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -55,51 +51,6 @@ class ListingVoteController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
-    /**
      * Public allows API Access to auto vote.
      *
      * @param Listing $listing
@@ -112,9 +63,7 @@ class ListingVoteController extends Controller
             $listing->votes()->create(['ip_address' => request()->getClientIp()]);
 
             ListingRanking::incrementVote($listing);
-
             ListingVotedEvent::dispatch($listing);
-
             AssignRoleToUser::dispatch(auth()->user(), 'player');
 
             return response()->json([

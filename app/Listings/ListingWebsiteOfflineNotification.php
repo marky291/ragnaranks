@@ -1,14 +1,20 @@
 <?php
 
-namespace App\Notifications;
+namespace App\Listings;
 
-use App\Listings\Listing;
+use DateInterval;
+use DateTimeInterface;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class HeartbeatFailureNotification extends Notification implements ShouldQueue
+/**
+ * Class ListingWebsiteOfflineNotification
+ *
+ * @package App\Listings
+ */
+class ListingWebsiteOfflineNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -19,19 +25,26 @@ class HeartbeatFailureNotification extends Notification implements ShouldQueue
     /**
      * @var int
      */
-    private $failureCount;
+    private $countHours;
+    /**
+     * @var ListingWebsiteStatus
+     */
+    private $status;
 
     /**
      * Create a new notification instance.
      *
      * @param Listing $listing
-     * @param int $failureCount
+     * @param ListingWebsiteStatus $status
+     * @param int $countHours
      */
-    public function __construct(Listing $listing, int $failureCount)
+    public function __construct(Listing $listing, ListingWebsiteStatus $status, int $countHours)
     {
         $this->listing = $listing;
 
-        $this->failureCount = $failureCount;
+        $this->countHours = $countHours;
+
+        $this->status = $status;
     }
 
     /**
@@ -54,10 +67,11 @@ class HeartbeatFailureNotification extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject('Heartbeat Failure!')
-            ->line("We detected {$this->failureCount} invalid responses from {$this->listing->name}")
-            ->line("Website: {$this->listing->website}")
-            ->line("Listing: {$this->listing->route()}");
+            ->subject('Listing website offline')
+            ->line("We have been monitoring the website belonging to \n{$this->listing->name} and would like to notify you that it has been offline for {$this->countHours} hours!")
+            ->line("The response received is {$this->status->status}, {$this->status->reason}")
+            ->line('Our moderation team may remove the listing if it is believed you will no longer be online.')
+            ->action('Check your Listing', $this->listing->route());
     }
 
     /**

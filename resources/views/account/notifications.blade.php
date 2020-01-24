@@ -1,6 +1,14 @@
 @section('title', 'Notifications | Ragnaranks')
 @section('description', 'Manage incoming account notifications')
 
+@section('meta_tags')
+    <!-- Primary Meta Tags -->
+    <title>Notifications | Ragnaranks</title>
+    <meta name="title" content="Notifications | Ragnaranks">
+    <meta name="description" content="View all your account notifications">
+    <meta name="keywords" content="notificatons,account">
+@endsection
+
 @component('account.frame', ['selected' => 'notifications'])
 	@include('format.heading', ['title' => 'Notifications'])
 

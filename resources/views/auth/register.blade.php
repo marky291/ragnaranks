@@ -1,8 +1,19 @@
 @extends('layouts.master')
 
-@section('title', 'Ragnaranks - Register')
-@section('description', 'Create an account and be apart of the growing community')
-@section('canonical', route('register'))
+@section('meta_tags')
+    <!-- Primary Meta Tags -->
+    <title>Register a new account | Ragnaranks</title>
+    <meta name="title" content="Register an Account | Ragnaranks">
+    <meta name="description" content="You must register an account to gain exclusive member features">
+    <meta name="keywords" content="register,create,new">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url('register') }}">
+    <meta property="og:title" content="Register an Account | Ragnaranks">
+    <meta property="og:description" content="You must register an account to gain exclusive member features">
+    <meta property="og:image" content="{{  url('img/meta/og_image.png') }}">
+@endsection
 
 @section('wrapper')
     <div class="shadow-inner">

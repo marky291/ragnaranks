@@ -21,18 +21,23 @@
 
 
     .review-item {
-        border-top-width: 4px;
-        border-right: 1px solid #e1e1e1;
-        border-left: 1px solid #e1e1e1;
-        border-bottom: 1px solid #e1e1e1;
+        //border-top-width: 4px;
+        //border-right: 1px solid #e1e1e1;
+        //border-left: 1px solid #e1e1e1;
+        //border-bottom: 1px solid #e1e1e1;
 
-        @apply tw-flex tw-flex-row tw-my-8 tw-shadow tw-flex-col;
+        .at-rate__item--on .at-rate__icon {
+            font-size: 17px;
+        }
+
+        &:nth-child(odd) {
+            background: #f2f2f27a;
+            border-radius: 10px;
+        }
+
+        @apply tw-flex tw-flex-row tw-my-4 tw-flex-col;
 
         .content {
-            .head {
-                border-bottom: 1px solid #efeeee;
-                @apply tw-pb-4;
-            }
             .message {
                 font-size: 0.8rem;
                 @apply tw-leading-loose;
@@ -40,8 +45,7 @@
             @apply tw-p-4;
         }
         .tools {
-            border-top: 1px solid #efeeee;
-            @apply tw-px-6 tw-flex tw-py-4 tw-items-center;
+            @apply tw-flex tw-mt-4;
 
             .tw-text-right {
                 color: #8165a8;

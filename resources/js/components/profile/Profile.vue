@@ -41,7 +41,13 @@
                 <span v-if="$parent.isCurrentPage('profile')">
                             <div id="description" class="profile-block markdown tw-py-4">
                                 <div class="tw-px-10 mt-4">
-                                        <h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tighter">Introduction</h3>
+                                        <div class="heading-underline mb-4 tw-flex tw-items-center tw-justify-between">
+                                            <h3 class="heading mb-0 tw-font-bold tw-tracking-tighter">Introduction</h3>
+                                            <div class="fb-share-button"
+                                                 :data-href="$parent.website"
+                                                 data-layout="button_count">
+                                            </div>
+                                        </div>
                                         <div class="row no-gutters">
                                             <div class="tw-tracking-normal tw-whitespace-pre-wrap markdown-compiled" v-html="$parent.description"></div>
                                         </div>
@@ -184,14 +190,18 @@
                     <h3 class="heading mb-4 tw-font-bold heading-underline tw-tracking-tighter">Review Scoring</h3>
                     <div class="tw-flex tw-flex-row">
                         <div class="tw-flex-1 tw-flex tw-flex-col tw-justify-between tw-pr-6 tw-border-r tw-border-gray-300">
-                            <h2 class="tw-font-bold tw-text-center">Average Rating</h2>
-                            <div class="">
-                                <p class="tw-text-6xl tw-text-center">{{ $parent.listing.review_score.toFixed(1) }}</p>
-                                <p class="tw-text-gray-500 tw-text-sm tw-text-center tw-font-semibold">{{ reviews.length }} reviews</p>
+                            <div class="tw-flex tw-justify-between">
+                                <h2 class="tw-font-bold">Latest review:</h2>
+                                <at-rate :allow-half="true" v-model="reviews[0].average_score" :count="5" disabled/>
                             </div>
-                        <div class="tw-flex tw-py-4">
-                            <a :href="'/listing/'+slug+'/reviews/create'" class="tw-flex-1 tw-mx-2 at-btn tw-flex-1 tw-mx-2 at-btn--primary at-btn--small at-btn--primary--hollow">Write Review</a>
-                            <a :href="'/listing/'+slug+'/reviews'" class="tw-flex-1 tw-mx-2 at-btn tw-flex-1 tw-mx-2 at-btn--primary at-btn--small">Read Reviews</a>
+                            <div class="">
+                                <p>{{ reviews[0].message }}</p>
+<!--                                <p class="tw-text-6xl tw-text-center">{{ $parent.listing.review_score.toFixed(1) }}</p>-->
+<!--                                <p class="tw-text-gray-500 tw-text-sm tw-text-center tw-font-semibold">{{ reviews.length }} reviews</p>-->
+                            </div>
+                        <div class="tw-flex tw-mt-4">
+                            <a :href="'/listing/'+slug+'/reviews'" class="button tw-font-bold tw-flex-1 tw-mr-1 at-btn tw-flex-1 at-btn--primary at-btn--small">Read {{ reviews.length}} Review</a>
+                            <a :href="'/listing/'+slug+'/reviews/create'" class="button-outline tw-font-bold tw-flex-1 tw-ml-1 at-btn tw-flex-1 at-btn--primary at-btn--small at-btn--primary--hollow">Write New Review</a>
                         </div>
                         </div>
                         <div class="tw-flex-1 tw-pl-6">

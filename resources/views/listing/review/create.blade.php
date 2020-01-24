@@ -1,5 +1,20 @@
 @extends('layouts.profile')
 
+@section('meta_tags')
+    <!-- Primary Meta Tags -->
+    <title>Write a review on {{ $listing->name }}</title>
+    <meta name="title" content="Write a review on {{ $listing->name }}">
+    <meta name="description" content="Help others by providing your unique experience playing {{ $listing->name }}">
+    <meta name="keywords" content="review, about">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url($listing->route() . '/reviews/create') }}">
+    <meta property="og:title" content="Write a review on {{ $listing->name }}">
+    <meta property="og:description" content="Help others by providing your unique experience playing {{ $listing->name }}">
+    <meta property="og:image" content="{{ \Illuminate\Support\Facades\Storage::url($listing->background) }}">
+@endsection
+
 @section('content')
     @if ($review->exists)
         <h2 class="heading">Review Editor</h2>
