@@ -2,8 +2,8 @@
 
 @section('meta_tags')
     <!-- Primary Meta Tags -->
-    <title>Top 100 Ragnarok Private Server Listings 2020</title>
-    <meta name="title" content="Top 100 Ragnarok Private Server Listings 2020">
+    <title>Top 100 Ragnarok Private Servers | Ragnaranks</title>
+    <meta name="title" content="Top 100 Ragnarok Private Servers | Ragnaranks">
     <meta name="description" content="The worlds best website for finding ragnarok private servers in 2020">
     <meta name="keywords" content="reviews,search,vote,population,status,screenshots,analytics,v4p">
 
