@@ -43,7 +43,7 @@ Route::get('/listing/{name}/available', static function (string $name) {
 });
 
 Route::get('/listing/{listing}', static function (Listing $listing) {
-    return cache()->remember("listing:{$listing->name}", 3600, static function () use ($listing) {
+    return cache()->remember("listing:{$listing->name}", now()->addMinutes(10), static function () use ($listing) {
         return App\Http\Resources\ListingResource::make($listing->load('ranking', 'screenshots', 'tags', 'configuration', 'language', 'reviews', 'heartbeat'));
     });
 });
