@@ -1,7 +1,13 @@
 @extends('layouts.master')
 
-@section('wrapper')
+@section('meta_tags')
+    <!-- Primary Meta Tags -->
+    <title>Verification | Ragnaranks</title>
+    <meta name="title" content="Verification | Ragnaranks">
+    <meta name="description" content="Please verify your account before you gain access">
+@endsection
 
+@section('wrapper')
     <div class="shadow-inner">
         <div class="container">
             <div class="row">

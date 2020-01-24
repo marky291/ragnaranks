@@ -3,19 +3,16 @@
 namespace App\Console\Commands;
 
 use App\Listings\Listing;
-use Carbon\Carbon;
-use Illuminate\Console\Command;
 use Spatie\Sitemap\Sitemap;
-use Spatie\Sitemap\SitemapGenerator;
-use Spatie\Sitemap\SitemapIndex;
 use Spatie\Sitemap\Tags\Url;
+use Illuminate\Console\Command;
 
 /**
  * Class GenerateSitemap
  *
  * @package App\Console\Commands
  */
-class GenerateSitemap extends Command
+class SitemapGenerator extends Command
 {
     /**
      * The console command name.

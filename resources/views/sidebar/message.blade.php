@@ -1,8 +1,10 @@
 <div class="content tw-shadow tw-hidden lg:tw-block tw-p-6">
-	<h3 class="text-orange font-weight-bold">Site Notice</h3>
-	<p class="subheading">We are keen to learn how we can improve our webservice,
-        let us know your opinions and ideas and get in touch with us on our <a href="https://www.m.me/ragnaranks"><i class="fab fa-facebook-square"></i> Facebook Page</a>!
-	</p>
+	<h3 class="text-orange font-weight-bold">Latest Update</h3>
+    <p class="subheading tw-font-bold tw-mb-1">January 25, 2020 @ Version {{ config('app.version') }}</p>
+    <p class="subheading tw-mb-1">
+        Numerous improvements have been made to our review system and vote for points API landing pages, we have also implemented new background checks for websites that have gone offline and notifies you before action is taken by our moderation team.
+    </p>
+    <a href="https://www.m.me/ragnaranks" style="font-size:0.7em"><i class="fab fa-facebook-square"></i> Contact us on our Facebook Page</a>
 </div>
 
 {{--<div class="content mt-2 tw-shadow tw-hidden lg:tw-block tw-p-5">--}}

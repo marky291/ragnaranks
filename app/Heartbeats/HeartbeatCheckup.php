@@ -28,7 +28,8 @@ class HeartbeatCheckup
      * @var array
      */
     private $pulseLocations = [
-        FluxStatusInformer::class
+        FluxStatusInformer::class,
+        CustomStatusInformer::class,
     ];
 
     /**
@@ -52,7 +53,6 @@ class HeartbeatCheckup
             /** @var Informer $informer */
             $informer = (new $pulse);
             $informer->scrape($this->listing->website);
-
             if ($informer->hasActivePulse()) {
                 $this->informer = $informer;
                 return;
