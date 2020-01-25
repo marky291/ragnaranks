@@ -178,7 +178,7 @@ class Listing extends Model
     /**
      * A listing has many heartbeats
      *
-     * @return HasMany|Collection
+     * @return HasMany|Collection|ListingHeartbeat
      */
     public function heartbeats(): HasMany
     {

@@ -195,7 +195,7 @@
                                 <at-rate :allow-half="true" v-model="reviews[0].average_score" :count="5" disabled/>
                             </div>
                             <div class="">
-                                <p>{{ reviews[0].message }}</p>
+                                <p>{{ reviews[reviews.length-1].message }}</p>
 <!--                                <p class="tw-text-6xl tw-text-center">{{ $parent.listing.review_score.toFixed(1) }}</p>-->
 <!--                                <p class="tw-text-gray-500 tw-text-sm tw-text-center tw-font-semibold">{{ reviews.length }} reviews</p>-->
                             </div>

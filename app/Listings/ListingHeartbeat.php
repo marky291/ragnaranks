@@ -5,7 +5,9 @@ namespace App\Listings;
 use App\Heartbeats\Informer;
 use App\Heartbeats\InformerResults;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class ListingHeartbeat
@@ -20,6 +22,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property integer $failure_count
  * @property Carbon $created_at
  * @property Carbon $updated_at
+ *
+ * @method ListingHeartbeat|Builder fromStartOfDay()
+ * @method ListingHeartbeat|Builder groupPlayersHourly()
  *
  * @package App\Listings
  */
@@ -60,5 +65,24 @@ class ListingHeartbeat extends Model
     public function toStatusName(bool $status): string
     {
         return $status ? 'online' : 'offline';
+    }
+
+    /**
+     * @param Builder $builder
+     * @return Builder|\Illuminate\Database\Query\Builder
+     */
+    public function scopeLast24Hours(Builder $builder)
+    {
+        return $builder->whereRaw('created_at >= DATE_SUB(CURDATE(), INTERVAL 23 HOUR)');
+    }
+
+    public function scopeFromStartOfDay(Builder $builder)
+    {
+        return $builder->whereRaw('created_at >= CURDATE()');
+    }
+
+    public function scopeGroupPlayersHourly(Builder $builder)
+    {
+        return $builder->selectRaw('HOUR(created_at) as hour, CEIL(AVG(players)) as players')->groupBy('hour');
     }
 }

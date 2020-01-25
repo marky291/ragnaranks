@@ -4,7 +4,6 @@
         <meta charset="utf-8">
         @yield('meta_tags')
         <meta name="robots" content="all">
-        <meta name="viewport" content="width=1200"/>
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link href="@yield('canonical', '')" rel="canonical">
         <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
