@@ -44,11 +44,11 @@
             <i class="icon tw-text-gray-600 tw-text-xl far fa-thumbs-up"></i>
         </div>
     </a>
-    <a class="selector-item {{ request()->segment(3) == 'stats' ? 'active' : '' }} {{ $listing->accent }}-dark" href="" target="_blank">
+    <a class="selector-item {{ request()->segment(3) == 'reports' ? 'active' : '' }} {{ $listing->accent }}-dark" href="{{ route('listing.reports.index', $listing) }}">
         <div class="tw-items-center tw-py-3 tw-px-6 tw-flex tw-border-b tw-border-gray-200">
             <div class="tw-pr-4 tw-leading-snug">
                 <h5 class="title tw-mb-1">Report Generator</h5>
-                <p class="tw-text-gray-600">We provide useful reports that can help determine the longetivity of the server</p>
+                <p class="tw-text-gray-600">We provide useful reports that can help determine the longevity of the server</p>
             </div>
             <i class="icon tw-text-gray-600 tw-text-xl fas fa-chart-line"></i>
         </div>

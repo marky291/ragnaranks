@@ -1,4 +1,6 @@
 <script>
+    Vue.component('population-metric-chart', require('./PopulationMetricChart').default);
+
     export default {
         props: ['trackclick', 'clickcount', 'votecount'],
         data: function () {

@@ -20,6 +20,6 @@ Route::delete('/filepond/process', 'FilepondController@delete')->name('filepond.
 // search for a listing.
 Route::get('/servers/search')->middleware(['throttle:500,1'])->uses('ListingSearchController@index');
 // return metrics about the listing.
-Route::get('/listing/{listing}/player/metrics/today', 'ListingPlayerMetricController@today');
+Route::get('/listing/{listing}/player/metrics/today', 'ListingPlayerMetricController@today')->name('metric.players.today');
 // filter servers based on conditional inputs.
 Route::get('/servers/{exp_group}/{mode}/{tag}/{sort}/{limit}', 'ListingFilteringController@filters');

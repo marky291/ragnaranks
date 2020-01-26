@@ -23,15 +23,22 @@ class ListingPlayerMetricController extends Controller
      */
     public function today(Listing $listing)
     {
-        return Cache::remember("player:metric:today:{$listing->id}", now()->addMinutes(10), static function() use ($listing) {
-            /** @var Collection $collection */
-            $collection = $listing->heartbeats()->fromStartOfDay()->groupPlayersHourly()->get();
+        /** @var Collection $collection */
+        $collection = $listing->heartbeats()->last48Hours()->get();
 
-            return $collection->mapWithKeys(static function($item) {
-                /** @var Carbon $time */
-                $time = Carbon::createFromFormat('H', $item->hour);
-                return [$time->format('ga') => $item->players];
-            });
+        $collection = $collection->groupBy(static function($heartbeat) {
+            if ($heartbeat->created_at->isToday()) {
+                return 'today';
+            }
+            return 'yesterday';
         });
+
+        foreach ($collection as $key => $item) {
+            $collection[$key] = $item->mapWithKeys(static function($item) {
+                return [$item->created_at->format('ga') => $item->players];
+            });
+        }
+
+        return $collection;
     }
 }

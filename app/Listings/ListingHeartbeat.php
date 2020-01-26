@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\DB;
  * @property Carbon $created_at
  * @property Carbon $updated_at
  *
+ * @method ListingHeartbeat|Builder last48Hours()
  * @method ListingHeartbeat|Builder fromStartOfDay()
  * @method ListingHeartbeat|Builder groupPlayersHourly()
  *
@@ -71,9 +72,9 @@ class ListingHeartbeat extends Model
      * @param Builder $builder
      * @return Builder|\Illuminate\Database\Query\Builder
      */
-    public function scopeLast24Hours(Builder $builder)
+    public function scopeLast48Hours(Builder $builder)
     {
-        return $builder->whereRaw('created_at >= DATE_SUB(CURDATE(), INTERVAL 23 HOUR)');
+        return $builder->whereRaw('created_at >= DATE_SUB(CURDATE(), INTERVAL 47 HOUR)');
     }
 
     public function scopeFromStartOfDay(Builder $builder)

@@ -48,6 +48,7 @@ Route::post('/notifications/unread/{notification}')->middleware('auth')->uses('M
 // listing votes controllers.
 Route::resource('listing.votes', 'ListingVoteController')->only(['index', 'store']);
 Route::resource('listing.clicks', 'ClickController')->only(['store']);
+Route::resource('listing.reports', 'ListingReportController')->only(['index']);
 Route::resource('listing.reviews', 'ListingReviewController')->only(['index', 'create', 'store', 'edit', 'destroy', 'update']);
 
 
