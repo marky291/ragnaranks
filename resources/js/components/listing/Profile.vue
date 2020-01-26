@@ -1,5 +1,6 @@
 <script>
     Vue.component('population-metric-chart', require('./PopulationMetricChart').default);
+    Vue.component('monthly-vote-metric-chart', require('./MonthlyVoteMetricChart').default);
 
     export default {
         props: ['trackclick', 'clickcount', 'votecount'],

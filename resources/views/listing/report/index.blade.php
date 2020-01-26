@@ -19,11 +19,31 @@
     <section id="voting">
         <div class="row no-gutters">
             <div class="tw-w-full">
-                <div class="tw-mb-4">
-                    <h3 class="heading tw-font-bold tw-mb-2 heading-underline tw-tracking-tighter">Population Metrics</h3>
-                    <p>Population metrics allow you to view when players are most active on the server</p>
+                <div class="">
+                    <div class="tw-mb-4">
+                        <h3 class="heading tw-font-bold tw-mb-2 heading-underline tw-tracking-tighter">Population Metrics</h3>
+                        <p>Population metrics allow you to view when players are most active on the server</p>
+                    </div>
+                    <population-metric-chart intersect="true" :height="200" url="{{ route('metric.players.averages', $listing) }}"></population-metric-chart>
                 </div>
-                <population-metric-chart intersect="true" :height="200" url="{{ route('metric.players.today', $listing) }}"></population-metric-chart>
+                <div class="">
+                    <div class="tw-mb-4">
+                        <h3 class="heading tw-font-bold tw-mb-2 heading-underline tw-tracking-tighter">Listing Date</h3>
+                        <p>You let us help your journey </p>
+                    </div>
+                    <p class="tw-font-bold">{{ $listing->created_at->diffForHumans() }}</p>
+                </div>
+                <div class="">
+                    <div class="tw-mb-4">
+                        <h3 class="heading tw-font-bold tw-mb-2 heading-underline tw-tracking-tighter">Monthly Server Votes</h3>
+                        <p>Votes help you rise to the top and stand out, by gaining support of your players.</p>
+                        <ul>
+                            <li>Use a vote for points module on your website and connect with us</li>
+                            <li>Use incentives for your players to vote more (gain 500 votes for 2x exp in game)</li>
+                        </ul>
+                    </div>
+                    <monthly-vote-metric-chart :height="200" url="{{ route('metric.votes.monthly', $listing) }}"></monthly-vote-metric-chart>
+                </div>
             </div>
         </div>
     </section>

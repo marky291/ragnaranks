@@ -21,6 +21,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static Collection byClientIp($ip_address)
  * @method Collection latestByCurrentClientIp()
  * @method Collection hasInteractedDuring($hours)
+ * @method Builder|Vote days($days)
+ * @method Builder|Vote countPerDay()
  *
  * @property User $publisher
  */
@@ -66,5 +68,24 @@ abstract class Interaction extends Model
     public function scopeHasInteractedDuring(Builder $query, int $hours): bool
     {
         return Carbon::now()->subHours($hours) <= $query->byCurrentIP()->pluck('created_at')->first();
+    }
+
+    /**
+     * @param Builder $builder
+     * @param int $days
+     * @return Builder|\Illuminate\Database\Query\Builder
+     */
+    public function scopeDays(Builder $builder, int $days)
+    {
+        return $builder->whereRaw("created_at >= DATE_SUB(CURDATE(), INTERVAL {$days} DAY)");
+    }
+
+    /**
+     * @param Builder $builder
+     * @return Builder|\Illuminate\Database\Query\Builder
+     */
+    public function scopeCountPerDay(Builder $builder)
+    {
+        return $builder->selectRaw("count(*) as total, DATE(created_at) as 'date'")->groupBy('date');
     }
 }

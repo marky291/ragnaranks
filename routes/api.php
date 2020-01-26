@@ -20,6 +20,8 @@ Route::delete('/filepond/process', 'FilepondController@delete')->name('filepond.
 // search for a listing.
 Route::get('/servers/search')->middleware(['throttle:500,1'])->uses('ListingSearchController@index');
 // return metrics about the listing.
-Route::get('/listing/{listing}/player/metrics/today', 'ListingPlayerMetricController@today')->name('metric.players.today');
+Route::get('/listing/{listing}/player/metrics/averages', 'ListingPlayerMetricController@averages')->name('metric.players.averages');
+// return the votes in the last 30 days.
+Route::get('/listing/{listing}/vote/metrics/monthly', 'ListingVoteMetricController@monthly')->name('metric.votes.monthly');
 // filter servers based on conditional inputs.
 Route::get('/servers/{exp_group}/{mode}/{tag}/{sort}/{limit}', 'ListingFilteringController@filters');

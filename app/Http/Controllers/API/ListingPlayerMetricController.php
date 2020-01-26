@@ -21,7 +21,7 @@ class ListingPlayerMetricController extends Controller
      * @param Listing $listing
      * @return Collection
      */
-    public function today(Listing $listing)
+    public function averages(Listing $listing)
     {
         /** @var Collection $collection */
         $collection = $listing->heartbeats()->last48Hours()->get();
