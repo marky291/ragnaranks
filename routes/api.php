@@ -22,6 +22,8 @@ Route::get('/servers/search')->middleware(['throttle:500,1'])->uses('ListingSear
 // return metrics about the listing.
 Route::get('/listing/{listing}/player/metrics/averages', 'ListingPlayerMetricController@averages')->name('metric.players.averages');
 // return the votes in the last 30 days.
-Route::get('/listing/{listing}/vote/metrics/monthly', 'ListingVoteMetricController@monthly')->name('metric.votes.monthly');
+Route::get('/listing/{listing}/votes/metrics/monthly', 'ListingVoteMetricController@monthly')->name('metric.votes.monthly');
+// return the votes in the last 30 days.
+Route::get('/listing/{listing}/clicks/metrics/monthly', 'ListingClickMetricController@monthly')->name('metric.clicks.monthly');
 // filter servers based on conditional inputs.
 Route::get('/servers/{exp_group}/{mode}/{tag}/{sort}/{limit}', 'ListingFilteringController@filters');

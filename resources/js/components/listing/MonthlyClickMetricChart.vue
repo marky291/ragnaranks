@@ -13,7 +13,7 @@
                     labels: [],
                     datasets: [
                         {
-                            label: 'Votes',
+                            label: 'Clicks',
                             backgroundColor: '#f87979',
                             pointBackgroundColor: 'white',
                             borderWidth: 3,
