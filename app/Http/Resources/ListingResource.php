@@ -41,8 +41,8 @@ class ListingResource extends JsonResource
             'language' => $this->resource->relationLoaded('language') ? $this->language->name : 'english',
             'reviews' => ReviewResource::collection($this->whenLoaded('reviews')),
             'heartbeat' => ListingHeartbeatResource::make($this->whenLoaded('heartbeat')),
-            'isEditor' => auth()->check() && auth()->user()->can('update', $this->resource),
-            'canReview' => auth()->check() && auth()->user()->can('review', $this->resource),
+            'isEditor' => auth()->check() && user()->can('update', $this->resource),
+            'canReview' => auth()->check() && user()->can('review', $this->resource),
         ];
     }
 }

@@ -34,6 +34,18 @@ class ListingPolicy
     }
 
     /**
+     * Can the user analyze the resource.
+     *
+     * @param User|null $user
+     * @param Listing $listing
+     * @return bool
+     */
+    public function analyze(User $user, Listing $listing): bool
+    {
+        return $listing->user_id == $user->id;
+    }
+
+    /**
      * Determine whether the user can update the listing.
      *
      * @param User $user
