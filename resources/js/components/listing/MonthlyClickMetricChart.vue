@@ -13,14 +13,12 @@
                     labels: [],
                     datasets: [
                         {
-                            label: 'Clicks',
-                            backgroundColor: '#f87979',
+                            label: 'Total Clicks',
+                            backgroundColor: '#7fb357',
                             pointBackgroundColor: 'white',
-                            borderWidth: 3,
                             lineTension: 0.5,
                             fill: false,
-                            borderColor: '#f87979',
-                            pointBorderColor: '#e42312',
+                            pointBorderColor: '#7fb357',
                             data: []
                         }
                     ]

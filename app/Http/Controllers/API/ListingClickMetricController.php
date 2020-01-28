@@ -13,7 +13,7 @@ class ListingClickMetricController extends Controller
     public function monthly(Listing $listing)
     {
         /** @var Collection $result */
-        $result = $listing->clicks()->days(30)->countPerDay()->get();
+        $result = $listing->clicks()->rankingTimeframe()->countPerDay()->get();
 
         foreach ($result as $key => $item) {
             $result[$key]->day = Carbon::parse($item->date)->format('jS');

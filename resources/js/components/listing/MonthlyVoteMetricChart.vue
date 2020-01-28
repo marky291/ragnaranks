@@ -13,14 +13,12 @@
                     labels: [],
                     datasets: [
                         {
-                            label: 'Votes',
-                            backgroundColor: '#f87979',
+                            label: 'Total Votes',
+                            backgroundColor: '#56b2ff',
                             pointBackgroundColor: 'white',
-                            borderWidth: 3,
                             lineTension: 0.5,
                             fill: false,
-                            borderColor: '#f87979',
-                            pointBorderColor: '#e42312',
+                            pointBorderColor: '#32709a',
                             data: []
                         }
                     ]

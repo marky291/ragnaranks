@@ -14,12 +14,12 @@
                     datasets: [
                         {
                             label: 'Population Today',
-                            backgroundColor: '#f87979',
+                            backgroundColor: '#ff6f56',
                             pointBackgroundColor: 'white',
                             borderWidth: 3,
                             lineTension: 0.5,
                             fill: false,
-                            borderColor: '#f87979',
+                            borderColor: '#ff6f56',
                             pointBorderColor: '#e42312',
                             data: []
                         },

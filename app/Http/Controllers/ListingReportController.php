@@ -9,8 +9,10 @@ class ListingReportController extends Controller
 {
     public function index(Listing $listing)
     {
-        return view('listing.report.index', [
-            'listing' => $listing->load('heartbeat')
-        ]);
+        $listing = cache()->remember("listing.report.{$listing->name}", 60, function() use ($listing) {
+            return $listing->load(['heartbeat', 'site'])->loadCount(['votes', 'clicks', 'reviews']);
+        });
+
+        return view('listing.report.index', compact('listing'));
     }
 }

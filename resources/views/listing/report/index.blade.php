@@ -20,19 +20,8 @@
         <div class="row no-gutters">
             <div class="tw-w-full">
                 <div class="tw-flex">
-                    <div class="tw-flex-1">
-                        <div class="tw-mb-4">
-                            <h3 class="heading tw-font-bold tw-mb-2 heading-underline tw-tracking-tighter">Auditing</h3>
-                            <p class="tw-mb-1"><i class="fas fa-file-signature"></i> Starting Date: <b>{{ $listing->created_at->diffForHumans() }}</b></p>
-                            <p class="tw-mb-1"><i class="fas fa-award"></i> Ranking Position: <b>5 out of 43</b></p>
-                            <p class="tw-mb-1"><i class="fas fa-vote-yea"></i> Lifetime Votes: <b>493</b></p>
-                            <p class="tw-mb-1"><i class="far fa-hand-pointer"></i> Lifetime Clicks: <b>234</b></p>
-                            <p class="tw-mb-1"><i class="fas fa-glasses"></i> Lifetime Reviews: <b>14</b></p>
-                            <p class="tw-mb-1"><i class="fas fa-coins"></i> Coins Generated: <b>23</b></p>
-                        </div>
-                    </div>
-                    <div class="tw-flex-1">
-                        <div class="tw-mb-4">
+                <div class="tw-mr-12">
+                        <div class="">
                             <h3 class="heading tw-font-bold tw-mb-2 heading-underline tw-tracking-tighter">Health Check</h3>
                             <div class="tw-flex tw-mb-4 tw-items-center">
                                 <i class="fas fa-check-circle tw-mr-2" style="color:#84d05a"></i>
@@ -45,14 +34,67 @@
                                 <i class="fas fa-check-circle tw-mr-2" style="color:#84d05a"></i>
                                 <div class="">
                                     <h5 class="tw-mb-0" style="font-size:14px;">Heartbeat Status</h5>
-                                    <p>Last received data: <b>xxx-xxx-xxx</b></p>
+                                    <p>Last received data: <b>{{ $listing->heartbeat->created_at->diffForHumans() }}</b></p>
                                 </div>
                             </div>
                             <div class="tw-flex tw-mb-4 tw-items-center">
                                 <i class="fas fa-check-circle tw-mr-2" style="color:#84d05a"></i>
                                 <div class="">
                                     <h5 class="tw-mb-0" style="font-size:14px;">Website Status</h5>
-                                    <p>Last received data: <b>xxx-xxx-xxx</b></p>
+                                    <p>Last received data: <b>{{ $listing->site->created_at->diffForHumans() }}</b></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tw-flex-1">
+                        <div class="">
+                            <h3 class="heading tw-font-bold tw-mb-2 heading-underline tw-tracking-tighter">Auditing</h3>
+                            <div class="tw-flex">
+                                <div class="tw-mr-12">
+                                    <div class="tw-flex tw-mb-4 tw-items-center">
+                                        <i class="fas fa-file-signature tw-mr-2"></i>
+                                        <div class="">
+                                            <h5 class="tw-mb-0" style="font-size:14px;">Timeframe</h5>
+                                            <p>Joined: <b>{{ $listing->created_at->diffForHumans() }}</b></p>
+                                        </div>
+                                    </div>
+                                    <div class="tw-flex tw-mb-4 tw-items-center">
+                                        <i class="fas fa-award tw-mr-2"></i>
+                                        <div class="">
+                                            <h5 class="tw-mb-0" style="font-size:14px;">Ranking</h5>
+                                            <p>Positioned: <b>{{ $listing->ranking->rank }}</b></p>
+                                        </div>
+                                    </div>
+                                    <div class="tw-flex tw-mb-4 tw-items-center">
+                                        <i class="fas fa-coins tw-mr-2"></i>
+                                        <div class="">
+                                            <h5 class="tw-mb-0" style="font-size:14px;">Generator</h5>
+                                            <p>Coins created: <b>0</b></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="tw-flex tw-mb-4 tw-items-center">
+                                        <i class="fas fa-vote-yea tw-mr-2"></i>
+                                        <div class="">
+                                            <h5 class="tw-mb-0" style="font-size:14px;">Lifetime Votes</h5>
+                                            <p>Total: <b>{{ $listing->votes()->count() }}</b></p>
+                                        </div>
+                                    </div>
+                                    <div class="tw-flex tw-mb-4 tw-items-center">
+                                        <i class="fas fa-hand-pointer tw-mr-2"></i>
+                                        <div class="">
+                                            <h5 class="tw-mb-0" style="font-size:14px;">Lifetime Clicks</h5>
+                                            <p>Total: <b>{{ $listing->clicks()->count() }}</b></p>
+                                        </div>
+                                    </div>
+                                    <div class="tw-flex tw-mb-4 tw-items-center">
+                                        <i class="fas fa-glasses tw-mr-2"></i>
+                                        <div class="">
+                                            <h5 class="tw-mb-0" style="font-size:14px;">Lifetime Reviews</h5>
+                                            <p>Total: <b>{{ $listing->reviews()->count() }}</b></p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

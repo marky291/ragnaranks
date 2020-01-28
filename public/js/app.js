@@ -16370,14 +16370,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         //Data to be represented on x-axis
         labels: [],
         datasets: [{
-          label: 'Clicks',
-          backgroundColor: '#f87979',
+          label: 'Total Clicks',
+          backgroundColor: '#7fb357',
           pointBackgroundColor: 'white',
-          borderWidth: 3,
           lineTension: 0.5,
           fill: false,
-          borderColor: '#f87979',
-          pointBorderColor: '#e42312',
+          pointBorderColor: '#7fb357',
           data: []
         }]
       },
@@ -16475,14 +16473,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         //Data to be represented on x-axis
         labels: [],
         datasets: [{
-          label: 'Votes',
-          backgroundColor: '#f87979',
+          label: 'Total Votes',
+          backgroundColor: '#56b2ff',
           pointBackgroundColor: 'white',
-          borderWidth: 3,
           lineTension: 0.5,
           fill: false,
-          borderColor: '#f87979',
-          pointBorderColor: '#e42312',
+          pointBorderColor: '#32709a',
           data: []
         }]
       },
@@ -16581,12 +16577,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         labels: [],
         datasets: [{
           label: 'Population Today',
-          backgroundColor: '#f87979',
+          backgroundColor: '#ff6f56',
           pointBackgroundColor: 'white',
           borderWidth: 3,
           lineTension: 0.5,
           fill: false,
-          borderColor: '#f87979',
+          borderColor: '#ff6f56',
           pointBorderColor: '#e42312',
           data: []
         }, {

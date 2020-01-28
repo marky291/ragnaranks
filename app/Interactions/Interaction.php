@@ -23,6 +23,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method Collection hasInteractedDuring($hours)
  * @method Builder|Vote days($days)
  * @method Builder|Vote countPerDay()
+ * @method Builder|Vote whereRankableTimeframe()
  *
  * @property User $publisher
  */
@@ -78,6 +79,14 @@ abstract class Interaction extends Model
     public function scopeDays(Builder $builder, int $days)
     {
         return $builder->whereRaw("created_at >= DATE_SUB(CURDATE(), INTERVAL {$days} DAY)");
+    }
+
+    /**
+     * Scope the valid days it can be listed by.
+     */
+    public function scopeRankingTimeframe(Builder $builder)
+    {
+        return $builder->whereDate('created_at', '>=', Carbon::today()->subDays(config('ranking.ignore_after_days')));
     }
 
     /**
