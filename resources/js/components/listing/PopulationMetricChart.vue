@@ -9,8 +9,10 @@
         data () {
             return {
                 datacollection: {
-                    //Data to be represented on x-axis
-                    labels: [],
+                    labels: [
+                        '12am', '1am', '2am', '3am', '4am', '5am', '6am', '7am', '8am', '9am', '10am', '11am', 
+                        '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', '9pm', '10pm', '11pm'
+                    ],
                     datasets: [
                         {
                             label: 'Population Today',
@@ -63,13 +65,11 @@
         },
         async mounted () {
             await axios.get(this.url).then((response) => {
-                for(let key in response.data['yesterday']) {
-                    this.datacollection.labels.push(key);
-                    this.datacollection.datasets[1].data.push(response.data['yesterday'][key]);
-                }
                 for(let key in response.data['today']) {
-                    // this.datacollection.labels.push(key);
                     this.datacollection.datasets[0].data.push(response.data['today'][key]);
+                }
+                for(let key in response.data['yesterday']) {
+                    this.datacollection.datasets[1].data.push(response.data['yesterday'][key]);
                 }
                 this.renderChart(this.datacollection, this.options)
             });

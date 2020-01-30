@@ -102,7 +102,7 @@
                 </div>
                 <div class="">
                     <div class="tw-mb-4">
-                        <h3 class="heading tw-font-bold tw-mb-2 heading-underline tw-tracking-tighter">Population Metrics (GMT +0)</h3>
+                        <h3 class="heading tw-font-bold tw-mb-2 heading-underline tw-tracking-tighter">Population Metrics (GMT + 0)</h3>
                         <p class="tw-font-bold">Population metrics allow you to view when players are most active on the server</p>
                         <ul class="tw-text-xs tw-list-disc">
                             <li>Use the graph help judge the best time for in game events to take place</li>
