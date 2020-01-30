@@ -102,13 +102,13 @@
                 </div>
                 <div class="">
                     <div class="tw-mb-4">
-                        <h3 class="heading tw-font-bold tw-mb-2 heading-underline tw-tracking-tighter">Population Metrics</h3>
+                        <h3 class="heading tw-font-bold tw-mb-2 heading-underline tw-tracking-tighter">Population Metrics (GMT +0)</h3>
                         <p class="tw-font-bold">Population metrics allow you to view when players are most active on the server</p>
                         <ul class="tw-text-xs tw-list-disc">
                             <li>Use the graph help judge the best time for in game events to take place</li>
                         </ul>
                     </div>
-                    <population-metric-chart intersect="true" :height="200" url="{{ route('metric.players.averages', $listing) }}"></population-metric-chart>
+                    <population-metric-chart intersect="true" :height="200" url="{{ route('api.graph.players', $listing) }}"></population-metric-chart>
                 </div>
                 <div class="">
                     <div class="tw-mb-4">
@@ -119,7 +119,7 @@
                             <li>Use incentives for your players to vote more (gain 500 votes for 2x exp in game)</li>
                         </ul>
                     </div>
-                    <monthly-vote-metric-chart :height="200" url="{{ route('metric.votes.monthly', $listing) }}"></monthly-vote-metric-chart>
+                    <monthly-vote-metric-chart :height="200" url="{{ route('api.graph.votes', $listing) }}"></monthly-vote-metric-chart>
                 </div>
                 <div class="">
                     <div class="tw-mb-4">
@@ -129,7 +129,7 @@
                             <li>Visitors are more likely to click into listings with styling and images</li>
                         </ul>
                     </div>
-                    <monthly-click-metric-chart :height="200" url="{{ route('metric.clicks.monthly', $listing) }}"></monthly-click-metric-chart>
+                    <monthly-click-metric-chart :height="200" url="{{ route('api.graph.clicks', $listing) }}"></monthly-click-metric-chart>
                 </div>
             </div>
         </div>

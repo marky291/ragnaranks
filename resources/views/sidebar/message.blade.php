@@ -1,8 +1,9 @@
 <div class="content tw-shadow tw-hidden lg:tw-block tw-p-6">
 	<h3 class="text-orange font-weight-bold">Latest Update</h3>
-    <p class="subheading tw-font-bold tw-mb-1">January 25, 2020 @ Version {{ config('app.version') }}</p>
+    <p class="subheading tw-font-bold tw-mb-1">February 1st, 2020 @ Version {{ config('app.version') }}</p>
     <p class="subheading tw-mb-1">
-        Numerous improvements have been made to our review system and vote for points API landing pages, we have also implemented new background checks for websites that have gone offline and notifies you before action is taken by our moderation team.
+        Graphs for server owners, you can now view your server population per hour over two days using real data 😜
+        with lots of other cool analytics, take a look inside your listing and send us some feedback.
     </p>
     <a href="https://www.m.me/ragnaranks" style="font-size:0.7em"><i class="fab fa-facebook-square"></i> Contact us on our Facebook Page</a>
 </div>

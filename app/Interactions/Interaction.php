@@ -8,6 +8,7 @@
 
 namespace App\Interactions;
 
+use App\Listings\Interactions\InteractionCollection;
 use App\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -22,8 +23,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method Collection latestByCurrentClientIp()
  * @method Collection hasInteractedDuring($hours)
  * @method Builder|Vote days($days)
- * @method Builder|Vote countPerDay()
- * @method Builder|Vote whereRankableTimeframe()
+ * @method Builder|Vote selectDateTotals()
+ * @method Builder|Vote whereRankable()
  *
  * @property User $publisher
  */
@@ -84,7 +85,7 @@ abstract class Interaction extends Model
     /**
      * Scope the valid days it can be listed by.
      */
-    public function scopeRankingTimeframe(Builder $builder)
+    public function scopeWhereRankable(Builder $builder)
     {
         return $builder->whereDate('created_at', '>=', Carbon::today()->subDays(config('ranking.ignore_after_days')));
     }
@@ -93,7 +94,7 @@ abstract class Interaction extends Model
      * @param Builder $builder
      * @return Builder|\Illuminate\Database\Query\Builder
      */
-    public function scopeCountPerDay(Builder $builder)
+    public function scopeSelectDateTotals(Builder $builder)
     {
         return $builder->selectRaw("count(*) as total, DATE(created_at) as 'date'")->groupBy('date');
     }
