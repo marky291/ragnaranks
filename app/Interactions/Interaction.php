@@ -63,7 +63,7 @@ abstract class Interaction extends Model
     /**
      * Return boolean of weather the current client IP has interacted.
      *
-     * @param Builder $query
+     * @param Builder|Interaction $query
      * @param int $hours
      * @return bool
      */

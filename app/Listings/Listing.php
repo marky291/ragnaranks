@@ -286,6 +286,6 @@ class Listing extends Model
      */
     public function getPointsAttribute()
     {
-        return round(($this->votes()->rankingTimeframe()->count() * config('action.vote.value')) + ($this->clicks()->rankingTimeframe()->count() * config('action.click.value')), 0);
+        return round(($this->votes()->whereRankable()->count() * config('action.vote.value')) + ($this->clicks()->whereRankable()->count() * config('action.click.value')), 0);
     }
 }
