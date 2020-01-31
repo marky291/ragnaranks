@@ -8,7 +8,6 @@
 
 namespace App\Interactions;
 
-use App\Listings\Interactions\InteractionCollection;
 use App\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
