@@ -354,27 +354,29 @@
                 </div>
                 <div class="tw-p-2">
                     <div class="tw-flex tw-flex-row tw-justify-around">
-                        <p class="tw-flex-1 tw-font-semibold tw-mb-1">Server Screenshots</p>
+                        <p class="tw-flex-1 tw-font-semibold tw-mb-1">Server Screenshots (7 uploads max)</p>
                     </div>
-                    <file-pond
-                        name="file"
-                        ref="screenshots"
-                        max-files="7"
-                        maxFileSize = "1MB"
-                        imageResizeTargetWidth="1280"
-                        class-name="pond-screenies"
-                        label-idle="Drop screenshots here..."
-                        allowImagePreview="false"
-                        instantUpload="true"
-                        accepted-file-types="image/jpeg, image/png"
-                        server="/api/filepond/process"
-                        allow-multiple="true"
-                        imageResizeMode="cover"
-                        imageTransformOutputMimeType="image/jpeg"
-                        imageCropAspectRatio="16:9"
-                        :files="screenshots"
-                        @processfile="uploadedScreenshot"
-                        @removefile="updateScreenshots"/>
+                    <div class="" style="height:400px; overflow:hidden">
+                        <file-pond
+                            name="file"
+                            ref="screenshots"
+                            max-files="7"
+                            maxFileSize = "1MB"
+                            imageResizeTargetWidth="1280"
+                            class-name="pond-screenies"
+                            label-idle="Drop screenshots here..."
+                            allowImagePreview="false"
+                            instantUpload="true"
+                            accepted-file-types="image/jpeg, image/png"
+                            server="/api/filepond/process"
+                            allow-multiple="true"
+                            imageResizeMode="cover"
+                            imageTransformOutputMimeType="image/jpeg"
+                            imageCropAspectRatio="16:9"
+                            :files="screenshots"
+                            @processfile="uploadedScreenshot"
+                            @removefile="updateScreenshots"/>
+                    </div>
                     <div class="tw-flex-1 tw-text-right help-block invalid-feedback">{{ validation.firstError('screenshot') }}</div>
                 </div>
             </at-collapse-item>
