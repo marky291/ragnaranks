@@ -1,15 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\File;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Http\UploadedFile;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Str;
 
 /**
  * Class FilepondController
