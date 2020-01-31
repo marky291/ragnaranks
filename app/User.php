@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use App\Reviews\Review;
 use App\Jobs\AssignRoleToUser;
 use Gstt\Achievements\Achiever;
+use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -38,8 +39,9 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     /*
      * @link https://github.com/gstt/laravel-achievements#installation
+     * @link https://laravel.com/docs/6.x/passport#frontend-quickstart
      */
-    use Notifiable, HasRoles, Achiever;
+    use Notifiable, HasRoles, Achiever, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.

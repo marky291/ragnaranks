@@ -331,7 +331,7 @@
                 <div slot="title">Image Uploader</div>
                 <div class="tw-p-2">
                     <div class="tw-flex tw-flex-row tw-items-baseline">
-                        <p class="tw-font-semibold tw-flex tw-mb-1">Title Image</p>
+                        <p class="tw-font-semibold tw-flex tw-mb-1">Server Listing Image</p>
                         <div v-if="validation.hasError('current.background')" class="tw-flex-1 tw-text-right help-block invalid-feedback">{{ validation.firstError('current.background') }}</div>
                     </div>
                     <file-pond
@@ -354,7 +354,7 @@
                 </div>
                 <div class="tw-p-2">
                     <div class="tw-flex tw-flex-row tw-justify-around">
-                        <p class="tw-flex-1 tw-font-semibold tw-mb-1">Screenshots</p>
+                        <p class="tw-flex-1 tw-font-semibold tw-mb-1">Server Screenshots</p>
                     </div>
                     <file-pond
                         name="file"

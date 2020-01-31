@@ -54,5 +54,3 @@ Route::get('/voting/stats', static function () {
         'next_vote' => Carbon::parse(Vote::byCurrentIP()->pluck('created_at')->first())->addHours(config('action.vote.spread')),
     ]);
 });
-
-Route::get('/servers/{exp_group}/{mode}/{tag}/{sort}/{limit}')->uses('ListingFilteringController@filters');

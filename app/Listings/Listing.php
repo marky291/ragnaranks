@@ -168,6 +168,14 @@ class Listing extends Model
     }
 
     /**
+     * Return the listings site
+     */
+    public function site()
+    {
+        return $this->hasOne(ListingWebsiteStatus::class)->latest('id');
+    }
+
+    /**
      * @return HasMany
      */
     public function websiteStatus(): HasMany
@@ -178,7 +186,7 @@ class Listing extends Model
     /**
      * A listing has many heartbeats
      *
-     * @return HasMany|Collection
+     * @return HasMany|Collection|ListingHeartbeat
      */
     public function heartbeats(): HasMany
     {
@@ -188,21 +196,21 @@ class Listing extends Model
     /**
      * A listing can have many clicks.
      *
-     * @return HasMany|Vote
+     * @return HasMany|Interaction|Vote
      */
     public function votes()
     {
-        return $this->hasMany(Vote::class)->where('created_at', '>=', Carbon::today()->subDays(config('ranking.ignore_after_days')));
+        return $this->hasMany(Vote::class);
     }
 
     /**
      * A listing can have many clicks.
      *
-     * @return HasMany|\Illuminate\Database\Query\Builder|Interaction
+     * @return HasMany|Interaction|Click
      */
     public function clicks()
     {
-        return $this->hasMany(Click::class)->whereDate('created_at', '>=', Carbon::today()->subDays(config('ranking.ignore_after_days')));
+        return $this->hasMany(Click::class);
     }
 
     /**
@@ -278,6 +286,6 @@ class Listing extends Model
      */
     public function getPointsAttribute()
     {
-        return round(($this->votes()->count() * config('action.vote.value')) + ($this->clicks()->count() * config('action.click.value')), 0);
+        return round(($this->votes()->whereRankable()->count() * config('action.vote.value')) + ($this->clicks()->whereRankable()->count() * config('action.click.value')), 0);
     }
 }

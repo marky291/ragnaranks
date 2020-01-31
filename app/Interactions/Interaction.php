@@ -21,6 +21,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static Collection byClientIp($ip_address)
  * @method Collection latestByCurrentClientIp()
  * @method Collection hasInteractedDuring($hours)
+ * @method Builder|Vote days($days)
+ * @method Builder|Vote selectDateTotals()
+ * @method Builder|Vote whereRankable()
  *
  * @property User $publisher
  */
@@ -59,12 +62,39 @@ abstract class Interaction extends Model
     /**
      * Return boolean of weather the current client IP has interacted.
      *
-     * @param Builder $query
+     * @param Builder|Interaction $query
      * @param int $hours
      * @return bool
      */
     public function scopeHasInteractedDuring(Builder $query, int $hours): bool
     {
         return Carbon::now()->subHours($hours) <= $query->byCurrentIP()->pluck('created_at')->first();
+    }
+
+    /**
+     * @param Builder $builder
+     * @param int $days
+     * @return Builder|\Illuminate\Database\Query\Builder
+     */
+    public function scopeDays(Builder $builder, int $days)
+    {
+        return $builder->whereRaw("created_at >= DATE_SUB(CURDATE(), INTERVAL {$days} DAY)");
+    }
+
+    /**
+     * Scope the valid days it can be listed by.
+     */
+    public function scopeWhereRankable(Builder $builder)
+    {
+        return $builder->whereDate('created_at', '>=', Carbon::today()->subDays(config('ranking.ignore_after_days')));
+    }
+
+    /**
+     * @param Builder $builder
+     * @return Builder|\Illuminate\Database\Query\Builder
+     */
+    public function scopeSelectDateTotals(Builder $builder)
+    {
+        return $builder->selectRaw("count(*) as total, DATE(created_at) as 'date'")->groupBy('date');
     }
 }

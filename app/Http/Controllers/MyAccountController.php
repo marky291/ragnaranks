@@ -45,7 +45,7 @@ class MyAccountController extends Controller
     public function servers()
     {
         return view('account.servers', [
-            'listings' => ListingResource::collection(auth()->user()->listings()->with(['configuration', 'tags', 'ranking', 'language'])->withTrashed()->get()),
+            'listings' => ListingResource::collection(auth()->user()->listings()->with(['configuration', 'tags', 'ranking', 'language', 'heartbeat'])->paginate(7)),
         ]);
     }
 

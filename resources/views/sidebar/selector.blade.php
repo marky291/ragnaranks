@@ -39,11 +39,22 @@
         <div class="tw-items-center tw-py-3 tw-px-6 tw-flex tw-border-b tw-border-gray-200">
             <div class="tw-pr-4 tw-leading-snug">
                 <h5 class="title tw-mb-1">Vote Dispatcher</h5>
-                <p class="tw-text-gray-600">Contribute your points towards this server or checkout some graphs.</p>
+                <p class="tw-text-gray-600">Contribute your points towards this server and help them rise to the top.</p>
             </div>
             <i class="icon tw-text-gray-600 tw-text-xl far fa-thumbs-up"></i>
         </div>
     </a>
+    @can('analyze', $listing)
+        <a class="selector-item {{ request()->segment(3) == 'graphs' ? 'active' : '' }} {{ $listing->accent }}-dark" href="{{ route('listing.graphs.index', $listing) }}">
+            <div class="tw-items-center tw-py-3 tw-px-6 tw-flex tw-border-b tw-border-gray-200">
+                <div class="tw-pr-4 tw-leading-snug">
+                    <h5 class="title tw-mb-1">Graphs Generator</h5>
+                    <p class="tw-text-gray-600">We provide useful graphs that can help determine the longevity of the server/listing</p>
+                </div>
+                <i class="icon tw-text-gray-600 tw-text-xl fas fa-chart-line"></i>
+            </div>
+        </a>
+    @endcan
     <a class="selector-item {{ $listing->accent }}-dark" href="{{ route('listing.index') }}">
         <div class="tw-items-center tw-py-3 tw-px-6 tw-flex">
             <div class="tw-pr-4 tw-leading-snug">
