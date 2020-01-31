@@ -24,24 +24,48 @@
                         <div class="">
                             <h3 class="heading tw-font-bold tw-mb-2 heading-underline tw-tracking-tighter">Health Check</h3>
                             <div class="tw-flex tw-mb-4 tw-items-center">
-                                <i class="fas fa-check-circle tw-mr-2" style="color:#84d05a"></i>
+                                @if ($listing->trashed() == false)
+                                    <i class="fas fa-check-circle tw-mr-2" style="color:#84d05a"></i>
+                                @else
+                                    <i class="fas fa-times-circle tw-mr-2" style="color:#d05a5a"></i>
+                                @endif
                                 <div class="">
                                     <h5 class="tw-mb-0" style="font-size:14px;">Visibility Status</h5>
-                                    <p>Your listing is <span class="tw-font-bold">Online</span></p>
+                                    @if ($listing->trashed() == false)
+                                        <p>Your listing is <span class="tw-font-bold">Public</span></p>
+                                    @else
+                                        <p>Your listing is <span class="tw-font-bold">Private</span></p>
+                                        @endif
                                 </div>
                             </div>
                             <div class="tw-flex tw-mb-4 tw-items-center">
-                                <i class="fas fa-check-circle tw-mr-2" style="color:#84d05a"></i>
+                                @if ($listing->heartbeat)
+                                    <i class="fas fa-check-circle tw-mr-2" style="color:#84d05a"></i>
+                                @else
+                                    <i class="fas fa-times-circle tw-mr-2" style="color:#d05a5a"></i>
+                                @endif
                                 <div class="">
                                     <h5 class="tw-mb-0" style="font-size:14px;">Heartbeat Status</h5>
-                                    <p>Last received data: <b>{{ $listing->heartbeat->created_at->diffForHumans() }}</b></p>
+                                    @if ($listing->heartbeat)
+                                        <p>Last received data: <b>{{ $listing->heartbeat->created_at->diffForHumans() }}</b></p>
+                                    @else
+                                        <p>Last received data: <b>Never</b></p>
+                                    @endif
                                 </div>
                             </div>
                             <div class="tw-flex tw-mb-4 tw-items-center">
-                                <i class="fas fa-check-circle tw-mr-2" style="color:#84d05a"></i>
+                                @if ($listing->site->status == 200)
+                                    <i class="fas fa-check-circle tw-mr-2" style="color:#84d05a"></i>
+                                @else
+                                    <i class="fas fa-times-circle tw-mr-2" style="color:#d05a5a"></i>
+                                @endif
                                 <div class="">
                                     <h5 class="tw-mb-0" style="font-size:14px;">Website Status</h5>
-                                    <p>Last received data: <b>{{ $listing->site->created_at->diffForHumans() }}</b></p>
+                                    @if ($listing->site)
+                                        <p>Last received data: <b>{{ $listing->site->created_at->diffForHumans() }}</b></p>
+                                    @else
+                                        <p>Last received data: <b>Never</b></p>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -102,7 +126,7 @@
                 </div>
                 <div class="">
                     <div class="tw-mb-4">
-                        <h3 class="heading tw-font-bold tw-mb-2 heading-underline tw-tracking-tighter">Population Metrics (GMT + 0)</h3>
+                        <h3 class="heading tw-font-bold tw-mb-2 heading-underline tw-tracking-tighter">Heartbeat Population Metrics (GMT + 0)</h3>
                         <p class="tw-font-bold">Population metrics allow you to view when players are most active on the server</p>
                         <ul class="tw-text-xs tw-list-disc">
                             <li>Use the graph help judge the best time for in game events to take place</li>
@@ -112,7 +136,7 @@
                 </div>
                 <div class="">
                     <div class="tw-mb-4">
-                        <h3 class="heading tw-font-bold tw-mb-2 heading-underline tw-tracking-tighter">Listing Votes Last 30 Days</h3>
+                        <h3 class="heading tw-font-bold tw-mb-2 heading-underline tw-tracking-tighter">Votes contributed in last 30 Days</h3>
                         <p class="tw-font-bold">Votes help you rise to the top and stand out, by gaining support of your players.</p>
                         <ul class="tw-text-xs tw-list-disc">
                             <li>Use a vote for points module on your website and connect with us</li>
@@ -123,7 +147,7 @@
                 </div>
                 <div class="">
                     <div class="tw-mb-4">
-                        <h3 class="heading tw-font-bold tw-mb-2 heading-underline tw-tracking-tighter">Listing Clicks Last 30 Days</h3>
+                        <h3 class="heading tw-font-bold tw-mb-2 heading-underline tw-tracking-tighter">Clicks actioned upon in last 30 Days</h3>
                         <p class="tw-font-bold">Clicks are the players that found interest on your page by browsing ragnaranks.com.</p>
                         <ul class="tw-text-xs tw-list-disc">
                             <li>Visitors are more likely to click into listings with styling and images</li>
