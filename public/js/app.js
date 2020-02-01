@@ -16339,6 +16339,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               });
 
             case 2:
+              _context.next = 4;
+              return axios.get("http://www.divine-pride.net/api/database/Item/5017?apiKey=9debcdf07c4e3d1335f5e9271a534a63").then(function (response) {
+                console.log(response);
+              });
+
+            case 4:
             case "end":
               return _context.stop();
           }
