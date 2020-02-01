@@ -11,8 +11,8 @@
                 },
             }
         },
-        created() {
-            axios.get(`${this.resource}?page=${this.currentPage}`).then((response) => {
+        async mounted() {
+            await axios.get(`${this.resource}?page=${this.currentPage}`).then((response) => {
                 this.listings = response.data;
             });
         },

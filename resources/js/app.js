@@ -8,6 +8,8 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import '@github/include-fragment-element'
+
 import AtComponents from 'at-ui'
 Vue.use(AtComponents);
 

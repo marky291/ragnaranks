@@ -17,26 +17,14 @@ Route::get('/listing/defaults', static function () {
     });
 });
 
-Route::get('/listing/configurations', static function () {
-    return cache()->remember('listing:configurations', 120, static function () {
-        return json_encode(array_merge(
-            ['tags' => config('filter.tags')],
-            ['languages' => config('filter.languages')],
-            ['presets' => config('filter.presets')],
-            ['accents' => config('filter.accents')],
-            ['modes' => config('filter.modes')]
-        ));
+Route::get('/listing/{listing}', static function (Listing $listing) {
+    return cache()->remember("listing.{$listing->name}", now()->addMinutes(10), static function () use ($listing) {
+        return App\Http\Resources\ListingResource::make($listing->load('ranking', 'screenshots', 'tags', 'configuration', 'language', 'reviews', 'heartbeat'));
     });
 });
 
 Route::get('/listing/{name}/available', static function (string $name) {
     return json_encode(validator(['name' => $name], ['name' => 'required|unique:listings,name'], ['unique' => 'Server name taken!'])->validate());
-});
-
-Route::get('/listing/{listing}', static function (Listing $listing) {
-    return cache()->remember("listing.{$listing->name}", now()->addMinutes(10), static function () use ($listing) {
-        return App\Http\Resources\ListingResource::make($listing->load('ranking', 'screenshots', 'tags', 'configuration', 'language', 'reviews', 'heartbeat'));
-    });
 });
 
 Route::get('/listing/{listing}/reviews', static function (Listing $listing) {

@@ -2,25 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Tag;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\View\View;
+use App\Listings\Listing;
+use App\Listings\ListingRanking;
 use App\Listings\ListingScreenshot;
 use App\Listings\ReconditionListingSpace;
-use App\Tag;
-use App\User;
-use App\Listings\Listing;
 use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-use Illuminate\View\View;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use App\Jobs\AssignRoleToUser;
 use App\Listings\ListingLanguage;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use App\Listings\ListingConfiguration;
 use App\Http\Requests\StoreListingRequest;
-use Ramsey\Uuid\Builder\UuidBuilderInterface;
-use Ramsey\Uuid\Uuid;
 
 /**
  * Class ListingController.
@@ -46,6 +41,22 @@ class ListingController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * Only the string is passed as we use VUE JSON.
+     *
+     * @param Listing $listing
+     * @return View
+     */
+    public function show(Listing $listing): View
+    {
+        return view('listing.show')->with([
+            'listing' => $listing,
+            'breakdown' => json_encode($listing->reviews->countPercentScores())
+        ]);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @param Listing $listing
@@ -55,6 +66,10 @@ class ListingController extends Controller
     public function create(Listing $listing) : View
     {
         $this->authorize('create', $listing);
+
+        $listing = (new Listing)
+            ->setRelation('configuration', new ListingConfiguration)
+            ->setRelation('ranking', new ListingRanking);
 
         return view('listing.show', ['listing' => $listing]);
     }
@@ -103,25 +118,6 @@ class ListingController extends Controller
 
         // return a response and a redirect link to next page.
         return response()->json(['success' => true, 'redirect' => route('listing.index')]);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * Only the string is passed as we use VUE JSON.
-     *
-     * @param Listing $listing
-     * @return View
-     * @throws AuthorizationException
-     */
-    public function show(Listing $listing): View
-    {
-        $this->authorize('view', $listing);
-
-        return view('listing.show')->with([
-            'listing' => $listing,
-            'breakdown' => json_encode($listing->reviews->countPercentScores())
-        ]);
     }
 
     /**

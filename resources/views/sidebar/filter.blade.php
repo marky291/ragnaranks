@@ -49,4 +49,5 @@
             </div>
         </transition>
     </filtered-search>
+
 </div>
