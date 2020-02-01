@@ -30,7 +30,7 @@ class ListingFilteringController extends Controller
         $currentPage = $_REQUEST['page'] ?? 1;
 
         // generate a cache tag from the request query parameters and return a result of generated sql
-        return Cache::remember("filter:{$expTitle}:{$modeType}:{$tagName}:{$orderBy}:{$paginate}:{$currentPage}", now()->addMinutes(10), static function () use ($expTitle,$modeType,$tagName,$orderBy,$paginate) {
+        return Cache::remember("filter::{$expTitle}:{$modeType}:{$tagName}:{$orderBy}:{$paginate}:{$currentPage}", now()->addMinutes(10), static function () use ($expTitle,$modeType,$tagName,$orderBy,$paginate) {
             /**
              * All listings need a ranking, that can be sortable.
              */
