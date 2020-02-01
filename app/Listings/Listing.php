@@ -59,6 +59,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  */
 class Listing extends Model
 {
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+
+        sleep(1);
+    }
+
     /*
      * Allow users to soft delete entries, rather than full deletion
      * this allows users to restore if they ever choose to, or provide

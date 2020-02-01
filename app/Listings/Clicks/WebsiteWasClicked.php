@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Listings;
+namespace App\Listings\Clicks;
 
-use Illuminate\Queue\SerializesModels;
+use App\Listings\Listing;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Queue\SerializesModels;
 
-class ListingVotedEvent
+class WebsiteWasClicked
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 

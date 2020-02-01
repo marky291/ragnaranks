@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Listings\ListingVotedEvent;
-use App\Listings\ListingClickedEvent;
+use App\Listings\Clicks\WebsiteWasClicked;
+use App\Listings\Votes\ListingWasVoted;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use App\Listings\RankPositionComparator;
@@ -21,10 +21,10 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-        ListingVotedEvent::class => [
+        ListingWasVoted::class => [
             RankPositionComparator::class,
         ],
-        ListingClickedEvent::class => [
+        WebsiteWasClicked::class => [
             RankPositionComparator::class,
         ],
     ];
