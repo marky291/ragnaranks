@@ -3,7 +3,7 @@
         <h3>Latest Reviews</h3>
     </div>
     <div id="reviews" class="content tw-shadow py-0 rounded">
-        @foreach(App\Reviews\ReviewRepository::LatestEntriesCache(5) as $review)
+        @foreach(\App\Listings\Reviews\ReviewRepository::LatestEntriesCache(5) as $review)
             <a href="{{ route('listing.reviews.index', $review->listing) }}" style="color:inherit" class="microcard">
                 <div class="tw-px-6 tw-py-3 tw-flex tw-items-center hover:tw-bg-gray-100" style="{{ $loop->last ? null : 'border-bottom: 1px dashed #e3e3e3;' }}">
                     <div class="wrapper tw-flex tw-flex-row tw-flex-1 tw-items-center tw-justify-between">

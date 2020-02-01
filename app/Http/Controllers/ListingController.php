@@ -130,6 +130,7 @@ class ListingController extends Controller
      * @param StoreListingRequest $request
      * @param Listing $listing
      * @return JsonResponse
+     * @throws AuthorizationException
      */
     public function update(StoreListingRequest $request, Listing $listing): JsonResponse
     {

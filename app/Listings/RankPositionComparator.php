@@ -2,11 +2,9 @@
 
 namespace App\Listings;
 
-use App\Listings\ListingRanking;
 use App\Ranking\InvalidRankPositionException;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 /**

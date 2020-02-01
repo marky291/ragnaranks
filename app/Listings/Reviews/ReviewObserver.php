@@ -1,8 +1,6 @@
 <?php
 
-namespace App\Observers;
-
-use App\Reviews\Review;
+namespace App\Listings\Reviews;
 
 /**
  * Class ReviewObserver.

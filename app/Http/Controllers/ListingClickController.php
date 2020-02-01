@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Listings\Listing;
 use App\Listings\ListingRanking;
-use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Listings\ListingClickedEvent;
+use Illuminate\Support\Facades\Cache;
 
-class ClickController extends Controller
+class ListingClickController extends Controller
 {
     /**
      * Store a newly created resource in storage.
@@ -34,8 +34,8 @@ class ClickController extends Controller
         {
             $listing->clicks()->create(['ip_address' => request()->getClientIp()]);
 
+            Cache::forget("listing.{$listing->name}");
             ListingRanking::incrementClick($listing);
-
             ListingClickedEvent::dispatch($listing);
 
             return response()->json([], 200);

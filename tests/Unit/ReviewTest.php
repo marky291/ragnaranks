@@ -2,13 +2,13 @@
 
 namespace Tests\Unit;
 
-use App\Reviews\ReviewCollection;
 use App\User;
 use Carbon\Carbon;
 use Tests\TestCase;
 use App\ReviewComment;
 use App\Listings\Listing;
-use App\Reviews\Review;
+use App\Listings\Reviews\Review;
+use App\Listings\Reviews\ReviewCollection;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;

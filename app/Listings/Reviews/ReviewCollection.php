@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Reviews;
+namespace App\Listings\Reviews;
 
 use Illuminate\Database\Eloquent\Collection;
 

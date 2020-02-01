@@ -1,12 +1,9 @@
 <?php
 
-namespace App\Reviews;
+namespace App\Listings\Reviews;
 
-use App\Reviews\Review;
-use App\Listings\Listing;
 use Illuminate\Support\Facades\Cache;
 use App\Http\Resources\ReviewResource;
-use App\Http\Resources\ListingResource;
 
 class ReviewRepository
 {

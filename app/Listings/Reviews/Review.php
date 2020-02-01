@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Reviews;
+namespace App\Listings\Reviews;
 
-use App\Interactions\Interaction;
+use App\Listings\HasPerformingAction;
+use App\Listings\Interaction;
 use App\User;
 use Carbon\Carbon;
 use App\ReviewComment;
@@ -45,7 +46,7 @@ class Review extends Interaction
     /*
      * @link https://github.com/artisanry/reportable/blob/master/src/Traits/HasReports.php
      */
-    use HasReports;
+    use HasReports, HasPerformingAction;
 
     /**
      * The attributes that aren't mass assignable.

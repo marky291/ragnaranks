@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Reviews\Review;
 use App\Listings\Listing;
 use Illuminate\Http\Request;
-use App\Jobs\AssignRoleToUser;
 use Illuminate\Http\JsonResponse;
+use App\Listings\Reviews\Review;
 use App\Http\Requests\ReviewRequest;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
-use App\Notifications\ReviewPublished;
 
 /**
  * Class ReviewController
@@ -37,7 +34,7 @@ class ReviewController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param Request $request
      * @param Listing $listing
      * @param Review $review
      * @return RedirectResponse

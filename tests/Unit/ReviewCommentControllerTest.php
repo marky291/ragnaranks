@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use App\ReviewComment;
-use App\Reviews\Review;
+use App\Listings\Reviews\Review;
 use App\Listings\Listing;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 

@@ -2,18 +2,14 @@
 
 namespace Tests\Unit;
 
-use App\Http\Controllers\ClickController;
+use App\Http\Controllers\ListingClickController;
 use App\Http\Controllers\ListingVoteController;
 use Tests\TestCase;
 use App\Listings\Listing;
-use App\Jobs\SyncRankingVote;
 use App\Listings\ListingVotedEvent;
 use App\Listings\ListingClickedEvent;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-/**
- * @property SyncRankingVote job
- */
 class SyncRankingTest extends TestCase
 {
     use RefreshDatabase;
@@ -31,7 +27,7 @@ class SyncRankingTest extends TestCase
     {
         $listing = factory(Listing::class)->create();
 
-        app(ClickController::class)->processClick($listing);
+        app(ListingClickController::class)->processClick($listing);
 
         $this->assertDatabaseHas('listing_rankings', ['listing_id' => 1, 'clicks' => 1, 'points' => 1]);
     }

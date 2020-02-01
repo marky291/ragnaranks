@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use App\User;
 use Tests\TestCase;
-use App\Reviews\Review;
+use App\Listings\Reviews\Review;
 use App\Listings\Listing;
 use Illuminate\Support\Facades\Auth;
 use App\Achievements\FounderAchievement;

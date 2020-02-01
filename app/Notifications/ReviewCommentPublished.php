@@ -2,7 +2,7 @@
 
 namespace App\Notifications;
 
-use App\Reviews\Review;
+use App\Listings\Reviews\Review;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;

@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use App\Tag;
 use Tests\TestCase;
 use App\Listings\Listing;
-use App\Interactions\Click;
+use App\Listings\Clicks\Click;
 use App\Listings\ListingConfiguration;
 use App\Console\Commands\RankingRebuilder;
 use Illuminate\Foundation\Testing\RefreshDatabase;

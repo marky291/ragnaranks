@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use Carbon\Carbon;
 use Tests\TestCase;
 use App\Listings\Listing;
-use App\Interactions\Vote;
+use App\Listings\Votes\Vote;
 
 class VoteTest extends TestCase
 {

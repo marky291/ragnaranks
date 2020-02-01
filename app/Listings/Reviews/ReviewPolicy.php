@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Reviews;
+namespace App\Listings\Reviews;
 
 use App\User;
-use App\Reviews\Review;
 use App\Listings\Listing;
 use Illuminate\Auth\Access\HandlesAuthorization;
 

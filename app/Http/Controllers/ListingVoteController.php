@@ -10,6 +10,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 use TimeHunter\LaravelGoogleReCaptchaV3\Facades\GoogleReCaptchaV3;
@@ -62,8 +63,10 @@ class ListingVoteController extends Controller
         if ($listing->votes()->hasInteractedDuring(config('action.vote.spread')) === false) {
             $listing->votes()->create(['ip_address' => request()->getClientIp()]);
 
+            Cache::forget("listing.{$listing->name}");
             ListingRanking::incrementVote($listing);
             ListingVotedEvent::dispatch($listing);
+            // @depreciate
             AssignRoleToUser::dispatch(auth()->user(), 'player');
 
             return response()->json([

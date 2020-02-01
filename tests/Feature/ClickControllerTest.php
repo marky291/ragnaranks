@@ -4,7 +4,7 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use App\Listings\Listing;
-use App\Interactions\Click;
+use App\Listings\Clicks\Click;
 use App\Listings\ListingClickedEvent;
 use Illuminate\Support\Facades\Event;
 

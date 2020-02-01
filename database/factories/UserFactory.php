@@ -2,9 +2,9 @@
 
 use App\User;
 use App\ReviewComment;
-use App\Reviews\Review;
-use App\Interactions\Vote;
-use App\Interactions\Click;
+use App\Listings\Reviews\Review;
+use App\Listings\Clicks\Click;
+use App\Listings\Votes\Vote;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;

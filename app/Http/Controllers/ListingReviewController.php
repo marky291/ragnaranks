@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Exception;
-use App\Reviews\Review;
+use App\Listings\Reviews\Review;
 use Illuminate\View\View;
 use App\Listings\Listing;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Jobs\AssignRoleToUser;
 use Illuminate\Http\JsonResponse;
@@ -111,7 +110,7 @@ class ListingReviewController extends Controller
      * @param ListingReviewRequest $request
      * @param Listing $listing
      * @param Review $review
-     * @return Response
+     * @return JsonResponse
      */
     public function update(ListingReviewRequest $request, Listing $listing, Review $review)
     {

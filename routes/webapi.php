@@ -2,14 +2,12 @@
 
 use Carbon\Carbon;
 use App\Listings\Listing;
-use App\Interactions\Vote;
+use App\Listings\Votes\Vote;
 use App\Listings\ListingRanking;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\ReviewResource;
 use App\Listings\ListingConfiguration;
-use Illuminate\Support\Facades\Validator;
 use App\Http\Resources\NewListingResource;
-use App\Http\Controllers\ListingVoteController;
 
 Route::middleware('api')->get('/{listing}/vote4points')->uses('Vote4PointsController@index')->name('vote4points');
 
@@ -36,7 +34,7 @@ Route::get('/listing/{name}/available', static function (string $name) {
 });
 
 Route::get('/listing/{listing}', static function (Listing $listing) {
-    return cache()->remember("listing:{$listing->name}", now()->addMinutes(10), static function () use ($listing) {
+    return cache()->remember("listing.{$listing->name}", now()->addMinutes(10), static function () use ($listing) {
         return App\Http\Resources\ListingResource::make($listing->load('ranking', 'screenshots', 'tags', 'configuration', 'language', 'reviews', 'heartbeat'));
     });
 });

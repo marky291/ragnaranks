@@ -20,7 +20,7 @@
     <h2 class="heading">Review Explorer</h2>
 
     {{--  If the player has not reviewed yet lets let them know they can  --}}
-    @can ('create', [new App\Reviews\Review, $listing])
+    @can ('create', [new \App\Listings\Reviews\Review, $listing])
         <a href="{{ route('listing.reviews.create', $listing) }}" class="text-{{$listing->accent}}-darkest">
             <div class="tw-mt-6 tw-flex tw-flex-row tw-items-center tw-shadow-md tw-p-4 tw-rounded bc-{{$listing->accent}}-darkest tw-border-t-2">
 {{--                <div class="tw-rounded-full tw-h-10 tw-w-10 tw-flex tw-avatar-circle tw-items-center tw-justify-center tw-mr-3 tw-bg-white">--}}

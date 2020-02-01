@@ -6,10 +6,11 @@
  * Time: 21:10.
  */
 
-namespace App\Interactions;
+namespace App\Listings;
 
+use App\Listings\Votes\Vote;
 use App\User;
-use Illuminate\Support\Carbon;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
@@ -18,12 +19,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  * Class Interaction.
  *
- * @method static Collection byClientIp($ip_address)
- * @method Collection latestByCurrentClientIp()
+ * @method Builder|Vote latestByCurrentClientIp()
+ * @method Builder|Vote byCurrentIP()
  * @method Collection hasInteractedDuring($hours)
  * @method Builder|Vote days($days)
  * @method Builder|Vote selectDateTotals()
  * @method Builder|Vote whereRankable()
+ * @method Builder|Vote byClientIp($ip_address)
  *
  * @property User $publisher
  */
@@ -51,12 +53,35 @@ abstract class Interaction extends Model
     }
 
     /**
-     * @param Builder $query
+     * @param Builder|Interaction $query
      * @return Builder
      */
     public function scopeByCurrentIP(Builder $query) : Builder
     {
         return $query->byClientIp(request()->getClientIp())->latest();
+    }
+
+    /**
+     * @param Builder $query
+     * @param Carbon $date
+     *
+     * @return Builder|\Illuminate\Database\Query\Builder
+     */
+    public function scopeOnPeriod(Builder $query, Carbon $date)
+    {
+        return $query->whereDay('created_at', $date);
+    }
+
+    /**
+     * @param Builder $query
+     * @param Carbon $start
+     * @param Carbon $end
+     *
+     * @return Builder
+     */
+    public function scopeBetweenPeriod(Builder $query, Carbon $start, Carbon $end)
+    {
+        return $query->whereBetween('created_at', [$end, $start]);
     }
 
     /**
@@ -83,6 +108,9 @@ abstract class Interaction extends Model
 
     /**
      * Scope the valid days it can be listed by.
+     *
+     * @param Builder $builder
+     * @return Builder|\Illuminate\Database\Query\Builder
      */
     public function scopeWhereRankable(Builder $builder)
     {

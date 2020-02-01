@@ -2,12 +2,12 @@
 
 namespace Tests\Feature;
 
-use App\Http\Controllers\ClickController;
 use App\Listings\Listing;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Http\Controllers\ListingVoteController;
+use App\Http\Controllers\ListingClickController;
 
 class RankPositionComparatorTest extends TestCase
 {
@@ -17,7 +17,7 @@ class RankPositionComparatorTest extends TestCase
     {
         $listing = factory(Listing::class)->create(['name' => 'foo']);
 
-        app(ClickController::class)->processClick($listing);
+        app(ListingClickController::class)->processClick($listing);
 
         $this->assertDatabaseHas('listing_rankings', ['rank' => 1, 'listing_id' => 1]);
     }
@@ -26,11 +26,11 @@ class RankPositionComparatorTest extends TestCase
     {
         $listing = factory(Listing::class)->create(['name' => 'foo']);
 
-        app(ClickController::class)->processClick($listing);
+        app(ListingClickController::class)->processClick($listing);
 
         $listing = factory(Listing::class)->create(['name' => 'bar']);
 
-        app(ClickController::class)->processClick($listing);
+        app(ListingClickController::class)->processClick($listing);
 
         $this->assertDatabaseHas('listing_rankings', ['rank' => 1, 'listing_id' => 1]);
         $this->assertDatabaseHas('listing_rankings', ['rank' => 2, 'listing_id' => 2]);
@@ -41,7 +41,7 @@ class RankPositionComparatorTest extends TestCase
         $listing1 = factory(Listing::class)->create(['name' => 'foo']);
         $listing2 = factory(Listing::class)->create(['name' => 'bar']);
 
-        app(ClickController::class)->processClick($listing2);
+        app(ListingClickController::class)->processClick($listing2);
 
         $this->assertDatabaseHas('listing_rankings', ['rank' => 1, 'listing_id' => $listing2->getKey()]);
         $this->assertDatabaseHas('listing_rankings', ['rank' => 2, 'listing_id' => $listing1->getKey()]);
@@ -57,7 +57,7 @@ class RankPositionComparatorTest extends TestCase
 
         $listing2 = factory(Listing::class)->create(['name' => 'bar']);
 
-        app(ClickController::class)->processClick($listing2);
+        app(ListingClickController::class)->processClick($listing2);
 
         $this->assertDatabaseHas('listing_rankings', ['rank' => 1, 'listing_id' => 1]);
         $this->assertDatabaseHas('listing_rankings', ['rank' => 2, 'listing_id' => 2]);

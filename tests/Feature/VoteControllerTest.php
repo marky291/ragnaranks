@@ -3,10 +3,9 @@
 namespace Tests\Feature;
 
 use App\User;
-use Illuminate\Support\Testing\Fakes\EventFake;
 use Tests\TestCase;
 use App\Listings\Listing;
-use App\Interactions\Vote;
+use App\Listings\Votes\Vote;
 use App\Listings\ListingVotedEvent;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Testing\RefreshDatabase;

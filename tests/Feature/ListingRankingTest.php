@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use App\Listings\Listing;
-use App\Listings\ListingRanking;
 use Tests\TestCase;
 use App\Console\Commands\RankingRebuilder;
 use Illuminate\Foundation\Testing\RefreshDatabase;

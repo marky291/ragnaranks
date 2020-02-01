@@ -5,8 +5,8 @@ namespace Tests\Unit;
 use Carbon\Carbon;
 use Tests\TestCase;
 use App\Listings\Listing;
-use App\Interactions\Vote;
-use App\Interactions\Click;
+use App\Listings\Votes\Vote;
+use App\Listings\Clicks\Click;
 
 class ClickTest extends TestCase
 {

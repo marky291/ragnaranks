@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use App\Listings\ListingConfiguration;
 use Tests\TestCase;
 use App\Listings\Listing;
-use App\Reviews\Review;
+use App\Listings\Reviews\Review;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;

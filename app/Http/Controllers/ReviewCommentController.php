@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Reviews\Review;
 use Illuminate\Http\Response;
+use App\Listings\Reviews\Review;
 use App\Http\Requests\ReviewCommentRequest;
 use App\Notifications\ReviewCommentPublished;
 
