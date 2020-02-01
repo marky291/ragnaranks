@@ -2,8 +2,6 @@
 
 namespace App\Listings;
 
-use App\Interactions\Review;
-use App\Policies\ReviewListingPolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
@@ -22,17 +20,5 @@ class RankingServiceProvider extends ServiceProvider
         Gate::policy(Listing::class, ListingPolicy::class);
 
         Listing::observe(ListingObserver::class);
-    }
-
-    /**
-     * Register services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        $this->app->singleton('rankings', static function () {
-//            dd(BuildListingRankingTable::dispatchNow());
-        });
     }
 }
