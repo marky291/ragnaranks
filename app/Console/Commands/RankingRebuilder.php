@@ -38,14 +38,14 @@ class RankingRebuilder extends Command
 
         $progress = new ProgressBar($this->getOutput(), $totalListings);
 
-        Listing::withCount(['clicks', 'votes'])->chunkById(100, static function (Collection $listings) use (&$counter, &$progress) {
+        Listing::chunkById(100, static function (Collection $listings) use (&$counter, &$progress) {
             $listings = $listings->sortByDesc(static function (Listing $listing) {
                 return $listing->points;
             });
 
             foreach ($listings as $listing) {
                 $listing->ranking()->update(
-                    ['rank' => ++$counter, 'points' => $listing->points, 'votes' => $listing->votes_count, 'clicks' => $listing->clicks_count]
+                    ['rank' => ++$counter, 'points' => $listing->points, 'votes' => $listing->votes()->whereRankable()->count(), 'clicks' => $listing->clicks()->whereRankable()->count()]
                 );
                 $progress->advance(1);
             }
