@@ -15,9 +15,9 @@ class CreateEmulatorItem extends Migration
     {
         Schema::create('emulator_items', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('aegisName');
+            $table->string('aegisName')->nullable();
             $table->string('name');
-            $table->string('description');
+            $table->text('description')->nullable();
             $table->integer('slots');
             $table->integer('setname')->nullable();
             $table->integer('itemTypeId');
@@ -32,13 +32,87 @@ class CreateEmulatorItem extends Migration
             $table->integer('compositionPos')->nullable();
             $table->integer('attribute')->nullable();
             $table->integer('location')->nullable();
-            $table->integer('price');
+            $table->integer('price')->nullable();
             $table->integer('range')->nullable();
             $table->integer('matk')->nullable();
             $table->integer('gender')->nullable();
             $table->integer('refinable')->nullable();
             $table->integer('indestructible')->nullable();
             $table->string('cardPrefix')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('emulator_npcs', function(Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name')->nullable();
+            $table->string('mapname');
+            $table->integer('job');
+            $table->integer('x');
+            $table->integer('y');
+            $table->string('type');
+            $table->timestamps();
+        });
+
+        Schema::create('emulator_item_soldby', function(Blueprint $table) {
+            $table->unsignedBigInteger('item_id');
+            $table->unsignedBigInteger('npc_id');
+            $table->integer('price');
+            $table->foreign('item_id')->references('id')->on('emulator_items');
+            $table->foreign('npc_id')->references('id')->on('emulator_npcs');
+        });
+
+        Schema::create('emulator_item_move_info', function(Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('item_id');
+            $table->boolean('drop');
+            $table->boolean('trade');
+            $table->boolean('store');
+            $table->boolean('cart');
+            $table->boolean('sell');
+            $table->boolean('mail');
+            $table->boolean('auction');
+            $table->boolean('guildstore');
+            $table->timestamps();
+            $table->foreign('item_id')->references('id')->on('emulator_items');
+        });
+
+        Schema::create('emulator_item_contains', function(Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('internalType')->default('');
+            $table->integer('type');
+            $table->unsignedBigInteger('sourceId');
+            $table->string('sourceName');
+            $table->unsignedBigInteger('targetId');
+            $table->string('targetName');
+            $table->integer('count');
+            $table->integer('totalOfSource');
+            $table->string('summonType');
+            $table->integer('chance');
+            $table->index(['sourceId', 'targetId']);
+//            $table->foreign('sourceId')->references('id')->on('emulator_items');
+//            $table->foreign('targetId')->references('id')->on('emulator_items');
+            $table->timestamps();
+        });
+
+        Schema::create('emulator_item_combos', function(Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name')->nullable();
+            $table->unsignedBigInteger('item_id');
+            $table->unsignedBigInteger('set_id');
+            $table->timestamps();
+        });
+
+        Schema::create('emulator_combos', function(Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->timestamps();
+        });
+
+        Schema::create('emulator_crawler_errors', function(Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('item_id');
+            $table->text('message');
+            $table->text('link');
             $table->timestamps();
         });
     }
@@ -51,5 +125,7 @@ class CreateEmulatorItem extends Migration
     public function down()
     {
         Schema::dropIfExists('emulator_items');
+        Schema::dropIfExists('emulator_npcs');
+        Schema::dropIfExists('emulator_item_soldby');
     }
 }

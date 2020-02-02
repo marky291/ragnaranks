@@ -2,7 +2,10 @@
 
 namespace App\Emulator\Items;
 
+use App\Emulator\Npcs\Npc;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 /**
  * Class Item
@@ -35,6 +38,8 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Emulator\Items
  * @method static updateOrInsert(array $array)
+ * @method static firstOrCreate(array $array, $decode)
+ * @method static|Builder whereId($id)
  */
 class Item extends Model
 {
@@ -77,4 +82,12 @@ class Item extends Model
         'indestructible',
         'cardPrefix',
     ];
+
+    /**
+     * Item is sold by many NPCS
+     */
+    public function soldBy()
+    {
+        return $this->belongsToMany(Npc::class, 'emulator_item_soldby');
+    }
 }

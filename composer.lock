@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e3618f830054ff71323f41d202980a4f",
+    "content-hash": "e2b8d1fbbb195684f3b0148c70bb26e0",
     "packages": [
         {
             "name": "artisanry/reportable",
@@ -8572,7 +8572,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.2"
+        "php": "^7.2",
+        "ext-json": "*"
     },
     "platform-dev": [],
     "platform-overrides": {

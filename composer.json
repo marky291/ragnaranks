@@ -23,7 +23,8 @@
         "sentry/sentry-laravel": "1.5.0",
         "spatie/laravel-permission": "^3.0",
         "spatie/laravel-sitemap": "^5.3",
-        "timehunter/laravel-google-recaptcha-v3": "~2.2.19"
+        "timehunter/laravel-google-recaptcha-v3": "~2.2.19",
+        "ext-json": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",
