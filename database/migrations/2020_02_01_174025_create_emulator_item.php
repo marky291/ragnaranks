@@ -17,6 +17,7 @@ class CreateEmulatorItem extends Migration
             $table->bigIncrements('id');
             $table->string('aegisName')->nullable();
             $table->string('name');
+            $table->string('slug');
             $table->text('description')->nullable();
             $table->integer('slots');
             $table->integer('setname')->nullable();
@@ -31,7 +32,7 @@ class CreateEmulatorItem extends Migration
             $table->integer('job')->nullable();
             $table->integer('compositionPos')->nullable();
             $table->integer('attribute')->nullable();
-            $table->integer('location')->nullable();
+            $table->string('location')->nullable();
             $table->integer('price')->nullable();
             $table->integer('range')->nullable();
             $table->integer('matk')->nullable();
@@ -39,6 +40,7 @@ class CreateEmulatorItem extends Migration
             $table->integer('refinable')->nullable();
             $table->integer('indestructible')->nullable();
             $table->string('cardPrefix')->nullable();
+            $table->text('script')->nullable();
             $table->timestamps();
         });
 

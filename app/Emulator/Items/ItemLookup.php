@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class ItemLookup
  *
  * @property int $id
+ * @property string $script
  *
  * @package App
  */
@@ -18,5 +19,5 @@ class ItemLookup extends Model
      *
      * @var string
      */
-    protected $table = 'emulator_item_lookup';
+    protected $table = 'item_db_re';
 }

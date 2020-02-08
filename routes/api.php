@@ -44,3 +44,6 @@ Route::get('/listing/configurations', static function () {
         );
     });
 });
+
+Route::get('/database/items', 'EmulatorBrowserController@index');
+Route::get('/database/items/search', 'EmulatorBrowserController@searchByText');

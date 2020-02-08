@@ -4,7 +4,7 @@
 namespace App\Emulator;
 
 
-class DivinePrideCrawler
+class DivinePrideRouter
 {
     // API for connection
     public const API_KEY = '9debcdf07c4e3d1335f5e9271a534a63';
@@ -32,6 +32,11 @@ class DivinePrideCrawler
         return $this->link("/api/database/Item/{$id}?apiKey=".self::API_KEY);
     }
 
+    public function getMonster(int $id)
+    {
+        return $this->link("/api/database/Monster/{$id}?apiKey=".self::API_KEY);
+    }
+
     public function getItemIcon(int $id)
     {
         return $this->link("/images/items/item/{$id}.png");
@@ -40,5 +45,15 @@ class DivinePrideCrawler
     public function getItemImage(int $id)
     {
         return $this->link("/images/items/collection/{$id}.png");
+    }
+
+    public function getMonsterImage(int $id)
+    {
+        return $this->link("/images/mobs/png/{$id}.png");
+    }
+
+    public function getMonsterSpritesheet(int $id)
+    {
+        return $this->link("/images/spritesheets/npc/{$id}.png");
     }
 }

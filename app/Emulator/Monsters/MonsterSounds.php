@@ -1,28 +1,28 @@
 <?php
 
-namespace App\Emulator\Items;
+
+namespace App\Emulator\Monsters;
+
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class ItemSets
+ * Class MonsterSounds
  *
- * @property int $id
- * @property string $name
- * @property int $item_id
- * @property int $set_id
+ * @property int $monster_id
+ * @property string $filename
  *
- * @package App\Emulator\Items
+ * @package App\Emulator\Monsters
  * @method static firstOrCreate(array $array)
  */
-class ItemCombo extends Model
+class MonsterSounds extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'emulator_item_combos';
+    protected $table = 'emulator_monster_sounds';
 
     /**
      * The attributes that are mass assignable.
@@ -30,8 +30,7 @@ class ItemCombo extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'item_id',
-        'set_id',
+        'monster_id',
+        'filename',
     ];
 }

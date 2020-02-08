@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $name
  *
  * @package App\Emulator\Sets
+ * @method static firstOrCreate(array $array, $combo)
  */
 class Combo extends Model
 {

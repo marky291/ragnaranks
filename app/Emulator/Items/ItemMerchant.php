@@ -1,28 +1,27 @@
 <?php
 
+
 namespace App\Emulator\Items;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class ItemSets
+ * Class ItemSeller
  *
- * @property int $id
- * @property string $name
- * @property int $item_id
- * @property int $set_id
+ * @property integer $item_id
+ * @property integer $npc_id
+ * @property integer $price
  *
  * @package App\Emulator\Items
- * @method static firstOrCreate(array $array)
  */
-class ItemCombo extends Model
+class ItemMerchant extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'emulator_item_combos';
+    protected $table = 'emulator_item_soldby';
 
     /**
      * The attributes that are mass assignable.
@@ -30,8 +29,8 @@ class ItemCombo extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
         'item_id',
-        'set_id',
+        'npc_id',
+        'price',
     ];
 }

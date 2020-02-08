@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int chance
  *
  * @package App\Emulator\Items
+ * @method static firstOrCreate(array $array, $contains)
  */
 class ItemContains extends Model
 {

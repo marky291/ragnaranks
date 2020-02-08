@@ -2,8 +2,8 @@
 
 namespace App\Console;
 
-use App\Emulator\CrawlDatabaseInformation;
-use App\Emulator\IndexDatabaseCommand;
+use App\Emulator\DivinePrideItemCrawler;
+use App\Emulator\DivinePrideMonsterCrawler;
 use App\Heartbeats\HeartbeatMonitor;
 use App\Console\Commands\SitemapGenerator;
 use App\Console\Commands\RankingRebuilder;
@@ -22,7 +22,8 @@ class Kernel extends ConsoleKernel
         SitemapGenerator::class,
         RankingRebuilder::class,
         HeartbeatMonitor::class,
-        IndexDatabaseCommand::class,
+        DivinePrideItemCrawler::class,
+        DivinePrideMonsterCrawler::class,
         ListingWebsiteStatusMonitor::class,
     ];
 
