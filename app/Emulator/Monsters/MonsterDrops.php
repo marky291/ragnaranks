@@ -69,4 +69,9 @@ class MonsterDrops extends Model
     {
         return $this->hasOne(Monster::class, 'id', 'monster_id');
     }
+
+    public function getRateAttribute(): float
+    {
+        return $this->chance / 100;
+    }
 }

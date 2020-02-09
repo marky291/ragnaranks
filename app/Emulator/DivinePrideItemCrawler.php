@@ -37,7 +37,7 @@ class DivinePrideItemCrawler extends Command
     public function handle()
     {
         /** @var ItemLookup $lookup */
-        $lookups = ItemLookup::query()->take(50)->get();
+        $lookups = ItemLookup::query()->get();
         $crawled  = Item::query()->get();
         $requiresCrawling = $lookups->diff($crawled);
         $progress = new ProgressBar($this->getOutput(), $requiresCrawling->count());
@@ -47,7 +47,7 @@ class DivinePrideItemCrawler extends Command
         // get the ids from item
         // collect numbers that dont exist for retrieval.
 
-        foreach ($requiresCrawling as $lookup)
+        foreach ($lookups as $lookup)
         {
             try {
                 dispatch(new DivinePrideItemScraper($lookup, new DivinePrideRouter));

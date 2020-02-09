@@ -59,8 +59,7 @@ class CreateEmulatorItem extends Migration
             $table->unsignedBigInteger('item_id');
             $table->unsignedBigInteger('npc_id');
             $table->integer('price');
-            $table->foreign('item_id')->references('id')->on('emulator_items');
-            $table->foreign('npc_id')->references('id')->on('emulator_npcs');
+            $table->timestamps();
         });
 
         Schema::create('emulator_item_move_info', function(Blueprint $table) {

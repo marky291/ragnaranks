@@ -45,4 +45,14 @@ class Monster extends Model
     {
         return Storage::disk('spaces')->url("collection/monster/{$this->id}.png");
     }
+
+    public function spawns()
+    {
+        return $this->hasmany(MonsterSpawns::class, 'monster_id', 'id');
+    }
+
+    public function properties()
+    {
+        return $this->hasone(MonsterPropertyTable::class, 'monster_id', 'id');
+    }
 }

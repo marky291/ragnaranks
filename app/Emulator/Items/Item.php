@@ -38,6 +38,7 @@ use Illuminate\Support\Facades\Storage;
  * @property int refinable
  * @property int indestructible
  * @property int cardPrefix
+ * @property int script
  *
  * @property string image
  * @property string type
@@ -94,6 +95,7 @@ class Item extends Model
         'refinable',
         'indestructible',
         'cardPrefix',
+        'script'
     ];
 
     /**
@@ -166,7 +168,7 @@ class Item extends Model
 
     public function drops()
     {
-        return $this->hasMany(MonsterDrops::class,'item_id','id');
+        return $this->hasMany(MonsterDrops::class,'item_id','id')->where('chance', '!=', 0)->whereServerType('Renewal');
     }
 
     public function containers()

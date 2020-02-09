@@ -94,7 +94,7 @@ class CreateMonsterTables extends Migration
         });
 
         Schema::create('emulator_monster_drops', function(Blueprint $table) {
-            $table->unsignedBigInteger('monster_id');
+            $table->unsignedBigInteger('monster_id')->primary();
             $table->unsignedBigInteger('item_id');
             $table->integer('chance');
             $table->boolean('stealProtected');
@@ -107,7 +107,7 @@ class CreateMonsterTables extends Migration
             $table->unsignedBigInteger('item_id');
             $table->integer('chance');
             $table->boolean('stealProtected');
-            $table->string('serverTypeName');
+            $table->string('serverTypeName')->nullable();
             $table->timestamps();
         });
 
@@ -129,8 +129,8 @@ class CreateMonsterTables extends Migration
             $table->integer('casttime');
             $table->integer('delay');
             $table->boolean('interruptable');
-            $table->integer('changeTo')->nullable();
-            $table->string('condition');
+            $table->string('changeTo')->nullable();
+            $table->string('condition')->nullable();
             $table->string('conditionValue')->nullable();
             $table->string('sendType')->nullable();
             $table->string('sendValue')->nullable();

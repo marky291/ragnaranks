@@ -19,7 +19,7 @@ class EmulatorBrowserController extends Controller
         $page = request()->get('page', 1);
 
         return Cache::remember("emulator.browser.items.{$page}", 5, static function() {
-            return ItemBrowsingResource::collection(Item::paginate(20));
+            return ItemBrowsingResource::collection(Item::paginate(12));
         });
     }
 
@@ -27,7 +27,7 @@ class EmulatorBrowserController extends Controller
     {
         $textToSearch = $request->query('query');
 
-        $results = Item::where('name', 'like', "%{$textToSearch}%")->paginate(20);
+        $results = Item::where('name', 'like', "%{$textToSearch}%")->paginate(12);
 
         return ItemBrowsingResource::collection($results);
     }

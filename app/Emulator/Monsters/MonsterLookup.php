@@ -20,5 +20,5 @@ class MonsterLookup extends Model
      *
      * @var string
      */
-    protected $table = 'emulator_monster_lookup';
+    protected $table = 'mob_db_re';
 }

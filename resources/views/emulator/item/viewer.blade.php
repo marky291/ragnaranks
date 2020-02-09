@@ -23,8 +23,29 @@
                     </div>
                     <div class="tw-px-4 lg:tw-w-2/3 tw-flex tw-flex-wrap">
 
-                        {{ $item_slug }}
+                        @if ($cachedItemPartial = \Illuminate\Support\Facades\Cache::get("partials.item.{$item_slug}"))
+                            {!! $cachedItemPartial !!}
+                        @else
+                            <include-fragment src="/api/database/item/{{$item_slug}}">
+                                @include('sidebar._listing-placeholder')
+                            </include-fragment>
+                        @endif
 
+                        @if ($cachedDropPartial = \Illuminate\Support\Facades\Cache::get("partials.item.{$item_slug}.droppers"))
+                            {!! $cachedDropPartial !!}
+                        @else
+                            <include-fragment src="/api/database/item/{{$item_slug}}/droppers">
+                                @include('sidebar._listing-placeholder')
+                            </include-fragment>
+                        @endif
+
+                        @if ($cachedSellerPartial = \Illuminate\Support\Facades\Cache::get("partials.item.{$item_slug}.sellers"))
+                            {!! $cachedSellerPartial !!}
+                        @else
+                            <include-fragment src="/api/database/item/{{$item_slug}}/sellers">
+                                @include('sidebar._listing-placeholder')
+                            </include-fragment>
+                        @endif
                     </div>
                 </div>
         </div>

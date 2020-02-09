@@ -56,134 +56,16 @@ class DivinePrideMonsterCrawler extends Command
     {
         /** @var ItemLookup $lookup */
         $route  = new DivinePrideRouter;
-        $lookups = MonsterLookup::query()->get();
+        $monsters = MonsterLookup::query()->get();
         $crawled  = Monster::query()->get();
-        $requiresCrawling = $lookups->diff($crawled);
-        $progress = new ProgressBar($this->getOutput(), $requiresCrawling->count());
+        $lookups = $monsters->diff($crawled);
+        $progress = new ProgressBar($this->getOutput(), $lookups->count());
 
-        foreach ($requiresCrawling as $element) {
-            $link = $route->getMonster($element->ID);
-
-            try {
-                $content = file_get_contents($link, true);
-                $decode = json_decode($content, true);
-
-                $monster = Monster::firstOrCreate(['id' => $decode['id']], $decode);
-                $this->extractMonsterDrops($decode, $monster);
-                $this->extractMonsterSpawnSets($decode, $monster);
-                $this->extractMonsterSlaves($decode, $monster);
-                $this->extractMonsterMetamorphosis($decode, $monster);
-                $this->extractMonsterSounds($decode, $monster);
-                $this->extractMonsterQuestsObjectives($decode, $monster);
-                MonsterStats::firstOrCreate(['monster_id' => $monster->id], $decode['stats']);
-
-                foreach ($decode['mvpdrops'] as $drop) {
-                    MonsterMvpDrops::firstOrCreate(['monster_id' => $monster->id, 'item_id' => $drop['itemId'], 'chance' => $drop['chance'], 'serverTypeName' => $drop['serverTypeName']], $drop);
-                }
-
-                foreach ($decode['spawn'] as $spawn) {
-                    MonsterSpawns::firstOrCreate(array_merge(['monster_id' => $monster->id], $spawn));
-                }
-
-                foreach ($decode['skill'] as $skill) {
-                    MonsterSkills::firstOrCreate(array_merge(['monster_id' => $monster->id], $skill));
-                }
-
-                if ($decode['propertyTable']) {
-                    MonsterPropertyTable::firstOrCreate(array_merge(['monster_id' => $monster->id], $decode['propertyTable']));
-                }
-
-                $this->extractMonsterImages($monster, $route);
-
-            }
-            catch (Exception $exception) {
-                $this->error($link . " " . $exception->getMessage());
-            }
+        foreach ($lookups as $monster) 
+        {
+            dispatch(new DivinePrideMonsterScraper($monster->toArray(), new DivinePrideRouter));
 
             $progress->advance(1);
-        }
-    }
-
-    /**
-     * @param $decode
-     * @param $monster
-     */
-    private function extractMonsterDrops($decode, $monster): void
-    {
-        foreach ($decode['drops'] as $drop) {
-            MonsterDrops::firstOrCreate(['monster_id' => $monster->id, 'item_id' => $drop['itemId'], 'serverTypeName' => $drop['serverTypeName']], array_merge($drop, ['item_id' => $drop['itemId']]));
-        }
-    }
-
-    /**
-     * @param $decode
-     * @param $monster
-     */
-    private function extractMonsterSpawnSets($decode, $monster): void
-    {
-        foreach ($decode['spawnSet'] as $spawnset) {
-            MonsterSpawnSet::firstOrCreate(['monster_id' => $monster->id], $spawnset);
-        }
-    }
-
-    /**
-     * @param $decode
-     * @param $monster
-     */
-    private function extractMonsterSlaves($decode, $monster): void
-    {
-        foreach ($decode['slaves'] as $slave) {
-            MonsterSlaves::firstOrCreate(array_merge($slave, ['monster_id' => $monster->id]));
-        }
-    }
-
-    /**
-     * @param $decode
-     * @param $monster
-     */
-    private function extractMonsterMetamorphosis($decode, $monster): void
-    {
-        foreach ($decode['metamorphosis'] as $metamorphosis) {
-            MonsterMetamorphosis::firstOrCreate(array_merge($metamorphosis, ['monster_id' => $monster->id]));
-        }
-    }
-
-    /**
-     * @param $decode
-     * @param $monster
-     */
-    private function extractMonsterSounds($decode, $monster): void
-    {
-        foreach ($decode['sounds'] as $sound) {
-            MonsterSounds::firstOrCreate(['monster_id' => $monster->id, 'filename' => $sound]);
-        }
-    }
-
-    /**
-     * @param $decode
-     * @param $monster
-     */
-    private function extractMonsterQuestsObjectives($decode, $monster): void
-    {
-        foreach ($decode['questObjective'] as $quest) {
-            MonsterQuestObjective::firstOrCreate(['monster_id' => $monster->id, 'quest_id' => $quest]);
-        }
-    }
-
-    /**
-     * @param $monster
-     * @param DivinePrideRouter $route
-     */
-    private function extractMonsterImages($monster, DivinePrideRouter $route): void
-    {
-        $filename = "{$monster->id}.png";
-        $imagePath = "/collection/monster/{$filename}";
-        $spritesheetPath = "/collection/monster/spritesheet/{$filename}";
-        if (Storage::disk('spaces')->exists($imagePath) == false) {
-            Storage::disk('spaces')->put($imagePath, file_get_contents($route->getMonsterImage($monster->id)));
-        }
-        if (Storage::disk('spaces')->exists($spritesheetPath) == false) {
-            Storage::disk('spaces')->put($spritesheetPath, file_get_contents($route->getMonsterSpritesheet($monster->id)));
         }
     }
 }

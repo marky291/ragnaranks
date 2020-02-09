@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property integer $price
  *
  * @package App\Emulator\Items
+ * @method static firstOrCreate(array $array)
  */
 class ItemMerchant extends Model
 {
