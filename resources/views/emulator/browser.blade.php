@@ -26,6 +26,12 @@
                     </div>
                     <div class="tw-px-4 lg:tw-w-2/3 tw-flex tw-flex-col">
 
+                        <div v-if="items.meta.total > 0" class="tw-flex tw-flex-row tw-bg-transparent tw-rounded tw-border tw-border-gray-300 tw-mb-6 lg:tw-mb-2 tw-shadow tw-items-center tw-py-2 tw-px-4 tw-justify-between tw-bg-white">
+                            <at-button :disabled="items.links.prev == null" @click="changePage(items.meta.current_page - 1)" size="normal" type="primary">« Prev</at-button>
+                            <at-pagination @page-change="changePage" :show-quickjump="true" :show-total="true" class="tw-pl-0 tw-mb-0" :current="items.meta.current_page" :page-size="items.meta.per_page" :total="items.meta.total"></at-pagination>
+                            <at-button :disabled="items.links.next == null" @click="changePage(items.meta.current_page + 1)" size="normal" type="primary">Next »</at-button>
+                        </div>
+
                         <emulator-browser-items :items="items.data"></emulator-browser-items>
 
                         <div v-if="items.meta.total > 0" class="tw-flex tw-flex-row tw-bg-transparent tw-rounded tw-border tw-border-gray-300 tw-mb-6 lg:tw-mb-2 tw-shadow tw-items-center tw-py-2 tw-px-4 tw-justify-between tw-bg-white">
