@@ -3,6 +3,7 @@
 
 namespace App\Emulator\Items;
 
+use App\Emulator\Map\MapNpc;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -15,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @package App\Emulator\Items
  * @method static firstOrCreate(array $array)
  */
-class ItemMerchant extends Model
+class ItemSupply extends Model
 {
     /**
      * The table associated with the model.
@@ -34,4 +35,14 @@ class ItemMerchant extends Model
         'npc_id',
         'price',
     ];
+
+    public function npc()
+    {
+        return $this->belongsTo(MapNpc::class,'npc_id', 'id');
+    }
+
+    public function item()
+    {
+        return $this->hasOne(Item::class, 'id', 'item_id');
+    }
 }

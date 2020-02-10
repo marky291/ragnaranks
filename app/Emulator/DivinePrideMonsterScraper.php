@@ -12,7 +12,6 @@ use App\Emulator\Monsters\MonsterQuestObjective;
 use App\Emulator\Monsters\MonsterSkills;
 use App\Emulator\Monsters\MonsterSlaves;
 use App\Emulator\Monsters\MonsterSounds;
-use App\Emulator\Monsters\MonsterSpawns;
 use App\Emulator\Monsters\MonsterSpawnSet;
 use App\Emulator\Monsters\MonsterStats;
 use Exception;
@@ -44,7 +43,7 @@ class DivinePrideMonsterScraper implements ShouldQueue
     public function __construct(array $lookup, DivinePrideRouter $router)
     {
         $this->lookup = $lookup;
-        
+
         $this->router = $router;
     }
 
@@ -57,65 +56,56 @@ class DivinePrideMonsterScraper implements ShouldQueue
     {
         $link = $this->router->getMonster($this->lookup['ID']);
 
-        try {
-            $content = file_get_contents($link, true);
-            $decode = json_decode($content, true);
+        $content = file_get_contents($link, true);
+        $decode = json_decode($content, true);
 
-            $monster = Monster::firstOrCreate(['id' => $decode['id']], $decode);
-            
-            foreach ($decode['drops'] as $drop) {
-                if ($drop['chance'] > 0) {
-                    MonsterDrops::firstOrCreate(array_merge(['monster_id' => $monster->id, 'chance' => $drop['chance'], 'stealProtected' => $drop['stealProtected'], 'item_id' => $drop['itemId'], 'serverTypeName' => $drop['serverTypeName']]));
-                }
-            }
+        $monster = Monster::firstOrCreate(['id' => $decode['id']], $decode);
 
-            foreach ($decode['spawnSet'] as $spawnset) {
-                MonsterSpawnSet::firstOrCreate(['monster_id' => $monster->id], $spawnset);
-            }
-
-            foreach ($decode['slaves'] as $slave) {
-                MonsterSlaves::firstOrCreate(array_merge($slave, ['monster_id' => $monster->id]));
-            }
-
-            foreach ($decode['metamorphosis'] as $metamorphosis) {
-                MonsterMetamorphosis::firstOrCreate(array_merge($metamorphosis, ['monster_id' => $monster->id]));
-            }
-
-            foreach ($decode['sounds'] as $sound) {
-                MonsterSounds::firstOrCreate(['monster_id' => $monster->id, 'filename' => $sound]);
-            }
-
-            foreach ($decode['questObjective'] as $quest) {
-                MonsterQuestObjective::firstOrCreate(['monster_id' => $monster->id, 'quest_id' => $quest]);
-            }
-
-            MonsterStats::firstOrCreate(['monster_id' => $monster->id], $decode['stats']);
-
-            foreach ($decode['mvpdrops'] as $drop) {
-                MonsterMvpDrops::firstOrCreate(['monster_id' => $monster->id, 'item_id' => $drop['itemId'], 'chance' => $drop['chance'], 'serverTypeName' => $drop['serverTypeName']], $drop);
-            }
-
-            foreach ($decode['spawn'] as $spawn) {
-                MonsterSpawns::firstOrCreate(array_merge(['monster_id' => $monster->id], $spawn));
-            }
-
-            foreach ($decode['skill'] as $skill) {
-                MonsterSkills::firstOrCreate(array_merge(['monster_id' => $monster->id], $skill));
-            }
-
-            if ($decode['propertyTable']) {
-                MonsterPropertyTable::firstOrCreate(array_merge(['monster_id' => $monster->id], $decode['propertyTable']));
-            }
-
-            if (Storage::disk('spaces')->exists("/collection/monster/{$monster->id}.png") == false) {
-                Storage::disk('spaces')->put("/collection/monster/{$monster->id}.png", file_get_contents($this->router->getMonsterImage($monster->id)));
-            }
-            if (Storage::disk('spaces')->exists("/collection/monster/spritesheet/{$monster->id}.png") == false) {
-                Storage::disk('spaces')->put("/collection/monster/spritesheet/{$monster->id}.png", file_get_contents($this->router->getMonsterSpritesheet($monster->id)));
+        foreach ($decode['drops'] as $drop) {
+            if ($drop['chance'] > 0) {
+                MonsterDrops::firstOrCreate(['monster_id' => $monster->id, 'chance' => $drop['chance'], 'stealProtected' => $drop['stealProtected'], 'item_id' => $drop['itemId'], 'serverTypeName' => $drop['serverTypeName']]);
             }
         }
-        catch (Exception $exception) {
-            Log::warning($exception->getMessage());
+
+        foreach ($decode['spawnSet'] as $spawnset) {
+            MonsterSpawnSet::firstOrCreate(['monster_id' => $monster->id], $spawnset);
+        }
+
+        foreach ($decode['slaves'] as $slave) {
+            MonsterSlaves::firstOrCreate(array_merge($slave, ['monster_id' => $monster->id]));
+        }
+
+        foreach ($decode['metamorphosis'] as $metamorphosis) {
+            MonsterMetamorphosis::firstOrCreate(array_merge($metamorphosis, ['monster_id' => $monster->id]));
+        }
+
+        foreach ($decode['sounds'] as $sound) {
+            MonsterSounds::firstOrCreate(['monster_id' => $monster->id, 'filename' => $sound]);
+        }
+
+        foreach ($decode['questObjective'] as $quest) {
+            MonsterQuestObjective::firstOrCreate(['monster_id' => $monster->id, 'quest_id' => $quest]);
+        }
+
+        MonsterStats::firstOrCreate(['monster_id' => $monster->id], $decode['stats']);
+
+        foreach ($decode['mvpdrops'] as $drop) {
+            MonsterMvpDrops::firstOrCreate(['monster_id' => $monster->id, 'item_id' => $drop['itemId'], 'chance' => $drop['chance'], 'serverTypeName' => $drop['serverTypeName']], $drop);
+        }
+
+        foreach ($decode['skill'] as $skill) {
+            MonsterSkills::firstOrCreate(array_merge(['monster_id' => $monster->id], $skill));
+        }
+
+        if ($decode['propertyTable']) {
+            MonsterPropertyTable::firstOrCreate(array_merge(['monster_id' => $monster->id], $decode['propertyTable']));
+        }
+
+        if (Storage::disk('spaces')->exists("/collection/monster/{$monster->id}.png") == false) {
+            Storage::disk('spaces')->put("/collection/monster/{$monster->id}.png", file_get_contents($this->router->getMonsterImage($monster->id)));
+        }
+        if (Storage::disk('spaces')->exists("/collection/monster/spritesheet/{$monster->id}.png") == false) {
+            Storage::disk('spaces')->put("/collection/monster/spritesheet/{$monster->id}.png", file_get_contents($this->router->getMonsterSpritesheet($monster->id)));
         }
     }
 }

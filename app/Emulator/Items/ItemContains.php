@@ -24,7 +24,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class ItemContains extends Model
 {
-
     /**
      * The table associated with the model.
      *

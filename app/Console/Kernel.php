@@ -2,8 +2,7 @@
 
 namespace App\Console;
 
-use App\Emulator\DivinePrideItemCrawler;
-use App\Emulator\DivinePrideMonsterCrawler;
+use App\Emulator\DivinePrideCrawler;
 use App\Heartbeats\HeartbeatMonitor;
 use App\Console\Commands\SitemapGenerator;
 use App\Console\Commands\RankingRebuilder;
@@ -19,11 +18,10 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
+        DivinePrideCrawler::class,
         SitemapGenerator::class,
         RankingRebuilder::class,
         HeartbeatMonitor::class,
-        DivinePrideItemCrawler::class,
-        DivinePrideMonsterCrawler::class,
         ListingWebsiteStatusMonitor::class,
     ];
 

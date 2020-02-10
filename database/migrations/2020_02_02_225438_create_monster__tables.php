@@ -111,14 +111,6 @@ class CreateMonsterTables extends Migration
             $table->timestamps();
         });
 
-        Schema::create('emulator_monster_spawns', function(Blueprint $table) {
-            $table->unsignedBigInteger('monster_id');
-            $table->string('mapname');
-            $table->integer('amount');
-            $table->integer('respawnTime');
-            $table->timestamps();
-        });
-
         Schema::create('emulator_monster_skills', function(Blueprint $table) {
             $table->unsignedBigInteger('monster_id');
             $table->integer('idx');

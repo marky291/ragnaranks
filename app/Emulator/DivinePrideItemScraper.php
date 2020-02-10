@@ -2,7 +2,8 @@
 
 namespace App\Emulator;
 
-use App\Emulator\Items\ItemMerchant;
+use App\Emulator\Items\ItemSupply;
+use App\Emulator\Map\MapIndex;
 use Exception;
 use App\Emulator\Combos\Combo;
 use App\Emulator\Items\Item;
@@ -40,7 +41,7 @@ class DivinePrideItemScraper implements ShouldQueue
     /**
      * Create a new job instance.
      *
-     * @param int $itemId
+     * @param ItemLookup $lookup
      * @param DivinePrideRouter $router
      */
     public function __construct(ItemLookup $lookup, DivinePrideRouter $router)
@@ -74,7 +75,7 @@ class DivinePrideItemScraper implements ShouldQueue
          */
         $item = Item::firstOrCreate(['id' => $this->lookup->id], array_merge($decode, [
             'script' => $this->lookup->script,
-            'description' => $this->convertColorCodes($decode['description']),
+            'description' => $decode['description'] ? $this->convertColorCodes($decode['description']) : $decode['description'],
         ]));
 
         /**
@@ -86,8 +87,7 @@ class DivinePrideItemScraper implements ShouldQueue
          * Create the sellers, associate it with the item.
          */
         foreach ($decode['soldBy'] as $soldBy) {
-            Npc::firstOrCreate(['id' => $soldBy['npc']['id']], $soldBy['npc']);
-            ItemMerchant::firstOrCreate(['item_id' => $this->lookup->id, 'npc_id' => $soldBy['npc']['id'], 'price' => $soldBy['price']]);
+            ItemSupply::firstOrCreate(['item_id' => $this->lookup->id, 'npc_id' => $soldBy['npc']['id'], 'price' => $soldBy['price']]);
         }
 
         /**

@@ -4,6 +4,7 @@ namespace App\Emulator\Items\Resources;
 
 use App\Emulator\Items\Item;
 use App\Emulator\Items\ItemContains;
+use App\Emulator\Items\ItemSupply;
 use App\Emulator\Monsters\MonsterDrops;
 use App\Emulator\Npcs\Npc;
 use Illuminate\Database\Eloquent\Collection;
@@ -38,7 +39,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *
  * @property MonsterDrops|Collection drops
  * @property ItemContains|Collection containers
- * @property Npc|Collection sellers
+ * @property ItemSupply|Collection supply
  */
 class ItemBrowsingResource extends JsonResource
 {
@@ -63,7 +64,7 @@ class ItemBrowsingResource extends JsonResource
             'sell' => $this->price,
             'description' => $this->description,
             'monsterCount' => optional($this->drops)->count() ?? 0,
-            'merchantCount' => optional($this->sellers)->count() ?? 0,
+            'merchantCount' => optional($this->supply)->count() ?? 0,
             'containerCount' =>optional( $this->containers)->count() ?? 0,
             'icon' => $this->icon,
         ];

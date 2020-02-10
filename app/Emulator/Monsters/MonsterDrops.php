@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @method Builder whereServerType($type)
  *
  * @package App\Emulator\Monsters
- * @method static firstOrCreate(array $array, $drop)
+ * @method static firstOrCreate(array $array)
  */
 class MonsterDrops extends Model
 {

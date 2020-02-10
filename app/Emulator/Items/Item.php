@@ -176,9 +176,9 @@ class Item extends Model
         return $this->hasMany(ItemContains::class, 'targetId', 'id');
     }
 
-    public function sellers()
+    public function supply()
     {
-        return $this->hasMany(ItemMerchant::class, 'item_id', 'id');
+        return $this->hasMany(ItemSupply::class, 'item_id', 'id');
     }
 
     /**

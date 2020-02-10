@@ -32,6 +32,11 @@ class DivinePrideRouter
         return $this->link("/api/database/Item/{$id}?apiKey=".self::API_KEY);
     }
 
+    public function getMap(string $mapname)
+    {
+        return $this->link("/api/database/Map/{$mapname}?apiKey=".self::API_KEY);
+    }
+
     public function getMonster(int $id)
     {
         return $this->link("/api/database/Monster/{$id}?apiKey=".self::API_KEY);
@@ -55,5 +60,10 @@ class DivinePrideRouter
     public function getMonsterSpritesheet(int $id)
     {
         return $this->link("/images/spritesheets/npc/{$id}.png");
+    }
+
+    public function getNpcImage($id)
+    {
+        return $this->getMonsterImage($id);
     }
 }

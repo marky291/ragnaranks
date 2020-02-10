@@ -44,17 +44,6 @@ class CreateEmulatorItem extends Migration
             $table->timestamps();
         });
 
-        Schema::create('emulator_npcs', function(Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name')->nullable();
-            $table->string('mapname');
-            $table->integer('job');
-            $table->integer('x');
-            $table->integer('y');
-            $table->string('type');
-            $table->timestamps();
-        });
-
         Schema::create('emulator_item_soldby', function(Blueprint $table) {
             $table->unsignedBigInteger('item_id');
             $table->unsignedBigInteger('npc_id');

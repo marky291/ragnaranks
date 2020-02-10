@@ -3,6 +3,7 @@
 
 namespace App\Emulator\Monsters;
 
+use App\Emulator\Map\MapSpawn;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
@@ -48,7 +49,7 @@ class Monster extends Model
 
     public function spawns()
     {
-        return $this->hasmany(MonsterSpawns::class, 'monster_id', 'id');
+        return $this->hasmany(MapSpawn::class, 'monster_id', 'id');
     }
 
     public function properties()

@@ -21,7 +21,7 @@
                     <div class="tw-hidden lg:tw-block tw-px-3 lg:tw-w-1/3" id="sidebar">
                         @include('sidebar.message')
                     </div>
-                    <div class="tw-px-4 lg:tw-w-2/3 tw-flex tw-flex-wrap">
+                    <div class="tw-px-4 lg:tw-w-2/3 tw-flex tw-flex-col tw-bg-white">
 
                         @if ($cachedItemPartial = \Illuminate\Support\Facades\Cache::get("partials.item.{$item_slug}"))
                             {!! $cachedItemPartial !!}

@@ -1,30 +1,27 @@
 <?php
 
-
-namespace App\Emulator\Monsters;
-
+namespace App\Emulator\Map;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class MonsterSpawns
+ * Class MapTypes
  *
- * @property int $monster_id
+ * @property int $id
  * @property string $mapname
  * @property int $amount
- * @property int $respawnTime
+ * @property int $region
  *
- * @package App\Emulator\Monsters
- * @method static firstOrCreate(array $array_merge)
+ * @package App\Emulator\Map
  */
-class MonsterSpawns extends Model
+class MapType extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'emulator_monster_spawns';
+    protected $table = 'emulator_map_types';
 
     /**
      * The attributes that are mass assignable.
@@ -32,9 +29,9 @@ class MonsterSpawns extends Model
      * @var array
      */
     protected $fillable = [
-        'monster_id',
+        'id',
         'mapname',
         'amount',
-        'respawnTime',
+        'region',
     ];
 }

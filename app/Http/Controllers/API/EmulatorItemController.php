@@ -27,7 +27,7 @@ class EmulatorItemController extends Controller
     public function sellers(string $item_slug)
     {
         return Cache::remember("partials.item.{$item_slug}.sellers", now()->addSeconds(1), static function() use ($item_slug) {
-            return view('emulator.item._sellers', ['item' => Item::with('sellers')->whereSlug($item_slug)->first()])->render();
+            return view('emulator.item._sellers', ['item' => Item::with('supply')->whereSlug($item_slug)->first()])->render();
         });
     }
 }

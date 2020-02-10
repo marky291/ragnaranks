@@ -1,8 +1,9 @@
 <?php
 
 
-namespace App\Emulator\Npcs;
+namespace App\Emulator\Map;
 
+use App\Emulator\Items\ItemSupply;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -16,16 +17,16 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $y;
  * @property int $type;
  * @package App\Emulator\Npcs
- * @method static firstOrCreate(array $array, $toArray)
+ * @method static firstOrCreate(array $array)
  */
-class Npc extends Model
+class MapNpc extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'emulator_npcs';
+    protected $table = 'emulator_map_npcs';
 
     /**
      * The attributes that are mass assignable.
@@ -41,4 +42,9 @@ class Npc extends Model
         'y',
         'type'
     ];
+
+    public function inventory()
+    {
+        return $this->hasMany(ItemSupply::class, 'npc_id', 'id');
+    }
 }
