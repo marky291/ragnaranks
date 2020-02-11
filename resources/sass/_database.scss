@@ -17,8 +17,10 @@
 
 
 .entity-viewer {
+    @apply tw-flex tw-flex-wrap;
     .entity {
-        @apply tw-mb-2 tw-p-2 tw-border;
+        min-width: 200px;
+        @apply tw-m-1 tw-p-2 tw-border tw-flex-grow tw-rounded;
         .entity-list {
             max-height:125px;
             @apply tw-overflow-scroll tw-border;

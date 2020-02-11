@@ -2,6 +2,7 @@
 
 namespace App\Emulator\Items;
 
+use Illuminate\Database\Eloquent\Collection;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use App\Emulator\Monsters\MonsterDrops;

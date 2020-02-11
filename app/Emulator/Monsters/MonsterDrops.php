@@ -74,4 +74,15 @@ class MonsterDrops extends Model
     {
         return $this->chance / 100;
     }
+
+    /**
+     * Create a new Eloquent Collection instance.
+     *
+     * @param array $models
+     * @return MonsterCollection
+     */
+    public function newCollection(array $models = [])
+    {
+        return new MonsterCollection($models);
+    }
 }
