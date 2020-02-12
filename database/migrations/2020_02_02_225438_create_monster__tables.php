@@ -131,16 +131,16 @@ class CreateMonsterTables extends Migration
 
         Schema::create('emulator_monster_properties', function(Blueprint $table) {
             $table->unsignedBigInteger('monster_id');
-            $table->integer('0');
-            $table->integer('1');
-            $table->integer('2');
-            $table->integer('3');
-            $table->integer('4');
-            $table->integer('5');
-            $table->integer('6');
-            $table->integer('7');
-            $table->integer('8');
-            $table->integer('9');
+            $table->integer('neutral');
+            $table->integer('water');
+            $table->integer('earth');
+            $table->integer('fire');
+            $table->integer('wind');
+            $table->integer('poison');
+            $table->integer('holy');
+            $table->integer('dark');
+            $table->integer('ghost');
+            $table->integer('undead');
             $table->timestamps();
         });
     }

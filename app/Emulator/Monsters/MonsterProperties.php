@@ -7,25 +7,25 @@ namespace App\Emulator\Monsters;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class MonsterPropertyTable
+ * Class MonsterProperties
  *
  * @property int $monster_id
- * @property int $0
- * @property int $1
- * @property int $2
- * @property int $3
- * @property int $4
- * @property int $5
- * @property int $6
- * @property int $7
- * @property int $8
- * @property int $9
+ * @property int $neutral
+ * @property int $water
+ * @property int $earth
+ * @property int $fire
+ * @property int $wind
+ * @property int $poison
+ * @property int $holy
+ * @property int $dark
+ * @property int $ghost
+ * @property int $undead
  *
  * @method static firstOrCreate(array $array_merge)
  *
  * @package App\Emulator\Monsters
  */
-class MonsterPropertyTable extends Model
+class MonsterProperties extends Model
 {
     /**
      * The table associated with the model.
@@ -41,15 +41,15 @@ class MonsterPropertyTable extends Model
      */
     protected $fillable = [
         'monster_id',
-        '0',
-        '1',
-        '2',
-        '3',
-        '4',
-        '5',
-        '6',
-        '7',
-        '8',
-        '9',
+        'neutral',
+        'water',
+        'earth',
+        'fire',
+        'wind',
+        'poison',
+        'holy',
+        'dark',
+        'ghost',
+        'undead',
     ];
 }

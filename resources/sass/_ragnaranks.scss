@@ -1,0 +1,44 @@
+
+.browsing-container {
+    @apply tw-grid-cols-3 tw-grid tw-gap-6 tw-py-8;
+}
+.browsing-sidebar {
+    @apply tw-col-span-1;
+}
+.browsing-content {
+    @apply tw-col-span-2 tw-shadow tw-rounded tw-px-10 tw-py-6 tw-flex tw-flex-col tw-bg-white;
+
+    .section {
+        @apply tw-mb-8;
+    }
+
+    h1 {
+        border-bottom: 1px solid #ddd;
+        padding-bottom: .7em!important;
+
+        @apply tw-text-xl tw-font-bold tw-mb-4;
+    }
+
+    h2 {
+        border-bottom: 1px solid #ddd;
+        padding-bottom: .3em!important;
+
+        @apply tw-text-lg tw-font-bold tw-mb-4;
+    }
+
+    h3 {
+        padding-bottom: .1em!important;
+        font-size: 15px;
+        @apply tw-font-bold tw-mb-2;
+    }
+}
+
+
+.browsing-list {
+    .browsing-item {
+        @apply tw-py-2 tw-px-2;
+        &:nth-child(odd) {
+            @apply tw-bg-gray-200;
+        }
+    }
+}

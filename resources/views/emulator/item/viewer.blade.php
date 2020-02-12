@@ -16,37 +16,34 @@
 
 @section('wrapper')
     <div class="shadow-inner">
-        <div class="tw-container tw-pt-5" id="browser">
-                <div class="tw-pb-5 tw-pt-2 tw-flex">
-                    <div class="tw-hidden lg:tw-block tw-px-3 lg:tw-w-1/3" id="sidebar">
-                        @include('sidebar.message')
-                    </div>
-                    <div class="tw-px-4 lg:tw-w-2/3 tw-flex tw-flex-col tw-bg-white">
+        <div class="tw-container browsing-container" id="browser">
+                <div class="browsing-sidebar" id="sidebar">
+                    @include('sidebar.message')
+                </div>
+                <div class="browsing-content">
+                    @if ($cachedItemPartial = \Illuminate\Support\Facades\Cache::get("partials.item.{$item_slug}"))
+                        {!! $cachedItemPartial !!}
+                    @else
+                        <include-fragment src="/api/database/item/{{$item_slug}}">
+                            @include('sidebar._listing-placeholder')
+                        </include-fragment>
+                    @endif
 
-                        @if ($cachedItemPartial = \Illuminate\Support\Facades\Cache::get("partials.item.{$item_slug}"))
-                            {!! $cachedItemPartial !!}
-                        @else
-                            <include-fragment src="/api/database/item/{{$item_slug}}">
-                                @include('sidebar._listing-placeholder')
-                            </include-fragment>
-                        @endif
+                    @if ($cachedDropPartial = \Illuminate\Support\Facades\Cache::get("partials.item.{$item_slug}.droppers"))
+                        {!! $cachedDropPartial !!}
+                    @else
+                        <include-fragment src="/api/database/item/{{$item_slug}}/droppers">
+                            @include('sidebar._listing-placeholder')
+                        </include-fragment>
+                    @endif
 
-                        @if ($cachedDropPartial = \Illuminate\Support\Facades\Cache::get("partials.item.{$item_slug}.droppers"))
-                            {!! $cachedDropPartial !!}
-                        @else
-                            <include-fragment src="/api/database/item/{{$item_slug}}/droppers">
-                                @include('sidebar._listing-placeholder')
-                            </include-fragment>
-                        @endif
-
-                        @if ($cachedSellerPartial = \Illuminate\Support\Facades\Cache::get("partials.item.{$item_slug}.sellers"))
-                            {!! $cachedSellerPartial !!}
-                        @else
-                            <include-fragment src="/api/database/item/{{$item_slug}}/sellers">
-                                @include('sidebar._listing-placeholder')
-                            </include-fragment>
-                        @endif
-                    </div>
+                    @if ($cachedSellerPartial = \Illuminate\Support\Facades\Cache::get("partials.item.{$item_slug}.sellers"))
+                        {!! $cachedSellerPartial !!}
+                    @else
+                        <include-fragment src="/api/database/item/{{$item_slug}}/sellers">
+                            @include('sidebar._listing-placeholder')
+                        </include-fragment>
+                    @endif
                 </div>
         </div>
     </div>

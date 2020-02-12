@@ -54,6 +54,6 @@ class Monster extends Model
 
     public function properties()
     {
-        return $this->hasone(MonsterPropertyTable::class, 'monster_id', 'id');
+        return $this->hasone(MonsterProperties::class, 'monster_id', 'id');
     }
 }

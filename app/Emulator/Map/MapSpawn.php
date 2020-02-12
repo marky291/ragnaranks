@@ -5,6 +5,7 @@ namespace App\Emulator\Map;
 
 
 use Illuminate\Database\Eloquent\Model;
+use App\Emulator\Map\Collections\MapSpawnCollection;
 
 /**
  * Class MonsterSpawns
@@ -37,4 +38,15 @@ class MapSpawn extends Model
         'amount',
         'respawnTime',
     ];
+
+    /**
+     * Create a new Eloquent Collection instance.
+     *
+     * @param array $models
+     * @return MapSpawnCollection
+     */
+    public function newCollection(array $models = [])
+    {
+        return new MapSpawnCollection($models);
+    }
 }

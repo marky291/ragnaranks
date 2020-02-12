@@ -1,0 +1,26 @@
+
+.element {
+    @apply tw-col-span-1 tw-px-2 tw-rounded;
+
+    &.wind {
+        @apply tw-bg-green-500 tw-text-white;
+    }
+    &.fire {
+        @apply tw-bg-red-500 tw-text-white;
+    }
+    &.poison {
+        @apply tw-bg-teal-400 tw-text-white;
+    }
+    &.water {
+        @apply tw-bg-blue-500 tw-text-white;
+    }
+    &.neutral {
+        @apply tw-bg-gray-500 tw-text-black;
+    }
+    &.dark {
+        @apply tw-text-white;
+    }
+    &.holy {
+        @apply tw-bg-yellow-500 tw-text-black;
+    }
+}

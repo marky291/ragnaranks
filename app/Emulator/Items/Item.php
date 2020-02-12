@@ -2,7 +2,6 @@
 
 namespace App\Emulator\Items;
 
-use Illuminate\Database\Eloquent\Collection;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use App\Emulator\Monsters\MonsterDrops;
@@ -180,6 +179,11 @@ class Item extends Model
     public function supply()
     {
         return $this->hasMany(ItemSupply::class, 'item_id', 'id');
+    }
+
+    public function moveinfo()
+    {
+        return $this->hasOne(ItemMoveInfo::class,'item_id', 'id');
     }
 
     /**

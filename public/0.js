@@ -167,9 +167,9 @@ var render = function() {
                   ]
                 ),
                 _vm._v(" "),
-                _c("ul", { staticClass: "glance tw-mb-1" }, [
+                _c("div", { staticClass: "browsing-list tw-mb-2" }, [
                   item.buy
-                    ? _c("li", [
+                    ? _c("p", { staticClass: "browsing-item tw-py-1" }, [
                         _vm._v("Buyable For: "),
                         _c("b", [_vm._v(_vm._s(item.buy))]),
                         _vm._v("z")
@@ -177,20 +177,20 @@ var render = function() {
                     : _vm._e(),
                   _vm._v(" "),
                   item.sell
-                    ? _c("li", [
+                    ? _c("p", { staticClass: "browsing-item tw-py-0" }, [
                         _vm._v("Sellable For: "),
                         _c("b", [_vm._v(_vm._s(item.sell))]),
                         _vm._v("z")
                       ])
                     : _vm._e(),
                   _vm._v(" "),
-                  _c("li", [
-                    _vm._v("Weight Per Item: "),
-                    _c("b", [_vm._v(_vm._s(item.weight))])
+                  _c("p", { staticClass: "browsing-item" }, [
+                    _vm._v("Weight: "),
+                    _c("b", [_vm._v(_vm._s(item.weight) + " ea.")])
                   ]),
                   _vm._v(" "),
                   item.monsterCount
-                    ? _c("li", [
+                    ? _c("p", { staticClass: "browsing-item" }, [
                         _vm._v("Dropped by: "),
                         _c("b", [
                           _vm._v(_vm._s(item.monsterCount) + " Monsters")
@@ -199,7 +199,7 @@ var render = function() {
                     : _vm._e(),
                   _vm._v(" "),
                   item.merchantCount
-                    ? _c("li", [
+                    ? _c("p", { staticClass: "browsing-item" }, [
                         _vm._v("Sold By: "),
                         _c("b", [
                           _vm._v(_vm._s(item.merchantCount) + " Vendors")
@@ -208,7 +208,7 @@ var render = function() {
                     : _vm._e(),
                   _vm._v(" "),
                   item.containerCount
-                    ? _c("li", [
+                    ? _c("p", { staticClass: "browsing-item" }, [
                         _vm._v("Contained In: "),
                         _c("b", [
                           _vm._v(_vm._s(item.containerCount) + " Boxes")

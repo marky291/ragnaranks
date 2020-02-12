@@ -1,12 +1,11 @@
 <?php
 
-
 namespace App\Emulator\Monsters;
-
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use App\Emulator\Monsters\Collections\MonsterDropCollection;
 
 /**
  * Class MonsterDrops
@@ -83,6 +82,6 @@ class MonsterDrops extends Model
      */
     public function newCollection(array $models = [])
     {
-        return new MonsterCollection($models);
+        return new MonsterDropCollection($models);
     }
 }

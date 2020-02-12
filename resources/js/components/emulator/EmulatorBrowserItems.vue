@@ -21,14 +21,14 @@
                         <p class="tw-font-bold tw-text-md" style="font-size:13px">Quick Glance</p>
                         <img class="tw-mr-2" :src="item.icon" alt="">
                     </div>
-                    <ul class="glance tw-mb-1">
-                        <li v-if="item.buy">Buyable For: <b>{{ item.buy }}</b>z</li>
-                        <li v-if="item.sell">Sellable For: <b>{{ item.sell }}</b>z</li>
-                        <li>Weight Per Item: <b>{{ item.weight }}</b></li>
-                        <li v-if="item.monsterCount">Dropped by: <b>{{ item.monsterCount }} Monsters</b></li>
-                        <li v-if="item.merchantCount">Sold By: <b>{{ item.merchantCount }} Vendors</b></li>
-                        <li v-if="item.containerCount">Contained In: <b>{{ item.containerCount }} Boxes</b></li>
-                    </ul>
+                    <div class="browsing-list tw-mb-2">
+                        <p class="browsing-item tw-py-1" v-if="item.buy">Buyable For: <b>{{ item.buy }}</b>z</p>
+                        <p class="browsing-item tw-py-0" v-if="item.sell">Sellable For: <b>{{ item.sell }}</b>z</p>
+                        <p class="browsing-item">Weight: <b>{{ item.weight }} ea.</b></p>
+                        <p class="browsing-item" v-if="item.monsterCount">Dropped by: <b>{{ item.monsterCount }} Monsters</b></p>
+                        <p class="browsing-item" v-if="item.merchantCount">Sold By: <b>{{ item.merchantCount }} Vendors</b></p>
+                        <p class="browsing-item" v-if="item.containerCount">Contained In: <b>{{ item.containerCount }} Boxes</b></p>
+                    </div>
                     <at-button @click="ShowItem(item.route)" class="tw-w-full" type="primary" size="small">View {{ item.name }}</at-button>
                 </div>
             </div>

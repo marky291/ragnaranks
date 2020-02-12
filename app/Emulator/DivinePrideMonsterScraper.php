@@ -7,7 +7,7 @@ use App\Emulator\Monsters\MonsterDrops;
 use App\Emulator\Monsters\MonsterLookup;
 use App\Emulator\Monsters\MonsterMetamorphosis;
 use App\Emulator\Monsters\MonsterMvpDrops;
-use App\Emulator\Monsters\MonsterPropertyTable;
+use App\Emulator\Monsters\MonsterProperties;
 use App\Emulator\Monsters\MonsterQuestObjective;
 use App\Emulator\Monsters\MonsterSkills;
 use App\Emulator\Monsters\MonsterSlaves;
@@ -98,7 +98,19 @@ class DivinePrideMonsterScraper implements ShouldQueue
         }
 
         if ($decode['propertyTable']) {
-            MonsterPropertyTable::firstOrCreate(array_merge(['monster_id' => $monster->id], $decode['propertyTable']));
+           MonsterProperties::firstOrCreate([
+                'monster_id' => $monster->id,
+                'neutral'      => $decode['propertyTable'][0],
+                'water'      => $decode['propertyTable'][1],
+                'earth'      => $decode['propertyTable'][2],
+                'fire'      => $decode['propertyTable'][3],
+                'wind'      => $decode['propertyTable'][4],
+                'poison'      => $decode['propertyTable'][5],
+                'holy'      => $decode['propertyTable'][6],
+                'dark'      => $decode['propertyTable'][7],
+                'ghost'      => $decode['propertyTable'][8],
+                'undead'      => $decode['propertyTable'][9],
+            ]);
         }
 
         if (Storage::disk('spaces')->exists("/collection/monster/{$monster->id}.png") == false) {
