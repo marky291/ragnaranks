@@ -14,21 +14,14 @@ use Illuminate\Support\Facades\Cache;
 
 class EmulatorBrowserController extends Controller
 {
-    public function index()
+    public function index(Item $item)
     {
-        $page = request()->get('page', 1);
+        $text = request()->get('search', '');
 
-        return Cache::remember("emulator.browser.items.{$page}", 5, static function() {
-            return ItemBrowsingResource::collection(Item::paginate(12));
-        });
-    }
+        if ($text) {
+            $results = Item::where('name', 'like', "%{$text}%");
+        }
 
-    public function searchByText(Request $request)
-    {
-        $textToSearch = $request->query('query');
-
-        $results = Item::where('name', 'like', "%{$textToSearch}%")->paginate(12);
-
-        return ItemBrowsingResource::collection($results);
+        return ItemBrowsingResource::collection($results->paginate(12));
     }
 }

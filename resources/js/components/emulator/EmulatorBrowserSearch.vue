@@ -45,7 +45,7 @@
         },
         methods: {
             itemSearch: function() {
-                this.$emit("item:search", this.search);
+                this.$router.push({ path: 'items', query: { search: this.search } })
             }
         }
     }

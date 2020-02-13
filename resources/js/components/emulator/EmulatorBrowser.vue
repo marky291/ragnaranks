@@ -4,40 +4,34 @@
     Vue.component('emulator-browser-items', () => import('./EmulatorBrowserItems'));
 
     export default {
-        props: ['route'],
         data: function () {
             return {
-                resource: '/api/database/items',
-                currentPage: 1,
-                items: {
-                    data: {},
-                    links: {},
-                    meta: {},
-                },
+                loading: false,
+                post: null,
+                error: null
             }
         },
-        async mounted() {
-            if (this.route) {
-                console.log(this.route);
-            }
-
-            await this.loadDataRoute();
+        created() {
+            this.fetchData()
+        },
+        watch: {
+            '$route': 'fetchData'
         },
         methods: {
-            loadSearchedItems: function(query) {
-                axios.get('/api/database/items/search?query='+query).then((response) => {
-                    this.items = response.data;
-                });
+            fetchData () {
+                this.error = this.post = null
+                this.loading = true
+                axios.get('/api/database/items?search=' + this.$route.query.search)
+                    .then((response) => {
+                        this.post = response.data;
+                    }).catch((error) => {
+                        this.error = error;
+                    }).then(() => {
+                        this.loading = false
+                    });
             },
             changePage: function(pageNumber) {
                 this.currentPage = pageNumber;
-                this.loadDataRoute();
-            },
-            loadDataRoute: function() {
-                document.getElementById('browser').scrollIntoView();
-                return axios.get(`${this.resource}?page=${this.currentPage}`).then((response) => {
-                    this.items = response.data;
-                });
             },
         }
     }

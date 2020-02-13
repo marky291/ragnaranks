@@ -22,23 +22,35 @@
                 <div class="tw-pb-5 tw-pt-2 tw-flex">
                     <div class="tw-hidden lg:tw-block tw-px-3 lg:tw-w-1/3" id="sidebar">
                         @include('sidebar.message')
-                        <emulator-browser-search @item:search="loadSearchedItems"></emulator-browser-search>
+                        <emulator-browser-search></emulator-browser-search>
                     </div>
                     <div class="tw-px-4 lg:tw-w-2/3 tw-flex tw-flex-col">
 
-                        <div v-if="items.meta.total > 0" class="tw-flex tw-flex-row tw-bg-transparent tw-rounded tw-border tw-border-gray-300 tw-mb-6 lg:tw-mb-2 tw-shadow tw-items-center tw-py-2 tw-px-4 tw-justify-between tw-bg-white">
+                        <!-- <div v-if="items.meta.total > 0" class="tw-flex tw-flex-row tw-bg-transparent tw-rounded tw-border tw-border-gray-300 tw-mb-6 lg:tw-mb-2 tw-shadow tw-items-center tw-py-2 tw-px-4 tw-justify-between tw-bg-white">
                             <at-button :disabled="items.links.prev == null" @click="changePage(items.meta.current_page - 1)" size="normal" type="primary">« Prev</at-button>
                             <at-pagination @page-change="changePage" :show-quickjump="true" :show-total="true" class="tw-pl-0 tw-mb-0" :current="items.meta.current_page" :page-size="items.meta.per_page" :total="items.meta.total"></at-pagination>
                             <at-button :disabled="items.links.next == null" @click="changePage(items.meta.current_page + 1)" size="normal" type="primary">Next »</at-button>
+                        </div> -->
+
+                        <div v-if="loading" class="loading">
+                            @include('emulator.item._item-placeholder')
+                            @include('emulator.item._item-placeholder')
+                            @include('emulator.item._item-placeholder')
                         </div>
 
-                        <emulator-browser-items :items="items.data"></emulator-browser-items>
+                        <div v-if="error" class="error">
+                            <p>Error</p>
+                        </div>
 
-                        <div v-if="items.meta.total > 0" class="tw-flex tw-flex-row tw-bg-transparent tw-rounded tw-border tw-border-gray-300 tw-mb-6 lg:tw-mb-2 tw-shadow tw-items-center tw-py-2 tw-px-4 tw-justify-between tw-bg-white">
+                        <div v-if="post" class="content">
+                            <emulator-browser-items :items="post.data"></emulator-browser-items>
+                        </div>
+
+                        <!-- <div v-if="items.meta.total > 0" class="tw-flex tw-flex-row tw-bg-transparent tw-rounded tw-border tw-border-gray-300 tw-mb-6 lg:tw-mb-2 tw-shadow tw-items-center tw-py-2 tw-px-4 tw-justify-between tw-bg-white">
                             <at-button :disabled="items.links.prev == null" @click="changePage(items.meta.current_page - 1)" size="normal" type="primary">« Prev</at-button>
                             <at-pagination @page-change="changePage" :show-quickjump="true" :show-total="true" class="tw-pl-0 tw-mb-0" :current="items.meta.current_page" :page-size="items.meta.per_page" :total="items.meta.total"></at-pagination>
                             <at-button :disabled="items.links.next == null" @click="changePage(items.meta.current_page + 1)" size="normal" type="primary">Next »</at-button>
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>

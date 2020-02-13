@@ -16,10 +16,12 @@ Vue.use(AtComponents);
 import SimpleVueValidation from 'simple-vue-validator';
 import VueInternationalization from 'vue-i18n';
 import Locale from './messages';
+import VueRouter from 'vue-router'
 
 // use the components
 Vue.use(SimpleVueValidation);
 Vue.use(VueInternationalization);
+Vue.use(VueRouter)
 
 // the validation is passive at first, just the same as manual mode.
 // But once the $validate() method is called, it becomes active
@@ -88,7 +90,12 @@ Vue.component('emulator-browser', require('./components/emulator/EmulatorBrowser
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+const router = new VueRouter({
+    mode: 'history',
+});
+
 const app = new Vue({
     el: '#app',
     i18n,
+    router,
 });
