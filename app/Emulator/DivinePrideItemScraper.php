@@ -2,6 +2,8 @@
 
 namespace App\Emulator;
 
+use App\Emulator\Items\DivinePrideEnumConverter;
+use App\Emulator\Items\Enums\ItemTypes;
 use App\Emulator\Items\ItemSupply;
 use App\Emulator\Map\MapIndex;
 use Exception;

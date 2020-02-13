@@ -8,7 +8,8 @@
             return {
                 loading: false,
                 post: null,
-                error: null
+                error: null,
+                api: '/api',
             }
         },
         created() {
@@ -19,9 +20,9 @@
         },
         methods: {
             fetchData () {
-                this.error = this.post = null
-                this.loading = true
-                axios.get('/api/database/items?search=' + this.$route.query.search)
+                this.error = this.post = null;
+                this.loading = true;
+                axios.get(this.api + this.$route.fullPath)
                     .then((response) => {
                         this.post = response.data;
                     }).catch((error) => {
@@ -31,7 +32,7 @@
                     });
             },
             changePage: function(pageNumber) {
-                this.currentPage = pageNumber;
+                this.$router.push({ query: Object.assign({}, $route.query, { page: pageNumber }) })
             },
         }
     }

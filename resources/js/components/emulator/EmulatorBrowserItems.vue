@@ -9,9 +9,8 @@
                     <div class="tw-mr-4 tw-w-2/3">
                         <p class="tw-font-bold tw-text-md tw-mb-2" style="font-size:13px">{{ item.name }} #{{ item.id }}</p>
                         <p v-html="item.description"></p>
-                        <p class="tw-mt-2 tw-font-semibold" style="font-size:13px">Type: {{ item.type }} & {{ item.subType }}</p>
-                        <div v-if="item.script" class="tw-flex tw-mt-4">
-                            <p class="tw-bg-gray-200 tw-w-full tw-p-1 tw-rounded"><b>//</b> {{item.script}}</p>
+                        <div class="tw-flex tw-mt-4">
+                            <p class="tw-bg-gray-200 tw-w-full tw-p-1 tw-rounded"><b>//</b> {{item.script ? item.script : 'bNoScript,1;'}}</p>
                         </div>
 
                     </div>
@@ -22,8 +21,11 @@
                         <img class="tw-mr-2" :src="item.icon" alt="">
                     </div>
                     <div class="browsing-list tw-mb-2">
-                        <p class="browsing-item tw-py-1" v-if="item.buy">Buyable For: <b>{{ item.buy }}</b>z</p>
-                        <p class="browsing-item tw-py-0" v-if="item.sell">Sellable For: <b>{{ item.sell }}</b>z</p>
+                        <p class="browsing-item tw-py-1" v-if="item.buy">Buyable For: <b>{{ item.buy }}</b> zeny</p>
+                        <p class="browsing-item tw-py-1" v-if="item.type !== 'Unknown'">Type: <b>{{ item.type }}</b></p>
+                        <p class="browsing-item tw-py-1" v-if="item.location !== 'Unknown'">Location: <b>{{ item.location }}</b></p>
+                        <p class="browsing-item tw-py-1" v-if="item.type == 'Card'">Inserted into: <b>{{ item.composition }}</b></p>
+                        <p class="browsing-item tw-py-0" v-if="item.sell">Sellable For: <b>{{ item.sell }}</b> zeny</p>
                         <p class="browsing-item">Weight: <b>{{ item.weight }} ea.</b></p>
                         <p class="browsing-item" v-if="item.monsterCount">Dropped by: <b>{{ item.monsterCount }} Monsters</b></p>
                         <p class="browsing-item" v-if="item.merchantCount">Sold By: <b>{{ item.merchantCount }} Vendors</b></p>

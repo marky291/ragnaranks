@@ -47,6 +47,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['items'],
   methods: {
@@ -106,37 +108,20 @@ var render = function() {
                 _vm._v(" "),
                 _c("p", { domProps: { innerHTML: _vm._s(item.description) } }),
                 _vm._v(" "),
-                _c(
-                  "p",
-                  {
-                    staticClass: "tw-mt-2 tw-font-semibold",
-                    staticStyle: { "font-size": "13px" }
-                  },
-                  [
-                    _vm._v(
-                      "Type: " +
-                        _vm._s(item.type) +
-                        " & " +
-                        _vm._s(item.subType)
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                item.script
-                  ? _c("div", { staticClass: "tw-flex tw-mt-4" }, [
-                      _c(
-                        "p",
-                        {
-                          staticClass:
-                            "tw-bg-gray-200 tw-w-full tw-p-1 tw-rounded"
-                        },
-                        [
-                          _c("b", [_vm._v("//")]),
-                          _vm._v(" " + _vm._s(item.script))
-                        ]
+                _c("div", { staticClass: "tw-flex tw-mt-4" }, [
+                  _c(
+                    "p",
+                    {
+                      staticClass: "tw-bg-gray-200 tw-w-full tw-p-1 tw-rounded"
+                    },
+                    [
+                      _c("b", [_vm._v("//")]),
+                      _vm._v(
+                        " " + _vm._s(item.script ? item.script : "bNoScript,1;")
                       )
-                    ])
-                  : _vm._e()
+                    ]
+                  )
+                ])
               ])
             ]),
             _vm._v(" "),
@@ -172,7 +157,28 @@ var render = function() {
                     ? _c("p", { staticClass: "browsing-item tw-py-1" }, [
                         _vm._v("Buyable For: "),
                         _c("b", [_vm._v(_vm._s(item.buy))]),
-                        _vm._v("z")
+                        _vm._v(" zeny")
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  item.type !== "Unknown"
+                    ? _c("p", { staticClass: "browsing-item tw-py-1" }, [
+                        _vm._v("Type: "),
+                        _c("b", [_vm._v(_vm._s(item.type))])
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  item.location !== "Unknown"
+                    ? _c("p", { staticClass: "browsing-item tw-py-1" }, [
+                        _vm._v("Location: "),
+                        _c("b", [_vm._v(_vm._s(item.location))])
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  item.type == "Card"
+                    ? _c("p", { staticClass: "browsing-item tw-py-1" }, [
+                        _vm._v("Inserted into: "),
+                        _c("b", [_vm._v(_vm._s(item.composition))])
                       ])
                     : _vm._e(),
                   _vm._v(" "),
@@ -180,7 +186,7 @@ var render = function() {
                     ? _c("p", { staticClass: "browsing-item tw-py-0" }, [
                         _vm._v("Sellable For: "),
                         _c("b", [_vm._v(_vm._s(item.sell))]),
-                        _vm._v("z")
+                        _vm._v(" zeny")
                       ])
                     : _vm._e(),
                   _vm._v(" "),

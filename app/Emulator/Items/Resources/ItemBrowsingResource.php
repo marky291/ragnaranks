@@ -2,11 +2,10 @@
 
 namespace App\Emulator\Items\Resources;
 
-use App\Emulator\Items\Item;
 use App\Emulator\Items\ItemContains;
 use App\Emulator\Items\ItemSupply;
 use App\Emulator\Monsters\MonsterDrops;
-use App\Emulator\Npcs\Npc;
+use App\Emulator\DivinePrideEnumConverter;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -56,17 +55,19 @@ class ItemBrowsingResource extends JsonResource
             'name' => $this->name,
             'image' => $this->image,
             'route' => $this->route,
+            'icon' => $this->icon,
             'script' => $this->script,
-            'subType' => $this->subType,
-            'type' => $this->type,
-            'buy' => 0,
+            'type' => DivinePrideEnumConverter::ItemTypeId($this->itemTypeId),
+            'subType' => DivinePrideEnumConverter::ItemSubTypeId($this->itemSubTypeId),
+            'location' => DivinePrideEnumConverter::LocationId($this->location, $this->itemTypeId + $this->itemSubTypeId),
+            'composition' => DivinePrideEnumConverter::CompositionId($this->compositionPos),
             'weight' => $this->weight,
+            'buy' => 0,
             'sell' => $this->price,
             'description' => $this->description,
-            'monsterCount' => optional($this->drops)->count() ?? 0,
-            'merchantCount' => optional($this->supply)->count() ?? 0,
-            'containerCount' =>optional( $this->containers)->count() ?? 0,
-            'icon' => $this->icon,
+            'monsterCount' => $this->drops()->count(),
+            'merchantCount' => $this->supply()->count(),
+            'containerCount' =>$this->containers()->count(),
         ];
     }
 }

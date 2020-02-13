@@ -31,6 +31,7 @@ use Illuminate\Support\Facades\Storage;
  * @property int compositionPos
  * @property int attribute
  * @property int location
+ * @property int accessory
  * @property int price
  * @property int range
  * @property int matk
@@ -77,7 +78,9 @@ class Item extends Model
         'slots',
         'setname',
         'itemTypeId',
+        'itemType',
         'itemSubTypeId',
+        'itemSubType',
         'attack',
         'defence',
         'weight',
@@ -86,8 +89,10 @@ class Item extends Model
         'weaponLevel',
         'job',
         'compositionPos',
+        'composition',
         'attribute',
         'location',
+        'accessory',
         'price',
         'range',
         'matk',
@@ -133,32 +138,6 @@ class Item extends Model
     public function getIconAttribute(): string
     {
         return Storage::disk('spaces')->url("collection/items/icons/{$this->id}.png");
-    }
-
-    /**
-     * Get the type names
-     *
-     * @return string
-     */
-    public function getTypeAttribute(): ?string
-    {
-        switch ($this->itemTypeId) {
-            case 3: return 'Consumable';
-            default: return 'Unknown';
-        }
-    }
-
-    /**
-     * Get the sub type name
-     *
-     * @return string
-     */
-    public function getSubTypeAttribute(): string
-    {
-        switch ($this->itemSubTypeId) {
-            case 769: return 'Regeneration';
-            default: return 'Unknown';
-        }
     }
 
     public function getDescriptionAttribute()

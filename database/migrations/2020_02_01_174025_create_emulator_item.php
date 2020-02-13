@@ -22,7 +22,9 @@ class CreateEmulatorItem extends Migration
             $table->integer('slots');
             $table->integer('setname')->nullable();
             $table->integer('itemTypeId');
+            $table->string('itemType');
             $table->integer('itemSubTypeId');
+            $table->string('subType');
             $table->integer('attack');
             $table->integer('defence')->default(0);
             $table->double('weight');
@@ -31,6 +33,7 @@ class CreateEmulatorItem extends Migration
             $table->integer('weaponLevel');
             $table->integer('job')->nullable();
             $table->integer('compositionPos')->nullable();
+            $table->string('composition');
             $table->integer('attribute')->nullable();
             $table->string('location')->nullable();
             $table->integer('price')->nullable();
