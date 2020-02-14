@@ -1,11 +1,11 @@
 
 <div class="section">
     <h2>Best Farming Locations</h2>
-    <div class="tw-grid tw-grid-cols-2 tw-gap-4">
+    <div class="tw-grid tw-grid-cols-2 tw-gap-8">
         @if (count($item->drops))
             @foreach ($item->drops->bestFarmingSpots()->take(6) as $drop)
                 @if ($drop->monster->spawns->count())
-                    <div class="tw-col-span-1 tw-p-4 tw-border tw-shadow tw-rounded">
+                    <div class="tw-col-span-1">
                         <div class="tw-grid tw-grid-cols-5">
                             <!-- <div class="tw-col-span-1">
                                 <img src="{{ $drop->monster->image }}" style="max-height:35px;max-width:35px;">
@@ -15,8 +15,8 @@
                             </div>
                             <div class="tw-col-span-5 tw-bg-white tw-p-1 tw-rounded">
                                 <div class="tw-mb-2">
-                                    <h3>{{ $drop->monster->name }}  (<small>{{ $drop->rate }}% chance</small>)</h3>
-                                    <div class="browsing-list tw-shadow">
+                                    <h3><a href="">{{ $drop->monster->name }}</a> at {{ $drop->rate }}%</h3>
+                                    <div class="browsing-list">
                                         @foreach ($drop->monster->spawns->sortByAmount()->take(3) as $spawn)
                                             <p class="browsing-item"><b>{{ $spawn->mapname }}</b> -- spawns {{ $spawn->amount }} mobs</p>
                                         @endforeach
