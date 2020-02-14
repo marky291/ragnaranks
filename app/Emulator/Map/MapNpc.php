@@ -5,6 +5,7 @@ namespace App\Emulator\Map;
 
 use App\Emulator\Items\ItemSupply;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class Npc
@@ -42,6 +43,11 @@ class MapNpc extends Model
         'y',
         'type'
     ];
+
+    public function getImageAttribute()
+    {
+        return Storage::disk('spaces')->url("collection/npc/{$this->job}.png");
+    }
 
     public function inventory()
     {

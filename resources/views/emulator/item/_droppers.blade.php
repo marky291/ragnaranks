@@ -1,19 +1,19 @@
 
 <div class="section">
     <h2>Best Farming Locations</h2>
-    <div class="tw-grid tw-grid-cols-2 tw-gap-8">
+    <div class="tw-grid tw-grid-cols-1">
         @if (count($item->drops))
-            @foreach ($item->drops->bestFarmingSpots()->take(6) as $drop)
+            @foreach ($item->drops->bestFarmingSpots()->take(3) as $drop)
                 @if ($drop->monster->spawns->count())
                     <div class="tw-col-span-1">
                         <div class="tw-grid tw-grid-cols-5">
                             <!-- <div class="tw-col-span-1">
                                 <img src="{{ $drop->monster->image }}" style="max-height:35px;max-width:35px;">
                             </div> -->
-                            <div class="tw-col-span-5 tw-bg-no-repeat tw-z-10 tw-mr-2" style="background-position: top right;margin-bottom:-100px; max-height:100px; background-image: url({{ $drop->monster->image }})">
+                            <div class="tw-col-span-5 tw-bg-no-repeat tw-z-10 tw-pt-6 tw-mr-2" style="background-position: top right;margin-bottom:-100px; max-height:100px; background-image: url({{ $drop->monster->image }})">
 
                             </div>
-                            <div class="tw-col-span-5 tw-bg-white tw-p-1 tw-rounded">
+                            <div class="tw-col-span-5 tw-bg-white tw-py-6 tw-border-t">
                                 <div class="tw-mb-2">
                                     <h3><a href="">{{ $drop->monster->name }}</a> at {{ $drop->rate }}%</h3>
                                     <div class="browsing-list">
@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="">
                                     <p class="tw-font-bold tw-mb-1">Damage Bonuses</p>
-                                    <div class="properties tw-flex tw-grid tw-grid-cols-2 tw-gap-1">
+                                    <div class="properties tw-flex">
                                         @if ($drop->monster->properties)
                                             @if ($drop->monster->properties->neutral > 100)
                                                 <p class="element neutral">Neutral: +{{ $drop->monster->properties->neutral }}%</p>

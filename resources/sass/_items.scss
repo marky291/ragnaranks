@@ -1,6 +1,6 @@
 
 .element {
-    @apply tw-col-span-1 tw-px-2 tw-rounded;
+    @apply tw-col-span-1 tw-px-2 tw-rounded tw-mr-2;
 
     &.wind {
         @apply tw-bg-green-500 tw-text-white;
