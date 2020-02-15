@@ -155,6 +155,11 @@ class Item extends Model
         return $this->hasMany(ItemContains::class, 'targetId', 'id');
     }
 
+    public function contains()
+    {
+        return $this->hasMany(ItemContains::class, 'sourceId', 'id');
+    }
+
     public function supply()
     {
         return $this->hasMany(ItemSupply::class, 'item_id', 'id');

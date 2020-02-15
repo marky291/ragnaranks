@@ -57,4 +57,4 @@ Route::post('/config/parse')->uses('ConfigController@parse');
 
 
 Route::get('/database/items')->uses('EmulatorItemsController@index');
-Route::get('/database/item/{item}')->uses('EmulatorItemsController@show');
+Route::get('/database/item/{item}')->uses('EmulatorItemsController@show')->name('database.item');

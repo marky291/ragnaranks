@@ -48,4 +48,14 @@ class ItemContains extends Model
         'summonType',
         'chance'
     ];
+
+    public function item()
+    {
+        return $this->hasOne(Item::class, 'id', 'targetId');
+    }
+
+    public function getChance()
+    {
+        return $this->chance / 100;
+    }
 }
