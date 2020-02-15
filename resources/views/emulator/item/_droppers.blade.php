@@ -2,7 +2,7 @@
 <div class="section">
     <h2>Best Farming Locations</h2>
     <div class="tw-grid tw-grid-cols-1">
-        @if (count($item->drops))
+        @if (count($item->drops) > 0)
             @foreach ($item->drops->bestFarmingSpots()->take(3) as $drop)
                 @if ($drop->monster->spawns->count())
                     <div class="tw-col-span-1">
