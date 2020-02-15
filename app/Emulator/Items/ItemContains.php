@@ -54,6 +54,11 @@ class ItemContains extends Model
         return $this->hasOne(Item::class, 'id', 'targetId');
     }
 
+    public function source()
+    {
+        return $this->hasOne(Item::class, 'id', 'sourceId');
+    }
+
     public function getChance()
     {
         return $this->chance / 100;

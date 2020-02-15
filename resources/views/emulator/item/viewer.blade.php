@@ -45,6 +45,14 @@
                         </include-fragment>
                     @endif
 
+                    @if ($cachedContainersPartial = \Illuminate\Support\Facades\Cache::get("partials.item.{$item_slug}.containers"))
+                        {!! $cachedContainersPartial !!}
+                    @else
+                        <include-fragment src="/api/database/item/{{$item_slug}}/containers">
+                            @include('sidebar._listing-placeholder')
+                        </include-fragment>
+                    @endif
+
                     @if ($cachedContentsPartial = \Illuminate\Support\Facades\Cache::get("partials.item.{$item_slug}.contents"))
                         {!! $cachedContentsPartial !!}
                     @else

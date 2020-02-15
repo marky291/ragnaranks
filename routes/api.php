@@ -50,3 +50,4 @@ Route::get('/database/item/{item}', 'EmulatorItemController@overview');
 Route::get('/database/item/{item}/droppers', 'EmulatorItemController@droppers');
 Route::get('/database/item/{item}/sellers', 'EmulatorItemController@sellers');
 Route::get('/database/item/{item}/contents', 'EmulatorItemController@contents');
+Route::get('/database/item/{item}/containers', 'EmulatorItemController@containers');

@@ -37,4 +37,11 @@ class EmulatorItemController extends Controller
             return view('emulator.item._contents', ['item' => Item::with('contains.item')->whereSlug($item_slug)->first()])->render();
         });
     }
+
+    public function containers(string $item_slug)
+    {
+        return Cache::remember("partials.item.{$item_slug}.containers", now()->addSeconds(1), static function() use ($item_slug) {
+            return view('emulator.item._containers', ['item' => Item::with('containers')->whereSlug($item_slug)->first()])->render();
+        });
+    }
 }
