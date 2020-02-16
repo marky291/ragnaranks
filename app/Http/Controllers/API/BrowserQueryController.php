@@ -43,7 +43,11 @@ class BrowserQueryController extends Controller
             }
 
             if ($request->has('sorting')) {
-                $items->orderByDesc($request->sorting);
+                if ($request->sorting == 'slots') {
+                    $items->orderByDesc($request->sorting);
+                } else {
+                    $items->orderBy($request->sorting);
+                }
             }
 
             // return resource collection with pagination.
