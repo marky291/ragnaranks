@@ -10,13 +10,13 @@ use Illuminate\Support\Facades\Storage;
 /**
  * Class Npc
  *
- * @property int $id;
- * @property string $name;
- * @property string $mapname;
- * @property int $job;
- * @property int $x;
- * @property int $y;
- * @property int $type;
+ * @property int $id
+ * @property string $name
+ * @property string $mapname
+ * @property int $job
+ * @property int $x
+ * @property int $y
+ * @property int $type
  * @package App\Emulator\Npcs
  * @method static firstOrCreate(array $array)
  */
@@ -44,6 +44,11 @@ class MapNpc extends Model
         'type'
     ];
 
+    public function map()
+    {
+        return $this->belongsTo(Map::class, 'mapname', 'mapname');
+    }
+
     public function getImageAttribute()
     {
         return Storage::disk('spaces')->url("collection/npc/{$this->job}.png");
@@ -52,5 +57,10 @@ class MapNpc extends Model
     public function inventory()
     {
         return $this->hasMany(ItemSupply::class, 'npc_id', 'id');
+    }
+
+    public function getNavigationAttribute()
+    {
+        return "/navi {$this->mapname} {$this->x}/{$this->y}";
     }
 }

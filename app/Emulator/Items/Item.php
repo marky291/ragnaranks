@@ -2,6 +2,7 @@
 
 namespace App\Emulator\Items;
 
+use App\Emulator\DivinePrideEnumConverter;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use App\Emulator\Monsters\MonsterDrops;
@@ -12,39 +13,40 @@ use Illuminate\Support\Facades\Storage;
 /**
  * Class Item
  *
- * @property int id
- * @property string aegisName
- * @property string name
- * @property string slug
- * @property string description
- * @property int slots
- * @property int setname
- * @property int itemTypeId
- * @property int itemSubTypeId
- * @property int attack
- * @property int defence
- * @property int weight
- * @property int requiredLevel
- * @property int limitLevel
- * @property int weaponLevel
- * @property int job
- * @property int compositionPos
- * @property int attribute
- * @property int location
- * @property int accessory
- * @property int price
- * @property int range
- * @property int matk
- * @property int gender
- * @property int refinable
- * @property int indestructible
- * @property int cardPrefix
- * @property int script
+ * @property int $id
+ * @property string $aegisName
+ * @property string $name
+ * @property string $slug
+ * @property string $description
+ * @property int $slots
+ * @property int $setname
+ * @property int $itemTypeId
+ * @property int $itemSubTypeId
+ * @property int $attack
+ * @property int $defence
+ * @property int $weight
+ * @property int $requiredLevel
+ * @property int $limitLevel
+ * @property int $weaponLevel
+ * @property int $job
+ * @property int $compositionPos
+ * @property int $attribute
+ * @property int $location
+ * @property int $accessory
+ * @property int $price
+ * @property int $range
+ * @property int $matk
+ * @property int $gender
+ * @property int $refinable
+ * @property int $indestructible
+ * @property int $cardPrefix
+ * @property int $script
  *
- * @property string image
- * @property string type
- * @property string subType
- * @property string route
+ * @property string $image
+ * @property string $type
+ * @property string $subType
+ * @property string $position
+ * @property string $route
  *
  * @package App\Emulator\Items
  * @method static updateOrInsert(array $array)
@@ -78,9 +80,7 @@ class Item extends Model
         'slots',
         'setname',
         'itemTypeId',
-        'itemType',
         'itemSubTypeId',
-        'itemSubType',
         'attack',
         'defence',
         'weight',
@@ -89,7 +89,6 @@ class Item extends Model
         'weaponLevel',
         'job',
         'compositionPos',
-        'composition',
         'attribute',
         'location',
         'accessory',
@@ -176,5 +175,22 @@ class Item extends Model
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()->generateSlugsFrom('name')->saveSlugsTo('slug');
+    }
+
+    public function getTypeAttribute()
+    {
+        return DivinePrideEnumConverter::ItemTypeId($this->itemTypeId);
+    }
+    public function getSubTypeAttribute()
+    {
+        return DivinePrideEnumConverter::ItemSubTypeId($this->itemSubTypeId);
+    }
+    public function getPositionAttribute()
+    {
+        return DivinePrideEnumConverter::LocationId($this->location, $this->itemTypeId + $this->itemSubTypeId);
+    }
+    public function getCompositionAttribute()
+    {
+        return DivinePrideEnumConverter::CompositionId($this->compositionPos);
     }
 }

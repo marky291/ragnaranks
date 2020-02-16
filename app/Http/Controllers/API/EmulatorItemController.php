@@ -6,6 +6,7 @@ namespace App\Http\Controllers\API;
 
 use App\Emulator\Items\Item;
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Cache;
 
 class EmulatorItemController extends Controller
@@ -17,17 +18,18 @@ class EmulatorItemController extends Controller
         });
     }
 
-    public function droppers(string $item_slug)
+    public function farming(string $item_slug)
     {
-        return Cache::remember("partials.item.{$item_slug}.droppers", now()->addSeconds(1), static function() use ($item_slug) {
-            return view('emulator.item._droppers', ['item' => Item::with(['drops.monster.spawns', 'drops.monster.properties'])->whereSlug($item_slug)->first()])->render();
+        return Cache::remember("partials.item.{$item_slug}.farming", now()->addSeconds(1), static function() use ($item_slug) {
+            return view('emulator.item._farming', ['item' => Item::with(['drops.monster.spawns', 'drops.monster.properties'])->whereSlug($item_slug)->first()])->render();
         });
     }
 
     public function sellers(string $item_slug)
     {
         return Cache::remember("partials.item.{$item_slug}.sellers", now()->addSeconds(1), static function() use ($item_slug) {
-            return view('emulator.item._sellers', ['item' => Item::with('supply')->whereSlug($item_slug)->first()])->render();
+            $supplies = Item::whereSlug($item_slug)->first()->supply()->with('npc.map')->get();
+            return view('emulator.item._sellers', ['supplies' => $supplies])->render();
         });
     }
 
@@ -42,6 +44,14 @@ class EmulatorItemController extends Controller
     {
         return Cache::remember("partials.item.{$item_slug}.containers", now()->addSeconds(1), static function() use ($item_slug) {
             return view('emulator.item._containers', ['item' => Item::with('containers')->whereSlug($item_slug)->first()])->render();
+        });
+    }
+
+    public function monsters(string $item_slug)
+    {
+        return Cache::remember("partials.item.{$item_slug}.monsters", now()->addSeconds(1), static function() use ($item_slug) {
+            $drops = Item::whereSlug($item_slug)->first()->drops()->with('monster')->get();
+            return view('emulator.item._monsters', ['drops' => $drops])->render();
         });
     }
 }

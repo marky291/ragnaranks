@@ -29,14 +29,15 @@
                         </include-fragment>
                     @endif
 
-                    @if ($cachedDropPartial = \Illuminate\Support\Facades\Cache::get("partials.item.{$item_slug}.droppers"))
-                        {!! $cachedDropPartial !!}
+                    @if ($cachedFarmingPartial = \Illuminate\Support\Facades\Cache::get("partials.item.{$item_slug}.farming"))
+                        {!! $cachedFarmingPartial !!}
                     @else
-                        <include-fragment src="/api/database/item/{{$item_slug}}/droppers">
+                        <include-fragment src="/api/database/item/{{$item_slug}}/farming">
                             @include('sidebar._listing-placeholder')
                         </include-fragment>
                     @endif
 
+            
                     @if ($cachedSellerPartial = \Illuminate\Support\Facades\Cache::get("partials.item.{$item_slug}.sellers"))
                         {!! $cachedSellerPartial !!}
                     @else
@@ -45,6 +46,14 @@
                         </include-fragment>
                     @endif
 
+                    @if ($cachedMonstersPartial = \Illuminate\Support\Facades\Cache::get("partials.item.{$item_slug}.monsters"))
+                        {!! $cachedMonstersPartial !!}
+                    @else
+                        <include-fragment src="/api/database/item/{{$item_slug}}/monsters">
+                            @include('sidebar._listing-placeholder')
+                        </include-fragment>
+                    @endif
+                    
                     @if ($cachedContainersPartial = \Illuminate\Support\Facades\Cache::get("partials.item.{$item_slug}.containers"))
                         {!! $cachedContainersPartial !!}
                     @else

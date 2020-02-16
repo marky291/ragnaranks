@@ -1,17 +1,18 @@
 <div class="section color-bg-gray tw--mx-10 tw-py-8 tw-border-b">
     <div class="tw-px-10">
         <h2>Suppliers</h2>
-            @if(count($item->supply) > 0)
-            <div class="tw-grid tw-grid-cols-3 tw-gap-6">
-                @foreach ($item->supply as $supply)
-                    <div class="tw-col-span-1 tw-grid tw-gap-2 tw-grid-cols-3 tw-shadow tw-p-3 tw-rounded tw-bg-white">
+            @if(count($supplies) > 0)
+            <div class="tw-grid tw-grid-cols-2 tw-gap-6">
+                @foreach ($supplies as $supply)
+                    <div class="tw-col-span-1 hover:tw-shadow tw-grid tw-gap-2 tw-grid-cols-5 tw-shadow tw-p-3 tw-rounded tw-bg-white">
                         <div class="tw-col-span-1">
-                            <img src="{{ $supply->npc->image }}" alt="">
+                            <img style="height:75px;" src="{{ $supply->npc->image }}" alt="">
                         </div>
-                        <div class="tw-col-span-2">
-                            <h3>Npc Name</h3>
-                            <h3>{{ ucfirst($supply->npc->type) }}</h3>
-                            <at-input readonly>{{ $supply->npc->mapname }}</at-input>
+                        <div class="tw-col-span-4">
+                            <p class="tw-mb-2">{{ $supply->npc->map->name }}</h3>
+                            <h3>{{ ucfirst($supply->npc->type) }} sells at {{ $supply->price }} zeny</h3>
+                            <p>{{ $supply->npc->navigation }}</small>
+                            <small>{{ $supply->npc->map->mapType }}</small>
                         </div>
                     </div>
                 @endforeach
@@ -21,22 +22,3 @@
             @endif
     </div>
 </div>
-<!-- 
-    <div class="">
-        @foreach ($item->supply as $supply)
-            <div class="">
-                <img src="" alt="">
-                <b>{{ $supply->npc->mapname }}, {{ $supply->npc->x }}, {{ $supply->npc->y }}</b>
-                {{ $supply->npc }}
-                {{ $supply->npc->type }}
-                {{ $supply->npc->id }}
-                <ul>
-                    @foreach ($supply->npc->inventory as $inventory)
-                        <li class="tw-flex"><img src="{{$inventory->item->icon}}" alt=""> {{ $inventory->item->name }} {{ $inventory->price }}z</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endforeach
-    </div>
-
-</div> -->
