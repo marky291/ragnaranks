@@ -13,6 +13,8 @@
             }
         },
         created() {
+            console.log(this.$route.query.mode);
+            console.log(this.$route.query.category);
             this.fetchData()
         },
         watch: {

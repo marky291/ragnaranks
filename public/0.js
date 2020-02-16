@@ -77,7 +77,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "tw-flex tw-flex-col tw-flex-1" },
+    { staticClass: "tw-flex tw-flex-col tw-flex-1 load-animation" },
     _vm._l(_vm.items, function(item) {
       return _c(
         "div",

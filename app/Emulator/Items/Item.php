@@ -46,6 +46,8 @@ use Illuminate\Support\Facades\Storage;
  * @property string $type
  * @property string $subType
  * @property string $position
+ * @property string $composition
+ * @property string $element
  * @property string $route
  *
  * @package App\Emulator\Items
@@ -80,7 +82,9 @@ class Item extends Model
         'slots',
         'setname',
         'itemTypeId',
+        'type',
         'itemSubTypeId',
+        'subType',
         'attack',
         'defence',
         'weight',
@@ -89,9 +93,12 @@ class Item extends Model
         'weaponLevel',
         'job',
         'compositionPos',
+        'composition',
         'attribute',
         'location',
+        'placement',
         'accessory',
+        'element',
         'price',
         'range',
         'matk',

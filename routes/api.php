@@ -45,7 +45,7 @@ Route::get('/listing/configurations', static function () {
     });
 });
 
-Route::get('/database/items', 'ItemBrowsingController@index');
+Route::get('/database', 'BrowserQueryController@index');
 Route::get('/database/item/{item}', 'EmulatorItemController@overview');
 Route::get('/database/item/{item}/farming', 'EmulatorItemController@farming');
 Route::get('/database/item/{item}/sellers', 'EmulatorItemController@sellers');

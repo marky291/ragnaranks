@@ -2,7 +2,7 @@
 
 namespace App\Emulator;
 
-use App\Emulator\Items\DivinePrideEnumConverter;
+use App\Emulator\DivinePrideEnumConverter;
 use App\Emulator\Items\Enums\ItemTypes;
 use App\Emulator\Items\ItemSupply;
 use App\Emulator\Map\MapIndex;
@@ -75,8 +75,13 @@ class DivinePrideItemScraper implements ShouldQueue
         /**
          * Create the item if it does not exist.
          */
-        $item = Item::firstOrCreate(['id' => $this->lookup->id], array_merge($decode, [
+        $item = Item::updateOrCreate(['id' => $this->lookup->id], array_merge($decode, [
             'script' => $this->lookup->script,
+            'type' => DivinePrideEnumConverter::ItemTypeId($decode['itemTypeId']),
+            'subType' => DivinePrideEnumConverter::ItemSubTypeId($decode['itemSubTypeId']),
+            'position' => DivinePrideEnumConverter::LocationId($decode['location'], $decode['itemTypeId'] + $decode['itemSubTypeId']),
+            'element' => DivinePrideEnumConverter::ElementFromProperty($decode['attribute']),
+            'composition' => $decode['itemTypeId'] == 6 ? DivinePrideEnumConverter::CompositionId($decode['compositionPos']) : 'none',
             'description' => $decode['description'] ? $this->convertColorCodes($decode['description']) : $decode['description'],
         ]));
 

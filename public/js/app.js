@@ -16336,6 +16336,8 @@ Vue.component('emulator-browser-items', function () {
     };
   },
   created: function created() {
+    console.log(this.$route.query.mode);
+    console.log(this.$route.query.category);
     this.fetchData();
   },
   watch: {
@@ -16405,26 +16407,76 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      mode: 'renewal',
+      category: 'items',
+      type: 'all',
+      subtype: 'all',
+      element: 'all',
       search: ''
     };
   },
   methods: {
-    searchItems: function searchItems() {
-      if (this.search) {
-        this.$router.push({
-          path: 'items',
-          query: {
-            search: this.search
-          }
-        });
-      } else {
-        this.$router.replace({
-          'search': null
-        });
-      }
+    updateQuery: function updateQuery() {
+      this.$router.push({
+        query: {
+          mode: this.mode,
+          category: this.category,
+          type: this.type,
+          subtype: this.subtype,
+          element: this.element,
+          search: this.search ? this.search : 'all'
+        }
+      });
     }
   }
 });
@@ -77548,7 +77600,7 @@ var render = function() {
               },
               [
                 _c("option", { attrs: { value: "all" } }, [
-                  _vm._v("All Item Types")
+                  _vm._v("Renewal Items")
                 ])
               ]
             ),
@@ -77556,16 +77608,302 @@ var render = function() {
             _c(
               "select",
               {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.type,
+                    expression: "type"
+                  }
+                ],
                 staticClass:
                   "mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none",
-                staticStyle: { color: "#545c64" }
+                staticStyle: { color: "#545c64" },
+                on: {
+                  change: [
+                    function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.type = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                    _vm.updateQuery
+                  ]
+                }
               },
               [
                 _c("option", { attrs: { value: "all" } }, [
-                  _vm._v("With Any Elements")
+                  _vm._v("Any items")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "consumable" } }, [
+                  _vm._v("Consumable items")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "etc" } }, [
+                  _vm._v("Etc items")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "weapon" } }, [
+                  _vm._v("Weaponry items")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "ammo" } }, [
+                  _vm._v("Ammo items")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "armor" } }, [
+                  _vm._v("Armory items")
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "card" } }, [
+                  _vm._v("Card items")
                 ])
               ]
             ),
+            _vm._v(" "),
+            _vm.type == "consumable"
+              ? _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.subtype,
+                        expression: "subtype"
+                      }
+                    ],
+                    staticClass:
+                      "mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none",
+                    staticStyle: { color: "#545c64" },
+                    on: {
+                      change: [
+                        function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.subtype = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        },
+                        _vm.updateQuery
+                      ]
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "all" } }, [
+                      _vm._v("Any subtypes")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "regeneration" } }, [
+                      _vm._v("Regeneration subtypes")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "special" } }, [
+                      _vm._v("Special subtypes")
+                    ])
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.type == "weapon"
+              ? _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.subtype,
+                        expression: "subtype"
+                      }
+                    ],
+                    staticClass:
+                      "mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none",
+                    staticStyle: { color: "#545c64" },
+                    on: {
+                      change: [
+                        function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.subtype = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        },
+                        _vm.updateQuery
+                      ]
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "all" } }, [
+                      _vm._v("Any subtypes")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "sword" } }, [
+                      _vm._v("Swords")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "two-handed sword" } }, [
+                      _vm._v("Two-handed swords")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "dagger" } }, [
+                      _vm._v("Daggers")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "katar" } }, [
+                      _vm._v("Katars")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "axe" } }, [_vm._v("Axes")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "undocumented" } }, [
+                      _vm._v("Undocumented")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "two-handed axe" } }, [
+                      _vm._v("Two-handed axes")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "spear" } }, [
+                      _vm._v("Spears")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "two-handed spear" } }, [
+                      _vm._v("Two-handed spears")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "two-handed rod" } }, [
+                      _vm._v("Two-handed rods")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "mace" } }, [
+                      _vm._v("Maces")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "book" } }, [
+                      _vm._v("Books")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "rod" } }, [_vm._v("Rods")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "bow" } }, [_vm._v("Bows")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "fist weapon" } }, [
+                      _vm._v("Fist weapons")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "instrument" } }, [
+                      _vm._v("Instruments")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "whip" } }, [
+                      _vm._v("Whips")
+                    ])
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.type == "weapon"
+              ? _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.element,
+                        expression: "element"
+                      }
+                    ],
+                    staticClass:
+                      "mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none",
+                    staticStyle: { color: "#545c64" },
+                    on: {
+                      change: [
+                        function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.element = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        },
+                        _vm.updateQuery
+                      ]
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "all" } }, [
+                      _vm._v("Any Elements")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "neutral" } }, [
+                      _vm._v("Only Neutral Elements")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "water" } }, [
+                      _vm._v("Only Water Elements")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "earth" } }, [
+                      _vm._v("Only Earth Elements")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "fire" } }, [
+                      _vm._v("Only Fire Elements")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "wind" } }, [
+                      _vm._v("Only Wind Elements")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "poison" } }, [
+                      _vm._v("Only Poison Elements")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "holy" } }, [
+                      _vm._v("Only Holy Elements")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "shadow" } }, [
+                      _vm._v("Only Shadow Elements")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "ghost" } }, [
+                      _vm._v("Only Ghost Elements")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "undead" } }, [
+                      _vm._v("Only Undead Elements")
+                    ])
+                  ]
+                )
+              : _vm._e(),
             _vm._v(" "),
             _c(
               "select",
@@ -77593,7 +77931,7 @@ var render = function() {
                       "prepend-button": "",
                       "append-button": ""
                     },
-                    on: { change: _vm.searchItems },
+                    on: { change: _vm.updateQuery },
                     model: {
                       value: _vm.search,
                       callback: function($$v) {

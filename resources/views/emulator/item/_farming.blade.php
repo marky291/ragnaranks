@@ -67,7 +67,7 @@
                 @endif
             @endforeach
         @else
-            <p>No Monster Drops this Item</p>
+            <p>This item cannot be farmed.</p>
         @endif
     </div>
 </div>

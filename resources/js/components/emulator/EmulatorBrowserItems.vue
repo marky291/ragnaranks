@@ -1,5 +1,5 @@
 <template>
-    <div class="tw-flex tw-flex-col tw-flex-1">
+    <div class="tw-flex tw-flex-col tw-flex-1 load-animation">
         <div class="database-item hover:tw-shadow-lg hover:tw-cursor-pointer tw-shadow tw-border tw-bg-white tw-p-4 tw-rounded tw-mb-3 tw-mx-2" v-for="item in items" :key="item.id">
             <div class="tw-flex">
                 <div class="tw-flex tw-flex-1">

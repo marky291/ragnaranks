@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Emulator\Items\Item;
 use Illuminate\Support\Facades\Cache;
 
-class EmulatorItemsController extends Controller
+class BrowserController extends Controller
 {
     public function index()
     {
@@ -14,6 +14,6 @@ class EmulatorItemsController extends Controller
 
     public function show(string $slug)
     {
-        return view('emulator.item.viewer', ['item_slug' => $slug]);
+        return view('emulator.viewer', ['item_slug' => $slug]);
     }
 }

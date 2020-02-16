@@ -56,5 +56,5 @@ Route::resource('listing.graphs', 'ListingGraphController')->only(['index']);
 Route::post('/config/parse')->uses('ConfigController@parse');
 
 
-Route::get('/database/items')->uses('EmulatorItemsController@index');
-Route::get('/database/item/{item}')->uses('EmulatorItemsController@show')->name('database.item');
+Route::get('/database')->uses('BrowserController@index');
+Route::get('/database/item/{item}')->uses('BrowserController@show')->name('database.item');
