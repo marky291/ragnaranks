@@ -22,9 +22,9 @@
                     </div>
                     <div class="browsing-list tw-mb-2">
                         <p class="browsing-item tw-py-1" v-if="item.buy">Buyable For: <b>{{ item.buy }}</b> zeny</p>
-                        <p class="browsing-item tw-py-1" v-if="item.type !== 'Unknown'">Type: <b>{{ item.type }}</b></p>
-                        <p class="browsing-item tw-py-1" v-if="item.location !== 'Unknown'">Location: <b>{{ item.location }}</b></p>
-                        <p class="browsing-item tw-py-1" v-if="item.type == 'Card'">Inserted into: <b>{{ item.composition }}</b></p>
+                        <p class="browsing-item tw-py-1" v-if="item.type !== 'unknown'">Type: <b>{{ item.type }}</b></p>
+                        <p class="browsing-item tw-py-1" v-if="item.location !== 'unknown'">Location: <b>{{ item.location }}</b></p>
+                        <p class="browsing-item tw-py-1" v-if="item.type == 'card'">Inserted into: <b>{{ item.composition }}</b></p>
                         <p class="browsing-item tw-py-0" v-if="item.sell">Sellable For: <b>{{ item.sell }}</b> zeny</p>
                         <p class="browsing-item">Weight: <b>{{ item.weight }} ea.</b></p>
                         <p class="browsing-item" v-if="item.monsterCount">Dropped by: <b>{{ item.monsterCount }} Monsters</b></p>

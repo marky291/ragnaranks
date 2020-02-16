@@ -16454,19 +16454,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      mode: 'renewal',
-      category: 'items',
-      type: 'all',
-      subtype: 'all',
-      element: 'all',
-      search: ''
+      mode: this.$route.query.mode ? this.$route.query.mode : 'renewal',
+      category: this.$route.query.category ? this.$route.query.category : 'items',
+      type: this.$route.query.type ? this.$route.query.type : 'all',
+      subtype: this.$route.query.subtype ? this.$route.query.subtype : 'all',
+      element: this.$route.query.element ? this.$route.query.element : 'all',
+      search: this.$route.query.search ? this.$route.query.search : '',
+      sorting: this.$route.query.sorting ? this.$route.query.sorting : 'id'
     };
   },
   methods: {
-    updateQuery: function updateQuery() {
+    itemQuery: function itemQuery() {
       this.$router.push({
         query: {
           mode: this.mode,
@@ -16474,9 +16477,16 @@ __webpack_require__.r(__webpack_exports__);
           type: this.type,
           subtype: this.subtype,
           element: this.element,
-          search: this.search ? this.search : 'all'
+          search: this.search ? this.search : 'all',
+          sorting: this.sorting
         }
       });
+    },
+    itemType: function itemType() {
+      this.subtype = 'all';
+      this.element = 'all';
+      this.sorting = 'id';
+      this.itemQuery();
     }
   }
 });
@@ -77596,7 +77606,7 @@ var render = function() {
               {
                 staticClass:
                   "mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none",
-                staticStyle: { color: "#545c64" }
+                staticStyle: { color: "rgb(135, 149, 161)" }
               },
               [
                 _c("option", { attrs: { value: "all" } }, [
@@ -77618,7 +77628,7 @@ var render = function() {
                 ],
                 staticClass:
                   "mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none",
-                staticStyle: { color: "#545c64" },
+                staticStyle: { color: "rgb(135, 149, 161)" },
                 on: {
                   change: [
                     function($event) {
@@ -77634,37 +77644,37 @@ var render = function() {
                         ? $$selectedVal
                         : $$selectedVal[0]
                     },
-                    _vm.updateQuery
+                    _vm.itemType
                   ]
                 }
               },
               [
                 _c("option", { attrs: { value: "all" } }, [
-                  _vm._v("Any items")
+                  _vm._v("Any Items")
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "consumable" } }, [
-                  _vm._v("Consumable items")
+                  _vm._v("Consumable Items")
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "etc" } }, [
-                  _vm._v("Etc items")
+                  _vm._v("Etc Items")
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "weapon" } }, [
-                  _vm._v("Weaponry items")
+                  _vm._v("Weaponry Items")
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "ammo" } }, [
-                  _vm._v("Ammo items")
+                  _vm._v("Ammo Items")
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "armor" } }, [
-                  _vm._v("Armory items")
+                  _vm._v("Armory Items")
                 ]),
                 _vm._v(" "),
                 _c("option", { attrs: { value: "card" } }, [
-                  _vm._v("Card items")
+                  _vm._v("Card Items")
                 ])
               ]
             ),
@@ -77683,7 +77693,7 @@ var render = function() {
                     ],
                     staticClass:
                       "mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none",
-                    staticStyle: { color: "#545c64" },
+                    staticStyle: { color: "rgb(135, 149, 161)" },
                     on: {
                       change: [
                         function($event) {
@@ -77699,21 +77709,21 @@ var render = function() {
                             ? $$selectedVal
                             : $$selectedVal[0]
                         },
-                        _vm.updateQuery
+                        _vm.itemQuery
                       ]
                     }
                   },
                   [
                     _c("option", { attrs: { value: "all" } }, [
-                      _vm._v("Any subtypes")
+                      _vm._v("Any Type")
                     ]),
                     _vm._v(" "),
                     _c("option", { attrs: { value: "regeneration" } }, [
-                      _vm._v("Regeneration subtypes")
+                      _vm._v("Regeneration")
                     ]),
                     _vm._v(" "),
                     _c("option", { attrs: { value: "special" } }, [
-                      _vm._v("Special subtypes")
+                      _vm._v("Special")
                     ])
                   ]
                 )
@@ -77733,7 +77743,7 @@ var render = function() {
                     ],
                     staticClass:
                       "mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none",
-                    staticStyle: { color: "#545c64" },
+                    staticStyle: { color: "rgb(135, 149, 161)" },
                     on: {
                       change: [
                         function($event) {
@@ -77749,13 +77759,13 @@ var render = function() {
                             ? $$selectedVal
                             : $$selectedVal[0]
                         },
-                        _vm.updateQuery
+                        _vm.itemQuery
                       ]
                     }
                   },
                   [
                     _c("option", { attrs: { value: "all" } }, [
-                      _vm._v("Any subtypes")
+                      _vm._v("Any Type")
                     ]),
                     _vm._v(" "),
                     _c("option", { attrs: { value: "sword" } }, [
@@ -77837,7 +77847,7 @@ var render = function() {
                     ],
                     staticClass:
                       "mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none",
-                    staticStyle: { color: "#545c64" },
+                    staticStyle: { color: "rgb(135, 149, 161)" },
                     on: {
                       change: [
                         function($event) {
@@ -77853,7 +77863,7 @@ var render = function() {
                             ? $$selectedVal
                             : $$selectedVal[0]
                         },
-                        _vm.updateQuery
+                        _vm.itemQuery
                       ]
                     }
                   },
@@ -77905,19 +77915,51 @@ var render = function() {
                 )
               : _vm._e(),
             _vm._v(" "),
-            _c(
-              "select",
-              {
-                staticClass:
-                  "mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none",
-                staticStyle: { color: "#545c64" }
-              },
-              [
-                _c("option", { attrs: { value: "all" } }, [
-                  _vm._v("Ordered By ID")
-                ])
-              ]
-            ),
+            _vm.type == "weapon" || _vm.type == "armor"
+              ? _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.sorting,
+                        expression: "sorting"
+                      }
+                    ],
+                    staticClass:
+                      "mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none",
+                    staticStyle: { color: "rgb(135, 149, 161)" },
+                    on: {
+                      change: [
+                        function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.sorting = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        },
+                        _vm.itemQuery
+                      ]
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "id" } }, [
+                      _vm._v("Sort By ID")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "slots" } }, [
+                      _vm._v("Sort By Slot Count")
+                    ])
+                  ]
+                )
+              : _vm._e(),
             _vm._v(" "),
             _c(
               "div",
@@ -77931,7 +77973,7 @@ var render = function() {
                       "prepend-button": "",
                       "append-button": ""
                     },
-                    on: { change: _vm.updateQuery },
+                    on: { change: _vm.itemQuery },
                     model: {
                       value: _vm.search,
                       callback: function($$v) {

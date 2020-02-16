@@ -1,6 +1,6 @@
 
 <div class="section">
-    <h2>Monsters</h2>
+    <h2>Dropped By</h2>
 
     @if (count($drops) > 0)
         <div class="tw-grid tw-grid-cols-6 tw-gap-2">

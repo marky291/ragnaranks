@@ -1,5 +1,5 @@
 <div class="section">
-    <h2>Box Contents</h2>
+    <h2>This Container Contains</h2>
 
     @if (count($item->contains) > 0)
         <div class="browsing-list tw-grid tw-grid-cols-3">

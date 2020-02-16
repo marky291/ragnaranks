@@ -5,26 +5,26 @@
         </div>
         <transition name="fade" mode="out-in">
             <div id="filters" class="d-flex tw-shadow flex-column content p-2 rounded tw-mb-6 lg:tw-mb-0">
-                <select style="color: #545c64" class="mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
+                <select style="color:rgb(135, 149, 161)" class="mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
                     <option value="all">Renewal Items</option>
                 </select>
-                <select style="color: #545c64" v-model="type"  @change="updateQuery" class="mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
-                    <option value="all">Any items</option>
-                    <option value="consumable">Consumable items</option>
-                    <option value="etc">Etc items</option>
-                    <option value="weapon">Weaponry items</option>
-                    <option value="ammo">Ammo items</option>
-                    <option value="armor">Armory items</option>
-                    <option value="card">Card items</option>
+                <select style="color:rgb(135, 149, 161)" v-model="type" @change="itemType" class="mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
+                    <option value="all">Any Items</option>
+                    <option value="consumable">Consumable Items</option>
+                    <option value="etc">Etc Items</option>
+                    <option value="weapon">Weaponry Items</option>
+                    <option value="ammo">Ammo Items</option>
+                    <option value="armor">Armory Items</option>
+                    <option value="card">Card Items</option>
                 </select>
 
-                <select style="color: #545c64" v-if="type == 'consumable'" v-model="subtype" @change="updateQuery" class="mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
-                    <option value="all">Any subtypes</option>
-                    <option value="regeneration">Regeneration subtypes</option>
-                    <option value="special">Special subtypes</option>
+                <select style="color:rgb(135, 149, 161)" v-if="type == 'consumable'" v-model="subtype" @change="itemQuery" class="mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
+                    <option value="all">Any Type</option>
+                    <option value="regeneration">Regeneration</option>
+                    <option value="special">Special</option>
                 </select>
-                <select style="color: #545c64" v-if="type == 'weapon'" v-model="subtype" @change="updateQuery" class="mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
-                    <option value="all">Any subtypes</option>
+                <select style="color:rgb(135, 149, 161)" v-if="type == 'weapon'" v-model="subtype" @change="itemQuery" class="mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
+                    <option value="all">Any Type</option>
                     <option value="sword">Swords</option>
                     <option value="two-handed sword">Two-handed swords</option>
                     <option value="dagger">Daggers</option>
@@ -44,7 +44,7 @@
                     <option value="whip">Whips</option>
                 </select>
 
-                <select style="color: #545c64" v-if="type == 'weapon'" v-model="element" @change="updateQuery" class="mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
+                <select style="color:rgb(135, 149, 161)" v-if="type == 'weapon'" v-model="element" @change="itemQuery" class="mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
                     <option value="all">Any Elements</option>
                     <option value="neutral">Only Neutral Elements</option>
                     <option value="water">Only Water Elements</option>
@@ -58,11 +58,13 @@
                     <option value="undead">Only Undead Elements</option>
                 </select>
 
-                <select style="color: #545c64" class="mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
-                    <option value="all">Ordered By ID</option>
+                <select style="color:rgb(135, 149, 161)" v-if="type == 'weapon' || type == 'armor'" v-model="sorting" @change="itemQuery" class="mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
+                    <option value="id">Sort By ID</option>
+                    <option value="slots">Sort By Slot Count</option>
                 </select>
+
                 <div class="mt-2">
-                    <at-input v-model="search" @change="updateQuery" placeholder="Search items" prepend-button append-button>
+                    <at-input v-model="search" @change="itemQuery" placeholder="Search items" prepend-button append-button>
                         <template slot="prepend">
                             <i class="icon icon-search"/>
                         </template>
@@ -78,25 +80,33 @@
     export default {
         data: function () {
             return {
-                mode: 'renewal',
-                category: 'items',
-                type: 'all',
-                subtype: 'all',
-                element: 'all',
-                search: '',
+                mode: this.$route.query.mode ? this.$route.query.mode : 'renewal',
+                category: this.$route.query.category ? this.$route.query.category : 'items',
+                type: this.$route.query.type ? this.$route.query.type : 'all',
+                subtype: this.$route.query.subtype ? this.$route.query.subtype : 'all',
+                element: this.$route.query.element ? this.$route.query.element : 'all',
+                search: this.$route.query.search ? this.$route.query.search : '',
+                sorting: this.$route.query.sorting ? this.$route.query.sorting : 'id',
             }
         },
         methods: {
-            updateQuery: function() {
+            itemQuery: function() {
                 this.$router.push({query: {
                     mode: this.mode, 
                     category: this.category, 
                     type: this.type,
                     subtype: this.subtype,
                     element: this.element,
-                    search: this.search ? this.search : 'all'
+                    search: this.search ? this.search : 'all',
+                    sorting: this.sorting,
                 }});
-            }
+            },
+            itemType: function() {
+                this.subtype = 'all';
+                this.element = 'all';
+                this.sorting = 'id';
+                this.itemQuery();
+            },
         }
     }
 </script>

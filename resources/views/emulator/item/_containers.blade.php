@@ -1,9 +1,9 @@
 <div class="section color-bg-gray tw--mx-10 tw-py-8">
     <div class="tw-px-10">
-        <h2>Containers</h2>
+        <h2>Found Inside</h2>
         
         @if (count($item->containers) > 0)
-            <div class="tw-grid tw-grid-cols-6 tw-gap-2">
+            <div class="tw-grid tw-grid-cols-6 tw-gap-2 tw-bg-white tw-rounded tw-pb-2">
                 @foreach ($item->containers as $container)
                     <div class="tw-col-span-1">
                         <a href="{{ route('database.item', $container->source) }}">

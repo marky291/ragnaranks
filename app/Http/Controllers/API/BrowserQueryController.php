@@ -42,6 +42,10 @@ class BrowserQueryController extends Controller
                 $items->where('element', $request->element);
             }
 
+            if ($request->has('sorting')) {
+                $items->orderByDesc($request->sorting);
+            }
+
             // return resource collection with pagination.
             return ItemBrowsingResource::collection($items->paginate(12));
         }

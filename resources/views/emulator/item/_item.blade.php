@@ -34,8 +34,8 @@
                 <div class="browsing-list">
                     <p class="browsing-item">Item Identifier: <b>#{{ $item->id }}</b></p>
                     <p class="browsing-item">Item Type: <b>{{ $item->type }}</b></p>
-                    @if ($item->position !== 'Unknown')<p class="browsing-item">Item Location: <b>{{ $item->position }}</b></p>@endif
-                    @if ($item->type == 'Card')<p class="browsing-item">Item Composition: <b>{{ $item->composition }}</b></p>@endif
+                    @if ($item->position !== 'unknown')<p class="browsing-item">Item Location: <b>{{ $item->position }}</b></p>@endif
+                    @if ($item->type == 'card')<p class="browsing-item">Item Composition: <b>{{ $item->composition }}</b></p>@endif
                     @if (count($item->supply))<p class="browsing-item">Buyable For: <b>{{ $item->supply->first()->price }} zeny</b></p>@endif
                     <p class="browsing-item">Total Weight: <b>{{ $item->weight }} ea.</b></p>
                     <p class="browsing-item">Dropped by: <b>{{ $item->drops->count() }} Monsters</b></p>

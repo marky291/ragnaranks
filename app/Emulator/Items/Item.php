@@ -183,21 +183,4 @@ class Item extends Model
     {
         return SlugOptions::create()->generateSlugsFrom('name')->saveSlugsTo('slug');
     }
-
-    public function getTypeAttribute()
-    {
-        return DivinePrideEnumConverter::ItemTypeId($this->itemTypeId);
-    }
-    public function getSubTypeAttribute()
-    {
-        return DivinePrideEnumConverter::ItemSubTypeId($this->itemSubTypeId);
-    }
-    public function getPositionAttribute()
-    {
-        return DivinePrideEnumConverter::LocationId($this->location, $this->itemTypeId + $this->itemSubTypeId);
-    }
-    public function getCompositionAttribute()
-    {
-        return DivinePrideEnumConverter::CompositionId($this->compositionPos);
-    }
 }

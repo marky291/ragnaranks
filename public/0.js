@@ -161,21 +161,21 @@ var render = function() {
                       ])
                     : _vm._e(),
                   _vm._v(" "),
-                  item.type !== "Unknown"
+                  item.type !== "unknown"
                     ? _c("p", { staticClass: "browsing-item tw-py-1" }, [
                         _vm._v("Type: "),
                         _c("b", [_vm._v(_vm._s(item.type))])
                       ])
                     : _vm._e(),
                   _vm._v(" "),
-                  item.location !== "Unknown"
+                  item.location !== "unknown"
                     ? _c("p", { staticClass: "browsing-item tw-py-1" }, [
                         _vm._v("Location: "),
                         _c("b", [_vm._v(_vm._s(item.location))])
                       ])
                     : _vm._e(),
                   _vm._v(" "),
-                  item.type == "Card"
+                  item.type == "card"
                     ? _c("p", { staticClass: "browsing-item tw-py-1" }, [
                         _vm._v("Inserted into: "),
                         _c("b", [_vm._v(_vm._s(item.composition))])
