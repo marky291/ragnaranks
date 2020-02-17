@@ -1,7 +1,7 @@
 <script>
 
-    Vue.component('emulator-browser-search', require('./EmulatorBrowserSearch').default);
-    Vue.component('emulator-browser-items', () => import('./EmulatorBrowserItems'));
+    Vue.component('browser-search', require('./BrowserSearch').default);
+    Vue.component('browser-items', () => import('./BrowserItems'));
 
     export default {
         data: function () {
@@ -13,7 +13,6 @@
             }
         },
         created() {
-            console.log(this.$route.query.mode);
             console.log(this.$route.query.category);
             this.fetchData()
         },

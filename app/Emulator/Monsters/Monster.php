@@ -6,12 +6,15 @@ namespace App\Emulator\Monsters;
 use App\Emulator\Map\MapSpawn;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 /**
  * Class Monster
  *
  * @property int $id
  * @property string $dbname
+ * @property string $slug
  * @property string $name
  *
  * @package App\Emulator\Monsters
@@ -19,12 +22,21 @@ use Illuminate\Support\Facades\Storage;
  */
 class Monster extends Model
 {
+    use HasSlug;
+
     /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'emulator_monsters';
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
 
     /**
      * The attributes that are mass assignable.
@@ -35,6 +47,7 @@ class Monster extends Model
         'id',
         'dbname',
         'name',
+        'slug',
     ];
 
     /**
@@ -47,6 +60,14 @@ class Monster extends Model
         return Storage::disk('spaces')->url("collection/monster/{$this->id}.png");
     }
 
+    /**
+     * Get the route to the items page.
+     */
+    public function getRouteAttribute(): string
+    {
+        return url("/database/monster/{$this->slug}");
+    }
+
     public function spawns()
     {
         return $this->hasmany(MapSpawn::class, 'monster_id', 'id');
@@ -55,5 +76,18 @@ class Monster extends Model
     public function properties()
     {
         return $this->hasone(MonsterProperties::class, 'monster_id', 'id');
+    }
+
+    public function drops()
+    {
+        return $this->hasMany(MonsterDrops::class, 'monster_id', 'id');
+    }
+
+    /**
+     * Get the options for generating the slug.
+     */
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()->generateSlugsFrom('name')->saveSlugsTo('slug');
     }
 }

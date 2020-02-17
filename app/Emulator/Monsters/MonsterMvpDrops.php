@@ -28,6 +28,13 @@ class MonsterMvpDrops extends Model
     protected $table = 'emulator_monster_mvp_drops';
 
     /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
+    
+    /**
      * The attributes that are mass assignable.
      *
      * @var array

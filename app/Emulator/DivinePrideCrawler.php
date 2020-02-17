@@ -46,14 +46,14 @@ class DivinePrideCrawler extends Command
         //     $progress->advance(1);
         // }
 
-        foreach ($items as $item) {
-            dispatch(new DivinePrideItemScraper($item, new DivinePrideRouter));
-            $progress->advance(1);
-        }
+        // foreach ($items as $item) {
+        //     dispatch(new DivinePrideItemScraper($item, new DivinePrideRouter));
+        //     $progress->advance(1);
+        // }
 
-    //    foreach ($monsters as $monster) {
-    //        dispatch(new DivinePrideMonsterScraper($monster->toArray(), new DivinePrideRouter));
-    //        $progress->advance(1);
-    //    }
+       foreach ($monsters as $monster) {
+           dispatch(new DivinePrideMonsterScraper($monster->toArray(), new DivinePrideRouter));
+           $progress->advance(1);
+       }
     }
 }

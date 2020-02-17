@@ -37,6 +37,12 @@ class MonsterDrops extends Model
      */
     protected $primaryKey = 'monster_id';
 
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = false;
 
     /**
      * The attributes that are mass assignable.

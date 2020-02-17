@@ -151,6 +151,9 @@ class Item extends Model
         return $this->attributes['description'];
     }
 
+    /**
+     * @todo: retrieved?
+     */
     public function drops()
     {
         return $this->hasMany(MonsterDrops::class,'item_id','id')->where('chance', '!=', 0)->whereServerType('Renewal');

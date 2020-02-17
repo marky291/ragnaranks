@@ -98,8 +98,10 @@ class DivinePrideMonsterScraper implements ShouldQueue
         }
 
         if ($decode['propertyTable']) {
-           MonsterProperties::firstOrCreate([
-                'monster_id' => $monster->id,
+            if($monster->id == 0) {
+                dd($link);
+            }
+           MonsterProperties::firstOrCreate(['monster_id' => $monster->id], [
                 'neutral'      => $decode['propertyTable'][0],
                 'water'      => $decode['propertyTable'][1],
                 'earth'      => $decode['propertyTable'][2],
@@ -110,7 +112,7 @@ class DivinePrideMonsterScraper implements ShouldQueue
                 'dark'      => $decode['propertyTable'][7],
                 'ghost'      => $decode['propertyTable'][8],
                 'undead'      => $decode['propertyTable'][9],
-            ]);
+           ]);
         }
 
         if (Storage::disk('spaces')->exists("/collection/monster/{$monster->id}.png") == false) {

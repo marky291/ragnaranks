@@ -46,9 +46,12 @@ Route::get('/listing/configurations', static function () {
 });
 
 Route::get('/database', 'BrowserQueryController@index');
+
 Route::get('/database/item/{item}', 'EmulatorItemController@overview');
 Route::get('/database/item/{item}/farming', 'EmulatorItemController@farming');
 Route::get('/database/item/{item}/sellers', 'EmulatorItemController@sellers');
 Route::get('/database/item/{item}/contents', 'EmulatorItemController@contents');
 Route::get('/database/item/{item}/containers', 'EmulatorItemController@containers');
 Route::get('/database/item/{item}/monsters', 'EmulatorItemController@monsters');
+
+Route::get('/database/monster/{monster}', 'Partials\MonsterPartialsController@glance');
