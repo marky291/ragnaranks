@@ -19,6 +19,13 @@ class MonsterResource extends JsonResource
             'name' => $this->name,
             'route' => $this->route,
             'image' => $this->image,
+            'dropCount' => $this->drops()->count(),
+            'spawnCount' => $this->spawns()->count(),
+            'properties' => $this->properties,
+            'race' => $this->stats->race,
+            'property' => $this->stats->element,
+            'size' => $this->stats->size,
+            'skillCount' => $this->skills()->count(),
         ];
     }
 }

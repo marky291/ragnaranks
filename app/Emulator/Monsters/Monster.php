@@ -83,6 +83,16 @@ class Monster extends Model
         return $this->hasMany(MonsterDrops::class, 'monster_id', 'id');
     }
 
+    public function stats()
+    {
+        return $this->hasone(MonsterStats::class, 'monster_id', 'id');
+    }
+
+    public function skills()
+    {
+        return $this->hasMany(MonsterSkills::class, 'monster_id', 'id');
+    }
+
     /**
      * Get the options for generating the slug.
      */

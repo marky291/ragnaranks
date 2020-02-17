@@ -87,7 +87,13 @@ class DivinePrideMonsterScraper implements ShouldQueue
             MonsterQuestObjective::firstOrCreate(['monster_id' => $monster->id, 'quest_id' => $quest]);
         }
 
-        MonsterStats::firstOrCreate(['monster_id' => $monster->id], $decode['stats']);
+        MonsterStats::updateOrCreate(['monster_id' => $monster->id], array_merge($decode['stats'], [
+            'race' => DivinePrideEnumConverter::RaceId($decode['stats']['race']),
+            'raceId' => $decode['stats']['race'],
+            'element' => DivinePrideEnumConverter::PropertyElementId($decode['stats']['element']),
+            'elementId' => $decode['stats']['element'],
+            'size'      => DivinePrideEnumConverter::ScaleToSize($decode['stats']['scale']),
+        ]));
 
         foreach ($decode['mvpdrops'] as $drop) {
             MonsterMvpDrops::firstOrCreate(['monster_id' => $monster->id, 'item_id' => $drop['itemId'], 'chance' => $drop['chance'], 'serverTypeName' => $drop['serverTypeName']], $drop);

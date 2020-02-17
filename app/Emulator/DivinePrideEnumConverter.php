@@ -133,4 +133,79 @@ class DivinePrideEnumConverter
             case 9: return 'undead';
         }
     }
+
+    public static function RaceId($id)
+    {
+        switch($id)
+        {
+            case 0: return 'formless';
+            case 1: return 'undead';
+            case 2: return 'brute';
+            case 3: return 'plant';
+            case 4: return 'insect';
+            case 5: return 'fish';
+            case 6: return 'demon';
+            case 7: return 'human';
+            case 8: return 'angel';
+            case 9: return 'dragon';
+        }
+    }
+
+    public static function PropertyElementId($id)
+    {
+        switch ($id)
+        {
+            case 0:  return 'neutral';
+            case 20:  return 'neutral 1';
+            case 21: return 'water 1';
+            case 22: return 'earth 1';
+            case 23: return 'fire 1';
+            case 24: return 'wind 1';
+            case 25: return 'poison 1';
+            case 26: return 'holy 1';
+            case 27: return 'dark 1';
+            case 28: return 'ghost 1';
+            case 29: return 'undead 1';
+            case 40: return 'neutral 2';
+            case 41: return 'water 2';
+            case 42: return 'earth 2';
+            case 43: return 'fire 2';
+            case 44: return 'wind 2';
+            case 45: return 'poison 2';
+            case 46: return 'holy 2';
+            case 47: return 'dark 2';
+            case 48: return 'ghost 2';
+            case 49: return 'undead 2';
+            case 60: return 'neutral 3';
+            case 61: return 'water 3';
+            case 62: return 'earth 3';
+            case 63: return 'fire 3';
+            case 64: return 'wind 3';
+            case 65: return 'poison 3';
+            case 66: return 'holy 3';
+            case 67: return 'dark 3';
+            case 68: return 'ghost 3';
+            case 69: return 'undead 3';
+            case 80: return 'neutral 4';
+            case 81: return 'water 4';
+            case 82: return 'earth 4';
+            case 83: return 'fire 4';
+            case 84: return 'wind 4';
+            case 85: return 'poison 4';
+            case 86: return 'holy 4';
+            case 87: return 'dark 4';
+            case 88: return 'ghost 4';
+            case 89: return 'undead 4';
+        }
+    }
+
+    public static function ScaleToSize($id)
+    {
+        switch ($id)
+        {
+            case 0: return 'small';
+            case 1: return 'medium';
+            case 2: return 'large';
+        }
+    }
 }

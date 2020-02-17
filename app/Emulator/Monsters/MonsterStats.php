@@ -32,9 +32,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property int movementSpeed
  * @property int attackSpeed
  * @property int attackedSpeed
- * @property int element
+ * @property string element
+ * @property int elementId
+ * @property string size
  * @property int scale
  * @property int race
+ * @property int raceId
  * @property int magicDefense
  * @property int hit
  * @property int flee
@@ -55,6 +58,13 @@ class MonsterStats extends Model
      * @var string
      */
     protected $table = 'emulator_monster_stats';
+
+    /**
+     * The primary key for the model.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'monster_id';
 
     /**
      * Indicates if the IDs are auto-incrementing.
@@ -94,8 +104,11 @@ class MonsterStats extends Model
         'attackSpeed',
         'attackedSpeed',
         'element',
+        'elementId',
+        'size',
         'scale',
         'race',
+        'raceId',
         'magicDefense',
         'hit',
         'flee',

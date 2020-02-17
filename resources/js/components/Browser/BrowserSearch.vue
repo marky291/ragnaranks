@@ -68,6 +68,22 @@
                     </select>
                 </div>
 
+                <div v-if="category == 'monsters'">
+                    <select style="color:rgb(135, 149, 161)" v-model="race" class="mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
+                        <option value="all">Any Race</option>
+                        <option value="formless">Formless</option>
+                        <option value="undead">Undead</option>
+                        <option value="brute">Brute</option>
+                        <option value="plant">Plant</option>
+                        <option value="insect">Insect</option>
+                        <option value="fish">Fish</option>
+                        <option value="demon">Demon</option>
+                        <option value="human">Human</option>
+                        <option value="angel">Angel</option>
+                        <option value="dragon">Dragon</option>
+                    </select>
+                </div>
+
                 <div class="mt-2">
                     <at-input v-model="search" @change="doQuery" placeholder="Search items" prepend-button append-button>
                         <template slot="prepend">
@@ -95,6 +111,7 @@
                 sorting: this.$route.query.sorting ? this.$route.query.sorting : 'id',
                 // monsters
                 mvp: this.$route.query.mvp ? this.$route.query.mvp : 'false',
+                race: this.$route.query.race ? this.$route.query.race : 'all',
             }
         },
         methods: {

@@ -2,6 +2,7 @@
 
     Vue.component('browser-search', require('./BrowserSearch').default);
     Vue.component('browser-items', () => import('./BrowserItems'));
+    Vue.component('browser-monsters', () => import('./BrowserMonsters'));
 
     export default {
         data: function () {
@@ -35,6 +36,9 @@
             changePage: function(pageNumber) {
                 this.$router.push({ query: Object.assign({}, $route.query, { page: pageNumber }) })
             },
+            currentCategory(category) {
+                return this.$route.query.category == category;
+            }
         }
     }
 </script>

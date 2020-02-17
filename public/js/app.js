@@ -15808,6 +15808,9 @@ Vue.component('browser-search', __webpack_require__(/*! ./BrowserSearch */ "./re
 Vue.component('browser-items', function () {
   return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./BrowserItems */ "./resources/js/components/Browser/BrowserItems.vue"));
 });
+Vue.component('browser-monsters', function () {
+  return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./BrowserMonsters */ "./resources/js/components/Browser/BrowserMonsters.vue"));
+});
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -15844,6 +15847,9 @@ Vue.component('browser-items', function () {
           page: pageNumber
         })
       });
+    },
+    currentCategory: function currentCategory(category) {
+      return this.$route.query.category == category;
     }
   }
 });
@@ -15942,6 +15948,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -15954,7 +15976,8 @@ __webpack_require__.r(__webpack_exports__);
       search: this.$route.query.search ? this.$route.query.search : '',
       sorting: this.$route.query.sorting ? this.$route.query.sorting : 'id',
       // monsters
-      mvp: this.$route.query.mvp ? this.$route.query.mvp : 'false'
+      mvp: this.$route.query.mvp ? this.$route.query.mvp : 'false',
+      race: this.$route.query.race ? this.$route.query.race : 'all'
     };
   },
   methods: {
@@ -15975,7 +15998,7 @@ __webpack_require__.r(__webpack_exports__);
           type: this.type,
           subtype: this.subtype,
           element: this.element,
-          search: this.search ? this.search : 'all',
+          search: this.search ? this.search : '',
           sorting: this.sorting
         }
       });
@@ -15986,7 +16009,7 @@ __webpack_require__.r(__webpack_exports__);
           mode: this.mode,
           category: this.category,
           mvp: this.mvp,
-          search: this.search ? this.search : 'all',
+          search: this.search ? this.search : '',
           sorting: this.sorting
         }
       });
@@ -77515,6 +77538,87 @@ var render = function() {
                         ]
                       )
                     : _vm._e()
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.category == "monsters"
+              ? _c("div", [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.race,
+                          expression: "race"
+                        }
+                      ],
+                      staticClass:
+                        "mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none",
+                      staticStyle: { color: "rgb(135, 149, 161)" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.race = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "all" } }, [
+                        _vm._v("Any Race")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "formless" } }, [
+                        _vm._v("Formless")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "undead" } }, [
+                        _vm._v("Undead")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "brute" } }, [
+                        _vm._v("Brute")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "plant" } }, [
+                        _vm._v("Plant")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "insect" } }, [
+                        _vm._v("Insect")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "fish" } }, [
+                        _vm._v("Fish")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "demon" } }, [
+                        _vm._v("Demon")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "human" } }, [
+                        _vm._v("Human")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "angel" } }, [
+                        _vm._v("Angel")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "dragon" } }, [
+                        _vm._v("Dragon")
+                      ])
+                    ]
+                  )
                 ])
               : _vm._e(),
             _vm._v(" "),
