@@ -37293,9 +37293,12 @@ h3 {
 }
 
 .element {
+  font-size: 11px;
   grid-column: span 1 / span 1;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
   border-radius: 0.25rem;
   margin-right: 0.5rem;
 }
@@ -37326,12 +37329,23 @@ h3 {
 }
 
 .element.dark {
+  background: #a55feb;
   color: #fff;
 }
 
 .element.holy {
   background-color: #ecc94b;
   color: #000;
+}
+
+.element.earth {
+  background: #daaf85;
+  color: #fff;
+}
+
+.element.ghost {
+  background: #aaaaaa;
+  color: #fff;
 }
 
 #rr-navbar {

@@ -162,17 +162,13 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "tw-grid tw-grid-cols-2" }, [
+            _c("div", { staticClass: "tw-grid tw-grid-cols-2 tw-mt-2" }, [
               _c("div", { staticClass: "tw-col-span-1" }, [
-                _c("p", { staticClass: "tw-font-bold tw-mb-1" }, [
-                  _vm._v("Damage Bonuses")
-                ]),
-                _vm._v(" "),
                 _c("div", { staticClass: "properties tw-flex" }, [
                   monster.properties.neutral > 100
                     ? _c("p", { staticClass: "element neutral" }, [
                         _vm._v(
-                          "Neutral: +" +
+                          "Neutral damage +" +
                             _vm._s(monster.properties.neutral) +
                             "%"
                         )
@@ -182,30 +178,29 @@ var render = function() {
                   monster.properties.water > 100
                     ? _c("p", { staticClass: "element water" }, [
                         _vm._v(
-                          "Water: +" + _vm._s(monster.properties.water) + "%"
+                          "Water damage +" +
+                            _vm._s(monster.properties.water) +
+                            "%"
                         )
                       ])
                     : _vm._e(),
                   _vm._v(" "),
                   monster.properties.earth > 100
-                    ? _c(
-                        "p",
-                        {
-                          staticClass: "element",
-                          staticStyle: { background: "#daaf85" }
-                        },
-                        [
-                          _vm._v(
-                            "Earth: +" + _vm._s(monster.properties.earth) + "%"
-                          )
-                        ]
-                      )
+                    ? _c("p", { staticClass: "element earth" }, [
+                        _vm._v(
+                          "Earth damage +" +
+                            _vm._s(monster.properties.earth) +
+                            "%"
+                        )
+                      ])
                     : _vm._e(),
                   _vm._v(" "),
                   monster.properties.fire > 100
                     ? _c("p", { staticClass: "element fire" }, [
                         _vm._v(
-                          "Fire: +" + _vm._s(monster.properties.fire) + "%"
+                          "Fire damage +" +
+                            _vm._s(monster.properties.fire) +
+                            "%"
                         )
                       ])
                     : _vm._e(),
@@ -213,7 +208,9 @@ var render = function() {
                   monster.properties.wind > 100
                     ? _c("p", { staticClass: "element wind" }, [
                         _vm._v(
-                          "Wind: +" + _vm._s(monster.properties.wind) + "%"
+                          "Wind damage +" +
+                            _vm._s(monster.properties.wind) +
+                            "%"
                         )
                       ])
                     : _vm._e(),
@@ -221,7 +218,9 @@ var render = function() {
                   monster.properties.poison > 100
                     ? _c("p", { staticClass: "element poison" }, [
                         _vm._v(
-                          "Poison +" + _vm._s(monster.properties.poison) + "%"
+                          "Poison damage +" +
+                            _vm._s(monster.properties.poison) +
+                            "%"
                         )
                       ])
                     : _vm._e(),
@@ -229,39 +228,29 @@ var render = function() {
                   monster.properties.holy > 100
                     ? _c("p", { staticClass: "element holy" }, [
                         _vm._v(
-                          "Holy: +" + _vm._s(monster.properties.holy) + "%"
+                          "Holy damage +" +
+                            _vm._s(monster.properties.holy) +
+                            "%"
                         )
                       ])
                     : _vm._e(),
                   _vm._v(" "),
                   monster.properties.dark > 100
-                    ? _c(
-                        "p",
-                        {
-                          staticClass: "element dark",
-                          staticStyle: { background: "#a55feb" }
-                        },
-                        [
-                          _vm._v(
-                            "Dark: +" + _vm._s(monster.properties.dark) + "%"
-                          )
-                        ]
-                      )
+                    ? _c("p", { staticClass: "element dark" }, [
+                        _vm._v(
+                          "Dark damage " + _vm._s(monster.properties.dark) + "%"
+                        )
+                      ])
                     : _vm._e(),
                   _vm._v(" "),
                   monster.properties.ghost > 100
-                    ? _c(
-                        "p",
-                        {
-                          staticClass: "element",
-                          staticStyle: { background: "#aaaaaa" }
-                        },
-                        [
-                          _vm._v(
-                            "Ghost: +" + _vm._s(monster.properties.ghost) + "%"
-                          )
-                        ]
-                      )
+                    ? _c("p", { staticClass: "element ghost" }, [
+                        _vm._v(
+                          "Ghost damage +" +
+                            _vm._s(monster.properties.ghost) +
+                            "%"
+                        )
+                      ])
                     : _vm._e(),
                   _vm._v(" "),
                   monster.properties.undead > 100
@@ -273,7 +262,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "Undead: +" +
+                            "Undead damage +" +
                               _vm._s(monster.properties.undead) +
                               "%"
                           )
@@ -290,6 +279,7 @@ var render = function() {
                   _c(
                     "at-button",
                     {
+                      staticClass: "tw-w-full",
                       attrs: { type: "primary", size: "small" },
                       on: {
                         click: function($event) {

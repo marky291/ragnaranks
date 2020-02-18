@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Emulator\Items\Item;
+use App\Emulator\Monsters\Monster;
 use Illuminate\Support\Facades\Cache;
 
 class BrowserController extends Controller
@@ -14,6 +15,11 @@ class BrowserController extends Controller
 
     public function show(string $slug)
     {
-        return view('emulator.viewer', ['item_slug' => $slug]);
+        return view('emulator.item-viewer', ['item_slug' => $slug]);
+    }
+
+    public function monster(Monster $monster)
+    {
+        return view('emulator.monster-viewer', ['monster' => $monster]);
     }
 }

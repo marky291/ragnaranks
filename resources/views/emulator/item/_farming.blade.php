@@ -30,7 +30,7 @@
                                                 <p class="element water">Water: +{{ $drop->monster->properties->water }}%</p>
                                             @endif
                                             @if ($drop->monster->properties->earth > 100)
-                                                <p class="element"  style="background:#daaf85">Earth: +{{ $drop->monster->properties->earth }}%</p>
+                                                <p class="element earth">Earth: +{{ $drop->monster->properties->earth }}%</p>
                                             @endif
                                             @if ($drop->monster->properties->fire > 100)
                                                 <p class="element fire">Fire: +{{ $drop->monster->properties->fire }}%</p>

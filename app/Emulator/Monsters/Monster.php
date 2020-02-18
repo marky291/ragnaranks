@@ -51,6 +51,16 @@ class Monster extends Model
     ];
 
     /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    /**
      * Get the image of the item from digital ocean spaces.
      *
      * @return string
@@ -58,6 +68,11 @@ class Monster extends Model
     public function getImageAttribute(): string
     {
         return Storage::disk('spaces')->url("collection/monster/{$this->id}.png");
+    }
+
+    public function getAnimationAttribute(): string
+    {
+        return Storage::disk('spaces')->url("collection/monster/animation/{$this->id}.gif");
     }
 
     /**

@@ -127,5 +127,8 @@ class DivinePrideMonsterScraper implements ShouldQueue
         if (Storage::disk('spaces')->exists("/collection/monster/spritesheet/{$monster->id}.png") == false) {
             Storage::disk('spaces')->put("/collection/monster/spritesheet/{$monster->id}.png", file_get_contents($this->router->getMonsterSpritesheet($monster->id)));
         }
+        if (Storage::disk('spaces')->exists("/collection/monster/animation/{$monster->id}.gif") == false){
+            Storage::disk('spaces')->put("/collection/monster/animation/{$monster->id}.gif", file_get_contents("http://file5.ratemyserver.net/mobs/{$monster->id}.gif"));
+        }
     }
 }

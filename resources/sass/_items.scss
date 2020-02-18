@@ -1,6 +1,7 @@
 
 .element {
-    @apply tw-col-span-1 tw-px-2 tw-rounded tw-mr-2;
+    font-size:11px;
+    @apply tw-col-span-1 tw-px-2 tw-py-1 tw-rounded tw-mr-2;
 
     &.wind {
         @apply tw-bg-green-500 tw-text-white;
@@ -18,9 +19,18 @@
         @apply tw-bg-gray-500 tw-text-black;
     }
     &.dark {
+        background:#a55feb;
         @apply tw-text-white;
     }
     &.holy {
         @apply tw-bg-yellow-500 tw-text-black;
+    }
+    &.earth {
+        background:#daaf85;
+        @apply tw-text-white;
+    }
+    &.ghost {
+        background:#aaaaaa;
+        @apply tw-text-white;
     }
 }
