@@ -69,18 +69,18 @@
                 </div>
 
                 <div v-if="category == 'monsters'">
-                    <select style="color:rgb(135, 149, 161)" v-model="race" class="mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
+                    <select style="color:rgb(135, 149, 161)" @change="pushRouterMonstersQuery" v-model="race"  class="mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
                         <option value="all">Any Race</option>
-                        <option value="formless">Formless</option>
-                        <option value="undead">Undead</option>
-                        <option value="brute">Brute</option>
-                        <option value="plant">Plant</option>
-                        <option value="insect">Insect</option>
-                        <option value="fish">Fish</option>
-                        <option value="demon">Demon</option>
-                        <option value="human">Human</option>
-                        <option value="angel">Angel</option>
-                        <option value="dragon">Dragon</option>
+                        <option value="formless">Formless Race</option>
+                        <option value="undead">Undead Race</option>
+                        <option value="brute">Brute Race</option>
+                        <option value="plant">Plant Race</option>
+                        <option value="insect">Insect Race</option>
+                        <option value="fish">Fish Race</option>
+                        <option value="demon">Demon Race</option>
+                        <option value="human">Human Race</option>
+                        <option value="angel">Angel Race</option>
+                        <option value="dragon">Dragon Race</option>
                     </select>
                 </div>
 
@@ -139,6 +139,7 @@
                 this.$router.push({query: {
                     mode: this.mode, 
                     category: this.category, 
+                    race: this.race,
                     mvp: this.mvp,
                     search: this.search ? this.search : '',
                     sorting: this.sorting,

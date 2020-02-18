@@ -8,6 +8,7 @@ use App\Emulator\Items\Resources\ItemBrowsingResource;
 use App\Emulator\Monsters\Monster;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\MonsterResource;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class BrowserQueryController extends Controller
@@ -76,6 +77,12 @@ class BrowserQueryController extends Controller
         
         // create a query
         $monsters = Monster::query();
+
+        if ($request->get('race') !== 'all') {
+            $monsters->whereHas('stats', function(Builder $query) use ($request) {
+                $query->where('race', '=', $request->race);
+            });
+        }
 
         if ($request->get('search') !== 'all') {
             $monsters->where('name', 'like', "%{$request->search}%");

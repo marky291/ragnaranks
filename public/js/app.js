@@ -16008,6 +16008,7 @@ __webpack_require__.r(__webpack_exports__);
         query: {
           mode: this.mode,
           category: this.category,
+          race: this.race,
           mvp: this.mvp,
           search: this.search ? this.search : '',
           sorting: this.sorting
@@ -77558,19 +77559,22 @@ var render = function() {
                         "mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none",
                       staticStyle: { color: "rgb(135, 149, 161)" },
                       on: {
-                        change: function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.race = $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        }
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.race = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          },
+                          _vm.pushRouterMonstersQuery
+                        ]
                       }
                     },
                     [
@@ -77579,43 +77583,43 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("option", { attrs: { value: "formless" } }, [
-                        _vm._v("Formless")
+                        _vm._v("Formless Race")
                       ]),
                       _vm._v(" "),
                       _c("option", { attrs: { value: "undead" } }, [
-                        _vm._v("Undead")
+                        _vm._v("Undead Race")
                       ]),
                       _vm._v(" "),
                       _c("option", { attrs: { value: "brute" } }, [
-                        _vm._v("Brute")
+                        _vm._v("Brute Race")
                       ]),
                       _vm._v(" "),
                       _c("option", { attrs: { value: "plant" } }, [
-                        _vm._v("Plant")
+                        _vm._v("Plant Race")
                       ]),
                       _vm._v(" "),
                       _c("option", { attrs: { value: "insect" } }, [
-                        _vm._v("Insect")
+                        _vm._v("Insect Race")
                       ]),
                       _vm._v(" "),
                       _c("option", { attrs: { value: "fish" } }, [
-                        _vm._v("Fish")
+                        _vm._v("Fish Race")
                       ]),
                       _vm._v(" "),
                       _c("option", { attrs: { value: "demon" } }, [
-                        _vm._v("Demon")
+                        _vm._v("Demon Race")
                       ]),
                       _vm._v(" "),
                       _c("option", { attrs: { value: "human" } }, [
-                        _vm._v("Human")
+                        _vm._v("Human Race")
                       ]),
                       _vm._v(" "),
                       _c("option", { attrs: { value: "angel" } }, [
-                        _vm._v("Angel")
+                        _vm._v("Angel Race")
                       ]),
                       _vm._v(" "),
                       _c("option", { attrs: { value: "dragon" } }, [
-                        _vm._v("Dragon")
+                        _vm._v("Dragon Race")
                       ])
                     ]
                   )
