@@ -13,7 +13,7 @@ class BrowserController extends Controller
         return view('emulator.browser');
     }
 
-    public function show(string $slug)
+    public function item(string $slug)
     {
         return view('emulator.item-viewer', ['item_slug' => $slug]);
     }

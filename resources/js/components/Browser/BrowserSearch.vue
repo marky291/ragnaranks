@@ -84,6 +84,12 @@
                     </select>
                 </div>
 
+                <div v-if="category == 'monsters'">
+                    <select style="color:rgb(135, 149, 161)" @change="pushRouterMonstersQuery" v-model="weakness"  class="mb-2 form-control-sm tw-text-sm tw-bg-panel tw-rounded-full tw-px-5 tw-py-3 tw-flex tw-items-center tw-cursor-pointer tw-leading-none">
+                        <option value="all">No weakness</option>
+                    </select>
+                </div>
+
                 <div class="mt-2">
                     <at-input v-model="search" @change="doQuery" placeholder="Search items" prepend-button append-button>
                         <template slot="prepend">
