@@ -77,6 +77,10 @@ class BrowserQueryController extends Controller
         // create a query
         $monsters = Monster::query();
 
+        if ($request->get('search') !== 'all') {
+            $monsters->where('name', 'like', "%{$request->search}%");
+        }
+
         return MonsterResource::collection($monsters->paginate(12));
     }
 }
