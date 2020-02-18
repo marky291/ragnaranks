@@ -238,7 +238,9 @@ var render = function() {
                   monster.properties.dark > 100
                     ? _c("p", { staticClass: "element dark" }, [
                         _vm._v(
-                          "Dark damage " + _vm._s(monster.properties.dark) + "%"
+                          "Dark damage +" +
+                            _vm._s(monster.properties.dark) +
+                            "%"
                         )
                       ])
                     : _vm._e(),

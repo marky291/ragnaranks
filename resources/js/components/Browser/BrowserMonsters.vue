@@ -32,7 +32,7 @@
                             <p v-if="monster.properties.wind > 100" class="element wind">Wind damage +{{ monster.properties.wind }}%</p>
                             <p v-if="monster.properties.poison > 100" class="element poison">Poison damage +{{ monster.properties.poison }}%</p>
                             <p v-if="monster.properties.holy > 100" class="element holy">Holy damage +{{ monster.properties.holy }}%</p>
-                            <p v-if="monster.properties.dark > 100" class="element dark">Dark damage {{ monster.properties.dark }}%</p>
+                            <p v-if="monster.properties.dark > 100" class="element dark">Dark damage +{{ monster.properties.dark }}%</p>
                             <p v-if="monster.properties.ghost > 100" class="element ghost">Ghost damage +{{ monster.properties.ghost }}%</p>
                             <p v-if="monster.properties.undead > 100" class="element undead" style="background:black">Undead damage +{{ monster.properties.undead }}%</p>
                         </div>
