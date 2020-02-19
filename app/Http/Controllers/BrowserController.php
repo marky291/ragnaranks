@@ -20,6 +20,6 @@ class BrowserController extends Controller
 
     public function monster(Monster $monster)
     {
-        return view('emulator.monster-viewer', ['monster' => $monster]);
+        return view('emulator.monster-viewer', ['monster' => $monster, 'properties' => $monster->properties->elements()]);
     }
 }

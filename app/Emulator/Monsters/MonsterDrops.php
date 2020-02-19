@@ -2,6 +2,7 @@
 
 namespace App\Emulator\Monsters;
 
+use App\Emulator\Items\Item;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -73,6 +74,11 @@ class MonsterDrops extends Model
     public function monster(): HasOne
     {
         return $this->hasOne(Monster::class, 'id', 'monster_id');
+    }
+
+    public function item()
+    {
+        return $this->hasOne(Item::class, 'id', 'item_id');
     }
 
     public function getRateAttribute(): float

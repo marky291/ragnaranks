@@ -3,7 +3,7 @@
 
 namespace App\Emulator\Monsters;
 
-
+use App\Emulator\Monsters\Collections\MonsterPropertiesCollection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -59,4 +59,20 @@ class MonsterProperties extends Model
         'ghost',
         'undead',
     ];
+
+    public function elements()
+    {
+        return new MonsterPropertiesCollection([
+            'neutral' => $this->neutral,
+            'water' => $this->water,
+            'earth' => $this->earth,
+            'fire' => $this->fire,
+            'wind' => $this->wind,
+            'poison' => $this->poison,
+            'holy' => $this->holy,
+            'dark' => $this->dark,
+            'ghost' => $this->ghost,
+            'undead' => $this->undead,
+        ]);
+    }
 }

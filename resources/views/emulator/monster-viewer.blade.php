@@ -23,9 +23,85 @@
             <div class="browsing-content">
                 
             <div class="load-animation">
+                <h1>{{ $monster->name }}</h1>
+                <div class="section tw-grid tw-grid-cols-3">
+                    <div class="tw-col-span-2">
+                        <div class="tw-grid tw-grid-cols-4 tw-grid-rows tw-capitalize">
+                            <div class="tw-col-span-2"><p class="tw-font-semibold">HP</p></div>
+                            <div class="tw-col-span-2"><p>{{ $monster->stats->health }}</p></div>
+                            <div class="tw-col-span-2"><p class="tw-font-semibold">Level</p></div>
+                            <div class="tw-col-span-2"><p>{{ $monster->stats->level }}</p></div>
+                            <div class="tw-col-span-2"><p class="tw-font-semibold">Hit</p></div>
+                            <div class="tw-col-span-2"><p>{{ $monster->stats->hit }}</p></div>
+                            <div class="tw-col-span-2"><p class="tw-font-semibold">Flee</p></div>
+                            <div class="tw-col-span-2"><p>{{ $monster->stats->flee }}</p></div>
+                            <div class="tw-col-span-2"><p class="tw-font-semibold">Attack</p></div>
+                            <div class="tw-col-span-2"><p>{{ $monster->stats->attack['minimum'] }} ~ {{ $monster->stats->attack['maximum'] }}</p></div>
+                            <div class="tw-col-span-2"><p class="tw-font-semibold">Magic Attack</p></div>
+                            <div class="tw-col-span-2"><p>{{ $monster->stats->magicAttack['minimum'] }} ~ {{ $monster->stats->magicAttack['maximum'] }}</p></div>
+                            <div class="tw-col-span-2"><p class="tw-font-semibold">Base Experience</p></div>
+                            <div class="tw-col-span-2"><p>Coming Soon...</p></div>
+                            <div class="tw-col-span-2"><p class="tw-font-semibold">Job Experience</p></div>
+                            <div class="tw-col-span-2"><p>Coming Soon...</p></div>
+                        </div>
+                    </div>
+                    <div class="tw-col-span-1 tw-flex tw-items-center tw-justify-center">
+                        <img src="{{ $monster->animation }}" alt="">
+                    </div>
+                </div>
+
+                <h2>Elemental Properties</h2>
+                <div class="tw-grid tw-grid-cols-2 tw-gap-8">
+                    <div class="tw-col-span-1">
+                        <h3>Stengths</h3>
+                        <div class="tw-grid tw-grid-cols-2">
+                        @foreach($properties->strengths() as $key => $strength)
+                            <p class="tw-col-span-1 element {{ $key }} tw-capitalize">{{ $key }} damage -{{ $strength }}%</p>
+                        @endforeach
+                        </div>
+                    </div>
+                    <div class="tw-col-span-1">
+                        <h3>Weakness</h3>
+                        <div class="tw-grid tw-grid-cols-2">
+                            @foreach($properties->weaknesses() as $key => $weakness)
+                                <p class="tw-col-span-1 element {{ $key }} tw-capitalize">{{ $key }} damage +{{ $weakness }}%</p>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="section color-bg-gray tw--mx-10 tw-pb-8 tw-border-b tw-mt-8">
+                    <div class="wave" style="height:47px; background: url('/img/layouts/wave-gray.png') no-repeat;"></div>
+                    <div class="tw-px-10">
+                        <h2>Quick Glance</h2>
+                        <div class="tw-shadow tw-bg-white tw-p-4">
+                            <div class="browsing-list tw-capitalize">
+                                <p class="browsing-item">Monster Identifier: <b>#{{ $monster->id }}</b></p>
+                                <p class="browsing-item">Element: <b>{{ $monster->stats->element }}</b></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="section">
-                    <h1>{{ $monster->name }}</h1>
-                    <img src="{{ $monster->image }}" alt="">
+                    <h2>Artifical Intelligence (AI)</h2>
+                </div>
+
+                <div class="section">
+                    <h2>Spawn Locations</h2>
+                </div>
+
+                <div class="section">
+                    <h2>Drops Items</h2>
+                    <div class="tw-grid tw-grid-cols-6">
+                    @foreach ($monster->drops as $drop)
+                        <div class="tw-col-span-1">
+                            <img src="{{ $drop->item->image }}" alt="" style="max-height:60px;">
+                            <p>{{ $drop->item->name }} {{ $drop->rate }}%</p>
+                        </div>
+                    @endforeach
+                    </div>
                 </div>
             </div>
 

@@ -1,36 +1,47 @@
 
 .element {
     font-size:11px;
+    text-shadow: 0px 1px rgba( 255, 255, 255, 0.2 );
     @apply tw-col-span-1 tw-px-2 tw-py-1 tw-rounded tw-mr-2;
 
     &.wind {
-        @apply tw-bg-green-500 tw-text-white;
+        color: rgba( 78, 84, 41, 1 );
+        background: rgba( 190, 224, 0, 1 );
     }
     &.fire {
-        @apply tw-bg-red-500 tw-text-white;
+        background: rgba( 239, 7, 71, 1 );
+        @apply tw-text-white;
     }
     &.poison {
-        @apply tw-bg-teal-400 tw-text-white;
+        background: rgba( 93, 42, 146, 1 );
+        @apply tw-text-white;
     }
     &.water {
-        @apply tw-bg-blue-500 tw-text-white;
+        background: rgba( 4, 165, 243, 1 );
+        @apply tw-text-white;
     }
     &.neutral {
-        @apply tw-bg-gray-500 tw-text-black;
+        color: rgba( 30, 30, 30, 0.8 );
+        background: rgba( 242, 242, 242, 1 );
     }
     &.dark {
-        background:#a55feb;
+        background:rgba( 48, 48, 48, 1 );
         @apply tw-text-white;
     }
     &.holy {
-        @apply tw-bg-yellow-500 tw-text-black;
+        color: rgba( 62, 62, 62, 1 );
+        background: rgba( 247, 181, 34, 1 );
     }
     &.earth {
-        background:#daaf85;
+        background:rgba( 130, 78, 62, 1 );
         @apply tw-text-white;
     }
     &.ghost {
-        background:#aaaaaa;
+        color: rgba( 115, 115, 115, 1 );
+        background:rgba( 197, 205, 200, 1 );
+    }
+    &.undead {
+        background: rgba( 40, 46, 84, 1 );
         @apply tw-text-white;
     }
 }

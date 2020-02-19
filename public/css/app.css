@@ -37248,8 +37248,8 @@ h3 {
 
 .browsing-content p {
   color: #4a5568;
-  font-size: 12px;
   line-height: 1.625;
+  font-size: 12px;
 }
 
 .browsing-list .browsing-item {
@@ -37294,6 +37294,7 @@ h3 {
 
 .element {
   font-size: 11px;
+  text-shadow: 0px 1px rgba(255, 255, 255, 0.2);
   grid-column: span 1 / span 1;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -37304,47 +37305,52 @@ h3 {
 }
 
 .element.wind {
-  background-color: #48bb78;
-  color: #fff;
+  color: #4e5429;
+  background: #bee000;
 }
 
 .element.fire {
-  background-color: #f56565;
+  background: #ef0747;
   color: #fff;
 }
 
 .element.poison {
-  background-color: #4fd1c5;
+  background: #5d2a92;
   color: #fff;
 }
 
 .element.water {
-  background-color: #4299e1;
+  background: #04a5f3;
   color: #fff;
 }
 
 .element.neutral {
-  background-color: #a0aec0;
-  color: #000;
+  color: rgba(30, 30, 30, 0.8);
+  background: #f2f2f2;
 }
 
 .element.dark {
-  background: #a55feb;
+  background: #303030;
   color: #fff;
 }
 
 .element.holy {
-  background-color: #ecc94b;
-  color: #000;
+  color: #3e3e3e;
+  background: #f7b522;
 }
 
 .element.earth {
-  background: #daaf85;
+  background: #824e3e;
   color: #fff;
 }
 
 .element.ghost {
-  background: #aaaaaa;
+  color: #737373;
+  background: #c5cdc8;
+}
+
+.element.undead {
+  background: #282e54;
   color: #fff;
 }
 
