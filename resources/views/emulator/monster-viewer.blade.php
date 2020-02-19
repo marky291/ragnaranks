@@ -85,23 +85,26 @@
                 </div>
 
                 <div class="section">
-                    <h2>Artifical Intelligence (AI)</h2>
-                </div>
-
-                <div class="section">
-                    <h2>Spawn Locations</h2>
-                </div>
-
-                <div class="section">
                     <h2>Drops Items</h2>
                     <div class="tw-grid tw-grid-cols-6">
                     @foreach ($monster->drops as $drop)
                         <div class="tw-col-span-1">
                             <img src="{{ $drop->item->image }}" alt="" style="max-height:60px;">
-                            <p>{{ $drop->item->name }} {{ $drop->rate }}%</p>
+                            <p><img src="{{ $drop->item->icon }}" alt=""> {{ $drop->item->name }} {{ $drop->rate }}%</p>
                         </div>
                     @endforeach
                     </div>
+                </div>
+
+                <div class="section">
+                    <h2>Spawn Locations</h2>
+                    @foreach ($monster->spawns as $spawn)
+                        <p>{{ $spawn->mapname }} {{ $spawn->amount }} {{ $spawn->respawnTime }}</p>
+                    @endforeach
+                </div>
+
+                <div class="section">
+                    <h2>Artifical Intelligence (AI)</h2>
                 </div>
             </div>
 
