@@ -61,8 +61,7 @@ class DivinePrideMapScraper implements ShouldQueue
             'mapname' => $decode['mapname'],
         ], $decode);
 
-        foreach ($decode['spawn'] as $spawn)
-        {
+        foreach ($decode['spawn'] as $spawn)  {
             $spawn = MapSpawn::updateOrCreate([
                 'monster_id' => $spawn['monsterId'],
                 'mapname'   => $map->mapname,
@@ -78,6 +77,13 @@ class DivinePrideMapScraper implements ShouldQueue
 
         foreach ($decode['mapTypes'] as $type) {
             $type = MapType::firstOrCreate(['id' => $type['id'], 'mapname' => $map->mapname, 'region' => $type['region'], 'amount' => $type['amount']]);
+        }
+
+        if (Storage::disk('spaces')->exists("/collection/map/{$map->mapname}.png") == false) {
+            Storage::disk('spaces')->put("/collection/map/{$map->mapname}.png", file_get_contents($this->router->getMapOriginal($map->mapname)));
+        }
+        if (Storage::disk('spaces')->exists("/collection/map/raw/{$map->mapname}.png") == false) {
+            Storage::disk('spaces')->put("/collection/map/raw/{$map->mapname}.png", file_get_contents($this->router->getMapRaw($map->mapname)));
         }
     }
 }

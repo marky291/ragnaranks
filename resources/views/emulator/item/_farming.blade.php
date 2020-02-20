@@ -12,7 +12,7 @@
                             </div> -->
                             <div class="tw-col-span-5 tw-bg-white tw-py-3">
                                 <div class="tw-mb-2">
-                                    <h3><a href="">{{ $drop->monster->name }}</a> at {{ $drop->rate }}%</h3>
+                                    <h3><a href="{{ route('database.monster', $drop->monster) }}">{{ $drop->monster->name }}</a> at {{ $drop->rate }}%</h3>
                                     <div class="browsing-list">
                                         @foreach ($drop->monster->spawns->sortByAmount()->take(2) as $spawn)
                                             <p class="browsing-item"><b>{{ $spawn->mapname }}</b> -- spawns {{ $spawn->amount }} mobs</p>

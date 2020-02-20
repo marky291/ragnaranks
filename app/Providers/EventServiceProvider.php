@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Emulator\Items\Events\ViewedBrowserItem;
 use App\Listings\Clicks\WebsiteWasClicked;
 use App\Listings\Votes\ListingWasVoted;
 use Illuminate\Support\Facades\Event;
@@ -20,6 +21,9 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+        ],
+        ViewedBrowserItem::class => [
+            //
         ],
         ListingWasVoted::class => [
             RankPositionComparator::class,
