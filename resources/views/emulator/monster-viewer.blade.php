@@ -53,7 +53,7 @@
                 <h2>Elemental Properties</h2>
                 <div class="tw-grid tw-grid-cols-2 tw-gap-8">
                     <div class="tw-col-span-1">
-                        <h3>Stengths</h3>
+                        <h3>Resistance</h3>
                         <div class="tw-grid tw-grid-cols-2">
                         @foreach($properties->strengths() as $key => $strength)
                             <p class="tw-col-span-1 element {{ $key }} tw-capitalize">{{ $key }} damage -{{ $strength }}%</p>
@@ -78,7 +78,7 @@
                         <div class="tw-shadow tw-bg-white tw-p-4">
                             <div class="browsing-list tw-capitalize">
                                 <p class="browsing-item">Monster Identifier: <b>#{{ $monster->id }}</b></p>
-                                <p class="browsing-item">Element: <b>{{ $monster->stats->element }}</b></p>
+                                <p class="browsing-item">Monster DBName: <b>{{ $monster->dbname }}</b></p>
                             </div>
                         </div>
                     </div>
@@ -86,35 +86,43 @@
 
                 <div class="section">
                     <h2>Drops Items</h2>
-                    <div class="tw-grid tw-grid-cols-6">
-                    @foreach ($monster->drops as $drop)
-                        <a href="{{ route('database.item', $drop->item) }}">
-                            <div class="tw-col-span-1">
-                                <img src="{{ $drop->item->image }}" alt="" style="max-height:60px;">
-                                <p><img src="{{ $drop->item->icon }}" alt=""> {{ $drop->item->name }} {{ $drop->rate }}%</p>
-                            </div>
-                        </a>
-                    @endforeach
+                    <div class="showcase">
+                        @foreach ($monster->drops as $drop)
+                            <a href="{{ route('database.item', $drop->item) }}">
+                                <div class="show item">
+                                    <img src="{{ $drop->item->image }}" alt="{{ $drop->item->name }}">
+                                    <p>{{ $drop->item->name }}</p>
+                                    <p>{{ $drop->rate }}%</p>
+                                </div>
+                            </a>
+                        @endforeach
                     </div>
                 </div>
 
                 <div class="section">
                     <h2>Spawn Locations</h2>
+                    <div class="showcase">
                     @foreach ($monster->spawns as $spawn)
-                        <p>{{ $spawn->mapname }} {{ $spawn->amount }} {{ $spawn->respawnTime }}</p>
+                        <div class="show">
+                            <img src="{{ $spawn->map->image }}" alt="">
+                            <p>{{ $spawn->mapname }}</p>
+                            <p>{{ $spawn->amount }} Monsters</p>
+                            <p>{{ $spawn->time }}</p>
+                        </div>
                     @endforeach
+                    </div>
                 </div>
 
                 <div class="section">
                     <h2>Stats</h2>
                 </div>
 
-                <div class="section">
+                <!-- <div class="section">
                     <h2>Experience Yields</h2>
-                </div>
+                </div> -->
 
                 <div class="section">
-                    <h2>Artifical Intelligence (AI)</h2>
+                    <h2>AI Modes</h2>
                 </div>
             </div>
 

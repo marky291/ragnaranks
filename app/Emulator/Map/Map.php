@@ -3,6 +3,7 @@
 namespace App\Emulator\Map;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class Map
@@ -49,4 +50,8 @@ class Map extends Model
         'mapType',
     ];
 
+    public function getImageAttribute()
+    {
+        return Storage::disk('spaces')->url("collection/map/{$this->mapname}.png");
+    }
 }

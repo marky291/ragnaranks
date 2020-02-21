@@ -59,7 +59,7 @@ class ItemContains extends Model
         return $this->hasOne(Item::class, 'id', 'sourceId');
     }
 
-    public function getChance()
+    public function getRateAttribute()
     {
         return $this->chance / 100;
     }

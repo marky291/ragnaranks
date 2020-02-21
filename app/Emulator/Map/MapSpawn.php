@@ -3,7 +3,7 @@
 
 namespace App\Emulator\Map;
 
-
+use \Str;
 use Illuminate\Database\Eloquent\Model;
 use App\Emulator\Map\Collections\MapSpawnCollection;
 use App\Emulator\Monsters\Monster;
@@ -51,8 +51,18 @@ class MapSpawn extends Model
         return new MapSpawnCollection($models);
     }
 
+    public function map()
+    {
+        return $this->hasOne(Map::class, 'mapname', 'mapname');
+    }
+
     public function monster()
     {
         return $this->hasOne(Monster::class, 'id', 'monster_id');
+    }
+
+    public function getTimeAttribute()
+    {
+        return $this->respawnTime;
     }
 }

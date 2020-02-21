@@ -8,7 +8,7 @@
                     <span class="tw-flex tw-items-center">
                         <img src="{{$content->item->icon}}" alt="" class="tw-mr-2"> <a href="{{ route('database.item', $content->item) }} ">{{ $content->targetName }}</a> 
                     </span>
-                    <b>{{ $content->getChance() }}%</b>
+                    <b>{{ $content->rate }}%</b>
                 </p>
             @endforeach
         </div>
