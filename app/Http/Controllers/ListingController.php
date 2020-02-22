@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Emulator\DivineCrawler;
-use App\Emulator\DivinePrideItemCollection;
-use App\Emulator\Items\ItemLookup;
 use App\Tag;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\View\View;
 use App\Listings\Listing;
 use App\Listings\ListingRanking;
@@ -19,7 +15,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use App\Listings\ListingConfiguration;
 use App\Http\Requests\StoreListingRequest;
-use Symfony\Component\Console\Helper\ProgressBar;
 
 /**
  * Class ListingController.

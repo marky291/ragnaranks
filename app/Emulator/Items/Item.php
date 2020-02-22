@@ -2,7 +2,7 @@
 
 namespace App\Emulator\Items;
 
-use App\Emulator\DivinePrideEnumConverter;
+use App\Viewable;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use App\Emulator\Monsters\MonsterDrops;
@@ -177,6 +177,14 @@ class Item extends Model
     public function moveinfo()
     {
         return $this->hasOne(ItemMoveInfo::class,'item_id', 'id');
+    }
+
+    /**
+     * Get all of the post's comments.
+     */
+    public function views()
+    {
+        return $this->morphMany(Viewable::class, 'viewable');
     }
 
     /**

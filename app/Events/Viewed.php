@@ -1,22 +1,19 @@
 <?php
 
-namespace App\Emulator\Items\Events;
+namespace App\Events;
 
-use App\Emulator\Items\Item;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class ViewedBrowserItem
+class Viewed
 {
-    /**
-     * @var Item
-     */
-    private $item;
+    public $model;
 
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -25,9 +22,9 @@ class ViewedBrowserItem
      *
      * @return void
      */
-    public function __construct(Item $item)
+    public function __construct(Model $model)
     {
-        $this->item = $item;
+        $this->model = $model;
     }
 
     /**

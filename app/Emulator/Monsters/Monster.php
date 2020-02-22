@@ -4,6 +4,7 @@
 namespace App\Emulator\Monsters;
 
 use App\Emulator\Map\MapSpawn;
+use App\Viewable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Sluggable\HasSlug;
@@ -106,6 +107,14 @@ class Monster extends Model
     public function skills()
     {
         return $this->hasMany(MonsterSkills::class, 'monster_id', 'id');
+    }
+
+    /**
+     * Get all of the post's comments.
+     */
+    public function views()
+    {
+        return $this->morphMany(Viewable::class, 'viewable');
     }
 
     /**
