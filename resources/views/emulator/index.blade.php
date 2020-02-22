@@ -27,9 +27,9 @@
                     <div class="tw-px-4 lg:tw-w-2/3 tw-flex tw-flex-col">
 
                         <div v-if="loading" class="loading">
-                            @include('emulator.placeholders._browser-item')
-                            @include('emulator.placeholders._browser-item')
-                            @include('emulator.placeholders._browser-item')
+                            @include('emulator._item-loader')
+                            @include('emulator._item-loader')
+                            @include('emulator._item-loader')
                         </div>
 
                         <div v-if="error" class="error">

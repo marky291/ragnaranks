@@ -25,7 +25,7 @@
                     {!! $item_partial_cache !!}
                 @else
                     <include-fragment src="/api/database/item/{{$item_slug}}">
-                        @include('sidebar._listing-placeholder')
+                        @include('emulator._item-loader')
                     </include-fragment>
                 @endif
             </div>

@@ -12,7 +12,7 @@ class BrowserController extends Controller
 {
     public function index()
     {
-        return view('emulator.index.');
+        return view('emulator.index');
     }
 
     public function item(Item $item)

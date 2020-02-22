@@ -16,9 +16,12 @@ class ItemController extends Controller
      */
     public function partial(string $slug)
     {
-        return cache()->remember("partials.item.{$slug}", now()->addSeconds(50), static function() use ($slug) {
+        return cache()->remember("partials.item.{$slug}", now()->addSeconds(0), static function() use ($slug) 
+        {
+            $item = Item::with(['drops.monster.spawns', 'contains.item', 'containers.source'])->whereSlug($slug)->first();
+
             return view('emulator._item-loaded', [
-                'item' => Item::whereSlug($slug)->first()
+                'item' => $item
             ])->render();
         });
     }
