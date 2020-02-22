@@ -18,7 +18,7 @@ class ItemController extends Controller
     {
         return cache()->remember("partials.item.{$slug}", now()->addSeconds(0), static function() use ($slug) 
         {
-            $item = Item::with(['drops.monster.spawns', 'contains.item', 'containers.source'])->whereSlug($slug)->first();
+            $item = Item::with(['drops.monster.spawns', 'drops.monster.properties', 'supply.npc.map', 'contains.item', 'containers.source'])->whereSlug($slug)->first();
 
             return view('emulator._item-loaded', [
                 'item' => $item
