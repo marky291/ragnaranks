@@ -79,7 +79,7 @@ class DivinePrideItemScraper implements ShouldQueue
             'script' => $this->lookup->script,
             'type' => DivinePrideEnumConverter::ItemTypeId($decode['itemTypeId']),
             'subType' => DivinePrideEnumConverter::ItemSubTypeId($decode['itemSubTypeId']),
-            'position' => DivinePrideEnumConverter::LocationId($decode['location'], $decode['itemTypeId'] + $decode['itemSubTypeId']),
+            'placement' => DivinePrideEnumConverter::LocationId($decode['location'], $decode['itemTypeId'] + $decode['itemSubTypeId']),
             'element' => DivinePrideEnumConverter::ElementFromProperty($decode['attribute']),
             'composition' => $decode['itemTypeId'] == 6 ? DivinePrideEnumConverter::CompositionId($decode['compositionPos']) : 'none',
             'description' => $decode['description'] ? $this->convertColorCodes($decode['description']) : $decode['description'],

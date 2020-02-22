@@ -41,15 +41,15 @@ class DivinePrideCrawler extends Command
         $maps     = collect(MapIndex::$maps);
         $progress = new ProgressBar($this->getOutput(), $items->count() + $monsters->count() + $maps->count());
 
-        foreach ($maps as $map) {
-            dispatch(new DivinePrideMapScraper($map, new DivinePrideRouter()));
-            $progress->advance(1);
-        }
-
-        // foreach ($items as $item) {
-        //     dispatch(new DivinePrideItemScraper($item, new DivinePrideRouter));
+        // foreach ($maps as $map) {
+        //     dispatch(new DivinePrideMapScraper($map, new DivinePrideRouter()));
         //     $progress->advance(1);
         // }
+
+        foreach ($items as $item) {
+            dispatch(new DivinePrideItemScraper($item, new DivinePrideRouter));
+            $progress->advance(1);
+        }
 
     //    foreach ($monsters as $monster) {
     //        dispatch(new DivinePrideMonsterScraper($monster->toArray(), new DivinePrideRouter));

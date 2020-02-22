@@ -31,13 +31,13 @@
         <div class="tw-px-10">
             <h2>Quick Glance</h2>
             <div class="tw-shadow tw-bg-white tw-p-4">
-                <div class="browsing-list">
+                <div class="browsing-list tw-capitalize">
                     <p class="browsing-item">Item Identifier: <b>#{{ $item->id }}</b></p>
                     <p class="browsing-item">Item Type: <b>{{ $item->type }}</b></p>
-                    @if ($item->position !== '')<p class="browsing-item">Item Location: <b>{{ $item->position }}</b></p>@endif
+                    @if ($item->placement !== 'unknown')<p class="browsing-item">Item Location: <b>{{ $item->placement }}</b></p>@endif
                     @if ($item->type == 'card')<p class="browsing-item">Item Composition: <b>{{ $item->composition }}</b></p>@endif
                     @if (count($item->supply))<p class="browsing-item">Buyable For: <b>{{ $item->supply->first()->price }} zeny</b></p>@endif
-                    <p class="browsing-item">Total Weight: <b>{{ $item->weight }} ea.</b></p>
+                    <p class="browsing-item">Total Weight: <b>{{ $item->weight }} each</b></p>
                     <p class="browsing-item">Dropped by: <b>{{ $item->drops->count() }} Monsters</b></p>
                     <p class="browsing-item">Sold By: <b>{{ $item->supply->count() }} Vendors</b></p>
                     <p class="browsing-item">Contained In: <b>{{ $item->containers->count() }} Boxes</b></p>
@@ -133,7 +133,6 @@
                                 <p class="tw-mb-2">{{ $supply->npc->map->name }}</h3>
                                 <h3>{{ ucfirst($supply->npc->type) }} sells at {{ $supply->price }} zeny</h3>
                                 <p>{{ $supply->npc->navigation }}</small>
-                                <small>{{ $supply->npc->map->mapType }}</small>
                             </div>
                         </div>
                     @endforeach
