@@ -132,6 +132,7 @@
                 this.pushRouterItemsQuery();
             },
             pushRouterItemsQuery: function() {
+                this.beforeLoadingRoute();
                 this.$router.push({query: {
                     mode: this.mode, 
                     category: this.category, 
@@ -141,8 +142,10 @@
                     search: this.search ? this.search : '',
                     sorting: this.sorting,
                 }});
+
             },
             pushRouterMonstersQuery: function() {
+                this.beforeLoadingRoute();
                 this.$router.push({query: {
                     mode: this.mode, 
                     category: this.category, 
@@ -152,6 +155,9 @@
                     sorting: this.sorting,
                 }});
             },
+            beforeLoadingRoute() {
+                document.getElementById('rr-navbar').scrollIntoView();
+            }
         }
     }
 </script>

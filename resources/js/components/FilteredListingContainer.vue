@@ -87,7 +87,7 @@
             },
             incrementClick: function(listing) {
                 axios.post(`/listing/${listing.slug}/clicks`).then((response) => {
-                    //
+                    // dont do anything after the click.
                 });
                 ga('send', 'event', 'website', 'clicked', this.listing.name);
             },

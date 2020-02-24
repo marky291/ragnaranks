@@ -35,22 +35,16 @@ class BrowserQueryController extends Controller
         // generate a query starting point.
         $items = Item::query();
 
-        // search filtering.
-        if ($request->get('search') !== '') {
-            $items->where('name', 'like', "%{$request->search}%");
-            $items->orWhere('description', 'like', "%{$request->search}%");
-        }
-
         if ($request->get('type') !== 'all') {
-            $items->where('type', $request->type);
+            $items->whereType($request->type);
         }
 
         if ($request->get('subtype') !== 'all') {
-            $items->where('subtype', $request->subtype);
+            $items->whereSubType($request->subtype);
         }
 
         if ($request->get('element') !== 'all') {
-            $items->where('element', $request->element);
+            $items->whereElement($request->element);
         }
 
         if ($request->has('sorting')) {
@@ -63,6 +57,12 @@ class BrowserQueryController extends Controller
             } else {
                 $items->orderBy($request->sorting);
             }
+        }
+
+        //search filtering.
+        if ($request->get('search') !== 'all') {
+            $items->where('name', 'like', "%{$request->search}%");
+            // $items->orWhere('description', 'like', "%{$request->search}%");
         }
 
         // return resource collection with pagination.

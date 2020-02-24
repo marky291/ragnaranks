@@ -15892,7 +15892,7 @@ __webpack_require__.r(__webpack_exports__);
       return 'homepage.card.review.fresh';
     },
     incrementClick: function incrementClick(listing) {
-      axios.post("/listing/".concat(listing.slug, "/clicks")).then(function (response) {//
+      axios.post("/listing/".concat(listing.slug, "/clicks")).then(function (response) {// dont do anything after the click.
       });
       ga('send', 'event', 'website', 'clicked', this.listing.name);
     },

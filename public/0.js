@@ -326,6 +326,7 @@ __webpack_require__.r(__webpack_exports__);
       this.pushRouterItemsQuery();
     },
     pushRouterItemsQuery: function pushRouterItemsQuery() {
+      this.beforeLoadingRoute();
       this.$router.push({
         query: {
           mode: this.mode,
@@ -339,6 +340,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     pushRouterMonstersQuery: function pushRouterMonstersQuery() {
+      this.beforeLoadingRoute();
       this.$router.push({
         query: {
           mode: this.mode,
@@ -349,6 +351,9 @@ __webpack_require__.r(__webpack_exports__);
           sorting: this.sorting
         }
       });
+    },
+    beforeLoadingRoute: function beforeLoadingRoute() {
+      document.getElementById('rr-navbar').scrollIntoView();
     }
   }
 });
