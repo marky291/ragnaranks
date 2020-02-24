@@ -35,19 +35,19 @@ class BrowserQueryController extends Controller
         // generate a query starting point.
         $items = Item::query();
 
-        if ($request->get('type') !== 'all') {
+        if ($request->has('type') && $request->get('type') !== 'all') {
             $items->whereType($request->type);
         }
 
-        if ($request->get('subtype') !== 'all') {
+        if ($request->has('subtype') && $request->get('subtype') !== 'all') {
             $items->whereSubType($request->subtype);
         }
 
-        if ($request->get('element') !== 'all') {
+        if ($request->has('element') && $request->get('element') !== 'all') {
             $items->whereElement($request->element);
         }
 
-        if ($request->has('sorting')) {
+        if ($request->has('sorting') && $request->has('sorting')) {
             if ($request->sorting == 'slots') {
                 $items->orderByDesc($request->sorting);
             } else if ($request->sorting == 'zeny') {
@@ -60,7 +60,7 @@ class BrowserQueryController extends Controller
         }
 
         //search filtering.
-        if ($request->get('search') !== 'all') {
+        if ($request->has('search') && $request->get('search') !== 'all') {
             $items->where('name', 'like', "%{$request->search}%");
             // $items->orWhere('description', 'like', "%{$request->search}%");
         }
