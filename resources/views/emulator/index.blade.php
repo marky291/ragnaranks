@@ -22,6 +22,11 @@
                 <div class="tw-pb-5 tw-pt-2 tw-flex">
                     <div class="tw-hidden lg:tw-block tw-px-3 lg:tw-w-1/3" id="sidebar">
                         @include('sidebar.message')
+                        <a href="{{ route('index') }}">
+                            <div class="tw-px-6 tw-py-6 tw-mt-4 tw-bg-white tw-shadow tw-rounded">
+                                <h2 class="tw-font-semibold tw-mb-0">Server Search</h2>
+                            </div>
+                        </a>
                         <browser-search></browser-search>
                     </div>
                     <div class="tw-px-4 lg:tw-w-2/3 tw-flex tw-flex-col">
