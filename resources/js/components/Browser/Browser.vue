@@ -1,8 +1,8 @@
 <script>
 
     Vue.component('browser-search', require('./BrowserSearch').default);
-    Vue.component('browser-items', () => import('./BrowserItems'));
-    Vue.component('browser-monsters', () => import('./BrowserMonsters'));
+    Vue.component('browser-monsters', require('./BrowserMonsters').default);
+    Vue.component('browser-items', require('./BrowserItems').default);
 
     export default {
         data: function () {

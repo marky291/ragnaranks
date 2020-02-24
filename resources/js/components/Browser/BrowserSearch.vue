@@ -118,6 +118,7 @@
                 // monsters
                 mvp: this.$route.query.mvp ? this.$route.query.mvp : 'false',
                 race: this.$route.query.race ? this.$route.query.race : 'all',
+                weakness: this.$route.query.weakness ? this.$route.query.weakness : 'none',
             }
         },
         methods: {

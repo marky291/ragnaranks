@@ -82,7 +82,7 @@ Vue.component('account-notification-component', require('./components/AccountNot
 Vue.component('report-tool-component', require('./components/ReportToolComponent').default);
 
 
-Vue.component('browser', require('./components/Browser/Browser').default);
+Vue.component('browser', () => import('./components/Browser/Browser'));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

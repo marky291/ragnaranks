@@ -44,7 +44,7 @@
                             </div> -->
 
                             <browser-monsters v-if="currentCategory('monsters')" :monsters="post.data"></browser-monsters>
-                            <browser-items v-else="currentCategory('items')" :items="post.data"></browser-items>
+                            <browser-items v-else :items="post.data"></browser-items>
 
                             <div v-if="post.meta.total > 0" class="tw-flex tw-flex-row tw-bg-transparent tw-rounded tw-border tw-border-gray-300 tw-mb-6 lg:tw-mb-2 tw-shadow tw-items-center tw-py-2 tw-px-4 tw-justify-between tw-bg-white">
                                 <at-button :disabled="post.links.prev == null" @click="$router.push({ query: Object.assign({}, $route.query, { page: post.meta.current_page -1 }) })" size="normal" type="primary">« Prev</at-button>
