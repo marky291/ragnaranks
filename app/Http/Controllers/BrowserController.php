@@ -29,6 +29,9 @@ class BrowserController extends Controller
     {
         Event::dispatch(new Viewed($monster));
         
-        return view('emulator.monster', ['monster' => $monster, 'properties' => $monster->properties->elements()]);
+        return view('emulator.monster', [
+            'monster' => $monster, 
+            'properties' => $monster->properties->elements()
+        ]);
     }
 }

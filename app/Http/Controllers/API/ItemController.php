@@ -16,7 +16,7 @@ class ItemController extends Controller
      */
     public function partial(string $slug)
     {
-        return cache()->remember("partials.item.{$slug}", now()->addSeconds(0), static function() use ($slug) 
+        return cache()->remember("partials.item.{$slug}", now()->addMinutes(5), static function() use ($slug) 
         {
             $item = Item::with(['drops.monster.spawns', 'drops.monster.properties', 'supply.npc.map', 'contains.item', 'containers.source'])->whereSlug($slug)->first();
 
