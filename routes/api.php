@@ -30,9 +30,6 @@ Route::middleware('auth:api')->get('{listing}/graph/clicks', 'ListingGraphContro
 Route::get('/servers/{exp_group}/{mode}/{tag}/{sort}/{limit}', 'ListingFilteringController@filters');
 
 
-Route::get('/partials/latest-servers', 'SidebarController@servers');
-Route::get('/partials/latest-reviews', 'SidebarController@reviews');
-
 Route::get('/listing/configurations', static function () {
     return cache()->remember('listing:configurations', 120, static function () {
         return array_merge(
@@ -44,6 +41,10 @@ Route::get('/listing/configurations', static function () {
         );
     });
 });
+
+Route::get('/partials/latest-servers', 'SidebarController@servers');
+Route::get('/partials/latest-reviews', 'SidebarController@reviews');
+Route::get('/partials/trending-items', 'SidebarController@trendingItems');
 
 Route::get('/database', 'BrowserQueryController@index');
 Route::get('/database/item/{item}', 'ItemController@partial');

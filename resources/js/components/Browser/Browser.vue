@@ -14,8 +14,7 @@
             }
         },
         created() {
-            console.log(this.$route.query.category);
-            this.fetchData()
+            this.fetchData();
         },
         watch: {
             '$route': 'fetchData'

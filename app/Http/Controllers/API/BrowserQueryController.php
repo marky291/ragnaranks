@@ -22,6 +22,8 @@ class BrowserQueryController extends Controller
         if ($this->category($request, 'monsters')) {
             return $this->queryMonsterDatabase($request);
         }
+
+        return $this->queryItemDatabase($request);
     }
 
     private function category(Request $request, string $category) {
@@ -30,12 +32,6 @@ class BrowserQueryController extends Controller
 
     private function queryItemDatabase(Request $request)
     {
-        // mode     - renewal/pre
-        // category - items/mobs
-        // type     - item type
-        // element  - matches element
-        // search   - user input
-
         // generate a query starting point.
         $items = Item::query();
 

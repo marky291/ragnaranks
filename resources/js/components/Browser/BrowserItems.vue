@@ -20,7 +20,7 @@
                         <p class="tw-font-bold tw-text-md" style="font-size:13px">Quick Glance</p>
                         <img class="tw-mr-2" :src="item.icon" alt="">
                     </div>
-                    <div class="browsing-list tw-mb-2">
+                    <div class="browsing-list tw-mb-2 tw-capitalize">
                         <p class="browsing-item tw-py-1" v-if="item.buy">Buyable For: <b>{{ item.buy }}</b> zeny</p>
                         <p class="browsing-item tw-py-1" v-if="item.type !== 'unknown'">Type: <b>{{ item.type }}</b></p>
                         <p class="browsing-item tw-py-1" v-if="item.location !== 'unknown'">Location: <b>{{ item.location }}</b></p>

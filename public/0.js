@@ -152,76 +152,80 @@ var render = function() {
                   ]
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "browsing-list tw-mb-2" }, [
-                  item.buy
-                    ? _c("p", { staticClass: "browsing-item tw-py-1" }, [
-                        _vm._v("Buyable For: "),
-                        _c("b", [_vm._v(_vm._s(item.buy))]),
-                        _vm._v(" zeny")
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  item.type !== "unknown"
-                    ? _c("p", { staticClass: "browsing-item tw-py-1" }, [
-                        _vm._v("Type: "),
-                        _c("b", [_vm._v(_vm._s(item.type))])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  item.location !== "unknown"
-                    ? _c("p", { staticClass: "browsing-item tw-py-1" }, [
-                        _vm._v("Location: "),
-                        _c("b", [_vm._v(_vm._s(item.location))])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  item.type == "card"
-                    ? _c("p", { staticClass: "browsing-item tw-py-1" }, [
-                        _vm._v("Inserted into: "),
-                        _c("b", [_vm._v(_vm._s(item.composition))])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  item.sell
-                    ? _c("p", { staticClass: "browsing-item tw-py-0" }, [
-                        _vm._v("Sellable For: "),
-                        _c("b", [_vm._v(_vm._s(item.sell))]),
-                        _vm._v(" zeny")
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "browsing-item" }, [
-                    _vm._v("Weight: "),
-                    _c("b", [_vm._v(_vm._s(item.weight) + " ea.")])
-                  ]),
-                  _vm._v(" "),
-                  item.monsterCount
-                    ? _c("p", { staticClass: "browsing-item" }, [
-                        _vm._v("Dropped by: "),
-                        _c("b", [
-                          _vm._v(_vm._s(item.monsterCount) + " Monsters")
+                _c(
+                  "div",
+                  { staticClass: "browsing-list tw-mb-2 tw-capitalize" },
+                  [
+                    item.buy
+                      ? _c("p", { staticClass: "browsing-item tw-py-1" }, [
+                          _vm._v("Buyable For: "),
+                          _c("b", [_vm._v(_vm._s(item.buy))]),
+                          _vm._v(" zeny")
                         ])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  item.merchantCount
-                    ? _c("p", { staticClass: "browsing-item" }, [
-                        _vm._v("Sold By: "),
-                        _c("b", [
-                          _vm._v(_vm._s(item.merchantCount) + " Vendors")
+                      : _vm._e(),
+                    _vm._v(" "),
+                    item.type !== "unknown"
+                      ? _c("p", { staticClass: "browsing-item tw-py-1" }, [
+                          _vm._v("Type: "),
+                          _c("b", [_vm._v(_vm._s(item.type))])
                         ])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  item.containerCount
-                    ? _c("p", { staticClass: "browsing-item" }, [
-                        _vm._v("Contained In: "),
-                        _c("b", [
-                          _vm._v(_vm._s(item.containerCount) + " Boxes")
+                      : _vm._e(),
+                    _vm._v(" "),
+                    item.location !== "unknown"
+                      ? _c("p", { staticClass: "browsing-item tw-py-1" }, [
+                          _vm._v("Location: "),
+                          _c("b", [_vm._v(_vm._s(item.location))])
                         ])
-                      ])
-                    : _vm._e()
-                ]),
+                      : _vm._e(),
+                    _vm._v(" "),
+                    item.type == "card"
+                      ? _c("p", { staticClass: "browsing-item tw-py-1" }, [
+                          _vm._v("Inserted into: "),
+                          _c("b", [_vm._v(_vm._s(item.composition))])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    item.sell
+                      ? _c("p", { staticClass: "browsing-item tw-py-0" }, [
+                          _vm._v("Sellable For: "),
+                          _c("b", [_vm._v(_vm._s(item.sell))]),
+                          _vm._v(" zeny")
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "browsing-item" }, [
+                      _vm._v("Weight: "),
+                      _c("b", [_vm._v(_vm._s(item.weight) + " ea.")])
+                    ]),
+                    _vm._v(" "),
+                    item.monsterCount
+                      ? _c("p", { staticClass: "browsing-item" }, [
+                          _vm._v("Dropped by: "),
+                          _c("b", [
+                            _vm._v(_vm._s(item.monsterCount) + " Monsters")
+                          ])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    item.merchantCount
+                      ? _c("p", { staticClass: "browsing-item" }, [
+                          _vm._v("Sold By: "),
+                          _c("b", [
+                            _vm._v(_vm._s(item.merchantCount) + " Vendors")
+                          ])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    item.containerCount
+                      ? _c("p", { staticClass: "browsing-item" }, [
+                          _vm._v("Contained In: "),
+                          _c("b", [
+                            _vm._v(_vm._s(item.containerCount) + " Boxes")
+                          ])
+                        ])
+                      : _vm._e()
+                  ]
+                ),
                 _vm._v(" "),
                 _c(
                   "at-button",

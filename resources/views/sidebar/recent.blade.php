@@ -8,7 +8,7 @@
                 {!! $cachedLatestServersPartial !!}
             @else
                 <include-fragment src="/api/partials/latest-servers">
-                    @include('sidebar._listing-placeholder')
+                    @include('sidebar._loading')
                 </include-fragment>
             @endif
         </div>

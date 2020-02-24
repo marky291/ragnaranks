@@ -8,7 +8,7 @@
                 {!! $cachedLatestReviewsPartial !!}
             @else
                 <include-fragment src="/api/partials/latest-reviews">
-                    @include('sidebar._listing-placeholder')
+                    @include('sidebar._loading')
                 </include-fragment>
             @endif
         </div>
