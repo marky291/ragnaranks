@@ -129,7 +129,7 @@
                 this.subtype = 'all';
                 this.element = 'all';
                 this.sorting = 'id';
-                this.itemQuery();
+                this.pushRouterItemsQuery();
             },
             pushRouterItemsQuery: function() {
                 this.$router.push({query: {

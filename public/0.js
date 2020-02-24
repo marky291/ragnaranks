@@ -323,7 +323,7 @@ __webpack_require__.r(__webpack_exports__);
       this.subtype = 'all';
       this.element = 'all';
       this.sorting = 'id';
-      this.itemQuery();
+      this.pushRouterItemsQuery();
     },
     pushRouterItemsQuery: function pushRouterItemsQuery() {
       this.$router.push({
