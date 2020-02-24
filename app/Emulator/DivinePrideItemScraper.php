@@ -85,6 +85,13 @@ class DivinePrideItemScraper implements ShouldQueue
             'description' => $decode['description'] ? $this->convertColorCodes($decode['description']) : $decode['description'],
         ]));
 
+        if ($item->type == 'card') {
+            $route = $this->router->getCardImage($this->lookup->id);
+            if (Storage::disk('spaces')->exists("collection/cards/{$this->lookup->id}.png") == false) {
+                Storage::disk('spaces')->put("collection/cards/{$this->lookup->id}.png", file_get_contents($route));
+            }
+        }
+
         /**
          * Create an item move info if it does not exist.
          */

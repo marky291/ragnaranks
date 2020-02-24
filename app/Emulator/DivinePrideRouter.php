@@ -58,6 +58,11 @@ class DivinePrideRouter
         return $this->link("/images/items/item/{$id}.png");
     }
 
+    public function getCardImage(int $card_id)
+    {
+        return $this->linkToCdn("/images/items/cards/{$card_id}.png");
+    }
+
     public function getMapOriginal(string $mapname)
     {
         return $this->link("/img/map/original/{$mapname}");

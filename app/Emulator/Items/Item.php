@@ -129,6 +129,11 @@ class Item extends Model
         return Storage::disk('spaces')->url("collection/items/{$this->id}.png");
     }
 
+    public function getCardImageAttribute(): string
+    {
+        return Storage::disk('spaces')->url("collection/cards/{$this->id}.png");
+    }
+
     /**
      * Get the route to the items page.
      */
@@ -179,9 +184,6 @@ class Item extends Model
         return $this->hasOne(ItemMoveInfo::class,'item_id', 'id');
     }
 
-    /**
-     * Get all of the post's comments.
-     */
     public function views()
     {
         return $this->morphMany(Viewable::class, 'viewable');
