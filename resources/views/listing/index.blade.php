@@ -44,15 +44,9 @@
                             </div>
                         </div>
                         @endauth
-                        <a href="{{ route('database') }}">
-                            <div class="tw-px-6 tw-py-6 tw-mt-4 tw-bg-white tw-shadow tw-rounded">
-                                <h2 class="tw-font-semibold tw-mb-0">Database Item/Mob Search</h2>
-                            </div>
-                        </a>
                         @include('sidebar.filter')
                         @include('sidebar.recent')
                         @include('sidebar.reviews')
-                        @include('sidebar.trending.popular-items')
                         @include('sidebar.social')
                     </div>
                     <div class="lg:tw-w-2/3 tw-px-4 tw-w-full" id="listingsContainer" ref="listingsContainer">

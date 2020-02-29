@@ -46,6 +46,6 @@ Route::get('/partials/latest-servers', 'SidebarController@servers');
 Route::get('/partials/latest-reviews', 'SidebarController@reviews');
 Route::get('/partials/trending-items', 'SidebarController@trendingItems');
 
-Route::get('/database', 'BrowserQueryController@index');
-Route::get('/database/item/{item}', 'ItemController@partial');
-Route::get('/database/monster/{monster}', 'Partials\MonsterPartialsController@glance');
+Route::get('/database', 'BrowserQueryController@index')->middleware('development');
+Route::get('/database/item/{item}', 'ItemController@partial')->middleware('development');
+Route::get('/database/monster/{monster}', 'Partials\MonsterPartialsController@glance')->middleware('development');

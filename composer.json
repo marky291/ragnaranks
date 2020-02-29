@@ -12,6 +12,7 @@
         "ext-json": "*",
         "artisanry/reportable": "^3.2",
         "doctrine/dbal": "^2.9",
+        "fabpot/goutte": "^4.0",
         "fideloper/proxy": "^4.0",
         "gstt/laravel-achievements": "^1.0",
         "guzzlehttp/guzzle": "^6.3",

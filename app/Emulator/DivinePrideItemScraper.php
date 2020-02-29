@@ -2,11 +2,11 @@
 
 namespace App\Emulator;
 
+use Exception;
 use App\Emulator\DivinePrideEnumConverter;
 use App\Emulator\Items\Enums\ItemTypes;
 use App\Emulator\Items\ItemSupply;
 use App\Emulator\Map\MapIndex;
-use Exception;
 use App\Emulator\Combos\Combo;
 use App\Emulator\Items\Item;
 use App\Emulator\Items\ItemCombo;
