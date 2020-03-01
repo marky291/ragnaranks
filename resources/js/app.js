@@ -55,14 +55,13 @@ Vue.mixin({
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('filtered-listings', require('./components/FilteredListingContainer').default);
-Vue.component('filtered-search', require('./components/FilteredListingSearch.vue').default);
+Vue.component('server-browser', () => import('./components/Server/ServerBrowser'));
+Vue.component('browser', () => import('./components/Browser/Browser'));
 
 Vue.component('pagination', require('laravel-vue-pagination'));
 Vue.component('profile-page', require('./components/profile/ProfilePage.vue').default);
 Vue.component('profile', require('./components/profile/Profile').default);
 Vue.component('configs', require('./components/profile/ProfileConfigs').default);
-Vue.component('homepage', require('./components/homepage/Homepage').default);
 
 Vue.component('review', require('./components/listing/Review').default);
 Vue.component('create-review', require('./components/listing/CreateReview').default);
@@ -80,9 +79,6 @@ Vue.component('account-component', require('./components/AccountComponent').defa
 Vue.component('account-details-component', require('./components/AccountDetailsComponent').default);
 Vue.component('account-notification-component', require('./components/AccountNotificationComponent').default);
 Vue.component('report-tool-component', require('./components/ReportToolComponent').default);
-
-
-Vue.component('browser', () => import('./components/Browser/Browser'));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

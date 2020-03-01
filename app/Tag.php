@@ -5,17 +5,16 @@ namespace App;
 use Carbon\Carbon;
 use App\Listings\Listing;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 /**
  * Class Tags.
  *
  * @property int $id
- * @property string $tag
  * @property string $name
- * @property string $description
- *
+ * @property string $label
  * @property Carbon $created_at
- * @property Carbon $updated_at
+ *
  * @method static where(string $string, $tagName)
  * @method static whereName($int)
  */
@@ -31,7 +30,7 @@ class Tag extends Model
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'label'];
 
     /**
      * The servers that belongs to this tag.
@@ -41,5 +40,17 @@ class Tag extends Model
     public function servers()
     {
         return $this->belongsToMany(Listing::class, 'listing_tags');
+    }
+
+    /**
+     * @return string
+     */
+    public function getLabelAttribute()
+    {
+        if ($this->getOriginal('label')) {
+            return ucwords($this->getOriginal('label'));
+        }
+
+        return ucwords(str_replace('-', ' ', $this->name));
     }
 }

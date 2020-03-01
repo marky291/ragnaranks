@@ -26,8 +26,6 @@ Route::middleware('auth:api')->get('{listing}/graph/players', 'ListingGraphContr
 Route::middleware('auth:api')->get('{listing}/graph/votes', 'ListingGraphController@votes')->name('api.graph.votes');
 // return the votes in the last 30 days.
 Route::middleware('auth:api')->get('{listing}/graph/clicks', 'ListingGraphController@clicks')->name('api.graph.clicks');
-// filter servers based on conditional inputs.
-Route::get('/servers/{exp_group}/{mode}/{tag}/{sort}/{limit}', 'ListingFilteringController@filters');
 
 
 Route::get('/listing/configurations', static function () {
@@ -49,3 +47,10 @@ Route::get('/partials/trending-items', 'SidebarController@trendingItems');
 Route::get('/database', 'BrowserQueryController@index')->middleware('development');
 Route::get('/database/item/{item}', 'ItemController@partial')->middleware('development');
 Route::get('/database/monster/{monster}', 'Partials\MonsterPartialsController@glance')->middleware('development');
+Route::get('/database/monster/{monster}', 'Partials\MonsterPartialsController@glance')->middleware('development');
+
+Route::get('/tags', 'TagController@index');
+Route::get('/modes', 'ModeController@index');
+Route::get('/rates', 'RateController@index');
+
+Route::get('/servers', 'ListingQueryController@index');

@@ -21,10 +21,10 @@
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website">
-        <meta property="og:url" content="{{ url($listing->route()) }}">
+        <meta property="og:url" content="{{ $listing->route }}">
         <meta property="og:title" content="{{ $listing->name }} Server Information">
         <meta property="og:description" content="The best place to view reviews and analytics on {{ $listing->name }}">
-        <meta property="og:image" content="{{  \Illuminate\Support\Facades\Storage::url($listing->background) }}">
+        <meta property="og:image" content="{{ $listing->background }}">
     @else
         <!-- Primary Meta Tags -->
         <title>Create New Private Server Listing | Ragnaranks</title>
@@ -62,7 +62,7 @@
 						</div>
 					</div>
 					<div class="tw-px-4 lg:tw-w-2/3">
-						<profile :reviews="listing.reviews" :breakdown="{{ $breakdown ?? 'null' }}" :slug="slug" space="{{ config('filesystems.disks.spaces.domain') }}/"></profile>
+						<profile :reviews="listing.reviews" :breakdown="{{ $breakdown ?? 'null' }}" :slug="slug"></profile>
                         @if (isset($listing->user) && auth()->check() && user()->hasRole('admin'))
                             <div class="d-flex justify-content-around content tw-hidden lg:tw-block my-2">
                                 <p><b>Owner username:</b><br> {{ $listing->user->username }}</p>

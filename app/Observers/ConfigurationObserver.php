@@ -15,7 +15,8 @@ class ConfigurationObserver
      */
     public function creating(ListingConfiguration $configuration)
     {
-        $configuration->setAttribute('exp_title', $this->getRateTitleFrom($configuration->base_exp_rate));
+        $configuration->listing()->associate($configuration)->save();
+//        $configuration->setAttribute('exp_title', $this->getRateTitleFrom($configuration->base_exp_rate));
     }
 
     /**

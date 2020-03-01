@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TagResource extends JsonResource
+class RateResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,6 +17,8 @@ class TagResource extends JsonResource
         return [
             'name' => $this->name,
             'label' => $this->label,
+            'min_exp' => $this->min,
+            'max_exp' => $this->max,
         ];
     }
 }

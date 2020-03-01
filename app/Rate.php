@@ -2,32 +2,16 @@
 
 namespace App;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class ServerModes.
- *
- * @property int $id
- * @property string $name
- * @property string $label
- * @property Carbon $created_at
- */
-class Mode extends Model
+class Rate extends Model
 {
-    /**
-     * The name of the "updated at" column.
-     *
-     * @var string
-     */
-    const UPDATED_AT = null;
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['name', 'label'];
+    protected $fillable = ['name', 'label', 'min', 'max'];
 
     /**
      * @return string

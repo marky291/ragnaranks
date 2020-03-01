@@ -51,7 +51,7 @@ class NewListingCreatedNotification extends Notification implements ShouldQueue
             ->line('A new listing has been posted to Ragnaranks.com:')
             ->line("Server: {$this->listing->name}")
             ->line("Owner: {$this->listing->user->email}")
-            ->line("Listing: {$this->listing->route()}")
+            ->line("Listing: {$this->listing->route}")
             ->line("Creation: {$this->listing->created_at}");
     }
 }

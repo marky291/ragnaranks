@@ -9,7 +9,7 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ url($listing->route() . '/votes') }}">
+    <meta property="og:url" content="{{ ($listing->route . '/votes') }}">
     <meta property="og:title" content="{{ $listing->name }} Vote Dispatcher">
     <meta property="og:description" content="Vote for {{ $listing->name }} and help to stand out">
     <meta property="og:image" content="{{ \Illuminate\Support\Facades\Storage::url($listing->background) }}">

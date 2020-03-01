@@ -2,6 +2,8 @@
 
 namespace App\Listings;
 
+use App\Mode;
+use App\Rate;
 use App\Tag;
 use App\User;
 use Carbon\Carbon;
@@ -31,7 +33,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property string $background
  * @property float $episode
  * @property string $accent
- * @property string $mode
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * @property User $user
@@ -73,7 +74,7 @@ class Listing extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'background', 'mode', 'description', 'accent', 'website', 'episode', 'review_score',
+        'name', 'background', 'description', 'accent', 'website', 'episode', 'review_score',
     ];
 
     /**
@@ -101,7 +102,7 @@ class Listing extends Model
      *
      * @return UrlGenerator|string
      */
-    public function route()
+    public function getRouteAttribute()
     {
         return url("listing/{$this->slug}");
     }
@@ -220,6 +221,22 @@ class Listing extends Model
     public function reviews()
     {
         return $this->hasMany(Review::class);
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function mode()
+    {
+        return $this->belongsTo(Mode::class);
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function rate()
+    {
+        return $this->belongsTo(Rate::class);
     }
 
     /**

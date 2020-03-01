@@ -9,7 +9,7 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ url($listing->route() . '/reviews') }}">
+    <meta property="og:url" content="{{ ($listing->route . '/reviews') }}">
     <meta property="og:title" content="{{ $listing->name }} Reviews">
     <meta property="og:description" content="Discover other player experience playing {{$listing->name}}">
     <meta property="og:image" content="{{ \Illuminate\Support\Facades\Storage::url($listing->background) }}">

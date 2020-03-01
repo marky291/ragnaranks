@@ -18,7 +18,7 @@
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^6.0",
         "laravel/passport": "^8.3",
-        "laravel/tinker": "^1.0",
+        "laravel/tinker": "^2.0",
         "league/flysystem-aws-s3-v3": "^1.0",
         "martinlindhe/laravel-vue-i18n-generator": "^0.1.39",
         "predis/predis": "^1.1",

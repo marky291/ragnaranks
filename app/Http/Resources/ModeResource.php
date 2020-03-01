@@ -16,7 +16,7 @@ class ModeResource extends JsonResource
     {
         return [
             'name' => $this->name,
-            'description' => $this->description,
+            'label' => $this->label,
         ];
     }
 }
