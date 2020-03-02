@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const mix = require('laravel-mix');
+require('laravel-mix-purgecss');
 
 require('laravel-mix-tailwind');
 
@@ -35,4 +36,4 @@ mix.webpackConfig({
 
 mix.js('resources/js/app.js', 'public/js').version();
 
-mix.sass('resources/sass/app.scss', 'public/css').tailwind().version();
+mix.sass('resources/sass/app.scss', 'public/css').purgeCss().tailwind().version();
