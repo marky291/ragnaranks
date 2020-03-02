@@ -6,7 +6,7 @@ use App\User;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Listings\Votes\Vote;
-use App\Listings\ListingVotedEvent;
+use App\Listings\Events\Voted;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -71,7 +71,7 @@ class VoteControllerTest extends TestCase
 
         $this->post(route('listing.votes.store', $listing));
 
-        $event->assertDispatched(ListingVotedEvent::class);
+        $event->assertDispatched(Voted::class);
     }
 
     public function test_casting_vote_repositions_rank()

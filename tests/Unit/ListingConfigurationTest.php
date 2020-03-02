@@ -128,10 +128,6 @@ class ListingConfigurationTest extends TestCase
         $this->assertNotNull($this->configuration->item_drop_card_mvp);
     }
 
-    public function test_it_has_a_rate_title()
-    {
-        $this->assertEquals('low-rate', $this->configuration->exp_title);
-    }
 
     public function test_is_has_a_listing_relationship()
     {

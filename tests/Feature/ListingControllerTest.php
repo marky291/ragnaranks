@@ -85,7 +85,6 @@ class ListingControllerTest extends TestCase
 
         $this->assertDatabaseHas('listings', ['name' => 'foo', 'language_id' => 3]);
         $this->assertDatabaseHas('listing_configurations', [
-            'exp_title' => 'low-rate',
             'pk_mode' => 1,
             'arrow_decrement' => 1,
             'attribute_recover' => 0,
@@ -108,7 +107,6 @@ class ListingControllerTest extends TestCase
         $response->assertOk();
         $this->assertDatabaseHas('listings', ['name' => 'foo', 'language_id' => 1]);
         $this->assertDatabaseHas('listing_configurations', [
-            'exp_title' => 'mid-rate',
             'pk_mode' => 0,
             'item_drop_card' => 300,
             'attribute_recover' => 1,

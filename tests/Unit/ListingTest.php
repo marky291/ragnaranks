@@ -2,6 +2,8 @@
 
 namespace Tests\Unit;
 
+use App\Mode;
+use App\Rate;
 use App\Tag;
 use App\User;
 use Carbon\Carbon;
@@ -35,9 +37,13 @@ class ListingTest extends TestCase
     public function it_has_a_mode()
     {
         /** @var Listing $server */
-        $server = factory(Listing::class)->create(['mode' => 'foo']);
+        $server = factory(Listing::class)->create();
 
-        $this->assertEquals('foo', $server->mode);
+        $mode = factory(Mode::class)->make(['name' => 'foo']);
+
+        $server->mode()->associate($mode);
+
+        $this->assertEquals('foo', $server->mode->name);
     }
 
     /**
@@ -136,50 +142,16 @@ class ListingTest extends TestCase
     /**
      * @test
      */
-    public function it_can_have_a_low_rate_exp_title()
+    public function it_can_have_a_rate()
     {
         /** @var Listing $listing */
+        $rate = factory(Rate::class)->create(['name' => 'low-rate']);
+
         $listing = factory(Listing::class)->create();
 
-        $listing->configuration()->save(factory(ListingConfiguration::class)->make(['base_exp_rate' => config('filter.exp.low-rate.max') * 0.9]));
+        $listing->rate()->associate($rate);
 
-        $this->assertEquals('low-rate', $listing->configuration->exp_title);
-    }
-
-    /**
-     * @test
-     */
-    public function it_can_have_a_mid_rate_exp_title()
-    {
-        $listing = factory(Listing::class)->create();
-
-        $listing->configuration()->save(factory(ListingConfiguration::class)->make(['base_exp_rate' => config('filter.exp.mid-rate.max') * 0.9]));
-
-        $this->assertEquals('mid-rate', $listing->configuration->exp_title);
-    }
-
-    /**
-     * @test
-     */
-    public function it_can_have_a_high_rate_exp_title()
-    {
-        $listing = factory(Listing::class)->create();
-
-        $listing->configuration()->save(factory(ListingConfiguration::class)->make(['base_exp_rate' => config('filter.exp.high-rate.max') * 0.9]));
-
-        $this->assertEquals('high-rate', $listing->configuration->exp_title);
-    }
-
-    /**
-     * @test
-     */
-    public function it_can_have_a_super_high_rate_exp_title()
-    {
-        $listing = factory(Listing::class)->create();
-
-        $listing->configuration()->save(factory(ListingConfiguration::class)->make(['base_exp_rate' => config('filter.exp.high-rate.max') + 1]));
-
-        $this->assertEquals('super-high-rate', $listing->configuration->exp_title);
+        $this->assertEquals('low-rate', $listing->rate->name);
     }
 
     /**

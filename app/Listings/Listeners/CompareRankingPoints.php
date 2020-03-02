@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Listings;
+namespace App\Listings\Listeners;
 
+use App\Listings\Listing;
+use App\Listings\ListingRanking;
 use App\Ranking\InvalidRankPositionException;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
@@ -10,7 +12,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 /**
  * Class ConfirmRankingPosition.
  */
-class RankPositionComparator implements ShouldQueue
+class CompareRankingPoints implements ShouldQueue
 {
     use Queueable, SerializesModels;
 

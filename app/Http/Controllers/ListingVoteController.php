@@ -3,15 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\AssignRoleToUser;
+use App\Listings\Events\Voted;
 use App\Listings\Listing;
 use App\Listings\ListingRanking;
-use App\Listings\ListingVotedEvent;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
 use TimeHunter\LaravelGoogleReCaptchaV3\Facades\GoogleReCaptchaV3;
 
@@ -65,7 +63,7 @@ class ListingVoteController extends Controller
 
             Cache::forget("listing.{$listing->name}");
             ListingRanking::incrementVote($listing);
-            ListingVotedEvent::dispatch($listing);
+            Voted::dispatch($listing);
             // @depreciate
             AssignRoleToUser::dispatch(auth()->user(), 'player');
 

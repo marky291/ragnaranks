@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Listings\Clicks;
+namespace App\Listings\Events;
 
 use App\Listings\Listing;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -8,7 +8,7 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Queue\SerializesModels;
 
-class WebsiteWasClicked
+class Clicked
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 

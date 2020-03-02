@@ -20,6 +20,20 @@ $factory->define(ListingLanguage::class, function (Faker $faker) {
     ];
 });
 
+$factory->define(\App\Rate::class, function (Faker $faker) {
+    return [
+        'name' => $faker->word,
+        'min' => $faker->numberBetween(0, 999),
+        'max' => $faker->numberBetween(0, 999),
+    ];
+});
+
+$factory->define(\App\Mode::class, function (Faker $faker) {
+    return [
+        'name' => $faker->word,
+    ];
+});
+
 $factory->define(Listing::class, static function (Faker $faker) {
     $server = Arr::random(config('fake.listings'));
 

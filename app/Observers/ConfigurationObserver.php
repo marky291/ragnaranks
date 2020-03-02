@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\Listings\Listing;
 use App\Listings\ListingConfiguration;
+use App\Rate;
 
 class ConfigurationObserver
 {
@@ -15,8 +16,9 @@ class ConfigurationObserver
      */
     public function creating(ListingConfiguration $configuration)
     {
-        $configuration->listing()->associate($configuration)->save();
-//        $configuration->setAttribute('exp_title', $this->getRateTitleFrom($configuration->base_exp_rate));
+            $rate = Rate::firstWhere('name', $this->getRateTitleFrom($configuration->base_exp_rate));
+
+            $configuration->listing->rate()->associate($rate);
     }
 
     /**
@@ -27,7 +29,9 @@ class ConfigurationObserver
      */
     public function updating(ListingConfiguration $configuration)
     {
-        $configuration->setAttribute('exp_title', $this->getRateTitleFrom($configuration->base_exp_rate));
+        $rate = Rate::firstWhere('name', $this->getRateTitleFrom($configuration->base_exp_rate));
+
+        $configuration->listing->rate()->associate($rate);
     }
 
     /**

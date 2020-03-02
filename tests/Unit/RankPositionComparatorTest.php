@@ -2,11 +2,10 @@
 
 namespace Tests\Unit;
 
-use App\Listings\ListingRanking;
 use Tests\TestCase;
 use App\Listings\Listing;
+use App\Listings\Events\Clicked;
 use Illuminate\Support\Facades\Cache;
-use App\Listings\ListingClickedEvent;
 
 class RankPositionComparatorTest extends TestCase
 {
@@ -26,7 +25,7 @@ class RankPositionComparatorTest extends TestCase
         $listing2->ranking()->update(['rank' => 1, 'points' => 0, 'votes' => 0, 'clicks' => 0]);
 
         // when we dispatch a click event, we validate position.
-        ListingClickedEvent::dispatch($listing);
+        Clicked::dispatch($listing);
 
         // the ranks should be updated.
         $this->assertDatabaseHas('listing_rankings', ['rank' => 1, 'listing_id' => $listing->getkey()]);
@@ -52,7 +51,7 @@ class RankPositionComparatorTest extends TestCase
         $listing2->ranking->update(['rank' => 1, 'points' => 0, 'votes' => 0, 'clicks' => 0]);
 
         // when we dispatch a click event, we validate position.
-        ListingClickedEvent::dispatch($listing);
+        Clicked::dispatch($listing);
 
         // the ranks should be updated.
         $this->assertDatabaseHas('listing_rankings', ['rank' => 1, 'listing_id' => $listing->getkey()]);

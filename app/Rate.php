@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @method static where(string $string, string $getRateTitleFrom)
+ * @method static firstWhere(string $string, string $getRateTitleFrom)
+ */
 class Rate extends Model
 {
     /**

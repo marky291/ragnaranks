@@ -2,10 +2,11 @@
 
 namespace Tests\Feature;
 
+use App\Listings\Clicks\WebsiteWasClicked;
+use App\Listings\Events\Clicked;
 use Tests\TestCase;
 use App\Listings\Listing;
 use App\Listings\Clicks\Click;
-use App\Listings\ListingClickedEvent;
 use Illuminate\Support\Facades\Event;
 
 class ClickControllerTest extends TestCase
@@ -67,7 +68,7 @@ class ClickControllerTest extends TestCase
 
         $this->post('/listing/foo/clicks');
 
-        Event::assertDispatched(ListingClickedEvent::class);
+        Event::assertDispatched(Clicked::class);
     }
 
     public function test_casting_click_repositions_rank()

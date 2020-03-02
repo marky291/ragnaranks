@@ -2,12 +2,8 @@
 
 namespace App\Providers;
 
-use App\Events\Viewed;
 use App\Listeners\TrackViewedContent;
-use App\Listings\Clicks\WebsiteWasClicked;
-use App\Listings\Votes\ListingWasVoted;
-use Illuminate\Support\Facades\Event;
-use App\Listings\RankPositionComparator;
+use App\Listings\Listeners\CompareRankingPoints;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -23,14 +19,14 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-        Viewed::class => [
+        \App\Events\Viewed::class => [
             TrackViewedContent::class,
         ],
-        ListingWasVoted::class => [
-            RankPositionComparator::class,
+        \App\Listings\Events\Voted::class => [
+            CompareRankingPoints::class,
         ],
-        WebsiteWasClicked::class => [
-            RankPositionComparator::class,
+        \App\Listings\Events\Clicked::class => [
+            CompareRankingPoints::class,
         ],
     ];
 

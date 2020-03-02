@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Listings\Votes;
+namespace App\Listings\Events;
 
 use App\Listings\Listing;
 use Illuminate\Queue\SerializesModels;
@@ -8,7 +8,7 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 
-class ListingWasVoted
+class Voted
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
