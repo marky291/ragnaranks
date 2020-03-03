@@ -26,7 +26,7 @@ return [
     | and that deployments are loading the correct filesource.
     |
     */
-    'version' => '2.6.7',
+    'version' => '3.0.0 Beta',
 
     /*
     |--------------------------------------------------------------------------
