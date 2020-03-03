@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\API;
 
 use App\Jobs\AssignRoleToUser;
+use App\Listings\Events\Voted;
 use App\Listings\Listing;
 use App\Listings\ListingRanking;
-use App\Listings\ListingVotedEvent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -23,7 +23,7 @@ class Vote4PointsController extends Controller
         if ($listing->votes()->hasInteractedDuring(config('action.vote.spread')) === false) {
             $listing->votes()->create(['ip_address' => request()->getClientIp()]);
             ListingRanking::incrementVote($listing);
-            ListingVotedEvent::dispatch($listing);
+            Voted::dispatch($listing);
             AssignRoleToUser::dispatch(auth()->user(), 'player');
 
             return view('listing.vote.vote4points', ['listing' => $listing, 'status' => true]);

@@ -35,24 +35,26 @@
                         @include('sidebar.reviews')
                         @include('sidebar.social')
                     </div>
+
+
                     <div class="lg:tw-w-2/3 tw-px-4 tw-w-full" id="listingsContainer" ref="listingsContainer">
-                           <server-list :listings="post.data"></server-list>
-                           <div v-if="!post.meta.total > 0" class="mb-4 load-animation">
-                                <div class="d-flex flex-column text-center">
-                                    <div class="col d-flex justify-content-center">
-                                        <img src="/img/icons/omg-sticker.png" alt="">
-                                    </div>
-                                    <div class="col">
-                                        <h3><b>Whoops!</b> No listings found with your search parameters</h3>
-                                        <p>It could just be that no such servers exist or they just have not found their home at Ragnaranks.com yet!</p>
-                                    </div>
+                        <server-list :listings="post.data"></server-list>
+                        <!-- <div v-if="!post.meta.total > 0" class="mb-4 load-animation">
+                            <div class="d-flex flex-column text-center">
+                                <div class="col d-flex justify-content-center">
+                                    <img src="/img/icons/omg-sticker.png" alt="">
+                                </div>
+                                <div class="col">
+                                    <h3><b>Whoops!</b> No listings found with your search parameters</h3>
+                                    <p>It could just be that no such servers exist or they just have not found their home at Ragnaranks.com yet!</p>
                                 </div>
                             </div>
-                            <div v-if="post.meta.total > 0" class="tw-flex tw-flex-row tw-bg-transparent tw-rounded tw-border tw-border-gray-300 tw-mb-6 lg:tw-mb-2 tw-shadow tw-items-center tw-py-2 tw-px-4 tw-justify-between tw-bg-white">
-                                <at-button :disabled="post.meta.current_page <= 1" @click="changePage(post.meta.current_page - 1)" size="normal" type="primary">« Prev</at-button>
-                                <at-pagination @page-change="changePage" :show-quickjump="true" :show-total="true" class="tw-pl-0 tw-mb-0" :current="post.meta.current_page" :page-size="post.meta.per_page" :total="post.meta.total"></at-pagination>
-                                <at-button :disabled="post.meta.current_page >= post.meta.last_page" @click="changePage(post.meta.current_page + 1)" size="normal" type="primary">Next »</at-button>
-                            </div>
+                        </div>
+                        <div v-if="post.meta.total > 0" class="tw-flex tw-flex-row tw-bg-transparent tw-rounded tw-border tw-border-gray-300 tw-mb-6 lg:tw-mb-2 tw-shadow tw-items-center tw-py-2 tw-px-4 tw-justify-between tw-bg-white">
+                            <at-button :disabled="post.meta.current_page <= 1" @click="changePage(post.meta.current_page - 1)" size="normal" type="primary">« Prev</at-button>
+                            <at-pagination @page-change="changePage" :show-quickjump="true" :show-total="true" class="tw-pl-0 tw-mb-0" :current="post.meta.current_page" :page-size="post.meta.per_page" :total="post.meta.total"></at-pagination>
+                            <at-button :disabled="post.meta.current_page >= post.meta.last_page" @click="changePage(post.meta.current_page + 1)" size="normal" type="primary">Next »</at-button>
+                        </div> -->
                     </div>
 
                 </div>

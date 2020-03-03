@@ -8,7 +8,6 @@
         <link href="@yield('canonical', '')" rel="canonical">
         <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
         <meta name="viewport" content="width=1200"/>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     </head>
     <body>
         <div id="app" class="min-width:1200px">
@@ -133,6 +132,7 @@
             </footer>
         </div>
 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
         <script src="{{ mix('/js/app.js') }}"></script>
         <script>
             window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;

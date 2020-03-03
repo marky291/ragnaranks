@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Listings\Events\Voted;
 use App\Listings\Listing;
 use App\Listings\ListingRanking;
 use Illuminate\Http\Request;
 use App\Jobs\AssignRoleToUser;
 use Illuminate\Http\JsonResponse;
-use App\Listings\ListingVotedEvent;
 use Illuminate\Support\Facades\Log;
 use TimeHunter\LaravelGoogleReCaptchaV3\Facades\GoogleReCaptchaV3;
 
@@ -50,7 +50,7 @@ class VoteController extends Controller
 
             ListingRanking::incrementVote($listing);
 
-            ListingVotedEvent::dispatch($listing);
+            Voted::dispatch($listing);
 
             AssignRoleToUser::dispatch(auth()->user(), 'player');
 

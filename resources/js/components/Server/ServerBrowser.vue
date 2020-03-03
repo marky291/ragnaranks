@@ -1,13 +1,18 @@
 <script>
 
-    Vue.component('server-search', () => import('./ServerSearch'));
-    Vue.component('server-list', () => import('./ServerList'));
+    Vue.component('server-search', require('./ServerSearch').default);
+    Vue.component('server-list', require('./ServerList').default);
 
     export default {
         data: function () {
             return {
                 loading: false,
-                post: null,
+                post: {
+                    data: {},
+                    meta: {
+                        total: 0,
+                    }
+                },
                 error: null,
                 api: '/api/servers',
             }
@@ -24,7 +29,6 @@
                 this.fetchData();
             },
             fetchData () {
-                this.error = this.post = null;
                 this.loading = true;
                 axios.get(this.api + this.$route.fullPath)
                     .then((response) => {

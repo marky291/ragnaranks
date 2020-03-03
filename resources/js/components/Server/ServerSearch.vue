@@ -16,10 +16,10 @@
                 },
             }
         },
-        created() {
-            axios.get('/api/tags').then((response) => { this.filterable.tags = response.data; });
-            axios.get('/api/modes').then((response) => { this.filterable.modes = response.data; });
-            axios.get('/api/rates').then((response) => { this.filterable.rates = response.data; });
+        async created() {
+            await axios.get('/api/tags').then((response) => { this.filterable.tags = response.data; });
+            await axios.get('/api/modes').then((response) => { this.filterable.modes = response.data; });
+            await axios.get('/api/rates').then((response) => { this.filterable.rates = response.data; });
         },
         methods: {
             filterChanged: function() {
