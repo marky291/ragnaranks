@@ -4,13 +4,34 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ListingResource;
+use App\Http\Resources\NewListingResource;
 use App\Listings\Listing;
-use App\Tag;
+use App\Listings\ListingConfiguration;
+use App\Listings\ListingRanking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
-class ListingQueryController extends Controller
+class ListingResourceController extends Controller
 {
+    public function show(Listing $listing)
+    {
+        return cache()->remember("listing.{$listing->name}", now()->addMinutes(5), static function () use ($listing) {
+            return ListingResource::make(
+                $listing->load('ranking', 'screenshots', 'tags', 'configuration', 'language', 'reviews', 'heartbeat')
+            );
+        });
+    }
+
+    public function default()
+    {
+        return cache()->remember('listing.defaults', now()->addMinutes(5), static function () {
+            return NewListingResource::make((new Listing())
+                ->setRelation('configuration', new ListingConfiguration())
+                ->setRelation('ranking', new ListingRanking())
+            );
+        });
+    }
+
     public function index(Request $request)
     {
         return Cache::remember($this->getCacheKey($request), now()->addMinutes(1), function() use ($request) {
@@ -64,7 +85,6 @@ class ListingQueryController extends Controller
             * Return a json response resource.
             */
             return ListingResource::collection($builder->with(['configuration', 'mode', 'rate', 'tags', 'ranking', 'language', 'heartbeat'])->paginate(7));
-
         });
     }
 

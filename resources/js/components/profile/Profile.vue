@@ -2,10 +2,10 @@
     <div class="tw-shadow" v-if="$parent.profileLoaded">
         <div :class="'use-accent-'+$parent.listing.accent" class="mb-3 server-card item flex-fill border rounded">
             <div id="profile-card" class="profile-block">
-                <div class="server-card-head-large image rounded-top" style="height:350px;" v-bind:style="{ backgroundImage: 'url(' + space + $parent.listing.background + ')' }"></div>
+                <div class="server-card-head-large image rounded-top" style="height:350px;" v-bind:style="{ backgroundImage: 'url(' + listing.background + ')' }"></div>
                 <div class="server-card-head-large hover:tw-bg-transparent tw-cursor-pointer overlap tw-flex tw-flex-col tw-justify-between" style="margin-top:-350px;">
                     <div class="tw-text-right">
-                        <div v-if="$parent.slug != 'defaults' && $parent.listing.heartbeat" class="tw-shadow tw-inline-block tw-px-3 tw-py-1 tw-rounded-l" style="font-size:9px; background-color: rgba(247, 247, 247, 1)">
+                        <div v-if="listing.slug != 'defaults' && $parent.listing.heartbeat" class="tw-shadow tw-inline-block tw-px-3 tw-py-1 tw-rounded-l" style="font-size:9px; background-color: rgba(247, 247, 247, 1)">
                             <i class="fas fa-circle tw-ml-1" :class="$parent.listing.heartbeat.login ? 'tw-text-green-500' : 'tw-text-red-500'"></i> Login
                             <i class="fas fa-circle tw-ml-1" :class="$parent.listing.heartbeat.char ? 'tw-text-green-500' : 'tw-text-red-500'"></i> Char
                             <i class="fas fa-circle tw-ml-1" :class="$parent.listing.heartbeat.map ? 'tw-text-green-500' : 'tw-text-red-500'"></i> Map
@@ -200,8 +200,8 @@
 <!--                                <p class="tw-text-gray-500 tw-text-sm tw-text-center tw-font-semibold">{{ reviews.length }} reviews</p>-->
                         </div>
                     <div class="tw-flex tw-mt-4">
-                        <a :href="'/listing/'+slug+'/reviews'" class="button tw-font-bold tw-flex-1 tw-mr-1 at-btn tw-flex-1 at-btn--primary at-btn--small">Read {{ reviews.length}} Review</a>
-                        <a :href="'/listing/'+slug+'/reviews/create'" class="button-outline tw-font-bold tw-flex-1 tw-ml-1 at-btn tw-flex-1 at-btn--primary at-btn--small at-btn--primary--hollow">Write New Review</a>
+                        <a :href="listing.route+'/reviews'" class="button tw-font-bold tw-flex-1 tw-mr-1 at-btn tw-flex-1 at-btn--primary at-btn--small">Read {{ reviews.length}} Review</a>
+                        <a :href="listing.route+'/reviews/create'" class="button-outline tw-font-bold tw-flex-1 tw-ml-1 at-btn tw-flex-1 at-btn--primary at-btn--small at-btn--primary--hollow">Write New Review</a>
                     </div>
                     </div>
                     <div class="tw-flex-1 tw-pl-6">
@@ -260,7 +260,7 @@
                     <div class="tw-flex tw-items-center review-enticement-img"></div>
                 </span>
                 <span v-else>
-                    <a :href="'/listing/'+slug+'/reviews/create'" v-if="$parent.listing.slug !== 'defaults'">
+                    <a :href="listing.route+'/reviews/create'" v-if="$parent.listing.slug !== 'defaults'">
                         <div class="tw-flex tw-items-center review-enticement-img"></div>
                     </a>
                 </span>
@@ -305,7 +305,7 @@
     import {Carousel3d, Slide} from 'vue-carousel-3d';
 
     export default {
-    	props: ['review-score', 'slug', 'reviews', 'space', 'breakdown'],
+    	props: ['listing', 'review-score', 'slug', 'reviews', 'breakdown'],
         components: {
             Slide,
             Carousel3d,

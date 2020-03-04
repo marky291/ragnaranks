@@ -53,4 +53,6 @@ Route::get('/tags', 'TagController@index');
 Route::get('/modes', 'ModeController@index');
 Route::get('/rates', 'RateController@index');
 
-Route::get('/servers', 'ListingQueryController@index');
+Route::get('/servers', 'ListingResourceController@index');
+Route::get('/server/{server}', 'ListingResourceController@show');
+Route::get('/server/default', 'ListingResourceController@default');

@@ -44,6 +44,7 @@ class ListingResource extends JsonResource
             'heartbeat' => ListingHeartbeatResource::make($this->whenLoaded('heartbeat')),
             'isEditor' => auth()->check() && user()->can('update', $this->resource),
             'canReview' => auth()->check() && user()->can('review', $this->resource),
+            'rate' => RateResource::make($this->whenLoaded('rate')),
         ];
     }
 }
