@@ -10,9 +10,5 @@
 
 @component('account.frame', ['selected' => 'servers'])
 	@include('format.heading', ['title' => 'My Server Listings'])
-    @if ($listings->count())
-	<filtered-listings :data="{{ json_encode($listings, true) }}"></filtered-listings>
-    @else
-        <h2>Oops, Unable to display listings, Please use the search tool on the homepage.</h2>
-    @endif
+    <h2>Oops, Unable to display listings, Please use the search tool on the homepage.</h2>
 @endcomponent
