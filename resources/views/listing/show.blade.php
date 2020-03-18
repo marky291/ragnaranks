@@ -62,7 +62,7 @@
 						</div>
 					</div>
 					<div class="tw-px-4 lg:tw-w-2/3">
-						<profile :reviews="listing.reviews" :breakdown="{{ $breakdown ?? 'null' }}" :slug="slug"></profile>
+						<profile :listing="listing" :reviews="listing.reviews" :breakdown="{{ $breakdown ?? 'null' }}" :slug="slug"></profile>
                         @if (isset($listing->user) && auth()->check() && user()->hasRole('admin'))
                             <div class="d-flex justify-content-around content tw-hidden lg:tw-block my-2">
                                 <p><b>Owner username:</b><br> {{ $listing->user->username }}</p>

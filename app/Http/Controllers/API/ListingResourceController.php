@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ListingResource;
-use App\Http\Resources\NewListingResource;
 use App\Listings\Listing;
 use App\Listings\ListingConfiguration;
 use App\Listings\ListingRanking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use App\Http\Resources\ListingResource;
+use Illuminate\Support\Arr;
 
 class ListingResourceController extends Controller
 {
@@ -22,16 +22,24 @@ class ListingResourceController extends Controller
         });
     }
 
-    public function default()
+    /**
+     * Fresh is new server defaults.
+     */
+    public function fresh()
     {
-        return cache()->remember('listing.defaults', now()->addMinutes(5), static function () {
-            return NewListingResource::make((new Listing())
-                ->setRelation('configuration', new ListingConfiguration())
-                ->setRelation('ranking', new ListingRanking())
-            );
-        });
+        $preset = Arr::random(config('filter.presets'));
+
+        return ListingResource::make((new Listing([
+            'accent'      => $preset['accent'],
+            'background'  => $preset['card'],
+            'name'        => trans('profile.defaultName'),
+            'description' => trans('profile.defaultMarkup'),
+        ]))->setRelation('configuration', new ListingConfiguration())->setRelation('ranking', new ListingRanking()));
     }
 
+    /**
+     * Show all servers based on query.
+     */
     public function index(Request $request)
     {
         return Cache::remember($this->getCacheKey($request), now()->addMinutes(1), function() use ($request) {

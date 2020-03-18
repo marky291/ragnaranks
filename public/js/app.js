@@ -17147,7 +17147,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['review-score', 'slug', 'reviews', 'breakdown'],
+  props: ['listing', 'review-score', 'slug', 'reviews', 'breakdown'],
   components: {
     Slide: vue_carousel_3d__WEBPACK_IMPORTED_MODULE_2__["Slide"],
     Carousel3d: vue_carousel_3d__WEBPACK_IMPORTED_MODULE_2__["Carousel3d"],
@@ -17500,7 +17500,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return axios.get('/api/listing/' + _this.slug).then(function (response) {
+              return axios.get('/api/server/' + _this.slug).then(function (response) {
                 _this.listing = response.data;
                 _this.profileLoaded = true;
 
@@ -71969,7 +71969,7 @@ var render = function() {
                   },
                   [
                     _c("div", { staticClass: "tw-text-right" }, [
-                      _vm.$parent.slug != "defaults" &&
+                      _vm.listing.slug != "defaults" &&
                       _vm.$parent.listing.heartbeat
                         ? _c(
                             "div",
@@ -72233,55 +72233,57 @@ var render = function() {
                         "div",
                         { staticClass: "tw-my-0 w-flex" },
                         [
-                          _c(
-                            "carousel-3d",
-                            {
-                              attrs: {
-                                count: _vm.$parent.screenshots.length,
-                                height: 240,
-                                width: 426,
-                                "controls-visible": true
-                              }
-                            },
-                            _vm._l(_vm.$parent.screenshots, function(
-                              screenshot,
-                              i
-                            ) {
-                              return _c("slide", {
-                                key: i,
-                                attrs: { index: i },
-                                scopedSlots: _vm._u(
-                                  [
-                                    {
-                                      key: "default",
-                                      fn: function(ref) {
-                                        var index = ref.index
-                                        var isCurrent = ref.isCurrent
-                                        var leftIndex = ref.leftIndex
-                                        var rightIndex = ref.rightIndex
-                                        return [
-                                          _c("img", {
-                                            class: {
-                                              current: isCurrent,
-                                              onLeft: leftIndex >= 0,
-                                              onRight: rightIndex >= 0
-                                            },
-                                            attrs: {
-                                              "data-index": index,
-                                              src: _vm.space + screenshot
-                                            }
-                                          })
-                                        ]
-                                      }
-                                    }
-                                  ],
-                                  null,
-                                  true
-                                )
-                              })
-                            }),
-                            1
-                          )
+                          _vm.listing.screenshots
+                            ? _c(
+                                "carousel-3d",
+                                {
+                                  attrs: {
+                                    count: _vm.listing.screenshots.length,
+                                    height: 240,
+                                    width: 426,
+                                    "controls-visible": true
+                                  }
+                                },
+                                _vm._l(_vm.listing.screenshots, function(
+                                  screenshot,
+                                  i
+                                ) {
+                                  return _c("slide", {
+                                    key: i,
+                                    attrs: { index: i },
+                                    scopedSlots: _vm._u(
+                                      [
+                                        {
+                                          key: "default",
+                                          fn: function(ref) {
+                                            var index = ref.index
+                                            var isCurrent = ref.isCurrent
+                                            var leftIndex = ref.leftIndex
+                                            var rightIndex = ref.rightIndex
+                                            return [
+                                              _c("img", {
+                                                class: {
+                                                  current: isCurrent,
+                                                  onLeft: leftIndex >= 0,
+                                                  onRight: rightIndex >= 0
+                                                },
+                                                attrs: {
+                                                  "data-index": index,
+                                                  src: screenshot.image
+                                                }
+                                              })
+                                            ]
+                                          }
+                                        }
+                                      ],
+                                      null,
+                                      true
+                                    )
+                                  })
+                                }),
+                                1
+                              )
+                            : _vm._e()
                         ],
                         1
                       )
@@ -72969,7 +72971,7 @@ var render = function() {
                                     staticClass:
                                       "button tw-font-bold tw-flex-1 tw-mr-1 at-btn tw-flex-1 at-btn--primary at-btn--small",
                                     attrs: {
-                                      href: "/listing/" + _vm.slug + "/reviews"
+                                      href: _vm.listing.route + "/reviews"
                                     }
                                   },
                                   [
@@ -72988,9 +72990,7 @@ var render = function() {
                                       "button-outline tw-font-bold tw-flex-1 tw-ml-1 at-btn tw-flex-1 at-btn--primary at-btn--small at-btn--primary--hollow",
                                     attrs: {
                                       href:
-                                        "/listing/" +
-                                        _vm.slug +
-                                        "/reviews/create"
+                                        _vm.listing.route + "/reviews/create"
                                     }
                                   },
                                   [_vm._v("Write New Review")]
@@ -73190,9 +73190,7 @@ var render = function() {
                                     {
                                       attrs: {
                                         href:
-                                          "/listing/" +
-                                          _vm.slug +
-                                          "/reviews/create"
+                                          _vm.listing.route + "/reviews/create"
                                       }
                                     },
                                     [

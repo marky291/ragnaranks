@@ -3,11 +3,8 @@
 use Carbon\Carbon;
 use App\Listings\Listing;
 use App\Listings\Votes\Vote;
-use App\Listings\ListingRanking;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\ReviewResource;
-use App\Listings\ListingConfiguration;
-use App\Http\Resources\NewListingResource;
 
 Route::middleware('api')->get('/{listing}/vote4points')->uses('Vote4PointsController@index')->name('vote4points');
 

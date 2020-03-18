@@ -27,7 +27,7 @@
             }
         },
         async mounted() {
-            await axios.get('/api/listing/'+(this.slug)).then((response) => {
+            await axios.get('/api/server/'+(this.slug)).then((response) => {
                 this.listing = response.data;
                 this.profileLoaded = true;
                 if (this.action) {

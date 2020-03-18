@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class Listings.
@@ -85,6 +86,7 @@ class Listing extends Model
     protected $attributes = [
         'name' => 'Default RO',
         'slug' => 'defaults',
+        'description' => '',
     ];
 
     /**
@@ -303,5 +305,10 @@ class Listing extends Model
     public function getPointsAttribute()
     {
         return round(($this->votes()->whereRankable()->count() * config('action.vote.value')) + ($this->clicks()->whereRankable()->count() * config('action.click.value')), 0);
+    }
+
+    public function getBackgroundAttribute()
+    {
+        return Storage::disk('spaces')->url($this->attributes['background']);
     }
 }

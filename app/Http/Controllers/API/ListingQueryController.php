@@ -64,7 +64,6 @@ class ListingQueryController extends Controller
             * Return a json response resource.
             */
             return ListingResource::collection($builder->with(['configuration', 'mode', 'rate', 'tags', 'ranking', 'language', 'heartbeat'])->paginate(7));
-
         });
     }
 
