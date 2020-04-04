@@ -79,7 +79,7 @@
                 </select>
 
                 <div class="mt-2">
-                    <at-input v-model="route.search" placeholder="Or search for something specific..." prepend-button append-button>
+                    <at-input @change="filterChanged" v-model="route.search" placeholder="Or search for something specific..." prepend-button append-button>
                         <template slot="prepend">
                             <i class="icon icon-search"></i>
                         </template>

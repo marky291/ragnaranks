@@ -20,7 +20,7 @@
                         <div class="tw-shadow">
                             <div class="mb-3 server-card item flex-fill border rounded use-accent-{{ $listing->accent }}">
                                 <div id="profile-card" class="profile-block">
-                                    <div class="server-card-head-large image rounded-top" style="height:350px; background-image: url('{{ Storage::url($listing->background) }}')"></div>
+                                    <div class="server-card-head-large image rounded-top" style="height:350px; background-image: url({{ $listing->background }})"></div>
                                     <div class="server-card-head-large hover:tw-bg-transparent tw-cursor-pointer overlap tw-flex tw-flex-col tw-justify-between" style="margin-top:-350px;">
                                         <div class="tw-text-right">
                                             @if ($listing->heartbeat)

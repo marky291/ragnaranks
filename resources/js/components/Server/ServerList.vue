@@ -3,7 +3,7 @@
         <div v-for="listing in listings" :key="listing['id']" :data-index="listing['id']">
             <div class="mb-3 server-card item flex-fill tw-shadow border rounded">
                 <div class="server-card-head image rounded-top" v-bind:style="{ 'background-image': 'url(' + listing.background + ')' }"></div>
-                <div @click="openProfile()" class="server-card-head hover:tw-bg-transparent tw-cursor-pointer overlap tw-flex tw-flex-col tw-justify-between">
+                <div @click="openProfile(listing)" class="server-card-head hover:tw-bg-transparent tw-cursor-pointer overlap tw-flex tw-flex-col tw-justify-between">
                     <div class="tw-text-right">
                         <div v-if="listing.heartbeat" class="tw-shadow tw-inline-block tw-px-3 tw-py-1 tw-rounded-l" style="font-size:9px; background-color: rgba(247, 247, 247, 1)">
                             <i class="fas fa-circle tw-ml-1" :class="listing.heartbeat.login ? 'tw-text-green-500' : 'tw-text-red-500'"></i> Login

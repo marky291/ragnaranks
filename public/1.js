@@ -346,7 +346,7 @@ var render = function() {
                     "server-card-head hover:tw-bg-transparent tw-cursor-pointer overlap tw-flex tw-flex-col tw-justify-between",
                   on: {
                     click: function($event) {
-                      return _vm.openProfile()
+                      return _vm.openProfile(listing)
                     }
                   }
                 },
@@ -973,6 +973,7 @@ var render = function() {
                       "prepend-button": "",
                       "append-button": ""
                     },
+                    on: { change: _vm.filterChanged },
                     model: {
                       value: _vm.route.search,
                       callback: function($$v) {
