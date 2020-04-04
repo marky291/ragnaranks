@@ -14,7 +14,7 @@ class HeartbeatCheckupTest extends TestCase
 
     public function test_it_can_examine_site_with_informer_data()
     {
-        $listing = factory(Listing::class)->create(['website' => 'http://reg.lupon-ro.net/']);
+        $listing = factory(Listing::class)->create(['website' => 'https://medieval-ro.com//']);
 
         $checkup = new HeartbeatCheckup($listing);
 
@@ -32,7 +32,7 @@ class HeartbeatCheckupTest extends TestCase
 
     public function test_it_can_retrieve_informer_data()
     {
-        $listing = factory(Listing::class)->create(['website' => 'http://reg.lupon-ro.net/']);
+        $listing = factory(Listing::class)->create(['website' => 'https://medieval-ro.com//']);
 
         $checkup = new HeartbeatCheckup($listing);
 
@@ -42,7 +42,7 @@ class HeartbeatCheckupTest extends TestCase
     public function test_it_can_store_state_as_offline_for_previously_registered_informers()
     {
         // should only store as offline, if it was ever connected in first place...
-        $listing = factory(Listing::class)->create(['website' => 'http://reg.lupon-ro.net/']);
+        $listing = factory(Listing::class)->create(['website' => 'https://medieval-ro.com//']);
 
         $checkup = (new HeartbeatCheckup($listing))->recordResults();
 
@@ -55,7 +55,7 @@ class HeartbeatCheckupTest extends TestCase
 
     public function test_it_can_write_to_database_the_entry()
     {
-        $listing = factory(Listing::class)->create(['website' => 'http://reg.lupon-ro.net/']);
+        $listing = factory(Listing::class)->create(['website' => 'https://medieval-ro.com//']);
 
         $checkup = new HeartbeatCheckup($listing);
 

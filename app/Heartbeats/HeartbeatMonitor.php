@@ -4,7 +4,6 @@ namespace App\Heartbeats;
 
 use App\Listings\Listing;
 use App\Listings\ListingHeartbeat;
-use App\Notifications\HeartbeatFailureNotification;
 use App\Notifications\ServerHasGoneOfflineNotification;
 use App\User;
 use Illuminate\Console\Command;

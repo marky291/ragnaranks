@@ -70,7 +70,7 @@ class ListingWebsiteStatusMonitor extends Command
      */
     private function returnedInvalidResponse(Listing $listing, Response $response): void
     {
-        $hoursAllowedOffline = 12;
+        $hoursAllowedOffline = 24;
 
         $this->warn("Website returned status {$response->getStatusCode()}");
 
@@ -82,10 +82,9 @@ class ListingWebsiteStatusMonitor extends Command
 
         // if so, we dont run it.
         if ($totalResponses == $hoursAllowedOffline) {
-            $admins = User::role('admin')->get();
+            $notifiers = array_merge(User::role('admin')->get(), $listing->user);
             $this->warn('Notification sent to listing admin');
-//            Notification::send($listing->user, new ListingWebsiteOfflineNotification($listing, $responses->first(), $hoursAllowedOffline));
-            Notification::send($admins, (new ListingWebsiteOfflineNotification($listing, $responses->first(), $hoursAllowedOffline))->delay(now()->seconds(30)));
+            Notification::send($notifiers, (new ListingWebsiteOfflineNotification($listing, $responses->first(), $hoursAllowedOffline))->delay(now()->seconds(30)));
         }
     }
 
