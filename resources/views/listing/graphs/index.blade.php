@@ -54,7 +54,7 @@
                                 </div>
                             </div>
                             <div class="tw-flex tw-mb-4 tw-items-center">
-                                @if ($listing->site->status == 200)
+                                @if (isset($listing->site) && $listing->site->status == 200)
                                     <i class="fas fa-check-circle tw-mr-2" style="color:#84d05a"></i>
                                 @else
                                     <i class="fas fa-times-circle tw-mr-2" style="color:#d05a5a"></i>
