@@ -2,6 +2,8 @@
 
 namespace App\Heartbeats;
 
+use Illuminate\Support\Str;
+
 /**
  * Class FluxMonitor
  *
@@ -70,7 +72,7 @@ class FluxStatusInformer extends Informer
      */
     public function parseWebsiteResponse(string $element): array
     {
-        $xml = simplexml_load_string($element);
+        $xml = simplexml_load_string(trim($element));
 
         $json = json_encode($xml);
 
