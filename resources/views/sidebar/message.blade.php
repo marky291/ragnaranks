@@ -1,6 +1,6 @@
 <div class="content tw-shadow tw-hidden lg:tw-block tw-p-6">
 	<h3 class="text-orange font-weight-bold">Latest Update</h3>
-    <p class="subheading tw-font-bold tw-mb-1">April 4th, 2020 @ Version {{ config('app.version') }}</p>
+    <p class="subheading tw-font-bold tw-mb-1">April 12th, 2020 @ Version {{ config('app.version') }}</p>
     <p class="subheading tw-mb-1">
         We have seen an amazing growth of our website service in the last few months, a big welcome to the newbies.
         Graphs for server owners, you can now view your server population per hour over two days with live data allowing you
