@@ -83,7 +83,7 @@ class ListingWebsiteStatusMonitor extends Command
         // if so, we dont run it.
         if ($totalResponses == $hoursAllowedOffline) {
             Notification::send(
-                User::role('admin')->get()->merge($listing->user),
+                User::role('admin')->get()->merge($listing->user()),
                 (new ListingWebsiteOfflineNotification($listing, $responses->first(), $hoursAllowedOffline))->delay(now()->seconds(30))
             );
         }
