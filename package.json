@@ -15,7 +15,7 @@
         "browser-sync": "^2.26.7",
         "browser-sync-webpack-plugin": "2.0.1",
         "cross-env": "^5.2.1",
-        "jquery": "^3.4.1",
+        "jquery": "^3.5.0",
         "laravel-mix": "^4.1.4",
         "laravel-mix-bundle-analyzer": "^1.0.5",
         "laravel-mix-tailwind": "^0.1.0",
