@@ -21,10 +21,10 @@ Route::delete('/filepond/process', 'FilepondController@delete')->name('filepond.
 // search for a listing.
 Route::get('/servers/search')->middleware(['throttle:500,1'])->uses('ListingSearchController@index');
 // return metrics about the listing.
-Route::middleware('api')->get('{listing}/graph/players', 'ListingGraphController@players')->name('api.graph.players');
+Route::get('{listing}/graph/players', 'ListingGraphController@players')->name('api.graph.players');
 // return the votes in the last 30 days.
-Route::middleware('api')->get('{listing}/graph/votes', 'ListingGraphController@votes')->name('api.graph.votes');
+Route::get('{listing}/graph/votes', 'ListingGraphController@votes')->name('api.graph.votes');
 // return the votes in the last 30 days.
-Route::middleware('api')->get('{listing}/graph/clicks', 'ListingGraphController@clicks')->name('api.graph.clicks');
+Route::get('{listing}/graph/clicks', 'ListingGraphController@clicks')->name('api.graph.clicks');
 // filter servers based on conditional inputs.
 Route::get('/servers/{exp_group}/{mode}/{tag}/{sort}/{limit}', 'ListingFilteringController@filters');
