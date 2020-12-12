@@ -15,6 +15,11 @@ Download and use [Composer](https://getcomposer.org/), in the root of the projec
 $ composer install
 ```
 
+Create a database and migrate database files using
+```
+$ php artisan migrate
+```
+
 Serve the website to a local dev browser, by running the following command at the root of the project
 
 ``` bash
