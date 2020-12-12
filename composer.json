@@ -8,8 +8,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.2",
-        "artisanry/reportable": "^3.2",
+        "faustbrian/laravel-reportable": "^3.2.2",
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
         "gstt/laravel-achievements": "^1.0",

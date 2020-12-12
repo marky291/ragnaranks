@@ -5,7 +5,7 @@ use App\User;
 use App\Listings\Listing;
 use App\Interactions\Vote;
 use App\Interactions\Click;
-use App\Interactions\Review;
+use App\Reviews\Review;
 use Illuminate\Database\Seeder;
 use App\Listings\ListingScreenshot;
 use App\Listings\ListingConfiguration;
@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
      */
     public function setup()
     {
-        $this->seed_counts = ['listings' => 25, 'votes' => 500, 'clicks' => 500, 'reviews' => 1, 'screenshots' => 7];
+        $this->seed_counts = ['listings' => 25, 'votes' => 500, 'clicks' => 500, 'reviews' => 9, 'screenshots' => 7];
 
         $this->progress_bar = new ProgressBar($this->command->getOutput(), $this->seed_counts['listings'] + $this->seed_counts['votes'] + $this->seed_counts['clicks'] + $this->seed_counts['reviews']);
 
