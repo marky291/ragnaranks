@@ -20,7 +20,7 @@ Create a database and migrate database files using
 $ php artisan migrate
 ```
 
-Create test data using seeders to create fake models to test
+Create fake data such as reviews, clicks, votes and listings to dev against locally.
 ```
 $ php artisan db:seed
 ```
