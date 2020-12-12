@@ -20,6 +20,11 @@ Create a database and migrate database files using
 $ php artisan migrate
 ```
 
+Create test data using seeders to create fake models to test
+```
+$ php artisan db:seed
+```
+
 Serve the website to a local dev browser, by running the following command at the root of the project
 
 ``` bash
