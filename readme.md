@@ -20,7 +20,7 @@ Create a database and migrate database files using
 $ php artisan migrate
 ```
 
-Create test data using seeders to create fake models to test
+Create fake data such as reviews, clicks, votes and listings to dev against locally.
 ```
 $ php artisan db:seed
 ```
@@ -40,6 +40,9 @@ $ phpunit
 ## Security
 
 If you discover a security vulnerability within this package, send an email to marky360@live.ie
+
+## Documentation
+You can find documentation on website usage from user perspective at: https://github.com/ragnaranks/docs
 
 ## Credits
 
