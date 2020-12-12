@@ -41,6 +41,9 @@ $ phpunit
 
 If you discover a security vulnerability within this package, send an email to marky360@live.ie
 
+## Documentation
+You can find documentation on website usage from user perspective at: https://github.com/ragnaranks/docs
+
 ## Credits
 
 This project exists thanks to all the people who [contribute](../../contributors).
