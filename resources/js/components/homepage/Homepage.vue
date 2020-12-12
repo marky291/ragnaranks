@@ -2,7 +2,7 @@
     export default {
         data: function () {
             return {
-                resource: 'api/servers/all/all/all/rank/10',
+                resource: 'api/servers/all/all/all/rank/5',
                 currentPage: 1,
                 listings: {
                     data: {},
